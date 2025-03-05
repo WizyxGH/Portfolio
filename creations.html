@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes créations</title>
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="projects.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body class="font-inter text-[#411FEB]">
+    <nav class="flex justify-between items-center p-4 px-32 text-white bg-[#411FEB] shadow-md">
+        <a href="index.html" class="text-lg font-bold">Wizyx</a>
+        <ul class="flex space-x-4">
+            <li><a href="about.html" class="hover:underline">Qui suis-je ?</a></li>
+            <li><a href="creations.html" class="underline font-semibold">Mes créations</a></li>
+        </ul>
+    </nav>
+
+    <header class="text-white bg-[#411FEB] py-20 px-32">
+        <h1 class="text-5xl font-bold">Designer d’expériences</h1>
+        <h2 class="text-stroke text-5xl font-bold mt-2">Rédacteur émotionnel</h2>
+        <p class="max-w-2xl mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+    </header>
+
+    <section class="py-16 text-center px-8">
+        <h2 class="text-2xl font-bold mb-6">
+            <i class='bx bxl-sketch'></i> Mes maquettes
+        </h2>
+        <div id="projectsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <!-- Les cartes seront insérées ici dynamiquement par JavaScript -->
+        </div>
+        <!-- Bouton pour afficher les projets supplémentaires -->
+        <button id="showMoreButton"
+            class="border-2 border-[#411FEB] text-[#411FEB] px-6 rounded-full mt-6 hover:bg-[#3509B6] hover:text-white">
+            Afficher tous les projets...
+        </button>
+
+        <button id="showLessButton"
+            class="border-2 border-[#411FEB] text-[#411FEB] px-6 rounded-full mt-6 hover:bg-[#3509B6] hover:text-white hidden">
+            Afficher moins de projets...
+        </button>
+
+    </section>
+
+    <section class="py-16 text-center px-8">
+        <h2 class="text-2xl font-bold mb-6">
+            <i class='bx bxs-notepad'></i> Mes articles
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            <!-- Cartes des projets -->
+            <div class="bg-white rounded-lg text-left">
+                <div class="h-40 bg-[#411FEB] mb-4 rounded-lg"></div>
+                <h3 class="text-lg font-semibold text-[#411FEB]">Title of the project</h3>
+                <div class="mt-1 flex space-x-2">
+                    <span
+                        class="bg-[#EDE9FE] text-[#411FEB] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                        <i class='bx bxs-layout text-sm mr-1'></i> UI/UX Design
+                    </span>
+                    <span
+                        class="bg-[#EDE9FE] text-[#411FEB] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                        <i class='bx bxs-videos text-sm mr-1'></i> Prototyping
+                    </span>
+                </div>
+                <p class="text-sm text-gray-600 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at
+                    diam hendrerit, malesuada augue eu, pulvinar magna.</p>
+            </div>
+            <div class="bg-white rounded-lg text-left">
+                <div class="h-40 bg-[#411FEB] mb-4 rounded-lg"></div>
+                <h3 class="text-lg font-semibold text-[#411FEB]">Title of the project</h3>
+                <div class="mt-1 flex space-x-2">
+                    <span
+                        class="bg-[#EDE9FE] text-[#411FEB] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                        <i class='bx bxs-layout text-sm mr-1'></i> UI/UX Design
+                    </span>
+                    <span
+                        class="bg-[#EDE9FE] text-[#411FEB] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                        <i class='bx bxs-videos text-sm mr-1'></i> Prototyping
+                    </span>
+                </div>
+                <p class="text-sm text-gray-600 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at
+                    diam hendrerit, malesuada augue eu, pulvinar magna.</p>
+            </div>
+            <div class="bg-white rounded-lg text-left">
+                <div class="h-40 bg-[#411FEB] mb-4 rounded-lg"></div>
+                <h3 class="text-lg font-semibold text-[#411FEB]">Title of the project</h3>
+                <div class="mt-1 flex space-x-2">
+                    <span
+                        class="bg-[#EDE9FE] text-[#411FEB] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                        <i class='bx bxs-layout text-sm mr-1'></i> UI/UX Design
+                    </span>
+                    <span
+                        class="bg-[#EDE9FE] text-[#411FEB] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                        <i class='bx bxs-videos text-sm mr-1'></i> Prototyping
+                    </span>
+                </div>
+                <p class="text-sm text-gray-600 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at
+                    diam hendrerit, malesuada augue eu, pulvinar magna.</p>
+            </div>
+            <div class="bg-white rounded-lg text-left">
+                <div class="h-40 bg-[#411FEB] mb-4 rounded-lg"></div>
+                <h3 class="text-lg font-semibold text-[#411FEB]">Title of the project</h3>
+                <div class="mt-1 flex space-x-2">
+                    <span
+                        class="bg-[#EDE9FE] text-[#411FEB] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                        <i class='bx bxs-layout text-sm mr-1'></i> UI/UX Design
+                    </span>
+                    <span
+                        class="bg-[#EDE9FE] text-[#411FEB] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                        <i class='bx bxs-videos text-sm mr-1'></i> Prototyping
+                    </span>
+                </div>
+                <p class="text-sm text-gray-600 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at
+                    diam hendrerit, malesuada augue eu, pulvinar magna.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="text-white bg-[#411FEB] py-16 text-center px-8">
+        <h2 class="text-2xl font-bold mb-4"><i class='bx bx-laptop'></i> Autres créations</h2>
+        <p class="max-w-xl mx-auto mb-6">En tant que étudiant en 3ᵉ année de MMI (Métiers du Multimédia et de
+            l'Internet), au cours de ma formation, j’ai eu l’occasion de participer à divers projets mêlants des
+            disciplines variées dans le vaste domaine du multimédia.</p>
+        <a href="creations_studies.html" class="bg-white text-[#411FEB] px-6 py-3 rounded-lg">Découvrir mes autres créations →</a>
+    </section>
+
+    <footer class="text-[#411FEB] py-6 text-center">
+        <div class="container mx-auto flex flex-wrap justify-between items-center px-8">
+            <!-- Logo et slogan -->
+            <div class="text-left">
+                <a href="index.html" class="text-lg font-semibold">Wizyx</a>
+                <p class="mt-2">🚀 Progressons chaque jour vers notre rêve !</p>
+                <p class="mt-2"><a href="#" class="underline">Mentions légales</a></p>
+            </div>
+    
+            <!-- Icônes sociales -->
+            <div class="flex space-x-4">
+                <a href="https://linkedin.com/in/flogk/"
+                    class="w-12 h-12 flex items-center justify-center border-2 border-[#411FEB] rounded-full hover:border-black">
+                    <i class='bx bxl-linkedin text-xl'></i>
+                </a>
+                <a href="mailto:floriangertner0@gmail.com"
+                    class="w-12 h-12 flex items-center justify-center border-2 border-[#411FEB] rounded-full hover:border-black">
+                    <i class='bx bxs-envelope text-xl'></i>
+                </a>
+                <a href="#"
+                    class="w-12 h-12 flex items-center justify-center border-2 border-[#411FEB] rounded-full hover:border-black">
+                    <i class='bx bxl-telegram text-xl'></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center hidden">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-11/12 md:w-2/3 lg:w-1/2 relative">
+            <!-- Icône de fermeture -->
+            <i class='bx bx-x absolute top-4 right-4 text-3xl cursor-pointer text-[#411FEB]' onclick="closeModal()"></i>
+
+            <!-- Contenu de la modal -->
+            <h3 class="text-lg font-semibold text-[#411FEB]" id="modalTitle">Titre du projet</h3>
+            <div class="h-40 bg-[#411FEB] mb-4 rounded-lg" id="modalImage"></div>
+            <p class="text-sm text-gray-600" id="modalText">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu,
+                pulvinar magna.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function openModal(title, text, color) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalText').innerText = text;
+            document.getElementById('modalImage').style.backgroundColor = color;
+            document.getElementById('modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.add('hidden');
+        }
+    </script>
+
+</body>
+
+</html>
