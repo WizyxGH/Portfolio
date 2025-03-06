@@ -96,36 +96,34 @@ document.addEventListener("DOMContentLoaded", function () {
     function openModal(project) {
         const modal = document.getElementById("modal");
         if (!modal) return;
-    
+
         const modalTitle = document.getElementById("modalTitle");
         const modalImage = document.getElementById("modalImage");
         const modalText = document.getElementById("modalText");
         const modalButton = document.getElementById("modalButton");
-    
+
         modalTitle.textContent = project.title;
         modalText.innerHTML = project.text.replace(/\n/g, "<br>"); // Gestion des sauts de ligne
         modalImage.style.backgroundImage = `url('${project.image}')`;
         modalImage.style.backgroundSize = 'cover';
         modalImage.style.backgroundPosition = 'center';
-    
+
         if (project.driveLink) {
             modalButton.href = project.driveLink;
             modalButton.classList.remove("hidden");
         } else {
             modalButton.classList.add("hidden");
         }
-    
+
         modal.classList.remove("hidden");
-    }    
-    
+    }
+
     function closeModal() {
         document.body.classList.remove("overflow-hidden"); // Réactive le scroll du body
         document.getElementById("modal").classList.add("hidden");
     }
-    
-    // Attache l'événement au bouton de fermeture
-    document.querySelector('.bx-x').addEventListener("click", closeModal);
 
+    // Attache l'événement au bouton de fermeture
     const modalCloseButton = document.querySelector('.bx-x');
     if (modalCloseButton) {
         modalCloseButton.addEventListener('click', closeModal);
