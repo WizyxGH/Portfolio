@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
             card.dataset.projectId = project.id; // Attribuer l'ID du projet à la carte
     
             card.innerHTML = ` 
-                <div class="h-40 mb-3 rounded-lg bg-[#411FEB]"></div> <!-- Image placeholder -->
+                <div class="h-40 mb-3 rounded-lg bg-[#411FEB] outline outline-2"></div> <!-- Image placeholder -->
                 <h3 class="text-lg font-semibold text-[#411FEB]">${project.title}</h3>
                 <div class="mt-1 flex space-x-2" id="tagsContainer-${projectTitleId}">
                     <!-- Les tags seront insérés ici -->
@@ -121,19 +121,24 @@ document.addEventListener("DOMContentLoaded", function () {
         navMenu.classList.toggle('hidden');
     });
 
+    // Ouvrir / fermer le menu déroulant au clic
     dropdownButton.addEventListener("click", (event) => {
-        event.stopPropagation();
+        event.stopPropagation(); // Empêche la fermeture immédiate du menu burger
         dropdownMenu.classList.toggle("hidden");
     });
 
+    // Fermer les menus si on clique en dehors
     document.addEventListener("click", (event) => {
+        // Ferme le menu burger si l'utilisateur clique en dehors
         if (!menuButton.contains(event.target) && !navMenu.contains(event.target)) {
             navMenu.classList.add("hidden");
         }
+
+        // Ferme le dropdown si l'utilisateur clique en dehors
         if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
             dropdownMenu.classList.add("hidden");
         }
     });
-    
+
     renderProjects(projectsVisible);  // Appel initial pour afficher les projets visibles
 });

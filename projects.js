@@ -37,8 +37,6 @@ Le site actuel, bien que fonctionnel, a un style plutôt désuet et pourrait êt
         image: "https://placehold.co/400",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
-            { name: "Prototyping", icon: "bx bxs-videos" },
-            
         ]
     },
     {
@@ -49,9 +47,6 @@ Le site actuel, bien que fonctionnel, a un style plutôt désuet et pourrait êt
         image: "https://placehold.co/400",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
-            { name: "Prototyping", icon: "bx bxs-videos" },
-            { name: "Responsive", icon: "bx bxs-devices" },
-
         ]
     },
     {
@@ -63,8 +58,6 @@ Le site actuel, bien que fonctionnel, a un style plutôt désuet et pourrait êt
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bx bxs-videos" },
-            { name: "Responsive", icon: "bx bxs-devices" },
-
         ]
     },
     {
@@ -76,8 +69,6 @@ Le site actuel, bien que fonctionnel, a un style plutôt désuet et pourrait êt
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bx bxs-videos" },
-            { name: "Responsive", icon: "bx bxs-devices" },
-
         ]
     },
     {
@@ -90,7 +81,6 @@ Le site actuel, bien que fonctionnel, a un style plutôt désuet et pourrait êt
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bx bxs-videos" },
             { name: "Responsive", icon: "bx bxs-devices" },
-
         ]
     },
     {
@@ -102,8 +92,6 @@ Le site actuel, bien que fonctionnel, a un style plutôt désuet et pourrait êt
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bx bxs-videos" },
-            { name: "Responsive", icon: "bx bxs-devices" },
-
         ]
     },
     {
@@ -115,8 +103,6 @@ Le site actuel, bien que fonctionnel, a un style plutôt désuet et pourrait êt
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bx bxs-videos" },
-            { name: "Responsive", icon: "bx bxs-devices" },
-
         ]
     },
     {
@@ -128,8 +114,6 @@ Le site actuel, bien que fonctionnel, a un style plutôt désuet et pourrait êt
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bx bxs-videos" },
-            { name: "Responsive", icon: "bx bxs-devices" },
-
         ]
     },
     {
@@ -141,8 +125,6 @@ Le site actuel, bien que fonctionnel, a un style plutôt désuet et pourrait êt
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bx bxs-videos" },
-            { name: "Responsive", icon: "bx bxs-devices" },
-
         ]
     },
     {
@@ -154,8 +136,6 @@ Le site actuel, bien que fonctionnel, a un style plutôt désuet et pourrait êt
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bx bxs-videos" },
-            { name: "Responsive", icon: "bx bxs-devices" },
-
         ]
     },
     {
@@ -167,8 +147,6 @@ Le site actuel, bien que fonctionnel, a un style plutôt désuet et pourrait êt
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bx bxs-videos" },
-            { name: "Responsive", icon: "bx bxs-devices" },
-
         ]
     },
     {
@@ -180,8 +158,6 @@ Le site actuel, bien que fonctionnel, a un style plutôt désuet et pourrait êt
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bx bxs-videos" },
-            { name: "Responsive", icon: "bx bxs-devices" },
-
         ]
     },
     {
@@ -193,8 +169,6 @@ Le site actuel, bien que fonctionnel, a un style plutôt désuet et pourrait êt
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bx bxs-videos" },
-            { name: "Responsive", icon: "bx bxs-devices" },
-
         ]
     },
     {
@@ -205,9 +179,6 @@ Le site actuel, bien que fonctionnel, a un style plutôt désuet et pourrait êt
         image: "https://placehold.co/400",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
-            { name: "Prototyping", icon: "bx bxs-videos" },
-            { name: "Responsive", icon: "bx bxs-devices" },
-
         ]
     },
 ];
