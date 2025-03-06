@@ -14,13 +14,37 @@
 </head>
 
 <body class="font-inter text-[#411FEB]">
-    <nav class="flex justify-between items-center p-4 px-32 text-white bg-[#411FEB] shadow-md">
-        <a href="index.html" class="text-lg font-bold">Wizyx</a>
-        <ul class="flex space-x-4">
-            <li><a href="about.html" class="hover:underline">Qui suis-je ?</a></li>
-            <li><a href="creations.html" class="underline font-semibold">Mes créations</a></li>
-        </ul>
-    </nav>
+    <header class="bg-[#411FEB] shadow-md">
+        <div class="container mx-auto px-6 lg:px-32 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="text-lg font-bold text-white">Wizyx</a>
+    
+            <!-- Bouton Menu Burger (visible sur mobile) -->
+            <button id="menuButton" class="text-white text-3xl lg:hidden">
+                <i class='bx bx-menu'></i>
+            </button>
+    
+            <!-- Menu de navigation -->
+            <nav id="navMenu"
+                class="hidden absolute top-16 left-0 w-full bg-[#411FEB] shadow-lg lg:shadow-none lg:static lg:flex lg:items-center lg:space-x-6 lg:w-auto">
+                <ul class="lg:flex lg:space-x-6 lg:text-left">
+                    <li><a href="about.html" class="block px-6 py-2 text-white hover:underline">Qui suis-je ?</a></li>
+    
+                    <!-- Menu déroulant "Mes créations" -->
+                    <li class="relative">
+                        <button id="dropdownButton" class="block px-6 py-2 text-white font-semibold flex items-center">
+                            Mes créations <i class='bx bx-chevron-down ml-1'></i>
+                        </button>
+                        <ul id="dropdownMenu"
+                            class="hidden absolute left-0 mt-2 bg-white shadow-md rounded-md w-48 text-[#411FEB] lg:group-hover:block">
+                            <li><a href="creations.html" class="block px-6 py-2 hover:bg-gray-200">Professionnel</a></li>
+                            <li><a href="creations_studies.html" class="block px-6 py-2 hover:bg-gray-200">Académique</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <header class="text-white bg-[#411FEB] py-20 px-32">
         <h1 class="text-5xl font-bold">Designer d’expériences</h1>

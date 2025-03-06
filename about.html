@@ -15,13 +15,107 @@
 
 <body class="font-inter text-[#411FEB]">
 
-    <nav class="flex justify-between items-center p-4 px-32 text-white bg-[#411FEB] shadow-md">
-        <a href="index.html" class="text-lg font-bold">Wizyx</a>
-        <ul class="flex space-x-4">
-            <li><a href="about.html" class="underline font-semibold">Qui suis-je ?</a></li>
-            <li><a href="creations.html" class="hover:underline">Mes créations</a></li>
-        </ul>
-    </nav>
+    <header class="bg-[#411FEB] shadow-md">
+        <div class="container mx-auto px-6 lg:px-32 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="text-lg font-bold text-white">Wizyx</a>
+
+            <!-- Bouton Menu Burger (visible sur mobile) -->
+            <button id="menuButton" class="text-white text-3xl lg:hidden">
+                <i class='bx bx-menu'></i>
+            </button>
+
+            <!-- Menu de navigation -->
+            <nav id="navMenu"
+                class="hidden absolute top-16 left-0 w-full bg-[#411FEB] shadow-lg lg:shadow-none lg:static lg:flex lg:items-center lg:space-x-6 lg:w-auto">
+                <ul class="lg:flex lg:space-x-6 lg:text-left">
+                    <li><a href="about.html" class="block px-6 py-2 text-white font-semibold hover:underline">Qui
+                            suis-je ?</a></li>
+
+                    <!-- Menu déroulant "Mes créations" -->
+                    <li class="relative">
+                        <button id="dropdownButton" class="block px-6 py-2 text-white flex items-center">
+                            Mes créations <i class='bx bx-chevron-down ml-1'></i>
+                        </button>
+                        <ul id="dropdownMenu"
+                            class="hidden absolute left-0 mt-2 bg-white shadow-md rounded-md w-48 text-[#411FEB] lg:group-hover:block">
+                            <li><a href="creations.html" class="block px-6 py-2 hover:bg-gray-200">Professionnel</a>
+                            </li>
+                            <li><a href="creations_studies.html"
+                                    class="block px-6 py-2 hover:bg-gray-200">Académique</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="py-16 text-center px-8">
+        <h2 class="text-2xl font-bold mb-6">
+            <i class='bx bxs-user-detail'></i> Présentation
+        </h2>
+    </section>
+
+    <!-- Section "Qui suis-je ?" -->
+    <section class="py-16 px-6 lg:px-32">
+        <div class="container mx-auto flex flex-col lg:flex-row items-start space-y-8 lg:space-y-0">
+            <!-- Conteneur des deux textes alignés verticalement -->
+            <div class="lg:w-1/2 space-y-4 text-black">
+                <!-- Premier texte -->
+                <div>
+                    <h2 class="text-[#411FEB] text-xl font-semibold mb-2">Apprentissages</h2>
+                    <p class="text-sm leading-relaxed">
+                        De ce fait, après avoir longtemps expérimenté dans mon coin comme autodidacte, devant la
+                        complexité
+                        technique que représente ce merveilleux outil, j’ai décidé de m’orienter vers des études courtes
+                        et
+                        professionnalisantes. J’ai alors choisi de faire un BTS informatique (SIO) afin d’apprendre à
+                        coder.
+                        Cela aurait permis de savoir donner vie aux diverses idées de sites et d'applications qui me
+                        viennent en tête.
+                        Malgré l’obtention du diplôme, je me suis rendu compte que passer la journée à écrire des lignes
+                        de code ne correspondait pas à ma vie rêvée. Ce que j’aime c’est certes créer des solutions
+                        numériques
+                        mais surtout l’aspect visuel et esthétique pour concevoir des interfaces agréables, intuitives
+                        et efficaces à naviguer.
+                        Le numérique doit être à l’avantage de l’Homme et non prendre son contrôle.
+                    </p>
+                </div>
+
+                <!-- Deuxième texte -->
+                <div>
+                    <h2 class="text-[#411FEB] text-xl font-semibold mb-2">Passions</h2>
+                    <p class="text-sm leading-relaxed">
+                        Ce besoin d’entraide et de partage, je le transmet aussi par l’écriture. C’est un vecteur
+                        d’échange
+                        bien pratique qui me permet de m’exprimer. J’aime faire découvrir aux autres mes passions pour
+                        les
+                        emmener avec moi. C’est pourquoi, je contribue à la communauté des fans de bandes dessinées
+                        Disney
+                        (oui, ça existe !) en archivant des magazines du monde entier et en rédigeant des articles de
+                        temps
+                        à autre.
+                    </p>
+                </div>
+
+                <div>
+                    <h2 class="text-[#411FEB] text-xl font-semibold mb-2">Voyages</h2>
+                    <p class="text-sm leading-relaxed">
+                        Mes parents m’ont donné leur passion du voyage. Rien de mieux pour comprendre le monde qui nous
+                        entoure que le parcourir et l’explorer (de sa beauté à ses failles). Alors que beaucoup de
+                        différences nous divisent, on se rend compte que dans le fond on est tous les mêmes. Avoir la
+                        Terre comme terrain de jeu ouvre l’esprit et donne de nouvelles perspectives.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Image à droite -->
+            <div class="lg:w-1/2">
+                <img src="https://placehold.co/400" alt="Mon image" class="w-full rounded-lg">
+            </div>
+        </div>
+    </section>
+
 
     <footer class="text-[#411FEB] py-6 text-center">
         <div class="container mx-auto flex flex-wrap justify-between items-center px-8">
@@ -31,7 +125,7 @@
                 <p class="mt-2">🚀 Progressons chaque jour vers notre rêve !</p>
                 <p class="mt-2"><a href="#" class="underline">Mentions légales</a></p>
             </div>
-    
+
             <!-- Icônes sociales -->
             <div class="flex space-x-4">
                 <a href="https://linkedin.com/in/flogk/"
