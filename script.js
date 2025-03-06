@@ -164,3 +164,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+// Sélectionner les éléments du menu burger et du menu
+const menuButton = document.getElementById('menuButton');
+const navMenu = document.getElementById('navMenu');
+
+// Ajouter un événement pour toggler le menu
+menuButton.addEventListener('click', () => {
+    navMenu.classList.toggle('hidden');
+});
