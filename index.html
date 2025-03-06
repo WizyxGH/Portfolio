@@ -50,8 +50,14 @@
     </header>
 
     <header class="text-white bg-[#411FEB] py-20 lg:px-32 px-8 flex flex-col lg:flex-row items-stretch gap-2">
+        <!-- Image en haut sur mobile, à gauche sur petit écran et à droite sur grand écran -->
+        <div class="flex justify-start lg:justify-end items-center lg:w-1/2 order-1 lg:order-2 mb-4 lg:mb-0">
+            <img src="media/photo.jpg" alt="Illustration de Florian"
+                class="h-full max-h-[200px] lg:max-h-[250px] rounded-lg shadow-lg">
+        </div>
+    
         <!-- Texte à gauche -->
-        <div class="lg:w-1/2 flex flex-col justify-center">
+        <div class="lg:w-1/2 flex flex-col justify-center order-2 lg:order-1">
             <h1 class="text-5xl font-bold">Florian GERTNER KILIAN</h1>
             <h2 class="text-stroke text-5xl font-bold mt-2">UI/UX Designer • Rédacteur</h2>
             <p class="mt-4">Je créé des interfaces et les rend le plus adapté et compréhensible possible aux utilisateurs que ce soit par le visuel ou le storytelling.</p>
@@ -66,14 +72,8 @@
                 </a>
             </div>
         </div>
-
-        <!-- Image à droite -->
-        <div class="lg:w-1/2 flex justify-center items-center">
-            <img src="media/photo.jpg" alt="Illustration de Florian"
-                class="h-full max-h-[200px] lg:max-h-[250px] rounded-lg shadow-lg">
-        </div>
     </header>
-
+    
     <section class="pt-8 lg:px-32 text-center px-8">
         <h2 class="text-2xl font-bold mb-6">
             <i class='bx bxs-wink-smile'></i> Ils me recommandent
