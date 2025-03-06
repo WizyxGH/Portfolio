@@ -19,7 +19,7 @@ Le site actuel, bien que fonctionnel, a un style plutôt désuet et pourrait êt
     },
     {
         id: "2",
-        title: "Projet 2",
+        title: "Maxime Click",
         text: `Texte 2`,
         description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
         image: "https://placehold.co/400",
@@ -31,7 +31,7 @@ Le site actuel, bien que fonctionnel, a un style plutôt désuet et pourrait êt
     },
     {
         id: "3",
-        title: "Projet 3",
+        title: "Mon Gardien",
         text: `Texte 3`,
         description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
         image: "https://placehold.co/400",
@@ -43,7 +43,7 @@ Le site actuel, bien que fonctionnel, a un style plutôt désuet et pourrait êt
     },
     {
         id: "4",
-        title: "Projet 4",
+        title: "France Galop Live",
         text: `Texte 4`,
         description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
         image: "https://placehold.co/400",
@@ -56,7 +56,7 @@ Le site actuel, bien que fonctionnel, a un style plutôt désuet et pourrait êt
     },
     {
         id: "5",
-        title: "Projet 5",
+        title: "BioQuest",
         text: `Texte 5`,
         description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
         image: "https://placehold.co/400",
@@ -69,7 +69,7 @@ Le site actuel, bien que fonctionnel, a un style plutôt désuet et pourrait êt
     },
     {
         id: "6",
-        title: "Projet 6",
+        title: "WCA - World Cube Association",
         text: `Texte 6`,
         description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
         image: "https://placehold.co/400",
@@ -82,8 +82,125 @@ Le site actuel, bien que fonctionnel, a un style plutôt désuet et pourrait êt
     },
     {
         id: "7",
-        title: "Projet 7",
+        title: "PAPA France",
         text: `Texte 7`,
+        description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
+        image: "https://placehold.co/400",
+        tags: [
+            { name: "UI/UX Design", icon: "bx bxs-layout" },
+            { name: "Prototyping", icon: "bx bxs-videos" },
+            { name: "Responsive", icon: "bx bxs-devices" },
+
+        ]
+    },
+    {
+        id: "8",
+        title: "Picsou-Soir",
+        text: `Texte 8`,
+        description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
+        image: "https://placehold.co/400",
+        tags: [
+            { name: "UI/UX Design", icon: "bx bxs-layout" },
+            { name: "Prototyping", icon: "bx bxs-videos" },
+            { name: "Responsive", icon: "bx bxs-devices" },
+
+        ]
+    },
+    {
+        id: "9",
+        title: "What The Duck",
+        text: `Texte 9`,
+        description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
+        image: "https://placehold.co/400",
+        tags: [
+            { name: "UI/UX Design", icon: "bx bxs-layout" },
+            { name: "Prototyping", icon: "bx bxs-videos" },
+            { name: "Responsive", icon: "bx bxs-devices" },
+
+        ]
+    },
+    {
+        id: "10",
+        title: "Tom et Lola",
+        text: `Texte 10`,
+        description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
+        image: "https://placehold.co/400",
+        tags: [
+            { name: "UI/UX Design", icon: "bx bxs-layout" },
+            { name: "Prototyping", icon: "bx bxs-videos" },
+            { name: "Responsive", icon: "bx bxs-devices" },
+
+        ]
+    },
+    {
+        id: "11",
+        title: "DuMILi",
+        text: `Texte 11`,
+        description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
+        image: "https://placehold.co/400",
+        tags: [
+            { name: "UI/UX Design", icon: "bx bxs-layout" },
+            { name: "Prototyping", icon: "bx bxs-videos" },
+            { name: "Responsive", icon: "bx bxs-devices" },
+
+        ]
+    },
+    {
+        id: "12",
+        title: "Break Screen",
+        text: `Texte 12`,
+        description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
+        image: "https://placehold.co/400",
+        tags: [
+            { name: "UI/UX Design", icon: "bx bxs-layout" },
+            { name: "Prototyping", icon: "bx bxs-videos" },
+            { name: "Responsive", icon: "bx bxs-devices" },
+
+        ]
+    },
+    {
+        id: "13",
+        title: `Pizz'Ami`,
+        text: `Texte 13`,
+        description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
+        image: "https://placehold.co/400",
+        tags: [
+            { name: "UI/UX Design", icon: "bx bxs-layout" },
+            { name: "Prototyping", icon: "bx bxs-videos" },
+            { name: "Responsive", icon: "bx bxs-devices" },
+
+        ]
+    },
+    {
+        id: "14",
+        title: "I.N.D.U.C.K.S.",
+        text: `Texte 14`,
+        description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
+        image: "https://placehold.co/400",
+        tags: [
+            { name: "UI/UX Design", icon: "bx bxs-layout" },
+            { name: "Prototyping", icon: "bx bxs-videos" },
+            { name: "Responsive", icon: "bx bxs-devices" },
+
+        ]
+    },
+    {
+        id: "15",
+        title: "Ballon Nike Academy Team",
+        text: `Texte 15`,
+        description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
+        image: "https://placehold.co/400",
+        tags: [
+            { name: "UI/UX Design", icon: "bx bxs-layout" },
+            { name: "Prototyping", icon: "bx bxs-videos" },
+            { name: "Responsive", icon: "bx bxs-devices" },
+
+        ]
+    },
+    {
+        id: "16",
+        title: "Run&Rerun",
+        text: `Texte 16`,
         description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
         image: "https://placehold.co/400",
         tags: [
