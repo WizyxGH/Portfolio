@@ -6,7 +6,7 @@ const projects = [
         <br>Le Guide du Golfe de Saint-Tropez est un site internet ainsi qu'une application mobile permettant aux touristes comme aux résidents de connaître les établissements et évènements qu'il y a dans le golfe de Saint-Tropez. Il s'agit d'un guide touristique local.
         <br>Ils ont la volonté de s'expandre en mettant plus en avant l'aspect média du site car ils ont une journaliste qui rédige des articles sur les établissements et évènements.
         <br>Le site actuel, bien que fonctionnel, a un style plutôt désuet et pourrait être plus plaisant à naviguer. C'était donc notre objectif. Il fallait s'approprier leur idée pour retravailler la navigation du site ainsi que les inspirations visuels fournis (notamment le Bento Design) afin de fournir un tout cohérent pour l'utilisateur.`,
-        description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
+        description: "Redesign du site et de l'application du guide touristique local, Le Guide du Golfe de Saint-Tropez.",
         image: "media/projects/guidegolfesainttropez.jpg",
         driveLink: "https://drive.google.com/drive/folders/1YxsK-HIXDJE7Ik8Jqx0dYNEObw0r32kE?usp=sharing",
         tags: [
@@ -23,7 +23,7 @@ const projects = [
         <br>Dans une volonté de la partager, il créa à son tour sa chaîne pour avoir une audience avec qui parler de ce qui l’anime : la culture internet et la Creator Economy.
         <br>Appréciant son contenu et voyant qu’il est présent sur à peu près tous les réseaux, je me suis fait la réflexion qu’il lui manquait tout de même un moyen plus traditionnel pour qu’il puisse expliquer son travail notamment auprès des marques.
         <br>Je me suis alors lancé dans la création d’une landing page dans ce but reprenant son identité visuelle et son storytelling. J’y présente son histoire, ses stratégies, ses différents projets et met en avant sa preuve sociale pour faire gagner la confiance de ses futurs collaborateurs.`,
-        description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
+        description: "Design d'une landing page pour que le créateur de contenu Maxime Click puisse promouvoir son travail notamment auprès des marques.",
         image: "media/projects/maximeclick.jpg",
         driveLink: "https://drive.google.com/drive/folders/17BrU0ZnFJh049cORIbuMdGN9OO1Q19T-?usp=sharing",
         tags: [
@@ -42,7 +42,7 @@ const projects = [
         <br>Pour récolter des fonds auprès d'investisseurs et pour jauger la pertinence du projet, je me suis attelé à réaliser le design et le rédactionnel d’une landing page expliquant le problème du doomscrolling et la solution que propose la future application Mon Gardien.
         <br>L’intégralité de la landing page consiste en un tunnel dont le but est de rediriger les gens vers un formulaire (qu’il a aussi fallu intégralement préparer) permettant de témoigner de leur expérience personnelle sur le doomscrolling et sur les solutions concurrentes déjà existantes pour récolter de nouvelles données sur leur usage et répondre au mieux à ce problème.
         Le tout en récoltant l’adresse mail, de personnes potentiellement intéressées par Mon Gardien.`,
-        description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
+        description: "Design d'une landing page pour présenter le projet de l'application Mon Gardien dans le but de récolter des fonds et de jauger l'intérêt de la cible.",
         image: "media/projects/mongardien.jpg",
         driveLink: "https://drive.google.com/drive/folders/1sRims-3Ztax9HajV-F5f6XhtVbpwNAdc?usp=sharing",
         tags: [
@@ -56,7 +56,7 @@ const projects = [
         <br>France Galop est un des acteurs majeurs du sport hippique en France. Il joue un rôle essentiel dans l’organisation des courses de chevaux. Il élabore le programme national des courses de galop avec leur primes et allocations. Ils s’occupent aussi de la régulation des courses en faisant appliquer le règlement et contrôle la lutte antidopage. France Galop Live est une filiale qui s’occupe de chaque évènement et courses.
         <br>Ils souhaitent continuer d’améliorer leur image en retravaillant leur site internet.
         <br>Ma maître de stage, Caroline AUBERT, est uniquement repassée sur certains éléments pour améliorer la cohérence globale de la page.`,
-        description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
+        description: "Transformation d'un wireframe de la page d'accueil en une maquette high fidelity.",
         image: "media/projects/francegaloplive.jpg",
         driveLink: "https://drive.google.com/drive/folders/1wElcAEDe484_4w8MS3-LveCTUNChhTW9?usp=sharing",
         tags: [
@@ -73,7 +73,7 @@ const projects = [
         <br>L’accent a aussi été mis sur l’aspect ludique avec l’écriture d’un storytelling spécial et l’ajout d’animations et de badges lorsque l’on trouve une espèce.
         <br>Personnellement, je me suis occupé de maquetter entièrement l’application sur Figma. J’ai aussi œuvré à son développement principalement au niveau du style et à la récupération des datasets d’images des plantes. On a fait le choix que ce soit une web app en React pour faciliter son déploiement sur les différents systèmes d’exploitation (Android ou iOS).
         Et à l’entame du projet, j’avais fait une proposition de charte graphique`,
-        description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
+        description: "Design de l'application BioQuest visant à sensibiliser sur les espèces exotiques envahissantes.",
         image: "media/projects/bioquest.jpg",
         driveLink: "https://drive.google.com/drive/folders/18LZ-7rL-slxtJ-zrxZ75e7J3aDJfW0Hy?usp=sharing",
         tags: [
@@ -87,7 +87,7 @@ const projects = [
         text: `La World Cube Association (WCA) est un organisme à but non lucratif qui régule les compétitions de speedcubing (résolution de Rubik’s Cube). Une discipline qui demande de grandes capacités mentales voir même physiques.
         <br>Ayant un frère multi champion de France dans plusieurs de ses disciplines, il m’arrive de consulter le site internet de la WCA pour consulter ses nouveaux et anciens résultats ainsi que celui des autres compétiteurs.
         <br>Trouvant certaines informations mal hiérarchisées et afin de continuer de m’entraîner à utiliser Figma, je me suis amusé à repenser la page profil des compétiteurs en vue téléphone (étant donné que c’est de cette façon qu’elles sont le plus souvent consultées).`,
-        description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
+        description: "Redesign de la page profil d'un compétiteur affilié à la World Cube Association.",
         image: "media/projects/wca.jpg",
         driveLink: "https://drive.google.com/drive/folders/1DYVRW2Ozfwn2veudiz4UoAhKKjAGayro?usp=sharing",
         tags: [
@@ -103,7 +103,7 @@ const projects = [
         <br>Le site avait des problèmes d’ergonomie et certains éléments semblent disposés de manière un peu « fourre-tout » au fil que le site a de nouvelles fonctionnalités.
         <br>On devait alors retravailler les pages des produits, la page cadencier avec les achats fréquents et le flow complet en 3 étapes pour les produits personnalisés.
         <br>Le client avait partagé des sites du même secteur dont il voudrait s’inspirer mais pour certains d’entre eux, l’aspect visuel était trop premium pour un grossiste (qui vend par conséquent des produits en grande quantité à un prix réduit). Il fallait expliquer au client que cela ne collerait pas à son image et qu’il fallait bien faire attention à respecter la charte graphique actuelle de PAPA France pour ne pas perdre les clients actuels (en pensant être sur un autre site s’il devient trop épuré par exemple). Ce qui s’avérerait destructeur pour le chiffre d’affaires.`,
-        description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
+        description: "Redesign de la page produit, produit personnalisé et cadencier pour le site e-commerce d'un grossiste d'emballage alimentaire",
         image: "media/projects/papafrance.jpg",
         driveLink: "https://drive.google.com/drive/folders/1twASkm-eKgmA9rNjCXFkEGEueE01_qEI?usp=sharing",
         tags: [
@@ -120,7 +120,7 @@ const projects = [
         Après une phase en tant que simple lecteur, j’ai alors décidé d’à mon tour rédiger quelques articles puis d’également participer à la mise en page du numéro.
         <br>Les moyens de consommer l’information changent très vite et face au manque d’envie des passionnés de lire le fanzine via un PDF numérique, j’ai conceptualisé une application téléphone où l’on pourrait lire les différents articles plus facilement.
         <br>Pour l’instant, elle reste uniquement un concept.`,
-        description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
+        description: "Design d'une application permettant de lire les numéros du fanzine Picsou-Soir et d'enrichir l'expérience de lecture.",
         image: "media/projects/picsousoir.jpg",
         driveLink: "https://drive.google.com/drive/folders/1Tc3rKCLWp6pU8akDs5X6gag0BtonrDp7?usp=sharing",
         tags: [
@@ -134,7 +134,7 @@ const projects = [
         text: `What The Duck est l’application mobile du site internet DucksManager. Les 2 ont le même objectif : aider les collectionneurs de bandes dessinées Disney à classifier leur collection. Les données affichées proviennent de la base de données Inducks.
         <br>Sur le site DucksManager, il y a une fonctionnalité permettant aux utilisateurs de partager leur bonne adresse de bouquinerie sauf que cela n’a pas beaucoup de sens que la carte d’adresse et la fonctionnalitée ne soit pas disponible sur l’application mobile. On se déplace avec son téléphone pas son ordinateur. Cela demande alors de jongler entre plusieurs autres applications.
         <br>Frustré par un tel usage, j’ai designé comment elle pourrait être intégrée sur What The Duck.`,
-        description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
+        description: "Design d'une fonctionnalité de cartes GPS de bouquineries (avec possibilité de les ajouter) directement depuis l'application What The Duck.",
         image: "media/projects/whattheduck.jpg",
         driveLink: "https://drive.google.com/drive/folders/1ep3b2m6SNhnLCiiqXu8VPUQnQ3snrPzA?usp=sharing",
         tags: [
@@ -149,7 +149,7 @@ const projects = [
         <br>Tom et Lola est une série policière humoristique mélangeant suspense, humour et drame romantique. Elle est sortie l’année dernière sur le grand écran.
         <br>Je me suis occupée de créer sur Figma, la maquette de leur site internet dans un univers pop, de coder un petit jeu permettant de découvrir les personnages et les acteurs de façon décalée.
         <br>Nous avons chacun modélisé en 3D un objet dérivé qui pourrait être vendu ainsi qu’écrit une fiche de production de 4 courtes vidéos verticales qui devait promouvoir la série avant sa sortie. Leur but était de susciter l’intérêt en commençant à rentrer dans l’univers de Tom et Lola.`,
-        description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
+        description: "Design d'un site internet dont l'objectif était de promouvoir la série Tom et Lola diffusée sur France 2.",
         image: "media/projects/tometlola.jpg",
         driveLink: "https://drive.google.com/drive/folders/16BpVcRMELyWNcUPYQ9z9A9jBw6j4QBaJ?usp=sharing",
         tags: [
@@ -166,7 +166,7 @@ const projects = [
         <br>Avec la démocratisation de l’IA, des versions numériques de livres et la possibilité de scanner d’anciens magazines, l’idée de faciliter ce processus m’est venue.
         <br>En téléversant des scans de chaque page du magazine dans l’outil, DuMILi a comme ambition de mâcher au maximum le travail de l’indexeur pour que les informations puisse ensuite être ajouté le plus rapidement possible à la base de données Inducks pour le profit des fans et autres professionnels.
         <br>Actuellement en plein processus de création, je conceptualise un outil technique très spécifique mais le challenge est qu’il doit rester intuitif et ne pas trop le surcharger de paramètres inefficaces.`,
-        description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
+        description: "Design d'un SaaS permettant d'aider grâce à l'IA à générer des index de BD Disney pour la base de données Inducks.",
         image: "media/projects/dumili.jpg",
         driveLink: "https://drive.google.com/drive/folders/1j3NQS-oVQOpmPAgNIJIKOyclELy_y9rz?usp=sharing",
         tags: [
@@ -182,7 +182,7 @@ const projects = [
         <br>Après avoir trouvé une identité visuelle en accord avec la thématique, nous avons maquetté entièrement un site internet qui permet grâce à un formulaire de se positionner pour savoir si l’on est addict (car souvent on ne s’en rend même pas compte) et de proposer en fonction du niveau d’addictions des solutions concrètes qui peuvent être mises en place.
         <br>Les utilisateurs étaient aussi renvoyés vers des articles et communauté fictive pour ne pas qu’ils se sentent seuls face à leur addiction.
         Pour ce projet, on a également eu l’occasion de réaliser un photoshoot pour avoir des images d’illustrations.`,
-        description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
+        description: "Design d'un site internet sensibilisant à l'addiction aux écrans. Il permet également de se positionner sur son usage personnel et propose des solutions.",
         image: "media/projects/breakscreen.jpg",
         driveLink: "https://drive.google.com/drive/folders/1xFHCWY7JdEvFcW0Phu4eOp7MkOuDab85?usp=sharing",
         tags: [
@@ -197,7 +197,7 @@ const projects = [
         text: `Lors du 2ᵉ semestre de 2ᵉ année de BUT MMI, pour le cours de Design d’expérience, en groupe de 4, nous devions créer une enseigne fictive de restauration et se concentrer sur l’expérience numérique de commande.
         <br>Le parcours utilisateur devait être cohérent pour choisir un maximum d’éléments présents sur la carte. On devait notamment pousser le consommateur à dépenser avec des augmentateurs de panier moyen et un parcours pour un produit personnalisé.
         <br>Nous sommes partis sur une pizzeria dont j’ai réalisé l’intégralité de la maquette seul. Les autres se sont plutôt occupés de la charte graphique et de la réalisation du logo.`,
-        description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
+        description: "Design du site internet pour une enseigne fictive de restauration.",
         image: "media/projects/pizzami.jpg",
         driveLink: "https://drive.google.com/drive/folders/1KcJ6iVQz7GUYs5jscAdILHrOymirMQD3?usp=sharing",
         tags: [
@@ -214,7 +214,7 @@ const projects = [
         <br>Développé à une autre ère, le site est fonctionnel mais reste repoussant et peut s’avérer non intuitif pour les personnes qui voudraient le consulter ou y contribuer.
         De ce fait, dans mon temps libre, j’ai imaginé une nouvelle version de la page d’accueil du site plus attrayante, moderne et qui améliorerait l’expérience utilisateur.
         Pour ne pas trop surcharger le développement, je me suis concentré presque exclusivement sur l’aspect visuel sans vraiment dénaturer l’existant.`,
-        description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
+        description: "Redesign de la page d'accueil de Inducks. La base de données de bandes dessinées Disney.",
         image: "media/projects/inducks.jpg",
         driveLink: "https://drive.google.com/drive/folders/13PezY4KgwBw34IZeNLaSolclIbk-gSky?usp=sharing",
         tags: [
@@ -227,7 +227,7 @@ const projects = [
         title: "Ballon Nike Academy Team",
         text: `Pour un exercice lors du 2ᵉ semestre de 2ᵉ année de BUT MMI, il fallait réaliser la page de présentation d’un produit qui a différentes options et y intégrer différentes sections de réassurance.
         <br>J’ai donc réalisé sur Figma la maquette pour un ballon de football avec un aspect premium.`,
-        description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
+        description: "Design de la page produit d'un ballon de football.",
         image: "media/projects/ballonfoot.jpg",
         driveLink: "https://drive.google.com/drive/folders/1bMsjP1iClVy4xGjYPOR5cPlr1VOu9EeN?usp=sharing",
         tags: [
@@ -239,8 +239,8 @@ const projects = [
         id: "16",
         title: "Run&Rerun",
         text: `En début de 2ᵉ année de BUT MMI, pour les premiers cours d’apprentissage de Figma nous devions réaliser une landing page qui présente le sujet de notre choix.
-        <br>J’ai donc imaginé et réalisé une landing page pour une marque de chaussure de running.`,
-        description: "En cours d'écriture... Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu, pulvinar magna.",
+        <br>J’ai donc imaginé et réalisé une landing page pour une marque de chaussures de running.`,
+        description: "Design d'une landing page pour une marque de chaussures de running.",
         image: "media/projects/runandrerun.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         tags: [
