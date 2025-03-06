@@ -1,4 +1,4 @@
-const projects = [
+let projects = [
     {
         id: "1",
         title: "Le Guide du Golfe de Saint-Tropez",
@@ -242,6 +242,50 @@ const projects = [
         <br>J’ai donc imaginé et réalisé une landing page pour une marque de chaussures de running.`,
         description: "Design d'une landing page pour une marque de chaussures de running.",
         image: "media/projects/runandrerun.jpg",
+        driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
+        tags: [
+            { name: "UI/UX Design", icon: "bx bxs-layout" },
+        ]
+    },
+    {
+        id: "17",
+        title: "Projet académique 1",
+        text: `Texte 17`,
+        description: "Lorem ipsum.",
+        image: "https://placehold.co/400",
+        driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
+        tags: [
+            { name: "UI/UX Design", icon: "bx bxs-layout" },
+        ]
+    },
+    {
+        id: "18",
+        title: "Projet académique 2",
+        text: `Texte 18`,
+        description: "Lorem ipsum.",
+        image: "https://placehold.co/400",
+        driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
+        tags: [
+            { name: "UI/UX Design", icon: "bx bxs-layout" },
+        ]
+    },
+    {
+        id: "19",
+        title: "Projet académique 2",
+        text: `Texte 18`,
+        description: "Lorem ipsum.",
+        image: "https://placehold.co/400",
+        driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
+        tags: [
+            { name: "UI/UX Design", icon: "bx bxs-layout" },
+        ]
+    },
+    {
+        id: "20",
+        title: "Projet académique 2",
+        text: `Texte 18`,
+        description: "Lorem ipsum.",
+        image: "https://placehold.co/400",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },

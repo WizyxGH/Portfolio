@@ -8,6 +8,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let projectsVisible = 6; // Nombre de projets visibles au départ
 
+    // Vérifie sur quelle page nous nous trouvons et filtre les projets en conséquence
+    if (window.location.pathname.includes('creations.html')) {
+        // Filtrer pour afficher uniquement les projets académiques (ID 1 à 16 par exemple)
+        projects = projects.filter(project => project.id >= 1 && project.id <= 16);  
+    } else if (window.location.pathname.includes('creations_studies.html')) {
+        // Filtrer pour afficher uniquement les projets professionnels (ID 17 à 20 par exemple)
+        projects = projects.filter(project => project.id >= 17 && project.id <= 20);  
+    }
+
     if (showMoreButton && showLessButton) {
         showMoreButton.addEventListener("click", function () {
             loadMoreProjects();
