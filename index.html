@@ -19,18 +19,18 @@
         <div class="container mx-auto px-6 lg:px-32 py-4 flex justify-between items-center">
             <!-- Logo -->
             <a href="index.html" class="text-lg font-bold text-white">Wizyx</a>
-    
+
             <!-- Bouton Menu Burger (visible sur mobile) -->
             <button id="menuButton" class="text-white text-3xl lg:hidden">
                 <i class='bx bx-menu'></i>
             </button>
-    
+
             <!-- Menu de navigation -->
             <nav id="navMenu"
                 class="hidden absolute top-16 left-0 w-full bg-[#411FEB] shadow-lg lg:shadow-none lg:static lg:flex lg:items-center lg:space-x-6 lg:w-auto">
                 <ul class="lg:flex lg:space-x-6 lg:text-left">
                     <li><a href="about.html" class="block px-6 py-2 text-white hover:underline">Qui suis-je ?</a></li>
-    
+
                     <!-- Menu déroulant "Mes créations" -->
                     <li class="relative">
                         <button id="dropdownButton" class="block px-6 py-2 text-white flex items-center">
@@ -38,8 +38,10 @@
                         </button>
                         <ul id="dropdownMenu"
                             class="hidden absolute left-0 mt-2 bg-white shadow-md rounded-md w-48 text-[#411FEB] lg:group-hover:block">
-                            <li><a href="creations.html" class="block px-6 py-2 hover:bg-gray-200">Professionnel</a></li>
-                            <li><a href="creations_studies.html" class="block px-6 py-2 hover:bg-gray-200">Académique</a></li>
+                            <li><a href="creations.html" class="block px-6 py-2 hover:bg-gray-200">Professionnel</a>
+                            </li>
+                            <li><a href="creations_studies.html"
+                                    class="block px-6 py-2 hover:bg-gray-200">Académique</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -47,11 +49,91 @@
         </div>
     </header>
 
-    <header class="text-white bg-[#411FEB] py-20 lg:px-32 px-8">
-        <h1 class="text-5xl font-bold">Florian GERTNER KILIAN</h1>
-        <h2 class="text-stroke text-5xl font-bold mt-2">UI/UX Designer • Rédacteur</h2>
-        <p class="max-w-2xl mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+    <header class="text-white bg-[#411FEB] py-20 lg:px-32 px-8 flex flex-col lg:flex-row items-stretch gap-4">
+        <!-- Texte à gauche -->
+        <div class="lg:w-1/2 flex flex-col justify-center">
+            <h1 class="text-5xl font-bold">Florian GERTNER KILIAN</h1>
+            <h2 class="text-stroke text-5xl font-bold mt-2">UI/UX Designer • Rédacteur</h2>
+            <p class="max-w-2xl mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+
+            <!-- Boutons -->
+            <div class="mt-6 flex space-x-4">
+                <a href="mailto:floriangertner0@gmail.com"
+                    class="bg-white text-[#411FEB] px-6 py-3 font-semibold rounded-lg">
+                    Me prendre en alternance
+                </a>
+                <a href="creations.html" class="outline outline-2 text-white px-6 py-3 font-semibold rounded-lg">
+                    Découvrir mes créations →
+                </a>
+            </div>
+        </div>
+
+        <!-- Image à droite -->
+        <div class="lg:w-1/2 flex justify-center items-center">
+            <img src="media/photo.jpg" alt="Illustration de Florian"
+                class="h-full max-h-[200px] lg:max-h-[250px] rounded-lg shadow-lg">
+        </div>
     </header>
+
+    <section class="pt-8 lg:px-32 text-center px-8">
+        <h2 class="text-2xl font-bold mb-6">
+            <i class='bx bxs-wink-smile'></i> On me recommande
+        </h2>
+        <div class="mt-8 grid md:grid-cols-3 gap-6">
+            <!-- Carte 1 -->
+            <div class="bg-[#411FEB] text-white text-left p-6 rounded-2xl shadow-lg">
+                <div class="flex items-center gap-2">
+                    <img src="https://media.licdn.com/dms/image/v2/D4D03AQH_6xTG9kkqsQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1715070309177?e=1746662400&v=beta&t=8r2JJqiUw0I2sAGSq5l-Vg4g46373SWVHSvgVptMgZA"
+                        alt="Caroline Aubert" class="w-8 h-8 rounded-full object-cover">
+                    <h3 class="font-bold">Caroline Aubert</h3>
+                </div>
+                <p class="mt-3 text-sm">
+                    <span class="text-xl font-bold">❝</span>
+                    J'ai eu la chance d'avoir Florian en stage pendant deux mois dans ma structure. Je dis bien la
+                    chance, car ma première expérience d'avoir des stagiaires a été un succès grâce à lui. Motivé, hyper
+                    proactif, enseignable, il a su, dès les premiers jours, être opérationnel. Il a une très bonne
+                    appétence pour tout ce qui touche au rédactionnel. Il est force de proposition et sait répondre à
+                    des briefs client quasiment en autonomie. Je peux dire qu'il est aujourd'hui expert en autolayout
+                    sur Figma et sait utiliser cet outil de manière professionnelle. Je recommande son profil à
+                    l'embauche si vous souhaitez ne pas prendre de risque puisqu'il coche toutes les cases. Ce sera une
+                    force dans vos équipes.
+                    <span class="text-xl font-bold">❞</span>
+                </p>
+            </div>
+
+            <!-- Carte 2 -->
+            <div class="bg-[#411FEB] text-white text-left p-6 rounded-2xl shadow-lg">
+                <div class="flex items-center gap-2">
+                    <img src="https://media.licdn.com/dms/image/v2/C4E03AQEQ0iYUTQseRw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1654017551658?e=1746662400&v=beta&t=lIyhklKo519u3yEKAOPEC8JNbwo3bArky3rX8z9Y8JU"
+                        alt="Jonathan Vaissière" class="w-8 h-8 rounded-full object-cover">
+                    <h3 class="font-bold">Jonathan Vaissière</h3>
+                </div>
+                <p class="mt-3 text-sm">
+                    <span class="text-xl font-bold">❝</span>
+                    Un travail pro et sérieux comme on aime et surtout comme on a BESOIN !
+
+                    Florian a fait parti de l’équipe qui nous a conçu les maquettes de notre dernière version et ce fut
+                    un régal de travailler ensemble. De part les outils proposés mais surtout dans la façon. Rapide,
+                    efficace et agréable. Merci encore pour ton travail🙏🏼😉
+                    <span class="text-xl font-bold">❞</span>
+                </p>
+            </div>
+
+            <!-- Carte 3 -->
+            <div class="bg-[#411FEB] text-white text-left p-6 rounded-2xl shadow-lg">
+                <div class="flex items-center gap-2">
+                    <img src="https://media.licdn.com/dms/image/v2/D4E03AQFXFJcF7YhKNg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1730481676021?e=1746662400&v=beta&t=engv2kSqsY60tlbpDWghmedkN8DKGwPGrdtffLQnnF0"
+                        alt="Maxime Peiffer" class="w-8 h-8 rounded-full object-cover">
+                    <h3 class="font-bold">Maxime "Click" Peiffer</h3>
+                </div>
+                <p class="mt-3 text-sm">
+                    <span class="text-xl font-bold">❝</span>
+                    Je l'ai vu direct !! Très fort 👍
+                    <span class="text-xl font-bold">❞</span>
+                </p>
+            </div>
+        </div>
+    </section>
 
     <footer class="text-[#411FEB] py-6 text-center">
         <div class="container mx-auto flex flex-wrap justify-between items-center lg:px-32 px-8">
@@ -61,7 +143,7 @@
                 <p class="mt-2">🚀 Progressons chaque jour vers notre rêve !</p>
                 <p class="mt-2"><a href="#" class="underline">Mentions légales</a></p>
             </div>
-    
+
             <!-- Icônes sociales -->
             <div class="flex space-x-4">
                 <a href="https://linkedin.com/in/flogk/"
