@@ -49,7 +49,9 @@ document.addEventListener("DOMContentLoaded", function () {
             card.dataset.projectId = project.id;
 
             card.innerHTML = ` 
-                <div class="h-40 mb-3 rounded-lg bg-[#411FEB] outline outline-2"></div>
+                <div class="h-40 mb-3 rounded-lg bg-[#411FEB] outline outline-2">
+                    <img src="${project.image}" alt="${project.title}" class="h-40 w-full object-cover rounded-lg">
+                </div>
                 <h3 class="text-lg font-semibold text-[#411FEB]">${project.title}</h3>
                 <div class="mt-1 flex space-x-2" id="tagsContainer-${projectTitleId}"></div>
                 <p class="text-sm text-gray-600 mt-2">${project.description}</p>
@@ -94,23 +96,35 @@ document.addEventListener("DOMContentLoaded", function () {
     function openModal(project) {
         const modal = document.getElementById("modal");
         if (!modal) return;
+    
         const modalTitle = document.getElementById("modalTitle");
         const modalImage = document.getElementById("modalImage");
         const modalText = document.getElementById("modalText");
-
+        const modalButton = document.getElementById("modalButton");
+    
         modalTitle.textContent = project.title;
-        modalText.textContent = project.text;
+        modalText.innerHTML = project.text.replace(/\n/g, "<br>"); // Gestion des sauts de ligne
         modalImage.style.backgroundImage = `url('${project.image}')`;
         modalImage.style.backgroundSize = 'cover';
         modalImage.style.backgroundPosition = 'center';
-
+    
+        if (project.driveLink) {
+            modalButton.href = project.driveLink;
+            modalButton.classList.remove("hidden");
+        } else {
+            modalButton.classList.add("hidden");
+        }
+    
         modal.classList.remove("hidden");
-    }
-
+    }    
+    
     function closeModal() {
-        const modal = document.getElementById("modal");
-        if (modal) modal.classList.add("hidden");
+        document.body.classList.remove("overflow-hidden"); // Réactive le scroll du body
+        document.getElementById("modal").classList.add("hidden");
     }
+    
+    // Attache l'événement au bouton de fermeture
+    document.querySelector('.bx-x').addEventListener("click", closeModal);
 
     const modalCloseButton = document.querySelector('.bx-x');
     if (modalCloseButton) {

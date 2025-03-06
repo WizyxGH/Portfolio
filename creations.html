@@ -222,19 +222,23 @@
 
     <!-- Modal -->
     <div id="modal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center hidden">
-        <div class="bg-white p-6 rounded-lg shadow-lg w-11/12 md:w-2/3 lg:w-1/2 relative">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-11/12 md:w-2/3 lg:w-1/2 relative max-h-[90vh] overflow-y-auto">
             <!-- Icône de fermeture -->
             <i class='bx bx-x absolute top-4 right-4 text-3xl cursor-pointer text-[#411FEB]' onclick="closeModal()"></i>
-
+    
             <!-- Contenu de la modal -->
             <h3 class="text-lg font-semibold text-[#411FEB]" id="modalTitle">Titre du projet</h3>
             <div class="h-40 bg-[#411FEB] mb-4 rounded-lg" id="modalImage"></div>
             <p class="text-sm text-black" id="modalText">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu,
-                pulvinar magna.
+                pulvinar magna. <br><br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu,
+                pulvinar magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada
+                augue eu, pulvinar magna.
             </p>
+            <a id="modalButton" href="#" target="_blank" class="mt-4 inline-block bg-[#411FEB] text-white px-4 py-2 rounded-md hover:bg-[#3A1CC5] transition">Voir le résultat</a>
         </div>
-    </div>
+    </div>    
 
     <script>
         function openModal(title, text, color) {
