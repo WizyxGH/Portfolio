@@ -44,35 +44,39 @@ let projects = [
         Le tout en récoltant l’adresse mail, de personnes potentiellement intéressées par Mon Gardien.
         
         CONCEVOIR
--  AC12.01 - Concevoir un produit ou un service en terme d’usage et de fonctionnalité (S2)
--  AC12.02 - Construire la proposition de valeur d’un produit ou d’un service (S2)
--  AC12.03 - Proposer une recommandation marketing (cibles, objectifs, points de contact)
--  AC12.04 - Proposer une stratégie de communication
-- AC22.01 - Co-concevoir un produit ou un service (proposition de valeur, fonctionnalités...)
-- AC22.02 - Produire une recommandation ergonomique à partir des tests utilisateurs (sur système fonctionnel, prototype ou maquette interactive)
-- AC22.03 - Co-construire une recommandation stratégique (en structurant un plan d’action)
-- AC22.04 - Optimiser le référencement d’un site web, d’un produit ou d’un service
-- AC22.05 - Mettre en place une présence sur les réseaux sociaux
-COMPRENDRE
--  AC21.01 - Analyser la stratégie de communication ou marketing d'un acteur, d'une organisation au regard d'un secteur ou d'un marché (stratégie, mission, valeurs ...)
--  AC21.02 - Auditer un site web, une marque ou un service, en termes de trafic et de référencement
--  AC21.04 - Identifier et décrire les parcours client à partir d'enquêtes de terrain
--  AC21.05 - Cartographier les expériences utilisateur : points de contact, points de friction et de satisfaction, carte d'empathie
-EXPRIMER
-- AC23.01 - Produire un écrit journalistique sourcé et documenté
-- AC23.02 - Définir une iconographie (illustrations, photographies, vidéos)
-- AC23.03 - Créer et décliner une identité visuelle (charte graphique)
-- AC23.04 - Imaginer, écrire et scénariser en vue d’une communication multimédia ou transmédia
-- AC23.05 - Réaliser, composer et produire pour une communication plurimédia
-DEVELOPPER
-- AC24.01 - Produire des pages et applications Web responsives
-- AC24.03 - Intégrer, produire ou développer des interactions riches ou des dispositifs interactifs
-ENTREPRENDRE
-- AC25.01 - Gérer un projet avec une méthode d’amélioration continue par exemple une méthode agile
-- AC25.02 - Cartographier un écosystème (identification des acteurs, synthèse des propositions de valeur)
-- AC25.03 - Initier la constitution d’un réseau professionnel
-- AC25.04 - Collaborer au sein des organisations
-- AC25.06 - Prendre en compte les contraintes juridiques`,
+        -  AC12.01 - Concevoir un produit ou un service en terme d’usage et de fonctionnalité (S2)
+        -  AC12.02 - Construire la proposition de valeur d’un produit ou d’un service (S2)
+        -  AC12.03 - Proposer une recommandation marketing (cibles, objectifs, points de contact)
+        -  AC12.04 - Proposer une stratégie de communication
+        - AC22.01 - Co-concevoir un produit ou un service (proposition de valeur, fonctionnalités...)
+        - AC22.02 - Produire une recommandation ergonomique à partir des tests utilisateurs (sur système fonctionnel, prototype ou maquette interactive)
+        - AC22.03 - Co-construire une recommandation stratégique (en structurant un plan d’action)
+        - AC22.04 - Optimiser le référencement d’un site web, d’un produit ou d’un service
+        - AC22.05 - Mettre en place une présence sur les réseaux sociaux
+        
+        COMPRENDRE
+        -  AC21.01 - Analyser la stratégie de communication ou marketing d'un acteur, d'une organisation au regard d'un secteur ou d'un marché (stratégie, mission, valeurs ...)
+        -  AC21.02 - Auditer un site web, une marque ou un service, en termes de trafic et de référencement
+        -  AC21.04 - Identifier et décrire les parcours client à partir d'enquêtes de terrain
+        -  AC21.05 - Cartographier les expériences utilisateur : points de contact, points de friction et de satisfaction, carte d'empathie
+        
+        EXPRIMER
+        - AC23.01 - Produire un écrit journalistique sourcé et documenté
+        - AC23.02 - Définir une iconographie (illustrations, photographies, vidéos)
+        - AC23.03 - Créer et décliner une identité visuelle (charte graphique)
+        - AC23.04 - Imaginer, écrire et scénariser en vue d’une communication multimédia ou transmédia
+        - AC23.05 - Réaliser, composer et produire pour une communication plurimédia
+
+        DEVELOPPER
+        - AC24.01 - Produire des pages et applications Web responsives
+        - AC24.03 - Intégrer, produire ou développer des interactions riches ou des dispositifs interactifs
+
+        ENTREPRENDRE
+        - AC25.01 - Gérer un projet avec une méthode d’amélioration continue par exemple une méthode agile
+        - AC25.02 - Cartographier un écosystème (identification des acteurs, synthèse des propositions de valeur)
+        - AC25.03 - Initier la constitution d’un réseau professionnel
+        - AC25.04 - Collaborer au sein des organisations
+        - AC25.06 - Prendre en compte les contraintes juridiques`,
         description: "Design d'une landing page pour présenter le projet de l'application Mon Gardien dans le but de récolter des fonds et de jauger l'intérêt de la cible.",
         image: "media/projects/mongardien.jpg",
         driveLink: "https://drive.google.com/drive/folders/1sRims-3Ztax9HajV-F5f6XhtVbpwNAdc?usp=sharing",
