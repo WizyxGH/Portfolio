@@ -14,8 +14,8 @@ document.addEventListener("DOMContentLoaded", function () {
             // Filtrer pour afficher uniquement les projets académiques (ID 1 à 16 par exemple)
             projects = projects.filter(project => project.id >= 1 && project.id <= 16);
         } else if (window.location.pathname.includes('creations_studies.html')) {
-            // Filtrer pour afficher uniquement les projets professionnels (ID 17 à 24 par exemple)
-            projects = projects.filter(project => project.id >= 17 && project.id <= 24);
+            // Filtrer pour afficher uniquement les projets professionnels (ID 17 à 24 par exemple) et l'ID 3
+            projects = projects.filter(project => (project.id >= 17 && project.id <= 24) || project.id === 3);
         }
     } else {
         console.error("La variable 'projects' est introuvable ou n'est pas un tableau.");
