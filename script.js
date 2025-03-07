@@ -9,13 +9,20 @@ document.addEventListener("DOMContentLoaded", function () {
     let projectsVisible = 6; // Nombre de projets visibles au départ
 
     // Vérifie sur quelle page nous nous trouvons et filtre les projets en conséquence
-    if (window.location.pathname.includes('creations.html')) {
-        // Filtrer pour afficher uniquement les projets académiques (ID 1 à 16 par exemple)
-        projects = projects.filter(project => project.id >= 1 && project.id <= 16);  
-    } else if (window.location.pathname.includes('creations_studies.html')) {
-        // Filtrer pour afficher uniquement les projets professionnels (ID 17 à 20 par exemple)
-        projects = projects.filter(project => project.id >= 17 && project.id <= 20);  
+    if (typeof projects !== "undefined" && Array.isArray(projects)) {
+        if (window.location.pathname.includes('creations.html')) {
+            // Filtrer pour afficher uniquement les projets académiques (ID 1 à 16 par exemple)
+            projects = projects.filter(project => project.id >= 1 && project.id <= 16);
+        } else if (window.location.pathname.includes('creations_studies.html')) {
+            // Filtrer pour afficher uniquement les projets professionnels (ID 17 à 24 par exemple)
+            projects = projects.filter(project => project.id >= 17 && project.id <= 24);
+        }
+    } else {
+        console.error("La variable 'projects' est introuvable ou n'est pas un tableau.");
+        return;
     }
+
+    console.log("Projets chargés :", projects);
 
     if (showMoreButton && showLessButton) {
         showMoreButton.addEventListener("click", function () {
@@ -66,11 +73,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 <p class="text-sm text-gray-600 mt-2">${project.description}</p>
             `;
 
-            const imageDiv = card.querySelector("div");
-            imageDiv.style.backgroundImage = `url('${project.image}')`;
-            imageDiv.style.backgroundSize = 'cover';
-            imageDiv.style.backgroundPosition = 'center';
-
             const tagsContainer = card.querySelector(`#tagsContainer-${projectTitleId}`);
             if (tagsContainer && project.tags && Array.isArray(project.tags)) {
                 project.tags.forEach(tag => {
@@ -90,8 +92,10 @@ document.addEventListener("DOMContentLoaded", function () {
     function attachEventListenersToCards() {
         document.querySelectorAll('.projectCard').forEach(card => {
             card.addEventListener('click', () => {
-                const projectId = card.dataset.projectId;
+                const projectId = Number(card.dataset.projectId); // Convertir en nombre
                 const project = projects.find(p => p.id === projectId);
+
+                console.log("Carte cliquée - ID:", projectId, "Projet trouvé:", project);
 
                 if (project) {
                     openModal(project);

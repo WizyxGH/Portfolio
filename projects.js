@@ -1,6 +1,6 @@
 let projects = [
     {
-        id: "1",
+        id: 1,
         title: "Le Guide du Golfe de Saint-Tropez",
         text: `Dans le cadre de mon stage de BUT MMI de 2ᵉ année, j'ai participé avec Caroline Aubert et Enzo Capaldi (un autre stagiaire) au redesign du site et de l'application du Guide du Golfe de Saint-Tropez. On se répartissait le travail et l'on a dû faire plusieurs itérations en fonction des retours clients mais je me suis occupé de redesigner la plupart des pages.
         <br>Le Guide du Golfe de Saint-Tropez est un site internet ainsi qu'une application mobile permettant aux touristes comme aux résidents de connaître les établissements et évènements qu'il y a dans le golfe de Saint-Tropez. Il s'agit d'un guide touristique local.
@@ -16,7 +16,7 @@ let projects = [
         ]
     },
     {
-        id: "2",
+        id: 2,
         title: "Maxime Click",
         text: `Maxime Click est un jeune créateur de contenu français qui cartonne sur chacun de ses réseaux (1M d’abonnés sur YouTube, 440k followers sur TikTok et 211k sur Instagram).
         <br>Il a grandi en regardant toutes les vidéos des youtubeurs francophones et américains (de Cyprien à MrBeast). Pas étonnant alors qu’il s’est pris de passion pour la création de contenu.
@@ -33,7 +33,7 @@ let projects = [
 
     },
     {
-        id: "3",
+        id: 3,
         title: "Mon Gardien",
         text: `Dans le cadre de mon stage de BUT MMI de 2ᵉ année, j’ai participé à la conceptualisation de Mon Gardien.
         <br>Mon Gardien est un projet d’application mobile dont le but est d’aider à réduire le « doomscrolling », c’est-à-dire l’activité de faire défiler (scroller) son fil d’actualités ou de recommandations sur les réseaux sociaux de manière mécanique et quasi systématique sans même que l’on en ait pleinement conscience. Le fait même d’ouvrir ce genre d’applications est devenu pour beaucoup un réflexe.
@@ -50,7 +50,7 @@ let projects = [
         ]
     },
     {
-        id: "4",
+        id: 4,
         title: "France Galop Live",
         text: `Dans le cadre de mon stage de BUT MMI de 2ᵉ année, j’ai eu, seul, comme tâche de transformer un wireframe de la page d’accueil de France Galop Live en une maquette “high fidelity” dans un délai réduit.
         <br>France Galop est un des acteurs majeurs du sport hippique en France. Il joue un rôle essentiel dans l’organisation des courses de chevaux. Il élabore le programme national des courses de galop avec leur primes et allocations. Ils s’occupent aussi de la régulation des courses en faisant appliquer le règlement et contrôle la lutte antidopage. France Galop Live est une filiale qui s’occupe de chaque évènement et courses.
@@ -64,7 +64,7 @@ let projects = [
         ]
     },
     {
-        id: "5",
+        id: 5,
         title: "BioQuest",
         text: `Dans le cadre d’un projet semestriel lors de ma 3ᵉ année de BUT MMI, en groupe de 3, nous avions carte blanche pour créer un support interactif éducatif qui servira au Muséum d’Histoire naturelle de Toulon. Il devra éduquer sur les espèces exotiques envahissantes.
         <br>Ayant la possibilité d’envahir le jardin du Las situé dans l’enceinte du musée, nous avons décidé de créer de A à Z une application à la Pokémon GO.
@@ -82,7 +82,7 @@ let projects = [
         ]
     },
     {
-        id: "6",
+        id: 6,
         title: "WCA - World Cube Association",
         text: `La World Cube Association (WCA) est un organisme à but non lucratif qui régule les compétitions de speedcubing (résolution de Rubik’s Cube). Une discipline qui demande de grandes capacités mentales voir même physiques.
         <br>Ayant un frère multi champion de France dans plusieurs de ses disciplines, il m’arrive de consulter le site internet de la WCA pour consulter ses nouveaux et anciens résultats ainsi que celui des autres compétiteurs.
@@ -96,7 +96,7 @@ let projects = [
         ]
     },
     {
-        id: "7",
+        id: 7,
         title: "PAPA France",
         text: `Dans le cadre de mon stage de BUT MMI de 2ᵉ année, j’ai participé avec Caroline Aubert et Enzo Capaldi (un autre stagiaire) au redesign du site de PAPA France (sur ordinateur comme sur téléphone. On se répartissait le travail et l’on a dû faire quelques itérations en fonction des retours clients mais je me suis occupé de redesigner la plupart des pages.
         <br>Créé par un ancien boulanger, PAPA France (pour Packaging Alimentaire Pour Artisans de France) est un site e-commerce d’un grossiste d’emballage alimentaire.
@@ -113,7 +113,7 @@ let projects = [
         ]
     },
     {
-        id: "8",
+        id: 8,
         title: "Picsou-Soir",
         text: `Picsou-Soir est un fanzine (soit un magazine créé par des fans) français sur la bande dessinée Disney créé en 2019. Il existe une petite communauté mais elle n’est pas très bien organisée contrairement aux confrères allemands ou des pays nordiques.
         <br>Picsou-Soir a comme vocation que les fans parlent aux fans. Des exemplaires physiques ont même été imprimés.
@@ -129,7 +129,7 @@ let projects = [
         ]
     },
     {
-        id: "9",
+        id: 9,
         title: "What The Duck",
         text: `What The Duck est l’application mobile du site internet DucksManager. Les 2 ont le même objectif : aider les collectionneurs de bandes dessinées Disney à classifier leur collection. Les données affichées proviennent de la base de données Inducks.
         <br>Sur le site DucksManager, il y a une fonctionnalité permettant aux utilisateurs de partager leur bonne adresse de bouquinerie sauf que cela n’a pas beaucoup de sens que la carte d’adresse et la fonctionnalitée ne soit pas disponible sur l’application mobile. On se déplace avec son téléphone pas son ordinateur. Cela demande alors de jongler entre plusieurs autres applications.
@@ -143,7 +143,7 @@ let projects = [
         ]
     },
     {
-        id: "10",
+        id: 10,
         title: "Tom et Lola",
         text: `Dans le cadre d’un projet semestriel lors de ma 2ᵉ année de BUT MMI, à 2, nous avions comme mission de suggérer des idées de communication envers le jeune public à l’équipe de production de la future série France 2 “Tom et Lola” pour qu’il les réutilise potentiellement.
         <br>Tom et Lola est une série policière humoristique mélangeant suspense, humour et drame romantique. Elle est sortie l’année dernière sur le grand écran.
@@ -158,7 +158,7 @@ let projects = [
         ]
     },
     {
-        id: "11",
+        id: 11,
         title: "DuMILi",
         text: `DuMILi est un projet de génération d’index de magazines Disney propulsé par l’IA. se basant sur le formatage de la base de données Inducks. Si vous avez rien compris, pas de panique, je vous explique.
         <br>Les données informatives de la base Inducks sont stockées sous un format un texte bien spécifique qui a été créé pour l’occasion (voir la documentation Bolderbast si vous voulez vraiment creuser).
@@ -175,7 +175,7 @@ let projects = [
         ]
     },
     {
-        id: "12",
+        id: 12,
         title: "Break Screen",
         text: `Dans le cadre d’un projet semestriel lors de ma 2ᵉ année de BUT MMI, à 2, nous avions comme mission d’éduquer sur un sujet d’actualité.
         <br>On a décidé de s’impliquer dans un domaine où en tant que jeunes qui utilisent le numérique au quotidien, nous sommes généralement les premiers concernés. L’addiction aux écrans est un thème qui me tient à cœur sur lequel je me suis beaucoup renseigné. Dans mon quotidien, j’ai mis en place des solutions qui me permettent de ne pas sombrer dans ses mauvais côtés.
@@ -192,7 +192,7 @@ let projects = [
         ]
     },
     {
-        id: "13",
+        id: 13,
         title: `Pizz'Ami`,
         text: `Lors du 2ᵉ semestre de 2ᵉ année de BUT MMI, pour le cours de Design d’expérience, en groupe de 4, nous devions créer une enseigne fictive de restauration et se concentrer sur l’expérience numérique de commande.
         <br>Le parcours utilisateur devait être cohérent pour choisir un maximum d’éléments présents sur la carte. On devait notamment pousser le consommateur à dépenser avec des augmentateurs de panier moyen et un parcours pour l'achat d'un produit personnalisé.
@@ -206,7 +206,7 @@ let projects = [
         ]
     },
     {
-        id: "14",
+        id: 14,
         title: "I.N.D.U.C.K.S.",
         text: `I.N.D.U.C.K.S. est une base de données répertoriant l’ensemble des bandes dessinées Disney publiées dans le monde entier. Ce site sert aussi bien de références pour les fans que pour les sociétés qui éditent ces magazines.
         <br>Différents projets de classification des histoires et magazines ont vu le jour avant même l’arrivée d’internet. L’objectif de Inducks est de centraliser toutes ces informations à un endroit unique.
@@ -223,7 +223,7 @@ let projects = [
         ]
     },
     {
-        id: "15",
+        id: 15,
         title: "Ballon Nike Academy Team",
         text: `Pour un exercice lors du 2ᵉ semestre de 2ᵉ année de BUT MMI, il fallait réaliser la page de présentation d’un produit qui a différentes options et y intégrer différentes sections de réassurance.
         <br>J’ai donc réalisé sur Figma la maquette pour un ballon de football avec un aspect premium.`,
@@ -236,7 +236,7 @@ let projects = [
         ]
     },
     {
-        id: "16",
+        id: 16,
         title: "Run&Rerun",
         text: `En début de 2ᵉ année de BUT MMI, pour les premiers cours d’apprentissage de Figma nous devions réaliser une landing page qui présente le sujet de notre choix.
         <br>J’ai donc imaginé et réalisé une landing page pour une marque de chaussures de running.`,
@@ -248,11 +248,11 @@ let projects = [
         ]
     },
     {
-        id: "17",
+        id: 17,
         title: "Portfolio",
         text: `Texte 17`,
         description: "Lorem ipsum.",
-        image: "https://placehold.co/400",
+        image: "media/projects/portfolio.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -261,36 +261,83 @@ let projects = [
         ]
     },
     {
-        id: "18",
-        title: "Projet académique 2",
+        id: 18,
+        title: "Danse à l'Opéra",
         text: `Texte 18`,
-        description: "Lorem ipsum.",
-        image: "https://placehold.co/400",
+        description: "Pas encore disponible (travail en cours...) -> scénographie + affiche",
+        image: "media/projects/dansealopera.png",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         tags: [
-            { name: "UI/UX Design", icon: "bx bxs-layout" },
+            { name: "Scénographie", icon: "bx bxs-mask" },
+            { name: "Modélisation 3D", icon: "bx bxs-cube" },
         ]
     },
     {
-        id: "19",
-        title: "Projet académique 3",
+        id: 19,
+        title: "Introduction sur la faune et la flore du Var",
         text: `Texte 19`,
-        description: "Lorem ipsum.",
-        image: "https://placehold.co/400",
+        description: "Vidéo et article",
+        image: "media/projects/fauneflorevar.jpg",
+        driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
+        tags: [
+            { name: "Vidéo", icon: "bx bxs-camera-movie" },
+            { name: "Rédaction", icon: "bx bxs-pencil" },
+            { name: "Mise en page", icon: "bx bxs-layout" },
+        ]
+    },
+    {
+        id: 20,
+        title: "Tom et Lola",
+        text: `Texte 20`,
+        description: "jsp si ça a quelque chose à faire là comme j'en parle déjà dans les trucs pros (après j'ai codé le site, fait le dossier de prod, etc)",
+        image: "media/projects/tometlola2.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
         ]
     },
     {
-        id: "20",
-        title: "Projet académique 4",
-        text: `Texte 20`,
+        id: 21,
+        title: "Stratégie de communication Mafigue",
+        text: `Texte 21`,
+        description: "jsp si ça a quelque chose à faire là",
+        image: "media/projects/mafigue.jpg",
+        driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
+        tags: [
+            { name: "Communication / Marketing", icon: "bx bxs-layout" },
+        ]
+    },
+    {
+        id: 22,
+        title: "Jeu de l'oie : CultoPhoto",
+        text: `Texte 22`,
         description: "Lorem ipsum.",
-        image: "https://placehold.co/400",
+        image: "media/projects/cultophoto.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
+        ]
+    },
+    {
+        id: 23,
+        title: "WordPress",
+        text: `Texte 23`,
+        description: "Lorem ipsum.",
+        image: "media/projects/wordpress.jpg",
+        driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
+        tags: [
+            { name: "Développement", icon: "bx bx-code-alt" },
+        ]
+    },
+    {
+        id: 24,
+        title: "Maquette fanzine Picsou-Soir",
+        text: `Texte 24`,
+        description: "jsp si ça a quelque chose à faire là comme c'est pas un projet de cours",
+        image: "media/projects/picsousoir2.jpg",
+        driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
+        tags: [
+            { name: "Mise en page", icon: "bx bxs-layout" },
         ]
     },
 ];
