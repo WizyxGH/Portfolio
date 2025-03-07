@@ -195,8 +195,8 @@ let projects = [
         id: "13",
         title: `Pizz'Ami`,
         text: `Lors du 2ᵉ semestre de 2ᵉ année de BUT MMI, pour le cours de Design d’expérience, en groupe de 4, nous devions créer une enseigne fictive de restauration et se concentrer sur l’expérience numérique de commande.
-        <br>Le parcours utilisateur devait être cohérent pour choisir un maximum d’éléments présents sur la carte. On devait notamment pousser le consommateur à dépenser avec des augmentateurs de panier moyen et un parcours pour un produit personnalisé.
-        <br>Nous sommes partis sur une pizzeria dont j’ai réalisé l’intégralité de la maquette seul. Les autres se sont plutôt occupés de la charte graphique et de la réalisation du logo.`,
+        <br>Le parcours utilisateur devait être cohérent pour choisir un maximum d’éléments présents sur la carte. On devait notamment pousser le consommateur à dépenser avec des augmentateurs de panier moyen et un parcours pour l'achat d'un produit personnalisé.
+        <br>Nous sommes partis sur une pizzeria dont j’ai réalisé l’intégralité de la maquette seul. J'ai également participé à l'élaboration de la charte graphique. Une autre personne s'est occupée de la réalisation du logo.`,
         description: "Design du site internet pour une enseigne fictive de restauration.",
         image: "media/projects/pizzami.jpg",
         driveLink: "https://drive.google.com/drive/folders/1KcJ6iVQz7GUYs5jscAdILHrOymirMQD3?usp=sharing",
@@ -249,13 +249,15 @@ let projects = [
     },
     {
         id: "17",
-        title: "Projet académique 1",
+        title: "Portfolio",
         text: `Texte 17`,
         description: "Lorem ipsum.",
         image: "https://placehold.co/400",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
+            { name: "UX Writing", icon: "bx bxs-pen" },
+            { name: "Développement", icon: "bx bx-code-alt" },
         ]
     },
     {
@@ -271,8 +273,8 @@ let projects = [
     },
     {
         id: "19",
-        title: "Projet académique 2",
-        text: `Texte 18`,
+        title: "Projet académique 3",
+        text: `Texte 19`,
         description: "Lorem ipsum.",
         image: "https://placehold.co/400",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
@@ -282,8 +284,8 @@ let projects = [
     },
     {
         id: "20",
-        title: "Projet académique 2",
-        text: `Texte 18`,
+        title: "Projet académique 4",
+        text: `Texte 20`,
         description: "Lorem ipsum.",
         image: "https://placehold.co/400",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
