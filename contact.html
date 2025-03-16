@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="media/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="projects.js"></script>
+    <script src="script.js"></script>
+    <script>document.write('<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer><\/script>');</script>
+</head>
+
+<body class="font-inter text-[#411FEB]">
+
+    <header class="bg-[#411FEB] shadow-md">
+        <div class="container mx-auto px-6 lg:px-32 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="text-lg font-bold text-white">Wizyx</a>
+
+            <!-- Bouton Menu Burger (visible sur mobile) -->
+            <button id="menuButton" class="text-white text-3xl lg:hidden">
+                <i class='bx bx-menu'></i>
+            </button>
+
+            <!-- Menu de navigation -->
+            <nav id="navMenu"
+                class="hidden absolute top-16 left-0 w-full bg-[#411FEB] shadow-lg lg:shadow-none lg:static lg:flex lg:items-center lg:space-x-6 lg:w-auto">
+                <ul class="lg:flex lg:space-x-6 lg:text-left">
+                    <li><a href="about.html" class="block px-6 py-2 text-white hover:underline">Qui suis-je ?</a></li>
+
+                    <!-- Menu déroulant "Mes créations" -->
+                    <li class="relative">
+                        <button id="dropdownButton" class="block px-6 py-2 text-white flex items-center">
+                            Mes créations <i class='bx bx-chevron-down ml-1'></i>
+                        </button>
+                        <ul id="dropdownMenu"
+                            class="hidden absolute left-0 mt-2 bg-white shadow-md rounded-md w-48 text-[#411FEB] lg:group-hover:block">
+                            <li><a href="creations.html" class="block px-6 py-2 hover:bg-gray-200">Professionnel</a>
+                            </li>
+                            <li><a href="creations_studies.html"
+                                    class="block px-6 py-2 hover:bg-gray-200">Académique</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <p>Coming soon...</p>
+    
+    <footer class="text-[#411FEB] py-6 text-center">
+        <div class="container mx-auto flex flex-wrap justify-between items-center lg:px-32 px-8">
+            <!-- Logo et slogan -->
+            <div class="text-left">
+                <a href="index.html" class="text-lg font-semibold">Wizyx</a>
+                <p class="mt-2">🚀 Progressons chaque jour vers notre rêve !</p>
+                <p class="mt-2"><a href="legal.html" class="underline">Mentions légales</a></p>
+            </div>
+
+            <!-- Icônes sociales -->
+            <div class="flex space-x-4">
+                <a href="https://linkedin.com/in/flogk/"
+                    class="w-12 h-12 flex items-center justify-center border-2 border-[#411FEB] rounded-full hover:border-black">
+                    <i class='bx bxl-linkedin text-xl'></i>
+                </a>
+                <a href="mailto:floriangertner0@gmail.com"
+                    class="w-12 h-12 flex items-center justify-center border-2 border-[#411FEB] rounded-full hover:border-black">
+                    <i class='bx bxs-envelope text-xl'></i>
+                </a>
+                <a href="https://t.me/wizyx0"
+                    class="w-12 h-12 flex items-center justify-center border-2 border-[#411FEB] rounded-full hover:border-black">
+                    <i class='bx bxl-telegram text-xl'></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="gtranslate_wrapper"></div>
+    <script>
+        window.gtranslateSettings = {
+            "default_language": "fr",
+            "native_language_names": true,
+            "detect_browser_language": true,
+            "languages": ["da", "de", "en", "es", "fr", "it", "nl", "no", "sv", "vi"],
+            "wrapper_selector": ".gtranslate_wrapper",
+            "alt_flags":{"en":"usa"}
+        };
+    </script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+
+</body>
+
+</html>
