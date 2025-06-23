@@ -11,7 +11,7 @@ let projects = [
         driveLink: "https://drive.google.com/drive/folders/1YxsK-HIXDJE7Ik8Jqx0dYNEObw0r32kE?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
-            { name: "Prototyping", icon: "bx bxs-videos" },
+            { name: "Prototyping", icon: "bxr bx-play-circle" },
             { name: "Responsive", icon: "bx bxs-devices" },
         ]
     },
@@ -28,7 +28,7 @@ let projects = [
         driveLink: "https://drive.google.com/drive/folders/17BrU0ZnFJh049cORIbuMdGN9OO1Q19T-?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
-            { name: "Prototyping", icon: "bx bxs-videos" },
+            { name: "Prototyping", icon: "bxr bx-play-circle" },
         ]
 
     },
@@ -113,7 +113,7 @@ let projects = [
         driveLink: "https://drive.google.com/drive/folders/18LZ-7rL-slxtJ-zrxZ75e7J3aDJfW0Hy?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
-            { name: "Prototyping", icon: "bx bxs-videos" },
+            { name: "Prototyping", icon: "bxr bx-play-circle" },
         ]
     },
     {
@@ -127,7 +127,7 @@ let projects = [
         driveLink: "https://drive.google.com/drive/folders/1DYVRW2Ozfwn2veudiz4UoAhKKjAGayro?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
-            { name: "Prototyping", icon: "bx bxs-videos" },
+            { name: "Prototyping", icon: "bxr bx-play-circle" },
         ]
     },
     {
@@ -143,7 +143,7 @@ let projects = [
         driveLink: "https://drive.google.com/drive/folders/1twASkm-eKgmA9rNjCXFkEGEueE01_qEI?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
-            { name: "Prototyping", icon: "bx bxs-videos" },
+            { name: "Prototyping", icon: "bxr bx-play-circle" },
             { name: "Responsive", icon: "bx bxs-devices" },
         ]
     },
@@ -160,7 +160,7 @@ let projects = [
         driveLink: "https://drive.google.com/drive/folders/1Tc3rKCLWp6pU8akDs5X6gag0BtonrDp7?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
-            { name: "Prototyping", icon: "bx bxs-videos" },
+            { name: "Prototyping", icon: "bxr bx-play-circle" },
         ]
     },
     {
@@ -174,7 +174,7 @@ let projects = [
         driveLink: "https://drive.google.com/drive/folders/1ep3b2m6SNhnLCiiqXu8VPUQnQ3snrPzA?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
-            { name: "Prototyping", icon: "bx bxs-videos" },
+            { name: "Prototyping", icon: "bxr bx-play-circle" },
         ]
     },
     {
@@ -189,7 +189,7 @@ let projects = [
         driveLink: "https://drive.google.com/drive/folders/16BpVcRMELyWNcUPYQ9z9A9jBw6j4QBaJ?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
-            { name: "Prototyping", icon: "bx bxs-videos" },
+            { name: "Prototyping", icon: "bxr bx-play-circle" },
         ]
     },
     {
@@ -206,7 +206,7 @@ let projects = [
         driveLink: "https://drive.google.com/drive/folders/1j3NQS-oVQOpmPAgNIJIKOyclELy_y9rz?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
-            { name: "Prototyping", icon: "bx bxs-videos" },
+            { name: "Prototyping", icon: "bxr bx-play-circle" },
         ]
     },
     {
@@ -222,7 +222,7 @@ let projects = [
         driveLink: "https://drive.google.com/drive/folders/1xFHCWY7JdEvFcW0Phu4eOp7MkOuDab85?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
-            { name: "Prototyping", icon: "bx bxs-videos" },
+            { name: "Prototyping", icon: "bxr bx-play-circle" },
             { name: "Responsive", icon: "bx bxs-devices" },
         ]
     },
@@ -237,7 +237,7 @@ let projects = [
         driveLink: "https://drive.google.com/drive/folders/1KcJ6iVQz7GUYs5jscAdILHrOymirMQD3?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
-            { name: "Prototyping", icon: "bx bxs-videos" },
+            { name: "Prototyping", icon: "bxr bx-play-circle" },
         ]
     },
     {
@@ -254,7 +254,7 @@ let projects = [
         driveLink: "https://drive.google.com/drive/folders/13PezY4KgwBw34IZeNLaSolclIbk-gSky?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
-            { name: "Prototyping", icon: "bx bxs-videos" },
+            { name: "Prototyping", icon: "bxr bx-play-circle" },
         ]
     },
     {
@@ -267,7 +267,7 @@ let projects = [
         driveLink: "https://drive.google.com/drive/folders/1bMsjP1iClVy4xGjYPOR5cPlr1VOu9EeN?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
-            { name: "Prototyping", icon: "bx bxs-videos" },
+            { name: "Prototyping", icon: "bxr bx-play-circle" },
         ]
     },
     {
@@ -292,8 +292,10 @@ let projects = [
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Game Design", icon: "bx bxs-game" },
-            { name: "Prototyping", icon: "bx bxs-videos" },
+            { name: "Prototyping", icon: "bxr bx-play-circle" },
             { name: "UX Writing", icon: "bx bxs-pen" },
+            { name: "Design System", icon: "bx bxs-layout" },
+
         ]
     },
     {
@@ -333,8 +335,8 @@ let projects = [
     {
         id: 21,
         title: "Danse à l'Opéra",
-        text: `Texte 21`,
-        description: "Pas encore disponible (travail en cours...) -> scénographie + affiche",
+        text: `Coming soon...`,
+        description: "Scénographie et affiche",
         image: "media/projects/dansealopera.png",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         tags: [
@@ -345,12 +347,12 @@ let projects = [
     {
         id: 22,
         title: "Introduction sur la faune et la flore du Var",
-        text: `Texte 22`,
+        text: `Coming soon...`,
         description: "Vidéo et article",
         image: "media/projects/fauneflorevar.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         tags: [
-            { name: "Vidéo", icon: "bx bxs-camera-movie" },
+            { name: "Vidéo", icon: "bxr bx-video-cinema" },
             { name: "Rédaction", icon: "bx bxs-pencil" },
             { name: "Mise en page", icon: "bx bxs-layout" },
         ]
@@ -358,55 +360,60 @@ let projects = [
     {
         id: 23,
         title: "Vidéo œuvre culturelle",
-        text: `Texte 23`,
-        description: "Lorem ipsum",
-        image: "media/projects/lorem.jpg",
+        text: `Coming soon...`,
+        description: "Lorem ipsum.",
+        image: "media/projects/tresdemayo.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         tags: [
-            { name: "Vidéo", icon: "bx bxs-camera-movie" },
-            { name: "Rédaction", icon: "bx bxs-pencil" },
-            { name: "Mise en page", icon: "bx bxs-layout" },
+            { name: "Vidéo", icon: "bxr bx-video-cinema" },
+            { name: "Rédaction / Storytelling", icon: "bx bxs-pencil" },
+            { name: "Modélisation & Animation 3D", icon: "bx bxs-cube" },
+
         ]
     },
     {
         id: 24,
         title: "Tom et Lola",
-        text: `Texte 24`,
-        description: "jsp si ça a quelque chose à faire là comme j'en parle déjà dans les trucs pros (après j'ai codé le site, fait le dossier de prod, etc)",
+        text: `Coming soon...`,
+        description: "Lorem ipsum.",
         image: "media/projects/tometlola2.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
+            { name: "Vidéo", icon: "bxr bx-video-cinema" },
+            { name: "Communication / Marketing", icon: "bxr bx-message-bubble" },
+
+
         ]
     },
     {
         id: 25,
         title: "Stratégie de communication Mafigue",
-        text: `Texte 25`,
-        description: "jsp si ça a quelque chose à faire là",
+        text: `Coming soon...`,
+        description: "Lorem ipsum.",
         image: "media/projects/mafigue.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         tags: [
-            { name: "Communication / Marketing", icon: "bx bxs-layout" },
+            { name: "Communication / Marketing", icon: "bxr bx-message-bubble" },
         ]
     },
     {
         id: 26,
         title: "Jeu de l'oie : CultoPhoto",
-        text: `Texte 26`,
+        text: `Coming soon...`,
         description: "Lorem ipsum.",
         image: "media/projects/cultophoto.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         tags: [
-            { name: "UI/UX Design", icon: "bx bxs-layout" },
+            { name: "Design graphique", icon: "bx bxs-layout" },
         ]
     },
     {
         id: 27,
-        title: "WordPress",
-        text: `Texte 27`,
+        title: "Sites WordPress",
+        text: `Coming soon...`,
         description: "Lorem ipsum.",
-        image: "media/projects/wordpress.jpg",
+        image: "media/projects/wordpress.png",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         tags: [
             { name: "Développement", icon: "bx bx-code-alt" },
@@ -415,7 +422,7 @@ let projects = [
     {
         id: 28,
         title: "Maquette fanzine Picsou-Soir",
-        text: `Texte 28`,
+        text: `Coming soon...`,
         description: "Projet personnel",
         image: "media/projects/picsousoir2.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
