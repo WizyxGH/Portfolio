@@ -284,21 +284,56 @@ let projects = [
     },
     {
         id: 17,
-        title: "Portfolio",
-        text: `Texte 17`,
-        description: "Lorem ipsum.",
-        image: "media/projects/portfolio.jpg",
-        driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
+        title: "Joyca, Trouve la règle",
+        text: `Coming soon...`,
+        description: "Coming soon...",
+        image: "media/projects/trouvelaregle.jpg",
+        driveLink: "https://google.com",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
+            { name: "Game Design", icon: "bx bxs-game" },
+            { name: "Prototyping", icon: "bx bxs-videos" },
             { name: "UX Writing", icon: "bx bxs-pen" },
-            { name: "Développement", icon: "bx bx-code-alt" },
         ]
     },
     {
         id: 18,
+        title: "Cartaloto",
+        text: `Coming soon...`,
+        description: "Coming soon...",
+        image: "media/projects/cartaloto.jpg",
+        driveLink: "https://google.com",
+        tags: [
+            { name: "UI/UX Design", icon: "bx bxs-layout" },
+        ]
+    },
+    {
+        id: 19,
+        title: "Digital Unicorn",
+        text: `Coming soon...`,
+        description: "Coming soon...",
+        image: "media/projects/digitalunicorn.jpg",
+        driveLink: "https://google.com",
+        tags: [
+            { name: "UI/UX Design", icon: "bx bxs-layout" },
+            { name: "Copywriting", icon: "bx bxs-pen" },
+        ]
+    },
+    {
+        id: 20,
+        title: "Promodentaire",
+        text: `Coming soon...`,
+        description: "Coming soon...",
+        image: "media/projects/promodentaire.jpg",
+        driveLink: "https://google.com",
+        tags: [
+            { name: "UI/UX Design", icon: "bx bxs-layout" },
+        ]
+    },
+    {
+        id: 21,
         title: "Danse à l'Opéra",
-        text: `Texte 18`,
+        text: `Texte 21`,
         description: "Pas encore disponible (travail en cours...) -> scénographie + affiche",
         image: "media/projects/dansealopera.png",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
@@ -308,9 +343,9 @@ let projects = [
         ]
     },
     {
-        id: 19,
+        id: 22,
         title: "Introduction sur la faune et la flore du Var",
-        text: `Texte 19`,
+        text: `Texte 22`,
         description: "Vidéo et article",
         image: "media/projects/fauneflorevar.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
@@ -321,9 +356,9 @@ let projects = [
         ]
     },
     {
-        id: 20,
+        id: 23,
         title: "Vidéo œuvre culturelle",
-        text: `Texte 2O`,
+        text: `Texte 23`,
         description: "Lorem ipsum",
         image: "media/projects/lorem.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
@@ -334,9 +369,9 @@ let projects = [
         ]
     },
     {
-        id: 21,
+        id: 24,
         title: "Tom et Lola",
-        text: `Texte 21`,
+        text: `Texte 24`,
         description: "jsp si ça a quelque chose à faire là comme j'en parle déjà dans les trucs pros (après j'ai codé le site, fait le dossier de prod, etc)",
         image: "media/projects/tometlola2.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
@@ -345,9 +380,9 @@ let projects = [
         ]
     },
     {
-        id: 22,
+        id: 25,
         title: "Stratégie de communication Mafigue",
-        text: `Texte 22`,
+        text: `Texte 25`,
         description: "jsp si ça a quelque chose à faire là",
         image: "media/projects/mafigue.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
@@ -356,9 +391,9 @@ let projects = [
         ]
     },
     {
-        id: 23,
+        id: 26,
         title: "Jeu de l'oie : CultoPhoto",
-        text: `Texte 23`,
+        text: `Texte 26`,
         description: "Lorem ipsum.",
         image: "media/projects/cultophoto.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
@@ -367,9 +402,9 @@ let projects = [
         ]
     },
     {
-        id: 24,
+        id: 27,
         title: "WordPress",
-        text: `Texte 24`,
+        text: `Texte 27`,
         description: "Lorem ipsum.",
         image: "media/projects/wordpress.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
@@ -378,10 +413,10 @@ let projects = [
         ]
     },
     {
-        id: 25,
+        id: 28,
         title: "Maquette fanzine Picsou-Soir",
-        text: `Texte 25`,
-        description: "jsp si ça a quelque chose à faire là comme c'est pas un projet de cours",
+        text: `Texte 28`,
+        description: "Projet personnel",
         image: "media/projects/picsousoir2.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         tags: [
