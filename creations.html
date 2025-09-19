@@ -211,7 +211,7 @@
         </div>
     </section>
 
-    <section class="text-white bg-[#411FEB] py-16 text-center lg:px-32 px-8">
+    <section class="text-[#411FEB] bg-[#E8E4FC] py-16 text-center lg:px-32 px-8">
         <h2 class="text-2xl font-bold mb-4"><i class='bx bx-laptop'></i> Autres créations</h2>
         <p class="max-w-xl mx-auto mb-6">En tant qu'étudiant en 3ᵉ année de BUT MMI (Métiers du Multimédia et de
             l'Internet), au cours de ma formation, j'ai eu l'occasion de participer à divers projets mêlants des
@@ -220,36 +220,17 @@
             créations →</a>
     </section>
 
-    <footer class="text-[#411FEB] py-6 text-center">
-        <div class="container mx-auto flex flex-wrap justify-between items-center lg:px-32 px-8">
-            <!-- Logo et slogan -->
-            <div class="text-left">
-                <a href="index.html" class="text-lg font-semibold">Wizyx</a>
-                <p class="mt-2">🚀 Progressons chaque jour vers notre rêve !</p>
-                <p class="mt-2"><a href="legal.html" class="underline">Mentions légales</a></p>
-            </div>
+    <div id="footer-container"></div>
 
-            <!-- Icônes sociales -->
-            <div class="flex space-x-4">
-                <a href="https://linkedin.com/in/flogk/"
-                    class="w-12 h-12 flex items-center justify-center border-2 border-[#411FEB] rounded-full hover:bg-[#411FEB] hover:text-white">
-                    <i class='bxl bx-linkedin'></i> 
-                </a>
-                <a href="mailto:floriangertner0@gmail.com"
-                    class="w-12 h-12 flex items-center justify-center border-2 border-[#411FEB] rounded-full hover:bg-[#411FEB] hover:text-white">
-                    <i class='bx bxs-envelope text-xl'></i>
-                </a>
-                <a href="https://t.me/wizyx0"
-                    class="w-12 h-12 flex items-center justify-center border-2 border-[#411FEB] rounded-full hover:bg-[#411FEB] hover:text-white">
-                    <i class='bxl bx-telegram text-xl'></i>
-                </a>
-                <a href="https://github.com/WizyxGH"
-                    class="w-12 h-12 flex items-center justify-center border-2 border-[#411FEB] rounded-full hover:bg-[#411FEB] hover:text-white">
-                    <i class='bxl bx-github text-xl'></i>
-                </a>
-            </div>
-        </div>
-    </footer>
+    <script>
+        async function loadFooter() {
+            const res = await fetch('partials/footer.html');
+            const html = await res.text();
+            document.getElementById('footer-container').innerHTML = html;
+        }
+
+        loadFooter();
+    </script>
 
     <!-- Modal -->
     <div id="modal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center hidden">

@@ -83,38 +83,17 @@
 
     </section>
 
-    <!--Segmenter les travaux par catégorie / thèmes-->
+    <div id="footer-container"></div>
 
-    <footer class="text-[#411FEB] py-6 text-center">
-        <div class="container mx-auto flex flex-wrap justify-between items-center lg:px-32 px-8">
-            <!-- Logo et slogan -->
-            <div class="text-left">
-                <a href="index.html" class="text-lg font-semibold">Wizyx</a>
-                <p class="mt-2">🚀 Progressons chaque jour vers notre rêve !</p>
-                <p class="mt-2"><a href="legal.html" class="underline">Mentions légales</a></p>
-            </div>
+    <script>
+        async function loadFooter() {
+            const res = await fetch('partials/footer.html');
+            const html = await res.text();
+            document.getElementById('footer-container').innerHTML = html;
+        }
 
-            <!-- Icônes sociales -->
-            <div class="flex space-x-4">
-                <a href="https://linkedin.com/in/flogk/"
-                    class="w-12 h-12 flex items-center justify-center border-2 border-[#411FEB] rounded-full hover:bg-[#411FEB] hover:text-white">
-                    <i class='bxl bx-linkedin'></i> 
-                </a>
-                <a href="mailto:floriangertner0@gmail.com"
-                    class="w-12 h-12 flex items-center justify-center border-2 border-[#411FEB] rounded-full hover:bg-[#411FEB] hover:text-white">
-                    <i class='bx bxs-envelope text-xl'></i>
-                </a>
-                <a href="https://t.me/wizyx0"
-                    class="w-12 h-12 flex items-center justify-center border-2 border-[#411FEB] rounded-full hover:bg-[#411FEB] hover:text-white">
-                    <i class='bxl bx-telegram text-xl'></i>
-                </a>
-                <a href="https://github.com/WizyxGH"
-                    class="w-12 h-12 flex items-center justify-center border-2 border-[#411FEB] rounded-full hover:bg-[#411FEB] hover:text-white">
-                    <i class='bxl bx-github text-xl'></i>
-                </a>
-            </div>
-        </div>
-    </footer>
+        loadFooter();
+    </script>
 
     <!-- Modal -->
     <div id="modal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center hidden">

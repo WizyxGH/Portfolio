@@ -1,33 +1,64 @@
-<footer class="bg-[#411FEB] text-white py-6 text-center">
-    <div class="container mx-auto flex flex-wrap justify-between items-center lg:px-32 px-8">
-        <!-- Logo et slogan -->
-        <div class="text-left">
-            <a href="index.html" class="flex items-center gap-2 text-lg font-bold text-white">
-                <img src="media/logo.png" alt="Logo Wizyx" class="w-6 h-6">
-                Wizyx
-            </a>
-            <p class="mt-2">Je crée des interfaces premium et intuitives en alliant clarté, esthétique et storytelling pour offrir la meilleure expérience possible aux utilisateurs.</p>
-            <p class="mt-2"><a href="legal.html" class="underline">Mentions légales</a></p>
+<footer class="bg-[#411FEB] text-white p-6">
+    <div class="container md:mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+
+
+        <!-- Colonne 1 : Branding et réseaux sociaux -->
+        <div class="w-full flex flex-col justify-between gap-4">
+            <div class="space-y-2">
+                <a href="index.html" class="flex items-center gap-2 text-lg font-bold text-white">
+                    <img src="media/logo.png" alt="Logo Wizyx" class="w-6 h-6">
+                    Wizyx
+                </a>
+                <p class="text-sm">
+                    Je crée des interfaces premium et intuitives en alliant clarté, esthétique et storytelling pour
+                    offrir
+                    la meilleure expérience possible aux utilisateurs.
+                </p>
+            </div>
+            <div class="flex space-x-2 text-[#411FEB] text-2xl">
+                <a href="https://linkedin.com/in/flogk/"
+                    class="w-12 h-12 flex items-center justify-center bg-white rounded-xl">
+                    <i class='bxl bx-linkedin'></i>
+                </a>
+                <a href="mailto:floriangertner0@gmail.com"
+                    class="w-12 h-12 flex items-center justify-center bg-white rounded-xl">
+                    <i class='bx bxs-envelope'></i>
+                </a>
+                <a href="https://t.me/wizyx0" class="w-12 h-12 flex items-center justify-center bg-white rounded-xl">
+                    <i class='bxl bx-telegram'></i>
+                </a>
+                <a href="https://github.com/WizyxGH"
+                    class="w-12 h-12 flex items-center justify-center bg-white rounded-xl">
+                    <i class='bxl bx-github'></i>
+                </a>
+            </div>
         </div>
 
-        <!-- Icônes sociales -->
-        <div class="flex space-x-4 text-[#411FEB] text-2xl">
-            <a href="https://linkedin.com/in/flogk/"
-                class="w-12 h-12 flex items-center justify-center bg-white rounded-xl">
-                <i class='bxl bx-linkedin'></i>
-            </a>
-            <a href="mailto:floriangertner0@gmail.com"
-                class="w-12 h-12 flex items-center justify-center bg-white rounded-xl">
-                <i class='bx bxs-envelope'></i>
-            </a>
-            <a href="https://t.me/wizyx0"
-                class="w-12 h-12 flex items-center justify-center bg-white rounded-xl">
-                <i class='bxl bx-telegram'></i>
-            </a>
-            <a href="https://github.com/WizyxGH"
-                class="w-12 h-12 flex items-center justify-center bg-white rounded-xl">
-                <i class='bxl bx-github'></i>
-            </a>
+        <!-- Colonne 2 : Navigation -->
+        <div class="w-full flex flex-col h-full justify-start gap-2">
+            <p class="font-bold">Navigation</p>
+            <div class="flex flex-col gap-1">
+                <a href="../about.html" class="hover:underline">Qui suis-je ?</a>
+                <a href="../creations.html" class="hover:underline">Mes créations</a>
+                <a href="../services.html" class="hover:underline">Mes services</a>
+                <a href="legal.html" class="hover:underline">Mentions légales</a>
+            </div>
         </div>
+
+        <!-- Colonne 3 : Newsletter -->
+        <div class="w-full flex flex-col h-full justify-start text-left md:text-right gap-4">
+            <div class="space-y-2">
+                <p class="font-bold">Rejoindre la newsletter</p>
+                <p>En cours de création, revenez plus tard...</p>
+            </div>
+            <form class="flex gap-2 justify-start md:justify-end">
+                <input type="email" placeholder="Entrez votre adresse e-mail"
+                    class="w-full px-3 py-2 rounded-xl border border-white text-black">
+                <button type="submit" class="p-2 bg-white text-[#411FEB] rounded-xl font-semibold text-2xl">
+                    <i class='bxr bx-send-alt'></i>
+                </button>
+            </form>
+        </div>
+
     </div>
 </footer>

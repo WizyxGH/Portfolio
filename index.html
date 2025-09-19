@@ -19,7 +19,7 @@
     <div id="navbar-container"></div>
     
     <!-- Header -->
-    <header class="text-white bg-[#411FEB] py-8 lg:px-32 px-8 flex flex-col lg:flex-row items-stretch gap-4">
+    <header class="text-white bg-[#411FEB] p-8 lg:px-32 flex flex-col lg:flex-row items-stretch gap-4">
         <!-- Image -->
         <div class="flex justify-start lg:justify-end lg:w-1/2 order-1 lg:order-2 mb-4">
             <img src="media/photo.jpg" alt="Photo de Florian"
@@ -44,7 +44,7 @@
         </div>
     </header>
     
-    <section class="pt-8 lg:px-32 text-center px-8">
+    <section class="p-8 lg:px-32 text-center">
         <h2 class="text-2xl text-[#121212] font-medium mb-6">
             On a travaillé ensemble et
             <br>ils me recommandent.
@@ -286,11 +286,11 @@
 </script>
 
 <script>
-async function loadFooter() {
-    const res = await fetch('partials/footer.html');
-    const html = await res.text();
-    document.getElementById('footer-container').innerHTML = html;
-}
+    async function loadFooter() {
+        const res = await fetch('partials/footer.html');
+        const html = await res.text();
+        document.getElementById('footer-container').innerHTML = html;
+    }
 
-loadFooter();
+    loadFooter();
 </script>
