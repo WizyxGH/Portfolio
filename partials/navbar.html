@@ -23,14 +23,40 @@
                         Mes créations <i class='bx bx-chevron-down ml-1 text-[#E8E4FC]'></i>
                     </button>
                     <ul id="dropdownMenu"
-                        class="hidden flex-col bg-[#411FEB] text-white lg:absolute lg:left-0 lg:mt-2 lg:bg-white lg:text-[#411FEB] lg:shadow-md lg:rounded-md lg:w-48">
-                        <li><a href="creations.html" class="block px-12 py-2 hover:bg-[#E8E4FC] hover:text-[#411FEB]">Professionnel</a>
+                        class="hidden flex-col bg-white text-[#411FEB] lg:absolute lg:left-0 lg:mt-2 lg:shadow-md lg:rounded-md lg:w-64">
+                        <li>
+                            <a href="creations.html" class="block px-6 py-2 hover:bg-[#E8E4FC] hover:text-[#411FEB]">
+                                <div class="flex items-center gap-3">
+                                    <!-- Carré autour de l'icône -->
+                                    <span class="bg-[#E8E4FC] text-[#411FEB] p-2 text-xl rounded-md flex items-center justify-center">
+                                        <i class='bx bxs-briefcase-alt-2'></i>
+                                    </span>
+                                    <!-- Texte principal + secondaire -->
+                                    <div class="flex flex-col">
+                                        <span>Professionnel</span>
+                                        <span class="text-xs text-[#3E3E3E]">UI/UX Design, articles</span>
+                                    </div>
+                                </div>
+                            </a>
+
                         </li>
-                        <li><a href="creations_studies.html"
-                                class="block px-12 py-2 hover:bg-[#E8E4FC] hover:text-[#411FEB]">Académique</a></li>
+                        <li>
+                            <a href="creations_studies.html" class="block px-6 py-2 hover:bg-[#E8E4FC] hover:text-[#411FEB]">
+                                <div class="flex items-center gap-3">
+                                    <!-- Carré autour de l'icône -->
+                                    <span class="bg-[#E8E4FC] text-[#411FEB] p-2 text-xl rounded-md flex items-center justify-center">
+                                        <i class='bx bxs-education'></i>
+                                    </span>
+                                    <!-- Texte principal + secondaire -->
+                                    <div class="flex flex-col">
+                                        <span>Académique</span>
+                                        <span class="text-xs text-[#3E3E3E]">Réalisé en BUT MMI</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
                     </ul>
                 </li>
-
 
                 <li><a href="services.html" class="block px-6 py-2 text-white hover:underline">Mes services</a></li>
             </ul>
@@ -61,9 +87,8 @@
         links.forEach(link => {
             const href = link.getAttribute("href");
             if (href === currentPath) {
-                link.classList.add("font-bold", "underline"); // Gras + souligné (tu peux adapter)
+                link.classList.add("font-bold");
             }
         });
     });
 </script>
-
