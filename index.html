@@ -264,7 +264,7 @@
 
 <script>
     async function loadNavbar() {
-        const res = await fetch('navbar.html');
+        const res = await fetch('partials/navbar.html');
         const html = await res.text();
         const container = document.getElementById('navbar-container');
         container.innerHTML = html;
@@ -285,9 +285,7 @@
         });
     }
     loadNavbar();
-</script>
 
-<script>
     async function loadFooter() {
         const res = await fetch('partials/footer.html');
         const html = await res.text();

@@ -1,5 +1,4 @@
-<!-- Navbar sticky directement intégrée -->
-<header class="bg-[#411FEB] sticky top-0 z-50" id="navbar">
+<header class="bg-[#411FEB] fixed top-0 left-0 w-full z-50" id="navbar">
     <div class="container mx-auto px-6 py-3 flex justify-between items-center">
         <!-- Logo -->
         <a href="index.html" class="flex items-center gap-2 text-lg font-bold text-white">
@@ -14,21 +13,24 @@
 
         <!-- Menu de navigation -->
         <nav id="navMenu"
-            class="hidden absolute top-16 left-0 w-full bg-[#411FEB] shadow-lg lg:shadow-none lg:static lg:flex lg:items-center lg:space-x-6 lg:w-auto">
+            class="hidden absolute top-full left-0 w-full bg-[#411FEB] shadow-lg lg:shadow-none lg:static lg:flex lg:items-center lg:space-x-6 lg:w-auto">
             <ul class="lg:flex lg:space-x-6 lg:text-left">
                 <li><a href="about.html" class="block px-6 py-2 text-white hover:underline">Qui suis-je ?</a></li>
 
                 <!-- Menu déroulant "Mes créations" -->
-                <li class="relative">
-                    <button id="dropdownButton" class="block px-6 py-2 text-white flex items-center">
-                        Mes créations <i class='bx bx-chevron-down ml-1'></i>
+                <li class="relative lg:group">
+                    <button id="dropdownButton" class="block px-6 py-2 text-white flex items-center w-full">
+                        Mes créations <i class='bx bx-chevron-down ml-1 text-[#E8E4FC]'></i>
                     </button>
                     <ul id="dropdownMenu"
-                        class="hidden absolute left-0 mt-2 bg-white shadow-md rounded-md w-48 text-[#411FEB] lg:group-hover:block">
-                        <li><a href="creations.html" class="block px-6 py-2 hover:bg-gray-200">Professionnel</a></li>
-                        <li><a href="creations_studies.html" class="block px-6 py-2 hover:bg-gray-200">Académique</a></li>
+                        class="hidden flex-col bg-[#411FEB] text-white lg:absolute lg:left-0 lg:mt-2 lg:bg-white lg:text-[#411FEB] lg:shadow-md lg:rounded-md lg:w-48">
+                        <li><a href="creations.html" class="block px-12 py-2 hover:bg-[#E8E4FC] hover:text-[#411FEB]">Professionnel</a>
+                        </li>
+                        <li><a href="creations_studies.html"
+                                class="block px-12 py-2 hover:bg-[#E8E4FC] hover:text-[#411FEB]">Académique</a></li>
                     </ul>
                 </li>
+
 
                 <li><a href="services.html" class="block px-6 py-2 text-white hover:underline">Mes services</a></li>
             </ul>
@@ -50,4 +52,18 @@
     dropdownButton.addEventListener('click', () => {
         dropdownMenu.classList.toggle('hidden');
     });
+
+    // Met en gras le lien actif selon l'URL
+    document.addEventListener("DOMContentLoaded", () => {
+        const currentPath = window.location.pathname.split("/").pop(); // ex: "about.html"
+        const links = document.querySelectorAll("#navMenu a");
+
+        links.forEach(link => {
+            const href = link.getAttribute("href");
+            if (href === currentPath) {
+                link.classList.add("font-bold", "underline"); // Gras + souligné (tu peux adapter)
+            }
+        });
+    });
 </script>
+
