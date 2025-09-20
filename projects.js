@@ -7,7 +7,7 @@ let projects = [
         <br>Ils ont la volonté de s'expandre en mettant plus en avant l'aspect média du site car ils ont une journaliste qui rédige des articles sur les établissements et évènements.
         <br>Le site actuel, bien que fonctionnel, a un style plutôt désuet et pourrait être plus plaisant à naviguer. C'était donc notre objectif. Il fallait s'approprier leur idée pour retravailler la navigation du site ainsi que les inspirations visuels fournis (notamment le Bento Design) afin de fournir un tout cohérent pour l'utilisateur.`,
         description: "Redesign du site et de l'application du guide touristique local, Le Guide du Golfe de Saint-Tropez.",
-        image: "media/projects/guidegolfesainttropez.jpg",
+        image: "/media/projects/guidegolfesainttropez.jpg",
         driveLink: "https://drive.google.com/drive/folders/1YxsK-HIXDJE7Ik8Jqx0dYNEObw0r32kE?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -24,7 +24,7 @@ let projects = [
         <br>Appréciant son contenu et voyant qu’il est présent sur à peu près tous les réseaux, je me suis fait la réflexion qu’il lui manquait tout de même un moyen plus traditionnel pour qu’il puisse expliquer son travail notamment auprès des marques.
         <br>Je me suis alors lancé dans la création d’une landing page dans ce but reprenant son identité visuelle et son storytelling. J’y présente son histoire, ses stratégies, ses différents projets et met en avant sa preuve sociale pour faire gagner la confiance de ses futurs collaborateurs.`,
         description: "Design d'une landing page pour que le créateur de contenu Maxime Click puisse promouvoir son travail notamment auprès des marques.",
-        image: "media/projects/maximeclick.jpg",
+        image: "/media/projects/maximeclick.jpg",
         driveLink: "https://drive.google.com/drive/folders/17BrU0ZnFJh049cORIbuMdGN9OO1Q19T-?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -78,7 +78,7 @@ let projects = [
         - AC25.04 - Collaborer au sein des organisations
         - AC25.06 - Prendre en compte les contraintes juridiques`,
         description: "Design d'une landing page pour présenter le projet de l'application Mon Gardien dans le but de récolter des fonds et de jauger l'intérêt de la cible.",
-        image: "media/projects/mongardien.jpg",
+        image: "/media/projects/mongardien.jpg",
         driveLink: "https://drive.google.com/drive/folders/1sRims-3Ztax9HajV-F5f6XhtVbpwNAdc?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -92,7 +92,7 @@ let projects = [
         <br>Ils souhaitent continuer d’améliorer leur image en retravaillant leur site internet.
         <br>Ma maître de stage, Caroline AUBERT, est uniquement repassée sur certains éléments pour améliorer la cohérence globale de la page.`,
         description: "Transformation d'un wireframe de la page d'accueil en une maquette high fidelity.",
-        image: "media/projects/francegaloplive.jpg",
+        image: "/media/projects/francegaloplive.jpg",
         driveLink: "https://drive.google.com/drive/folders/1wElcAEDe484_4w8MS3-LveCTUNChhTW9?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -109,7 +109,7 @@ let projects = [
         <br>Personnellement, je me suis occupé de maquetter entièrement l’application sur Figma. J’ai aussi œuvré à son développement principalement au niveau du style et à la récupération des datasets d’images des plantes. On a fait le choix que ce soit une web app en React pour faciliter son déploiement sur les différents systèmes d’exploitation (Android ou iOS).
         Et à l’entame du projet, j’avais fait une proposition de charte graphique`,
         description: "Design de l'application BioQuest visant à sensibiliser sur les espèces exotiques envahissantes.",
-        image: "media/projects/bioquest.jpg",
+        image: "/media/projects/bioquest.jpg",
         driveLink: "https://drive.google.com/drive/folders/18LZ-7rL-slxtJ-zrxZ75e7J3aDJfW0Hy?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -123,7 +123,7 @@ let projects = [
         <br>Ayant un frère multi champion de France dans plusieurs de ses disciplines, il m’arrive de consulter le site internet de la WCA pour consulter ses nouveaux et anciens résultats ainsi que celui des autres compétiteurs.
         <br>Trouvant certaines informations mal hiérarchisées et afin de continuer de m’entraîner à utiliser Figma, je me suis amusé à repenser la page profil des compétiteurs en vue téléphone (étant donné que c’est de cette façon qu’elles sont le plus souvent consultées).`,
         description: "Redesign de la page profil d'un compétiteur affilié à la World Cube Association.",
-        image: "media/projects/wca.jpg",
+        image: "/media/projects/wca.jpg",
         driveLink: "https://drive.google.com/drive/folders/1DYVRW2Ozfwn2veudiz4UoAhKKjAGayro?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -139,7 +139,7 @@ let projects = [
         <br>On devait alors retravailler les pages des produits, la page cadencier avec les achats fréquents et le flow complet en 3 étapes pour les produits personnalisés.
         <br>Le client avait partagé des sites du même secteur dont il voudrait s’inspirer mais pour certains d’entre eux, l’aspect visuel était trop premium pour un grossiste (qui vend par conséquent des produits en grande quantité à un prix réduit). Il fallait expliquer au client que cela ne collerait pas à son image et qu’il fallait bien faire attention à respecter la charte graphique actuelle de PAPA France pour ne pas perdre les clients actuels (en pensant être sur un autre site s’il devient trop épuré par exemple). Ce qui s’avérerait destructeur pour le chiffre d’affaires.`,
         description: "Redesign de la page produit, produit personnalisé et cadencier pour le site e-commerce d'un grossiste d'emballage alimentaire",
-        image: "media/projects/papafrance.jpg",
+        image: "/media/projects/papafrance.jpg",
         driveLink: "https://drive.google.com/drive/folders/1twASkm-eKgmA9rNjCXFkEGEueE01_qEI?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -156,7 +156,7 @@ let projects = [
         <br>Les moyens de consommer l’information changent très vite et face au manque d’envie des passionnés de lire le fanzine via un PDF numérique, j’ai conceptualisé une application téléphone où l’on pourrait lire les différents articles plus facilement.
         <br>Pour l’instant, elle reste uniquement un concept.`,
         description: "Design d'une application permettant de lire les numéros du fanzine Picsou-Soir et d'enrichir l'expérience de lecture.",
-        image: "media/projects/picsousoir.jpg",
+        image: "/media/projects/picsousoir.jpg",
         driveLink: "https://drive.google.com/drive/folders/1Tc3rKCLWp6pU8akDs5X6gag0BtonrDp7?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -170,7 +170,7 @@ let projects = [
         <br>Sur le site DucksManager, il y a une fonctionnalité permettant aux utilisateurs de partager leur bonne adresse de bouquinerie sauf que cela n’a pas beaucoup de sens que la carte d’adresse et la fonctionnalitée ne soit pas disponible sur l’application mobile. On se déplace avec son téléphone pas son ordinateur. Cela demande alors de jongler entre plusieurs autres applications.
         <br>Frustré par un tel usage, j’ai designé comment elle pourrait être intégrée sur What The Duck.`,
         description: "Design d'une fonctionnalité de cartes GPS de bouquineries (avec possibilité de les ajouter) directement depuis l'application What The Duck.",
-        image: "media/projects/whattheduck.jpg",
+        image: "/media/projects/whattheduck.jpg",
         driveLink: "https://drive.google.com/drive/folders/1ep3b2m6SNhnLCiiqXu8VPUQnQ3snrPzA?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -185,7 +185,7 @@ let projects = [
         <br>Je me suis occupée de créer sur Figma, la maquette de leur site internet dans un univers pop, de coder un petit jeu permettant de découvrir les personnages et les acteurs de façon décalée.
         <br>Nous avons chacun modélisé en 3D un objet dérivé qui pourrait être vendu ainsi qu’écrit une fiche de production de 4 courtes vidéos verticales qui devait promouvoir la série avant sa sortie. Leur but était de susciter l’intérêt en commençant à rentrer dans l’univers de Tom et Lola.`,
         description: "Design d'un site internet dont l'objectif était de promouvoir la série Tom et Lola diffusée sur France 2.",
-        image: "media/projects/tometlola.jpg",
+        image: "/media/projects/tometlola.jpg",
         driveLink: "https://drive.google.com/drive/folders/16BpVcRMELyWNcUPYQ9z9A9jBw6j4QBaJ?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -202,7 +202,7 @@ let projects = [
         <br>En téléversant des scans de chaque page du magazine dans l’outil, DuMILi a comme ambition de mâcher au maximum le travail de l’indexeur pour que les informations puisse ensuite être ajouté le plus rapidement possible à la base de données Inducks pour le profit des fans et autres professionnels.
         <br>Actuellement en plein processus de création, je conceptualise un outil technique très spécifique mais le challenge est qu’il doit rester intuitif et ne pas trop le surcharger de paramètres inefficaces.`,
         description: "Design d'un SaaS permettant d'aider grâce à l'IA à générer des index de BD Disney pour la base de données Inducks.",
-        image: "media/projects/dumili.jpg",
+        image: "/media/projects/dumili.jpg",
         driveLink: "https://drive.google.com/drive/folders/1j3NQS-oVQOpmPAgNIJIKOyclELy_y9rz?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -218,7 +218,7 @@ let projects = [
         <br>Les utilisateurs étaient aussi renvoyés vers des articles et communauté fictive pour ne pas qu’ils se sentent seuls face à leur addiction.
         Pour ce projet, on a également eu l’occasion de réaliser un photoshoot pour avoir des images d’illustrations.`,
         description: "Design d'un site internet sensibilisant à l'addiction aux écrans. Il permet également de se positionner sur son usage personnel et propose des solutions.",
-        image: "media/projects/breakscreen.jpg",
+        image: "/media/projects/breakscreen.jpg",
         driveLink: "https://drive.google.com/drive/folders/1xFHCWY7JdEvFcW0Phu4eOp7MkOuDab85?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -233,7 +233,7 @@ let projects = [
         <br>Le parcours utilisateur devait être cohérent pour choisir un maximum d’éléments présents sur la carte. On devait notamment pousser le consommateur à dépenser avec des augmentateurs de panier moyen et un parcours pour l'achat d'un produit personnalisé.
         <br>Nous sommes partis sur une pizzeria dont j’ai réalisé l’intégralité de la maquette seul. J'ai également participé à l'élaboration de la charte graphique. Une autre personne s'est occupée de la réalisation du logo.`,
         description: "Design du site internet pour une enseigne fictive de restauration.",
-        image: "media/projects/pizzami.jpg",
+        image: "/media/projects/pizzami.jpg",
         driveLink: "https://drive.google.com/drive/folders/1KcJ6iVQz7GUYs5jscAdILHrOymirMQD3?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -250,7 +250,7 @@ let projects = [
         De ce fait, dans mon temps libre, j’ai imaginé une nouvelle version de la page d’accueil du site plus attrayante, moderne et qui améliorerait l’expérience utilisateur.
         Pour ne pas trop surcharger le développement, je me suis concentré presque exclusivement sur l’aspect visuel sans vraiment dénaturer l’existant.`,
         description: "Redesign de la page d'accueil de Inducks. La base de données de bandes dessinées Disney.",
-        image: "media/projects/inducks.jpg",
+        image: "/media/projects/inducks.jpg",
         driveLink: "https://drive.google.com/drive/folders/13PezY4KgwBw34IZeNLaSolclIbk-gSky?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -263,7 +263,7 @@ let projects = [
         text: `Pour un exercice lors du 2ᵉ semestre de 2ᵉ année de BUT MMI, il fallait réaliser la page de présentation d’un produit qui a différentes options et y intégrer différentes sections de réassurance.
         <br>J’ai donc réalisé sur Figma la maquette pour un ballon de football avec un aspect premium.`,
         description: "Design de la page produit d'un ballon de football.",
-        image: "media/projects/ballonfoot.jpg",
+        image: "/media/projects/ballonfoot.jpg",
         driveLink: "https://drive.google.com/drive/folders/1bMsjP1iClVy4xGjYPOR5cPlr1VOu9EeN?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -276,7 +276,7 @@ let projects = [
         text: `En début de 2ᵉ année de BUT MMI, pour les premiers cours d’apprentissage de Figma nous devions réaliser une landing page qui présente le sujet de notre choix.
         <br>J’ai donc imaginé et réalisé une landing page pour une marque de chaussures de running.`,
         description: "Design d'une landing page pour une marque de chaussures de running.",
-        image: "media/projects/runandrerun.jpg",
+        image: "/media/projects/runandrerun.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -287,7 +287,7 @@ let projects = [
         title: "Joyca, Trouve la règle",
         text: `Coming soon...`,
         description: "Coming soon...",
-        image: "media/projects/trouvelaregle.jpg",
+        image: "/media/projects/trouvelaregle.jpg",
         driveLink: "https://google.com",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -303,7 +303,7 @@ let projects = [
         title: "Cartaloto",
         text: `Coming soon...`,
         description: "Coming soon...",
-        image: "media/projects/cartaloto.jpg",
+        image: "/media/projects/cartaloto.jpg",
         driveLink: "https://google.com",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -314,7 +314,7 @@ let projects = [
         title: "Digital Unicorn",
         text: `Coming soon...`,
         description: "Coming soon...",
-        image: "media/projects/digitalunicorn.jpg",
+        image: "/media/projects/digitalunicorn.jpg",
         driveLink: "https://google.com",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -326,7 +326,7 @@ let projects = [
         title: "Promodentaire",
         text: `Coming soon...`,
         description: "Coming soon...",
-        image: "media/projects/promodentaire.jpg",
+        image: "/media/projects/promodentaire.jpg",
         driveLink: "https://google.com",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -337,7 +337,7 @@ let projects = [
         title: "Danse à l'Opéra",
         text: `Coming soon...`,
         description: "Scénographie et affiche",
-        image: "media/projects/dansealopera.png",
+        image: "/media/projects/dansealopera.png",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         tags: [
             { name: "Scénographie", icon: "bx bxs-mask" },
@@ -349,7 +349,7 @@ let projects = [
         title: "Introduction sur la faune et la flore du Var",
         text: `Coming soon...`,
         description: "Vidéo et article",
-        image: "media/projects/fauneflorevar.jpg",
+        image: "/media/projects/fauneflorevar.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         tags: [
             { name: "Vidéo", icon: "bxr bx-video-cinema" },
@@ -362,7 +362,7 @@ let projects = [
         title: "Vidéo œuvre culturelle",
         text: `Coming soon...`,
         description: "Lorem ipsum.",
-        image: "media/projects/tresdemayo.jpg",
+        image: "/media/projects/tresdemayo.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         tags: [
             { name: "Vidéo", icon: "bxr bx-video-cinema" },
@@ -376,7 +376,7 @@ let projects = [
         title: "Tom et Lola",
         text: `Coming soon...`,
         description: "Lorem ipsum.",
-        image: "media/projects/tometlola2.jpg",
+        image: "/media/projects/tometlola2.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -391,7 +391,7 @@ let projects = [
         title: "Stratégie de communication Mafigue",
         text: `Coming soon...`,
         description: "Lorem ipsum.",
-        image: "media/projects/mafigue.jpg",
+        image: "/media/projects/mafigue.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         tags: [
             { name: "Communication / Marketing", icon: "bxr bx-message-bubble" },
@@ -402,7 +402,7 @@ let projects = [
         title: "Jeu de l'oie : CultoPhoto",
         text: `Coming soon...`,
         description: "Lorem ipsum.",
-        image: "media/projects/cultophoto.jpg",
+        image: "/media/projects/cultophoto.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         tags: [
             { name: "Design graphique", icon: "bx bxs-layout" },
@@ -413,7 +413,7 @@ let projects = [
         title: "Sites WordPress",
         text: `Coming soon...`,
         description: "Lorem ipsum.",
-        image: "media/projects/wordpress.png",
+        image: "/media/projects/wordpress.png",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         tags: [
             { name: "Développement", icon: "bx bx-code-alt" },
@@ -424,7 +424,7 @@ let projects = [
         title: "Maquette fanzine Picsou-Soir",
         text: `Coming soon...`,
         description: "Projet personnel",
-        image: "media/projects/picsousoir2.jpg",
+        image: "/media/projects/picsousoir2.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         tags: [
             { name: "Mise en page", icon: "bx bxs-layout" },

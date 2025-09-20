@@ -1,0 +1,111 @@
+<header class="bg-[#411FEB] fixed top-0 left-0 w-full z-50" id="navbar">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+        <!-- Logo -->
+        <a href="/index/" class="flex items-center gap-2 text-lg font-bold text-white">
+            <img src="/media/logo.png" alt="Logo Wizyx" class="w-6 h-6">
+            Wizyx
+        </a>
+
+        <!-- Bouton Menu Burger (visible sur mobile) -->
+        <button id="menuButton" class="text-white text-3xl lg:hidden">
+            <i class='bx bx-menu'></i>
+        </button>
+
+        <!-- Menu de navigation -->
+        <nav id="navMenu"
+            class="hidden absolute top-full left-0 w-full bg-[#411FEB] shadow-lg lg:shadow-none lg:static lg:flex lg:items-center lg:space-x-6 lg:w-auto">
+            <ul class="lg:flex lg:space-x-6 lg:text-left">
+                <li><a href="/about/" class="block px-6 py-2 text-white hover:font-semibold">Qui suis-je ?</a></li>
+
+                <!-- Menu déroulant "Réalisations" -->
+                <li class="relative lg:group">
+                    <button id="dropdownButton" class="inline-flex items-center px-6 py-2 text-white">
+                        Réalisations
+                        <i id="dropdownChevron" class='bx bx-chevron-down ml-1'></i>
+                    </button>
+                    <ul id="dropdownMenu"
+                        class="hidden flex-col bg-white text-[#411FEB] lg:absolute lg:left-0 lg:shadow-md lg:rounded-md lg:w-64">
+                        <li>
+                            <a href="/creations/" class="block lg:px-2 px-6 py-2 hover:bg-[#E8E4FC] hover:text-[#411FEB] hover:font-semibold">
+                                <div class="flex items-center gap-3">
+                                    <span class="bg-[#E8E4FC] text-[#411FEB] p-2 text-xl rounded-md flex items-center justify-center">
+                                        <i class='bx bxs-briefcase-alt-2'></i>
+                                    </span>
+                                    <div class="flex flex-col">
+                                        <span class="">Professionnel</span>
+                                        <span class="text-xs text-[#3E3E3E] text-base leading-relaxed">UI/UX Design, articles</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/creations_studies/" class="block lg:px-2 px-6 py-2 hover:bg-[#E8E4FC] hover:text-[#411FEB] hover:font-semibold">
+                                <div class="flex items-center gap-3">
+                                    <span class="bg-[#E8E4FC] text-[#411FEB] p-2 text-xl rounded-md flex items-center justify-center">
+                                        <i class='bx bxs-education'></i>
+                                    </span>
+                                    <div class="flex flex-col">
+                                        <span class="">Académique</span>
+                                        <span class="text-xs text-[#3E3E3E] text-base leading-relaxed">Réalisé en BUT MMI</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li><a href="/services/" class="block px-6 py-2 text-white hover:font-semibold">Mes services</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<script>
+    // Menu burger mobile
+    const menuButton = document.getElementById('menuButton');
+    const navMenu = document.getElementById('navMenu');
+    menuButton.addEventListener('click', () => {
+        navMenu.classList.toggle('hidden');
+    });
+
+    // Dropdown "Mes créations"
+    const dropdownButton = document.getElementById('dropdownButton');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    const dropdownChevron = document.getElementById('dropdownChevron');
+
+    dropdownButton.addEventListener('click', () => {
+        dropdownMenu.classList.toggle('hidden');
+
+        if (dropdownMenu.classList.contains('hidden')) {
+            // Ferme → chevron down
+            dropdownChevron.classList.remove('bx-chevron-up');
+            dropdownChevron.classList.add('bx-chevron-down');
+        } else {
+            // Ouvert → chevron up
+            dropdownChevron.classList.remove('bx-chevron-down');
+            dropdownChevron.classList.add('bx-chevron-up');
+        }
+    });
+
+    // Lien actif + parent dropdown
+    document.addEventListener("DOMContentLoaded", () => {
+        const currentPath = window.location.pathname.replace(/\/+$/, ""); // supprime slash final
+        const links = document.querySelectorAll("#navMenu a");
+
+        links.forEach(link => {
+            let href = link.getAttribute("href").replace(/\/+$/, "");
+            
+            // Lien actif exact ou sous-page du dropdown
+            if (currentPath === href || currentPath.startsWith(href + "/")) {
+                link.classList.add("font-semibold");
+                
+                // Si le lien est dans un dropdown, mettre le parent en gras aussi
+                const dropdownParent = link.closest(".relative.lg\\:group");
+                if (dropdownParent) {
+                    const parentButton = dropdownParent.querySelector("#dropdownButton");
+                    if (parentButton) parentButton.classList.add("font-semibold");
+                }
+            }
+        });
+    });
+</script>

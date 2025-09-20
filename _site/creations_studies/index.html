@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets académiques</title>
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
+    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+    <link href='https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/x-icon" href="/media/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/projects.js"></script>
+    <script src="/script.js"></script>
+</head>
+
+<body class="font-inter text-[#411FEB]">
+
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
+
+    <header class="text-white bg-[#411FEB] py-20 lg:px-32 px-8">
+        <h1 class="text-5xl font-bold">Étudiant en BUT MMI 3ᵉ année</h1>
+        <p class="mt-4">Retrouvez les créations les plus marquantes sur lequel j'ai travaillé lors de mes 2 années
+            d'études en BUT Métiers du Multimédia et de l'Internet</p>
+    </header>
+
+    <section class="py-16 text-center lg-px:32 px-8">
+        <h2 class="text-2xl font-bold mb-6">
+            <i class='bx bxs-palette'></i> Mes autres créations en tout genre...
+        </h2>
+        <div id="projectsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <!-- Les cartes seront insérées ici dynamiquement par JavaScript -->
+        </div>
+        <!-- Bouton pour afficher les projets supplémentaires -->
+        <button id="showMoreButton"
+            class="border-2 border-[#411FEB] text-[#411FEB] px-6 rounded-full mt-6 hover:bg-[#3509B6] hover:text-white">
+            Afficher tous les projets...
+        </button>
+
+        <button id="showLessButton"
+            class="border-2 border-[#411FEB] text-[#411FEB] px-6 rounded-full mt-6 hover:bg-[#3509B6] hover:text-white hidden">
+            Afficher moins de projets...
+        </button>
+
+    </section>
+
+    <div id="footer-container"></div>
+
+    <script>
+        async function loadNavbar() {
+            const res = await fetch('/partials/navbar.html');
+            const html = await res.text();
+            const container = document.getElementById('navbar-container');
+            container.innerHTML = html;
+
+            // Attendre le prochain cycle pour que le DOM soit pris en compte
+            requestAnimationFrame(() => {
+                const menuButton = document.getElementById('menuButton');
+                const navMenu = document.getElementById('navMenu');
+                if (menuButton && navMenu) {
+                    menuButton.addEventListener('click', () => navMenu.classList.toggle('hidden'));
+                }
+
+                const dropdownButton = document.getElementById('dropdownButton');
+                const dropdownMenu = document.getElementById('dropdownMenu');
+                if (dropdownButton && dropdownMenu) {
+                    dropdownButton.addEventListener('click', () => dropdownMenu.classList.toggle('hidden'));
+                }
+            });
+        }
+        loadNavbar();
+
+        async function loadFooter() {
+            const res = await fetch('/partials/footer.html');
+            const html = await res.text();
+            document.getElementById('footer-container').innerHTML = html;
+        }
+
+        loadFooter();
+    </script>
+
+    <!-- Modal -->
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center hidden">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-11/12 md:w-2/3 lg:w-1/2 relative max-h-[90vh] overflow-y-auto">
+            <!-- Icône de fermeture -->
+            <i class='bx bx-x absolute top-4 right-4 text-3xl cursor-pointer text-[#411FEB]' onclick="closeModal()"></i>
+
+            <!-- Contenu de la modal -->
+            <h3 class="text-lg font-semibold text-[#411FEB]" id="modalTitle">Titre du projet</h3>
+            <div class="h-40 bg-[#411FEB] mb-4 rounded-lg" id="modalImage"></div>
+            <p class="text-sm text-black" id="modalText">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu,
+                pulvinar magna. <br><br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu,
+                pulvinar magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada
+                augue eu, pulvinar magna.
+            </p>
+            <a id="modalButton" href="#" target="_blank"
+                class="mt-4 inline-block bg-[#411FEB] text-white px-4 py-2 rounded-md hover:bg-[#3A1CC5] transition">Voir
+                le résultat</a>
+        </div>
+    </div>
+
+    <script>
+        function openModal(title, text, color) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalText').innerText = text;
+            document.getElementById('modalImage').style.backgroundColor = color;
+            document.getElementById('modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.add('hidden');
+        }
+    </script>
+
+    <div class="gtranslate_wrapper"></div>
+    <script>
+        window.gtranslateSettings = {
+            "default_language": "fr",
+            "native_language_names": true,
+            "detect_browser_language": true,
+            "languages": ["da", "de", "en", "el", "es", "fr", "it", "nl", "no", "sv", "vi"],
+            "wrapper_selector": ".gtranslate_wrapper",
+            "alt_flags":{"en":"usa"}
+        };
+    </script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+
+</body>
+
+</html>

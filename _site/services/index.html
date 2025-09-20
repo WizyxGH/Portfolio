@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes services</title>
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
+    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+    <link href='https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/x-icon" href="/media/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/projects.js"></script>
+    <script src="/script.js"></script>
+    <script>document.write('<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer><\/script>');</script>
+</head>
+
+<body class="font-inter text-[#411FEB]">
+
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
+
+    <section class="py-16 text-center lg-px:32 px-8">
+        <h2 class="text-2xl font-bold mb-6">
+            Services
+        </h2>
+        <p class="text-black lg:text-md text-sm text-left leading-relaxed">
+            Coming soon...
+        </p>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <script>
+        async function loadNavbar() {
+            const res = await fetch('/partials/navbar.html');
+            const html = await res.text();
+            const container = document.getElementById('navbar-container');
+            container.innerHTML = html;
+
+            // Attendre le prochain cycle pour que le DOM soit pris en compte
+            requestAnimationFrame(() => {
+                const menuButton = document.getElementById('menuButton');
+                const navMenu = document.getElementById('navMenu');
+                if (menuButton && navMenu) {
+                    menuButton.addEventListener('click', () => navMenu.classList.toggle('hidden'));
+                }
+
+                const dropdownButton = document.getElementById('dropdownButton');
+                const dropdownMenu = document.getElementById('dropdownMenu');
+                if (dropdownButton && dropdownMenu) {
+                    dropdownButton.addEventListener('click', () => dropdownMenu.classList.toggle('hidden'));
+                }
+            });
+        }
+        loadNavbar();
+
+        async function loadFooter() {
+            const res = await fetch('/partials/footer.html');
+            const html = await res.text();
+            document.getElementById('footer-container').innerHTML = html;
+        }
+
+        loadFooter();
+    </script>
+
+    <div class="gtranslate_wrapper"></div>
+    <script>
+        window.gtranslateSettings = {
+            "default_language": "fr",
+            "native_language_names": true,
+            "detect_browser_language": true,
+            "languages": ["da", "de", "en", "el", "es", "fr", "it", "nl", "no", "sv", "vi"],
+            "wrapper_selector": ".gtranslate_wrapper",
+            "alt_flags":{"en":"usa"}
+        };
+    </script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+
+</body>
+
+</html>

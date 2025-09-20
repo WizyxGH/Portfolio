@@ -24,7 +24,7 @@
                         <i id="dropdownChevron" class='bx bx-chevron-down ml-1'></i>
                     </button>
                     <ul id="dropdownMenu"
-                        class="hidden flex-col bg-white text-[#411FEB] lg:absolute lg:left-0 lg:mt-2 lg:shadow-md lg:rounded-md lg:w-64">
+                        class="hidden flex-col bg-white text-[#411FEB] lg:absolute lg:left-0 lg:shadow-md lg:rounded-md lg:w-64">
                         <li>
                             <a href="/creations/" class="block lg:px-2 px-6 py-2 hover:bg-[#E8E4FC] hover:text-[#411FEB] hover:font-semibold">
                                 <div class="flex items-center gap-3">
@@ -33,7 +33,7 @@
                                     </span>
                                     <div class="flex flex-col">
                                         <span class="">Professionnel</span>
-                                        <span class="text-xs text-[#3E3E3E]">UI/UX Design, articles</span>
+                                        <span class="text-xs text-[#3E3E3E] text-base leading-relaxed">UI/UX Design, articles</span>
                                     </div>
                                 </div>
                             </a>
@@ -46,7 +46,7 @@
                                     </span>
                                     <div class="flex flex-col">
                                         <span class="">Académique</span>
-                                        <span class="text-xs text-[#3E3E3E]">Réalisé en BUT MMI</span>
+                                        <span class="text-xs text-[#3E3E3E] text-base leading-relaxed">Réalisé en BUT MMI</span>
                                     </div>
                                 </div>
                             </a>
@@ -87,17 +87,25 @@
         }
     });
 
-        document.addEventListener("DOMContentLoaded", () => {
-            const currentPath = window.location.pathname.split("/").pop().toLowerCase(); // ex: "about.html"
-            const links = document.querySelectorAll("#navMenu a");
+    // Lien actif + parent dropdown
+    document.addEventListener("DOMContentLoaded", () => {
+        const currentPath = window.location.pathname.replace(/\/+$/, ""); // supprime slash final
+        const links = document.querySelectorAll("#navMenu a");
 
-            links.forEach(link => {
-                const href = link.getAttribute("href").toLowerCase();
-                // Vérifie si le href est contenu dans le currentPath
-                if (currentPath.includes(href) && href !== "") {
-                    link.classList.add("font-semibold");
+        links.forEach(link => {
+            let href = link.getAttribute("href").replace(/\/+$/, "");
+            
+            // Lien actif exact ou sous-page du dropdown
+            if (currentPath === href || currentPath.startsWith(href + "/")) {
+                link.classList.add("font-semibold");
+                
+                // Si le lien est dans un dropdown, mettre le parent en gras aussi
+                const dropdownParent = link.closest(".relative.lg\\:group");
+                if (dropdownParent) {
+                    const parentButton = dropdownParent.querySelector("#dropdownButton");
+                    if (parentButton) parentButton.classList.add("font-semibold");
                 }
-            });
+            }
         });
-
+    });
 </script>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes créations</title>
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
+    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+    <link href='https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/x-icon" href="/media/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/projects.js"></script>
+    <script src="/script.js"></script>
+</head>
+
+<body class="font-inter text-[#411FEB]">
+
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
+
+    <header class="text-white bg-[#411FEB] py-20 lg:px-32 px-8">
+        <h1 class="text-5xl font-bold">Designer d'expériences</h1>
+        <h2 class="text-stroke text-5xl font-bold mt-2">Copywriter et rédacteur</h2>
+        <p class="mt-4">Je crée des interfaces premium et intuitives en alliant clarté, esthétique et storytelling pour offrir la meilleure expérience possible aux utilisateurs.</p>
+    </header>
+
+    <section class="py-16 text-center lg-px:32 px-8">
+        <h2 class="text-2xl font-bold mb-6">
+            <i class='bx bxl-sketch'></i> Mes maquettes
+        </h2>
+        <div id="projectsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <!-- Les cartes seront insérées ici dynamiquement par JavaScript -->
+        </div>
+        <!-- Bouton pour afficher les projets supplémentaires -->
+        <button id="showMoreButton"
+            class="border-2 border-[#411FEB] text-[#411FEB] px-6 rounded-full mt-6 hover:bg-[#3509B6] hover:text-white">
+            Afficher tous les projets...
+        </button>
+
+        <button id="showLessButton"
+            class="border-2 border-[#411FEB] text-[#411FEB] px-6 rounded-full mt-6 hover:bg-[#3509B6] hover:text-white hidden">
+            Afficher moins de projets...
+        </button>
+
+    </section>
+
+    <section class="py-16 text-center lg:px-32 px-8">
+        <h2 class="text-2xl font-bold mb-6">
+            <i class='bx bxs-notepad'></i> Mes articles
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            <!-- Cartes des projets -->
+            <a href="https://inducks.org/story.php?c=Qfr%2FPS+++14H" target="_blank" class="block w-full h-full">
+                <div class="bg-white rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE]">
+                    <div class="h-40 bg-cover bg-center mb-4 rounded-lg outline outline-2"
+                        style="background-image: url('/media/articles/jmag.jpeg');"></div>
+                    <h3 class="text-lg font-semibold text-[#411FEB]">Obscures Mickey d'avant-guerre</h3>
+                    <div class="mt-1 flex space-x-2">
+                        <span
+                            class="bg-[#EDE9FE] text-[#411FEB] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                            <i class='bx bx-calendar-event text-sm mr-1'></i> 23/12/2023
+                        </span>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-2">À quoi ressemble les premières versions du plus vieux
+                        hebdomadaire jeunesse encore en activité ?</p>
+                </div>
+            </a>
+            <a href="https://inducks.org/story.php?c=Qfr%2FPS+++13H" target="_blank" class="block w-full h-full">
+                <div class="bg-white rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE]">
+                    <div class="h-40 bg-cover bg-center mb-4 rounded-lg outline outline-2"
+                        style="background-image: url('/media/articles/brazil.jpg');"></div>
+                    <h3 class="text-lg font-semibold text-[#411FEB]">L'univers Disney brésilien</h3>
+                    <div class="mt-1 flex space-x-2">
+                        <span
+                            class="bg-[#EDE9FE] text-[#411FEB] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                            <i class='bx bx-calendar-event text-sm mr-1'></i> 29/05/2023
+                        </span>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-2">Les publications et histoires brésiliennes ont beaucoup de
+                        différences par rapport à ce que l'on connaît en France.</p>
+                </div>
+            </a>
+            <a href="https://inducks.org/story.php?c=Qfr%2FPS+++13E" target="_blank" class="block w-full h-full">
+                <div class="bg-white rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE]">
+                    <div class="h-40 bg-cover bg-center mb-4 rounded-lg outline outline-2"
+                        style="background-image: url('/media/articles/censorship.jpg');"></div>
+                    <h3 class="text-lg font-semibold text-[#411FEB]">Disney censure La Jeunesse de Picsou !</h3>
+                    <div class="mt-1 flex space-x-2">
+                        <span
+                            class="bg-[#EDE9FE] text-[#411FEB] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                            <i class='bx bx-calendar-event text-sm mr-1'></i> 29/05/2023
+                        </span>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-2">Disney décide de censurer l'iconique Jeunesse de Picsou de Don
+                        Rosa.</p>
+                </div>
+            </a>
+            <a href="https://inducks.org/story.php?c=Qfr%2FPS+++12I" target="_blank" class="block w-full h-full">
+                <div class="bg-white rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE]">
+                    <div class="h-40 bg-cover bg-center mb-4 rounded-lg outline outline-2"
+                        style="background-image: url('/media/articles/firstdime.jpg');"></div>
+                    <h3 class="text-lg font-semibold text-[#411FEB]">Quand Rosa ne cite pas Barks</h3>
+                    <div class="mt-1 flex space-x-2">
+                        <span
+                            class="bg-[#EDE9FE] text-[#411FEB] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                            <i class='bx bx-calendar-event text-sm mr-1'></i> 08/12/2022
+                        </span>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-2">Connu pour se baser exclusivement sur le travail de Carl
+                        Barks, il est parfois allé chercher ses sources ailleurs...</p>
+                </div>
+            </a>
+            <a href="https://inducks.org/story.php?c=Qfr%2FPS+++11J" target="_blank" class="block w-full h-full">
+                <div class="bg-white rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE]">
+                    <div class="h-40 bg-cover bg-center mb-4 rounded-lg outline outline-2"
+                        style="background-image: url('/media/articles/ducksmanager.jpg');"></div>
+                    <h3 class="text-lg font-semibold text-[#411FEB]">Le monde de DucksManager</h3>
+                    <div class="mt-1 flex space-x-2">
+                        <span
+                            class="bg-[#EDE9FE] text-[#411FEB] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                            <i class='bx bx-calendar-event text-sm mr-1'></i> 25/09/2022
+                        </span>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-2">Découvrez l'écosystème de DucksManager (site, application
+                        jusqu'à un jeu) créé par un passionné.</p>
+                </div>
+            </a>
+            <a href="https://inducks.org/story.php?c=Qfr%2FPS+++11E" target="_blank" class="block w-full h-full">
+                <div class="bg-white rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE]">
+                    <div class="h-40 bg-cover bg-center mb-4 rounded-lg outline outline-2"
+                        style="background-image: url('/media/articles/donrosatgs.jpg');"></div>
+                    <h3 class="text-lg font-semibold text-[#411FEB]">Un Louisvillois à Toulouse</h3>
+                    <div class="mt-1 flex space-x-2">
+                        <span
+                            class="bg-[#EDE9FE] text-[#411FEB] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                            <i class='bx bx-calendar-event text-sm mr-1'></i> 25/09/2022
+                        </span>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-2">Évènement : Don Rosa revient enfin en France au Toulouse Game
+                        Show !</p>
+                </div>
+            </a>
+            <a href="https://inducks.org/story.php?c=Qfr%2FPS+++11C" target="_blank" class="block w-full h-full">
+                <div class="bg-white rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE]">
+                    <div class="h-40 bg-cover bg-center mb-4 rounded-lg outline outline-2"
+                        style="background-image: url('/media/articles/journaldemickey.jpg');"></div>
+                    <h3 class="text-lg font-semibold text-[#411FEB]">Grand ménage d'automne pour Mickey</h3>
+                    <div class="mt-1 flex space-x-2">
+                        <span
+                            class="bg-[#EDE9FE] text-[#411FEB] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                            <i class='bx bx-calendar-event text-sm mr-1'></i> 25/09/2022
+                        </span>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-2">Le Journal de Mickey fait peau neuve avec une nouvelle
+                        formule.</p>
+                </div>
+            </a>
+            <a href="https://inducks.org/story.php?c=Qfr%2FPS+++10C" target="_blank" class="block w-full h-full">
+                <div class="bg-white rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE]">
+                    <div class="h-40 bg-cover bg-center mb-4 rounded-lg outline outline-2"
+                        style="background-image: url('/media/articles/angouleme.jpg');"></div>
+                    <h3 class="text-lg font-semibold text-[#411FEB]"> Année Picsou et festival d'Angoulême</h3>
+                    <div class="mt-1 flex space-x-2">
+                        <span
+                            class="bg-[#EDE9FE] text-[#411FEB] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                            <i class='bx bx-calendar-event text-sm mr-1'></i> 30/05/2022
+                        </span>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-2">Découvrez ce que nous réserve la fameuse "année Picsou".</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="text-[#411FEB] bg-[#E8E4FC] py-16 text-center lg:px-32 px-8">
+        <h2 class="text-2xl font-bold mb-4"><i class='bx bx-laptop'></i> Autres créations</h2>
+        <p class="max-w-xl mx-auto mb-6">En tant qu'étudiant en 3ᵉ année de BUT MMI (Métiers du Multimédia et de
+            l'Internet), au cours de ma formation, j'ai eu l'occasion de participer à divers projets mêlants des
+            disciplines variées dans le vaste domaine du multimédia.</p>
+        <a href="/creations_studies/" class="bg-white text-[#411FEB] px-6 py-3 rounded-lg">Découvrir mes autres
+            créations →</a>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <script>
+        async function loadNavbar() {
+            const res = await fetch('/partials/navbar.html');
+            const html = await res.text();
+            const container = document.getElementById('navbar-container');
+            container.innerHTML = html;
+
+            // Attendre le prochain cycle pour que le DOM soit pris en compte
+            requestAnimationFrame(() => {
+                const menuButton = document.getElementById('menuButton');
+                const navMenu = document.getElementById('navMenu');
+                if (menuButton && navMenu) {
+                    menuButton.addEventListener('click', () => navMenu.classList.toggle('hidden'));
+                }
+
+                const dropdownButton = document.getElementById('dropdownButton');
+                const dropdownMenu = document.getElementById('dropdownMenu');
+                if (dropdownButton && dropdownMenu) {
+                    dropdownButton.addEventListener('click', () => dropdownMenu.classList.toggle('hidden'));
+                }
+            });
+        }
+        loadNavbar();
+
+        async function loadFooter() {
+            const res = await fetch('/partials/footer.html');
+            const html = await res.text();
+            document.getElementById('footer-container').innerHTML = html;
+        }
+
+        loadFooter();
+    </script>
+
+    <!-- Modal -->
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center hidden">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-11/12 md:w-2/3 lg:w-1/2 relative max-h-[90vh] overflow-y-auto">
+            <!-- Icône de fermeture -->
+            <i class='bx bx-x absolute top-4 right-4 text-3xl cursor-pointer text-[#411FEB]' onclick="closeModal()"></i>
+
+            <!-- Contenu de la modal -->
+            <h3 class="text-lg font-semibold text-[#411FEB]" id="modalTitle">Titre du projet</h3>
+            <div class="h-40 bg-[#411FEB] mb-4 rounded-lg" id="modalImage"></div>
+            <p class="text-sm text-black" id="modalText">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu,
+                pulvinar magna. <br><br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu,
+                pulvinar magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada
+                augue eu, pulvinar magna.
+            </p>
+            <a id="modalButton" href="#" target="_blank"
+                class="mt-4 inline-block bg-[#411FEB] text-white px-4 py-2 rounded-md hover:bg-[#3A1CC5] transition">Voir
+                le résultat</a>
+        </div>
+    </div>
+
+    <script>
+        function openModal(title, text, color) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalText').innerText = text;
+            document.getElementById('modalImage').style.backgroundColor = color;
+            document.getElementById('modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.add('hidden');
+        }
+    </script>
+
+    <div class="gtranslate_wrapper"></div>
+    <script>
+        window.gtranslateSettings = {
+            "default_language": "fr",
+            "native_language_names": true,
+            "detect_browser_language": true,
+            "languages": ["da", "de", "en", "el", "es", "fr", "it", "nl", "no", "sv", "vi"],
+            "wrapper_selector": ".gtranslate_wrapper",
+            "alt_flags":{"en":"usa"}
+        };
+    </script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+
+</body>
+
+</html>
