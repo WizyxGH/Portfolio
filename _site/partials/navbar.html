@@ -19,12 +19,12 @@
 
                 <!-- Menu déroulant "Réalisations" -->
                 <li class="relative lg:group">
-                    <button id="dropdownButton" class="inline-flex items-center px-6 py-2 text-white">
+                    <button id="dropdownButton" class="inline-flex items-center px-6 py-2 text-white gap-1">
                         Réalisations
-                        <i id="dropdownChevron" class='bx bx-chevron-down ml-1'></i>
+                        <i id="dropdownChevron" class='bx bx-chevron-down text-lg'></i>
                     </button>
                     <ul id="dropdownMenu"
-                        class="hidden flex-col bg-white text-[#411FEB] lg:absolute lg:left-0 lg:shadow-md lg:rounded-md lg:w-64">
+                        class="hidden flex-col bg-white text-[#411FEB] lg:absolute lg:shadow-md lg:rounded-md lg:w-64">
                         <li>
                             <a href="/creations/" class="block lg:px-2 px-6 py-2 hover:bg-[#E8E4FC] hover:text-[#411FEB] hover:font-semibold">
                                 <div class="flex items-center gap-3">
@@ -59,6 +59,9 @@
         </nav>
     </div>
 </header>
+
+<!-- Spacer qui pousse le contenu pour ne pas être caché -->
+<div class="h-[60px] lg:h-[64px]"></div>
 
 <script>
     // Menu burger mobile
