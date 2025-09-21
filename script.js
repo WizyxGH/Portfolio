@@ -8,22 +8,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let projectsVisible = 6; // Nombre de projets visibles au départ
 
-    // Vérifie sur quelle page nous nous trouvons et filtre les projets en conséquence
+    // Filtrage des projets selon la page
     if (typeof projects !== "undefined" && Array.isArray(projects)) {
-        if (window.location.pathname.includes('creations.html')) {
-            // Filtrer pour afficher uniquement les projets académiques (ID 1 à 20 par exemple)
-            projects = projects.filter(project => project.id >= 1 && project.id <= 20);
-        } else if (window.location.pathname.includes('creations_studies.html')) {
-            // Filtrer pour afficher uniquement les projets professionnels (ID 21 à 28 par exemple)
-            projects = projects.filter(project => (project.id >= 21 && project.id <= 28));
+        const path = window.location.pathname;
+
+        if (path.includes('creations_studies')) {
+            projects = projects.filter(project => Number(project.id) >= 21 && Number(project.id) <= 28);
+        } else if (path.includes('creations')) {
+            projects = projects.filter(project => Number(project.id) >= 1 && Number(project.id) <= 20);
         }
+
+        console.log("Projets filtrés :", projects);
     } else {
         console.error("La variable 'projects' est introuvable ou n'est pas un tableau.");
         return;
     }
 
-    console.log("Projets chargés :", projects);
-
+    // Gestion des boutons "Afficher plus / moins"
     if (showMoreButton && showLessButton) {
         showMoreButton.addEventListener("click", function () {
             loadMoreProjects();
@@ -48,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
         renderProjects(projectsVisible);
     }
 
+    // Affichage des projets
     function renderProjects(visibleCount) {
         const container = document.getElementById("projectsContainer");
         if (!container) return;
@@ -89,11 +91,12 @@ document.addEventListener("DOMContentLoaded", function () {
         attachEventListenersToCards();
     }
 
+    // Gestion du clic sur les cartes pour ouvrir le modal
     function attachEventListenersToCards() {
         document.querySelectorAll('.projectCard').forEach(card => {
             card.addEventListener('click', () => {
-                const projectId = Number(card.dataset.projectId); // Convertir en nombre
-                const project = projects.find(p => p.id === projectId);
+                const projectId = Number(card.dataset.projectId);
+                const project = projects.find(p => Number(p.id) === projectId);
 
                 console.log("Carte cliquée - ID:", projectId, "Projet trouvé:", project);
 
@@ -116,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const modalButton = document.getElementById("modalButton");
 
         modalTitle.textContent = project.title;
-        modalText.innerHTML = project.text.replace(/\n/g, "<br>"); // Gestion des sauts de ligne
+        modalText.innerHTML = project.text.replace(/\n/g, "<br>");
         modalImage.style.backgroundImage = `url('${project.image}')`;
         modalImage.style.backgroundSize = 'cover';
         modalImage.style.backgroundPosition = 'center';
@@ -129,27 +132,27 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         modal.classList.remove("hidden");
+        document.body.classList.add("overflow-hidden"); // Empêche le scroll du body
     }
 
     function closeModal() {
-        document.body.classList.remove("overflow-hidden"); // Réactive le scroll du body
+        document.body.classList.remove("overflow-hidden");
         document.getElementById("modal").classList.add("hidden");
     }
 
-    // Attache l'événement au bouton de fermeture
     const modalCloseButton = document.querySelector('.bx-x');
     if (modalCloseButton) {
         modalCloseButton.addEventListener('click', closeModal);
     }
 
-    // Vérification pour le menu burger
+    // Menu burger
     if (menuButton && navMenu) {
         menuButton.addEventListener('click', () => {
             navMenu.classList.toggle('hidden');
         });
     }
 
-    // Vérification pour le menu déroulant
+    // Dropdown
     if (dropdownButton && dropdownMenu) {
         dropdownButton.addEventListener("click", (event) => {
             event.stopPropagation();
@@ -163,5 +166,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    // Affichage initial des projets
     renderProjects(projectsVisible);
 });
