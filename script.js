@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const dropdownButton = document.getElementById('dropdownButton');
     const dropdownMenu = document.getElementById('dropdownMenu');
 
-    let projectsVisible = 6; // Nombre de projets visibles au départ
+    let projectsVisible = 9; // Nombre de projets visibles au départ
 
     // Filtrage des projets selon la page
     if (typeof projects !== "undefined" && Array.isArray(projects)) {
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function loadLessProjects() {
-        projectsVisible = 6;
+        projectsVisible = 9;
         renderProjects(projectsVisible);
     }
 
@@ -63,12 +63,12 @@ document.addEventListener("DOMContentLoaded", function () {
         projects.slice(0, visibleCount).forEach(project => {
             const projectTitleId = project.title.replace(/[^a-zA-Z0-9-_]/g, '_');
             const card = document.createElement("div");
-            card.className = "projectCard bg-white rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE]";
+            card.className = "projectCard bg-white rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] border-8 border-white";
             card.dataset.projectId = project.id;
 
             card.innerHTML = ` 
-                <div class="h-40 mb-3 rounded-lg bg-[#411FEB] outline outline-2">
-                    <img src="${project.image}" alt="${project.title}" class="h-40 w-full object-cover rounded-lg">
+                <div class="h-40 mb-3 rounded-lg bg-[#411FEB] outline outline-2 overflow-hidden">
+                    <img src="${project.image}" alt="${project.title}" class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
                 </div>
                 <h3 class="text-lg font-semibold text-[#411FEB]">${project.title}</h3>
                 <div class="mt-1 flex space-x-2" id="tagsContainer-${projectTitleId}"></div>
