@@ -30,7 +30,9 @@
         <div class="lg:w-1/2 flex flex-col justify-center order-2 lg:order-1 gap-6">
             <div>
                 <h1 class="text-5xl font-bold">Florian GERTNER KILIAN</h1>
-                <h2 class="text-stroke lg:text-5xl text-4xl font-bold mt-2">Product Designer (UI/UX) •<br>Copywriter / Rédacteur</h2>
+                <h2 class="text-stroke lg:text-5xl text-4xl font-bold mt-2">
+                    <span id="typewriter"></span>
+                </h2>
             </div>
             <p>Je crée des interfaces premium et intuitives en alliant clarté, esthétique et storytelling pour offrir la meilleure expérience possible aux utilisateurs.</p>
             <div class="flex flex-wrap gap-4">
@@ -46,6 +48,48 @@
             </div>
         </div>
     </header>
+
+    <script>
+        const texts = ["Product Designer", "UI/UX Designer", "Copywriter", "Rédacteur", "Rêveur"];
+        const typingSpeed = 150;   // vitesse d'écriture en ms
+        const erasingSpeed = 100;   // vitesse d'effacement en ms
+        const delayBetween = 3000; // pause avant d'effacer
+
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        const typewriter = document.getElementById("typewriter");
+
+        function type() {
+            const currentText = texts[textIndex];
+
+            if (isDeleting) {
+                charIndex--;
+                typewriter.textContent = currentText.substring(0, charIndex);
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    textIndex = (textIndex + 1) % texts.length;
+                    setTimeout(type, typingSpeed);
+                } else {
+                    setTimeout(type, erasingSpeed);
+                }
+            } else {
+                charIndex++;
+                typewriter.textContent = currentText.substring(0, charIndex);
+                if (charIndex === currentText.length) {
+                    isDeleting = true;
+                    setTimeout(type, delayBetween);
+                } else {
+                    setTimeout(type, typingSpeed);
+                }
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            type();
+        });
+    </script>
     
     <section class="p-8 lg:px-32 text-center">
         <h2 class="text-2xl text-[#121212] font-medium mb-6">
