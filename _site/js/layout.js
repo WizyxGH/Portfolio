@@ -1,35 +1,45 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // Charger navbar et footer en parallèle
+    Promise.all([loadNavbar(), loadFooter()]);
+});
+
 async function loadNavbar() {
-    const res = await fetch('/partials/navbar.html');
-    const html = await res.text();
     const container = document.getElementById('navbar-container');
-    container.innerHTML = html;
+    if (!container) return;
+    try {
+        const res = await fetch('/partials/navbar.html');
+        const html = await res.text();
+        container.innerHTML = html;
 
-    // Attendre le prochain cycle pour que le DOM soit pris en compte
-    requestAnimationFrame(() => {
-        // --- Menu burger ---
-        const menuButton = document.getElementById('menuButton');
-        const navMenu = document.getElementById('navMenu');
-        if (menuButton && navMenu) {
-            menuButton.addEventListener('click', () => navMenu.classList.toggle('hidden'));
-        }
-
-        // --- Dropdown ---
-        const dropdownButton = document.getElementById('dropdownButton');
-        const dropdownMenu = document.getElementById('dropdownMenu');
-        const dropdownChevron = document.getElementById('dropdownChevron');
-        if (dropdownButton && dropdownMenu) {
-            dropdownButton.addEventListener('click', () => {
-                dropdownMenu.classList.toggle('hidden');
-                if (dropdownChevron) {
-                    dropdownChevron.classList.toggle('bx-chevron-down', dropdownMenu.classList.contains('hidden'));
-                    dropdownChevron.classList.toggle('bx-chevron-up', !dropdownMenu.classList.contains('hidden'));
-                }
-            });
-        }
-
-        // --- Active link ---
+        // Initialiser les interactions après l'injection du HTML
+        initNavbarInteractions();
         setActiveNavLinks();
-    });
+    } catch (e) {
+        console.error('Erreur chargement navbar:', e);
+    }
+}
+
+function initNavbarInteractions() {
+    // --- Menu burger ---
+    const menuButton = document.getElementById('menuButton');
+    const navMenu = document.getElementById('navMenu');
+    if (menuButton && navMenu) {
+        menuButton.addEventListener('click', () => navMenu.classList.toggle('hidden'));
+    }
+
+    // --- Dropdown ---
+    const dropdownButton = document.getElementById('dropdownButton');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    const dropdownChevron = document.getElementById('dropdownChevron');
+    if (dropdownButton && dropdownMenu) {
+        dropdownButton.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('hidden');
+            if (dropdownChevron) {
+                dropdownChevron.classList.toggle('bx-chevron-down', dropdownMenu.classList.contains('hidden'));
+                dropdownChevron.classList.toggle('bx-chevron-up', !dropdownMenu.classList.contains('hidden'));
+            }
+        });
+    }
 }
 
 function setActiveNavLinks() {
@@ -54,12 +64,14 @@ function setActiveNavLinks() {
     });
 }
 
-loadNavbar();
-
 async function loadFooter() {
-    const res = await fetch('/partials/footer.html');
-    const html = await res.text();
-    document.getElementById('footer-container').innerHTML = html;
+    const container = document.getElementById('footer-container');
+    if (!container) return;
+    try {
+        const res = await fetch('/partials/footer.html');
+        const html = await res.text();
+        container.innerHTML = html;
+    } catch (e) {
+        console.error('Erreur chargement footer:', e);
+    }
 }
-
-loadFooter();
