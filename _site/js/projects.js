@@ -9,6 +9,7 @@ let projects = [
         description: "Redesign du site et de l'application du guide touristique local, Le Guide du Golfe de Saint-Tropez.",
         image: "/media/projects/guidegolfesainttropez.jpg",
         driveLink: "https://drive.google.com/drive/folders/1YxsK-HIXDJE7Ik8Jqx0dYNEObw0r32kE?usp=sharing",
+        projectLink: "https://guidedugolfe.com",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bxr bx-play-circle" },
@@ -26,6 +27,7 @@ let projects = [
         description: "Design d'une landing page pour que le créateur de contenu Maxime Click puisse promouvoir son travail notamment auprès des marques.",
         image: "/media/projects/maximeclick.jpg",
         driveLink: "https://drive.google.com/drive/folders/17BrU0ZnFJh049cORIbuMdGN9OO1Q19T-?usp=sharing",
+        projectLink: "#",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bxr bx-play-circle" },
@@ -80,6 +82,7 @@ let projects = [
         description: "Design d'une landing page pour présenter le projet de l'application Mon Gardien dans le but de récolter des fonds et de jauger l'intérêt de la cible.",
         image: "/media/projects/mongardien.jpg",
         driveLink: "https://drive.google.com/drive/folders/1sRims-3Ztax9HajV-F5f6XhtVbpwNAdc?usp=sharing",
+        projectLink: "#",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
         ]
@@ -94,6 +97,7 @@ let projects = [
         description: "Transformation d'un wireframe de la page d'accueil en une maquette high fidelity.",
         image: "/media/projects/francegaloplive.jpg",
         driveLink: "https://drive.google.com/drive/folders/1wElcAEDe484_4w8MS3-LveCTUNChhTW9?usp=sharing",
+        projectLink: "#",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
         ]
@@ -111,6 +115,7 @@ let projects = [
         description: "Design de l'application BioQuest visant à sensibiliser sur les espèces exotiques envahissantes.",
         image: "/media/projects/bioquest.jpg",
         driveLink: "https://drive.google.com/drive/folders/18LZ-7rL-slxtJ-zrxZ75e7J3aDJfW0Hy?usp=sharing",
+        projectLink: "#",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bxr bx-play-circle" },
@@ -125,6 +130,7 @@ let projects = [
         description: "Redesign de la page profil d'un compétiteur affilié à la World Cube Association.",
         image: "/media/projects/wca.jpg",
         driveLink: "https://drive.google.com/drive/folders/1DYVRW2Ozfwn2veudiz4UoAhKKjAGayro?usp=sharing",
+        projectLink: "#",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bxr bx-play-circle" },
@@ -141,6 +147,7 @@ let projects = [
         description: "Redesign de la page produit, produit personnalisé et cadencier pour le site e-commerce d'un grossiste d'emballage alimentaire",
         image: "/media/projects/papafrance.jpg",
         driveLink: "https://drive.google.com/drive/folders/1twASkm-eKgmA9rNjCXFkEGEueE01_qEI?usp=sharing",
+        projectLink: "#",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bxr bx-play-circle" },
@@ -158,6 +165,7 @@ let projects = [
         description: "Design d'une application permettant de lire les numéros du fanzine Picsou-Soir et d'enrichir l'expérience de lecture.",
         image: "/media/projects/picsousoir.jpg",
         driveLink: "https://drive.google.com/drive/folders/1Tc3rKCLWp6pU8akDs5X6gag0BtonrDp7?usp=sharing",
+        projectLink: "#",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bxr bx-play-circle" },
@@ -172,6 +180,7 @@ let projects = [
         description: "Design d'une fonctionnalité de cartes GPS de bouquineries (avec possibilité de les ajouter) directement depuis l'application What The Duck.",
         image: "/media/projects/whattheduck.jpg",
         driveLink: "https://drive.google.com/drive/folders/1ep3b2m6SNhnLCiiqXu8VPUQnQ3snrPzA?usp=sharing",
+        projectLink: "#",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bxr bx-play-circle" },
@@ -187,6 +196,7 @@ let projects = [
         description: "Design d'un site internet dont l'objectif était de promouvoir la série Tom et Lola diffusée sur France 2.",
         image: "/media/projects/tometlola.jpg",
         driveLink: "https://drive.google.com/drive/folders/16BpVcRMELyWNcUPYQ9z9A9jBw6j4QBaJ?usp=sharing",
+        projectLink: "#",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bxr bx-play-circle" },
@@ -204,6 +214,7 @@ let projects = [
         description: "Design d'un SaaS permettant d'aider grâce à l'IA à générer des index de BD Disney pour la base de données Inducks.",
         image: "/media/projects/dumili.jpg",
         driveLink: "https://drive.google.com/drive/folders/1j3NQS-oVQOpmPAgNIJIKOyclELy_y9rz?usp=sharing",
+        projectLink: "#",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bxr bx-play-circle" },
@@ -220,6 +231,7 @@ let projects = [
         description: "Design d'un site internet sensibilisant à l'addiction aux écrans. Il permet également de se positionner sur son usage personnel et propose des solutions.",
         image: "/media/projects/breakscreen.jpg",
         driveLink: "https://drive.google.com/drive/folders/1xFHCWY7JdEvFcW0Phu4eOp7MkOuDab85?usp=sharing",
+        projectLink: "#",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bxr bx-play-circle" },
@@ -235,6 +247,7 @@ let projects = [
         description: "Design du site internet pour une enseigne fictive de restauration.",
         image: "/media/projects/pizzami.jpg",
         driveLink: "https://drive.google.com/drive/folders/1KcJ6iVQz7GUYs5jscAdILHrOymirMQD3?usp=sharing",
+        projectLink: "#",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bxr bx-play-circle" },
@@ -252,6 +265,7 @@ let projects = [
         description: "Redesign de la page d'accueil de Inducks. La base de données de bandes dessinées Disney.",
         image: "/media/projects/inducks.jpg",
         driveLink: "https://drive.google.com/drive/folders/13PezY4KgwBw34IZeNLaSolclIbk-gSky?usp=sharing",
+        projectLink: "#",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bxr bx-play-circle" },
@@ -265,6 +279,7 @@ let projects = [
         description: "Design de la page produit d'un ballon de football.",
         image: "/media/projects/ballonfoot.jpg",
         driveLink: "https://drive.google.com/drive/folders/1bMsjP1iClVy4xGjYPOR5cPlr1VOu9EeN?usp=sharing",
+        projectLink: "#",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bxr bx-play-circle" },
@@ -278,6 +293,7 @@ let projects = [
         description: "Design d'une landing page pour une marque de chaussures de running.",
         image: "/media/projects/runandrerun.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
+        projectLink: "#",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
         ]
@@ -289,6 +305,7 @@ let projects = [
         description: "Coming soon...",
         image: "/media/projects/trouvelaregle.jpg",
         driveLink: "https://google.com",
+        projectLink: "#",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Game Design", icon: "bx bxs-game" },
@@ -305,6 +322,7 @@ let projects = [
         description: "Coming soon...",
         image: "/media/projects/cartaloto.jpg",
         driveLink: "https://google.com",
+        projectLink: "#",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
         ]
@@ -316,6 +334,7 @@ let projects = [
         description: "Coming soon...",
         image: "/media/projects/digitalunicorn.jpg",
         driveLink: "https://google.com",
+        projectLink: "#",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Copywriting", icon: "bx bxs-pen" },
@@ -328,6 +347,7 @@ let projects = [
         description: "Coming soon...",
         image: "/media/projects/promodentaire.jpg",
         driveLink: "https://google.com",
+        projectLink: "#",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
         ]
@@ -339,6 +359,7 @@ let projects = [
         description: "Scénographie et affiche",
         image: "/media/projects/dansealopera.png",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
+        projectLink: "#",
         tags: [
             { name: "Scénographie", icon: "bx bxs-mask" },
             { name: "Modélisation 3D", icon: "bx bxs-cube" },
@@ -351,6 +372,7 @@ let projects = [
         description: "Vidéo et article",
         image: "/media/projects/fauneflorevar.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
+        projectLink: "#",
         tags: [
             { name: "Vidéo", icon: "bxr bx-video-cinema" },
             { name: "Rédaction", icon: "bx bxs-pencil" },
@@ -364,6 +386,7 @@ let projects = [
         description: "Lorem ipsum.",
         image: "/media/projects/tresdemayo.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
+        projectLink: "#",
         tags: [
             { name: "Vidéo", icon: "bxr bx-video-cinema" },
             { name: "Rédaction / Storytelling", icon: "bx bxs-pencil" },
@@ -378,6 +401,7 @@ let projects = [
         description: "Lorem ipsum.",
         image: "/media/projects/tometlola2.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
+        projectLink: "#",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Vidéo", icon: "bxr bx-video-cinema" },
@@ -393,6 +417,7 @@ let projects = [
         description: "Lorem ipsum.",
         image: "/media/projects/mafigue.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
+        projectLink: "#",
         tags: [
             { name: "Communication / Marketing", icon: "bxr bx-message-bubble" },
         ]
@@ -404,6 +429,7 @@ let projects = [
         description: "Lorem ipsum.",
         image: "/media/projects/cultophoto.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
+        projectLink: "#",
         tags: [
             { name: "Design graphique", icon: "bx bxs-layout" },
         ]
@@ -415,6 +441,7 @@ let projects = [
         description: "Lorem ipsum.",
         image: "/media/projects/wordpress.png",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
+        projectLink: "#",
         tags: [
             { name: "Développement", icon: "bx bx-code-alt" },
         ]
@@ -426,6 +453,7 @@ let projects = [
         description: "Projet personnel",
         image: "/media/projects/picsousoir2.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
+        projectLink: "#",
         tags: [
             { name: "Mise en page", icon: "bx bxs-layout" },
         ]

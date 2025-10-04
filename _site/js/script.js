@@ -117,13 +117,29 @@ document.addEventListener("DOMContentLoaded", function () {
         const modalImage = document.getElementById("modalImage");
         const modalText = document.getElementById("modalText");
         const modalButton = document.getElementById("modalButton");
+        const modalWebsite = document.getElementById("modalWebsite");
+        const modalTags = document.getElementById("modalTags");
 
+        // --- Contenu principal ---
         modalTitle.textContent = project.title;
         modalText.innerHTML = project.text.replace(/\n/g, "<br>");
         modalImage.style.backgroundImage = `url('${project.image}')`;
-        modalImage.style.backgroundSize = 'cover';
-        modalImage.style.backgroundPosition = 'center';
+        modalImage.style.backgroundSize = "cover";
+        modalImage.style.backgroundPosition = "center";
 
+        // --- Tags dynamiques ---
+        modalTags.innerHTML = ""; // on vide avant d’ajouter
+        if (project.tags && project.tags.length > 0) {
+            project.tags.forEach(tag => {
+                const span = document.createElement("span");
+                span.className =
+                    "inline-flex items-center gap-2 px-3 py-1 rounded-xl border border-[#411FEB] bg-[#411FEB] bg-opacity-[0.12] text-[#411FEB] font-medium text-sm"; // texte réduit
+                span.innerHTML = `<i class='${tag.icon} text-lg'></i> ${tag.name}`;
+                modalTags.appendChild(span);
+            });
+        }
+
+        // --- Bouton "Voir le résultat" ---
         if (project.driveLink) {
             modalButton.href = project.driveLink;
             modalButton.classList.remove("hidden");
@@ -131,8 +147,17 @@ document.addEventListener("DOMContentLoaded", function () {
             modalButton.classList.add("hidden");
         }
 
+        // --- Bouton "Visiter le site web" ---
+        if (project.projectLink) {
+            modalWebsite.href = project.projectLink;
+            modalWebsite.classList.remove("hidden");
+        } else {
+            modalWebsite.classList.add("hidden");
+        }
+
+        // --- Affichage final ---
         modal.classList.remove("hidden");
-        document.body.classList.add("overflow-hidden"); // Empêche le scroll du body
+        document.body.classList.add("overflow-hidden");
     }
 
     function closeModal() {
