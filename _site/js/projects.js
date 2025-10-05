@@ -10,6 +10,8 @@ let projects = [
         image: "/media/projects/guidegolfesainttropez.jpg",
         driveLink: "https://drive.google.com/drive/folders/1YxsK-HIXDJE7Ik8Jqx0dYNEObw0r32kE?usp=sharing",
         projectLink: "https://guidedugolfe.com",
+        date: "2000-01",
+        type: "website",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bxr bx-play-circle" },
@@ -28,6 +30,8 @@ let projects = [
         image: "/media/projects/maximeclick.jpg",
         driveLink: "https://drive.google.com/drive/folders/17BrU0ZnFJh049cORIbuMdGN9OO1Q19T-?usp=sharing",
         projectLink: "#",
+        date: "2000-01",
+        type: "website",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bxr bx-play-circle" },
@@ -43,46 +47,13 @@ let projects = [
         <br>Elle se base sur un système de ludification (gamification) en reprenant certains codes des jeux vidéos afin de donner envie et pousser l’utilisateur à être conscient de cette habitude et à y faire face.
         <br>Pour récolter des fonds auprès d'investisseurs et pour jauger la pertinence du projet, je me suis attelé à réaliser le design et le rédactionnel d’une landing page expliquant le problème du doomscrolling et la solution que propose la future application Mon Gardien.
         <br>L’intégralité de la landing page consiste en un tunnel dont le but est de rediriger les gens vers un formulaire (qu’il a aussi fallu intégralement préparer) permettant de témoigner de leur expérience personnelle sur le doomscrolling et sur les solutions concurrentes déjà existantes pour récolter de nouvelles données sur leur usage et répondre au mieux à ce problème.
-        Le tout en récoltant l’adresse mail, de personnes potentiellement intéressées par Mon Gardien.
-        
-        CONCEVOIR
-        -  AC12.01 - Concevoir un produit ou un service en terme d’usage et de fonctionnalité (S2)
-        -  AC12.02 - Construire la proposition de valeur d’un produit ou d’un service (S2)
-        -  AC12.03 - Proposer une recommandation marketing (cibles, objectifs, points de contact)
-        -  AC12.04 - Proposer une stratégie de communication
-        - AC22.01 - Co-concevoir un produit ou un service (proposition de valeur, fonctionnalités...)
-        - AC22.02 - Produire une recommandation ergonomique à partir des tests utilisateurs (sur système fonctionnel, prototype ou maquette interactive)
-        - AC22.03 - Co-construire une recommandation stratégique (en structurant un plan d’action)
-        - AC22.04 - Optimiser le référencement d’un site web, d’un produit ou d’un service
-        - AC22.05 - Mettre en place une présence sur les réseaux sociaux
-        
-        COMPRENDRE
-        -  AC21.01 - Analyser la stratégie de communication ou marketing d'un acteur, d'une organisation au regard d'un secteur ou d'un marché (stratégie, mission, valeurs ...)
-        -  AC21.02 - Auditer un site web, une marque ou un service, en termes de trafic et de référencement
-        -  AC21.04 - Identifier et décrire les parcours client à partir d'enquêtes de terrain
-        -  AC21.05 - Cartographier les expériences utilisateur : points de contact, points de friction et de satisfaction, carte d'empathie
-        
-        EXPRIMER
-        - AC23.01 - Produire un écrit journalistique sourcé et documenté
-        - AC23.02 - Définir une iconographie (illustrations, photographies, vidéos)
-        - AC23.03 - Créer et décliner une identité visuelle (charte graphique)
-        - AC23.04 - Imaginer, écrire et scénariser en vue d’une communication multimédia ou transmédia
-        - AC23.05 - Réaliser, composer et produire pour une communication plurimédia
-
-        DEVELOPPER
-        - AC24.01 - Produire des pages et applications Web responsives
-        - AC24.03 - Intégrer, produire ou développer des interactions riches ou des dispositifs interactifs
-
-        ENTREPRENDRE
-        - AC25.01 - Gérer un projet avec une méthode d’amélioration continue par exemple une méthode agile
-        - AC25.02 - Cartographier un écosystème (identification des acteurs, synthèse des propositions de valeur)
-        - AC25.03 - Initier la constitution d’un réseau professionnel
-        - AC25.04 - Collaborer au sein des organisations
-        - AC25.06 - Prendre en compte les contraintes juridiques`,
+        Le tout en récoltant l’adresse mail, de personnes potentiellement intéressées par Mon Gardien.`,
         description: "Design d'une landing page pour présenter le projet de l'application Mon Gardien dans le but de récolter des fonds et de jauger l'intérêt de la cible.",
         image: "/media/projects/mongardien.jpg",
         driveLink: "https://drive.google.com/drive/folders/1sRims-3Ztax9HajV-F5f6XhtVbpwNAdc?usp=sharing",
         projectLink: "#",
+        date: "2000-01",
+        type: "app",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
         ]
@@ -98,6 +69,8 @@ let projects = [
         image: "/media/projects/francegaloplive.jpg",
         driveLink: "https://drive.google.com/drive/folders/1wElcAEDe484_4w8MS3-LveCTUNChhTW9?usp=sharing",
         projectLink: "#",
+        date: "2000-01",
+        type: "website",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
         ]
@@ -116,6 +89,8 @@ let projects = [
         image: "/media/projects/bioquest.jpg",
         driveLink: "https://drive.google.com/drive/folders/18LZ-7rL-slxtJ-zrxZ75e7J3aDJfW0Hy?usp=sharing",
         projectLink: "#",
+        date: "2000-01",
+        type: "app",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bxr bx-play-circle" },
@@ -130,7 +105,9 @@ let projects = [
         description: "Redesign de la page profil d'un compétiteur affilié à la World Cube Association.",
         image: "/media/projects/wca.jpg",
         driveLink: "https://drive.google.com/drive/folders/1DYVRW2Ozfwn2veudiz4UoAhKKjAGayro?usp=sharing",
-        projectLink: "#",
+        projectLink: "https://www.worldcubeassociation.org",
+        date: "2000-01",
+        type: "website",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bxr bx-play-circle" },
@@ -147,7 +124,9 @@ let projects = [
         description: "Redesign de la page produit, produit personnalisé et cadencier pour le site e-commerce d'un grossiste d'emballage alimentaire",
         image: "/media/projects/papafrance.jpg",
         driveLink: "https://drive.google.com/drive/folders/1twASkm-eKgmA9rNjCXFkEGEueE01_qEI?usp=sharing",
-        projectLink: "#",
+        projectLink: "https://papafrance.fr",
+        date: "2000-01",
+        type: "website",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bxr bx-play-circle" },
@@ -166,6 +145,8 @@ let projects = [
         image: "/media/projects/picsousoir.jpg",
         driveLink: "https://drive.google.com/drive/folders/1Tc3rKCLWp6pU8akDs5X6gag0BtonrDp7?usp=sharing",
         projectLink: "#",
+        date: "2000-01",
+        type: "app",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bxr bx-play-circle" },
@@ -181,6 +162,8 @@ let projects = [
         image: "/media/projects/whattheduck.jpg",
         driveLink: "https://drive.google.com/drive/folders/1ep3b2m6SNhnLCiiqXu8VPUQnQ3snrPzA?usp=sharing",
         projectLink: "#",
+        date: "2000-01",
+        type: "app",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bxr bx-play-circle" },
@@ -197,6 +180,8 @@ let projects = [
         image: "/media/projects/tometlola.jpg",
         driveLink: "https://drive.google.com/drive/folders/16BpVcRMELyWNcUPYQ9z9A9jBw6j4QBaJ?usp=sharing",
         projectLink: "#",
+        date: "2000-01",
+        type: "website",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bxr bx-play-circle" },
@@ -215,6 +200,8 @@ let projects = [
         image: "/media/projects/dumili.jpg",
         driveLink: "https://drive.google.com/drive/folders/1j3NQS-oVQOpmPAgNIJIKOyclELy_y9rz?usp=sharing",
         projectLink: "#",
+        date: "2000-01",
+        type: "website",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bxr bx-play-circle" },
@@ -232,6 +219,8 @@ let projects = [
         image: "/media/projects/breakscreen.jpg",
         driveLink: "https://drive.google.com/drive/folders/1xFHCWY7JdEvFcW0Phu4eOp7MkOuDab85?usp=sharing",
         projectLink: "#",
+        date: "2000-01",
+        type: "website",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bxr bx-play-circle" },
@@ -248,6 +237,8 @@ let projects = [
         image: "/media/projects/pizzami.jpg",
         driveLink: "https://drive.google.com/drive/folders/1KcJ6iVQz7GUYs5jscAdILHrOymirMQD3?usp=sharing",
         projectLink: "#",
+        date: "2000-01",
+        type: "website",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bxr bx-play-circle" },
@@ -265,7 +256,9 @@ let projects = [
         description: "Redesign de la page d'accueil de Inducks. La base de données de bandes dessinées Disney.",
         image: "/media/projects/inducks.jpg",
         driveLink: "https://drive.google.com/drive/folders/13PezY4KgwBw34IZeNLaSolclIbk-gSky?usp=sharing",
-        projectLink: "#",
+        projectLink: "https://inducks.org",
+        date: "2000-01",
+        type: "website",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bxr bx-play-circle" },
@@ -280,6 +273,8 @@ let projects = [
         image: "/media/projects/ballonfoot.jpg",
         driveLink: "https://drive.google.com/drive/folders/1bMsjP1iClVy4xGjYPOR5cPlr1VOu9EeN?usp=sharing",
         projectLink: "#",
+        date: "2000-01",
+        type: "website",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bxr bx-play-circle" },
@@ -294,6 +289,8 @@ let projects = [
         image: "/media/projects/runandrerun.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         projectLink: "#",
+        date: "2000-01",
+        type: "website",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
         ]
@@ -306,6 +303,8 @@ let projects = [
         image: "/media/projects/trouvelaregle.jpg",
         driveLink: "https://google.com",
         projectLink: "#",
+        date: "2000-01",
+        type: "app",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Game Design", icon: "bx bxs-game" },
@@ -322,7 +321,9 @@ let projects = [
         description: "Coming soon...",
         image: "/media/projects/cartaloto.jpg",
         driveLink: "https://google.com",
-        projectLink: "#",
+        projectLink: "https://www.planete-lotolive.fr",
+        date: "2000-01",
+        type: "website",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
         ]
@@ -334,7 +335,9 @@ let projects = [
         description: "Coming soon...",
         image: "/media/projects/digitalunicorn.jpg",
         driveLink: "https://google.com",
-        projectLink: "#",
+        projectLink: "https://digitalunicorn.fr",
+        date: "2000-01",
+        type: "website",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Copywriting", icon: "bx bxs-pen" },
@@ -347,7 +350,9 @@ let projects = [
         description: "Coming soon...",
         image: "/media/projects/promodentaire.jpg",
         driveLink: "https://google.com",
-        projectLink: "#",
+        projectLink: "www.promodentaire.com/",
+        date: "2000-01",
+        type: "website",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
         ]
@@ -360,6 +365,8 @@ let projects = [
         image: "/media/projects/dansealopera.png",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         projectLink: "#",
+        date: "2000-01",
+        type: "",
         tags: [
             { name: "Scénographie", icon: "bx bxs-mask" },
             { name: "Modélisation 3D", icon: "bx bxs-cube" },
@@ -373,6 +380,8 @@ let projects = [
         image: "/media/projects/fauneflorevar.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         projectLink: "#",
+        date: "2000-01",
+        type: "",
         tags: [
             { name: "Vidéo", icon: "bxr bx-video-cinema" },
             { name: "Rédaction", icon: "bx bxs-pencil" },
@@ -387,6 +396,8 @@ let projects = [
         image: "/media/projects/tresdemayo.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         projectLink: "#",
+        date: "2000-01",
+        type: "",
         tags: [
             { name: "Vidéo", icon: "bxr bx-video-cinema" },
             { name: "Rédaction / Storytelling", icon: "bx bxs-pencil" },
@@ -402,6 +413,8 @@ let projects = [
         image: "/media/projects/tometlola2.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         projectLink: "#",
+        date: "2000-01",
+        type: "",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Vidéo", icon: "bxr bx-video-cinema" },
@@ -418,6 +431,8 @@ let projects = [
         image: "/media/projects/mafigue.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         projectLink: "#",
+        date: "2000-01",
+        type: "",
         tags: [
             { name: "Communication / Marketing", icon: "bxr bx-message-bubble" },
         ]
@@ -430,6 +445,8 @@ let projects = [
         image: "/media/projects/cultophoto.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         projectLink: "#",
+        date: "2000-01",
+        type: "",
         tags: [
             { name: "Design graphique", icon: "bx bxs-layout" },
         ]
@@ -442,6 +459,8 @@ let projects = [
         image: "/media/projects/wordpress.png",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         projectLink: "#",
+        date: "2000-01",
+        type: "",
         tags: [
             { name: "Développement", icon: "bx bx-code-alt" },
         ]
@@ -454,6 +473,8 @@ let projects = [
         image: "/media/projects/picsousoir2.jpg",
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         projectLink: "#",
+        date: "2000-01",
+        type: "",
         tags: [
             { name: "Mise en page", icon: "bx bxs-layout" },
         ]

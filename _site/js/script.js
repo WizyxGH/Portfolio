@@ -114,6 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!modal) return;
 
         const modalTitle = document.getElementById("modalTitle");
+        const modalSubtitle = document.getElementById("modalSubtitle");
         const modalImage = document.getElementById("modalImage");
         const modalText = document.getElementById("modalText");
         const modalButton = document.getElementById("modalButton");
@@ -126,6 +127,16 @@ document.addEventListener("DOMContentLoaded", function () {
         modalImage.style.backgroundImage = `url('${project.image}')`;
         modalImage.style.backgroundSize = "cover";
         modalImage.style.backgroundPosition = "center";
+
+        // 🗓️ Affichage de la date au bon format
+        if (project.date) {
+            const dateObj = new Date(project.date);
+            const options = { year: 'numeric', month: 'long' };
+            const formattedDate = dateObj.toLocaleDateString('fr-FR', options);
+            modalSubtitle.textContent = `Réalisé en ${formattedDate}`;
+        } else {
+            modalSubtitle.textContent = '';
+        }
 
         // --- Tags dynamiques ---
         modalTags.innerHTML = ""; // on vide avant d’ajouter
@@ -147,10 +158,17 @@ document.addEventListener("DOMContentLoaded", function () {
             modalButton.classList.add("hidden");
         }
 
-        // --- Bouton "Visiter le site web" ---
+        // 🔗 Bouton site web / appli
         if (project.projectLink) {
             modalWebsite.href = project.projectLink;
             modalWebsite.classList.remove("hidden");
+
+            // 🔤 Wording dynamique
+            if (project.type === "app") {
+                modalWebsite.innerHTML = `<i class='bx bx-globe'></i> Voir l'application`;
+            } else {
+                modalWebsite.innerHTML = `<i class='bx bx-globe'></i> Visiter le site web`;
+            }
         } else {
             modalWebsite.classList.add("hidden");
         }
