@@ -14,7 +14,7 @@ let projects = [
         type: "website",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
-            { name: "Prototyping", icon: "bxr bx-play-circle" },
+            { name: "Prototyping", icon: "bx bx-play-circle" },
             { name: "Responsive", icon: "bx bxs-devices" },
         ]
     },
@@ -34,7 +34,7 @@ let projects = [
         type: "website",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
-            { name: "Prototyping", icon: "bxr bx-play-circle" },
+            { name: "Prototyping", icon: "bx bx-play-circle" },
         ]
 
     },
@@ -93,7 +93,7 @@ let projects = [
         type: "app",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
-            { name: "Prototyping", icon: "bxr bx-play-circle" },
+            { name: "Prototyping", icon: "bx bx-play-circle" },
         ]
     },
     {
@@ -110,7 +110,7 @@ let projects = [
         type: "website",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
-            { name: "Prototyping", icon: "bxr bx-play-circle" },
+            { name: "Prototyping", icon: "bx bx-play-circle" },
         ]
     },
     {
@@ -129,7 +129,7 @@ let projects = [
         type: "website",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
-            { name: "Prototyping", icon: "bxr bx-play-circle" },
+            { name: "Prototyping", icon: "bx bx-play-circle" },
             { name: "Responsive", icon: "bx bxs-devices" },
         ]
     },
@@ -149,7 +149,7 @@ let projects = [
         type: "app",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
-            { name: "Prototyping", icon: "bxr bx-play-circle" },
+            { name: "Prototyping", icon: "bx bx-play-circle" },
         ]
     },
     {
@@ -166,7 +166,7 @@ let projects = [
         type: "app",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
-            { name: "Prototyping", icon: "bxr bx-play-circle" },
+            { name: "Prototyping", icon: "bx bx-play-circle" },
         ]
     },
     {
@@ -184,7 +184,7 @@ let projects = [
         type: "website",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
-            { name: "Prototyping", icon: "bxr bx-play-circle" },
+            { name: "Prototyping", icon: "bx bx-play-circle" },
         ]
     },
     {
@@ -204,7 +204,7 @@ let projects = [
         type: "website",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
-            { name: "Prototyping", icon: "bxr bx-play-circle" },
+            { name: "Prototyping", icon: "bx bx-play-circle" },
         ]
     },
     {
@@ -223,7 +223,7 @@ let projects = [
         type: "website",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
-            { name: "Prototyping", icon: "bxr bx-play-circle" },
+            { name: "Prototyping", icon: "bx bx-play-circle" },
             { name: "Responsive", icon: "bx bxs-devices" },
         ]
     },
@@ -241,7 +241,7 @@ let projects = [
         type: "website",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
-            { name: "Prototyping", icon: "bxr bx-play-circle" },
+            { name: "Prototyping", icon: "bx bx-play-circle" },
         ]
     },
     {
@@ -261,7 +261,7 @@ let projects = [
         type: "website",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
-            { name: "Prototyping", icon: "bxr bx-play-circle" },
+            { name: "Prototyping", icon: "bx bx-play-circle" },
         ]
     },
     {
@@ -277,7 +277,7 @@ let projects = [
         type: "website",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
-            { name: "Prototyping", icon: "bxr bx-play-circle" },
+            { name: "Prototyping", icon: "bx bx-play-circle" },
         ]
     },
     {
@@ -308,7 +308,7 @@ let projects = [
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Game Design", icon: "bx bxs-game" },
-            { name: "Prototyping", icon: "bxr bx-play-circle" },
+            { name: "Prototyping", icon: "bx bx-play-circle" },
             { name: "UX Writing", icon: "bx bxs-pen" },
             { name: "Design System", icon: "bx bxs-layout" },
 
