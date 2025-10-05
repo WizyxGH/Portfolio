@@ -13,9 +13,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const path = window.location.pathname;
 
         if (path.includes('creations_studies')) {
-            projects = projects.filter(project => Number(project.id) >= 21 && Number(project.id) <= 28);
+            projects = projects.filter(project => Number(project.id) >= 22 && Number(project.id) <= 29);
         } else if (path.includes('creations')) {
-            projects = projects.filter(project => Number(project.id) >= 1 && Number(project.id) <= 20);
+            projects = projects.filter(project => Number(project.id) >= 1 && Number(project.id) <= 21);
         }
 
         console.log("Projets filtrés :", projects);

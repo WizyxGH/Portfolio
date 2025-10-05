@@ -53,25 +53,37 @@
 
     <div id="footer-container"></div>
 
-    <!-- Modal -->
-    <div id="modal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center hidden">
-        <div class="bg-white p-6 rounded-lg shadow-lg w-11/12 md:w-2/3 lg:w-1/2 relative max-h-[90vh] overflow-y-auto">
-            <!-- Icône de fermeture -->
-            <i class='bx bx-x absolute top-4 right-4 text-3xl cursor-pointer text-[#411FEB]' onclick="closeModal()"></i>
-
-            <!-- Contenu de la modal -->
-            <h3 class="text-lg font-semibold text-[#411FEB]" id="modalTitle">Titre du projet</h3>
-            <div class="h-40 bg-[#411FEB] mb-4 rounded-lg" id="modalImage"></div>
-            <p class="text-sm text-black" id="modalText">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu,
-                pulvinar magna. <br><br>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada augue eu,
-                pulvinar magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at diam hendrerit, malesuada
-                augue eu, pulvinar magna.
-            </p>
-            <a id="modalButton" href="#" target="_blank"
-                class="mt-4 inline-block bg-[#411FEB] text-white px-4 py-2 rounded-md hover:bg-[#3A1CC5] transition">Voir
-                le résultat</a>
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center overflow-y-auto z-50">
+        <div class="bg-white rounded-xl shadow-lg w-11/12 md:w-2/3 lg:w-1/2 max-h-[90vh] my-6 flex flex-col">
+            <!-- Header (non scrollable) -->
+            <div class="bg-[#411FEB] bg-opacity-[0.04] p-4 border-b border-[#411FEB]/12 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between relative">
+                <div class="flex flex-col gap-1 sm:flex-1">
+                    <h3 id="modalTitle" class="text-xl font-semibold text-[#411FEB]">Titre du projet</h3>
+                    <p id="modalSubtitle" class="text-gray-500 text-sm">Réalisé en</p>
+                </div>
+                <i class="bx bx-x text-3xl text-[#411FEB] text-opacity-[0.64] cursor-pointer hover:text-[#411FEB] transition absolute right-6 top-6 sm:static"
+                    onclick="closeModal()"></i>
+            </div>
+    
+            <!-- Contenu scrollable -->
+            <div class="p-4 flex-1 overflow-y-auto space-y-4">
+                <div id="modalImage" class="h-52 bg-[#411FEB]/4 rounded-lg flex items-center justify-center"></div>
+                <div id="modalTags" class="flex gap-2 overflow-x-auto whitespace-nowrap scrollbar-hide text-sm"></div>
+                <p id="modalText" class="text-gray-800 text-sm leading-relaxed"></p>
+            </div>
+    
+            <!-- CTA (non scrollable) -->
+            <div class="bg-[#411FEB] bg-opacity-[0.04] p-4 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center sm:justify-end border-t border-[#411FEB]/12 rounded-b-xl">
+                <a id="modalWebsite" href="#" target="_blank"
+                    class="flex items-center justify-center gap-2 bg-white border border-[#411FEB] text-[#411FEB] font-semibold px-4 py-2 rounded-md hover:bg-[#f5f3ff] transition">
+                    <i class="bx bx-globe"></i> Visiter le site web
+                </a>
+                <a id="modalButton" href="#" target="_blank"
+                    class="flex items-center justify-center gap-2 bg-[#411FEB] text-white font-semibold px-4 py-2 rounded-md hover:bg-[#3A1CC5] transition">
+                    <i class="bx bx-show"></i> Voir le résultat
+                </a>
+            </div>
+    
         </div>
     </div>
 
