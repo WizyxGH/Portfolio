@@ -12,6 +12,7 @@ let projects = [
         projectLink: "https://guidedugolfe.com",
         date: "2000-01",
         type: "website",
+        context: "Professionnel",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bx bx-play-circle" },
@@ -30,8 +31,9 @@ let projects = [
         image: "/media/projects/maximeclick.jpg",
         driveLink: "https://drive.google.com/drive/folders/17BrU0ZnFJh049cORIbuMdGN9OO1Q19T-?usp=sharing",
         projectLink: "#",
-        date: "2000-01",
+        date: "2024-09",
         type: "website",
+        context: "Personnel",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bx bx-play-circle" },
@@ -54,6 +56,7 @@ let projects = [
         projectLink: "#",
         date: "2000-01",
         type: "app",
+        context: "Professionnel",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
         ]
@@ -68,9 +71,10 @@ let projects = [
         description: "Transformation d'un wireframe de la page d'accueil en une maquette high fidelity.",
         image: "/media/projects/francegaloplive.jpg",
         driveLink: "https://drive.google.com/drive/folders/1wElcAEDe484_4w8MS3-LveCTUNChhTW9?usp=sharing",
-        projectLink: "#",
+        projectLink: "https://www.francegalop-live.com",
         date: "2000-01",
         type: "website",
+        context: "Professionnel",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
         ]
@@ -91,6 +95,7 @@ let projects = [
         projectLink: "#",
         date: "2000-01",
         type: "app",
+        context: "Scolaire",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bx bx-play-circle" },
@@ -108,6 +113,7 @@ let projects = [
         projectLink: "https://www.worldcubeassociation.org",
         date: "2000-01",
         type: "website",
+        context: "Personnel",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bx bx-play-circle" },
@@ -127,6 +133,7 @@ let projects = [
         projectLink: "https://papafrance.fr",
         date: "2000-01",
         type: "website",
+        context: "Professionnel",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bx bx-play-circle" },
@@ -147,6 +154,7 @@ let projects = [
         projectLink: "#",
         date: "2000-01",
         type: "app",
+        context: "Personnel",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bx bx-play-circle" },
@@ -161,9 +169,10 @@ let projects = [
         description: "Design d'une fonctionnalité de cartes GPS de bouquineries (avec possibilité de les ajouter) directement depuis l'application What The Duck.",
         image: "/media/projects/whattheduck.jpg",
         driveLink: "https://drive.google.com/drive/folders/1ep3b2m6SNhnLCiiqXu8VPUQnQ3snrPzA?usp=sharing",
-        projectLink: "#",
+        projectLink: "play.google.com/store/apps/details?id=net.ducksmanager.whattheduck",
         date: "2000-01",
         type: "app",
+        context: "Personnel",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bx bx-play-circle" },
@@ -182,6 +191,7 @@ let projects = [
         projectLink: "#",
         date: "2000-01",
         type: "website",
+        context: "Scolaire",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bx bx-play-circle" },
@@ -202,6 +212,7 @@ let projects = [
         projectLink: "#",
         date: "2000-01",
         type: "website",
+        context: "Personnel",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bx bx-play-circle" },
@@ -221,6 +232,7 @@ let projects = [
         projectLink: "#",
         date: "2000-01",
         type: "website",
+        context: "Scolaire",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bx bx-play-circle" },
@@ -239,6 +251,7 @@ let projects = [
         projectLink: "#",
         date: "2000-01",
         type: "website",
+        context: "Scolaire",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bx bx-play-circle" },
@@ -259,6 +272,7 @@ let projects = [
         projectLink: "https://inducks.org",
         date: "2000-01",
         type: "website",
+        context: "Personnel",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bx bx-play-circle" },
@@ -275,6 +289,7 @@ let projects = [
         projectLink: "#",
         date: "2000-01",
         type: "website",
+        context: "Scolaire",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Prototyping", icon: "bx bx-play-circle" },
@@ -291,6 +306,7 @@ let projects = [
         projectLink: "#",
         date: "2000-01",
         type: "website",
+        context: "Scolaire",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
         ]
@@ -303,8 +319,9 @@ let projects = [
         image: "/media/projects/trouvelaregle.jpg",
         driveLink: "https://google.com",
         projectLink: "#",
-        date: "2000-01",
+        date: "2025-04",
         type: "app",
+        context: "Professionnel",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Game Design", icon: "bx bxs-game" },
@@ -322,8 +339,9 @@ let projects = [
         image: "/media/projects/cartaloto.jpg",
         driveLink: "https://google.com",
         projectLink: "https://www.planete-lotolive.fr",
-        date: "2000-01",
+        date: "2025-03",
         type: "website",
+        context: "Professionnel",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
         ]
@@ -338,6 +356,7 @@ let projects = [
         projectLink: "https://digitalunicorn.fr",
         date: "2000-01",
         type: "website",
+        context: "Professionnel",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Copywriting", icon: "bx bxs-pen" },
@@ -353,6 +372,7 @@ let projects = [
         projectLink: "www.promodentaire.com/",
         date: "2000-01",
         type: "website",
+        context: "Professionnel",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
         ]
@@ -367,6 +387,7 @@ let projects = [
         projectLink: "#",
         date: "2000-01",
         type: "",
+        context: "Scolaire",
         tags: [
             { name: "Scénographie", icon: "bx bxs-mask" },
             { name: "Modélisation 3D", icon: "bx bxs-cube" },
@@ -382,6 +403,7 @@ let projects = [
         projectLink: "#",
         date: "2000-01",
         type: "",
+        context: "Scolaire",
         tags: [
             { name: "Vidéo", icon: "bxr bx-video-cinema" },
             { name: "Rédaction", icon: "bx bxs-pencil" },
@@ -398,6 +420,7 @@ let projects = [
         projectLink: "#",
         date: "2000-01",
         type: "",
+        context: "Scolaire",
         tags: [
             { name: "Vidéo", icon: "bxr bx-video-cinema" },
             { name: "Rédaction / Storytelling", icon: "bx bxs-pencil" },
@@ -415,6 +438,7 @@ let projects = [
         projectLink: "#",
         date: "2000-01",
         type: "",
+        context: "Scolaire",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
             { name: "Vidéo", icon: "bxr bx-video-cinema" },
@@ -433,6 +457,7 @@ let projects = [
         projectLink: "#",
         date: "2000-01",
         type: "",
+        context: "Professionnel",
         tags: [
             { name: "Communication / Marketing", icon: "bxr bx-message-bubble" },
         ]
@@ -447,6 +472,7 @@ let projects = [
         projectLink: "#",
         date: "2000-01",
         type: "",
+        context: "Scolaire",
         tags: [
             { name: "Design graphique", icon: "bx bxs-layout" },
         ]
@@ -461,6 +487,7 @@ let projects = [
         projectLink: "#",
         date: "2000-01",
         type: "",
+        context: "Scolaire",
         tags: [
             { name: "Développement", icon: "bx bx-code-alt" },
         ]
@@ -475,6 +502,7 @@ let projects = [
         projectLink: "#",
         date: "2000-01",
         type: "",
+        context: "Personnel",
         tags: [
             { name: "Mise en page", icon: "bx bxs-layout" },
         ]

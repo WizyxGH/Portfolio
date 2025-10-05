@@ -77,10 +77,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const tagsContainer = card.querySelector(`#tagsContainer-${projectTitleId}`);
             if (tagsContainer && project.tags && Array.isArray(project.tags)) {
+                tagsContainer.innerHTML = ""; // vide les anciens tags
                 project.tags.forEach(tag => {
                     const tagElement = document.createElement("span");
-                    tagElement.className = "bg-[#EDE9FE] text-[#411FEB] border border-[#411FEB] px-2 text-xs rounded-full flex items-center";
-                    tagElement.innerHTML = `<i class='${tag.icon} text-sm mr-1'></i> ${tag.name}`;
+                    tagElement.className =
+                        "inline-flex items-center gap-1 px-2 rounded-full border border-[#411FEB] bg-[#411FEB] bg-opacity-[0.12] text-[#411FEB] font-medium text-sm";
+                    tagElement.innerHTML = `<i class='${tag.icon} text-base'></i> ${tag.name}`;
                     tagsContainer.appendChild(tagElement);
                 });
             }
@@ -144,8 +146,8 @@ document.addEventListener("DOMContentLoaded", function () {
             project.tags.forEach(tag => {
                 const span = document.createElement("span");
                 span.className =
-                    "inline-flex items-center gap-2 px-3 py-1 rounded-xl border border-[#411FEB] bg-[#411FEB] bg-opacity-[0.12] text-[#411FEB] font-medium text-sm"; // texte réduit
-                span.innerHTML = `<i class='${tag.icon} text-lg'></i> ${tag.name}`;
+                    "inline-flex items-center gap-1 px-2 rounded-full border border-[#411FEB] bg-[#411FEB] bg-opacity-[0.12] text-[#411FEB] font-medium";
+                span.innerHTML = `<i class='${tag.icon} text-base'></i> ${tag.name}`;
                 modalTags.appendChild(span);
             });
         }
