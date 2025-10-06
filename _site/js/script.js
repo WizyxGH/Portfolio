@@ -5,6 +5,38 @@ document.addEventListener("DOMContentLoaded", function () {
     const navMenu = document.getElementById('navMenu');
     const dropdownButton = document.getElementById('dropdownButton');
     const dropdownMenu = document.getElementById('dropdownMenu');
+    const searchInput = document.getElementById('searchInput');
+    const clearSearchButton = document.getElementById('clearSearch');
+
+    if (searchInput && clearSearchButton) {
+        searchInput.addEventListener('input', () => {
+            // Afficher/cacher le bouton "x"
+            if (searchInput.value.length > 0) {
+                clearSearchButton.classList.remove('opacity-0', 'pointer-events-none');
+                clearSearchButton.classList.add('opacity-100', 'pointer-events-auto');
+            } else {
+                clearSearchButton.classList.add('opacity-0', 'pointer-events-none');
+                clearSearchButton.classList.remove('opacity-100', 'pointer-events-auto');
+            }
+
+            // Filtrage dynamique
+            const query = searchInput.value.toLowerCase();
+            const filteredProjects = projects.filter(project =>
+                project.title.toLowerCase().includes(query) ||
+                project.description.toLowerCase().includes(query) ||
+                project.text.toLowerCase().includes(query)
+            );
+
+            renderProjects(filteredProjects.slice(0, projectsVisible));
+        });
+
+        clearSearchButton.addEventListener('click', () => {
+            searchInput.value = '';
+            clearSearchButton.classList.add('opacity-0', 'pointer-events-none');
+            clearSearchButton.classList.remove('opacity-100', 'pointer-events-auto');
+            renderProjects(projects.slice(0, projectsVisible));
+        });
+    }
 
     let projectsVisible = 9; // Nombre de projets visibles au départ
 
@@ -24,33 +56,51 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
+    // Placeholder avec nombre total de projets
+    if (searchInput) {
+        searchInput.placeholder = `Rechercher parmi ${projects.length} projet${projects.length > 1 ? 's' : ''}`;
+    }
+
     // Gestion des boutons "Afficher plus / moins"
     if (showMoreButton && showLessButton) {
         showMoreButton.addEventListener("click", function () {
-            loadMoreProjects();
+            projectsVisible = projects.length;
+            renderProjects(projects.slice(0, projectsVisible));
             showMoreButton.classList.add("hidden");
             showLessButton.classList.remove("hidden");
         });
 
         showLessButton.addEventListener("click", function () {
-            loadLessProjects();
+            projectsVisible = 9;
+            renderProjects(projects.slice(0, projectsVisible));
             showLessButton.classList.add("hidden");
             showMoreButton.classList.remove("hidden");
         });
     }
 
-    function loadMoreProjects() {
-        projectsVisible = projects.length;
-        renderProjects(projectsVisible);
+    // Recherche dynamique
+    if (searchInput) {
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.toLowerCase();
+
+            const filteredProjects = projects.filter(project =>
+                project.title.toLowerCase().includes(query) ||
+                project.description.toLowerCase().includes(query) ||
+                project.text.toLowerCase().includes(query)
+            );
+
+            // Limite au nombre de projets visibles
+            const projectsToShow = filteredProjects.slice(0, projectsVisible);
+
+            renderProjects(projectsToShow);
+        });
     }
 
-    function loadLessProjects() {
-        projectsVisible = 9;
-        renderProjects(projectsVisible);
-    }
+    // Affichage initial des projets
+    renderProjects(projects.slice(0, projectsVisible));
 
-    // Affichage des projets
-    // version modifiée pour accepter la liste à afficher
+    // --- Fonctions principales ---
+
     function renderProjects(listToRender) {
         const container = document.getElementById("projectsContainer");
         if (!container) return;
@@ -68,13 +118,13 @@ document.addEventListener("DOMContentLoaded", function () {
             card.dataset.projectId = project.id;
 
             card.innerHTML = ` 
-            <div class="h-40 mb-3 rounded-lg bg-[#411FEB]/12 outline outline-2 overflow-hidden">
-                <img src="${project.image}" alt="${project.title}" class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
-            </div>
-            <h3 class="text-lg font-semibold text-[#411FEB]">${project.title}</h3>
-            <div class="mt-1 flex space-x-2" id="tagsContainer-${projectTitleId}"></div>
-            <p class="text-sm text-gray-600 mt-2">${project.description}</p>
-        `;
+                <div class="h-40 mb-3 rounded-lg bg-[#411FEB]/12 outline outline-2 overflow-hidden">
+                    <img src="${project.image}" alt="${project.title}" class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
+                </div>
+                <h3 class="text-lg font-semibold text-[#411FEB]">${project.title}</h3>
+                <div class="mt-1 flex space-x-2" id="tagsContainer-${projectTitleId}"></div>
+                <p class="text-sm text-gray-600 mt-2">${project.description}</p>
+            `;
 
             const tagsContainer = card.querySelector(`#tagsContainer-${projectTitleId}`);
             if (tagsContainer && project.tags && Array.isArray(project.tags)) {
@@ -94,29 +144,19 @@ document.addEventListener("DOMContentLoaded", function () {
         attachEventListenersToCards();
     }
 
-    // Gestion du clic sur les cartes pour ouvrir le modal
     function attachEventListenersToCards() {
         document.querySelectorAll('.projectCard').forEach(card => {
             card.addEventListener('click', () => {
                 const projectId = Number(card.dataset.projectId);
                 const project = projects.find(p => Number(p.id) === projectId);
-
-                console.log("Carte cliquée - ID:", projectId, "Projet trouvé:", project);
-
-                if (project) {
-                    if (!project.title) {
-                        console.warn("Tentative d'ouverture de modal sans projet valide :", project);
-                        return;
-                    }
+                if (project && project.title) {
                     openModal(project);
-                } else {
-                    console.error(`Le projet avec l'ID ${projectId} n'a pas été trouvé.`);
                 }
-
             });
         });
     }
 
+    // --- Modal ---
     function openModal(project) {
         const modal = document.getElementById("modal");
         if (!modal) return;
@@ -129,25 +169,21 @@ document.addEventListener("DOMContentLoaded", function () {
         const modalWebsite = document.getElementById("modalWebsite");
         const modalTags = document.getElementById("modalTags");
 
-        // --- Contenu principal ---
         modalTitle.textContent = project.title;
         modalText.innerHTML = project.text.replace(/\n/g, "<br>");
         modalImage.style.backgroundImage = `url('${project.image}')`;
         modalImage.style.backgroundSize = "cover";
         modalImage.style.backgroundPosition = "center";
 
-        // 🗓️ Affichage de la date au bon format
         if (project.date) {
             const dateObj = new Date(project.date);
             const options = { year: 'numeric', month: 'long' };
-            const formattedDate = dateObj.toLocaleDateString('fr-FR', options);
-            modalSubtitle.textContent = `Réalisé en ${formattedDate}`;
+            modalSubtitle.textContent = `Réalisé en ${dateObj.toLocaleDateString('fr-FR', options)}`;
         } else {
             modalSubtitle.textContent = '';
         }
 
-        // --- Tags dynamiques ---
-        modalTags.innerHTML = ""; // on vide avant d’ajouter
+        modalTags.innerHTML = "";
         if (project.tags && project.tags.length > 0) {
             project.tags.forEach(tag => {
                 const span = document.createElement("span");
@@ -158,7 +194,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
 
-        // --- Bouton "Voir le résultat" ---
         if (project.driveLink) {
             modalButton.href = project.driveLink;
             modalButton.classList.remove("hidden");
@@ -166,22 +201,16 @@ document.addEventListener("DOMContentLoaded", function () {
             modalButton.classList.add("hidden");
         }
 
-        // 🔗 Bouton site web / appli
         if (project.projectLink) {
             modalWebsite.href = project.projectLink;
             modalWebsite.classList.remove("hidden");
-
-            // 🔤 Wording dynamique
-            if (project.type === "app") {
-                modalWebsite.innerHTML = `<i class='bx bx-globe'></i> Voir l'application`;
-            } else {
-                modalWebsite.innerHTML = `<i class='bx bx-globe'></i> Visiter le site web`;
-            }
+            modalWebsite.innerHTML = project.type === "app" ?
+                `<i class='bx bx-globe'></i> Voir l'application` :
+                `<i class='bx bx-globe'></i> Visiter le site web`;
         } else {
             modalWebsite.classList.add("hidden");
         }
 
-        // --- Affichage final ---
         modal.classList.remove("hidden");
         document.body.classList.add("overflow-hidden");
     }
@@ -191,16 +220,14 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("modal").classList.add("hidden");
     }
 
+    window.closeModal = closeModal; // ✅ rend la fonction accessible depuis le HTML
+
     const modalCloseButton = document.querySelector('.bx-x');
-    if (modalCloseButton) {
-        modalCloseButton.addEventListener('click', closeModal);
-    }
+    if (modalCloseButton) modalCloseButton.addEventListener('click', closeModal);
 
     // Menu burger
     if (menuButton && navMenu) {
-        menuButton.addEventListener('click', () => {
-            navMenu.classList.toggle('hidden');
-        });
+        menuButton.addEventListener('click', () => navMenu.classList.toggle('hidden'));
     }
 
     // Dropdown
@@ -209,43 +236,11 @@ document.addEventListener("DOMContentLoaded", function () {
             event.stopPropagation();
             dropdownMenu.classList.toggle("hidden");
         });
-
         document.addEventListener("click", (event) => {
             if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
                 dropdownMenu.classList.add("hidden");
             }
         });
-    }
-
-    // Affichage initial des projets
-    renderProjects(projectsVisible);
-
-    const searchInput = document.getElementById('searchInput');
-
-    if (searchInput) {
-        searchInput.placeholder = `Rechercher parmi ${projects.length} projet${projects.length > 1 ? 's' : ''}`;
-
-        searchInput.addEventListener('input', () => {
-            const query = searchInput.value.toLowerCase();
-
-            // Filtrage dynamique
-            const filteredProjects = projects.filter(project =>
-                project.title.toLowerCase().includes(query) ||
-                project.description.toLowerCase().includes(query) ||
-                project.text.toLowerCase().includes(query)
-            );
-
-            // Limite au nombre de projets visibles
-            const projectsToShow = filteredProjects.slice(0, projectsVisible);
-
-            // Affichage
-            renderProjects(projectsToShow);
-        });
-    }
-
-    // Version modifiée de renderProjects pour accepter une liste dynamique
-    function projectsVisibleFiltered(filteredList) {
-        return filteredList.slice(0, projectsVisible);
     }
 
 });
