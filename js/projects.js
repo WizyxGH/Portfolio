@@ -11,7 +11,7 @@ let projects = [
         driveLink: "https://drive.google.com/drive/folders/1YxsK-HIXDJE7Ik8Jqx0dYNEObw0r32kE?usp=sharing",
         projectLink: "https://guidedugolfe.com",
         date: "2000-01",
-        type: "website",
+        type: "Site internet",
         context: "Professionnel",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -32,7 +32,7 @@ let projects = [
         driveLink: "https://drive.google.com/drive/folders/17BrU0ZnFJh049cORIbuMdGN9OO1Q19T-?usp=sharing",
         projectLink: "#",
         date: "2024-09",
-        type: "website",
+        type: "Landing page",
         context: "Personnel",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -44,7 +44,7 @@ let projects = [
         id: 3,
         title: "Mon Gardien",
         text: `Dans le cadre de mon stage de BUT MMI de 2ᵉ année, j’ai participé à la conceptualisation de Mon Gardien.
-        <br>Mon Gardien est un projet d’application mobile dont le but est d’aider à réduire le « doomscrolling », c’est-à-dire l’activité de faire défiler (scroller) son fil d’actualités ou de recommandations sur les réseaux sociaux de manière mécanique et quasi systématique sans même que l’on en ait pleinement conscience. Le fait même d’ouvrir ce genre d’applications est devenu pour beaucoup un réflexe.
+        <br>Mon Gardien est un projet d'application mobile dont le but est d’aider à réduire le « doomscrolling », c’est-à-dire l’activité de faire défiler (scroller) son fil d’actualités ou de recommandations sur les réseaux sociaux de manière mécanique et quasi systématique sans même que l’on en ait pleinement conscience. Le fait même d’ouvrir ce genre d'applications est devenu pour beaucoup un réflexe.
         De là, par le biais même de leur conception dont le but final est de générer de l’argent pour subsister, un temps conséquent peut être perdu tandis qu’il aurait peut être utilisé à meilleur escient en faisant à la place des activités qui nous tiennent plus à cœur que la consommation d’un contenu que l’on aura en majorité oublié le lendemain.
         <br>Elle se base sur un système de ludification (gamification) en reprenant certains codes des jeux vidéos afin de donner envie et pousser l’utilisateur à être conscient de cette habitude et à y faire face.
         <br>Pour récolter des fonds auprès d'investisseurs et pour jauger la pertinence du projet, je me suis attelé à réaliser le design et le rédactionnel d’une landing page expliquant le problème du doomscrolling et la solution que propose la future application Mon Gardien.
@@ -55,7 +55,7 @@ let projects = [
         driveLink: "https://drive.google.com/drive/folders/1sRims-3Ztax9HajV-F5f6XhtVbpwNAdc?usp=sharing",
         projectLink: "#",
         date: "2000-01",
-        type: "app",
+        type: "Application",
         context: "Professionnel",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -73,7 +73,7 @@ let projects = [
         driveLink: "https://drive.google.com/drive/folders/1wElcAEDe484_4w8MS3-LveCTUNChhTW9?usp=sharing",
         projectLink: "https://www.francegalop-live.com",
         date: "2000-01",
-        type: "website",
+        type: "Site internet",
         context: "Professionnel",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -87,14 +87,14 @@ let projects = [
         <br>Conçu pour intéresser les enfants mais aussi pour s’adapter et intéresser tout type de public, en se baladant dans le jardin, ils sont plongés dans un univers magique et doivent compléter leur inventaire en retrouvant 12 espèces de plantes.
         Pour ce faire, l’utilisateur doit prendre en photo la plante et il aura ensuite accès à tout un tas d’informations et d’anecdotes amusantes et intéressantes dessus.
         <br>L’accent a aussi été mis sur l’aspect ludique avec l’écriture d’un storytelling spécial et l’ajout d’animations et de badges lorsque l’on trouve une espèce.
-        <br>Personnellement, je me suis occupé de maquetter entièrement l’application sur Figma. J’ai aussi œuvré à son développement principalement au niveau du style et à la récupération des datasets d’images des plantes. On a fait le choix que ce soit une web app en React pour faciliter son déploiement sur les différents systèmes d’exploitation (Android ou iOS).
+        <br>Personnellement, je me suis occupé de maquetter entièrement l'application sur Figma. J’ai aussi œuvré à son développement principalement au niveau du style et à la récupération des datasets d’images des plantes. On a fait le choix que ce soit une web application en React pour faciliter son déploiement sur les différents systèmes d’exploitation (Android ou iOS).
         Et à l’entame du projet, j’avais fait une proposition de charte graphique`,
         description: "Design de l'application BioQuest visant à sensibiliser sur les espèces exotiques envahissantes.",
         image: "/media/projects/bioquest.webp",
         driveLink: "https://drive.google.com/drive/folders/18LZ-7rL-slxtJ-zrxZ75e7J3aDJfW0Hy?usp=sharing",
         projectLink: "#",
         date: "2000-01",
-        type: "app",
+        type: "Application",
         context: "Scolaire",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -112,7 +112,7 @@ let projects = [
         driveLink: "https://drive.google.com/drive/folders/1DYVRW2Ozfwn2veudiz4UoAhKKjAGayro?usp=sharing",
         projectLink: "https://www.worldcubeassociation.org",
         date: "2000-01",
-        type: "website",
+        type: "Site internet",
         context: "Personnel",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -132,7 +132,7 @@ let projects = [
         driveLink: "https://drive.google.com/drive/folders/1twASkm-eKgmA9rNjCXFkEGEueE01_qEI?usp=sharing",
         projectLink: "https://papafrance.fr",
         date: "2000-01",
-        type: "website",
+        type: "Site internet",
         context: "Professionnel",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -153,7 +153,7 @@ let projects = [
         driveLink: "https://drive.google.com/drive/folders/1Tc3rKCLWp6pU8akDs5X6gag0BtonrDp7?usp=sharing",
         projectLink: "#",
         date: "2000-01",
-        type: "app",
+        type: "Application",
         context: "Personnel",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -163,15 +163,15 @@ let projects = [
     {
         id: 9,
         title: "What The Duck",
-        text: `What The Duck est l’application mobile du site internet DucksManager. Les 2 ont le même objectif : aider les collectionneurs de bandes dessinées Disney à classifier leur collection. Les données affichées proviennent de la base de données Inducks.
-        <br>Sur le site DucksManager, il y a une fonctionnalité permettant aux utilisateurs de partager leur bonne adresse de bouquinerie sauf que cela n’a pas beaucoup de sens que la carte d’adresse et la fonctionnalitée ne soit pas disponible sur l’application mobile. On se déplace avec son téléphone pas son ordinateur. Cela demande alors de jongler entre plusieurs autres applications.
+        text: `What The Duck est l'application mobile du site internet DucksManager. Les 2 ont le même objectif : aider les collectionneurs de bandes dessinées Disney à classifier leur collection. Les données affichées proviennent de la base de données Inducks.
+        <br>Sur le site DucksManager, il y a une fonctionnalité permettant aux utilisateurs de partager leur bonne adresse de bouquinerie sauf que cela n’a pas beaucoup de sens que la carte d’adresse et la fonctionnalitée ne soit pas disponible sur l'application mobile. On se déplace avec son téléphone pas son ordinateur. Cela demande alors de jongler entre plusieurs autres applications.
         <br>Frustré par un tel usage, j’ai designé comment elle pourrait être intégrée sur What The Duck.`,
         description: "Design d'une fonctionnalité de cartes GPS de bouquineries (avec possibilité de les ajouter) directement depuis l'application What The Duck.",
         image: "/media/projects/whattheduck.webp",
         driveLink: "https://drive.google.com/drive/folders/1ep3b2m6SNhnLCiiqXu8VPUQnQ3snrPzA?usp=sharing",
-        projectLink: "play.google.com/store/apps/details?id=net.ducksmanager.whattheduck",
+        projectLink: "play.google.com/store/applications/details?id=net.ducksmanager.whattheduck",
         date: "2000-01",
-        type: "app",
+        type: "Application",
         context: "Personnel",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -190,7 +190,7 @@ let projects = [
         driveLink: "https://drive.google.com/drive/folders/16BpVcRMELyWNcUPYQ9z9A9jBw6j4QBaJ?usp=sharing",
         projectLink: "#",
         date: "2000-01",
-        type: "website",
+        type: "Site internet",
         context: "Scolaire",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -211,7 +211,7 @@ let projects = [
         driveLink: "https://drive.google.com/drive/folders/1j3NQS-oVQOpmPAgNIJIKOyclELy_y9rz?usp=sharing",
         projectLink: "#",
         date: "2000-01",
-        type: "website",
+        type: "Site internet",
         context: "Personnel",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -231,7 +231,7 @@ let projects = [
         driveLink: "https://drive.google.com/drive/folders/1xFHCWY7JdEvFcW0Phu4eOp7MkOuDab85?usp=sharing",
         projectLink: "#",
         date: "2000-01",
-        type: "website",
+        type: "Site internet",
         context: "Scolaire",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -250,7 +250,7 @@ let projects = [
         driveLink: "https://drive.google.com/drive/folders/1KcJ6iVQz7GUYs5jscAdILHrOymirMQD3?usp=sharing",
         projectLink: "#",
         date: "2000-01",
-        type: "website",
+        type: "Site internet",
         context: "Scolaire",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -271,7 +271,7 @@ let projects = [
         driveLink: "https://drive.google.com/drive/folders/13PezY4KgwBw34IZeNLaSolclIbk-gSky?usp=sharing",
         projectLink: "https://inducks.org",
         date: "2000-01",
-        type: "website",
+        type: "Site internet",
         context: "Personnel",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -288,7 +288,7 @@ let projects = [
         driveLink: "https://drive.google.com/drive/folders/1bMsjP1iClVy4xGjYPOR5cPlr1VOu9EeN?usp=sharing",
         projectLink: "#",
         date: "2000-01",
-        type: "website",
+        type: "Site internet",
         context: "Scolaire",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -305,7 +305,7 @@ let projects = [
         driveLink: "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         projectLink: "#",
         date: "2000-01",
-        type: "website",
+        type: "Landing page",
         context: "Scolaire",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -320,7 +320,7 @@ let projects = [
         driveLink: "https://google.com",
         projectLink: "#",
         date: "2025-04",
-        type: "app",
+        type: "Application",
         context: "Professionnel",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -340,7 +340,7 @@ let projects = [
         driveLink: "https://google.com",
         projectLink: "https://www.planete-lotolive.fr",
         date: "2025-03",
-        type: "website",
+        type: "Site internet",
         context: "Professionnel",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -355,7 +355,7 @@ let projects = [
         driveLink: "https://google.com",
         projectLink: "https://digitalunicorn.fr",
         date: "2000-01",
-        type: "website",
+        type: "Site internet",
         context: "Professionnel",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -371,7 +371,7 @@ let projects = [
         driveLink: "https://google.com",
         projectLink: "https://promodentaire.com/",
         date: "2000-01",
-        type: "website",
+        type: "Site internet",
         context: "Professionnel",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
@@ -386,7 +386,7 @@ let projects = [
         driveLink: "https://google.com",
         projectLink: "#",
         date: "2025-10",
-        type: "website",
+        type: "Site internet",
         context: "Scolaire",
         tags: [
             { name: "UI/UX Design", icon: "bx bxs-layout" },
