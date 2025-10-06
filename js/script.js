@@ -103,10 +103,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.log("Carte cliquée - ID:", projectId, "Projet trouvé:", project);
 
                 if (project) {
+                    if (!project.title) {
+                        console.warn("Tentative d'ouverture de modal sans projet valide :", project);
+                        return;
+                    }
                     openModal(project);
                 } else {
                     console.error(`Le projet avec l'ID ${projectId} n'a pas été trouvé.`);
                 }
+
             });
         });
     }
