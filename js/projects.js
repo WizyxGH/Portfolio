@@ -28,7 +28,7 @@ let projects = [
         <br>Appréciant son contenu et voyant qu’il est présent sur à peu près tous les réseaux, je me suis fait la réflexion qu’il lui manquait tout de même un moyen plus traditionnel pour qu’il puisse expliquer son travail notamment auprès des marques.
         <br>Je me suis alors lancé dans la création d’une landing page dans ce but reprenant son identité visuelle et son storytelling. J’y présente son histoire, ses stratégies, ses différents projets et met en avant sa preuve sociale pour faire gagner la confiance de ses futurs collaborateurs.`,
         description: "Design d'une landing page pour que le créateur de contenu Maxime Click puisse promouvoir son travail notamment auprès des marques.",
-        image: "/media/projects/maximeclick.webp",
+        image: "/media/projects/maximeclick.gif",
         driveLink: "https://drive.google.com/drive/folders/17BrU0ZnFJh049cORIbuMdGN9OO1Q19T-?usp=sharing",
         projectLink: "#",
         date: "2024-09",

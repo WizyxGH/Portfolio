@@ -50,34 +50,35 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Affichage des projets
-    function renderProjects(visibleCount) {
+    // version modifiée pour accepter la liste à afficher
+    function renderProjects(listToRender) {
         const container = document.getElementById("projectsContainer");
         if (!container) return;
         container.innerHTML = '';
 
-        if (!Array.isArray(projects) || projects.length === 0) {
-            console.error('Aucun projet trouvé dans la variable projects.');
+        if (!Array.isArray(listToRender) || listToRender.length === 0) {
+            container.innerHTML = '<p class="text-center col-span-full">Aucun projet trouvé.</p>';
             return;
         }
 
-        projects.slice(0, visibleCount).forEach(project => {
+        listToRender.forEach(project => {
             const projectTitleId = project.title.replace(/[^a-zA-Z0-9-_]/g, '_');
             const card = document.createElement("div");
             card.className = "projectCard bg-white rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] border-8 border-white";
             card.dataset.projectId = project.id;
 
             card.innerHTML = ` 
-                <div class="h-40 mb-3 rounded-lg bg-[#411FEB] outline outline-2 overflow-hidden">
-                    <img src="${project.image}" alt="${project.title}" class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
-                </div>
-                <h3 class="text-lg font-semibold text-[#411FEB]">${project.title}</h3>
-                <div class="mt-1 flex space-x-2" id="tagsContainer-${projectTitleId}"></div>
-                <p class="text-sm text-gray-600 mt-2">${project.description}</p>
-            `;
+            <div class="h-40 mb-3 rounded-lg bg-[#411FEB]/12 outline outline-2 overflow-hidden">
+                <img src="${project.image}" alt="${project.title}" class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
+            </div>
+            <h3 class="text-lg font-semibold text-[#411FEB]">${project.title}</h3>
+            <div class="mt-1 flex space-x-2" id="tagsContainer-${projectTitleId}"></div>
+            <p class="text-sm text-gray-600 mt-2">${project.description}</p>
+        `;
 
             const tagsContainer = card.querySelector(`#tagsContainer-${projectTitleId}`);
             if (tagsContainer && project.tags && Array.isArray(project.tags)) {
-                tagsContainer.innerHTML = ""; // vide les anciens tags
+                tagsContainer.innerHTML = "";
                 project.tags.forEach(tag => {
                     const tagElement = document.createElement("span");
                     tagElement.className =
@@ -218,4 +219,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Affichage initial des projets
     renderProjects(projectsVisible);
+
+    const searchInput = document.getElementById('searchInput');
+
+    if (searchInput) {
+        searchInput.placeholder = `Rechercher parmi ${projects.length} projet${projects.length > 1 ? 's' : ''}`;
+
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.toLowerCase();
+
+            // Filtrage dynamique
+            const filteredProjects = projects.filter(project =>
+                project.title.toLowerCase().includes(query) ||
+                project.description.toLowerCase().includes(query) ||
+                project.text.toLowerCase().includes(query)
+            );
+
+            // Limite au nombre de projets visibles
+            const projectsToShow = filteredProjects.slice(0, projectsVisible);
+
+            // Affichage
+            renderProjects(projectsToShow);
+        });
+    }
+
+    // Version modifiée de renderProjects pour accepter une liste dynamique
+    function projectsVisibleFiltered(filteredList) {
+        return filteredList.slice(0, projectsVisible);
+    }
+
 });
