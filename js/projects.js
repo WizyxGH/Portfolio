@@ -328,7 +328,6 @@ let projects = [
             { name: "Prototyping", icon: "bx bx-play-circle" },
             { name: "UX Writing", icon: "bx bxs-pen" },
             { name: "Design System", icon: "bx bxs-layout" },
-
         ]
     },
     {
