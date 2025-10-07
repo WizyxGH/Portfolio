@@ -64,7 +64,16 @@ permalink: /creations_studies/
             <div class="bg-[#411FEB] bg-opacity-[0.04] p-4 border-b border-[#411FEB]/12 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between relative">
                 <div class="flex flex-col gap-1 sm:flex-1">
                     <h3 id="modalTitle" class="text-xl font-semibold text-[#411FEB]">Titre du projet</h3>
-                    <p id="modalSubtitle" class="text-gray-500 text-sm">Réalisé en</p>
+            
+                    <!-- ✅ Ajoute cette ligne -->
+                    <div id="modalMeta" class="flex items-center text-sm text-gray-500 gap-1">
+                        <i class="bx bxs-calendar-alt text-[#411FEB]/48"></i>
+                        <span>Date</span>
+                        <span class="">•</span>
+                        <span></span>
+                        <span class="">•</span>
+                        <span></span>
+                    </div>
                 </div>
                 <i class="bx bx-x text-3xl text-[#411FEB] text-opacity-[0.64] cursor-pointer hover:text-[#411FEB] transition absolute right-6 top-6 sm:static"
                     onclick="closeModal()"></i>
@@ -73,7 +82,7 @@ permalink: /creations_studies/
             <!-- Contenu scrollable -->
             <div class="p-4 flex-1 overflow-y-auto space-y-4">
                 <div id="modalImage" class="h-52 bg-[#411FEB]/4 rounded-lg flex items-center justify-center"></div>
-                <div id="modalTags" class="flex gap-2 overflow-x-auto whitespace-nowrap scrollbar-hide text-sm"></div>
+                <div id="modalTags" class="flex flex-wrap gap-2 text-sm w-full"></div>
                 <p id="modalText" class="text-gray-800 text-sm leading-relaxed"></p>
             </div>
     

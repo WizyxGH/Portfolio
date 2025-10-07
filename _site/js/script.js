@@ -79,18 +79,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 emptyCard.className = "projectCard bg-white rounded-lg text-left border-8 border-white hover:bg-[#EDE9FE] cursor-default";
 
                 emptyCard.innerHTML = `
-        <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 flex items-center justify-center overflow-hidden">
-            <img src="/media/projects/projectnoresult.svg" alt="Aucun projet trouvé" class="h-64 w-64">
-        </div>
-        <h3 class="text-lg font-semibold text-[#411FEB] mb-1">Aucun projet trouvé...</h3>
-        <p class="text-sm text-gray-600 mt-2 mb-4">
-            Peut-être en rechercheriez-vous un autre ? Sinon, rassurez-vous, il ne me fait pas peur !
-        </p>
-        <a href="/services" class="inline-flex items-center gap-2 bg-[#411FEB] text-white text-sm font-medium px-3 py-2 rounded-lg hover:bg-[#3216C9] transition">
-            <i class='bx bx-handshake text-base'></i>
-            On le crée ensemble ?
-        </a>
-    `;
+                    <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] border-2 border-dashed border-[#411FEB] flex items-center justify-center overflow-hidden">
+                        <img src="/media/projects/projectnoresult.svg" alt="Aucun projet trouvé" class="h-64 w-64">
+                    </div>
+                    <h3 class="text-lg font-semibold text-[#411FEB] mb-1">Aucun projet trouvé...</h3>
+                    <p class="text-sm text-gray-600 mt-2 mb-4">
+                        Peut-être en rechercheriez-vous un autre ? Sinon, rassurez-vous, il ne me fait pas peur !
+                    </p>
+                    <a href="/services" class="inline-flex items-center gap-2 bg-[#411FEB] text-white text-sm font-medium px-3 py-2 rounded-lg hover:bg-[#3216C9] transition">
+                        <i class='bx bx-handshake text-base'></i>
+                        On le crée ensemble ?
+                    </a>
+                `;
+
                 container.appendChild(emptyCard);
             }
 
