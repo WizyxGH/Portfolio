@@ -3,57 +3,88 @@ document.addEventListener("DOMContentLoaded", function () {
     const showLessButton = document.getElementById("showLessButton");
     const searchInput = document.getElementById('searchInput');
     const clearSearchButton = document.getElementById('clearSearch');
-
-    let projectsVisible = 9;
-    let filteredProjects = [];
-
-    // --- Initialisation des projets selon la page ---
-    if (typeof projects !== "undefined" && Array.isArray(projects)) {
-        const path = window.location.pathname;
-        if (path.includes('creations_studies')) filteredProjects = projects.filter(p => p.id >= 22 && p.id <= 29);
-        else if (path.includes('creations')) filteredProjects = projects.filter(p => p.id >= 1 && p.id <= 21);
-        else filteredProjects = [...projects];
-    }
-
-    if (searchInput) searchInput.placeholder = `Rechercher parmi ${filteredProjects.length} projet${filteredProjects.length > 1 ? 's' : ''}`;
-
     const container = document.getElementById("projectsContainer");
     if (!container) return;
 
-    // --- Création initiale des cards (une seule fois) ---
-    filteredProjects.forEach(project => {
-        const projectTitleId = project.title.replace(/[^a-zA-Z0-9-_]/g, '_');
-        const card = document.createElement("div");
-        card.className = "projectCard bg-white rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] border-8 border-white";
-        card.dataset.projectId = project.id;
-        card.dataset.title = project.title.toLowerCase();
-        card.dataset.description = project.description.toLowerCase();
-        card.dataset.text = project.text.toLowerCase();
+    let projects = [];
+    let projectsVisible = 9;
+    let filteredProjects = [];
+    let allCards = [];
 
-        card.innerHTML = ` 
-            <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
-                <img src="${project.image}" alt="${project.title}" class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
-            </div>
-            <h3 class="text-lg font-semibold text-[#411FEB]">${project.title}</h3>
-            <div class="mt-1 flex flex-wrap gap-2" id="tagsContainer-${projectTitleId}"></div>
-            <p class="text-sm text-gray-600 mt-2">${project.description}</p>
-        `;
+    // --- Chargement du fichier JSON ---
+    fetch('/js/projects.json')
+        .then(res => {
+            if (!res.ok) throw new Error("Impossible de charger projects.json");
+            return res.json();
+        })
+        .then(data => {
+            projects = data;
 
-        const tagsContainer = card.querySelector(`#tagsContainer-${projectTitleId}`);
-        if (tagsContainer && project.tags?.length) {
-            project.tags.forEach(tag => {
-                const tagElement = document.createElement("span");
-                tagElement.className =
-                    "inline-flex items-center gap-1 px-2 rounded-full border border-[#411FEB] bg-[#411FEB] bg-opacity-[0.12] text-[#411FEB] font-medium text-sm";
-                tagElement.innerHTML = `<i class='${tag.icon} text-base'></i> ${tag.name}`;
-                tagsContainer.appendChild(tagElement);
+            // --- Initialisation selon la page ---
+            const path = window.location.pathname;
+            if (path.includes('creations_studies')) filteredProjects = projects.filter(p => p.id >= 23 && p.id <= 30);
+            else if (path.includes('creations')) filteredProjects = projects.filter(p => p.id >= 1 && p.id <= 22);
+            else filteredProjects = [...projects];
+
+            if (searchInput)
+                searchInput.placeholder = `Rechercher parmi ${filteredProjects.length} projet${filteredProjects.length > 1 ? 's' : ''}`;
+
+            // --- Création des cards ---
+            filteredProjects.forEach(project => {
+                const projectTitleId = project.title.replace(/[^a-zA-Z0-9-_]/g, '_');
+                const card = document.createElement("div");
+                card.className = "projectCard bg-white rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] border-8 border-white";
+                card.dataset.projectId = project.id;
+                card.dataset.title = project.title.toLowerCase();
+                card.dataset.description = project.description.toLowerCase();
+                card.dataset.text = project.text.toLowerCase();
+
+                // --- Card avec lazy loading des images ---
+                card.innerHTML = ` 
+                    <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
+                        <img data-src="${project.image}" loading="lazy" alt="${project.title}" class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110 lazy-img">
+                    </div>
+                    <h3 class="text-lg font-semibold text-[#411FEB]">${project.title}</h3>
+                    <div class="mt-1 flex flex-wrap gap-2" id="tagsContainer-${projectTitleId}"></div>
+                    <p class="text-sm text-gray-600 mt-2">${project.description}</p>
+                `;
+
+                const tagsContainer = card.querySelector(`#tagsContainer-${projectTitleId}`);
+                if (tagsContainer && project.tags?.length) {
+                    project.tags.forEach(tag => {
+                        const tagElement = document.createElement("span");
+                        tagElement.className =
+                            "inline-flex items-center gap-1 px-2 rounded-full border border-[#411FEB] bg-[#411FEB] bg-opacity-[0.12] text-[#411FEB] font-medium text-sm";
+                        tagElement.innerHTML = `<i class='${tag.icon} text-base'></i> ${tag.name}`;
+                        tagsContainer.appendChild(tagElement);
+                    });
+                }
+
+                container.appendChild(card);
             });
-        }
 
-        container.appendChild(card);
-    });
+            allCards = Array.from(container.querySelectorAll(".projectCard"));
+            attachEventListenersToCards();
+            updateProjects();
+            lazyLoadImages();
+        })
+        .catch(error => console.error(error));
 
-    const allCards = Array.from(container.querySelectorAll(".projectCard"));
+    // --- Lazy loading des images ---
+    function lazyLoadImages() {
+        const lazyImages = document.querySelectorAll(".lazy-img");
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove("lazy-img");
+                    obs.unobserve(img);
+                }
+            });
+        });
+        lazyImages.forEach(img => observer.observe(img));
+    }
 
     // --- Fonction de mise à jour affichage ---
     function updateProjects() {
@@ -70,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        // --- Gestion de la fausse carte si aucun projet trouvé ---
+        // --- Fausse carte si aucun projet trouvé ---
         let emptyCard = document.getElementById("emptyProjectCard");
         if (visibleCount === 0) {
             if (!emptyCard) {
@@ -91,15 +122,13 @@ document.addEventListener("DOMContentLoaded", function () {
                         On le crée ensemble ?
                     </a>
                 `;
-
                 container.appendChild(emptyCard);
             }
-
         } else if (emptyCard) {
             emptyCard.remove();
         }
 
-        // Gestion des boutons
+        // --- Gestion des boutons ---
         const totalMatches = allCards.filter(card =>
             !query || card.dataset.title.includes(query) || card.dataset.description.includes(query) || card.dataset.text.includes(query)
         ).length;
@@ -143,8 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
         updateProjects();
     });
 
-    attachEventListenersToCards();
-
+    // --- Gestion des cartes ---
     function attachEventListenersToCards() {
         allCards.forEach(card => {
             card.addEventListener('click', () => {
