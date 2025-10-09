@@ -39,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 card.dataset.description = project.description.toLowerCase();
                 card.dataset.text = project.text.toLowerCase();
 
-                // --- Card avec lazy loading des images ---
                 card.innerHTML = ` 
                     <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
                         <img data-src="${project.image}" loading="lazy" alt="${project.title}" class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110 lazy-img">
@@ -67,6 +66,14 @@ document.addEventListener("DOMContentLoaded", function () {
             attachEventListenersToCards();
             updateProjects();
             lazyLoadImages();
+
+            // --- OUVERTURE AUTOMATIQUE DE LA MODAL SI PARAM URL ---
+            const urlParams = new URLSearchParams(window.location.search);
+            const projectIdFromUrl = urlParams.get("project");
+            if (projectIdFromUrl) {
+                const project = projects.find(p => String(p.id) === projectIdFromUrl);
+                if (project) openModal(project);
+            }
         })
         .catch(error => console.error(error));
 
@@ -101,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        // --- Fausse carte si aucun projet trouvé ---
+        // --- Gestion cartes vides ---
         let emptyCard = document.getElementById("emptyProjectCard");
         if (visibleCount === 0) {
             if (!emptyCard) {
@@ -124,11 +131,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 `;
                 container.appendChild(emptyCard);
             }
-        } else if (emptyCard) {
-            emptyCard.remove();
-        }
+        } else if (emptyCard) emptyCard.remove();
 
-        // --- Gestion des boutons ---
+        // --- Gestion boutons Show More / Show Less ---
         const totalMatches = allCards.filter(card =>
             !query || card.dataset.title.includes(query) || card.dataset.description.includes(query) || card.dataset.text.includes(query)
         ).length;
@@ -239,13 +244,104 @@ document.addEventListener("DOMContentLoaded", function () {
 
         modal.classList.remove("hidden");
         document.body.classList.add("overflow-hidden");
+
+        
+        // --- Mettre à jour l'URL dynamiquement ---
+        const newUrl = `?project=${project.id}`;
+        window.history.replaceState(null, '', newUrl);
     }
 
     function closeModal() {
         document.body.classList.remove("overflow-hidden");
         document.getElementById("modal").classList.add("hidden");
+        // Retirer le paramètre de l'URL pour ne pas rouvrir la modal
+        window.history.replaceState(null, '', window.location.pathname);
     }
 
     window.closeModal = closeModal;
     document.querySelector('.bx-x')?.addEventListener('click', closeModal);
+
+    const suggestionsContainer = document.getElementById('suggestionsContainer');
+
+    searchInput.addEventListener('input', () => {
+        const query = searchInput.value.toLowerCase();
+        const matches = filteredProjects.filter(p =>
+            p.title.toLowerCase().includes(query) ||
+            p.description.toLowerCase().includes(query) ||
+            p.text.toLowerCase().includes(query)
+        );
+
+        // Affichage des suggestions
+        suggestionsContainer.innerHTML = '';
+        if (query && matches.length > 0) {
+            matches.slice(0, 5).forEach(project => {
+                const div = document.createElement('div');
+                div.className = "flex flex-col gap-1 px-4 py-2 hover:bg-[#EDE9FE] cursor-pointer transition-colors";
+
+                // Titre + type container
+                const titleRow = document.createElement('div');
+                titleRow.className = "flex flex-col sm:flex-row sm:items-center";
+
+                // Icône + titre
+                const titleSpan = document.createElement('span');
+                titleSpan.className = "flex items-center gap-1 font-semibold text-[#3E3E3E]";
+                titleSpan.innerHTML = `<i class="bx bx-folder text-[#411FEB]"></i>${project.title}`;
+
+                // Hover effect pour icône (outline → filled)
+                div.addEventListener('mouseenter', () => {
+                    const icon = titleSpan.querySelector('i');
+                    if (icon) icon.classList.replace('bx-folder', 'bxs-folder');
+                });
+                div.addEventListener('mouseleave', () => {
+                    const icon = titleSpan.querySelector('i');
+                    if (icon) icon.classList.replace('bxs-folder', 'bx-folder');
+                });
+
+                titleRow.appendChild(titleSpan);
+
+                // Type
+                if (project.type) {
+                    const typeSpan = document.createElement('span');
+                    typeSpan.className = "text-[#3E3E3E] text-sm opacity-80 mt-1 sm:mt-0 sm:ml-2 flex items-center";
+
+                    // Séparateur • violet sur desktop uniquement
+                    const separator = document.createElement('span');
+                    separator.textContent = '•';
+                    separator.style.color = '#411FEB';
+                    separator.style.opacity = '0.48';
+                    separator.className = "hidden sm:inline mr-1"; // margin-right pour espacer du texte
+
+                    const typeText = document.createElement('span');
+                    typeText.textContent = project.type.charAt(0).toUpperCase() + project.type.slice(1);
+
+                    typeSpan.appendChild(separator);
+                    typeSpan.appendChild(typeText);
+                    titleRow.appendChild(typeSpan);
+                }
+
+                div.appendChild(titleRow);
+
+                div.addEventListener('click', () => {
+                    openModal(project);
+                    suggestionsContainer.classList.add('hidden');
+                    searchInput.value = '';
+                });
+
+    suggestionsContainer.appendChild(div);
+            });
+            suggestionsContainer.classList.remove('hidden');
+        } else {
+            suggestionsContainer.classList.add('hidden');
+        }
+
+        updateProjects(); // pour filtrer les cartes comme avant
+    });
+
+    // Masquer suggestions si clic à l'extérieur
+    document.addEventListener('click', e => {
+        if (!searchInput.contains(e.target) && !suggestionsContainer.contains(e.target)) {
+            suggestionsContainer.classList.add('hidden');
+        }
+    });
+
 });
