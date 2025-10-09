@@ -1,2 +1,3 @@
 User-agent: *
-Disallow: /legal.html
+Disallow: /pages/legal.html
+Disallow: /partials/
