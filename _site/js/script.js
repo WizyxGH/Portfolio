@@ -271,68 +271,65 @@ document.addEventListener("DOMContentLoaded", function () {
             p.text.toLowerCase().includes(query)
         );
 
-        // Affichage des suggestions
-        suggestionsContainer.innerHTML = '';
-        if (query && matches.length > 0) {
-            matches.slice(0, 5).forEach(project => {
-                const div = document.createElement('div');
-                div.className = "flex flex-col gap-1 px-4 py-2 hover:bg-[#EDE9FE] cursor-pointer transition-colors";
+        // --- Affichage des suggestions ---
+suggestionsContainer.innerHTML = '';
+if (query && matches.length > 0) {
+    matches.slice(0, 5).forEach(project => {
+        const div = document.createElement('div');
+        div.className = "flex items-center gap-3 px-4 py-2 hover:bg-[#EDE9FE] cursor-pointer transition-colors rounded-lg";
 
-                // Titre + type container
-                const titleRow = document.createElement('div');
-                titleRow.className = "flex flex-col sm:flex-row sm:items-center";
+        // --- Image miniature ---
+        const img = document.createElement('img');
+        img.src = project.image;
+        img.alt = project.title;
+        img.className = "w-12 h-12 object-cover rounded-lg flex-shrink-0";
+        div.appendChild(img);
 
-                // Icône + titre
-                const titleSpan = document.createElement('span');
-                titleSpan.className = "flex items-center gap-1 font-semibold text-[#3E3E3E]";
-                titleSpan.innerHTML = `<i class="bx bx-folder text-[#411FEB]"></i>${project.title}`;
+        // --- Conteneur texte ---
+        const textContainer = document.createElement('div');
+        textContainer.className = "flex flex-col sm:flex-row sm:items-center sm:gap-2";
 
-                // Hover effect pour icône (outline → filled)
-                div.addEventListener('mouseenter', () => {
-                    const icon = titleSpan.querySelector('i');
-                    if (icon) icon.classList.replace('bx-folder', 'bxs-folder');
-                });
-                div.addEventListener('mouseleave', () => {
-                    const icon = titleSpan.querySelector('i');
-                    if (icon) icon.classList.replace('bxs-folder', 'bx-folder');
-                });
+        // --- Titre ---
+        const titleSpan = document.createElement('span');
+        titleSpan.className = "font-semibold text-[#3E3E3E] truncate max-w-[200px] sm:max-w-[250px]";
+        titleSpan.textContent = project.title;
+        textContainer.appendChild(titleSpan);
 
-                titleRow.appendChild(titleSpan);
+        // --- Type ---
+        if (project.type) {
+            const typeSpan = document.createElement('span');
+            typeSpan.className = "text-[#3E3E3E] text-sm opacity-80 mt-0.5 sm:mt-0 flex items-center";
 
-                // Type
-                if (project.type) {
-                    const typeSpan = document.createElement('span');
-                    typeSpan.className = "text-[#3E3E3E] text-sm opacity-80 mt-1 sm:mt-0 sm:ml-2 flex items-center";
+            // Séparateur violet uniquement sur desktop
+            const separator = document.createElement('span');
+            separator.textContent = '•';
+            separator.style.color = '#411FEB';
+            separator.style.opacity = '0.48';
+            separator.className = "hidden sm:inline mx-1";
 
-                    // Séparateur • violet sur desktop uniquement
-                    const separator = document.createElement('span');
-                    separator.textContent = '•';
-                    separator.style.color = '#411FEB';
-                    separator.style.opacity = '0.48';
-                    separator.className = "hidden sm:inline mr-1"; // margin-right pour espacer du texte
+            const typeText = document.createElement('span');
+            typeText.textContent = project.type.charAt(0).toUpperCase() + project.type.slice(1);
 
-                    const typeText = document.createElement('span');
-                    typeText.textContent = project.type.charAt(0).toUpperCase() + project.type.slice(1);
-
-                    typeSpan.appendChild(separator);
-                    typeSpan.appendChild(typeText);
-                    titleRow.appendChild(typeSpan);
-                }
-
-                div.appendChild(titleRow);
-
-                div.addEventListener('click', () => {
-                    openModal(project);
-                    suggestionsContainer.classList.add('hidden');
-                    searchInput.value = '';
-                });
-
-    suggestionsContainer.appendChild(div);
-            });
-            suggestionsContainer.classList.remove('hidden');
-        } else {
-            suggestionsContainer.classList.add('hidden');
+            typeSpan.appendChild(separator);
+            typeSpan.appendChild(typeText);
+            textContainer.appendChild(typeSpan);
         }
+
+        div.appendChild(textContainer);
+
+        // --- Interaction ---
+        div.addEventListener('click', () => {
+            openModal(project);
+            suggestionsContainer.classList.add('hidden');
+            searchInput.value = '';
+        });
+
+        suggestionsContainer.appendChild(div);
+    });
+    suggestionsContainer.classList.remove('hidden');
+} else {
+    suggestionsContainer.classList.add('hidden');
+}
 
         updateProjects(); // pour filtrer les cartes comme avant
     });
