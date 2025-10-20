@@ -7,7 +7,7 @@
         "image": "/media/projects/guidegolfesainttropez.webp",
         "driveLink": "https://drive.google.com/drive/folders/1YxsK-HIXDJE7Ik8Jqx0dYNEObw0r32kE?usp=sharing",
         "projectLink": "https://guidedugolfe.com",
-        "date": "2000-01",
+        "date": "2024-02",
         "type": "Site internet",
         "context": "Professionnel",
         "tags": [
@@ -41,7 +41,7 @@
         "image": "/media/projects/mongardien.webp",
         "driveLink": "https://drive.google.com/drive/folders/1sRims-3Ztax9HajV-F5f6XhtVbpwNAdc?usp=sharing",
         "projectLink": "#",
-        "date": "2000-01",
+        "date": "2024-02",
         "type": "Application",
         "context": "Professionnel",
         "tags": [
@@ -56,7 +56,7 @@
         "image": "/media/projects/francegaloplive.webp",
         "driveLink": "https://drive.google.com/drive/folders/1wElcAEDe484_4w8MS3-LveCTUNChhTW9?usp=sharing",
         "projectLink": "https://www.francegalop-live.com",
-        "date": "2000-01",
+        "date": "2024-03",
         "type": "Site internet",
         "context": "Professionnel",
         "tags": [
@@ -71,7 +71,7 @@
         "image": "/media/projects/bioquest.webp",
         "driveLink": "https://drive.google.com/drive/folders/18LZ-7rL-slxtJ-zrxZ75e7J3aDJfW0Hy?usp=sharing",
         "projectLink": "#",
-        "date": "2000-01",
+        "date": "2025-01",
         "type": "Application",
         "context": "Scolaire",
         "tags": [
@@ -103,7 +103,7 @@
         "image": "/media/projects/papafrance.webp",
         "driveLink": "https://drive.google.com/drive/folders/1twASkm-eKgmA9rNjCXFkEGEueE01_qEI?usp=sharing",
         "projectLink": "https://papafrance.fr",
-        "date": "2000-01",
+        "date": "2024-02",
         "type": "Site internet",
         "context": "Professionnel",
         "tags": [
@@ -152,7 +152,7 @@
         "image": "/media/projects/tometlola.webp",
         "driveLink": "https://drive.google.com/drive/folders/16BpVcRMELyWNcUPYQ9z9A9jBw6j4QBaJ?usp=sharing",
         "projectLink": "#",
-        "date": "2000-01",
+        "date": "2023-10",
         "type": "Site internet",
         "context": "Scolaire",
         "tags": [
@@ -184,7 +184,7 @@
         "image": "/media/projects/breakscreen.webp",
         "driveLink": "https://drive.google.com/drive/folders/1xFHCWY7JdEvFcW0Phu4eOp7MkOuDab85?usp=sharing",
         "projectLink": "#",
-        "date": "2000-01",
+        "date": "2023-11",
         "type": "Site internet",
         "context": "Scolaire",
         "tags": [
@@ -201,7 +201,7 @@
         "image": "/media/projects/pizzami.webp",
         "driveLink": "https://drive.google.com/drive/folders/1KcJ6iVQz7GUYs5jscAdILHrOymirMQD3?usp=sharing",
         "projectLink": "#",
-        "date": "2000-01",
+        "date": "2024-05",
         "type": "Site internet",
         "context": "Scolaire",
         "tags": [
@@ -254,25 +254,6 @@
         "context": "Scolaire",
         "tags": [
             { "name": "UI/UX Design", "icon": "bx bxs-layout" }
-        ]
-    },
-    {
-        "id": 17,
-        "title": "Joyca, Trouve la règle",
-        "text": "Coming soon...",
-        "description": "Coming soon...",
-        "image": "/media/projects/trouvelaregle.webp",
-        "driveLink": "https://google.com",
-        "projectLink": "#",
-        "date": "2025-04",
-        "type": "Application",
-        "context": "Professionnel",
-        "tags": [
-            { "name": "UI/UX Design", "icon": "bx bxs-layout" },
-            { "name": "Game Design", "icon": "bx bxs-game" },
-            { "name": "Prototyping", "icon": "bx bx-play-circle" },
-            { "name": "UX Writing", "icon": "bx bxs-pen" },
-            { "name": "Design System", "icon": "bx bxs-layout" }
         ]
     },
     {
@@ -329,7 +310,7 @@
         "image": "/media/projects/projectnoresult.svg",
         "driveLink": "https://google.com",
         "projectLink": "#",
-        "date": "2000-01",
+        "date": "2025-08",
         "type": "Site internet",
         "context": "Personnel",
         "tags": [
