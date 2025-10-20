@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             allCards = Array.from(container.querySelectorAll(".projectCard"));
             attachEventListenersToCards();
-            updateProjects();
+            sortAndRenderCards();
             lazyLoadImages();
 
             const urlParams = new URLSearchParams(window.location.search);
@@ -267,7 +267,25 @@ document.addEventListener("DOMContentLoaded", function () {
         return 0;
     }
 
-    // Tri fonction
+    // --- Fonction tri et réaffichage des cartes sur la page ---
+    function sortAndRenderCards() {
+        let sortedCards = [...allCards];
+        if (currentSort === 'date') {
+            sortedCards.sort((a, b) => {
+                const dateA = parseProjectDate(projects.find(p => p.id == a.dataset.projectId));
+                const dateB = parseProjectDate(projects.find(p => p.id == b.dataset.projectId));
+                return dateB - dateA;
+            });
+        } else { // 'meilleur' ou id
+            sortedCards.sort((a, b) => (Number(a.dataset.projectId) || 0) - (Number(b.dataset.projectId) || 0));
+        }
+
+        container.innerHTML = '';
+        sortedCards.forEach(card => container.appendChild(card));
+        updateProjects();
+    }
+
+    // Tri fonction pour suggestions uniquement
     function sortProjects(list) {
         if (currentSort === 'date') return [...list].sort((a, b) => parseProjectDate(b) - parseProjectDate(a));
         return [...list].sort((a, b) => (Number(a.id) || 0) - (Number(b.id) || 0));
@@ -322,9 +340,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     sortLabel.innerHTML = `Trier par <span class="font-semibold">${currentSort === 'meilleur' ? 'Meilleur' : 'Date'}</span>`;
                     dropdown.classList.add('hidden');
 
-                    // Re-trier sans fermer le container
-                    const newMatches = sortProjects(matches);
-                    renderSuggestions(newMatches, sortContainer);
+                    // Tri les cartes affichées sur la page
+                    sortAndRenderCards();
+
+                    // Tri et affichage des suggestions
+                    renderSuggestions(sortProjects(matches), sortContainer);
                 });
             });
 
