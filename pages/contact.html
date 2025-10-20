@@ -9,7 +9,7 @@ permalink: /contact/
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <title>Contact - Florian Gertner Kilian</title>
     <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/boxicons.min.css">
     <link href='https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
@@ -31,7 +31,68 @@ permalink: /contact/
     <!-- Navbar -->
     <div id="navbar-container"></div>
 
-    <p>Coming soon...</p>
+    <section class="max-w-xl mx-auto p-6">
+        <h1 class="text-3xl font-bold mb-6 text-center">Contactez-moi</h1>
+    
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="flex flex-col gap-4" id="contactForm">
+            <!-- Email -->
+            <label class="flex flex-col">
+                <span class="flex items-center gap-2 text-gray-700 font-medium">
+                    Adresse mail
+                </span>
+                <input type="email" name="email" placeholder="johndoe@mail.com" required
+                    class="mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </label>
+    
+            <!-- Message -->
+            <label class="flex flex-col">
+                <span class="flex items-center gap-2 text-gray-700 font-medium">
+                    Message
+                </span>
+                <textarea name="message" rows="5" placeholder="Écrivez votre message ici..." required
+                    class="mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+            </label>
+    
+            <!-- Bouton -->
+            <button type="submit"
+                class="mt-2 bg-[#411FEB] text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition">
+                <i class='bx bx-send-alt'></i>Envoyer
+            </button>
+    
+            <!-- Feedback -->
+            <p id="formMessage" class="text-center mt-2 font-medium text-green-600 hidden">Message envoyé !</p>
+        </form>
+    </section>
+    
+    <!-- Boxicons CDN -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- JS pour feedback sans rechargement -->
+    <script>
+        const form = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                formMessage.classList.remove('hidden');
+                form.reset();
+                setTimeout(() => formMessage.classList.add('hidden'), 5000);
+            } else {
+                alert("Une erreur est survenue. Veuillez réessayer.");
+            }
+        });
+    </script>
     
     <div id="footer-container"></div>
 
@@ -41,7 +102,7 @@ permalink: /contact/
             "default_language": "fr",
             "native_language_names": true,
             "detect_browser_language": true,
-            "languages": ["da", "de", "en", "el", "es", "fr", "it", "nl", "no", "sv", "vi"],
+            "languages": ["da", "de", "en", "el", "es", "fr", "it", "nl", "no", "pt", "sv", "vi"],
             "wrapper_selector": ".gtranslate_wrapper",
             "alt_flags":{"en":"usa"}
         };

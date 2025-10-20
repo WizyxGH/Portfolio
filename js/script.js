@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(data => {
             projects = data;
 
-            // --- Initialisation selon la page ---
             const path = window.location.pathname;
             if (path.includes('creations_studies')) filteredProjects = projects.filter(p => p.id >= 23 && p.id <= 30);
             else if (path.includes('creations')) filteredProjects = projects.filter(p => p.id >= 1 && p.id <= 22);
@@ -30,7 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
             if (searchInput)
                 searchInput.placeholder = `Rechercher parmi ${filteredProjects.length} projet${filteredProjects.length > 1 ? 's' : ''}`;
 
-            // --- Création des cards ---
             filteredProjects.forEach(project => {
                 const projectTitleId = project.title.replace(/[^a-zA-Z0-9-_]/g, '_');
                 const card = document.createElement("div");
@@ -68,7 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
             updateProjects();
             lazyLoadImages();
 
-            // --- OUVERTURE AUTOMATIQUE DE LA MODAL SI PARAM URL ---
             const urlParams = new URLSearchParams(window.location.search);
             const projectIdFromUrl = urlParams.get("project");
             if (projectIdFromUrl) {
@@ -76,9 +73,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (project) openModal(project);
             }
         })
-        .catch(error => console.error(error));
+        .catch(console.error);
 
-    // --- Lazy loading des images ---
+    // --- Lazy loading ---
     function lazyLoadImages() {
         const lazyImages = document.querySelectorAll(".lazy-img");
         const observer = new IntersectionObserver((entries, obs) => {
@@ -94,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
         lazyImages.forEach(img => observer.observe(img));
     }
 
-    // --- Fonction de mise à jour affichage ---
+    // --- Update affichage ---
     function updateProjects() {
         const query = searchInput?.value.toLowerCase() || "";
         let visibleCount = 0;
@@ -109,14 +106,12 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        // --- Gestion cartes vides ---
         let emptyCard = document.getElementById("emptyProjectCard");
         if (visibleCount === 0) {
             if (!emptyCard) {
                 emptyCard = document.createElement("div");
                 emptyCard.id = "emptyProjectCard";
                 emptyCard.className = "projectCard bg-white rounded-lg text-left border-8 border-white hover:bg-[#EDE9FE] cursor-default";
-
                 emptyCard.innerHTML = `
                     <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] border-2 border-dashed border-[#411FEB] flex items-center justify-center overflow-hidden">
                         <img src="/media/projects/projectnoresult.svg" alt="Aucun projet trouvé" class="h-64 w-64">
@@ -134,7 +129,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         } else if (emptyCard) emptyCard.remove();
 
-        // --- Gestion boutons Show More / Show Less ---
         const totalMatches = allCards.filter(card =>
             !query || card.dataset.title.includes(query) || card.dataset.description.includes(query) || card.dataset.text.includes(query)
         ).length;
@@ -152,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // --- Événements ---
+    // --- Events ---
     searchInput?.addEventListener("input", () => {
         clearSearchButton?.classList.toggle('opacity-0', searchInput.value === '');
         clearSearchButton?.classList.toggle('pointer-events-none', searchInput.value === '');
@@ -178,7 +172,6 @@ document.addEventListener("DOMContentLoaded", function () {
         updateProjects();
     });
 
-    // --- Gestion des cartes ---
     function attachEventListenersToCards() {
         allCards.forEach(card => {
             card.addEventListener('click', () => {
@@ -246,8 +239,6 @@ document.addEventListener("DOMContentLoaded", function () {
         modal.classList.remove("hidden");
         document.body.classList.add("overflow-hidden");
 
-        
-        // --- Mettre à jour l'URL dynamiquement ---
         const newUrl = `?project=${project.id}`;
         window.history.replaceState(null, '', newUrl);
     }
@@ -255,58 +246,47 @@ document.addEventListener("DOMContentLoaded", function () {
     function closeModal() {
         document.body.classList.remove("overflow-hidden");
         document.getElementById("modal").classList.add("hidden");
-        // Retirer le paramètre de l'URL pour ne pas rouvrir la modal
         window.history.replaceState(null, '', window.location.pathname);
     }
 
     window.closeModal = closeModal;
     document.querySelector('.bx-x')?.addEventListener('click', closeModal);
 
-    // --- Autosuggestions avec tri ---
+    // --- Autosuggestions ---
     const suggestionsContainer = document.getElementById('suggestionsContainer');
-    
-    // --- Suggestions dynamiques avec tri robuste ---
+
+    // Parse date helper
+    function parseProjectDate(p) {
+        if (!p || !p.date) return 0;
+        const d = Date.parse(p.date);
+        if (!isNaN(d)) return d;
+        const yearMatch = String(p.date).match(/(19|20)\d{2}/);
+        if (yearMatch) return new Date(Number(yearMatch[0]), 0, 1).getTime();
+        const tryDate = new Date(p.date);
+        if (!isNaN(tryDate)) return tryDate.getTime();
+        return 0;
+    }
+
+    // Tri fonction
+    function sortProjects(list) {
+        if (currentSort === 'date') return [...list].sort((a, b) => parseProjectDate(b) - parseProjectDate(a));
+        return [...list].sort((a, b) => (Number(a.id) || 0) - (Number(b.id) || 0));
+    }
+
     searchInput.addEventListener('input', () => {
         const q = searchInput.value.toLowerCase();
-
-        // filtre initial
         let matches = filteredProjects.filter(p =>
             p.title.toLowerCase().includes(q) ||
             p.description.toLowerCase().includes(q) ||
             p.text.toLowerCase().includes(q)
         );
 
-        // fonction utilitaire : retourne timestamp (number) ou 0 si invalide
-        function parseProjectDate(p) {
-            if (!p || !p.date) return 0;
-            // Essayer Date.parse d'abord
-            const d = Date.parse(p.date);
-            if (!isNaN(d)) return d;
-            // Si p.date contient seulement une année "2024" -> extraire année
-            const yearMatch = String(p.date).match(/(19|20)\d{2}/);
-            if (yearMatch) {
-                return new Date(Number(yearMatch[0]), 0, 1).getTime();
-            }
-            // tenter un parsing plus permissif (ex: "Jun 2024")
-            const tryDate = new Date(p.date);
-            if (!isNaN(tryDate)) return tryDate.getTime();
-            return 0;
-        }
+        matches = sortProjects(matches);
 
-        // tri
-        if (currentSort === 'date') {
-            matches.sort((a, b) => parseProjectDate(b) - parseProjectDate(a));
-        } else {
-            // "meilleur" == tri par id asc (défaut)
-            matches.sort((a, b) => (Number(a.id) || 0) - (Number(b.id) || 0));
-        }
-
-        // build suggestions UI
         suggestionsContainer.innerHTML = '';
         if (q && matches.length) {
-            // --- Menu de tri (design modernisé basé sur ton visuel) ---
             const sortContainer = document.createElement('div');
-            sortContainer.className = "flex items-center justify-between px-3 py-3 border-b border-[#E5E5E5] bg-white mb-2 rounded-t-lg";
+            sortContainer.className = "relative flex items-center justify-between px-3 py-3 border-b border-[#E5E5E5] bg-white mb-2 rounded-t-lg";
 
             const sortButton = document.createElement('button');
             sortButton.className = "flex items-center gap-2 px-4 py-2 rounded-lg border border-[#411FEB]/20 text-[#3E3E3E] bg-[#F9F8FF] hover:bg-[#F2EEFF] transition text-sm font-medium";
@@ -323,106 +303,99 @@ document.addEventListener("DOMContentLoaded", function () {
             sortChevron.className = "bx bx-chevron-down text-[#411FEB]";
             sortButton.appendChild(sortChevron);
 
-            // --- Menu déroulant ---
             const dropdown = document.createElement('div');
-            dropdown.className = "absolute left-0 mt-2 w-40 bg-white border border-[#E5E5E5] rounded-xl shadow-md hidden z-20";
+            dropdown.className = "absolute top-full left-0 mt-2 w-40 bg-white border border-[#E5E5E5] rounded-xl shadow-md hidden z-20";
             dropdown.innerHTML = `
-    <button data-value="meilleur" class="block w-full text-left px-4 py-2 text-[#3E3E3E] hover:bg-[#EDE9FE] transition rounded-t-xl">Meilleur</button>
-    <button data-value="date" class="block w-full text-left px-4 py-2 text-[#3E3E3E] hover:bg-[#EDE9FE] transition rounded-b-xl">Date</button>
-`;
+                <button data-value="meilleur" class="block w-full text-left px-4 py-2 text-[#3E3E3E] hover:bg-[#EDE9FE] transition rounded-t-xl">Meilleur</button>
+                <button data-value="date" class="block w-full text-left px-4 py-2 text-[#3E3E3E] hover:bg-[#EDE9FE] transition rounded-b-xl">Date</button>
+            `;
 
-            // Toggle d’ouverture / fermeture
-            sortButton.addEventListener('click', (e) => {
+            sortButton.addEventListener('click', e => {
                 e.stopPropagation();
                 dropdown.classList.toggle('hidden');
             });
 
-            // Clic sur une option
             dropdown.querySelectorAll('button').forEach(btn => {
-                btn.addEventListener('click', () => {
+                btn.addEventListener('click', e => {
+                    e.stopPropagation();
                     currentSort = btn.dataset.value;
                     sortLabel.innerHTML = `Trier par <span class="font-semibold">${currentSort === 'meilleur' ? 'Meilleur' : 'Date'}</span>`;
                     dropdown.classList.add('hidden');
-                    searchInput.dispatchEvent(new Event('input'));
+
+                    // Re-trier sans fermer le container
+                    const newMatches = sortProjects(matches);
+                    renderSuggestions(newMatches, sortContainer);
                 });
             });
 
-            // Fermer au clic extérieur
-            document.addEventListener('click', (e) => {
-                if (!sortButton.contains(e.target) && !dropdown.contains(e.target)) {
-                    dropdown.classList.add('hidden');
-                }
+            document.addEventListener('click', e => {
+                if (!sortButton.contains(e.target) && !dropdown.contains(e.target)) dropdown.classList.add('hidden');
             });
 
-            sortContainer.appendChild(sortButton);
-            sortContainer.appendChild(dropdown);
+            sortContainer.append(sortButton, dropdown);
             suggestionsContainer.appendChild(sortContainer);
 
-            // --- Résultats (max 5) ---
-            matches.slice(0, 5).forEach(project => {
-                const div = document.createElement('div');
-                div.className = "flex items-center gap-2 p-2 hover:bg-[#EDE9FE] cursor-pointer transition-colors rounded-lg";
+            function renderSuggestions(list, containerTop) {
+                suggestionsContainer.innerHTML = '';
+                suggestionsContainer.appendChild(containerTop);
 
-                const img = document.createElement('img');
-                img.src = project.image;
-                img.alt = project.title;
-                img.className = "w-12 h-12 object-cover rounded-lg flex-shrink-0";
-                div.appendChild(img);
+                list.slice(0, 5).forEach(project => {
+                    const div = document.createElement('div');
+                    div.className = "flex items-center gap-2 p-2 hover:bg-[#EDE9FE] cursor-pointer transition-colors rounded-lg";
 
-                const textContainer = document.createElement('div');
-                textContainer.className = "flex flex-col sm:flex-row sm:items-center sm:gap-2 overflow-hidden";
+                    const img = document.createElement('img');
+                    img.src = project.image;
+                    img.alt = project.title;
+                    img.className = "w-12 h-12 object-cover rounded-lg flex-shrink-0";
+                    div.appendChild(img);
 
-                const titleSpan = document.createElement('span');
-                titleSpan.className = "font-semibold text-[#3E3E3E] truncate max-w-[200px] sm:max-w-[250px]";
-                titleSpan.textContent = project.title;
-                textContainer.appendChild(titleSpan);
+                    const textContainer = document.createElement('div');
+                    textContainer.className = "flex flex-col sm:flex-row sm:items-center sm:gap-2 overflow-hidden";
 
-                if (project.type) {
-                    const typeSpan = document.createElement('span');
-                    typeSpan.className = "text-[#3E3E3E] text-sm opacity-80 mt-0.5 sm:mt-0 flex items-center";
+                    const titleSpan = document.createElement('span');
+                    titleSpan.className = "font-semibold text-[#3E3E3E] truncate max-w-[200px] sm:max-w-[250px]";
+                    titleSpan.textContent = project.title;
+                    textContainer.appendChild(titleSpan);
 
-                    const separator = document.createElement('span');
-                    separator.textContent = '•';
-                    separator.style.color = '#411FEB';
-                    separator.style.opacity = '0.48';
-                    separator.className = "hidden sm:inline mx-1";
+                    if (project.type) {
+                        const typeSpan = document.createElement('span');
+                        typeSpan.className = "text-[#3E3E3E] text-sm opacity-80 mt-0.5 sm:mt-0 flex items-center";
 
-                    const typeText = document.createElement('span');
-                    typeText.textContent = project.type.charAt(0).toUpperCase() + project.type.slice(1);
+                        const separator = document.createElement('span');
+                        separator.textContent = '•';
+                        separator.style.color = '#411FEB';
+                        separator.style.opacity = '0.48';
+                        separator.className = "hidden sm:inline mx-1";
 
-                    typeSpan.append(separator, typeText);
-                    textContainer.appendChild(typeSpan);
-                }
+                        const typeText = document.createElement('span');
+                        typeText.textContent = project.type.charAt(0).toUpperCase() + project.type.slice(1);
 
-                // optionnel : afficher année à côté du type sur desktop (si tu veux)
-                // if (project.date) { ... }
+                        typeSpan.append(separator, typeText);
+                        textContainer.appendChild(typeSpan);
+                    }
 
-                div.appendChild(textContainer);
-
-                div.addEventListener('click', () => {
-                    openModal(project);
-                    suggestionsContainer.classList.add('hidden');
-                    searchInput.value = '';
+                    div.appendChild(textContainer);
+                    div.addEventListener('click', () => {
+                        openModal(project);
+                        suggestionsContainer.classList.add('hidden');
+                        searchInput.value = '';
+                    });
+                    suggestionsContainer.appendChild(div);
                 });
+            }
 
-                suggestionsContainer.appendChild(div);
-            });
-
+            renderSuggestions(matches, sortContainer);
             suggestionsContainer.classList.remove('hidden');
         } else {
             suggestionsContainer.classList.add('hidden');
         }
 
-        // mettre à jour la grille principale
         updateProjects();
-});
+    });
 
-
-    // Masquer suggestions si clic à l'extérieur
     document.addEventListener('click', e => {
         if (!searchInput.contains(e.target) && !suggestionsContainer.contains(e.target)) {
             suggestionsContainer.classList.add('hidden');
         }
     });
-
 });
