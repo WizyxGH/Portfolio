@@ -13,6 +13,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="/js/script.js"></script>
     <script src="/js/layout.js"></script>
+    <script src="/js/theme.js"></script>
         <meta property="og:image"
         content="https://opengraph.b-cdn.net/production/images/59129536-2074-4333-9e04-70d6cffd3d0f.jpg?token=Oj5V7Gb5wGaScWNgROHh8HDeCIdtoZtqvgIpBFaIi1g&height=640&width=1200&expires=33294662852">
     <!-- Google tag (gtag.js) -->
@@ -20,7 +21,7 @@
     <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-6PJB5NW1Y5'); </script>
 </head>
 
-<body class="font-inter text-[#411FEB]">
+<body class="font-inter text-[#411FEB] dark:text-white dark:bg-[#121212]">
 
     <!-- Navbar -->
     <div id="navbar-container"></div>
@@ -31,10 +32,10 @@
     </header>
 
     <section class="pt-8 lg:px-32 text-center px-8">
-        <h2 class="text-2xl font-bold mb-6">
+        <h2 class="text-2xl font-bold mb-6 text-[#411FEB] dark:text-[#5536ED]">
             <i class='bx bxs-user-detail'></i> Présentation
         </h2>
-        <p class="text-black lg:text-md text-sm text-left leading-relaxed">
+        <p class="text-[#121212] dark:text-white lg:text-md text-sm text-left leading-relaxed">
             Étudiant de 22 ans ayant terminé un BUT MMI (Métiers du Multimédia et de l’Internet) dans le sud de la France, je
             ressens le besoin de libérer ma créativité par le biais de l’art. Également conscient des avantages que
             permettent le numérique, j’ai toujours eu l’ambition de créer et faire vivre tout un tas de projets qui me
@@ -43,13 +44,13 @@
     </section>
 
     <!-- Section "Qui suis-je ?" -->
-    <section class="py-8 px-8 lg:px-32">
+    <section class="text-[#121212] dark:text-white py-8 px-8 lg:px-32">
         <div class="container mx-auto flex flex-col lg:flex-row items-start space-y-8 lg:space-y-0 lg:gap-24">
             <!-- Conteneur des deux textes alignés verticalement -->
-            <div class="lg:w-1/2 space-y-4 text-black">
+            <div class="lg:w-1/2 space-y-4">
                 <!-- Premier texte -->
                 <div>
-                    <h2 class="text-[#411FEB] text-xl font-semibold mb-2">Apprentissages</h2>
+                    <h2 class="text-[#411FEB] dark:text-[#5536ED] text-xl font-semibold mb-2">Apprentissages</h2>
                     <p class="lg:text-md text-sm leading-relaxed">
                         De ce fait, après avoir longtemps expérimenté dans mon coin comme autodidacte, devant la
                         complexité technique que représente ce merveilleux outil, j'ai décidé de m'orienter vers des
@@ -69,7 +70,7 @@
 
                 <!-- Deuxième texte -->
                 <div>
-                    <h2 class="text-[#411FEB] text-xl font-semibold mb-2">Passions</h2>
+                    <h2 class="text-[#411FEB] dark:text-[#5536ED] text-xl font-semibold mb-2">Passions</h2>
                     <p class="lg:text-md text-sm leading-relaxed">
                         Ce besoin d'entraide et de partage, je le transmet aussi par l'écriture. C'est un vecteur
                         d'échange bien pratique qui me permet de m'exprimer. J'aime faire découvrir aux autres mes
@@ -82,7 +83,7 @@
                 </div>
 
                 <div>
-                    <h2 class="text-[#411FEB] text-xl font-semibold mb-2">Voyages</h2>
+                    <h2 class="text-[#411FEB] dark:text-[#5536ED] text-xl font-semibold mb-2">Voyages</h2>
                     <p class="lg:text-md text-sm leading-relaxed">
                         Mes parents m'ont donné leur passion du voyage. Rien de mieux pour comprendre le monde qui nous
                         entoure que le parcourir et l'explorer (de sa beauté à ses failles). Alors que beaucoup de
@@ -99,9 +100,9 @@
         </div>
     </section>
 
-    <section class="lg:px-32 px-8 pb-4 text-black">
-        <h2 class="text-[#411FEB] text-xl font-semibold mb-2">Esprit sportif</h2>
-        <p class="text-black lg:text-md text-sm text-left leading-relaxed">
+    <section class="text-[#121212] dark:text-white lg:px-32 px-8 pb-4">
+        <h2 class="text-[#411FEB] dark:text-[#5536ED] text-xl font-semibold mb-2">Esprit sportif</h2>
+        <p class="lg:text-md text-sm text-left leading-relaxed">
             J'ai toujours eu l'envie de bouger et de me surpasser. Le sport est donc un moyen évident. Que cela passe
             par le collectif en faisant partie pendant 7 ans d'un club de foot puis autant d'années dans un club de
             basket ou par les performances individuelles en se surpassant physiquement et mentalement grâce à la course
@@ -142,12 +143,12 @@
 
 
     <section class="py-16 lg:px-32 text-center px-8">
-        <h2 class="text-2xl font-bold mb-6">
+        <h2 class="text-2xl dark:text-[#5536ED] font-bold mb-6">
             <i class='bx bxs-note'></i> Curriculum Vitae
         </h2>
         <a href="/media/CV.pdf" target="_blank" rel="noopener noreferrer">
             <button
-                class="border-2 border-[#411FEB] text-[#411FEB] px-4 py-2 rounded-full hover:bg-[#3509B6] hover:text-white">
+                class="border-2 border-[#411FEB] dark:border-[#5536ED] text-[#411FEB] dark:text-[#5536ED] px-4 py-2 rounded-full hover:bg-[#3509B6] hover:text-white">
                 Envie d'aussi voir mon CV ?
             </button>
         </a>

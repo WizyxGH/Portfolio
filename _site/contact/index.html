@@ -13,6 +13,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="/js/script.js"></script>
     <script src="/js/layout.js"></script>
+    <script src="/js/theme.js"></script>
     <script>document.write('<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer><\/script>');</script>
         <meta property="og:image"
         content="https://opengraph.b-cdn.net/production/images/59129536-2074-4333-9e04-70d6cffd3d0f.jpg?token=Oj5V7Gb5wGaScWNgROHh8HDeCIdtoZtqvgIpBFaIi1g&height=640&width=1200&expires=33294662852">
@@ -21,7 +22,7 @@
     <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-6PJB5NW1Y5'); </script>
 </head>
 
-<body class="font-inter text-[#411FEB]">
+<body class="dark:bg-[#121212] font-inter text-[#411FEB] dark:text-[#5536ED]">
 
     <!-- Navbar -->
     <div id="navbar-container"></div>
@@ -32,7 +33,7 @@
         <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="flex flex-col gap-4" id="contactForm">
             <!-- Email -->
             <label class="flex flex-col">
-                <span class="flex items-center gap-2 text-gray-700 font-medium">
+                <span class="flex items-center gap-2 text-[#121212] dark:text-white font-medium">
                     Adresse mail
                 </span>
                 <input type="email" name="email" placeholder="johndoe@mail.com" required
@@ -41,7 +42,7 @@
     
             <!-- Message -->
             <label class="flex flex-col">
-                <span class="flex items-center gap-2 text-gray-700 font-medium">
+                <span class="flex items-center gap-2 text-[#121212] dark:text-white font-medium">
                     Message
                 </span>
                 <textarea name="message" rows="5" placeholder="Écrivez votre message ici..." required

@@ -14,6 +14,13 @@ async function loadNavbar() {
         // Initialiser les interactions après l'injection du HTML
         initNavbarInteractions();
         setActiveNavLinks();
+        
+        // Initialiser le thème après le chargement de la navbar
+        const currentTheme = localStorage.getItem('theme') || 
+            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        updateTheme(currentTheme);
+        // S'assurer que le listener du bouton thème est attaché (si le bouton existe maintenant)
+        if (typeof ensureThemeToggleListener === 'function') ensureThemeToggleListener();
     } catch (e) {
         console.error('Erreur chargement navbar:', e);
     }

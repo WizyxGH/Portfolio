@@ -33,8 +33,22 @@
     <meta name="twitter:image"
         content="https://opengraph.b-cdn.net/production/images/59129536-2074-4333-9e04-70d6cffd3d0f.jpg?token=Oj5V7Gb5wGaScWNgROHh8HDeCIdtoZtqvgIpBFaIi1g&height=640&width=1200&expires=33294662852">
     
+    <script>
+        /* Configure Tailwind (CDN) so darkMode uses class strategy and ensure commonly used dark classes are generated */
+        window.tailwind = window.tailwind || {};
+        tailwind.config = {
+            darkMode: 'class',
+            theme: { extend: {} },
+            // Safelist classes that may be added dynamically or contain arbitrary values
+            safelist: [
+                'dark:text-white',
+                'dark:bg-[#121212]',
+            ]
+        };
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="/js/layout.js"></script>
+    <script src="/js/theme.js"></script>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6PJB5NW1Y5"></script>
@@ -53,9 +67,12 @@
             "url": "https://wizyx.me/",
             "image": "https://wizyx.me/media/photo.webp",
             "description": "Je crée des interfaces premium, esthétiques et intuitives qui allient design et storytelling.",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Toulon"
             "knowsAbout": [
-            "UI/UX Design",
             "Product Design",
+            "UI/UX Design",
             "Copywriting"
         ],
         "knowsLanguage": [
@@ -86,13 +103,13 @@
 
 </head>
 
-<body class="font-inter text-[#411FEB]">
+<body class="font-inter text-[#411FEB] dark:text-white dark:bg-[#121212]">
 
     <!-- Navbar -->
     <div id="navbar-container"></div>
     
     <!-- Header -->
-    <header class="text-white bg-[#411FEB] p-8 lg:px-32 flex flex-col lg:flex-row items-stretch gap-4">
+    <header class="text-white bg-[#411FEB] p-8 lg:px-32 flex flex-col lg:flex-row items-stretch gap-4 transition-colors duration-200">
         <!-- Image -->
         <div class="flex justify-start lg:justify-end lg:w-1/2 order-1 lg:order-2 mb-4">
             <img src="/media/photo.webp" alt="Photo de Florian" fetchpriority="high"
@@ -164,7 +181,7 @@
     </script>
     
     <section class="p-8 lg:px-32 text-center">
-        <h2 class="text-2xl text-[#121212] font-medium mb-6">
+        <h2 class="text-2xl text-[#121212] dark:text-white font-medium mb-6">
             On a travaillé ensemble et
             <br>ils me recommandent.
         </h2>
@@ -174,9 +191,9 @@
         </div>
         <div class="mt-8 grid md:grid-cols-3 gap-6">
 
-            <div class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] border border-2 border-[#C1B4F8] text-[#411FEB] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
+            <div class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.12] border border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
                 <!-- Guillemets -->
-                <div class="text-4xl font-bold text-[#411FEB]">
+                <div class="text-4xl font-bold text-[#411FEB] dark:text-[#5536ED]">
                     <i class='bx bxs-quote-left'></i>
                 </div>
                 <!-- Texte du témoignage -->
@@ -190,15 +207,15 @@
                     <img src="https://assets.codeur.com/1cido8dtm5rxl4p3e4f41097udw1" alt="Lucas Kacem"
                         class="w-12 h-12 rounded-full object-cover">
                     <div>
-                        <h3 class="font-bold text-[#411FEB]">Lucas Kacem</h3>
-                        <p class="font-light text-sm text-[#411FEB]">Co-fondateur & Président chez <a href="https://digitalunicorn.fr" target="_blank" rel="noopener noreferrer">Digital Unicorn</a></p>
+                        <h3 class="font-bold text-[#411FEB] dark:text-[#5536ED]">Lucas Kacem</h3>
+                        <p class="font-light text-sm text-[#411FEB] dark:text-[#5536ED]">Co-fondateur & Président chez <a href="https://digitalunicorn.fr" target="_blank" rel="noopener noreferrer">Digital Unicorn</a></p>
                     </div>
                 </div>
             </div>
 
-            <div class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] border border-2 border-[#C1B4F8] text-[#411FEB] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
+            <div class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.12] border border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
                 <!-- Guillemets -->
-                <div class="text-4xl font-bold text-[#411FEB]">
+                <div class="text-4xl font-bold text-[#411FEB] dark:text-[#5536ED]">
                     <i class='bx bxs-quote-left'></i>
                 </div>
             
@@ -212,15 +229,16 @@
                     <img src="https://staticctf.ubisoft.com/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/3eupmHrrfVw7n2FDsVJlna/04958647a151f1e1f4cdc6a406f2e5da/MD_photo.JPG"
                         alt="Aurélien Palasse" class="w-12 h-12 rounded-full object-cover">
                     <div>
-                        <h3 class="font-bold text-[#411FEB]">Aurélien Palasse</h3>
-                        <p class="font-light text-sm text-[#411FEB]">Managing Director chez <a href="https://www.ubisoft.com/fr-fr/company/careers/locations/da-nang" target="_blank" rel="noopener noreferrer">Ubisoft Vietnam</a></p>
+                        <h3 class="font-bold text-[#411FEB] dark:text-[#5536ED]">Aurélien Palasse</h3>
+                        <p class="font-light text-sm text-[#411FEB] dark:text-[#5536ED]">Managing Director chez <a href="https://www.ubisoft.com/fr-fr/company/careers/locations/da-nang" target="_blank" rel="noopener noreferrer">Ubisoft Vietnam</a></p>
                     </div>
                 </div>
             </div>
 
-            <div class="testimonial animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] border border-2 border-[#C1B4F8] text-[#411FEB] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3" data-fulltext="J'ai eu la chance d'avoir Florian en stage pendant deux mois dans ma structure. Je dis bien la chance, car ma première expérience d'avoir des stagiaires a été un succès grâce à lui. Motivé, hyper proactif, enseignable, il a su, dès les premiers jours, être opérationnel. Il a une très bonne appétence pour tout ce qui touche au rédactionnel. Il est force de proposition et sait répondre à des briefs client quasiment en autonomie. Je peux dire qu'il est aujourd'hui expert en autolayout sur Figma et sait utiliser cet outil de manière professionnelle. Je recommande son profil à l'embauche si vous souhaitez ne pas prendre de risque puisqu'il coche toutes les cases. Ce sera une force dans vos équipes.">
+            <div class="testimonial animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.12] border border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3"
+            data-fulltext="J'ai eu la chance d'avoir Florian en stage pendant deux mois dans ma structure. Je dis bien la chance, car ma première expérience d'avoir des stagiaires a été un succès grâce à lui. Motivé, hyper proactif, enseignable, il a su, dès les premiers jours, être opérationnel. Il a une très bonne appétence pour tout ce qui touche au rédactionnel. Il est force de proposition et sait répondre à des briefs client quasiment en autonomie. Je peux dire qu'il est aujourd'hui expert en autolayout sur Figma et sait utiliser cet outil de manière professionnelle. Je recommande son profil à l'embauche si vous souhaitez ne pas prendre de risque puisqu'il coche toutes les cases. Ce sera une force dans vos équipes.">
                 <!-- Guillemets -->
-                <div class="text-4xl font-bold text-[#411FEB]">
+                <div class="text-4xl font-bold text-[#411FEB] dark:text-[#5536ED]">
                     <i class='bx bxs-quote-left'></i>
                 </div>
                 <!-- Texte + bouton -->
@@ -230,22 +248,23 @@
                     <img src="media/carolineaubert.webp" alt="Caroline Aubert"
                         class="w-12 h-12 rounded-full object-cover">
                     <div>
-                        <h3 class="font-bold text-[#411FEB]">Caroline Aubert</h3>
-                        <p class="font-light text-sm text-[#411FEB]"><a href="https://www.mafigue.com" target="_blank" rel="noopener noreferrer">Entrepreneuse</a> - Product Designer & Développeuse Webflow</p>
+                        <h3 class="font-bold text-[#411FEB] dark:text-[#5536ED]">Caroline Aubert</h3>
+                        <p class="font-light text-sm text-[#411FEB] dark:text-[#5536ED]"><a href="https://www.mafigue.com" target="_blank" rel="noopener noreferrer">Entrepreneuse</a> - Product Designer & Développeuse Webflow</p>
                     </div>
                 </div>
             </div>
 
-            <div class="testimonial animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] border border-2 border-[#C1B4F8] text-[#411FEB] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3" data-fulltext="Un travail pro et sérieux comme on aime et surtout comme on a BESOIN ! Florian a fait parti de l’équipe qui nous a conçu les maquettes de notre dernière version et ce fut un régal de travailler ensemble. De part les outils proposés mais surtout dans la façon. Rapide, efficace et agréable. Merci encore pour ton travail🙏🏼😉">
-                <div class="text-4xl font-bold text-[#411FEB]">
+            <div class="testimonial animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.12] border border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3"
+            data-fulltext="Un travail pro et sérieux comme on aime et surtout comme on a BESOIN ! Florian a fait parti de l’équipe qui nous a conçu les maquettes de notre dernière version et ce fut un régal de travailler ensemble. De part les outils proposés mais surtout dans la façon. Rapide, efficace et agréable. Merci encore pour ton travail🙏🏼😉">
+                <div class="text-4xl font-bold text-[#411FEB] dark:text-[#5536ED]">
                     <i class='bx bxs-quote-left'></i>
                 </div>
                 <p class="testimonial-text text-base leading-relaxed"></p>
                 <div class="flex items-center gap-3 mt-auto">
                     <img src="/media/jonathanvaissiere.webp" alt="Jonathan Vaissière" class="w-12 h-12 rounded-full object-cover">
                     <div>
-                        <h3 class="font-bold text-[#411FEB]">Jonathan Vaissière</h3>
-                        <p class="font-light text-sm text-[#411FEB]"><a href="https://guidedugolfe.com" target="_blank" rel="noopener noreferrer">Entrepreneur</a></p>
+                        <h3 class="font-bold text-[#411FEB] dark:text-[#5536ED]">Jonathan Vaissière</h3>
+                        <p class="font-light text-sm text-[#411FEB] dark:text-[#5536ED]"><a href="https://guidedugolfe.com" target="_blank" rel="noopener noreferrer">Entrepreneur</a></p>
                     </div>
                 </div>
             </div>
@@ -262,7 +281,7 @@
 
                     // Créer le bouton
                     const toggleButton = document.createElement("span");
-                    toggleButton.className = "font-bold underline text-[#411FEB] cursor-pointer ml-1";
+                    toggleButton.className = "font-bold underline text-[#411FEB] dark:text-[#5536ED] cursor-pointer ml-1";
                     toggleButton.textContent = "Lire plus";
                     toggleButton.addEventListener("click", () => {
                         isExpanded = !isExpanded;
@@ -306,9 +325,9 @@
             });
             </script>
 
-            <div class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] border border-2 border-[#C1B4F8] text-[#411FEB] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
+            <div class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.12] border border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
                 <!-- Guillemets -->
-                <div class="text-4xl font-bold text-[#411FEB]">
+                <div class="text-4xl font-bold text-[#411FEB] dark:text-[#5536ED]">
                     <i class='bx bxs-quote-left'></i>
                 </div>
                 <!-- Texte du témoignage -->
@@ -320,15 +339,15 @@
                     <img src="https://yt3.googleusercontent.com/QIsRitkVHg__sh4oEvy0MRUi_1u_NLW7qw2CcZ99jTvf1FgWpdejj3vkKhTldaMCmUsSERtF=s160-c-k-c0x00ffffff-no-rj" alt="Maxime Click"
                         class="w-12 h-12 rounded-full object-cover">
                     <div>
-                        <h3 class="font-bold text-[#411FEB]">Maxime "Click" Peiffer</h3>
-                        <p class="font-light text-sm text-[#411FEB]">Créateur de contenu (1.1M sur <a href="https://www.youtube.com/@MaximeClick" target="_blank" rel="noopener noreferrer">YouTube</a>)</p>
+                        <h3 class="font-bold text-[#411FEB] dark:text-[#5536ED]">Maxime "Click" Peiffer</h3>
+                        <p class="font-light text-sm text-[#411FEB] dark:text-[#5536ED]">Créateur de contenu (1.1M sur <a href="https://www.youtube.com/@MaximeClick" target="_blank" rel="noopener noreferrer">YouTube</a>)</p>
                     </div>
                 </div>
             </div>
 
-            <div class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#F8F6FE] border border-2 border-[#A08FF5] border-dashed text-[#411FEB] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
+            <div class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.04] border-dashed border-2 border-[#C1B4F8] dark:border-[#29197F] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
                 <!-- Guillemets -->
-                <div class="text-4xl font-bold text-[#411FEB]">
+                <div class="text-4xl font-bold text-[#411FEB] dark:text-[#5536ED]">
                     <i class='bx bxs-quote-left'></i>
                 </div>
                 <!-- Texte du témoignage -->
@@ -340,8 +359,8 @@
                     <img src="/media/unclesam.webp" alt="Uncle Sam"
                         class="w-12 h-12 rounded-full object-cover">
                     <div>
-                        <h3 class="font-bold text-[#411FEB]">Vous</h3>
-                        <p class="font-light text-sm text-[#411FEB]">Une personne sûrement sympathique</p>
+                        <h3 class="font-bold text-[#411FEB] dark:text-[#5536ED]">Vous</h3>
+                        <p class="font-light text-sm text-[#411FEB] dark:text-[#5536ED]">Une personne sûrement sympathique</p>
                     </div>
                 </div>
             </div>
