@@ -20,7 +20,7 @@
     <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-6PJB5NW1Y5'); </script>
 </head>
 
-<body class="font-inter text-[#411FEB]">
+<body class="font-inter text-[#411FEB] dark:text-[#5536ED]">
 
     <!-- Navbar -->
     <div id="navbar-container"></div>
@@ -31,7 +31,7 @@
             d'études en BUT Métiers du Multimédia et de l'Internet</p>
     </header>
 
-    <section class="py-16 text-center lg-px:32 px-8">
+    <section class="dark:bg-[#121212] py-16 text-center lg-px:32 px-8">
         <h2 class="text-2xl font-bold mb-6">
             <i class='bx bxs-palette'></i> Mes autres créations en tout genre...
         </h2>
@@ -40,12 +40,12 @@
         </div>
         <!-- Bouton pour afficher les projets supplémentaires -->
         <button id="showMoreButton"
-            class="border-2 border-[#411FEB] text-[#411FEB] px-6 py-2 rounded-full mt-6 hover:bg-[#3509B6] hover:text-white">
+            class="border-2 border-[#411FEB] text-[#411FEB] dark:text-[#5536ED] px-6 py-2 rounded-full mt-6 hover:bg-[#3509B6] hover:text-white">
             Afficher tous les projets...
         </button>
 
         <button id="showLessButton"
-            class="border-2 border-[#411FEB] text-[#411FEB] px-6 py-2 rounded-full mt-6 hover:bg-[#3509B6] hover:text-white hidden">
+            class="border-2 border-[#411FEB] text-[#411FEB] dark:text-[#5536ED] px-6 py-2 rounded-full mt-6 hover:bg-[#3509B6] hover:text-white hidden">
             Afficher moins de projets...
         </button>
 
@@ -54,15 +54,15 @@
     <div id="footer-container"></div>
 
     <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center overflow-y-auto z-50">
-        <div class="bg-white rounded-xl shadow-lg w-11/12 md:w-2/3 lg:w-1/2 max-h-[90vh] my-6 flex flex-col">
+        <div class="bg-white dark:bg-[#121212] rounded-xl shadow-lg w-11/12 md:w-2/3 lg:w-1/2 max-h-[90vh] my-6 flex flex-col">
             <!-- Header (non scrollable) -->
             <div class="bg-[#411FEB] bg-opacity-[0.04] p-4 border-b border-[#411FEB]/12 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between relative">
                 <div class="flex flex-col gap-1 sm:flex-1">
-                    <h3 id="modalTitle" class="text-xl font-semibold text-[#411FEB]">Titre du projet</h3>
+                    <h3 id="modalTitle" class="text-xl font-semibold text-[#411FEB] dark:text-[#5536ED]">Titre du projet</h3>
             
                     <!-- ✅ Ajoute cette ligne -->
-                    <div id="modalMeta" class="flex items-center text-sm text-gray-500 gap-1">
-                        <i class="bx bxs-calendar-alt text-[#411FEB]/48"></i>
+                    <div id="modalMeta" class="flex items-center text-sm text-[#121212] dark:text-white gap-1">
+                        <i class="bx bxs-calendar-alt text-[#411FEB]/48 dark:text-[#5536ED]/48"></i>
                         <span>Date</span>
                         <span class="">•</span>
                         <span></span>
@@ -78,7 +78,7 @@
             <div class="p-4 flex-1 overflow-y-auto space-y-4">
                 <div id="modalImage" class="h-52 bg-[#411FEB]/4 rounded-lg flex items-center justify-center"></div>
                 <div id="modalTags" class="flex flex-wrap gap-2 text-sm w-full"></div>
-                <p id="modalText" class="text-gray-800 text-sm leading-relaxed"></p>
+                <p id="modalText" class="text-[#121212] dark:text-white text-sm leading-relaxed"></p>
             </div>
     
             <!-- CTA (non scrollable) -->

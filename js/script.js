@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
             filteredProjects.forEach(project => {
                 const projectTitleId = project.title.replace(/[^a-zA-Z0-9-_]/g, '_');
                 const card = document.createElement("div");
-                card.className = "projectCard bg-white rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] border-8 border-white";
+                card.className = "projectCard bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] border-8 border-white dark:border-[#121212]";
                 card.dataset.projectId = project.id;
                 card.dataset.title = project.title.toLowerCase();
                 card.dataset.description = project.description.toLowerCase();
@@ -42,9 +42,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
                         <img data-src="${project.image}" loading="lazy" alt="${project.title}" class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110 lazy-img">
                     </div>
-                    <h3 class="text-lg font-semibold text-[#411FEB]">${project.title}</h3>
+                    <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">${project.title}</h3>
                     <div class="mt-1 flex flex-wrap gap-2" id="tagsContainer-${projectTitleId}"></div>
-                    <p class="text-sm text-gray-600 mt-2">${project.description}</p>
+                    <p class="text-sm text-[#121212] dark:text-white mt-2">${project.description}</p>
                 `;
 
                 const tagsContainer = card.querySelector(`#tagsContainer-${projectTitleId}`);
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     project.tags.forEach(tag => {
                         const tagElement = document.createElement("span");
                         tagElement.className =
-                            "inline-flex items-center gap-1 px-2 rounded-full border border-[#411FEB] bg-[#411FEB] bg-opacity-[0.12] text-[#411FEB] font-medium text-sm";
+                            "inline-flex items-center gap-1 px-2 rounded-full border border-[#411FEB] bg-[#411FEB] bg-opacity-[0.12] text-[#411FEB] dark:text-[#5536ED] font-medium text-sm";
                         tagElement.innerHTML = `<i class='${tag.icon} text-base'></i> ${tag.name}`;
                         tagsContainer.appendChild(tagElement);
                     });
@@ -111,13 +111,13 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!emptyCard) {
                 emptyCard = document.createElement("div");
                 emptyCard.id = "emptyProjectCard";
-                emptyCard.className = "projectCard bg-white rounded-lg text-left border-8 border-white hover:bg-[#EDE9FE] cursor-default";
+                emptyCard.className = "projectCard bg-white rounded-lg text-left border-8 border-white hover:bg-[#EDE9FE] dark:hover:bg-[#EDE9FE] cursor-default";
                 emptyCard.innerHTML = `
                     <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] border-2 border-dashed border-[#411FEB] flex items-center justify-center overflow-hidden">
                         <img src="/media/projects/projectnoresult.svg" alt="Aucun projet trouvé" class="h-64 w-64">
                     </div>
-                    <h3 class="text-lg font-semibold text-[#411FEB] mb-1">Aucun projet trouvé...</h3>
-                    <p class="text-sm text-gray-600 mt-2 mb-4">
+                    <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED] mb-1">Aucun projet trouvé...</h3>
+                    <p class="text-sm text-[#121212] dark:text-white mt-2 mb-4">
                         Peut-être en rechercheriez-vous un autre ? Sinon, rassurez-vous, il ne me fait pas peur !
                     </p>
                     <a href="/services" class="inline-flex items-center gap-2 bg-[#411FEB] text-white text-sm font-medium px-3 py-2 rounded-lg hover:bg-[#3216C9] transition">
@@ -206,18 +206,18 @@ document.addEventListener("DOMContentLoaded", function () {
         const context = project.context || "";
 
         modalMeta.innerHTML = `
-        <div class="flex items-center gap-1 text-gray-600 text-sm">
-            <i class="bx bxs-calendar-alt text-[#411FEB] opacity-[0.48] text-base"></i>
+        <div class="flex items-center gap-1 text-[#121212] dark:text-white text-sm">
+            <i class="bx bxs-calendar-alt text-[#411FEB] dark:text-[#5536ED] opacity-[0.48] text-base"></i>
             <span>${formattedDate || "Date inconnue"}</span>
-            ${type ? `<span class="mx-1 text-[#411FEB] opacity-[0.48]">•</span><span>${type}</span>` : ""}
-            ${context ? `<span class="mx-1 text-[#411FEB] opacity-[0.48]">•</span><span>${context}</span>` : ""}
+            ${type ? `<span class="mx-1 text-[#411FEB] dark:text-[#5536ED] opacity-[0.48]">•</span><span>${type}</span>` : ""}
+            ${context ? `<span class="mx-1 text-[#411FEB] dark:text-[#5536ED] opacity-[0.48]">•</span><span>${context}</span>` : ""}
         </div>`;
 
         modalTags.innerHTML = "";
         project.tags?.forEach(tag => {
             const span = document.createElement("span");
             span.className =
-                "inline-flex items-center gap-1 px-2 rounded-full border border-[#411FEB] bg-[#411FEB] bg-opacity-[0.12] text-[#411FEB] font-medium";
+                "inline-flex items-center gap-1 px-2 rounded-full border border-[#411FEB] bg-[#411FEB] bg-opacity-[0.12] text-[#411FEB] dark:text-[#5536ED] font-medium";
             span.innerHTML = `<i class='${tag.icon} text-base'></i> ${tag.name}`;
             modalTags.appendChild(span);
         });
@@ -310,7 +310,7 @@ document.addEventListener("DOMContentLoaded", function () {
             sortButton.className = "flex items-center gap-2 px-4 py-2 rounded-lg border border-[#411FEB]/20 text-[#3E3E3E] bg-[#F9F8FF] hover:bg-[#F2EEFF] transition text-sm font-medium";
 
             const sortIcon = document.createElement('i');
-            sortIcon.className = "bx bx-sort text-[#411FEB]";
+            sortIcon.className = "bx bx-sort text-[#411FEB] dark:text-[#5536ED]";
             sortButton.appendChild(sortIcon);
 
             const sortLabel = document.createElement('span');
@@ -318,7 +318,7 @@ document.addEventListener("DOMContentLoaded", function () {
             sortButton.appendChild(sortLabel);
 
             const sortChevron = document.createElement('i');
-            sortChevron.className = "bx bx-chevron-down text-[#411FEB]";
+            sortChevron.className = "bx bx-chevron-down text-[#411FEB] dark:text-[#5536ED]";
             sortButton.appendChild(sortChevron);
 
             const dropdown = document.createElement('div');

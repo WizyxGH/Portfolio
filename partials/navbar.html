@@ -1,117 +1,155 @@
-<header class="bg-[#411FEB] fixed top-0 left-0 w-full z-50" id="navbar">
-    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-        <!-- Logo -->
-        <a href="/" class="flex items-center gap-2 text-lg font-bold text-white">
-            <img src="/media/logo.png" alt="Logo Wizyx" class="w-6 h-6">
-            Wizyx
-        </a>
+<header class="bg-[#411FEB] fixed top-0 left-0 w-full z-50 transition-colors duration-200" id="navbar">
+  <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2 text-lg font-bold text-white">
+      <img src="/media/logo.png" alt="Logo Wizyx" class="w-6 h-6">
+      Wizyx
+    </a>
 
-        <!-- Bouton Menu Burger (visible sur mobile) -->
-        <button id="menuButton" class="text-white text-3xl lg:hidden">
-            <i class='bx bx-menu'></i>
-        </button>
+    <!-- Bouton Menu Burger (visible sur mobile) -->
+    <button id="menuButton" class="text-white text-3xl lg:hidden">
+      <i class="bx bx-menu"></i>
+    </button>
 
-        <!-- Menu de navigation -->
-        <nav id="navMenu"
-            class="hidden absolute top-full left-0 w-full bg-[#411FEB] shadow-lg lg:shadow-none lg:static lg:flex lg:items-center lg:space-x-4 lg:w-auto">
-            <ul class="lg:flex lg:space-x-4 lg:text-left">
-                <li><a href="/about/" class="block px-6 py-2 text-white hover:font-semibold">Qui suis-je ?</a></li>
+    <!-- Menu de navigation -->
+    <nav id="navMenu"
+      class="hidden absolute top-full left-0 w-full bg-[#411FEB] shadow-lg lg:shadow-none lg:static lg:flex lg:items-center lg:space-x-4 lg:w-auto transition-all duration-300">
+      <ul class="flex flex-col lg:flex-row lg:space-x-4">
+        <li><a href="/about/" class="block px-6 py-2 text-white hover:font-semibold">Qui suis-je ?</a></li>
 
-                <!-- Menu déroulant "Réalisations" -->
-                <li class="relative lg:group">
-                    <button id="dropdownButton" class="inline-flex items-center px-6 py-2 text-white gap-1">
-                        Réalisations
-                        <i id="dropdownChevron" class='bx bx-chevron-down text-lg text-gray-300'></i>
-                    </button>
-                    <ul id="dropdownMenu"
-                        class="hidden flex-col bg-white text-[#411FEB] lg:absolute lg:shadow-md lg:rounded-md lg:w-64">
-                        <li>
-                            <a href="/creations/" class="group block lg:px-2 px-6 py-2 hover:bg-[#E8E4FC] hover:text-[#411FEB] hover:font-semibold lg:hover:rounded-t-md">
-                                <div class="flex items-center gap-3"> 
-                                    <span class="bg-[#E8E4FC] text-[#411FEB] p-2 text-xl rounded-md flex items-center justify-center group-hover:bg-[#411FEB] group-hover:text-white">
-                                        <i class='bx bxs-briefcase-alt-2'></i>
-                                    </span>
-                                    <div class="flex flex-col">
-                                        <span class="">Professionnel</span> 
-                                        <span class="text-xs text-[#3E3E3E] text-base leading-relaxed">UI/UX Design, articles</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/creations_studies/" class="group block lg:px-2 px-6 py-2 hover:bg-[#E8E4FC] hover:text-[#411FEB] hover:font-semibold lg:hover:rounded-b-md">
-                                <div class="flex items-center gap-3">
-                                    <span class="bg-[#E8E4FC] text-[#411FEB] p-2 text-xl rounded-md flex items-center justify-center group-hover:bg-[#411FEB] group-hover:text-white">
-                                        <i class='bx bxs-education'></i>
-                                    </span>
-                                    <div class="flex flex-col">
-                                        <span class="">Académique</span>
-                                        <span class="text-xs text-[#3E3E3E] text-base leading-relaxed">Réalisé en BUT MMI</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+        <!-- Menu déroulant "Réalisations" -->
+        <li class="relative lg:group">
+          <button id="dropdownButton" class="inline-flex items-center px-6 py-2 text-white gap-1">
+            Réalisations
+            <i id="dropdownChevron" class='bx bx-chevron-down text-lg text-gray-300'></i>
+          </button>
+          <ul id="dropdownMenu"
+            class="hidden flex-col bg-white dark:bg-[#121212] text-[#411FEB] dark:text-[#5536ED] lg:absolute lg:shadow-md lg:rounded-md lg:w-64">
+            <li>
+              <a href="/creations/"
+                class="group block lg:px-2 px-6 py-2 hover:bg-[#E8E4FC] dark:hover:bg-[#1A162C] hover:text-[#411FEB] dark:hover:text-[#5536ED] hover:font-semibold lg:hover:rounded-t-md">
+                <div class="flex items-center gap-3">
+                  <span
+                    class="bg-[#E8E4FC] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] p-2 text-xl rounded-md flex items-center justify-center group-hover:bg-[#411FEB] group-hover:text-white">
+                    <i class='bx bxs-briefcase-alt-2'></i>
+                  </span>
+                  <div class="flex flex-col">
+                    <span>Professionnel</span>
+                    <span
+                      class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed">UI/UX Design, articles</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="/creations_studies/"
+                class="group block lg:px-2 px-6 py-2 hover:bg-[#E8E4FC] dark:hover:bg-[#1A162C] hover:text-[#411FEB] dark:hover:text-[#5536ED] hover:font-semibold lg:hover:rounded-b-md">
+                <div class="flex items-center gap-3">
+                  <span
+                    class="bg-[#E8E4FC] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] p-2 text-xl rounded-md flex items-center justify-center group-hover:bg-[#411FEB] group-hover:text-white">
+                    <i class='bx bxs-education'></i>
+                  </span>
+                  <div class="flex flex-col">
+                    <span>Académique</span>
+                    <span
+                      class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed">Réalisé en BUT MMI</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </li>
 
-                <li><a href="/services/" class="block px-6 py-2 text-white hover:font-semibold">Services</a></li>
+        <li><a href="/services/" class="block px-6 py-2 text-white hover:font-semibold">Services</a></li>
+        <li><a href="/contact/" class="block px-6 py-2 text-white hover:font-semibold">Contact</a></li>
 
-                <li><a href="/contact/" class="block px-6 py-2 text-white hover:font-semibold">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
+        <!-- Bouton Theme Toggle - visible uniquement sur mobile -->
+        <li class="block lg:hidden border-t border-white/20 mt-2">
+          <button id="themeToggleMobile"
+            class="w-full text-left px-6 py-3 text-white hover:bg-white/10 flex items-center gap-2">
+            <i class="bx bx-sun text-xl"></i>
+            <span>Changer de thème</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Bouton Theme Toggle - visible uniquement sur desktop -->
+    <button id="themeToggleDesktop"
+      class="hidden lg:block text-white hover:bg-white/10 py-2 px-3 rounded-lg transition-colors duration-200">
+      <i class='bx bx-sun text-xl'></i>
+    </button>
+  </div>
 </header>
 
-<!-- Spacer qui pousse le contenu pour ne pas être caché -->
+<!-- Spacer -->
 <div class="h-[60px] lg:h-[64px]"></div>
 
 <script>
-    // Menu burger mobile
-    const menuButton = document.getElementById('menuButton');
-    const navMenu = document.getElementById('navMenu');
-    menuButton.addEventListener('click', () => {
-        navMenu.classList.toggle('hidden');
-    });
+  // --- Menu burger mobile ---
+  const menuButton = document.getElementById('menuButton');
+  const navMenu = document.getElementById('navMenu');
+  menuButton.addEventListener('click', () => {
+    navMenu.classList.toggle('hidden');
+  });
 
-    // Dropdown "Réalisations"
-    const dropdownButton = document.getElementById('dropdownButton');
-    const dropdownMenu = document.getElementById('dropdownMenu');
-    const dropdownChevron = document.getElementById('dropdownChevron');
+  // --- Dropdown "Réalisations" ---
+  const dropdownButton = document.getElementById('dropdownButton');
+  const dropdownMenu = document.getElementById('dropdownMenu');
+  const dropdownChevron = document.getElementById('dropdownChevron');
 
-    dropdownButton.addEventListener('click', () => {
-        dropdownMenu.classList.toggle('hidden');
+  dropdownButton.addEventListener('click', () => {
+    dropdownMenu.classList.toggle('hidden');
+    dropdownChevron.classList.toggle('bx-chevron-down');
+    dropdownChevron.classList.toggle('bx-chevron-up');
+  });
 
-        if (dropdownMenu.classList.contains('hidden')) {
-            // Ferme → chevron down
-            dropdownChevron.classList.remove('bx-chevron-up');
-            dropdownChevron.classList.add('bx-chevron-down');
-        } else {
-            // Ouvert → chevron up
-            dropdownChevron.classList.remove('bx-chevron-down');
-            dropdownChevron.classList.add('bx-chevron-up');
+  // --- Lien actif + parent dropdown ---
+  document.addEventListener("DOMContentLoaded", () => {
+    const currentPath = window.location.pathname.replace(/\/+$/, "");
+    const links = document.querySelectorAll("#navMenu a");
+
+    links.forEach(link => {
+      let href = link.getAttribute("href").replace(/\/+$/, "");
+      if (currentPath === href) {
+        link.classList.add("font-semibold");
+        const dropdownParent = link.closest(".relative.lg\\:group");
+        if (dropdownParent) {
+          const parentButton = dropdownParent.querySelector("#dropdownButton");
+          if (parentButton) parentButton.classList.add("font-semibold");
         }
+      }
+    });
+  });
+
+  // --- Gestion du thème ---
+  function updateTheme(theme) {
+    const html = document.documentElement;
+    const icons = document.querySelectorAll('#themeToggleDesktop i, #themeToggleMobile i');
+
+    if (theme === 'dark') {
+      html.classList.add('dark');
+    } else {
+      html.classList.remove('dark');
+    }
+
+    icons.forEach(icon => {
+      icon.className = theme === 'dark' ? 'bx bx-moon text-xl' : 'bx bx-sun text-xl';
     });
 
-    // Lien actif + parent dropdown
-    document.addEventListener("DOMContentLoaded", () => {
-        // chemin actuel sans slash final
-        const currentPath = window.location.pathname.replace(/\/+$/, "");
+    localStorage.setItem('theme', theme);
+  }
 
-        const links = document.querySelectorAll("#navMenu a");
+  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const savedTheme = localStorage.getItem('theme');
+  const initialTheme = savedTheme ? savedTheme : (systemPrefersDark ? 'dark' : 'light');
+  updateTheme(initialTheme);
 
-        links.forEach(link => {
-            let href = link.getAttribute("href").replace(/\/+$/, "");
-            
-            if (currentPath === href) {
-                link.classList.add("font-semibold");
+  function toggleTheme() {
+    const newTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+    updateTheme(newTheme);
+  }
 
-                // Si le lien est dans un dropdown, mettre le parent en gras aussi
-                const dropdownParent = link.closest(".relative.lg\\:group");
-                if (dropdownParent) {
-                    const parentButton = dropdownParent.querySelector("#dropdownButton");
-                    if (parentButton) parentButton.classList.add("font-semibold");
-                }
-            }
-        });
-    });
+  document.getElementById('themeToggleDesktop')?.addEventListener('click', toggleTheme);
+  document.getElementById('themeToggleMobile')?.addEventListener('click', toggleTheme);
 </script>
