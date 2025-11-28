@@ -316,7 +316,8 @@
         "context": "Personnel",
         "tags": [
             { "name": "UI/UX Design", "icon": "bx bxs-layout" },
-            { "name": "Prototyping", "icon": "bx bx-play-circle" }
+            { "name": "Prototyping", "icon": "bx bx-play-circle" },
+            { "name": "Copywriting", "icon": "bx bxs-pen" }
         ]
     },
     {
@@ -337,6 +338,22 @@
     },
     {
         "id": 23,
+        "title": "Vaylune",
+        "text": "Coming soon...",
+        "description": "Coming soon...",
+        "image": "/media/projects/vaylune.webp",
+        "driveLink": "https://drive.google.com/drive/folders/1la3Im_AOZbXseeHE4uC0hfq0HXDL_mk1?usp=sharing",
+        "projectLink": "#",
+        "date": "2025-12",
+        "type": "Site internet",
+        "context": "Scolaire",
+        "tags": [
+            { "name": "UI/UX Design", "icon": "bx bxs-layout" },
+            { "name": "Prototyping", "icon": "bx bx-play-circle" }
+        ]
+    },
+    {
+        "id": 24,
         "title": "Danse à l'Opéra",
         "text": "Coming soon...",
         "description": "Scénographie et affiche",
@@ -352,7 +369,7 @@
         ]
     },
     {
-        "id": 24,
+        "id": 25,
         "title": "Introduction sur la faune et la flore du Var",
         "text": "Coming soon...",
         "description": "Vidéo et article",
@@ -369,7 +386,7 @@
         ]
     },
     {
-        "id": 25,
+        "id": 26,
         "title": "Vidéo œuvre culturelle",
         "text": "Coming soon...",
         "description": "Lorem ipsum.",
@@ -387,7 +404,7 @@
         ]
     },
     {
-        "id": 26,
+        "id": 27,
         "title": "Tom et Lola",
         "text": "Coming soon...",
         "description": "Lorem ipsum.",
@@ -405,7 +422,7 @@
         ]
     },
     {
-        "id": 27,
+        "id": 28,
         "title": "Stratégie de communication Mafigue",
         "text": "Coming soon...",
         "description": "Lorem ipsum.",
@@ -420,7 +437,7 @@
         ]
     },
     {
-        "id": 28,
+        "id": 29,
         "title": "Jeu de l'oie : CultoPhoto",
         "text": "Coming soon...",
         "description": "Lorem ipsum.",
@@ -435,7 +452,7 @@
         ]
     },
     {
-        "id": 29,
+        "id": 30,
         "title": "Sites WordPress",
         "text": "Coming soon...",
         "description": "Lorem ipsum.",
@@ -450,7 +467,7 @@
         ]
     },
     {
-        "id": 30,
+        "id": 31,
         "title": "Maquette fanzine Picsou-Soir",
         "text": "Coming soon...",
         "description": "Projet personnel",
