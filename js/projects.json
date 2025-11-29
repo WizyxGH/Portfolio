@@ -316,9 +316,7 @@
         "context": "Personnel",
         "tags": [
             { "name": "UI/UX Design", "icon": "bx bxs-layout" },
-            { "name": "Prototyping", "icon": "bx bx-play-circle" },
-            { "name": "Copywriting", "icon": "bx bxs-pen" }
-        ]
+            { "name": "Prototyping", "icon": "bx bx-play-circle" }        ]
     },
     {
         "id": 22,
@@ -333,23 +331,25 @@
         "context": "Scolaire",
         "tags": [
             { "name": "UI/UX Design", "icon": "bx bxs-layout" },
-            { "name": "Prototyping", "icon": "bx bx-play-circle" }
+            { "name": "Prototyping", "icon": "bx bx-play-circle" },
+            { "name": "Copywriting", "icon": "bx bxs-pen" }
         ]
     },
     {
         "id": 23,
         "title": "Vaylune",
-        "text": "Coming soon...",
-        "description": "Coming soon...",
+        "text": "Le brief était le suivant :<br>Marque outdoor biotech<br><br>Une marque de randonnée nouvelle génération qui développe des équipements fabriqués à partir de matériaux organiques auto-réparants, inspirés de la biologie marine. Les textiles “vivent”, se régénèrent lorsqu’ils sont abîmés, résistent aux changements de température, et s’adaptent au corps du randonneur. L’ambition de la marque est de créer l’outdoor le plus durable au monde, en fusionnant technologie, recherche biomimétique et esthétique futuriste.",
+        "description": "Design de la landing page d'une fausse marque de vêtements de randonnée hight-tech basée sur la biologie marine.",
         "image": "/media/projects/vaylune.webp",
-        "driveLink": "https://drive.google.com/drive/folders/1la3Im_AOZbXseeHE4uC0hfq0HXDL_mk1?usp=sharing",
+        "driveLink": "https://drive.google.com/drive/folders/1RDhITARrLJ8b890921oLzmDVOGASZqgw?usp=sharing",
         "projectLink": "#",
-        "date": "2025-12",
-        "type": "Site internet",
+        "date": "2025-11",
+        "type": "Landing page",
         "context": "Scolaire",
         "tags": [
             { "name": "UI/UX Design", "icon": "bx bxs-layout" },
-            { "name": "Prototyping", "icon": "bx bx-play-circle" }
+            { "name": "Prototyping", "icon": "bx bx-play-circle" },
+            { "name": "Copywriting", "icon": "bx bxs-pen" }
         ]
     },
     {
