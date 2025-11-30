@@ -16,6 +16,7 @@ permalink: /creations/
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/x-icon" href="/media/favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/js/project-modal.js"></script>
     <script src="/js/script.js"></script>
     <script src="/js/layout.js"></script>
     <script src="/js/theme.js"></script>
@@ -237,40 +238,32 @@ permalink: /creations/
 
     <div id="footer-container"></div>
 
-    <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center overflow-y-auto z-50">
+        <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center overflow-y-auto z-50">
         <div class="bg-white dark:bg-[#121212] rounded-xl shadow-lg w-11/12 md:w-2/3 lg:w-1/2 max-h-[90vh] my-6 flex flex-col">
-            <!-- Header (non scrollable) -->
             <div class="bg-[#411FEB] bg-opacity-[0.04] p-4 border-b border-[#411FEB]/12 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between relative">
                 <div class="flex flex-col gap-1 sm:flex-1">
                     <h3 id="modalTitle" class="text-xl font-semibold text-[#411FEB] dark:text-[#5536ED]">Titre du projet</h3>
-            
-                    <!-- ✅ Ajoute cette ligne -->
                     <div id="modalMeta" class="flex items-center text-sm text-[#121212] dark:text-white gap-1">
                         <i class="bx bxs-calendar-alt text-[#411FEB]/48 dark:text-[#5536ED]/48"></i>
                         <span>Date</span>
-                        <span class="">•</span>
+                        <span class="text-[#411FEB] dark:text-[#5536ED] opacity-[0.48] mx-1">&middot;</span>
                         <span></span>
-                        <span class="">•</span>
+                        <span class="text-[#411FEB] dark:text-[#5536ED] opacity-[0.48] mx-1">&middot;</span>
                         <span></span>
                     </div>
                 </div>
-                <i class="bx bx-x text-3xl text-[#411FEB] text-opacity-[0.64] cursor-pointer hover:text-[#411FEB] transition absolute right-6 top-6 sm:static"
-                    onclick="closeModal()"></i>
+                <i class="bx bx-x text-3xl text-[#411FEB] text-opacity-[0.64] cursor-pointer hover:text-[#411FEB] transition absolute right-6 top-6 sm:static" onclick="closeModal()"></i>
             </div>
-    
-            <!-- Contenu scrollable -->
             <div class="p-4 flex-1 lg:overflow-hidden overflow-y-auto">
                 <div class="flex flex-col lg:flex-row gap-4 lg:h-[520px]">
                     <div class="lg:w-1/2 lg:h-full">
                         <div id="modalCarousel" class="hidden flex flex-col gap-3 h-full">
                             <div class="relative overflow-hidden rounded-xl bg-[#F5F3FF] dark:bg-[#1A162C] flex-1 min-h-[260px]">
                                 <div id="carouselTrack" class="flex transition-transform duration-500 ease-in-out h-full"></div>
-                                <button id="carouselPrev" type="button"
-                                    class="absolute left-3 top-1/2 -translate-y-1/2 bg-white dark:bg-[#121212] shadow-md rounded-full w-10 h-10 flex items-center justify-center text-[#411FEB] dark:text-[#5536ED] border border-[#411FEB]/15 hover:scale-105 transition">
+                                <button id="carouselPrev" type="button" class="absolute left-3 top-1/2 -translate-y-1/2 bg-white dark:bg-[#121212] shadow-md rounded-full w-10 h-10 flex items-center justify-center text-[#411FEB] dark:text-[#5536ED] border border-[#411FEB]/15 hover:scale-105 transition">
                                     <i class="bx bx-chevron-left text-2xl"></i>
                                 </button>
-                                <button id="carouselNext" type="button"
-                                    class="absolute right-3 top-1/2 -translate-y-1/2 bg-white dark:bg-[#121212] shadow-md rounded-full w-10 h-10 flex items-center justify-center text-[#411FEB] dark:text-[#5536ED] border border-[#411FEB]/15 hover:scale-105 transition">
+                                <button id="carouselNext" type="button" class="absolute right-3 top-1/2 -translate-y-1/2 bg-white dark:bg-[#121212] shadow-md rounded-full w-10 h-10 flex items-center justify-center text-[#411FEB] dark:text-[#5536ED] border border-[#411FEB]/15 hover:scale-105 transition">
                                     <i class="bx bx-chevron-right text-2xl"></i>
                                 </button>
                                 <div id="carouselCounter" class="absolute right-3 top-3 text-xs font-semibold px-3 py-1 rounded-full bg-black/60 text-white hidden"></div>
@@ -278,31 +271,25 @@ permalink: /creations/
                             <div id="carouselDots" class="flex items-center justify-center gap-2"></div>
                         </div>
                     </div>
-                    <div class="lg:w-1/2 flex flex-col gap-3 lg:h-full lg:overflow-hidden">
+                    <div class="lg:w-1/2 flex flex-col gap-4 lg:h-full lg:overflow-hidden">
                         <div id="modalTags" class="flex flex-wrap gap-2 text-sm w-full"></div>
                         <div class="flex-1 overflow-y-auto pr-1">
                             <p id="modalText" class="text-[#121212] dark:text-white text-sm leading-relaxed"></p>
                         </div>
+                        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-start pt-1">
+                            <a id="modalWebsite" href="#" target="_blank" class="flex items-center justify-center gap-2 bg-white border border-[#411FEB] text-[#411FEB] font-semibold px-4 py-2 rounded-md hover:bg-[#f5f3ff] transition">
+                                <i class="bx bx-globe"></i> Visiter le site web
+                            </a>
+                            <a id="modalButton" href="#" target="_blank" class="flex items-center justify-center gap-2 bg-[#411FEB] text-white font-semibold px-4 py-2 rounded-md hover:bg-[#3A1CC5] transition">
+                                <i class="bx bx-show"></i> Voir le resultat
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-    
-            <!-- CTA (non scrollable) -->
-            <div class="bg-[#411FEB] bg-opacity-[0.04] p-4 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center sm:justify-end border-t border-[#411FEB]/12 rounded-b-xl">
-                <a id="modalWebsite" href="#" target="_blank"
-                    class="flex items-center justify-center gap-2 bg-white border border-[#411FEB] text-[#411FEB] font-semibold px-4 py-2 rounded-md hover:bg-[#f5f3ff] transition">
-                    <i class="bx bx-globe"></i> Visiter le site web
-                </a>
-                <a id="modalButton" href="#" target="_blank"
-                    class="flex items-center justify-center gap-2 bg-[#411FEB] text-white font-semibold px-4 py-2 rounded-md hover:bg-[#3A1CC5] transition">
-                    <i class="bx bx-show"></i> Voir le résultat
-                </a>
-            </div>
-    
         </div>
     </div>
-
-    <div class="gtranslate_wrapper"></div>
+    <div class='gtranslate_wrapper'></div>
     <script>
         window.gtranslateSettings = {
             "default_language": "fr",
@@ -318,3 +305,5 @@ permalink: /creations/
 </body>
 
 </html>
+
+
