@@ -372,7 +372,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         activeGalleryImages.forEach((src, idx) => {
             const slide = document.createElement("div");
-            slide.className = "min-w-full aspect-[4/3] flex items-center justify-center bg-[#121212]";
+            slide.className = "min-w-full aspect-[4/3] flex items-center justify-center bg-[#121212] dark:bg-[#E8E4FC]";
 
             const img = document.createElement("img");
             img.dataset.src = src;
