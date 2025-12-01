@@ -22,10 +22,12 @@
             title: document.getElementById("modalTitle"),
             meta: document.getElementById("modalMeta"),
             text: document.getElementById("modalText"),
-            button: document.getElementById("modalButton"),
             website: document.getElementById("modalWebsite"),
             tags: document.getElementById("modalTags"),
         };
+
+        // Retire le bouton obsolète s'il existe encore dans le DOM
+        document.getElementById("modalButton")?.remove();
 
         let activeGalleryImages = [];
         let currentSlideIndex = 0;
@@ -291,6 +293,7 @@
 
             const formattedDate = project.date ? new Date(project.date).toLocaleDateString("fr-FR", { year: "numeric", month: "long" }) : "";
             const type = project.type ? project.type.charAt(0).toUpperCase() + project.type.slice(1) : "";
+            const typeNormalized = (project.type || "").toString().normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
             const context = project.context || "";
 
             modalEls.meta.innerHTML = `
@@ -312,24 +315,23 @@
 
             const hasGallery = gallerySources.length > 0;
 
-            // Version sans conditions : on alimente toujours les deux boutons avec le lien (ou "#")
-            const link = (project.projectLink || "#").trim() || "#";
+            const rawLink = (project.projectLink || "").trim();
+            const hasLink = !!rawLink && rawLink !== "#";
+            const link = hasLink ? rawLink : "#";
+            const websiteLabel = typeNormalized.includes("app") || typeNormalized.includes("mobile")
+                ? "Voir l'application"
+                : "Visiter le site web";
 
             if (modalEls.website) {
-                modalEls.website.href = link;
-                modalEls.website.classList.remove("hidden");
-                modalEls.website.innerHTML =
-                    project.type === "app"
-                        ? `<i class='bx bx-globe'></i> Voir l'application`
-                        : `<i class='bx bx-globe'></i> Visiter le site web`;
+                if (hasLink) {
+                    modalEls.website.href = link;
+                    modalEls.website.classList.remove("hidden");
+                    modalEls.website.innerHTML = `<i class='bx bx-globe'></i> ${websiteLabel}`;
+                } else {
+                    modalEls.website.classList.add("hidden");
+                    modalEls.website.removeAttribute("href");
+                }
             }
-
-            if (modalEls.button) {
-                modalEls.button.href = link;
-                modalEls.button.classList.remove("hidden");
-                modalEls.button.innerHTML = `<i class='bx bx-show'></i> Voir le r&eacute;sultat`;
-            }
-
             renderCarousel(hasGallery ? gallerySources : (heroImage ? [heroImage] : []), project.title);
 
             modalEls.modal.classList.remove("hidden");
