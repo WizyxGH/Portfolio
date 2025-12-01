@@ -30,6 +30,8 @@
         let activeGalleryImages = [];
         let currentSlideIndex = 0;
         let resultsManifestPromise = null;
+        let fullscreenOverlay = null;
+        let fullscreenImage = null;
 
         async function getResultsManifest() {
             if (resultsManifestPromise) return resultsManifestPromise;
@@ -111,6 +113,53 @@
             return { images: project.image ? [project.image] : [], source: "fallback" };
         }
 
+        function ensureFullscreenOverlay() {
+            if (fullscreenOverlay && fullscreenImage) return;
+
+            fullscreenOverlay = document.createElement("div");
+            fullscreenOverlay.id = "modalImageFullscreen";
+            fullscreenOverlay.className = "fixed inset-0 bg-black/85 flex items-center justify-center px-4 z-[9999] hidden";
+            fullscreenOverlay.setAttribute("aria-hidden", "true");
+            fullscreenOverlay.addEventListener("click", closeFullscreenImage);
+
+            const closeBtn = document.createElement("button");
+            closeBtn.type = "button";
+            closeBtn.className = "absolute top-5 right-5 text-white text-3xl hover:scale-110 transition";
+            closeBtn.innerHTML = "<i class='bx bx-x'></i>";
+            closeBtn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                closeFullscreenImage();
+            });
+
+            fullscreenImage = document.createElement("img");
+            fullscreenImage.className = "max-h-[90vh] max-w-[90vw] object-contain shadow-2xl";
+            fullscreenImage.alt = "";
+            fullscreenImage.addEventListener("click", (e) => e.stopPropagation());
+
+            fullscreenOverlay.appendChild(fullscreenImage);
+            fullscreenOverlay.appendChild(closeBtn);
+            document.body.appendChild(fullscreenOverlay);
+        }
+
+        function openFullscreenImage(src, alt) {
+            if (!src) return;
+            ensureFullscreenOverlay();
+            fullscreenImage.src = src;
+            fullscreenImage.alt = alt || "";
+            fullscreenOverlay.classList.remove("hidden");
+            fullscreenOverlay.setAttribute("aria-hidden", "false");
+        }
+
+        function closeFullscreenImage() {
+            if (!fullscreenOverlay || !fullscreenImage) return;
+            fullscreenOverlay.classList.add("hidden");
+            fullscreenOverlay.setAttribute("aria-hidden", "true");
+            fullscreenImage.src = "";
+            if (modalEls.modal?.classList.contains("hidden")) {
+                document.body.classList.remove("overflow-hidden");
+            }
+        }
+
         function renderCarousel(images, projectTitle) {
             if (!carouselEls.container || !carouselEls.track || !carouselEls.dots) return;
 
@@ -134,6 +183,10 @@
                 img.alt = `${projectTitle} - visuel ${idx + 1}`;
                 img.loading = "lazy";
                 img.className = "w-full h-full object-contain opacity-0 transition-opacity duration-300";
+                img.addEventListener("click", () => {
+                    const srcToShow = img.src || img.dataset.src || "";
+                    if (srcToShow) openFullscreenImage(srcToShow, img.alt);
+                });
                 slide.appendChild(img);
 
                 carouselEls.track.appendChild(slide);
@@ -288,6 +341,7 @@
 
         function closeModal() {
             document.body.classList.remove("overflow-hidden");
+            closeFullscreenImage();
             modalEls.modal?.classList.add("hidden");
             carouselEls.track?.replaceChildren();
             carouselEls.dots?.replaceChildren();
@@ -301,6 +355,15 @@
         carouselEls.prev?.addEventListener("click", () => goToSlide(currentSlideIndex - 1));
         carouselEls.next?.addEventListener("click", () => goToSlide(currentSlideIndex + 1));
         document.querySelector('.bx-x')?.addEventListener('click', closeModal);
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+                if (fullscreenOverlay && !fullscreenOverlay.classList.contains("hidden")) {
+                    closeFullscreenImage();
+                } else {
+                    closeModal();
+                }
+            }
+        });
         global.closeModal = closeModal;
 
         return { openModal, closeModal };
