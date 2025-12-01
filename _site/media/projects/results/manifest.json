@@ -170,5 +170,12 @@
                           "Promodentaire/Search After 0.png",
                           "Promodentaire/Search After 1.png",
                           "Promodentaire/Search After 2.png"
-                      ]
+                      ],
+    "Direct Democracy":  [
+                              "Direct Democracy/Home - Logged in.jpg",
+                              "Direct Democracy/Home - Not logged in.jpg",
+                              "Direct Democracy/Results.jpg",
+                              "Direct Democracy/Settings.jpg",
+                              "Direct Democracy/Vote.jpg"
+                         ]
 }

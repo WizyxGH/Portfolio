@@ -44,6 +44,13 @@
         let pointerStartY = null;
         let currentProjectTitle = "";
         let overlaySwipeConsumed = false;
+        const autoAdvanceDelayMs = 15000;
+        let autoAdvanceTimeout = null;
+        let fullscreenZoomed = false;
+        let fullscreenPanX = 0;
+        let fullscreenPanY = 0;
+        let fullscreenPointerId = null;
+        let fullscreenDragStart = null;
 
         async function getResultsManifest() {
             if (resultsManifestPromise) return resultsManifestPromise;
@@ -125,6 +132,18 @@
             return { images: project.image ? [project.image] : [], source: "fallback" };
         }
 
+        function extractFileName(src) {
+            if (!src) return "";
+            const parts = src.split("/").filter(Boolean);
+            if (!parts.length) return "";
+            const raw = parts[parts.length - 1].split(/[?#]/)[0];
+            try {
+                return decodeURIComponent(raw);
+            } catch {
+                return raw;
+            }
+        }
+
         function ensureFullscreenOverlay() {
             if (fullscreenOverlay && fullscreenImage) return;
 
@@ -155,7 +174,17 @@
             fullscreenImage.alt = "";
             fullscreenImage.draggable = false;
             fullscreenImage.style.userSelect = "none";
+            fullscreenImage.style.cursor = "zoom-in";
             fullscreenImage.addEventListener("click", (e) => e.stopPropagation());
+            fullscreenImage.addEventListener("dblclick", (e) => {
+                e.preventDefault();
+                toggleFullscreenZoom(e);
+            });
+            fullscreenImage.addEventListener("pointerdown", onFullscreenPointerDown);
+            fullscreenImage.addEventListener("pointermove", onFullscreenPointerMove);
+            fullscreenImage.addEventListener("pointerup", endFullscreenPointer);
+            fullscreenImage.addEventListener("pointercancel", endFullscreenPointer);
+            fullscreenImage.addEventListener("pointerleave", endFullscreenPointer);
 
             fullscreenOverlay.appendChild(fullscreenImage);
             fullscreenOverlay.appendChild(closeBtn);
@@ -166,23 +195,110 @@
         function openFullscreenImage(src, alt) {
             if (!src) return;
             ensureFullscreenOverlay();
+            resetFullscreenZoom();
             fullscreenImage.src = src;
             fullscreenImage.alt = alt || "";
             fullscreenOverlay.classList.remove("hidden");
             fullscreenOverlay.setAttribute("aria-hidden", "false");
             overlaySwipeConsumed = false;
+            clearAutoAdvance();
             refreshFullscreenImage();
         }
 
-        function closeFullscreenImage() {
+        function closeFullscreenImage(shouldResumeAuto = true) {
             if (!fullscreenOverlay || !fullscreenImage) return;
             fullscreenOverlay.classList.add("hidden");
             fullscreenOverlay.setAttribute("aria-hidden", "true");
             fullscreenImage.src = "";
             overlaySwipeConsumed = false;
+            resetFullscreenZoom();
             if (modalEls.modal?.classList.contains("hidden")) {
                 document.body.classList.remove("overflow-hidden");
+            } else if (shouldResumeAuto) {
+                scheduleAutoAdvance();
             }
+        }
+
+        function resetFullscreenZoom() {
+            fullscreenZoomed = false;
+            fullscreenPanX = 0;
+            fullscreenPanY = 0;
+            fullscreenPointerId = null;
+            fullscreenDragStart = null;
+            if (!fullscreenImage) return;
+            fullscreenImage.style.transformOrigin = "center center";
+            fullscreenImage.style.transform = "translate(0px, 0px) scale(1)";
+            fullscreenImage.style.cursor = "zoom-in";
+        }
+
+        function applyFullscreenTransform() {
+            if (!fullscreenImage) return;
+            const scale = fullscreenZoomed ? 2 : 1;
+            fullscreenImage.style.transform = `translate(${fullscreenPanX}px, ${fullscreenPanY}px) scale(${scale})`;
+        }
+
+        function toggleFullscreenZoom(event) {
+            if (!fullscreenImage) return;
+            if (!fullscreenZoomed) {
+                const rect = fullscreenImage.getBoundingClientRect();
+                const originX = ((event?.clientX ?? rect.left + rect.width / 2) - rect.left) / rect.width * 100;
+                const originY = ((event?.clientY ?? rect.top + rect.height / 2) - rect.top) / rect.height * 100;
+                fullscreenImage.style.transformOrigin = `${originX}% ${originY}%`;
+                fullscreenZoomed = true;
+                fullscreenPanX = 0;
+                fullscreenPanY = 0;
+                fullscreenImage.style.cursor = "grab";
+                applyFullscreenTransform();
+                return;
+            }
+            resetFullscreenZoom();
+        }
+
+        function onFullscreenPointerDown(e) {
+            if (!fullscreenZoomed || e.button !== 0) return;
+            fullscreenPointerId = e.pointerId;
+            fullscreenDragStart = { x: e.clientX, y: e.clientY, panX: fullscreenPanX, panY: fullscreenPanY };
+            fullscreenImage?.setPointerCapture(fullscreenPointerId);
+            fullscreenImage.style.cursor = "grabbing";
+        }
+
+        function onFullscreenPointerMove(e) {
+            if (!fullscreenZoomed || fullscreenPointerId !== e.pointerId || !fullscreenDragStart) return;
+            const dx = e.clientX - fullscreenDragStart.x;
+            const dy = e.clientY - fullscreenDragStart.y;
+            fullscreenPanX = fullscreenDragStart.panX + dx;
+            fullscreenPanY = fullscreenDragStart.panY + dy;
+            applyFullscreenTransform();
+        }
+
+        function endFullscreenPointer(e) {
+            if (fullscreenPointerId === null || e.pointerId !== fullscreenPointerId) return;
+            fullscreenPointerId = null;
+            fullscreenDragStart = null;
+            if (!fullscreenImage) return;
+            fullscreenImage.releasePointerCapture?.(e.pointerId);
+            fullscreenImage.style.cursor = fullscreenZoomed ? "grab" : "zoom-in";
+        }
+
+        function clearAutoAdvance() {
+            if (!autoAdvanceTimeout) return;
+            clearTimeout(autoAdvanceTimeout);
+            autoAdvanceTimeout = null;
+        }
+
+        function scheduleAutoAdvance() {
+            clearAutoAdvance();
+            const modalOpen = !!modalEls.modal && !modalEls.modal.classList.contains("hidden");
+            const fullscreenOpen = fullscreenOverlay && !fullscreenOverlay.classList.contains("hidden");
+            const hasMultipleSlides = activeGalleryImages.length > 1;
+            if (!modalOpen || !hasMultipleSlides || fullscreenOpen) return;
+
+            autoAdvanceTimeout = setTimeout(() => {
+                const total = activeGalleryImages.length;
+                if (total <= 1) return;
+                const nextIndex = (currentSlideIndex + 1) % total;
+                goToSlide(nextIndex);
+            }, autoAdvanceDelayMs);
         }
 
         function renderCarousel(images, projectTitle) {
@@ -192,6 +308,7 @@
             carouselEls.dots.innerHTML = "";
             activeGalleryImages = (images || []).filter(Boolean);
             currentSlideIndex = 0;
+            clearAutoAdvance();
 
             if (!activeGalleryImages.length) {
                 carouselEls.container.classList.add("hidden");
@@ -205,7 +322,8 @@
 
                 const img = document.createElement("img");
                 img.dataset.src = src;
-                img.alt = `${projectTitle} - visuel ${idx + 1}`;
+                const fileName = extractFileName(src);
+                img.alt = fileName ? `${projectTitle} - ${fileName}` : `${projectTitle} - visuel ${idx + 1}`;
                 img.loading = "lazy";
                 img.className = "w-full h-full object-contain opacity-0 transition-opacity duration-300";
                 img.draggable = false;
@@ -305,12 +423,14 @@
             preloadSlide(currentSlideIndex + 1);
             updateCarouselUI(total);
             refreshFullscreenImage();
+            scheduleAutoAdvance();
         }
 
         function refreshFullscreenImage() {
             if (!fullscreenOverlay || !fullscreenImage || fullscreenOverlay.classList.contains("hidden")) return;
             const src = activeGalleryImages[currentSlideIndex];
             if (!src) return;
+            resetFullscreenZoom();
             fullscreenImage.src = src;
             fullscreenImage.alt = currentProjectTitle
                 ? `${currentProjectTitle} - visuel ${currentSlideIndex + 1}`
@@ -410,6 +530,7 @@
         async function openModal(project) {
             if (!project || !modalEls.modal) return;
 
+            clearAutoAdvance();
             currentProjectTitle = project.title || "";
             modalEls.title.textContent = project.title;
             modalEls.text.innerHTML = project.text.replace(/\n/g, "<br>");
@@ -462,14 +583,16 @@
 
             modalEls.modal.classList.remove("hidden");
             document.body.classList.add("overflow-hidden");
+            scheduleAutoAdvance();
 
             const newUrl = `?project=${project.id}`;
             window.history.replaceState(null, '', newUrl);
         }
 
         function closeModal() {
+            clearAutoAdvance();
             document.body.classList.remove("overflow-hidden");
-            closeFullscreenImage();
+            closeFullscreenImage(false);
             modalEls.modal?.classList.add("hidden");
             carouselEls.track?.replaceChildren();
             carouselEls.dots?.replaceChildren();
