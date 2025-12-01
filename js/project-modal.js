@@ -34,6 +34,16 @@
         let resultsManifestPromise = null;
         let fullscreenOverlay = null;
         let fullscreenImage = null;
+        let touchStartX = null;
+        let touchStartY = null;
+        const swipeThreshold = 40;
+        const wheelThreshold = 25;
+        const wheelDebounceMs = 220;
+        let lastWheelTs = 0;
+        let pointerStartX = null;
+        let pointerStartY = null;
+        let currentProjectTitle = "";
+        let overlaySwipeConsumed = false;
 
         async function getResultsManifest() {
             if (resultsManifestPromise) return resultsManifestPromise;
@@ -122,7 +132,14 @@
             fullscreenOverlay.id = "modalImageFullscreen";
             fullscreenOverlay.className = "fixed inset-0 bg-black/85 flex items-center justify-center px-4 z-[9999] hidden";
             fullscreenOverlay.setAttribute("aria-hidden", "true");
-            fullscreenOverlay.addEventListener("click", closeFullscreenImage);
+            fullscreenOverlay.addEventListener("click", (e) => {
+                if (overlaySwipeConsumed) {
+                    overlaySwipeConsumed = false;
+                    e.stopPropagation();
+                    return;
+                }
+                closeFullscreenImage();
+            });
 
             const closeBtn = document.createElement("button");
             closeBtn.type = "button";
@@ -136,11 +153,14 @@
             fullscreenImage = document.createElement("img");
             fullscreenImage.className = "max-h-[90vh] max-w-[90vw] object-contain shadow-2xl";
             fullscreenImage.alt = "";
+            fullscreenImage.draggable = false;
+            fullscreenImage.style.userSelect = "none";
             fullscreenImage.addEventListener("click", (e) => e.stopPropagation());
 
             fullscreenOverlay.appendChild(fullscreenImage);
             fullscreenOverlay.appendChild(closeBtn);
             document.body.appendChild(fullscreenOverlay);
+            attachSwipeHandlers(fullscreenOverlay);
         }
 
         function openFullscreenImage(src, alt) {
@@ -150,6 +170,8 @@
             fullscreenImage.alt = alt || "";
             fullscreenOverlay.classList.remove("hidden");
             fullscreenOverlay.setAttribute("aria-hidden", "false");
+            overlaySwipeConsumed = false;
+            refreshFullscreenImage();
         }
 
         function closeFullscreenImage() {
@@ -157,6 +179,7 @@
             fullscreenOverlay.classList.add("hidden");
             fullscreenOverlay.setAttribute("aria-hidden", "true");
             fullscreenImage.src = "";
+            overlaySwipeConsumed = false;
             if (modalEls.modal?.classList.contains("hidden")) {
                 document.body.classList.remove("overflow-hidden");
             }
@@ -185,6 +208,8 @@
                 img.alt = `${projectTitle} - visuel ${idx + 1}`;
                 img.loading = "lazy";
                 img.className = "w-full h-full object-contain opacity-0 transition-opacity duration-300";
+                img.draggable = false;
+                img.style.userSelect = "none";
                 img.addEventListener("click", () => {
                     const srcToShow = img.src || img.dataset.src || "";
                     if (srcToShow) openFullscreenImage(srcToShow, img.alt);
@@ -247,13 +272,12 @@
             }
 
             if (carouselEls.prev && carouselEls.next) {
-                const hideNav = total <= 1;
-                carouselEls.prev.classList.toggle("hidden", hideNav);
-                carouselEls.next.classList.toggle("hidden", hideNav);
-                carouselEls.prev.disabled = currentSlideIndex === 0;
-                carouselEls.next.disabled = currentSlideIndex === total - 1;
-                carouselEls.prev.classList.toggle("opacity-40", currentSlideIndex === 0);
-                carouselEls.next.classList.toggle("opacity-40", currentSlideIndex === total - 1);
+                const hidePrev = total <= 1 || currentSlideIndex === 0;
+                const hideNext = total <= 1 || currentSlideIndex === total - 1;
+                carouselEls.prev.classList.toggle("hidden", hidePrev);
+                carouselEls.next.classList.toggle("hidden", hideNext);
+                carouselEls.prev.disabled = false;
+                carouselEls.next.disabled = false;
             }
         }
 
@@ -280,11 +304,113 @@
             preloadSlide(currentSlideIndex);
             preloadSlide(currentSlideIndex + 1);
             updateCarouselUI(total);
+            refreshFullscreenImage();
+        }
+
+        function refreshFullscreenImage() {
+            if (!fullscreenOverlay || !fullscreenImage || fullscreenOverlay.classList.contains("hidden")) return;
+            const src = activeGalleryImages[currentSlideIndex];
+            if (!src) return;
+            fullscreenImage.src = src;
+            fullscreenImage.alt = currentProjectTitle
+                ? `${currentProjectTitle} - visuel ${currentSlideIndex + 1}`
+                : "";
+        }
+
+        function processSwipe(dx, dy, sourceEl) {
+            if (!activeGalleryImages.length) return;
+            if (Math.abs(dx) <= Math.abs(dy)) return;
+            if (Math.abs(dx) < swipeThreshold) return;
+            if (dx < 0) {
+                goToSlide(currentSlideIndex + 1);
+            } else {
+                goToSlide(currentSlideIndex - 1);
+            }
+            if (sourceEl === fullscreenOverlay) overlaySwipeConsumed = true;
+        }
+
+        function attachSwipeHandlers(element) {
+            if (!element) return;
+
+            element.addEventListener("touchstart", (e) => {
+                if (!e.touches?.length) return;
+                touchStartX = e.touches[0].clientX;
+                touchStartY = e.touches[0].clientY;
+            }, { passive: true });
+
+            element.addEventListener("touchmove", (e) => {
+                if (touchStartX === null || touchStartY === null || !e.touches?.length) return;
+                const dx = e.touches[0].clientX - touchStartX;
+                const dy = e.touches[0].clientY - touchStartY;
+                if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > swipeThreshold) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
+
+            element.addEventListener("touchend", (e) => {
+                if (touchStartX === null || touchStartY === null) return;
+                const touch = e.changedTouches?.[0];
+                if (!touch) {
+                    touchStartX = touchStartY = null;
+                    return;
+                }
+                const dx = touch.clientX - touchStartX;
+                const dy = touch.clientY - touchStartY;
+                touchStartX = touchStartY = null;
+                processSwipe(dx, dy, e.currentTarget);
+            });
+
+            const resetPointer = () => {
+                pointerStartX = null;
+                pointerStartY = null;
+            };
+
+            element.addEventListener("pointerdown", (e) => {
+                if (!e.isPrimary || e.button !== 0) return;
+                pointerStartX = e.clientX;
+                pointerStartY = e.clientY;
+            });
+
+            element.addEventListener("pointermove", (e) => {
+                if (pointerStartX === null || pointerStartY === null) return;
+                const dx = e.clientX - pointerStartX;
+                const dy = e.clientY - pointerStartY;
+                if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > swipeThreshold) {
+                    e.preventDefault();
+                }
+            });
+
+            const handlePointerEnd = (e) => {
+                if (pointerStartX === null || pointerStartY === null) return resetPointer();
+                const dx = e.clientX - pointerStartX;
+                const dy = e.clientY - pointerStartY;
+                resetPointer();
+                processSwipe(dx, dy, e.currentTarget);
+            };
+
+            element.addEventListener("pointerup", handlePointerEnd);
+            element.addEventListener("pointerleave", handlePointerEnd);
+
+            // Trackpad / souris (scroll horizontal)
+            element.addEventListener("wheel", (e) => {
+                const now = Date.now();
+                if (now - lastWheelTs < wheelDebounceMs) return;
+                if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+                if (Math.abs(e.deltaX) < wheelThreshold) return;
+                lastWheelTs = now;
+                e.preventDefault();
+                if (e.deltaX > 0) {
+                    goToSlide(currentSlideIndex + 1);
+                } else {
+                    goToSlide(currentSlideIndex - 1);
+                }
+            }, { passive: false });
         }
 
         async function openModal(project) {
             if (!project || !modalEls.modal) return;
 
+            currentProjectTitle = project.title || "";
             modalEls.title.textContent = project.title;
             modalEls.text.innerHTML = project.text.replace(/\n/g, "<br>");
 
@@ -351,13 +477,24 @@
             carouselEls.counter?.classList.add("hidden");
             activeGalleryImages = [];
             currentSlideIndex = 0;
+            currentProjectTitle = "";
             window.history.replaceState(null, '', window.location.pathname);
         }
 
         carouselEls.prev?.addEventListener("click", () => goToSlide(currentSlideIndex - 1));
         carouselEls.next?.addEventListener("click", () => goToSlide(currentSlideIndex + 1));
         document.querySelector('.bx-x')?.addEventListener('click', closeModal);
+        attachSwipeHandlers(carouselEls.track);
         document.addEventListener("keydown", (e) => {
+            const modalOpen = !!modalEls.modal && !modalEls.modal.classList.contains("hidden");
+            if (!modalOpen) return;
+            if (["INPUT", "TEXTAREA"].includes(document.activeElement?.tagName) || document.activeElement?.isContentEditable) return;
+            if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+                e.preventDefault();
+                const delta = e.key === "ArrowLeft" ? -1 : 1;
+                goToSlide(currentSlideIndex + delta);
+                return;
+            }
             if (e.key === "Escape") {
                 if (fullscreenOverlay && !fullscreenOverlay.classList.contains("hidden")) {
                     closeFullscreenImage();
