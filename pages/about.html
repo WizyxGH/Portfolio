@@ -10,15 +10,17 @@ permalink: /about/
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Qui suis-je ? - Florian Gertner Kilian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
+    <link rel="preload" href="/assets/css/boxicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="stylesheet" href="/assets/css/boxicons.min.css">
-    <link href='https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/x-icon" href="/media/favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="/js/script.js"></script>
-    <script src="/js/layout.js"></script>
-    <script src="/js/theme.js"></script>
+    <script src="/js/script.js" defer></script>
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/theme.js" defer></script>
         <meta property="og:image"
         content="https://opengraph.b-cdn.net/production/images/59129536-2074-4333-9e04-70d6cffd3d0f.jpg?token=Oj5V7Gb5wGaScWNgROHh8HDeCIdtoZtqvgIpBFaIi1g&height=640&width=1200&expires=33294662852">
     <!-- Google tag (gtag.js) -->
@@ -100,7 +102,7 @@ permalink: /about/
 
             <!-- Image à droite -->
             <div class="lg:w-1/3 h-full">
-                <img src="/media/photoperso.webp" alt="Image de moi" class="w-full rounded-lg">
+                <img src="/media/photoperso.webp" alt="Image de moi" class="w-full rounded-lg" loading="lazy" decoding="async">
             </div>
         </div>
     </section>
@@ -127,7 +129,7 @@ permalink: /about/
         <div class="w-full md:w-1/3 flex justify-center">
             <img src="/media/photoprofil.webp" 
             alt="Photo de Florian" 
-            class="rounded-lg shadow-lg object-cover w-full max-w-sm md:max-w-full transform scale-x-[-1]">
+            class="rounded-lg shadow-lg object-cover w-full max-w-sm md:max-w-full transform scale-x-[-1]" loading="lazy" decoding="async">
         </div>
         <!-- Texte à droite -->
         <div class="w-full md:w-2/3 p-8 space-y-3">
@@ -173,11 +175,6 @@ permalink: /about/
         };
     </script>
     <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
-
-    <div class="gtranslate_wrapper"></div>
-<script>window.gtranslateSettings = {"default_language":"fr","languages":["fr","en","da","nl","de","sv","it","es"],"wrapper_selector":".gtranslate_wrapper"}</script>
-<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
-
 </body>
 
 </html>

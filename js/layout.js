@@ -7,17 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
 function ensureBoxiconsStyles() {
     const head = document.head;
     if (!head) return;
-    if (head.querySelector('link[href*="boxicons"]')) return;
+    if (head.querySelector('link[href*="/assets/css/boxicons"]')) return;
 
-    const preconnect = document.createElement('link');
-    preconnect.rel = 'preconnect';
-    preconnect.href = 'https://unpkg.com';
-    preconnect.setAttribute('data-boxicons', 'true');
-    head.appendChild(preconnect);
-
+    // Charge la feuille locale (plus rapide qu'un CDN)
     const stylesheet = document.createElement('link');
     stylesheet.rel = 'stylesheet';
-    stylesheet.href = 'https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css';
+    stylesheet.href = '/assets/css/boxicons.min.css';
     stylesheet.setAttribute('data-boxicons', 'true');
     head.appendChild(stylesheet);
 }

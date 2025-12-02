@@ -10,9 +10,11 @@ permalink: /
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Florian Gertner Kilian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://unpkg.com">
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link rel="preload" href="/assets/css/boxicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/assets/css/boxicons.min.css">
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/x-icon" href="/media/favicon.ico">
     <!-- HTML Meta Tags -->
@@ -52,8 +54,8 @@ permalink: /
         };
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="/js/layout.js"></script>
-    <script src="/js/theme.js"></script>
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/theme.js" defer></script>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6PJB5NW1Y5"></script>
@@ -211,7 +213,7 @@ permalink: /
                 <!-- Auteur -->
                 <div class="flex items-center gap-3 mt-auto">
                     <img src="https://assets.codeur.com/1cido8dtm5rxl4p3e4f41097udw1" alt="Lucas Kacem"
-                        class="w-12 h-12 rounded-full object-cover">
+                        class="w-12 h-12 rounded-full object-cover" loading="lazy" decoding="async">
                     <div>
                         <h3 class="font-bold text-[#411FEB] dark:text-[#5536ED]">Lucas Kacem</h3>
                         <p class="font-light text-sm text-[#411FEB] dark:text-[#5536ED]">Co-fondateur & Président chez <a href="https://digitalunicorn.fr" target="_blank" rel="noopener noreferrer">Digital Unicorn</a></p>
@@ -233,7 +235,7 @@ permalink: /
                 <!-- Auteur -->
                 <div class="flex items-center gap-3 mt-auto">
                     <img src="https://staticctf.ubisoft.com/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/3eupmHrrfVw7n2FDsVJlna/04958647a151f1e1f4cdc6a406f2e5da/MD_photo.JPG"
-                        alt="Aurélien Palasse" class="w-12 h-12 rounded-full object-cover">
+                        alt="Aurélien Palasse" class="w-12 h-12 rounded-full object-cover" loading="lazy" decoding="async">
                     <div>
                         <h3 class="font-bold text-[#411FEB] dark:text-[#5536ED]">Aurélien Palasse</h3>
                         <p class="font-light text-sm text-[#411FEB] dark:text-[#5536ED]">Managing Director chez <a href="https://www.ubisoft.com/fr-fr/company/careers/locations/da-nang" target="_blank" rel="noopener noreferrer">Ubisoft Vietnam</a></p>
@@ -252,7 +254,7 @@ permalink: /
                 <!-- Auteur -->
                 <div class="flex items-center gap-3 mt-auto">
                     <img src="media/carolineaubert.webp" alt="Caroline Aubert"
-                        class="w-12 h-12 rounded-full object-cover">
+                        class="w-12 h-12 rounded-full object-cover" loading="lazy" decoding="async">
                     <div>
                         <h3 class="font-bold text-[#411FEB] dark:text-[#5536ED]">Caroline Aubert</h3>
                         <p class="font-light text-sm text-[#411FEB] dark:text-[#5536ED]"><a href="https://www.mafigue.com" target="_blank" rel="noopener noreferrer">Entrepreneuse</a> - Product Designer & Développeuse Webflow</p>
@@ -267,7 +269,7 @@ permalink: /
                 </div>
                 <p class="testimonial-text text-base leading-relaxed"></p>
                 <div class="flex items-center gap-3 mt-auto">
-                    <img src="/media/jonathanvaissiere.webp" alt="Jonathan Vaissière" class="w-12 h-12 rounded-full object-cover">
+                    <img src="/media/jonathanvaissiere.webp" alt="Jonathan Vaissière" class="w-12 h-12 rounded-full object-cover" loading="lazy" decoding="async">
                     <div>
                         <h3 class="font-bold text-[#411FEB] dark:text-[#5536ED]">Jonathan Vaissière</h3>
                         <p class="font-light text-sm text-[#411FEB] dark:text-[#5536ED]"><a href="https://guidedugolfe.com" target="_blank" rel="noopener noreferrer">Entrepreneur</a></p>
@@ -343,7 +345,7 @@ permalink: /
                 <!-- Auteur -->
                 <div class="flex items-center gap-3 mt-auto">
                     <img src="https://yt3.googleusercontent.com/QIsRitkVHg__sh4oEvy0MRUi_1u_NLW7qw2CcZ99jTvf1FgWpdejj3vkKhTldaMCmUsSERtF=s160-c-k-c0x00ffffff-no-rj" alt="Maxime Click"
-                        class="w-12 h-12 rounded-full object-cover">
+                        class="w-12 h-12 rounded-full object-cover" loading="lazy" decoding="async">
                     <div>
                         <h3 class="font-bold text-[#411FEB] dark:text-[#5536ED]">Maxime "Click" Peiffer</h3>
                         <p class="font-light text-sm text-[#411FEB] dark:text-[#5536ED]">Créateur de contenu (1.1M sur <a href="https://www.youtube.com/@MaximeClick" target="_blank" rel="noopener noreferrer">YouTube</a>)</p>
@@ -363,7 +365,7 @@ permalink: /
                 <!-- Auteur -->
                 <div class="flex items-center gap-3 mt-auto">
                     <img src="/media/unclesam.webp" alt="Uncle Sam"
-                        class="w-12 h-12 rounded-full object-cover">
+                        class="w-12 h-12 rounded-full object-cover" loading="lazy" decoding="async">
                     <div>
                         <h3 class="font-bold text-[#411FEB] dark:text-[#5536ED]">Vous</h3>
                         <p class="font-light text-sm text-[#411FEB] dark:text-[#5536ED]">Une personne sûrement sympathique</p>
