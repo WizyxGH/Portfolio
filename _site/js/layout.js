@@ -1,7 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
+    ensureBoxiconsStyles();
     // Charger navbar et footer en parallèle
     Promise.all([loadNavbar(), loadFooter()]);
 });
+
+function ensureBoxiconsStyles() {
+    const head = document.head;
+    if (!head) return;
+    if (head.querySelector('link[href*="boxicons"]')) return;
+
+    const preconnect = document.createElement('link');
+    preconnect.rel = 'preconnect';
+    preconnect.href = 'https://unpkg.com';
+    preconnect.setAttribute('data-boxicons', 'true');
+    head.appendChild(preconnect);
+
+    const stylesheet = document.createElement('link');
+    stylesheet.rel = 'stylesheet';
+    stylesheet.href = 'https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css';
+    stylesheet.setAttribute('data-boxicons', 'true');
+    head.appendChild(stylesheet);
+}
 
 async function loadNavbar() {
     const container = document.getElementById('navbar-container');

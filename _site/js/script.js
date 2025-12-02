@@ -20,6 +20,34 @@ document.addEventListener("DOMContentLoaded", function () {
         counter: document.getElementById('carouselCounter'),
     };
 
+    let scrollAnimationObserver = null;
+    let rowDelayMap = new Map();
+
+    function initScrollAnimationObserver() {
+        if (scrollAnimationObserver) return;
+        scrollAnimationObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const rowKey = Math.round(entry.target.getBoundingClientRect().top).toString();
+                    const count = rowDelayMap.get(rowKey) || 0;
+                    const delay = Math.min(count * 120, 360); // cascade within a row
+                    entry.target.style.transitionDelay = `${delay}ms`;
+                    entry.target.style.transitionDuration = '0.45s';
+                    rowDelayMap.set(rowKey, count + 1);
+                    entry.target.classList.add('show');
+                    scrollAnimationObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+    }
+
+    function registerScrollAnimation(el) {
+        if (!el) return;
+        initScrollAnimationObserver();
+        el.classList.add('animate-on-scroll', 'opacity-0', 'translate-y-10', 'transition-all', 'duration-600');
+        scrollAnimationObserver.observe(el);
+    }
+
     const modalController = window.ProjectModal?.init({ carouselEls }) || null;
     const openModal = modalController?.openModal || (() => {});
     const closeModal = modalController?.closeModal || (() => {});
@@ -41,10 +69,11 @@ document.addEventListener("DOMContentLoaded", function () {
             if (searchInput)
                 searchInput.placeholder = `Rechercher parmi ${filteredProjects.length} projet${filteredProjects.length > 1 ? 's' : ''}`;
 
+            rowDelayMap.clear();
             filteredProjects.forEach(project => {
                 const projectTitleId = project.title.replace(/[^a-zA-Z0-9-_]/g, '_');
                 const card = document.createElement("div");
-                card.className = "projectCard bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] border-8 border-white dark:border-[#121212]";
+                card.className = "projectCard animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212]";
                 card.dataset.projectId = project.id;
                 card.dataset.title = project.title.toLowerCase();
                 card.dataset.description = project.description.toLowerCase();
@@ -71,6 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
                 container.appendChild(card);
+                registerScrollAnimation(card);
             });
 
             allCards = Array.from(container.querySelectorAll(".projectCard"));
@@ -123,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!emptyCard) {
                 emptyCard = document.createElement("div");
                 emptyCard.id = "emptyProjectCard";
-                emptyCard.className = "projectCard bg-white rounded-lg text-left border-8 border-white hover:bg-[#EDE9FE] dark:hover:bg-[#EDE9FE] cursor-default";
+                emptyCard.className = "projectCard animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-white rounded-lg text-left border-8 border-white hover:bg-[#EDE9FE] dark:hover:bg-[#EDE9FE] cursor-default";
                 emptyCard.innerHTML = `
                     <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] border-2 border-dashed border-[#411FEB] flex items-center justify-center overflow-hidden">
                         <img src="/media/projects/projectnoresult.svg" alt="Aucun projet trouvé" class="h-64 w-64">
@@ -138,6 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     </a>
                 `;
                 container.appendChild(emptyCard);
+                registerScrollAnimation(emptyCard);
             }
         } else if (emptyCard) emptyCard.remove();
 

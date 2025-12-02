@@ -158,7 +158,7 @@
         "text": "DuMILi est un projet de génération d’index de magazines Disney propulsé par l’IA. se basant sur le formatage de la base de données Inducks. Si vous avez rien compris, pas de panique, je vous explique.<br>Les données informatives de la base Inducks sont stockées sous un format un texte bien spécifique qui a été créé pour l’occasion (voir la documentation Bolderbast si vous voulez vraiment creuser).<br>Le processus d’indexation où il est faut lister chaque contenu présent dans les magazines qui sortent en presse est souvent long et fastidieux car répétitif. Il faut lister chaque histoire, illustrations, articles avec un maximum d’informations (crédit des auteurs, listing du titre, des personnages, etc).<br>Avec la démocratisation de l’IA, des versions numériques de livres et la possibilité de scanner d’anciens magazines, l’idée de faciliter ce processus m’est venue.<br>En téléversant des scans de chaque page du magazine dans l’outil, DuMILi a comme ambition de mâcher au maximum le travail de l’indexeur pour que les informations puisse ensuite être ajouté le plus rapidement possible à la base de données Inducks pour le profit des fans et autres professionnels.<br>Actuellement en plein processus de création, je conceptualise un outil technique très spécifique mais le challenge est qu’il doit rester intuitif et ne pas trop le surcharger de paramètres inefficaces.",
         "description": "Design d'un SaaS permettant d'aider grâce à l'IA à générer des index de BD Disney pour la base de données Inducks.",
         "image": "/media/projects/dumili.webp",
-        "projectLink": "#",
+        "projectLink": "https://dumili.ducksmanager.net",
         "date": "2000-01",
         "type": "Site internet",
         "context": "Personnel",
@@ -253,7 +253,7 @@
         "type": "Site internet",
         "context": "Professionnel",
         "tags": [
-            { "name": "UI/UX Design", "icon": "bx bxs-layout" }
+            { "name": "Wireframing", "icon": "bx bxs-layout" }
         ]
     },
     {
@@ -263,7 +263,7 @@
         "description": "Redesign de certains éléments du site de Digital Unicorn.",
         "image": "/media/projects/digitalunicorn.webp",
         "projectLink": "https://digitalunicorn.fr",
-        "date": "2000-01",
+        "date": "2025-04",
         "type": "Site internet",
         "context": "Professionnel",
         "tags": [
@@ -290,15 +290,15 @@
         "id": 21,
         "title": "Direct Democracy",
         "text": "Coming soon...",
-        "description": "Redesign rapide du MVP de l'application Direct Democracy en guise de test d'embauche.",
-        "image": "/media/projects/projectnoresult.svg",
-        "projectLink": "#",
+        "description": "Redesign rapide du MVP de l'application Direct Democracy de Fidias Panayiotou en guise de test d'embauche.",
+        "image": "/media/projects/directdemocracy.webp",
+        "projectLink": "https://play.google.com/store/apps/details?id=com.app.fidias",
         "date": "2025-08",
-        "type": "Site internet",
+        "type": "Application",
         "context": "Personnel",
         "tags": [
-            { "name": "UI/UX Design", "icon": "bx bxs-layout" },
-            { "name": "Prototyping", "icon": "bx bx-play-circle" }        ]
+            { "name": "UI/UX Design", "icon": "bx bxs-layout" }
+        ]
     },
     {
         "id": 22,
