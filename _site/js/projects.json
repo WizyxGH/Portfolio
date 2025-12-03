@@ -397,7 +397,7 @@
         "tags": [
             { "name": "UI/UX Design", "icon": "bx bxs-layout" },
             { "name": "Vidéo", "icon": "bxr bx-video-cinema" },
-            { "name": "Communication / Marketing", "icon": "bxr bx-message-bubble" }
+            { "name": "Communication / Marketing", "icon": "bx bx-message-bubble" }
 
         ]
     },
@@ -435,7 +435,7 @@
         "id": 30,
         "title": "Sites WordPress",
         "text": "Coming soon...",
-        "description": "Lorem ipsum.",
+        "description": "Développement de plusieurs sites WordPress fictifs.",
         "image": "/media/projects/wordpress.webp",
         "driveLink": "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         "projectLink": "#",
@@ -450,7 +450,7 @@
         "id": 31,
         "title": "Maquette fanzine Picsou-Soir",
         "text": "Coming soon...",
-        "description": "Projet personnel",
+        "description": "Réalisation de la maquette du fanzine Picsou-Soir pendant plusieurs numéros.",
         "image": "/media/projects/picsousoir2.webp",
         "driveLink": "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         "projectLink": "#",
