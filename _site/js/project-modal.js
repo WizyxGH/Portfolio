@@ -25,6 +25,28 @@
             website: document.getElementById("modalWebsite"),
             tags: document.getElementById("modalTags"),
         };
+        const NAV_BTN_CLASS = "absolute top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white w-10 h-10 rounded-full flex items-center justify-center shadow-md text-[#111] dark:text-white transition";
+        const DOT_CLASS = "rounded-full transition-all duration-300 w-2.5 h-2.5 bg-[#D7D0FA] dark:bg-[#2C2744]";
+        const DOT_ACTIVE_CLASS = "rounded-full transition-all duration-300 w-6 h-2.5 bg-[#411FEB] dark:bg-[#5536ED]";
+
+        function getDotColors() {
+            const isDark = document.documentElement.classList.contains("dark");
+            return {
+                base: isDark ? "#2C2744" : "#D7D0FA",
+                active: isDark ? "#5536ED" : "#411FEB",
+            };
+        }
+
+        function applyDotStyles(btn, isActive) {
+            const colors = getDotColors();
+            btn.style.width = "10px";
+            btn.style.height = "10px";
+            btn.style.borderRadius = "9999px";
+            btn.style.backgroundColor = isActive ? colors.active : colors.base;
+            btn.style.transition = "all 0.3s ease";
+            btn.style.flexShrink = "0";
+            btn.style.opacity = "1";
+        }
 
         // Retire le bouton obsolète s'il existe encore dans le DOM
         document.getElementById("modalButton")?.remove();
@@ -44,8 +66,6 @@
         let pointerStartY = null;
         let currentProjectTitle = "";
         let overlaySwipeConsumed = false;
-        const autoAdvanceDelayMs = 15000;
-        let autoAdvanceTimeout = null;
         let fullscreenZoomed = false;
         let fullscreenPanX = 0;
         let fullscreenPanY = 0;
@@ -149,7 +169,10 @@
 
             fullscreenOverlay = document.createElement("div");
             fullscreenOverlay.id = "modalImageFullscreen";
-            fullscreenOverlay.className = "fixed inset-0 bg-black/85 flex items-center justify-center px-4 z-[9999] hidden";
+            // Superposer au-dessus de tout et couvrir 100% du viewport avec assombrissement (inline pour compatibilité)
+            fullscreenOverlay.className = "fixed inset-0 w-screen h-screen flex items-center justify-center px-4 z-[100000] hidden";
+            fullscreenOverlay.style.zIndex = "100000";
+            fullscreenOverlay.style.backgroundColor = "rgba(0, 0, 0, 0.85)";
             fullscreenOverlay.setAttribute("aria-hidden", "true");
             fullscreenOverlay.addEventListener("click", (e) => {
                 if (overlaySwipeConsumed) {
@@ -162,7 +185,13 @@
 
             const closeBtn = document.createElement("button");
             closeBtn.type = "button";
-            closeBtn.className = "absolute top-5 right-5 text-white text-3xl hover:scale-110 transition";
+            closeBtn.className = "text-white text-2xl hover:scale-110 transition flex items-center justify-center w-10 h-10 rounded-full";
+            closeBtn.style.position = "absolute";
+            closeBtn.style.top = "20px";
+            closeBtn.style.right = "20px";
+            closeBtn.style.zIndex = "100001";
+            closeBtn.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+            closeBtn.style.backdropFilter = "blur(6px)";
             closeBtn.innerHTML = "<i class='bx bx-x'></i>";
             closeBtn.addEventListener("click", (e) => {
                 e.stopPropagation();
@@ -281,24 +310,11 @@
         }
 
         function clearAutoAdvance() {
-            if (!autoAdvanceTimeout) return;
-            clearTimeout(autoAdvanceTimeout);
-            autoAdvanceTimeout = null;
+            // auto-advance désactivé
         }
 
         function scheduleAutoAdvance() {
-            clearAutoAdvance();
-            const modalOpen = !!modalEls.modal && !modalEls.modal.classList.contains("hidden");
-            const fullscreenOpen = fullscreenOverlay && !fullscreenOverlay.classList.contains("hidden");
-            const hasMultipleSlides = activeGalleryImages.length > 1;
-            if (!modalOpen || !hasMultipleSlides || fullscreenOpen) return;
-
-            autoAdvanceTimeout = setTimeout(() => {
-                const total = activeGalleryImages.length;
-                if (total <= 1) return;
-                const nextIndex = (currentSlideIndex + 1) % total;
-                goToSlide(nextIndex);
-            }, autoAdvanceDelayMs);
+            // auto-advance désactivé
         }
 
         function renderCarousel(images, projectTitle) {
@@ -308,7 +324,12 @@
             carouselEls.dots.innerHTML = "";
             activeGalleryImages = (images || []).filter(Boolean);
             currentSlideIndex = 0;
-            clearAutoAdvance();
+            carouselEls.track.style.transform = "translateX(0%)";
+            const totalSlides = activeGalleryImages.length || 1;
+            carouselEls.track.style.width = `${totalSlides * 100}%`;
+            carouselEls.track.style.height = "100%";
+            if (carouselEls.prev) carouselEls.prev.className = `${NAV_BTN_CLASS} left-3`;
+            if (carouselEls.next) carouselEls.next.className = `${NAV_BTN_CLASS} right-3`;
 
             if (!activeGalleryImages.length) {
                 carouselEls.container.classList.add("hidden");
@@ -318,28 +339,49 @@
 
             activeGalleryImages.forEach((src, idx) => {
                 const slide = document.createElement("div");
-                slide.className = "min-w-full aspect-[4/3] flex items-center justify-center bg-[#121212] dark:bg-[#E8E4FC]";
+                // Slide pleine hauteur, fond sombre façon Instagram
+                slide.className = "flex-none aspect-[4/3] self-start flex items-center justify-center bg-black dark:bg-[#E8E4FC] overflow-hidden";
+                const basis = 100 / totalSlides;
+                slide.style.flex = `0 0 ${basis}%`;
+                slide.style.width = `${basis}%`;
+                const isMobile = window.matchMedia("(max-width: 1023px)").matches;
+                slide.style.maxHeight = isMobile ? "50vh" : "70vh"; // limite plus bas sur mobile pour laisser voir le texte
 
                 const img = document.createElement("img");
                 img.dataset.src = src;
                 const fileName = extractFileName(src);
                 img.alt = fileName ? `${projectTitle} - ${fileName}` : `${projectTitle} - visuel ${idx + 1}`;
                 img.loading = "lazy";
-                img.className = "w-full h-full object-contain opacity-0 transition-opacity duration-300";
+                // Image centrée avec letterbox si nécessaire
+                // Ne jamais dépasser le cadre, sans étirer : on limite largeur/hauteur et laisse le ratio
+                img.className = "w-auto h-auto max-h-full max-w-full object-contain opacity-0 transition-opacity duration-300";
                 img.draggable = false;
                 img.style.userSelect = "none";
+                img.style.maxHeight = "100%";
+                img.style.maxWidth = "100%";
+                img.style.height = "auto";
+                img.style.width = "auto";
+                // Charge immédiatement la source (évite les cas où le préload ne se déclenche pas)
+                img.src = src;
                 img.addEventListener("click", () => {
                     const srcToShow = img.src || img.dataset.src || "";
                     if (srcToShow) openFullscreenImage(srcToShow, img.alt);
                 });
+                img.addEventListener("load", () => {
+                    img.classList.remove("opacity-0");
+                });
+                img.addEventListener("error", () => img.classList.add("opacity-40"));
                 slide.appendChild(img);
 
                 carouselEls.track.appendChild(slide);
             });
 
+            if (carouselEls.dots) {
+                carouselEls.dots.style.minHeight = "16px";
+            }
             carouselEls.container.classList.remove("hidden");
+            renderDots(totalSlides);
             goToSlide(0);
-            preloadSlide(1);
         }
 
         function renderDots(total) {
@@ -347,40 +389,30 @@
             carouselEls.dots.innerHTML = "";
             if (total <= 1) return;
 
-            const maxMain = 6;
-            const mainCount = Math.min(total, maxMain);
-            const windowStart = Math.max(0, Math.min(currentSlideIndex - Math.floor((mainCount - 1) / 2), total - mainCount));
-            const windowEnd = Math.min(total - 1, windowStart + mainCount - 1);
+            const MAX_DOTS = 8;
+            const windowSize = Math.min(total, MAX_DOTS);
+            let start = Math.max(0, currentSlideIndex - Math.floor(windowSize / 2));
+            let end = start + windowSize - 1;
+            if (end >= total) {
+                end = total - 1;
+                start = Math.max(0, end - windowSize + 1);
+            }
 
-            const hasLeftMore = windowStart > 0;
-            const hasRightMore = windowEnd < total - 1;
-
-            const createDot = (idx, isActive, isMini) => {
+            for (let i = start; i <= end; i++) {
                 const btn = document.createElement("button");
                 btn.type = "button";
-                btn.className = [
-                    "rounded-full transition-all duration-300",
-                    isMini ? "w-2 h-2 bg-[#D7D0FA] dark:bg-[#2C2744] opacity-70" : "w-2.5 h-2.5 bg-[#D7D0FA] dark:bg-[#2C2744]"
-                ].join(" ");
-                if (!isMini && isActive) {
-                    btn.classList.add("bg-[#411FEB]", "dark:bg-[#5536ED]", "w-6");
-                    btn.classList.remove("bg-[#D7D0FA]", "dark:bg-[#2C2744]");
-                }
-                btn.addEventListener("click", () => goToSlide(idx));
+                btn.className = i === currentSlideIndex ? DOT_ACTIVE_CLASS : DOT_CLASS;
+                applyDotStyles(btn, i === currentSlideIndex);
+                btn.addEventListener("click", () => goToSlide(i));
                 carouselEls.dots.appendChild(btn);
-            };
-
-            if (hasLeftMore) createDot(windowStart - 1, false, true);
-            for (let i = windowStart; i <= windowEnd; i++) {
-                createDot(i, i === currentSlideIndex, false);
             }
-            if (hasRightMore) createDot(windowEnd + 1, false, true);
         }
 
         function updateCarouselUI(totalSlides) {
             if (!carouselEls.track) return;
             const total = totalSlides || activeGalleryImages.length;
-            carouselEls.track.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+            const offset = total > 0 ? -(currentSlideIndex * (100 / total)) : 0;
+            carouselEls.track.style.transform = `translateX(${offset}%)`;
 
             renderDots(total);
 
@@ -406,11 +438,11 @@
             if (!total) return;
             const normalized = ((index % total) + total) % total;
             const img = slides[normalized]?.querySelector("img");
-            if (img && !img.src) {
-                img.src = img.dataset.src;
-                img.onload = () => img.classList.remove("opacity-0");
-                img.onerror = () => img.classList.add("opacity-40");
-            }
+            if (!img) return;
+            if (img.getAttribute("src")) return;
+            const srcToLoad = img.dataset.src;
+            if (!srcToLoad) return;
+            img.src = srcToLoad;
         }
 
         function goToSlide(index) {
@@ -419,11 +451,8 @@
             const clamped = Math.min(Math.max(index, 0), total - 1);
             if (clamped === currentSlideIndex && (index < 0 || index >= total)) return;
             currentSlideIndex = clamped;
-            preloadSlide(currentSlideIndex);
-            preloadSlide(currentSlideIndex + 1);
             updateCarouselUI(total);
             refreshFullscreenImage();
-            scheduleAutoAdvance();
         }
 
         function refreshFullscreenImage() {
@@ -555,7 +584,8 @@
             project.tags?.forEach(tag => {
                 const span = document.createElement("span");
                 span.className =
-                    "inline-flex items-center gap-1 px-2 rounded-full border border-[#411FEB] bg-[#411FEB] bg-opacity-[0.12] text-[#411FEB] dark:text-[#5536ED] font-medium";
+                    "inline-flex items-center gap-1 px-2 rounded-full border border-[#411FEB] text-[#411FEB] dark:text-[#5536ED] font-medium text-sm";
+                span.style.backgroundColor = "rgba(65, 31, 235, 0.12)"; // fallback pour le fond
                 span.innerHTML = `<i class='${tag.icon} text-base'></i> ${tag.name}`;
                 modalEls.tags.appendChild(span);
             });
@@ -606,7 +636,7 @@
 
         carouselEls.prev?.addEventListener("click", () => goToSlide(currentSlideIndex - 1));
         carouselEls.next?.addEventListener("click", () => goToSlide(currentSlideIndex + 1));
-        document.querySelector('.bx-x')?.addEventListener('click', closeModal);
+        modalEls.modal?.querySelector('.bx-x')?.addEventListener('click', closeModal);
         attachSwipeHandlers(carouselEls.track);
         document.addEventListener("keydown", (e) => {
             const modalOpen = !!modalEls.modal && !modalEls.modal.classList.contains("hidden");
@@ -633,3 +663,9 @@
 
     global.ProjectModal = { init: initProjectModal };
 })(window);
+
+
+
+
+
+

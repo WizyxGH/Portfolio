@@ -15,9 +15,10 @@ permalink: /contact/
     <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
     <link rel="preload" href="/assets/css/boxicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="stylesheet" href="/assets/css/boxicons.min.css">
+    <link rel="preload" href="/assets/css/tailwind.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/assets/css/tailwind.css">
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/x-icon" href="/media/favicon.ico">
-    <script src="https://cdn.tailwindcss.com"></script>
     <script src="/js/script.js" defer></script>
     <script src="/js/layout.js" defer></script>
     <script src="/js/theme.js" defer></script>
@@ -54,18 +55,20 @@ permalink: /contact/
     <div id="navbar-container"></div>
 
     <main class="flex-1 flex flex-col">
-        <section class="w-full max-w-5xl mx-auto px-6 py-8 md:px-10">
-            <!-- Titre -->
-            <h2 class="text-2xl text-[#121212] text-center dark:text-white font-medium mb-4">Contactez-moi</h2>
-    
-            <!-- Social proof -->
-            <div class="flex items-center gap-2 rounded-full bg-[#411FEB] px-4 py-1.5 mb-10 text-white w-fit mx-auto">
-                <i class='bx bxs-wink-smile'></i>
-                <span class="text-sm font-semibold">Réponse sous 24h</span>
+        <section class="w-full max-w-5xl mx-auto px-6 py-8 text-center space-y-8">
+            <div>
+                <h2 class="text-2xl text-[#121212] dark:text-white font-medium mb-4">
+                    Contactez-moi
+                </h2>
+                <div class="inline-flex items-center gap-2 rounded-full bg-[#411FEB] px-4 py-1.5 text-white">
+                    <i class='bx bxs-wink-smile'></i>
+                    <span class="text-sm font-semibold">Réponse sous 24h</span>
+                </div>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
-                <form action="https://formsubmit.co/ajax/hello@wizyx.me" method="POST" class="flex flex-col gap-4 lg:col-span-3" id="contactForm">
+                <form action="https://formsubmit.co/ajax/hello@wizyx.me" method="POST"
+                    class="flex flex-col gap-4 lg:col-span-3" id="contactForm">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_subject" value="Nouveau message depuis le formulaire">
 
@@ -83,10 +86,11 @@ permalink: /contact/
                         <span class="flex items-center gap-2 text-[#121212] dark:text-white font-medium">
                             Objet
                         </span>
-                        <input type="text" name="subject" placeholder="Projet de site, Refonte d'une application..." required
+                        <input type="text" name="subject" placeholder="Projet de site, Refonte d'une application..."
+                            required
                             class="mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                     </label>
-            
+
                     <!-- Message -->
                     <label class="flex flex-col">
                         <span class="flex items-center gap-2 text-[#121212] dark:text-white font-medium">
@@ -95,21 +99,24 @@ permalink: /contact/
                         <textarea name="message" rows="6" placeholder="Écrivez votre message ici..." required
                             class="mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800"></textarea>
                     </label>
-            
+
                     <!-- Bouton -->
                     <button type="submit"
                         class="mt-2 bg-[#411FEB] text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition flex items-center justify-center gap-2">
                         <i class='bx bx-send-alt'></i><span>Envoyer</span>
                     </button>
-            
+
                     <!-- Feedback -->
                     <p id="formMessage" class="text-center mt-2 font-medium text-green-600 hidden">Message envoyé !</p>
                 </form>
 
-                <div class="w-full lg:col-span-2 bg-[#F0ECFF] text-[#411FEB] rounded-3xl shadow-md p-6 flex flex-col gap-4">
-                    <h3 class="text-lg md:text-xl font-bold text-center leading-tight">Prendre un<br>rendez-vous gratuit</h3>
+                <div
+                    class="w-full lg:col-span-2 bg-[#F0ECFF] text-[#411FEB] rounded-3xl shadow-md p-6 flex flex-col gap-4">
+                    <h3 class="text-lg md:text-xl font-bold text-center leading-tight">Prendre un<br>rendez-vous gratuit
+                    </h3>
                     <div class="rounded-2xl bg-white/70 border border-white/80 p-4 shadow-inner">
-                        <div class="grid grid-cols-7 text-[10px] font-semibold text-center uppercase tracking-wide mb-3 text-[#121212]/80">
+                        <div
+                            class="grid grid-cols-7 text-[10px] font-semibold text-center uppercase tracking-wide mb-3 text-[#121212]/80">
                             <span>LUN</span><span>MAR</span><span>MER</span><span>JEU</span><span>VEN</span><span>SAM</span><span>DIM</span>
                         </div>
                         <div class="grid grid-cols-7 gap-2 text-base font-semibold text-center text-[#121212]">
@@ -129,7 +136,8 @@ permalink: /contact/
                             <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">14</span>
                             <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">15</span>
                             <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">16</span>
-                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-[#411FEB] text-white shadow-md">17</span>
+                            <span
+                                class="w-9 h-9 flex items-center justify-center rounded-full bg-[#411FEB] text-white shadow-md">17</span>
                             <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">18</span>
                             <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">19</span>
                             <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">20</span>
@@ -151,7 +159,8 @@ permalink: /contact/
                         <span>Réserver 30 min</span>
                         <i class='bx bx-right-arrow-alt text-2xl'></i>
                     </a>
-                    <p class="text-xs text-center text-[#2D1D7F] opacity-80">Disponibilités mises à jour en temps réel.</p>
+                    <p class="text-xs text-center text-[#2D1D7F] opacity-80">Disponibilités mises à jour en temps réel.
+                    </p>
                 </div>
             </div>
         </section>
@@ -189,7 +198,7 @@ permalink: /contact/
             });
         </script>
     </main>
-    
+
     <div id="footer-container"></div>
 
     <div class="gtranslate_wrapper"></div>
@@ -200,7 +209,7 @@ permalink: /contact/
             "detect_browser_language": true,
             "languages": ["da", "de", "en", "el", "es", "fr", "it", "nl", "no", "pt", "sv", "vi"],
             "wrapper_selector": ".gtranslate_wrapper",
-            "alt_flags":{"en":"usa"}
+            "alt_flags": { "en": "usa" }
         };
     </script>
     <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>

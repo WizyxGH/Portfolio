@@ -93,7 +93,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     project.tags.forEach(tag => {
                         const tagElement = document.createElement("span");
                         tagElement.className =
-                            "inline-flex items-center gap-1 px-2 rounded-full border border-[#411FEB] bg-[#411FEB] bg-opacity-[0.12] text-[#411FEB] dark:text-[#5536ED] font-medium text-sm";
+                            "inline-flex items-center gap-1 px-2 rounded-full border border-[#411FEB] text-[#411FEB] font-semibold text-sm dark:text-[#5536ED] dark:border-[#5536ED]";
+                        tagElement.style.backgroundColor = "rgba(65, 31, 235, 0.12)";
                         tagElement.innerHTML = `<i class='${tag.icon} text-base'></i> ${tag.name}`;
                         tagsContainer.appendChild(tagElement);
                     });

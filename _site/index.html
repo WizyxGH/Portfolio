@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
     <link rel="preload" href="/assets/css/boxicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="stylesheet" href="/assets/css/boxicons.min.css">
+    <link rel="preload" href="/assets/css/tailwind.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/assets/css/tailwind.css">
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/x-icon" href="/media/favicon.ico">
     <!-- HTML Meta Tags -->
@@ -48,7 +50,6 @@
             ]
         };
     </script>
-    <script src="https://cdn.tailwindcss.com"></script>
     <script src="/js/layout.js" defer></script>
     <script src="/js/theme.js" defer></script>
 
@@ -210,24 +211,26 @@
         });
     </script>
     
-    <section class="p-8 lg:px-32 text-center">
-        <h2 class="text-2xl text-[#121212] dark:text-white font-medium mb-6">
-            On a travaillé ensemble et
-            <br>ils me recommandent.
-        </h2>
-        <div class="inline-flex items-center gap-2 rounded-full bg-[#411FEB] px-4 py-1.5 mb-4 text-white">
-            <i class='bx bxs-wink-smile'></i>
-            <span class="text-sm font-semibold">Un impact positif partout où je passe</span>
+    <section class="p-8 lg:px-32 text-center space-y-8">
+        <div>
+            <h2 class="text-2xl text-[#121212] dark:text-white font-medium mb-4">
+                On a travaillé ensemble et
+                <br>ils me recommandent.
+            </h2>
+            <div class="inline-flex items-center gap-2 rounded-full bg-[#411FEB] px-4 py-1.5 text-white">
+                <i class='bx bxs-wink-smile'></i>
+                <span class="text-sm font-semibold">Un impact positif partout où je passe</span>
+            </div>
         </div>
-        <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <div class="grid md:grid-cols-3 gap-6">
 
-            <div class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.12] border border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
+            <div class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.10] border border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
                 <!-- Guillemets -->
                 <div class="text-4xl font-bold text-[#411FEB] dark:text-[#5536ED]">
                     <i class='bx bxs-quote-left'></i>
                 </div>
                 <!-- Texte du témoignage -->
-                <p class="text-base leading-relaxed">
+                <p class="text-base dark:text-white leading-relaxed">
                     Florian a fait son stage chez Digital Unicorn en tant que UI/UX Designer et ça a été un vrai plaisir de
                     travailler avec lui. Super impliqué, intelligent et toujours dans l’action, il a vraiment apporté de la valeur à
                     l’équipe. 💪👋
@@ -243,14 +246,14 @@
                 </div>
             </div>
 
-            <div class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.12] border border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
+            <div class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.10] border border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
                 <!-- Guillemets -->
                 <div class="text-4xl font-bold text-[#411FEB] dark:text-[#5536ED]">
                     <i class='bx bxs-quote-left'></i>
                 </div>
             
                 <!-- Texte du témoignage -->
-                <p class="text-base italic leading-relaxed">
+                <p class="text-base dark:text-white italic leading-relaxed">
                     Coming soon...
                 </p>
             
@@ -265,14 +268,14 @@
                 </div>
             </div>
 
-            <div class="testimonial animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.12] border border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3"
+            <div class="testimonial animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.10] border border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3"
             data-fulltext="J'ai eu la chance d'avoir Florian en stage pendant deux mois dans ma structure. Je dis bien la chance, car ma première expérience d'avoir des stagiaires a été un succès grâce à lui. Motivé, hyper proactif, enseignable, il a su, dès les premiers jours, être opérationnel. Il a une très bonne appétence pour tout ce qui touche au rédactionnel. Il est force de proposition et sait répondre à des briefs client quasiment en autonomie. Je peux dire qu'il est aujourd'hui expert en autolayout sur Figma et sait utiliser cet outil de manière professionnelle. Je recommande son profil à l'embauche si vous souhaitez ne pas prendre de risque puisqu'il coche toutes les cases. Ce sera une force dans vos équipes.">
                 <!-- Guillemets -->
                 <div class="text-4xl font-bold text-[#411FEB] dark:text-[#5536ED]">
                     <i class='bx bxs-quote-left'></i>
                 </div>
                 <!-- Texte + bouton -->
-                <p class="testimonial-text text-base leading-relaxed"></p>
+                <p class="testimonial-text text-base dark:text-white leading-relaxed"></p>
                 <!-- Auteur -->
                 <div class="flex items-center gap-3 mt-auto">
                     <img src="media/carolineaubert.webp" alt="Caroline Aubert"
@@ -284,12 +287,12 @@
                 </div>
             </div>
 
-            <div class="testimonial animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.12] border border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3"
+            <div class="testimonial animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.10] border border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3"
             data-fulltext="Un travail pro et sérieux comme on aime et surtout comme on a BESOIN ! Florian a fait parti de l’équipe qui nous a conçu les maquettes de notre dernière version et ce fut un régal de travailler ensemble. De part les outils proposés mais surtout dans la façon. Rapide, efficace et agréable. Merci encore pour ton travail🙏🏼😉">
                 <div class="text-4xl font-bold text-[#411FEB] dark:text-[#5536ED]">
                     <i class='bx bxs-quote-left'></i>
                 </div>
-                <p class="testimonial-text text-base leading-relaxed"></p>
+                <p class="testimonial-text text-base dark:text-white leading-relaxed"></p>
                 <div class="flex items-center gap-3 mt-auto">
                     <img src="/media/jonathanvaissiere.webp" alt="Jonathan Vaissière" class="w-12 h-12 rounded-full object-cover" loading="lazy" decoding="async">
                     <div>
@@ -355,13 +358,13 @@
             });
             </script>
 
-            <div class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.12] border border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
+            <div class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.10] border border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
                 <!-- Guillemets -->
                 <div class="text-4xl font-bold text-[#411FEB] dark:text-[#5536ED]">
                     <i class='bx bxs-quote-left'></i>
                 </div>
                 <!-- Texte du témoignage -->
-                <p class="text-base leading-relaxed">
+                <p class="text-base dark:text-white leading-relaxed">
                     Je l'ai vu direct !! Très fort 👍
                 </p>
                 <!-- Auteur -->
@@ -375,13 +378,13 @@
                 </div>
             </div>
 
-            <div class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.04] border-dashed border-2 border-[#C1B4F8] dark:border-[#29197F] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
+            <div class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.06] border-dashed border-2 border-[#C1B4F8] dark:border-[#29197F] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
                 <!-- Guillemets -->
                 <div class="text-4xl font-bold text-[#411FEB] dark:text-[#5536ED]">
                     <i class='bx bxs-quote-left'></i>
                 </div>
                 <!-- Texte du témoignage -->
-                <p class="text-base leading-relaxed">
+                <p class="text-base dark:text-white leading-relaxed">
                     Une idée, un projet en tête ? Et si c’était votre tour ! On en discute ? (ça n’engage en rien et je serai ravi d’en discuter) 
                 </p>
                 <!-- Auteur -->

@@ -10,9 +10,10 @@
     <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
     <link rel="preload" href="/assets/css/boxicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="stylesheet" href="/assets/css/boxicons.min.css">
+    <link rel="preload" href="/assets/css/tailwind.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/assets/css/tailwind.css">
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/x-icon" href="/media/favicon.ico">
-    <script src="https://cdn.tailwindcss.com"></script>
     <script src="/js/script.js" defer></script>
     <script src="/js/layout.js" defer></script>
     <script src="/js/theme.js" defer></script>
@@ -105,17 +106,17 @@
     <!-- Navbar -->
     <div id="navbar-container"></div>
 
-    <section class="py-16 px-8 lg:px-32 text-gray-800" id="services">
-        <div class="max-w-6xl mx-auto text-center">
-            <!-- Titre -->
-            <h2 class="text-2xl text-[#121212] dark:text-white font-medium mb-6">Mes services</h2>
-    
-            <!-- Social proof -->
-            <div class="inline-flex items-center gap-2 rounded-full bg-[#411FEB] px-4 py-1.5 mb-12 text-white">
-                <i class='bx bxs-star'></i>
-                <span class="text-sm font-semibold">Rejoignez 100% de clients satisfaits</span>
+    <section class="p-8 lg:px-32" id="services">
+        <div class="max-w-6xl mx-auto text-center space-y-8">
+            <div>
+                <h2 class="text-2xl text-[#121212] dark:text-white font-medium mb-4">
+                    Mes services
+                </h2>
+                <div class="inline-flex items-center gap-2 rounded-full bg-[#411FEB] px-4 py-1.5 text-white">
+                    <i class='bx bxs-star'></i>
+                    <span class="text-sm font-semibold">Rejoignez 100% de clients satisfaits</span>
+                </div>
             </div>
-    
             <!-- Grille -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Carte 1 -->
