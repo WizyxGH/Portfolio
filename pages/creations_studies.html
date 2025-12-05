@@ -80,6 +80,50 @@ permalink: /creations_studies/
 
     </section>
 
+    {% comment %}
+    Bloc SEO/LLM : contenu textuel + liens vers les projets académiques, sans impact visuel.
+    Généré automatiquement depuis _data/projects.json.
+    {% endcomment %}
+    {% assign studies_projects = site.data.projects | where_exp:'p','p.id >= 24 and p.id <= 31' %}
+    <style>
+        .seo-projects { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    </style>
+    <div class="seo-projects" aria-hidden="true">
+        {% for p in studies_projects %}
+        <article itemscope itemtype="https://schema.org/CreativeWork">
+            <h3 itemprop="name"><a href="/creations_studies/?project={{ p.id }}">{{ p.title }}</a></h3>
+            <p itemprop="description">{{ p.description | strip_html }}</p>
+            {% if p.date %}<p><span itemprop="datePublished">{{ p.date }}</span></p>{% endif %}
+            {% if p.image %}<img src="{{ p.image }}" alt="{{ p.title }}" loading="lazy" itemprop="image">{% endif %}
+        </article>
+        {% endfor %}
+    </div>
+
+    {% assign origin = site.url | append: site.baseurl %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [
+        {% for p in studies_projects %}
+        {
+          "@type": "ListItem",
+          "position": {{ forloop.index }},
+          "url": "{{ origin }}/creations_studies/?project={{ p.id }}",
+          "item": {
+            "@type": "CreativeWork",
+            "name": {{ p.title | jsonify }},
+            "description": {{ p.description | strip_html | jsonify }}{% if p.image %},
+            "image": "{{ origin }}{{ p.image }}"{% endif %}{% if p.date %},
+            "datePublished": {{ p.date | jsonify }}{% endif %},
+            "inLanguage": "fr"
+          }
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    }
+    </script>
+
     <div id="footer-container"></div>
 
     <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center overflow-y-auto z-50">
