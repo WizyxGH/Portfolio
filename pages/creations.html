@@ -101,7 +101,7 @@ permalink: /creations/
         </div>
     </header>
 
-    <section class="py-16 text-center lg-px:32 px-8 lg:-mt-40">
+    <section class="py-16 text-center lg:px-32 px-8 lg:-mt-40">
         <h2 class="text-2xl font-bold mb-6 lg:text-white">
             <i class='bx bxs-diamond-alt'></i> Mes maquettes
         </h2>
@@ -125,7 +125,9 @@ permalink: /creations/
     Bloc SEO/LLM : contenu textuel + liens vers chaque projet pour les moteurs/LLM (hors rendu visuel).
     Généré automatiquement depuis _data/projects.json pour éviter toute maintenance manuelle.
     {% endcomment %}
-    {% assign visible_projects = site.data.projects | where_exp:'p','p.id >= 1 and p.id <= 23' %}
+    {% assign visible_projects = site.data.projects
+       | where_exp:'p','p.id >= 1'
+       | where_exp:'p','p.id <= 23' %}
     <style>
         .seo-projects { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
     </style>
