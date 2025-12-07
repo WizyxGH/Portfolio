@@ -84,7 +84,9 @@ permalink: /creations_studies/
     Bloc SEO/LLM : contenu textuel + liens vers les projets académiques, sans impact visuel.
     Généré automatiquement depuis _data/projects.json.
     {% endcomment %}
-    {% assign studies_projects = site.data.projects | where_exp:'p','p.id >= 24 and p.id <= 31' %}
+    {% assign studies_projects = site.data.projects
+    | where_exp:"p","p.id >= 24"
+    | where_exp:"p","p.id <= 31" %}
     <style>
         .seo-projects { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
     </style>
