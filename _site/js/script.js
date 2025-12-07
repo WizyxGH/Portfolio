@@ -81,12 +81,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 card.innerHTML = ` 
                     <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
-                        <img data-src="${project.image}" loading="lazy" alt="${project.title}" class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110 lazy-img">
+                        <img data-src="${project.image}" loading="lazy" decoding="async" alt="${project.title}" class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110 lazy-img">
                     </div>
                     <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">${project.title}</h3>
                     <div class="mt-1 flex flex-wrap gap-2" id="tagsContainer-${projectTitleId}"></div>
                     <p class="text-sm text-[#121212] dark:text-white mt-2">${project.description}</p>
                 `;
+                const heroImg = card.querySelector("img");
+                if (heroImg) {
+                    heroImg.sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw";
+                    heroImg.width = 800;
+                    heroImg.height = 533;
+                }
 
                 const tagsContainer = card.querySelector(`#tagsContainer-${projectTitleId}`);
                 if (tagsContainer && project.tags?.length) {
@@ -339,6 +345,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     const img = document.createElement('img');
                     img.src = project.image;
                     img.alt = project.title;
+                    img.loading = "lazy";
+                    img.decoding = "async";
+                    img.width = 48;
+                    img.height = 48;
                     img.className = "w-12 h-12 object-cover rounded-lg flex-shrink-0";
                     div.appendChild(img);
 

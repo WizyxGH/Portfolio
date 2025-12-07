@@ -352,6 +352,8 @@
                 const fileName = extractFileName(src);
                 img.alt = fileName ? `${projectTitle} - ${fileName}` : `${projectTitle} - visuel ${idx + 1}`;
                 img.loading = "lazy";
+                img.decoding = "async";
+                img.sizes = "(min-width: 1024px) 60vw, 90vw";
                 // Image centrée avec letterbox si nécessaire
                 // Ne jamais dépasser le cadre, sans étirer : on limite largeur/hauteur et laisse le ratio
                 img.className = "w-auto h-auto max-h-full max-w-full object-contain opacity-0 transition-opacity duration-300";
@@ -361,8 +363,10 @@
                 img.style.maxWidth = "100%";
                 img.style.height = "auto";
                 img.style.width = "auto";
-                // Charge immédiatement la source (évite les cas où le préload ne se déclenche pas)
-                img.src = src;
+                // Charge seulement la première tout de suite, les autres à la demande
+                if (idx === 0) {
+                    img.src = src;
+                }
                 img.addEventListener("click", () => {
                     const srcToShow = img.src || img.dataset.src || "";
                     if (srcToShow) openFullscreenImage(srcToShow, img.alt);
@@ -381,6 +385,8 @@
             }
             carouselEls.container.classList.remove("hidden");
             renderDots(totalSlides);
+            preloadSlide(0);
+            preloadSlide(1);
             goToSlide(0);
         }
 
@@ -451,6 +457,9 @@
             const clamped = Math.min(Math.max(index, 0), total - 1);
             if (clamped === currentSlideIndex && (index < 0 || index >= total)) return;
             currentSlideIndex = clamped;
+            preloadSlide(clamped);
+            preloadSlide(clamped + 1);
+            preloadSlide(clamped - 1);
             updateCarouselUI(total);
             refreshFullscreenImage();
         }
