@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const showLessButton = document.getElementById("showLessButton");
     const searchInput = document.getElementById('searchInput');
     const clearSearchButton = document.getElementById('clearSearch');
+    const filtersContainer = document.getElementById('filtersContainer');
     const container = document.getElementById("projectsContainer");
     if (!container) return;
 
@@ -11,6 +12,9 @@ document.addEventListener("DOMContentLoaded", function () {
     let filteredProjects = [];
     let allCards = [];
     let currentSort = 'meilleur'; // 'meilleur' (par id) ou 'date'
+    let selectedTypes = new Set();
+    let selectedTags = new Set();
+
     const carouselEls = {
         container: document.getElementById('modalCarousel'),
         track: document.getElementById('carouselTrack'),
@@ -78,6 +82,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 card.dataset.title = project.title.toLowerCase();
                 card.dataset.description = project.description.toLowerCase();
                 card.dataset.text = project.text.toLowerCase();
+                card.dataset.type = project.type || "";
+                card.dataset.tags = (project.tags || []).map(t => t.name).join(",");
+
 
                 card.innerHTML = ` 
                     <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
@@ -112,6 +119,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             allCards = Array.from(container.querySelectorAll(".projectCard"));
             attachEventListenersToCards();
+            attachEventListenersToCards();
+            generateFilters();
             sortAndRenderCards();
             lazyLoadImages();
 
@@ -123,6 +132,101 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         })
         .catch(console.error);
+
+    function generateFilters() {
+        if (!filtersContainer) return;
+        filtersContainer.innerHTML = '';
+
+        // 1. Compter les occurrences pour le tri
+        const typeCounts = new Map();
+        const tagCounts = new Map();
+        const tagIcons = new Map(); // Nom -> Icone
+
+        filteredProjects.forEach(p => {
+            if (p.type) {
+                typeCounts.set(p.type, (typeCounts.get(p.type) || 0) + 1);
+            }
+            if (p.tags) {
+                p.tags.forEach(t => {
+                    tagCounts.set(t.name, (tagCounts.get(t.name) || 0) + 1);
+                    if (!tagIcons.has(t.name)) {
+                        tagIcons.set(t.name, t.icon);
+                    }
+                });
+            }
+        });
+
+        // 2. Créer l'UI pour les Types (Trié par nombre de projets décroissant)
+        if (typeCounts.size > 0) {
+            const typeGroup = document.createElement('div');
+            typeGroup.className = 'flex gap-2 overflow-x-auto pb-2';
+            typeGroup.style.scrollbarWidth = 'none';
+            typeGroup.style.msOverflowStyle = 'none';
+
+            Array.from(typeCounts.keys())
+                .sort((a, b) => typeCounts.get(b) - typeCounts.get(a))
+                .forEach(type => {
+                    const btn = document.createElement('button');
+                    // Ajout de h-10 et flex items-center pour hauteur uniforme
+                    btn.className = `h-10 px-4 rounded-full border border-white/20 text-sm font-medium transition bg-white/10 hover:bg-white/20 text-white flex-shrink-0 flex items-center justify-center`;
+                    btn.textContent = type;
+                    btn.onclick = () => toggleFilter(btn, type, 'type');
+                    typeGroup.appendChild(btn);
+                });
+            filtersContainer.appendChild(typeGroup);
+        }
+
+        // 3. Créer l'UI pour les Tags (Trié par nombre de projets décroissant)
+        if (tagCounts.size > 0) {
+            const tagGroup = document.createElement('div');
+            tagGroup.className = 'flex gap-2 overflow-x-auto pb-2';
+            tagGroup.style.scrollbarWidth = 'none';
+            tagGroup.style.msOverflowStyle = 'none';
+
+            Array.from(tagCounts.keys())
+                .sort((a, b) => tagCounts.get(b) - tagCounts.get(a))
+                .forEach(tagName => {
+                    const tagIcon = tagIcons.get(tagName);
+                    const btn = document.createElement('button');
+                    // Ajout de h-10 et flex items-center pour hauteur uniforme
+                    btn.className = `h-10 px-4 rounded-full border border-white/20 text-sm font-medium transition bg-white/10 hover:bg-white/20 text-white flex items-center gap-2 flex-shrink-0 justify-center`;
+                    btn.innerHTML = `<i class='${tagIcon} text-lg'></i> ${tagName}`;
+                    btn.onclick = () => toggleFilter(btn, tagName, 'tag');
+                    tagGroup.appendChild(btn);
+                });
+            filtersContainer.appendChild(tagGroup);
+        }
+    }
+
+    function toggleFilter(btn, value, category) {
+        const set = category === 'type' ? selectedTypes : selectedTags;
+        const isActive = !set.has(value); // On va l'jouter ou le retirer
+
+        if (set.has(value)) {
+            set.delete(value);
+        } else {
+            set.add(value);
+        }
+
+        // Application du style unique pour les deux types
+        // Inactif : border-white/20 bg-white/10 text-white
+        // Actif   : border-white bg-white text-[#411FEB] shadow-lg
+
+        // On reconstruira la classe de base avec hauteur fixe
+        const baseClasses = "h-10 px-4 rounded-full text-sm transition flex-shrink-0 flex items-center justify-center";
+        const layoutClasses = category === 'tag' ? " gap-2" : "";
+
+        if (set.has(value)) {
+            // Style Actif
+            btn.className = `${baseClasses}${layoutClasses} border border-white font-bold bg-white text-[#411FEB] shadow-lg`;
+        } else {
+            // Style Inactif
+            btn.className = `${baseClasses}${layoutClasses} border border-white/20 font-medium bg-white/10 hover:bg-white/20 text-white`;
+        }
+
+        updateProjects();
+    }
+
 
     // --- Lazy loading ---
     function lazyLoadImages() {
@@ -143,26 +247,46 @@ document.addEventListener("DOMContentLoaded", function () {
     // --- Update affichage ---
     function updateProjects() {
         const query = searchInput?.value.toLowerCase() || "";
+
+        // 1. Identification de tous les projets qui correspondent aux critères (Search + Type + Tags)
+        const matchingCards = allCards.filter(card => {
+            const matchesSearch = !query || card.dataset.title.includes(query) || card.dataset.description.includes(query) || card.dataset.text.includes(query);
+
+            const cardType = card.dataset.type;
+            const matchesType = selectedTypes.size === 0 || selectedTypes.has(cardType);
+
+            const cardTags = card.dataset.tags.split(",");
+            const matchesTags = selectedTags.size === 0 || cardTags.some(tag => selectedTags.has(tag));
+
+            return matchesSearch && matchesType && matchesTags;
+        });
+
+        const totalMatches = matchingCards.length;
         let visibleCount = 0;
 
+        // 2. Affichage / Masquage en fonction de la pagination (projectsVisible)
         allCards.forEach(card => {
-            const matches = !query || card.dataset.title.includes(query) || card.dataset.description.includes(query) || card.dataset.text.includes(query);
-            if (matches && visibleCount < projectsVisible) {
-                card.classList.remove("hidden");
-                visibleCount++;
+            if (matchingCards.includes(card)) {
+                if (visibleCount < projectsVisible) {
+                    card.classList.remove("hidden");
+                    visibleCount++;
+                } else {
+                    card.classList.add("hidden");
+                }
             } else {
                 card.classList.add("hidden");
             }
         });
 
+        // 3. Gestion de la "Card vide" (Aucun résultat)
         let emptyCard = document.getElementById("emptyProjectCard");
-        if (visibleCount === 0) {
+        if (totalMatches === 0) {
             if (!emptyCard) {
                 emptyCard = document.createElement("div");
                 emptyCard.id = "emptyProjectCard";
                 emptyCard.className = "projectCard animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-white rounded-lg text-left border-8 border-white hover:bg-[#EDE9FE] dark:hover:bg-[#EDE9FE] cursor-default";
                 emptyCard.innerHTML = `
-                    <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] border-2 border-dashed border-[#411FEB] flex items-center justify-center overflow-hidden">
+                    <div class="h-40 mb-3 rounded-lg bg-[rgba(65,31,235,0.12)] border-2 border-dashed border-[#411FEB] flex items-center justify-center overflow-hidden">
                         <img src="/media/projects/projectnoresult.svg" alt="Aucun projet trouvé" class="h-64 w-64">
                     </div>
                     <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED] mb-1">Aucun projet trouvé...</h3>
@@ -179,18 +303,21 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         } else if (emptyCard) emptyCard.remove();
 
-        const totalMatches = allCards.filter(card =>
-            !query || card.dataset.title.includes(query) || card.dataset.description.includes(query) || card.dataset.text.includes(query)
-        ).length;
-
+        // 4. Gestion des boutons "Voir plus" / "Voir moins"
         if (!showMoreButton || !showLessButton) return;
+
+        // S'il y a 9 résultats ou moins au TOTAL, on cache tout
         if (totalMatches <= 9) {
             showMoreButton.classList.add("hidden");
             showLessButton.classList.add("hidden");
-        } else if (projectsVisible >= totalMatches) {
+        }
+        // Si on voit déjà tous les résultats possibles
+        else if (projectsVisible >= totalMatches) {
             showMoreButton.classList.add("hidden");
             showLessButton.classList.remove("hidden");
-        } else {
+        }
+        // Sinon, on peut en voir plus
+        else {
             showMoreButton.classList.remove("hidden");
             showLessButton.classList.add("hidden");
         }
