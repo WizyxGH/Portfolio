@@ -362,6 +362,35 @@
     },
     {
         "id": 19,
+        "title": "Joyca, Trouve la règle",
+        "text": "Coming soon (encore sous NDA)...",
+        "description": "Coming soon (encore sous NDA)...",
+        "image": "/media/projects/projectnoresult.svg",
+        "projectLink": "#",
+        "date": "2025-03",
+        "type": "Application",
+        "context": "Professionnel",
+        "tags": [
+            {
+                "name": "UI/UX Design",
+                "icon": "bx bxs-layout"
+            },
+            {
+                "name": "Prototyping",
+                "icon": "bx bx-play-circle"
+            },
+            {
+                "name": "UX Writing",
+                "icon": "bx bxs-pen"
+            },
+            {
+                "name": "Game Design",
+                "icon": "bx bxs-joystick"
+            }
+        ]
+    },
+    {
+        "id": 20,
         "title": "Digital Unicorn",
         "text": "Coming soon...",
         "description": "Redesign de certains éléments du site de Digital Unicorn.",
@@ -382,7 +411,7 @@
         ]
     },
     {
-        "id": 20,
+        "id": 21,
         "title": "Promodentaire",
         "text": "Promodentaire est un acteur de référence en France dans la distribution de matériel dentaire à destination des professionnels de santé. L’entreprise propose une large gamme de produits spécialisés.<br><br>Dans le cadre de sa collaboration avec Digital Unicorn, l’objectif est d’améliorer l’expérience d’achat en ligne, notamment sur la version mobile du site internet. Aujourd’hui, la majorité des visites sur les sites marchands se fait via des appareils mobiles, en particulier les smartphones. Il est donc essentiel de fluidifier la navigation.<br><br>C’est dans cette optique que la refonte mobile du site a été engagée. Celle-ci vise à intégrer des fonctionnalités de recherche vocale et des outils alimentés par l’intelligence artificielle, afin d’offrir une recherche plus rapide, plus personnalisée, et en phase avec les nouveaux usages numériques des utilisateurs.<br><br>Sur ce projet, j’ai eu comme tâche de retoucher le design d’une autre UI/UX Designer qui devait se concentrer sur d’autres projets ainsi que de créer des composants pour ajouter des interactions et enregistrer une vidéo montrant le rendu final de la maquette Figma. La designeuse étant vietnamienne, sa version du design était en anglais, j’ai donc dû aussi prendre le temps de traduire tous les textes et de retravailler le wording pour que cela soit en accord avec le contexte du milieu dentaire (pas simplement une retranscription littérale).<br><br>J’ai réalisé les diapositives d’une présentation destinée au client. J’avais carte blanche, à l’exception d’une consigne : mettre en valeur le travail accompli par notre entreprise, dans le but à la fois de satisfaire le client et de maximiser les retombées commerciales du projet.<br>Je me suis donc approprié l’identité graphique préalablement conçue, et j’ai mis en scène le résultat final dans des mockups, afin d’aider le client à se projeter dans une situation réelle d’usage.<br>Le point clé de cette présentation a été la rédaction complète du copywriting, essentielle pour obtenir la validation du client et pouvoir ensuite lancer la phase de développement, incluant l’intégration de l’intelligence artificielle.",
         "description": "Design de la version mobile du site e-commerce de Promodentaire dédiée aux professionnels dentaire, avec intégration de fonctionnalités alimentées par l'IA.",
@@ -403,7 +432,7 @@
         ]
     },
     {
-        "id": 21,
+        "id": 22,
         "title": "Direct Democracy",
         "text": "Coming soon...",
         "description": "Redesign rapide du MVP de l'application Direct Democracy de Fidias Panayiotou en guise de test d'embauche.",
@@ -420,7 +449,7 @@
         ]
     },
     {
-        "id": 22,
+        "id": 23,
         "title": "Darknet",
         "text": "Coming soon...",
         "description": "Design d'un site e-commerce dans l'univers du son Darknet du rappeur Vald.",
@@ -445,7 +474,7 @@
         ]
     },
     {
-        "id": 23,
+        "id": 24,
         "title": "Vaylune",
         "text": "Le brief était le suivant :<br>Marque outdoor biotech<br><br>Une marque de randonnée nouvelle génération qui développe des équipements fabriqués à partir de matériaux organiques auto-réparants, inspirés de la biologie marine. Les textiles “vivent”, se régénèrent lorsqu’ils sont abîmés, résistent aux changements de température, et s’adaptent au corps du randonneur. L’ambition de la marque est de créer l’outdoor le plus durable au monde, en fusionnant technologie, recherche biomimétique et esthétique futuriste.",
         "description": "Design de la landing page d'une fausse marque de vêtements de randonnée hight-tech basée sur la biologie marine.",
@@ -470,7 +499,57 @@
         ]
     },
     {
-        "id": 24,
+        "id": 25,
+        "title": "JOBBRR",
+        "text": "Lorem ipsum.",
+        "description": "Lorem ipsum.",
+        "image": "/media/projects/jobbrr.webp",
+        "projectLink": "#",
+        "date": "2025-12",
+        "type": "Site internet",
+        "context": "Professionnel",
+        "tags": [
+            {
+                "name": "UI/UX Design",
+                "icon": "bx bxs-layout"
+            },
+            {
+                "name": "Prototyping",
+                "icon": "bx bx-play-circle"
+            },
+            {
+                "name": "Copywriting",
+                "icon": "bx bxs-pen"
+            }
+        ]
+    },
+    {
+        "id": 26,
+        "title": "PHOQ.tv",
+        "text": "Lorem ipsum.",
+        "description": "Lorem ipsum.",
+        "image": "/media/projects/phoq.webp",
+        "projectLink": "#",
+        "date": "2026-01",
+        "type": "Landing page",
+        "context": "Professionnel",
+        "tags": [
+            {
+                "name": "UI/UX Design",
+                "icon": "bx bxs-layout"
+            },
+            {
+                "name": "Prototyping",
+                "icon": "bx bx-play-circle"
+            },
+            {
+                "name": "Copywriting",
+                "icon": "bx bxs-pen"
+            }
+        ]
+    },
+    {
+        "id": 27,
         "title": "Danse à l'Opéra",
         "text": "Coming soon...",
         "description": "Scénographie et affiche",
@@ -492,7 +571,7 @@
         ]
     },
     {
-        "id": 25,
+        "id": 28,
         "title": "Introduction sur la faune et la flore du Var",
         "text": "Coming soon...",
         "description": "Vidéo et article",
@@ -518,7 +597,7 @@
         ]
     },
     {
-        "id": 26,
+        "id": 29,
         "title": "Vidéo œuvre culturelle",
         "text": "Coming soon...",
         "description": "Lorem ipsum.",
@@ -544,7 +623,7 @@
         ]
     },
     {
-        "id": 27,
+        "id": 30,
         "title": "Tom et Lola",
         "text": "Coming soon...",
         "description": "Lorem ipsum.",
@@ -570,7 +649,7 @@
         ]
     },
     {
-        "id": 28,
+        "id": 31,
         "title": "Stratégie de communication Mafigue",
         "text": "Coming soon...",
         "description": "Lorem ipsum.",
@@ -588,7 +667,7 @@
         ]
     },
     {
-        "id": 29,
+        "id": 32,
         "title": "Jeu de l'oie : CultoPhoto",
         "text": "Coming soon...",
         "description": "Lorem ipsum.",
@@ -606,7 +685,7 @@
         ]
     },
     {
-        "id": 30,
+        "id": 33,
         "title": "Sites WordPress",
         "text": "Coming soon...",
         "description": "Développement de plusieurs sites WordPress fictifs.",
@@ -624,7 +703,7 @@
         ]
     },
     {
-        "id": 31,
+        "id": 34,
         "title": "Maquette fanzine Picsou-Soir",
         "text": "Coming soon...",
         "description": "Réalisation de la maquette du fanzine Picsou-Soir pendant plusieurs numéros.",
