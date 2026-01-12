@@ -380,7 +380,7 @@
                 "icon": "bx bx-play-circle"
             },
             {
-                "name": "UX Writing",
+                "name": "Copywriting",
                 "icon": "bx bxs-pen"
             },
             {
@@ -530,8 +530,8 @@
         "description": "Lorem ipsum.",
         "image": "/media/projects/phoq.webp",
         "projectLink": "#",
-        "date": "2026-01",
-        "type": "Landing page",
+        "date": "2025-12",
+        "type": "Site internet",
         "context": "Professionnel",
         "tags": [
             {

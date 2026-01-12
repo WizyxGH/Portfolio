@@ -49,8 +49,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const modalController = window.ProjectModal?.init({ carouselEls }) || null;
-    const openModal = modalController?.openModal || (() => {});
-    const closeModal = modalController?.closeModal || (() => {});
+    const openModal = modalController?.openModal || (() => { });
+    const closeModal = modalController?.closeModal || (() => { });
 
     // --- Chargement du fichier JSON ---
     fetch('/js/projects.json')
@@ -62,8 +62,8 @@ document.addEventListener("DOMContentLoaded", function () {
             projects = data;
 
             const path = window.location.pathname;
-            if (path.includes('creations_studies')) filteredProjects = projects.filter(p => p.id >= 24 && p.id <= 31);
-            else if (path.includes('creations')) filteredProjects = projects.filter(p => p.id >= 1 && p.id <= 23);
+            if (path.includes('creations_studies')) filteredProjects = projects.filter(p => p.id >= 27 && p.id <= 34);
+            else if (path.includes('creations')) filteredProjects = projects.filter(p => p.id >= 1 && p.id <= 26);
             else filteredProjects = [...projects];
 
             if (searchInput)

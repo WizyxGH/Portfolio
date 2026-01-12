@@ -49,8 +49,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const modalController = window.ProjectModal?.init({ carouselEls }) || null;
-    const openModal = modalController?.openModal || (() => {});
-    const closeModal = modalController?.closeModal || (() => {});
+    const openModal = modalController?.openModal || (() => { });
+    const closeModal = modalController?.closeModal || (() => { });
 
     // --- Chargement du fichier JSON ---
     fetch('/js/projects.json')

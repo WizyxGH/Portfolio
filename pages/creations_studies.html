@@ -23,7 +23,7 @@ permalink: /creations_studies/
     <script src="/js/script.js" defer></script>
     <script src="/js/layout.js" defer></script>
     <script src="/js/theme.js" defer></script>
-        <meta property="og:image"
+    <meta property="og:image"
         content="https://opengraph.b-cdn.net/production/images/59129536-2074-4333-9e04-70d6cffd3d0f.jpg?token=Oj5V7Gb5wGaScWNgROHh8HDeCIdtoZtqvgIpBFaIi1g&height=640&width=1200&expires=33294662852">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6PJB5NW1Y5"></script>
     <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-6PJB5NW1Y5'); </script>
@@ -83,26 +83,26 @@ permalink: /creations_studies/
     {% comment %}
     Bloc SEO/LLM : contenu textuel + liens vers les projets académiques, sans impact visuel.
     Généré automatiquement depuis _data/projects.json.
-    {% endcomment %}
-    {% assign studies_projects = site.data.projects
-    | where_exp:"p","p.id >= 24"
-    | where_exp:"p","p.id <= 31" %}
-    <style>
-        .seo-projects { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-    </style>
-    <div class="seo-projects" aria-hidden="true">
-        {% for p in studies_projects %}
-        <article itemscope itemtype="https://schema.org/CreativeWork">
-            <h3 itemprop="name"><a href="/creations_studies/?project={{ p.id }}">{{ p.title }}</a></h3>
-            <p itemprop="description">{{ p.description | strip_html }}</p>
-            {% if p.date %}<p><span itemprop="datePublished">{{ p.date }}</span></p>{% endif %}
-            {% if p.image %}<img src="{{ p.image }}" alt="{{ p.title }}" loading="lazy" itemprop="image">{% endif %}
-        </article>
-        {% endfor %}
-    </div>
+    Section désactivée car _data/projects.json a été remplacé par un fichier statique js/projects.json.
 
-    {% assign origin = site.url | append: site.baseurl %}
-    <script type="application/ld+json">
+    {% assign studies_projects = site.data.projects
+    | where_exp:"p","p.id >= 27"
+    | where_exp:"p","p.id <= 34" %} <style>
+        .seo-projects { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+        </style>
+        <div class="seo-projects" aria-hidden="true">
+            {% for p in studies_projects %}
+            <article itemscope itemtype="https://schema.org/CreativeWork">
+                <h3 itemprop="name"><a href="/creations_studies/?project={{ p.id }}">{{ p.title }}</a></h3>
+                <p itemprop="description">{{ p.description | strip_html }}</p>
+                {% if p.date %}<p><span itemprop="datePublished">{{ p.date }}</span></p>{% endif %}
+                {% if p.image %}<img src="{{ p.image }}" alt="{{ p.title }}" loading="lazy" itemprop="image">{% endif %}
+            </article>
+            {% endfor %}
+        </div>
+
+        {% assign origin = site.url | append: site.baseurl %}
+        <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "ItemList",
@@ -125,73 +125,87 @@ permalink: /creations_studies/
       ]
     }
     </script>
+        {% endcomment %}
 
-    <div id="footer-container"></div>
+        <div id="footer-container"></div>
 
-    <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center overflow-y-auto z-50">
-        <div class="bg-white dark:bg-[#121212] rounded-xl shadow-lg w-11/12 md:w-2/3 lg:w-1/2 max-h-[90vh] my-6 flex flex-col">
-            <div class="bg-[#411FEB] bg-opacity-[0.04] p-4 pr-14 border-b border-[#411FEB]/12 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between relative">
-                <div class="flex flex-col gap-1 sm:flex-1">
-                    <h3 id="modalTitle" class="text-xl font-semibold text-[#411FEB] dark:text-[#5536ED]">Titre du projet</h3>
-                    <div id="modalMeta" class="flex items-center text-sm text-[#121212] dark:text-white gap-1">
-                        <i class="bx bxs-calendar-alt text-[#411FEB]/48 dark:text-[#5536ED]/48"></i>
-                        <span>Date</span>
-                        <span class="text-[#411FEB] dark:text-[#5536ED] opacity-[0.48] mx-1">&middot;</span>
-                        <span></span>
-                        <span class="text-[#411FEB] dark:text-[#5536ED] opacity-[0.48] mx-1">&middot;</span>
-                        <span></span>
+        <div id="modal"
+            class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center overflow-y-auto z-50">
+            <div
+                class="bg-white dark:bg-[#121212] rounded-xl shadow-lg w-11/12 md:w-2/3 lg:w-1/2 max-h-[90vh] my-6 flex flex-col">
+                <div
+                    class="bg-[#411FEB] bg-opacity-[0.04] p-4 pr-14 border-b border-[#411FEB]/12 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between relative">
+                    <div class="flex flex-col gap-1 sm:flex-1">
+                        <h3 id="modalTitle" class="text-xl font-semibold text-[#411FEB] dark:text-[#5536ED]">Titre du
+                            projet</h3>
+                        <div id="modalMeta" class="flex items-center text-sm text-[#121212] dark:text-white gap-1">
+                            <i class="bx bxs-calendar-alt text-[#411FEB]/48 dark:text-[#5536ED]/48"></i>
+                            <span>Date</span>
+                            <span class="text-[#411FEB] dark:text-[#5536ED] opacity-[0.48] mx-1">&middot;</span>
+                            <span></span>
+                            <span class="text-[#411FEB] dark:text-[#5536ED] opacity-[0.48] mx-1">&middot;</span>
+                            <span></span>
+                        </div>
                     </div>
+                    <i class="bx bx-x text-3xl text-[#411FEB] text-opacity-[0.64] cursor-pointer hover:text-[#411FEB] transition absolute right-6 top-1/2 -translate-y-1/2"
+                        onclick="closeModal()"></i>
                 </div>
-                <i class="bx bx-x text-3xl text-[#411FEB] text-opacity-[0.64] cursor-pointer hover:text-[#411FEB] transition absolute right-6 top-1/2 -translate-y-1/2" onclick="closeModal()"></i>
-            </div>
-            <div class="p-4 flex-1 lg:overflow-hidden overflow-y-auto">
-                <div class="flex flex-col lg:flex-row gap-4 lg:h-[520px]">
-                    <div class="lg:w-1/2 lg:h-full">
-                        <div id="modalCarousel" class="hidden flex flex-col gap-2 h-full">
-                            <div class="relative overflow-hidden rounded-xl bg-[#121212] dark:bg-[#1A162C] flex-1 min-h-[260px]">
-                                <div id="carouselTrack" class="flex h-full transition-transform duration-500 ease-in-out"></div>
-                                <button id="carouselPrev" type="button" class="modal-nav-btn absolute left-3 top-1/2 -translate-y-1/2 shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:scale-105 transition">
-                                    <i class="bx bx-chevron-left text-2xl"></i>
-                                </button>
-                                <button id="carouselNext" type="button" class="modal-nav-btn absolute right-3 top-1/2 -translate-y-1/2 shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:scale-105 transition">
-                                    <i class="bx bx-chevron-right text-2xl"></i>
-                                </button>
-                                <div id="carouselCounter" class="absolute right-3 top-3 text-xs font-semibold px-3 py-1 rounded-full bg-black/60 text-white hidden"></div>
+                <div class="p-4 flex-1 lg:overflow-hidden overflow-y-auto">
+                    <div class="flex flex-col lg:flex-row gap-4 lg:h-[520px]">
+                        <div class="lg:w-1/2 lg:h-full">
+                            <div id="modalCarousel" class="hidden flex flex-col gap-2 h-full">
+                                <div
+                                    class="relative overflow-hidden rounded-xl bg-[#121212] dark:bg-[#1A162C] flex-1 min-h-[260px]">
+                                    <div id="carouselTrack"
+                                        class="flex h-full transition-transform duration-500 ease-in-out"></div>
+                                    <button id="carouselPrev" type="button"
+                                        class="modal-nav-btn absolute left-3 top-1/2 -translate-y-1/2 shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:scale-105 transition">
+                                        <i class="bx bx-chevron-left text-2xl"></i>
+                                    </button>
+                                    <button id="carouselNext" type="button"
+                                        class="modal-nav-btn absolute right-3 top-1/2 -translate-y-1/2 shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:scale-105 transition">
+                                        <i class="bx bx-chevron-right text-2xl"></i>
+                                    </button>
+                                    <div id="carouselCounter"
+                                        class="absolute right-3 top-3 text-xs font-semibold px-3 py-1 rounded-full bg-black/60 text-white hidden">
+                                    </div>
+                                </div>
+                                <div id="carouselDots" class="flex items-center justify-center gap-2"></div>
                             </div>
-                            <div id="carouselDots" class="flex items-center justify-center gap-2"></div>
                         </div>
-                    </div>
-                    <div class="lg:w-1/2 flex flex-col gap-4 lg:h-full lg:overflow-hidden">
-                        <div id="modalTags" class="flex flex-wrap gap-2 text-sm w-full"></div>
-                        <div class="flex-1 overflow-y-auto pr-1">
-                            <p id="modalText" class="text-[#121212] dark:text-white text-sm leading-relaxed"></p>
-                        </div>
-                        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-start pt-1">
-                            <a id="modalWebsite" href="#" target="_blank" class="flex items-center justify-center gap-2 bg-white border border-[#411FEB] text-[#411FEB] font-semibold px-4 py-2 rounded-md hover:bg-[#f5f3ff] transition">
-                                <i class="bx bx-globe"></i> Visiter le site web
-                            </a>
-                            <a id="modalButton" href="#" target="_blank" class="flex items-center justify-center gap-2 bg-[#411FEB] text-white font-semibold px-4 py-2 rounded-md hover:bg-[#3A1CC5] transition">
-                                <i class="bx bx-show"></i> Voir le resultat
-                            </a>
+                        <div class="lg:w-1/2 flex flex-col gap-4 lg:h-full lg:overflow-hidden">
+                            <div id="modalTags" class="flex flex-wrap gap-2 text-sm w-full"></div>
+                            <div class="flex-1 overflow-y-auto pr-1">
+                                <p id="modalText" class="text-[#121212] dark:text-white text-sm leading-relaxed"></p>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-start pt-1">
+                                <a id="modalWebsite" href="#" target="_blank"
+                                    class="flex items-center justify-center gap-2 bg-white border border-[#411FEB] text-[#411FEB] font-semibold px-4 py-2 rounded-md hover:bg-[#f5f3ff] transition">
+                                    <i class="bx bx-globe"></i> Visiter le site web
+                                </a>
+                                <a id="modalButton" href="#" target="_blank"
+                                    class="flex items-center justify-center gap-2 bg-[#411FEB] text-white font-semibold px-4 py-2 rounded-md hover:bg-[#3A1CC5] transition">
+                                    <i class="bx bx-show"></i> Voir le resultat
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="gtranslate_wrapper"></div>
-    <script>
-        window.gtranslateSettings = {
-            "default_language": "fr",
-            "native_language_names": true,
-            "detect_browser_language": true,
-            "languages": ["da", "de", "en", "el", "es", "fr", "it", "nl", "no", "pt", "sv", "vi"],
-            "wrapper_selector": ".gtranslate_wrapper",
-            "alt_flags":{"en":"usa"}
-        };
-    </script>
-    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+        <div class="gtranslate_wrapper"></div>
+        <script>
+            window.gtranslateSettings = {
+                "default_language": "fr",
+                "native_language_names": true,
+                "detect_browser_language": true,
+                "languages": ["da", "de", "en", "el", "es", "fr", "it", "nl", "no", "pt", "sv", "vi"],
+                "wrapper_selector": ".gtranslate_wrapper",
+                "alt_flags": { "en": "usa" }
+            };
+        </script>
+        <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 
 </body>
 
