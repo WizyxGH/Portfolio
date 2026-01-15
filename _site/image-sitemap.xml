@@ -1,92 +1,1227 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <url>
-    <loc>https://wizyx.me/creations/?project=1</loc>
-    <image:image><image:loc>https://wizyx.me/media/projects/guidegolfesainttropez.webp</image:loc><image:title><![CDATA[Le Guide du Golfe de Saint-Tropez]]></image:title></image:image>
-  </url>
-  <url>
-    <loc>https://wizyx.me/creations/?project=2</loc>
-    <image:image><image:loc>https://wizyx.me/media/projects/maximeclick.gif</image:loc><image:title><![CDATA[Maxime Click]]></image:title></image:image>
-  </url>
-  <url>
-    <loc>https://wizyx.me/creations/?project=3</loc>
-    <image:image><image:loc>https://wizyx.me/media/projects/mongardien.webp</image:loc><image:title><![CDATA[Mon Gardien]]></image:title></image:image>
-  </url>
-  <url>
-    <loc>https://wizyx.me/creations/?project=4</loc>
-    <image:image><image:loc>https://wizyx.me/media/projects/francegaloplive.webp</image:loc><image:title><![CDATA[France Galop Live]]></image:title></image:image>
-  </url>
-  <url>
-    <loc>https://wizyx.me/creations/?project=5</loc>
-    <image:image><image:loc>https://wizyx.me/media/projects/bioquest.webp</image:loc><image:title><![CDATA[BioQuest]]></image:title></image:image>
-  </url>
-  <url>
-    <loc>https://wizyx.me/creations/?project=6</loc>
-    <image:image><image:loc>https://wizyx.me/media/projects/wca.webp</image:loc><image:title><![CDATA[WCA - World Cube Association]]></image:title></image:image>
-  </url>
-  <url>
-    <loc>https://wizyx.me/creations/?project=7</loc>
-    <image:image><image:loc>https://wizyx.me/media/projects/papafrance.webp</image:loc><image:title><![CDATA[PAPA France]]></image:title></image:image>
-  </url>
-  <url>
-    <loc>https://wizyx.me/creations/?project=8</loc>
-    <image:image><image:loc>https://wizyx.me/media/projects/picsousoir.webp</image:loc><image:title><![CDATA[Picsou-Soir]]></image:title></image:image>
-  </url>
-  <url>
-    <loc>https://wizyx.me/creations/?project=9</loc>
-    <image:image><image:loc>https://wizyx.me/media/projects/whattheduck.webp</image:loc><image:title><![CDATA[What The Duck]]></image:title></image:image>
-  </url>
-  <url>
-    <loc>https://wizyx.me/creations/?project=10</loc>
-    <image:image><image:loc>https://wizyx.me/media/projects/tometlola.webp</image:loc><image:title><![CDATA[Tom et Lola]]></image:title></image:image>
-  </url>
-  <url>
-    <loc>https://wizyx.me/creations/?project=11</loc>
-    <image:image><image:loc>https://wizyx.me/media/projects/dumili.webp</image:loc><image:title><![CDATA[DuMILi]]></image:title></image:image>
-  </url>
-  <url>
-    <loc>https://wizyx.me/creations/?project=12</loc>
-    <image:image><image:loc>https://wizyx.me/media/projects/breakscreen.webp</image:loc><image:title><![CDATA[Break Screen]]></image:title></image:image>
-  </url>
-  <url>
-    <loc>https://wizyx.me/creations/?project=13</loc>
-    <image:image><image:loc>https://wizyx.me/media/projects/pizzami.webp</image:loc><image:title><![CDATA[Pizz'Ami]]></image:title></image:image>
-  </url>
-  <url>
-    <loc>https://wizyx.me/creations/?project=14</loc>
-    <image:image><image:loc>https://wizyx.me/media/projects/inducks.webp</image:loc><image:title><![CDATA[I.N.D.U.C.K.S.]]></image:title></image:image>
-  </url>
-  <url>
-    <loc>https://wizyx.me/creations/?project=15</loc>
-    <image:image><image:loc>https://wizyx.me/media/projects/ballonfoot.webp</image:loc><image:title><![CDATA[Ballon Nike Academy Team]]></image:title></image:image>
-  </url>
-  <url>
-    <loc>https://wizyx.me/creations/?project=16</loc>
-    <image:image><image:loc>https://wizyx.me/media/projects/runandrerun.webp</image:loc><image:title><![CDATA[Run&Rerun]]></image:title></image:image>
-  </url>
-  <url>
-    <loc>https://wizyx.me/creations/?project=18</loc>
-    <image:image><image:loc>https://wizyx.me/media/projects/cartaloto.webp</image:loc><image:title><![CDATA[Planete Loto Live]]></image:title></image:image>
-  </url>
-  <url>
-    <loc>https://wizyx.me/creations/?project=19</loc>
-    <image:image><image:loc>https://wizyx.me/media/projects/digitalunicorn.webp</image:loc><image:title><![CDATA[Digital Unicorn]]></image:title></image:image>
-  </url>
-  <url>
-    <loc>https://wizyx.me/creations/?project=20</loc>
-    <image:image><image:loc>https://wizyx.me/media/projects/promodentaire.webp</image:loc><image:title><![CDATA[Promodentaire]]></image:title></image:image>
-  </url>
-  <url>
-    <loc>https://wizyx.me/creations/?project=21</loc>
-    <image:image><image:loc>https://wizyx.me/media/projects/directdemocracy.webp</image:loc><image:title><![CDATA[Direct Democracy]]></image:title></image:image>
-  </url>
-  <url>
-    <loc>https://wizyx.me/creations/?project=22</loc>
-    <image:image><image:loc>https://wizyx.me/media/projects/darknet.webp</image:loc><image:title><![CDATA[Darknet]]></image:title></image:image>
-  </url>
-  <url>
-    <loc>https://wizyx.me/creations/?project=23</loc>
-    <image:image><image:loc>https://wizyx.me/media/projects/vaylune.webp</image:loc><image:title><![CDATA[Vaylune]]></image:title></image:image>
-  </url>
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/le-guide-du-golfe-de-saint-tropez/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/guidegolfesainttropez.webp</image:loc>
+        <image:title><![CDATA[Le Guide du Golfe de Saint-Tropez]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Accueil.jpg</image:loc>
+        <image:title><![CDATA[Accueil]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Agenda.jpg</image:loc>
+        <image:title><![CDATA[Agenda]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Article%20journaliste.jpg</image:loc>
+        <image:title><![CDATA[Article journaliste]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Blog.jpg</image:loc>
+        <image:title><![CDATA[Blog]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Cat%C3%A9gories.jpg</image:loc>
+        <image:title><![CDATA[Catégories]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Connexion.jpg</image:loc>
+        <image:title><![CDATA[Connexion]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Cr%C3%A9ation%20compte/Cr%C3%A9ation%20compte%20Entreprise/Cr%C3%A9ation%20de%20compte%20-%20Entreprise%20(%C3%89tape%201).jpg</image:loc>
+        <image:title><![CDATA[Création de compte   entreprise (étape 1)]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Cr%C3%A9ation%20compte/Cr%C3%A9ation%20compte%20Entreprise/Cr%C3%A9ation%20de%20compte%20-%20Entreprise%20(%C3%89tape%202).jpg</image:loc>
+        <image:title><![CDATA[Création de compte   entreprise (étape 2)]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Cr%C3%A9ation%20compte/Cr%C3%A9ation%20compte%20Entreprise/Cr%C3%A9ation%20de%20compte%20-%20Entreprise%20(%C3%89tape%203).jpg</image:loc>
+        <image:title><![CDATA[Création de compte   entreprise (étape 3)]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Cr%C3%A9ation%20compte/Cr%C3%A9ation%20compte%20Entreprise/Cr%C3%A9ation%20de%20compte%20-%20Entreprise%20(%C3%89tape%204).jpg</image:loc>
+        <image:title><![CDATA[Création de compte   entreprise (étape 4)]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Cr%C3%A9ation%20compte/Cr%C3%A9ation%20compte%20Entreprise/Cr%C3%A9ation%20de%20compte%20-%20Entreprise%20(%C3%89tape%205).jpg</image:loc>
+        <image:title><![CDATA[Création de compte   entreprise (étape 5)]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Cr%C3%A9ation%20compte/Cr%C3%A9ation%20compte%20Particulier/Cr%C3%A9ation%20de%20compte%20-%20Particulier%20(%C3%89tape%201).jpg</image:loc>
+        <image:title><![CDATA[Création de compte   particulier (étape 1)]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Cr%C3%A9ation%20compte/Cr%C3%A9ation%20compte%20Particulier/Cr%C3%A9ation%20de%20compte%20-%20Particulier%20(%C3%89tape%202).jpg</image:loc>
+        <image:title><![CDATA[Création de compte   particulier (étape 2)]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Entreprise%20-%20Gratuite.jpg</image:loc>
+        <image:title><![CDATA[Entreprise   gratuite]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Entreprise%20-%20Payante.jpg</image:loc>
+        <image:title><![CDATA[Entreprise   payante]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Page%20de%20la%20recherche.jpg</image:loc>
+        <image:title><![CDATA[Page de la recherche]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Page%20%C3%89v%C3%A8nement%20-%20D%C3%A9tail%20programme.jpg</image:loc>
+        <image:title><![CDATA[Page évènement   détail programme]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Page%20%C3%89v%C3%A8nement.jpg</image:loc>
+        <image:title><![CDATA[Page évènement]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Version%20mobile/Accueil%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Accueil   mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Version%20mobile/Actualit%C3%A9s%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Actualités   mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Version%20mobile/Agenda%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Agenda   mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Version%20mobile/Article%20journaliste%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Article journaliste   mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Version%20mobile/Blog%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Blog   mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Version%20mobile/Carte%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Carte   mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Version%20mobile/Cat%C3%A9gories%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Catégories   mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Version%20mobile/Page%20de%20la%20recherche%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Page de la recherche   mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Version%20mobile/Pages%20Entreprise%20Gratuite/Entreprise%20gratuite%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Entreprise gratuite   mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Version%20mobile/Pages%20Entreprise%20Payante/Entreprise%20payante%20-%20Actualit%C3%A9s%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Entreprise payante   actualités   mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Version%20mobile/Pages%20Entreprise%20Payante/Entreprise%20payante%20-%20Description%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Entreprise payante   description   mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Version%20mobile/Pages%20Entreprise%20Payante/Entreprise%20payante%20-%20Horaire%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Entreprise payante   horaire   mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Version%20mobile/Pages%20Entreprise%20Payante/Entreprise%20payante%20-%20Menu%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Entreprise payante   menu   mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Version%20mobile/Pages%20Entreprise%20Payante/Entreprise%20payante%20-%20Menu%20D%C3%A9tails%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Entreprise payante   menu détails   mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Version%20mobile/Pages%20Entreprise%20Payante/Entreprise%20payante%20-%20%C3%89v%C3%A8nements%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Entreprise payante   évènements   mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Version%20mobile/Pages%20%C3%89v%C3%A8nement/Page%20%C3%89v%C3%A8nement%20-%20Description%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Page évènement   description   mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Version%20mobile/Pages%20%C3%89v%C3%A8nement/Page%20%C3%89v%C3%A8nement%20-%20Programme%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Page évènement   programme   mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Version%20mobile/Pages%20%C3%89v%C3%A8nement/Page%20%C3%89v%C3%A8nement%20-%20Tarif%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Page évènement   tarif   mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Version%20mobile/%C3%89v%C3%A8nements%20du%20jour%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Évènements du jour   mobile]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/maxime-click/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/maximeclick.gif</image:loc>
+        <image:title><![CDATA[Maxime Click]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Maxime%20Click/Landing%20page.jpg</image:loc>
+        <image:title><![CDATA[Landing page]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/mon-gardien/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/mongardien.webp</image:loc>
+        <image:title><![CDATA[Mon Gardien]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Mon%20Gardien/Landing%20page.jpg</image:loc>
+        <image:title><![CDATA[Landing page]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/france-galop-live/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/francegaloplive.webp</image:loc>
+        <image:title><![CDATA[France Galop Live]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/France%20Galop%20Live/Accueil.jpg</image:loc>
+        <image:title><![CDATA[Accueil]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/bioquest/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/bioquest.webp</image:loc>
+        <image:title><![CDATA[BioQuest]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/BioQuest/Accueil.jpg</image:loc>
+        <image:title><![CDATA[Accueil]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/BioQuest/Animation%20esp%C3%A8ces.jpg</image:loc>
+        <image:title><![CDATA[Animation espèces]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/BioQuest/Capture.jpg</image:loc>
+        <image:title><![CDATA[Capture]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/BioQuest/D%C3%A9tails%20esp%C3%A8ces%20-%20Entretien.jpg</image:loc>
+        <image:title><![CDATA[Détails espèces   entretien]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/BioQuest/D%C3%A9tails%20esp%C3%A8ces%20-%20G%C3%A9n%C3%A9ral.jpg</image:loc>
+        <image:title><![CDATA[Détails espèces   général]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/BioQuest/D%C3%A9tails%20esp%C3%A8ces%20-%20Migrations.jpg</image:loc>
+        <image:title><![CDATA[Détails espèces   migrations]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/BioQuest/Inventaire%20-%20Badges.jpg</image:loc>
+        <image:title><![CDATA[Inventaire   badges]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/BioQuest/Inventaire%20-%20Esp%C3%A8ces.jpg</image:loc>
+        <image:title><![CDATA[Inventaire   espèces]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/BioQuest/Modal%20-%20Indices.jpg</image:loc>
+        <image:title><![CDATA[Modal   indices]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/BioQuest/Onboarding%20-%20Connexion.jpg</image:loc>
+        <image:title><![CDATA[Onboarding   connexion]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/BioQuest/Onboarding%20-%20Inscription.jpg</image:loc>
+        <image:title><![CDATA[Onboarding   inscription]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/wca-world-cube-association/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/wca.webp</image:loc>
+        <image:title><![CDATA[WCA - World Cube Association]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/WCA%20-%20World%20Cube%20Association/Photo%20de%20profil.png</image:loc>
+        <image:title><![CDATA[Photo de profil]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/WCA%20-%20World%20Cube%20Association/Profil%20WCA%20-%20ID.png</image:loc>
+        <image:title><![CDATA[Profil wca   id]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/WCA%20-%20World%20Cube%20Association/Profil%20WCA%20-%20Liste%20comp%C3%A9titions.jpg</image:loc>
+        <image:title><![CDATA[Profil wca   liste compétitions]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/WCA%20-%20World%20Cube%20Association/Profil%20WCA%20on%20scroll.jpg</image:loc>
+        <image:title><![CDATA[Profil wca on scroll]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/WCA%20-%20World%20Cube%20Association/Profil%20WCA.jpg</image:loc>
+        <image:title><![CDATA[Profil wca]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/papa-france/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/papafrance.webp</image:loc>
+        <image:title><![CDATA[PAPA France]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/PAPA%20France/Desktop%20-%20Cadencier%20popup.jpg</image:loc>
+        <image:title><![CDATA[Desktop   cadencier popup]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/PAPA%20France/Desktop%20-%20Cadencier.jpg</image:loc>
+        <image:title><![CDATA[Desktop   cadencier]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/PAPA%20France/Desktop%20-%20Page%20Produit%20Personnalis%C3%A9%20-%20Etape%201.jpg</image:loc>
+        <image:title><![CDATA[Desktop   page produit personnalisé   etape 1]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/PAPA%20France/Desktop%20-%20Page%20Produit%20Personnalis%C3%A9%20-%20Etape%202.jpg</image:loc>
+        <image:title><![CDATA[Desktop   page produit personnalisé   etape 2]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/PAPA%20France/Desktop%20-%20Page%20Produit%20Personnalis%C3%A9%20-%20Etape%203.jpg</image:loc>
+        <image:title><![CDATA[Desktop   page produit personnalisé   etape 3]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/PAPA%20France/Desktop%20-%20Page%20Produit.jpg</image:loc>
+        <image:title><![CDATA[Desktop   page produit]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/PAPA%20France/Mobile%20-%20%20Page%20Produit%20Personnalis%C3%A9%20-%20Etape%201.jpg</image:loc>
+        <image:title><![CDATA[Mobile    page produit personnalisé   etape 1]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/PAPA%20France/Mobile%20-%20Cadencier%20popup.jpg</image:loc>
+        <image:title><![CDATA[Mobile   cadencier popup]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/PAPA%20France/Mobile%20-%20Cadencier.jpg</image:loc>
+        <image:title><![CDATA[Mobile   cadencier]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/PAPA%20France/Mobile%20-%20Page%20Produit.jpg</image:loc>
+        <image:title><![CDATA[Mobile   page produit]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/PAPA%20France/Mobile%20-Page%20Produit%20Personnalis%C3%A9%20-%20Etape%202.jpg</image:loc>
+        <image:title><![CDATA[Mobile  page produit personnalisé   etape 2]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/PAPA%20France/Mobile%20-Page%20Produit%20Personnalis%C3%A9%20V1%20-%20Etape%203.jpg</image:loc>
+        <image:title><![CDATA[Mobile  page produit personnalisé v1   etape 3]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/picsou-soir/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/picsousoir.webp</image:loc>
+        <image:title><![CDATA[Picsou-Soir]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Picsou-Soir/Discover.jpg</image:loc>
+        <image:title><![CDATA[Discover]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Picsou-Soir/Home.jpg</image:loc>
+        <image:title><![CDATA[Home]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Picsou-Soir/Save.jpg</image:loc>
+        <image:title><![CDATA[Save]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Picsou-Soir/Settings.jpg</image:loc>
+        <image:title><![CDATA[Settings]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Picsou-Soir/Splash%20screen.jpg</image:loc>
+        <image:title><![CDATA[Splash screen]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/what-the-duck/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/whattheduck.webp</image:loc>
+        <image:title><![CDATA[What The Duck]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/What%20The%20Duck/Bouquinerie%20-%20Liste.jpg</image:loc>
+        <image:title><![CDATA[Bouquinerie   liste]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/What%20The%20Duck/Bouquinerie%20-%20Permission%20autoris%C3%A9e%20localisation%20activ%C3%A9e.jpg</image:loc>
+        <image:title><![CDATA[Bouquinerie   permission autorisée localisation activée]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/What%20The%20Duck/Bouquinerie%20-%20Permission%20localisation%20autoris%C3%A9e.png</image:loc>
+        <image:title><![CDATA[Bouquinerie   permission localisation autorisée]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/What%20The%20Duck/Bouquinerie%20-%20Permission%20localisation%20manquante.jpg</image:loc>
+        <image:title><![CDATA[Bouquinerie   permission localisation manquante]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/What%20The%20Duck/Modal%20-%20Ajouter%20bouquinerie%20-%20Etape%201.png</image:loc>
+        <image:title><![CDATA[Modal   ajouter bouquinerie   etape 1]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/What%20The%20Duck/Modal%20-%20Ajouter%20bouquinerie%20-%20Etape%202.png</image:loc>
+        <image:title><![CDATA[Modal   ajouter bouquinerie   etape 2]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/What%20The%20Duck/Modal%20-%20Ajouter%20bouquinerie%20-%20Etape%203.png</image:loc>
+        <image:title><![CDATA[Modal   ajouter bouquinerie   etape 3]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/What%20The%20Duck/Modal%20-%20Ajouter%20bouquinerie%20-%20Succ%C3%A8s.png</image:loc>
+        <image:title><![CDATA[Modal   ajouter bouquinerie   succès]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/What%20The%20Duck/Modal%20-%20D%C3%A9tails%20bouquinerie.jpg</image:loc>
+        <image:title><![CDATA[Modal   détails bouquinerie]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/What%20The%20Duck/Modal%20-%20Permission%20manquante.png</image:loc>
+        <image:title><![CDATA[Modal   permission manquante]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/What%20The%20Duck/Navnar%20menu.jpg</image:loc>
+        <image:title><![CDATA[Navnar menu]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/tom-et-lola/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/tometlola.webp</image:loc>
+        <image:title><![CDATA[Tom et Lola]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Tom%20et%20Lola/Accueil.jpg</image:loc>
+        <image:title><![CDATA[Accueil]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Tom%20et%20Lola/Blog.jpg</image:loc>
+        <image:title><![CDATA[Blog]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Tom%20et%20Lola/Casting.jpg</image:loc>
+        <image:title><![CDATA[Casting]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Tom%20et%20Lola/Clips%20vid%C3%A9o.jpg</image:loc>
+        <image:title><![CDATA[Clips vidéo]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Tom%20et%20Lola/Merchandising.jpg</image:loc>
+        <image:title><![CDATA[Merchandising]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/dumili/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/dumili.webp</image:loc>
+        <image:title><![CDATA[DuMILi]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/DuMILi/Accueil.jpg</image:loc>
+        <image:title><![CDATA[Accueil]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/DuMILi/Cr%C3%A9ation%20nouvel%20index%20-%20Etape%201.jpg</image:loc>
+        <image:title><![CDATA[Création nouvel index   etape 1]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/DuMILi/Cr%C3%A9ation%20nouvel%20index%20-%20Etape%202.jpg</image:loc>
+        <image:title><![CDATA[Création nouvel index   etape 2]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/DuMILi/Editeur%20cr%C3%A9ation%20index.png</image:loc>
+        <image:title><![CDATA[Editeur création index]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/DuMILi/Param%C3%A8tres.jpg</image:loc>
+        <image:title><![CDATA[Paramètres]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/break-screen/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/breakscreen.webp</image:loc>
+        <image:title><![CDATA[Break Screen]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Break%20Screen/Accueil%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Accueil   mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Break%20Screen/Articles%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Articles   mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Break%20Screen/Articles.jpg</image:loc>
+        <image:title><![CDATA[Articles]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Break%20Screen/Formulaire%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Formulaire   mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Break%20Screen/Formulaire.jpg</image:loc>
+        <image:title><![CDATA[Formulaire]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Break%20Screen/Landing%20page%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Landing page   mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Break%20Screen/Landing%20page.jpg</image:loc>
+        <image:title><![CDATA[Landing page]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Break%20Screen/Pr%C3%A9vention%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Prévention   mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Break%20Screen/Pr%C3%A9vention.jpg</image:loc>
+        <image:title><![CDATA[Prévention]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Break%20Screen/R%C3%A9sultats%20formulaire%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Résultats formulaire   mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Break%20Screen/R%C3%A9sultats%20formulaire.jpg</image:loc>
+        <image:title><![CDATA[Résultats formulaire]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Break%20Screen/%C3%80%20propos.jpg</image:loc>
+        <image:title><![CDATA[À propos]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/pizz-ami/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/pizzami.webp</image:loc>
+        <image:title><![CDATA[Pizz'Ami]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Pizz&apos;Ami/Accueil.jpg</image:loc>
+        <image:title><![CDATA[Accueil]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Pizz&apos;Ami/Carte%20-%20Calzone.jpg</image:loc>
+        <image:title><![CDATA[Carte   calzone]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Pizz&apos;Ami/Carte%20-%20Desserts.jpg</image:loc>
+        <image:title><![CDATA[Carte   desserts]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Pizz&apos;Ami/Carte%20-%20Pizza.jpg</image:loc>
+        <image:title><![CDATA[Carte   pizza]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Pizz&apos;Ami/Carte%20-%20Salades.jpg</image:loc>
+        <image:title><![CDATA[Carte   salades]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Pizz&apos;Ami/Choix%20additionnels%20boissons.png</image:loc>
+        <image:title><![CDATA[Choix additionnels boissons]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Pizz&apos;Ami/Info%20produit.png</image:loc>
+        <image:title><![CDATA[Info produit]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Pizz&apos;Ami/Page%20produit%20personnalis%C3%A9.jpg</image:loc>
+        <image:title><![CDATA[Page produit personnalisé]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/inducks/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/inducks.webp</image:loc>
+        <image:title><![CDATA[I.N.D.U.C.K.S.]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/inducks/Accueil%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Accueil   mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/inducks/Accueil.jpg</image:loc>
+        <image:title><![CDATA[Accueil]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/ballon-nike-academy-team/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/ballonfoot.webp</image:loc>
+        <image:title><![CDATA[Ballon Nike Academy Team]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Ballon%20Nike%20Academy%20Team/Page%20produit.jpg</image:loc>
+        <image:title><![CDATA[Page produit]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/run-rerun/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/runandrerun.webp</image:loc>
+        <image:title><![CDATA[Run&Rerun]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Run&amp;Rerun/Home%20page.jpg</image:loc>
+        <image:title><![CDATA[Home page]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/planete-loto-live/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/cartaloto.webp</image:loc>
+        <image:title><![CDATA[Planète Loto Live]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Plan%C3%A8te%20Loto%20Live/Landing%20page.jpg</image:loc>
+        <image:title><![CDATA[Landing page]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Plan%C3%A8te%20Loto%20Live/Wireframe%20Landing%20page.jpg</image:loc>
+        <image:title><![CDATA[Wireframe landing page]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/joyca-trouve-la-regle/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/projectnoresult.svg</image:loc>
+        <image:title><![CDATA[Joyca, Trouve la règle]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/digital-unicorn/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/digitalunicorn.webp</image:loc>
+        <image:title><![CDATA[Digital Unicorn]]></image:title>
+      </image:image>
+      
+      
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/promodentaire/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/promodentaire.webp</image:loc>
+        <image:title><![CDATA[Promodentaire]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Promodentaire/Check%20out.png</image:loc>
+        <image:title><![CDATA[Check out]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Promodentaire/Compare%20After.png</image:loc>
+        <image:title><![CDATA[Compare after]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Promodentaire/Product%20detail%20After.png</image:loc>
+        <image:title><![CDATA[Product detail after]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Promodentaire/Product%20detail.png</image:loc>
+        <image:title><![CDATA[Product detail]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Promodentaire/Search%20After%200.png</image:loc>
+        <image:title><![CDATA[Search after 0]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Promodentaire/Search%20After%201.png</image:loc>
+        <image:title><![CDATA[Search after 1]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Promodentaire/Search%20After%202.png</image:loc>
+        <image:title><![CDATA[Search after 2]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/direct-democracy/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/directdemocracy.webp</image:loc>
+        <image:title><![CDATA[Direct Democracy]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Direct%20Democracy/Home%20-%20Logged%20in.jpg</image:loc>
+        <image:title><![CDATA[Home   logged in]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Direct%20Democracy/Home%20-%20Not%20logged%20in.jpg</image:loc>
+        <image:title><![CDATA[Home   not logged in]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Direct%20Democracy/Results.jpg</image:loc>
+        <image:title><![CDATA[Results]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Direct%20Democracy/Settings.jpg</image:loc>
+        <image:title><![CDATA[Settings]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Direct%20Democracy/Vote.jpg</image:loc>
+        <image:title><![CDATA[Vote]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/darknet/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/darknet.webp</image:loc>
+        <image:title><![CDATA[Darknet]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Darknet/Home.jpg</image:loc>
+        <image:title><![CDATA[Home]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Darknet/Page%20Item.jpg</image:loc>
+        <image:title><![CDATA[Page item]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Darknet/Shop.jpg</image:loc>
+        <image:title><![CDATA[Shop]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/vaylune/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/vaylune.webp</image:loc>
+        <image:title><![CDATA[Vaylune]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/Vaylune/Landing%20page.jpg</image:loc>
+        <image:title><![CDATA[Landing page]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/jobbrr/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/jobbrr.webp</image:loc>
+        <image:title><![CDATA[JOBBRR]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/JOBBRR/Landing%20page%20entreprise%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Landing page entreprise   mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/JOBBRR/Landing%20page%20entreprise.jpg</image:loc>
+        <image:title><![CDATA[Landing page entreprise]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/JOBBRR/Landing%20page%20%C3%A9tudiant%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Landing page étudiant   mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/JOBBRR/Landing%20page%20%C3%A9tudiant.jpg</image:loc>
+        <image:title><![CDATA[Landing page étudiant]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/JOBBRR/Profil%20Etudiant%20mobile.jpg</image:loc>
+        <image:title><![CDATA[Profil etudiant mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/JOBBRR/Profil%20entreprise%20mobile.jpg</image:loc>
+        <image:title><![CDATA[Profil entreprise mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/JOBBRR/Profil%20entreprise.jpg</image:loc>
+        <image:title><![CDATA[Profil entreprise]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/JOBBRR/Profil%20%C3%A9tudiant%20-%20Vue%20entreprise.jpg</image:loc>
+        <image:title><![CDATA[Profil étudiant   vue entreprise]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/results/JOBBRR/Profil%20%C3%A9tudiant.jpg</image:loc>
+        <image:title><![CDATA[Profil étudiant]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/phoq-tv/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/phoq.webp</image:loc>
+        <image:title><![CDATA[PHOQ.tv]]></image:title>
+      </image:image>
+      
+      
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/danse-a-l-opera/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/dansealopera.webp</image:loc>
+        <image:title><![CDATA[Danse à l'Opéra]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/introduction-sur-la-faune-et-la-flore-du-var/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/fauneflorevar.webp</image:loc>
+        <image:title><![CDATA[Introduction sur la faune et la flore du Var]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/video-oeuvre-culturelle/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/tresdemayo.webp</image:loc>
+        <image:title><![CDATA[Vidéo œuvre culturelle]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/tom-et-lola-campagne/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/tometlola2.webp</image:loc>
+        <image:title><![CDATA[Tom et Lola (Campagne)]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/strategie-de-communication-mafigue/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/mafigue.webp</image:loc>
+        <image:title><![CDATA[Stratégie de communication Mafigue]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/jeu-de-l-oie-cultophoto/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/cultophoto.webp</image:loc>
+        <image:title><![CDATA[Jeu de l'oie : CultoPhoto]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/sites-wordpress/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/wordpress.webp</image:loc>
+        <image:title><![CDATA[Sites WordPress]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/maquette-fanzine-picsou-soir/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/media/projects/picsousoir2.webp</image:loc>
+        <image:title><![CDATA[Maquette fanzine Picsou-Soir]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+  
 </urlset>
