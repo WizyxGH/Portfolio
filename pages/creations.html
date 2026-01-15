@@ -115,17 +115,25 @@ permalink: /creations/
             {% assign sorted_projects = site.data.projects | sort: 'id' %}
             {% for project in sorted_projects %}
             {% assign pid = project.id | plus: 0 %}
-            {% if pid <= 26 %} {% assign slug=project.title | slugify %} <a href="/creations/{{ slug }}/"
+            {% if pid <= 26 %} {% if project.slug %} {% assign slug=project.slug %} {% else %} {% assign
+                slug=project.title | slugify %} {% endif %} <a href="/creations/{{ slug }}/"
                 class="projectCard animate-on-scroll transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212] block"
                 data-project-id="{{ project.id }}" data-title="{{ project.title | downcase }}"
                 data-description="{{ project.description | downcase }}"
                 data-text="{{ project.content | strip_html | downcase | replace: '"', ' &quot;' }}"
                 data-type="{{ project.type }}" data-tags="{{ project.tags | map: 'name' | join: ',' }}">
 
+                {% if project.image contains 'projectnoresult.svg' %}
+                <div
+                    class="h-40 mb-3 rounded-lg bg-[rgba(65,31,235,0.12)] outline outline-2 flex items-center justify-center overflow-hidden">
+                    <img src="{{ project.image }}" alt="{{ project.title }}" class="h-64 w-64">
+                </div>
+                {% else %}
                 <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
                     <img src="{{ project.image }}" loading="lazy" decoding="async" alt="{{ project.title }}"
                         class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
                 </div>
+                {% endif %}
                 <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">{{ project.title }}</h3>
                 <div class="mt-1 flex flex-wrap gap-2">
                     {% for tag in project.tags %}

@@ -57,15 +57,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // --- Chargement du fichier JSON (pour les filtres et la recherche) ---
-    console.log("Fetching /js/projects.json...");
     fetch('/js/projects.json')
         .then(res => {
-            console.log("Fetch response:", res.status);
             if (!res.ok) throw new Error("Impossible de charger projects.json");
             return res.json();
         })
         .then(data => {
-            console.log("Data loaded:", data.length, "items");
             projects = data;
 
             // Définir le scope des projets selon la page (pour les filtres)
@@ -79,7 +76,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Récupérer les cartes statiques générées par Jekyll
             allCards = Array.from(container.querySelectorAll(".projectCard"));
-            console.log("Found static cards:", allCards.length);
 
             // Initialiser l'animation sur les cartes existantes
             rowDelayMap.clear();
@@ -416,8 +412,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     div.className = "flex items-center gap-2 p-2 hover:bg-[#EDE9FE] cursor-pointer transition-colors rounded-lg";
                     // Link vers la page projet
                     // On doit générer l'URL. 
-                    const projectSlug = slugify(project.title);
-                    const projectUrl = `/projects/${projectSlug}/`;
+                    const projectSlug = project.slug || slugify(project.title);
+                    const projectUrl = `/creations/${projectSlug}/`;
 
                     const link = document.createElement('a');
                     link.href = projectUrl;
@@ -443,10 +439,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         const typeSpan = document.createElement('span');
                         typeSpan.className = "text-[#3E3E3E] text-sm opacity-80 mt-0.5 sm:mt-0 flex items-center";
                         const separator = document.createElement('span');
-                        separator.textContent = '•';
-                        separator.style.color = '#411FEB';
-                        separator.style.opacity = '0.48';
-                        separator.className = "hidden sm:inline mx-1";
+                        separator.innerHTML = '&middot;';
+                        separator.className = "hidden sm:inline mx-1 text-[#411FEB] dark:text-[#5536ED] opacity-[0.48]";
                         const typeText = document.createElement('span');
                         typeText.textContent = project.type.charAt(0).toUpperCase() + project.type.slice(1);
                         typeSpan.append(separator, typeText);

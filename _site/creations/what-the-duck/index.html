@@ -29,6 +29,27 @@
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/x-icon" href="/media/favicon.ico">
 
+    <link rel="canonical" href="http://localhost:4000/creations/what-the-duck/">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "headline": "What The Duck",
+      "image": [
+        "http://localhost:4000/media/projects/whattheduck.webp"
+        ,"http://localhost:4000/media/projects/results/What The Duck/Bouquinerie - Liste.jpg","http://localhost:4000/media/projects/results/What The Duck/Bouquinerie - Permission autorisée localisation activée.jpg","http://localhost:4000/media/projects/results/What The Duck/Bouquinerie - Permission localisation autorisée.png","http://localhost:4000/media/projects/results/What The Duck/Bouquinerie - Permission localisation manquante.jpg","http://localhost:4000/media/projects/results/What The Duck/Modal - Ajouter bouquinerie - Etape 1.png","http://localhost:4000/media/projects/results/What The Duck/Modal - Ajouter bouquinerie - Etape 2.png","http://localhost:4000/media/projects/results/What The Duck/Modal - Ajouter bouquinerie - Etape 3.png","http://localhost:4000/media/projects/results/What The Duck/Modal - Ajouter bouquinerie - Succès.png","http://localhost:4000/media/projects/results/What The Duck/Modal - Détails bouquinerie.jpg","http://localhost:4000/media/projects/results/What The Duck/Modal - Permission manquante.png","http://localhost:4000/media/projects/results/What The Duck/Navnar menu.jpg"
+      ],
+      "datePublished": "2000-01-01T00:00:00+01:00",
+      "author": [{
+          "@type": "Person",
+          "name": "Florian Gertner Kilian",
+          "url": "https://wizyx.me"
+        }]
+    }
+    </script>
+
     <script src="/js/script.js" defer></script>
     <script src="/js/layout.js" defer></script>
     <script src="/js/theme.js" defer></script>
@@ -39,95 +60,168 @@
     <!-- Navbar -->
     <div id="navbar-container"></div>
 
-    <main class="pt-24 lg:pt-32 pb-16 px-6 lg:px-32 max-w-7xl mx-auto">
-        <div class="mb-8">
-            <div class="flex items-center gap-4 mb-8">
+    <main class="px-6 lg:px-32 mx-auto p-8 space-y-4">
+        <div>
+            <div class="flex flex-col items-start lg:flex-row lg:items-center">
                 <a href="/creations"
                     class="inline-flex items-center justify-center text-[#121212] dark:text-white hover:text-[#411FEB] dark:hover:text-[#5536ED] transition-colors p-2 -ml-2 rounded-full hover:bg-black/5 dark:hover:bg-white/5 leading-none"
                     aria-label="Retour aux créations">
-                    <i class='bx bx-arrow-back text-3xl lg:text-4xl leading-none'></i>
+                    <i class='bx bx-arrow-back text-2xl lg:text-3xl leading-none'></i>
                 </a>
-                <h1 class="text-4xl lg:text-5xl font-bold text-[#411FEB] dark:text-[#5536ED] leading-tight">What The Duck</h1>
+                <h1 class="text-2xl lg:text-4xl font-bold text-[#411FEB] dark:text-[#5536ED] leading-tight">What The Duck</h1>
             </div>
 
-            <div class="flex flex-wrap items-center gap-4 text-sm text-[#121212] dark:text-white mb-6">
-                <div class="flex items-center gap-1">
-                    <i class="bx bxs-calendar-alt text-[#411FEB] dark:text-[#5536ED] opacity-[0.48] text-base"></i>
+            <div class="flex flex-col gap-2 mb-8">
+                <div class="flex flex-wrap items-center gap-2 text-sm text-[#121212] dark:text-white">
+                    <div class="flex items-center gap-1">
+                        <i class="bx bxs-calendar-alt text-[#411FEB] dark:text-[#5536ED] opacity-[0.48] text-base"></i>
+                        
+                        
+                        <time datetime="2000-01-01T00:00:00+01:00">janvier 2000</time>
+                    </div>
+
                     
+                    <span class="text-[#411FEB] dark:text-[#5536ED] opacity-[0.48]">&middot;</span>
+                    <span>Application</span>
                     
-                    <span>janvier 2000</span>
+
+                    
+                    <span class="text-[#411FEB] dark:text-[#5536ED] opacity-[0.48]">&middot;</span>
+                    <span>Personnel</span>
+                    
                 </div>
-                
-                <span class="text-[#411FEB] dark:text-[#5536ED] opacity-[0.48]">&middot;</span>
-                <span>Application</span>
-                
-                
-                <span class="text-[#411FEB] dark:text-[#5536ED] opacity-[0.48]">&middot;</span>
-                <span>Personnel</span>
-                
-            </div>
 
-            <div class="flex flex-wrap gap-2 mb-8">
-                
-                <span
-                    class="inline-flex items-center gap-1 px-3 py-1 rounded-full border border-[#411FEB] text-[#411FEB] dark:text-[#5536ED] font-medium text-sm bg-[#411FEB]/10">
-                    <i class='bx bxs-layout text-base'></i> UI/UX Design
-                </span>
-                
-                <span
-                    class="inline-flex items-center gap-1 px-3 py-1 rounded-full border border-[#411FEB] text-[#411FEB] dark:text-[#5536ED] font-medium text-sm bg-[#411FEB]/10">
-                    <i class='bx bx-play-circle text-base'></i> Prototyping
-                </span>
-                
+                <div class="flex flex-wrap gap-2">
+                    
+                    <span
+                        class="inline-flex items-center gap-1 px-2 rounded-full border border-[#411FEB] text-[#411FEB] font-semibold text-sm dark:text-[#5536ED] dark:border-[#5536ED]"
+                        style="background-color: rgba(65, 31, 235, 0.12)">
+                        <i class='bx bxs-layout text-base'></i> UI/UX Design
+                    </span>
+                    
+                    <span
+                        class="inline-flex items-center gap-1 px-2 rounded-full border border-[#411FEB] text-[#411FEB] font-semibold text-sm dark:text-[#5536ED] dark:border-[#5536ED]"
+                        style="background-color: rgba(65, 31, 235, 0.12)">
+                        <i class='bx bx-play-circle text-base'></i> Prototyping
+                    </span>
+                    
+                </div>
             </div>
         </div>
 
-        <div class="flex flex-col lg:flex-row gap-8">
+        <article class="flex flex-col lg:flex-row gap-8">
             <!-- Project Content -->
-            <div class="lg:w-1/2">
+            <div class="lg:w-1/2 space-y-4">
                 <div class="prose dark:prose-invert max-w-none text-[#121212] dark:text-white leading-relaxed">
                     What The Duck est l'application mobile du site internet DucksManager. Les 2 ont le même objectif : aider les collectionneurs de bandes dessinées Disney à classifier leur collection. Les données affichées proviennent de la base de données Inducks.<br>Sur le site DucksManager, il y a une fonctionnalité permettant aux utilisateurs de partager leur bonne adresse de bouquinerie sauf que cela n’a pas beaucoup de sens que la carte d’adresse et la fonctionnalitée ne soit pas disponible sur l'application mobile. On se déplace avec son téléphone pas son ordinateur. Cela demande alors de jongler entre plusieurs autres applications.<br>Frustré par un tel usage, j’ai designé comment elle pourrait être intégrée sur What The Duck.
                 </div>
-
-                <div class="flex flex-col sm:flex-row gap-4 mt-8">
+                
+                <a href="play.google.com/store/applications/details?id=net.ducksmanager.whattheduck" target="_blank"
+                    class="flex items-center justify-center gap-2 bg-[#411FEB] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#3A1CC5] transition w-full lg:w-auto lg:self-start">
                     
-                    <a href="play.google.com/store/applications/details?id=net.ducksmanager.whattheduck" target="_blank"
-                        class="flex items-center justify-center gap-2 bg-[#411FEB] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#3A1CC5] transition">
-                        <i class="bx bx-globe"></i> Visiter le site web
-                    </a>
+                    <i class="bx bx-globe"></i> Voir l'application
                     
-                </div>
+                </a>
+                
             </div>
 
             <!-- Project Visuals (Carousel with Dots & Counter) -->
             <div class="lg:w-1/2">
-                <div class="flex flex-col gap-4">
+                <div class="flex flex-col">
                     
                     
 
                     <!-- Main Display (Carousel Viewport) -->
-                    <div class="relative group w-full h-[600px] lg:h-[80vh] bg-black rounded-xl overflow-hidden flex flex-col items-center justify-center shadow-2xl border border-white/10"
-                        id="projectCarousel">
+                    <div class="relative group w-full bg-black rounded-xl overflow-hidden flex flex-col justify-center shadow-2xl border border-white/10"
+                        style="aspect-ratio: 4/3; max-height: 500px;" id="projectCarousel">
 
                         <!-- Counter (Top Right) -->
                         <div
-                            class="absolute top-6 right-6 z-20 text-white font-mono font-bold text-sm tracking-wider bg-black/60 px-4 py-2 rounded-full backdrop-blur-md border border-white/10">
+                            class="absolute top-6 right-6 z-20 text-white font-mono font-bold text-sm tracking-wider bg-black/60 px-4 py-2 rounded-full backdrop-blur-md">
                             <span id="currentSlide">1</span> / <span id="totalSlides">0</span>
                         </div>
 
                         <!-- Slides Track -->
-                        <div class="carousel-track flex h-full transition-transform duration-500 ease-in-out w-full">
+                        <div
+                            class="carousel-track flex h-full transition-transform duration-500 ease-in-out w-full self-start">
 
                             <!-- Slide 0: Main Image -->
                             
                             <div class="min-w-full w-full flex-none h-full flex items-center justify-center p-0 lg:p-4 carousel-slide"
                                 style="flex: 0 0 100% !important; min-width: 100% !important; width: 100% !important;">
-                                <img src="/media/projects/whattheduck.webp" alt="What The Duck - Main"
-                                    class="max-w-full max-h-full object-contain">
+                                <img src="/media/projects/whattheduck.webp" alt="What The Duck - Main" class="h-full object-contain">
                             </div>
                             
 
                             <!-- Slides 1..N: Gallery -->
+                            
+                            
+                            <div class="min-w-full w-full flex-none h-full flex items-center justify-center p-0 lg:p-4 carousel-slide"
+                                style="flex: 0 0 100% !important; min-width: 100% !important; width: 100% !important;">
+                                <img src="/media/projects/results/What The Duck/Bouquinerie - Liste.jpg" alt="What The Duck - Gallery 1"
+                                    class="h-full object-contain" loading="lazy">
+                            </div>
+                            
+                            <div class="min-w-full w-full flex-none h-full flex items-center justify-center p-0 lg:p-4 carousel-slide"
+                                style="flex: 0 0 100% !important; min-width: 100% !important; width: 100% !important;">
+                                <img src="/media/projects/results/What The Duck/Bouquinerie - Permission autorisée localisation activée.jpg" alt="What The Duck - Gallery 2"
+                                    class="h-full object-contain" loading="lazy">
+                            </div>
+                            
+                            <div class="min-w-full w-full flex-none h-full flex items-center justify-center p-0 lg:p-4 carousel-slide"
+                                style="flex: 0 0 100% !important; min-width: 100% !important; width: 100% !important;">
+                                <img src="/media/projects/results/What The Duck/Bouquinerie - Permission localisation autorisée.png" alt="What The Duck - Gallery 3"
+                                    class="h-full object-contain" loading="lazy">
+                            </div>
+                            
+                            <div class="min-w-full w-full flex-none h-full flex items-center justify-center p-0 lg:p-4 carousel-slide"
+                                style="flex: 0 0 100% !important; min-width: 100% !important; width: 100% !important;">
+                                <img src="/media/projects/results/What The Duck/Bouquinerie - Permission localisation manquante.jpg" alt="What The Duck - Gallery 4"
+                                    class="h-full object-contain" loading="lazy">
+                            </div>
+                            
+                            <div class="min-w-full w-full flex-none h-full flex items-center justify-center p-0 lg:p-4 carousel-slide"
+                                style="flex: 0 0 100% !important; min-width: 100% !important; width: 100% !important;">
+                                <img src="/media/projects/results/What The Duck/Modal - Ajouter bouquinerie - Etape 1.png" alt="What The Duck - Gallery 5"
+                                    class="h-full object-contain" loading="lazy">
+                            </div>
+                            
+                            <div class="min-w-full w-full flex-none h-full flex items-center justify-center p-0 lg:p-4 carousel-slide"
+                                style="flex: 0 0 100% !important; min-width: 100% !important; width: 100% !important;">
+                                <img src="/media/projects/results/What The Duck/Modal - Ajouter bouquinerie - Etape 2.png" alt="What The Duck - Gallery 6"
+                                    class="h-full object-contain" loading="lazy">
+                            </div>
+                            
+                            <div class="min-w-full w-full flex-none h-full flex items-center justify-center p-0 lg:p-4 carousel-slide"
+                                style="flex: 0 0 100% !important; min-width: 100% !important; width: 100% !important;">
+                                <img src="/media/projects/results/What The Duck/Modal - Ajouter bouquinerie - Etape 3.png" alt="What The Duck - Gallery 7"
+                                    class="h-full object-contain" loading="lazy">
+                            </div>
+                            
+                            <div class="min-w-full w-full flex-none h-full flex items-center justify-center p-0 lg:p-4 carousel-slide"
+                                style="flex: 0 0 100% !important; min-width: 100% !important; width: 100% !important;">
+                                <img src="/media/projects/results/What The Duck/Modal - Ajouter bouquinerie - Succès.png" alt="What The Duck - Gallery 8"
+                                    class="h-full object-contain" loading="lazy">
+                            </div>
+                            
+                            <div class="min-w-full w-full flex-none h-full flex items-center justify-center p-0 lg:p-4 carousel-slide"
+                                style="flex: 0 0 100% !important; min-width: 100% !important; width: 100% !important;">
+                                <img src="/media/projects/results/What The Duck/Modal - Détails bouquinerie.jpg" alt="What The Duck - Gallery 9"
+                                    class="h-full object-contain" loading="lazy">
+                            </div>
+                            
+                            <div class="min-w-full w-full flex-none h-full flex items-center justify-center p-0 lg:p-4 carousel-slide"
+                                style="flex: 0 0 100% !important; min-width: 100% !important; width: 100% !important;">
+                                <img src="/media/projects/results/What The Duck/Modal - Permission manquante.png" alt="What The Duck - Gallery 10"
+                                    class="h-full object-contain" loading="lazy">
+                            </div>
+                            
+                            <div class="min-w-full w-full flex-none h-full flex items-center justify-center p-0 lg:p-4 carousel-slide"
+                                style="flex: 0 0 100% !important; min-width: 100% !important; width: 100% !important;">
+                                <img src="/media/projects/results/What The Duck/Navnar menu.jpg" alt="What The Duck - Gallery 11"
+                                    class="h-full object-contain" loading="lazy">
+                            </div>
+                            
                             
                         </div>
 
@@ -143,123 +237,80 @@
                             <i class='bx bx-chevron-right text-3xl'></i>
                         </button>
 
-                        <!-- Pagination Dots (Bottom) -->
-                        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-50 bg-black/40 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10"
-                            id="carouselDots">
-                            <!-- Dots generated by JS -->
-                        </div>
+
+                    </div>
+                    <!-- Pagination Dots (Moved below) -->
+                    <div class="flex justify-center mt-4 gap-3" id="carouselDots">
+                        <!-- Dots generated by JS -->
                     </div>
                 </div>
 
-                <script>
-                    document.addEventListener('DOMContentLoaded', () => {
-                        const track = document.querySelector('.carousel-track');
-                        const prevBtn = document.getElementById('prevBtn');
-                        const nextBtn = document.getElementById('nextBtn');
-                        const dotsContainer = document.getElementById('carouselDots');
-                        const currentSlideEl = document.getElementById('currentSlide');
-                        const totalSlidesEl = document.getElementById('totalSlides');
-
-                        // Collect all slides
-                        const slides = document.querySelectorAll('.carousel-slide');
-                        const totalSlides = slides.length;
-                        let currentIndex = 0;
-
-                        // Initialize Counter
-                        if (totalSlidesEl) totalSlidesEl.textContent = totalSlides;
-
-                        // Create Dots
-                        dotsContainer.innerHTML = ''; // Clear existing dots
-                        slides.forEach((_, index) => {
-                            const dot = document.createElement('button');
-                            dot.className = `w-2.5 h-2.5 rounded-full transition-all duration-300 focus:outline-none ${index === 0 ? 'bg-[#5536ED] scale-125' : 'bg-white/50 hover:bg-white'}`;
-                            dot.ariaLabel = `Go to slide ${index + 1}`;
-                            dot.addEventListener('click', () => {
-                                currentIndex = index;
-                                updateCarousel();
-                            });
-                            dotsContainer.appendChild(dot);
-                        });
-
-                        const dots = dotsContainer.querySelectorAll('button');
-
-                        // Touch handling
-                        let touchStartX = 0;
-                        let touchEndX = 0;
-
-                        function updateCarousel() {
-                            if (!track) return;
-                            track.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-                            // Update Counter
-                            if (currentSlideEl) currentSlideEl.textContent = currentIndex + 1;
-
-                            // Update Dots
-                            dots.forEach((dot, i) => {
-                                if (i === currentIndex) {
-                                    dot.className = 'w-2.5 h-2.5 rounded-full transition-all duration-300 focus:outline-none bg-[#5536ED] scale-125';
-                                } else {
-                                    dot.className = 'w-2.5 h-2.5 rounded-full transition-all duration-300 focus:outline-none bg-white/50 hover:bg-white';
-                                }
-                            });
-                        }
-
-                        function nextSlide() {
-                            if (totalSlides <= 1) return;
-                            currentIndex = (currentIndex + 1) % totalSlides;
-                            updateCarousel();
-                        }
-
-                        function prevSlide() {
-                            if (totalSlides <= 1) return;
-                            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-                            updateCarousel();
-                        }
-
-                        if (prevBtn && nextBtn) {
-                            prevBtn.addEventListener('click', prevSlide);
-                            nextBtn.addEventListener('click', nextSlide);
-
-                            // Hide buttons if only 1 slide
-                            if (totalSlides <= 1) {
-                                prevBtn.style.display = 'none';
-                                nextBtn.style.display = 'none';
-                                dotsContainer.style.display = 'none';
-                            }
-                        }
-
-                        // Keyboard Navigation
-                        document.addEventListener('keydown', (e) => {
-                            if (e.key === 'ArrowLeft') prevSlide();
-                            if (e.key === 'ArrowRight') nextSlide();
-                        });
-
-                        // Touch / Swipe Support
-                        const carouselContainer = document.getElementById('projectCarousel');
-                        if (carouselContainer) {
-                            carouselContainer.addEventListener('touchstart', e => {
-                                touchStartX = e.changedTouches[0].screenX;
-                            }, { passive: true });
-
-                            carouselContainer.addEventListener('touchend', e => {
-                                touchEndX = e.changedTouches[0].screenX;
-                                handleSwipe();
-                            }, { passive: true });
-                        }
-
-                        function handleSwipe() {
-                            const threshold = 50;
-                            if (touchEndX < touchStartX - threshold) nextSlide();
-                            if (touchEndX > touchStartX + threshold) prevSlide();
-                        }
-                    });
-                </script>
             </div>
-        </div>
+        </article>
     </main>
 
     <div id="footer-container"></div>
 
+    <script type="application/json" id="project-data">
+    {
+        "image": "/media/projects/whattheduck.webp",
+        "gallery": [
+            
+                "/media/projects/results/What The Duck/Bouquinerie - Liste.jpg",
+            
+                "/media/projects/results/What The Duck/Bouquinerie - Permission autorisée localisation activée.jpg",
+            
+                "/media/projects/results/What The Duck/Bouquinerie - Permission localisation autorisée.png",
+            
+                "/media/projects/results/What The Duck/Bouquinerie - Permission localisation manquante.jpg",
+            
+                "/media/projects/results/What The Duck/Modal - Ajouter bouquinerie - Etape 1.png",
+            
+                "/media/projects/results/What The Duck/Modal - Ajouter bouquinerie - Etape 2.png",
+            
+                "/media/projects/results/What The Duck/Modal - Ajouter bouquinerie - Etape 3.png",
+            
+                "/media/projects/results/What The Duck/Modal - Ajouter bouquinerie - Succès.png",
+            
+                "/media/projects/results/What The Duck/Modal - Détails bouquinerie.jpg",
+            
+                "/media/projects/results/What The Duck/Modal - Permission manquante.png",
+            
+                "/media/projects/results/What The Duck/Navnar menu.jpg"
+            
+        ],
+        "title": "What The Duck"
+    }
+    </script>
+    <script src="/js/project-carousel.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const projectData = JSON.parse(document.getElementById('project-data').textContent);
+            const images = [];
+
+            // Only add main image if it is in the results folder
+            if (projectData.image && projectData.image.includes("/results/")) {
+                images.push(projectData.image);
+            }
+
+            // Add gallery images
+            if (projectData.gallery && projectData.gallery.length > 0) {
+                images.push(...projectData.gallery);
+            }
+
+            ProjectCarousel.init({
+                images: images,
+                projectTitle: projectData.title,
+                containerId: "projectCarousel",
+                trackSelector: ".carousel-track",
+                prevBtnId: "prevBtn",
+                nextBtnId: "nextBtn",
+                dotsId: "carouselDots",
+                currentSlideId: "currentSlide",
+                totalSlidesId: "totalSlides"
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -43,8 +43,8 @@ module Jekyll
     def generate(site)
       if site.data['projects']
         site.data['projects'].each do |project|
-          # Create a slug from the title
-          slug = Utils.slugify(project['title'])
+          # Create a slug from the title or use provided slug
+          slug = project['slug'] || Utils.slugify(project['title'])
           
           # Auto-populate gallery from folder if not present
           # Assumes images are in /media/projects/results/<Project Title>/
@@ -56,7 +56,8 @@ module Jekyll
                 project['title'].strip,
                 slug, # slug is typically lowercase-hyphenated "le-guide-du-golfe..."
                 project['title'].gsub(' ', '_'),
-                project['title'].gsub(' ', '')
+                project['title'].gsub(' ', ''),
+                project['title'].gsub(/[^0-9a-z]/i, '')
              ]
              
              gallery_path_rel = nil
@@ -74,13 +75,20 @@ module Jekyll
              
              if gallery_path_abs && File.directory?(gallery_path_abs)
                 images = []
-                Dir.glob(File.join(gallery_path_abs, '*')).each do |file|
-                  ext = File.extname(file).downcase
-                  if ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg'].include?(ext)
-                    # Convert absolute path to site-relative path
-                    rel_path = "/#{gallery_path_rel.gsub('\\', '/')}/#{File.basename(file)}"
-                    images << rel_path
-                  end
+                images = Dir.glob(File.join(gallery_path_abs, "**", "*.{jpg,jpeg,png,gif,webp,svg}")).map do |file|
+                  # Convert absolute path to site-relative path
+                  # The glob pattern already filters extensions, so no need for an 'if' here.
+                  # Also, File.basename(file) is correct for the file name, but we need the path relative to gallery_path_rel
+                  # Example: gallery_path_abs = /site/source/media/projects/results/ProjectA
+                  #          file = /site/source/media/projects/results/ProjectA/subdir/image.jpg
+                  #          rel_path_from_gallery_root = subdir/image.jpg
+                  #          final_rel_path = /media/projects/results/ProjectA/subdir/image.jpg
+                  
+                  # Calculate the path relative to gallery_path_abs
+                  relative_to_gallery_root = Pathname.new(file).relative_path_from(Pathname.new(gallery_path_abs)).to_s
+                  
+                  # Construct the full site-relative URL
+                  "/#{gallery_path_rel.gsub('\\', '/')}/#{relative_to_gallery_root.gsub('\\', '/')}"
                 end
                 
                 # Sort images alphabetically

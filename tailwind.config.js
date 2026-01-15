@@ -5,6 +5,7 @@ module.exports = {
     './_posts/**/*.{html,js}',
     './partials/**/*.{html,js}',
     './pages/**/*.{html,js}',
+    './js/**/*.{html,js}',
     './*.{html,js}',
   ],
   theme: {
