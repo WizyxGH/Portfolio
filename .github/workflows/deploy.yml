@@ -37,13 +37,13 @@ jobs:
           npm ci
           bundle install
 
-      - name: Build Tailwind
-        run: npm run tailwind:build
-
       - name: Build Jekyll
         run: bundle exec jekyll build 
         env:
           JEKYLL_ENV: production
+
+      - name: Build Tailwind
+        run: npx tailwindcss -c tailwind.config.js -i assets/css/input.css -o _site/assets/css/tailwind.css --minify
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
