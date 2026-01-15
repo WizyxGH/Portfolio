@@ -45,7 +45,7 @@ module Jekyll
       if site.data['projects']
         site.data['projects'].each do |project|
           # Create a slug from the title or use provided slug
-          slug = project['slug'] || Utils.slugify(project['title'])
+          slug = project['slug'] || Utils.slugify(project['title'], mode: 'latin')
           
           # Auto-populate gallery from folder if not present
           # Assumes images are in /media/projects/results/<Project Title>/
