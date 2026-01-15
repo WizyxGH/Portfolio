@@ -8,17 +8,17 @@ permalink: /image-sitemap.xml
   {% for page in site.pages %}
     {% if page.layout == 'project' %}
     <url>
-      <loc>{{ site.url }}{{ page.url }}</loc>
+      <loc>{{ site.url }}{{ page.url | uri_escape | xml_escape }}</loc>
       {% if page.image %}
       <image:image>
-        <image:loc>{{ site.url }}{{ page.image }}</image:loc>
+        <image:loc>{{ site.url }}{{ page.image | uri_escape | xml_escape }}</image:loc>
         <image:title><![CDATA[{{ page.title }}]]></image:title>
       </image:image>
       {% endif %}
       {% if page.gallery %}
       {% for img in page.gallery %}
       <image:image>
-        <image:loc>{{ site.url }}{{ img }}</image:loc>
+        <image:loc>{{ site.url }}{{ img | uri_escape | xml_escape }}</image:loc>
         <image:title><![CDATA[{{ page.title }} - Image {{ forloop.index }}]]></image:title>
       </image:image>
       {% endfor %}
