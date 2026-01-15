@@ -1,4 +1,13 @@
-url: https://wizyx.me
-baseurl: ""
-title: Portfolio
+url: "https://wizyx.me" # the base hostname & protocol for your site
+baseurl: "" # the subpath of your site, e.g. /blog
+title: "Portfolio Florian Gertner Kilian" # the name of your site, e.g. ACME Corp.
+description: "Product Designer UI/UX & Copywriter. Je crée des interfaces premium, esthétiques et intuitives qui allient design et storytelling. Découvrez mes projets et collaborations."
+author:
+  name: "Florian Gertner Kilian"
+  email: "contact@wizyx.me"
+
 permalink: /:title/
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag

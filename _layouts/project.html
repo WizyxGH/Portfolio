@@ -7,19 +7,7 @@
     <title>{{ page.title }} - Florian Gertner Kilian</title>
 
     <!-- SEO & Open Graph -->
-    <meta name="description" content="{{ page.description | default: page.title }}">
-    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="{{ page.title }}">
-    <meta property="og:description" content="{{ page.description | default: page.title }}">
-    <meta property="og:image" content="{{ site.url }}{{ page.image }}">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta property="twitter:domain" content="wizyx.me">
-    <meta property="twitter:url" content="{{ site.url }}{{ page.url }}">
-    <meta name="twitter:title" content="{{ page.title }}">
-    <meta name="twitter:description" content="{{ page.description | default: page.title }}">
-    <meta name="twitter:image" content="{{ site.url }}{{ page.image }}">
+    {% seo %}
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
