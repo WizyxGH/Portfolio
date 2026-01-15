@@ -19,7 +19,7 @@ permalink: /image-sitemap.xml
       {% for img in page.gallery %}
       <image:image>
         <image:loc>{{ site.url }}{{ img | uri_escape | xml_escape }}</image:loc>
-        <image:title><![CDATA[{{ page.title }} - Image {{ forloop.index }}]]></image:title>
+        <image:title><![CDATA[{{ img | split: '/' | last | split: '.' | first | replace: '-', ' ' | replace: '_', ' ' | capitalize }}]]></image:title>
       </image:image>
       {% endfor %}
       {% endif %}
