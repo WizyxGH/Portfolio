@@ -14,6 +14,7 @@ module Jekyll
 
       # Set the layout to 'project' (corresponds to _layouts/project.html)
       self.data['layout'] = 'project'
+      self.data['priority'] = 0.8
       
       # Set page properties from project data
       self.data['title'] = project['title']
