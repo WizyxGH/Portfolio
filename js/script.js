@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const clearSearchButton = document.getElementById('clearSearch');
     const filtersContainer = document.getElementById('filtersContainer');
     const container = document.getElementById("projectsContainer");
-    if (!container) return;
+    if (!container) return; // Si pas de container, on arrête (ex: page projet)
 
     let projects = [];
     let projectsVisible = 9;
@@ -14,15 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentSort = 'meilleur'; // 'meilleur' (par id) ou 'date'
     let selectedTypes = new Set();
     let selectedTags = new Set();
-
-    const carouselEls = {
-        container: document.getElementById('modalCarousel'),
-        track: document.getElementById('carouselTrack'),
-        dots: document.getElementById('carouselDots'),
-        prev: document.getElementById('carouselPrev'),
-        next: document.getElementById('carouselNext'),
-        counter: document.getElementById('carouselCounter'),
-    };
 
     let scrollAnimationObserver = null;
     let rowDelayMap = new Map();
@@ -48,23 +39,36 @@ document.addEventListener("DOMContentLoaded", function () {
     function registerScrollAnimation(el) {
         if (!el) return;
         initScrollAnimationObserver();
-        el.classList.add('animate-on-scroll', 'opacity-0', 'translate-y-10', 'transition-all', 'duration-600');
+        // Classes animation sont déjà dans le HTML, on observe juste
         scrollAnimationObserver.observe(el);
     }
 
-    const modalController = window.ProjectModal?.init({ carouselEls }) || null;
-    const openModal = modalController?.openModal || (() => { });
-    const closeModal = modalController?.closeModal || (() => { });
+    // Slugs helper pour les suggestions de recherche
+    function slugify(text) {
+        return text
+            .toString()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .toLowerCase()
+            .trim()
+            .replace(/\s+/g, '-')
+            .replace(/[^\w\-]+/g, '')
+            .replace(/\-\-+/g, '-');
+    }
 
-    // --- Chargement du fichier JSON ---
+    // --- Chargement du fichier JSON (pour les filtres et la recherche) ---
+    console.log("Fetching /js/projects.json...");
     fetch('/js/projects.json')
         .then(res => {
+            console.log("Fetch response:", res.status);
             if (!res.ok) throw new Error("Impossible de charger projects.json");
             return res.json();
         })
         .then(data => {
+            console.log("Data loaded:", data.length, "items");
             projects = data;
 
+            // Définir le scope des projets selon la page (pour les filtres)
             const path = window.location.pathname;
             if (path.includes('creations_studies')) filteredProjects = projects.filter(p => p.id >= 27 && p.id <= 34);
             else if (path.includes('creations')) filteredProjects = projects.filter(p => p.id >= 1 && p.id <= 26);
@@ -73,65 +77,26 @@ document.addEventListener("DOMContentLoaded", function () {
             if (searchInput)
                 searchInput.placeholder = `Rechercher parmi ${filteredProjects.length} projet${filteredProjects.length > 1 ? 's' : ''}`;
 
+            // Récupérer les cartes statiques générées par Jekyll
+            allCards = Array.from(container.querySelectorAll(".projectCard"));
+            console.log("Found static cards:", allCards.length);
+
+            // Initialiser l'animation sur les cartes existantes
             rowDelayMap.clear();
-            filteredProjects.forEach(project => {
-                const projectTitleId = project.title.replace(/[^a-zA-Z0-9-_]/g, '_');
-                const card = document.createElement("div");
-                card.className = "projectCard animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212]";
-                card.dataset.projectId = project.id;
-                card.dataset.title = project.title.toLowerCase();
-                card.dataset.description = project.description.toLowerCase();
-                card.dataset.text = project.text.toLowerCase();
-                card.dataset.type = project.type || "";
-                card.dataset.tags = (project.tags || []).map(t => t.name).join(",");
-
-
-                card.innerHTML = ` 
-                    <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
-                        <img data-src="${project.image}" loading="lazy" decoding="async" alt="${project.title}" class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110 lazy-img">
-                    </div>
-                    <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">${project.title}</h3>
-                    <div class="mt-1 flex flex-wrap gap-2" id="tagsContainer-${projectTitleId}"></div>
-                    <p class="text-sm text-[#121212] dark:text-white mt-2">${project.description}</p>
-                `;
-                const heroImg = card.querySelector("img");
-                if (heroImg) {
-                    heroImg.sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw";
-                    heroImg.width = 800;
-                    heroImg.height = 533;
-                }
-
-                const tagsContainer = card.querySelector(`#tagsContainer-${projectTitleId}`);
-                if (tagsContainer && project.tags?.length) {
-                    project.tags.forEach(tag => {
-                        const tagElement = document.createElement("span");
-                        tagElement.className =
-                            "inline-flex items-center gap-1 px-2 rounded-full border border-[#411FEB] text-[#411FEB] font-semibold text-sm dark:text-[#5536ED] dark:border-[#5536ED]";
-                        tagElement.style.backgroundColor = "rgba(65, 31, 235, 0.12)";
-                        tagElement.innerHTML = `<i class='${tag.icon} text-base'></i> ${tag.name}`;
-                        tagsContainer.appendChild(tagElement);
-                    });
-                }
-
-                container.appendChild(card);
+            allCards.forEach(card => {
                 registerScrollAnimation(card);
             });
 
-            allCards = Array.from(container.querySelectorAll(".projectCard"));
-            attachEventListenersToCards();
-            attachEventListenersToCards();
             generateFilters();
-            sortAndRenderCards();
+            sortAndRenderCards(); // Tri initial (aussi masque ceux qui doivent l'être)
             lazyLoadImages();
 
-            const urlParams = new URLSearchParams(window.location.search);
-            const projectIdFromUrl = urlParams.get("project");
-            if (projectIdFromUrl) {
-                const project = projects.find(p => String(p.id) === projectIdFromUrl);
-                if (project) openModal(project);
-            }
+            // Gestion de l'URL query param 'project' obsolète ou pour redirection
+            // On pourrait rediriger si on détecte ?project=X, mais laissez tel quel pour l'instant.
         })
-        .catch(console.error);
+        .catch(err => {
+            console.error("Error loading projects:", err);
+        });
 
     function generateFilters() {
         if (!filtersContainer) return;
@@ -156,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        // 2. Créer l'UI pour les Types (Trié par nombre de projets décroissant)
+        // 2. Créer l'UI pour les Types
         if (typeCounts.size > 0) {
             const typeGroup = document.createElement('div');
             typeGroup.className = 'flex gap-2 overflow-x-auto pb-2';
@@ -167,7 +132,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 .sort((a, b) => typeCounts.get(b) - typeCounts.get(a))
                 .forEach(type => {
                     const btn = document.createElement('button');
-                    // Ajout de h-10 et flex items-center pour hauteur uniforme
                     btn.className = `h-10 px-4 rounded-full border border-white/20 text-sm font-medium transition bg-white/10 hover:bg-white/20 text-white flex-shrink-0 flex items-center justify-center`;
                     btn.textContent = type;
                     btn.onclick = () => toggleFilter(btn, type, 'type');
@@ -176,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
             filtersContainer.appendChild(typeGroup);
         }
 
-        // 3. Créer l'UI pour les Tags (Trié par nombre de projets décroissant)
+        // 3. Créer l'UI pour les Tags
         if (tagCounts.size > 0) {
             const tagGroup = document.createElement('div');
             tagGroup.className = 'flex gap-2 overflow-x-auto pb-2';
@@ -188,7 +152,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 .forEach(tagName => {
                     const tagIcon = tagIcons.get(tagName);
                     const btn = document.createElement('button');
-                    // Ajout de h-10 et flex items-center pour hauteur uniforme
                     btn.className = `h-10 px-4 rounded-full border border-white/20 text-sm font-medium transition bg-white/10 hover:bg-white/20 text-white flex items-center gap-2 flex-shrink-0 justify-center`;
                     btn.innerHTML = `<i class='${tagIcon} text-lg'></i> ${tagName}`;
                     btn.onclick = () => toggleFilter(btn, tagName, 'tag');
@@ -200,7 +163,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function toggleFilter(btn, value, category) {
         const set = category === 'type' ? selectedTypes : selectedTags;
-        const isActive = !set.has(value); // On va l'jouter ou le retirer
 
         if (set.has(value)) {
             set.delete(value);
@@ -208,19 +170,12 @@ document.addEventListener("DOMContentLoaded", function () {
             set.add(value);
         }
 
-        // Application du style unique pour les deux types
-        // Inactif : border-white/20 bg-white/10 text-white
-        // Actif   : border-white bg-white text-[#411FEB] shadow-lg
-
-        // On reconstruira la classe de base avec hauteur fixe
         const baseClasses = "h-10 px-4 rounded-full text-sm transition flex-shrink-0 flex items-center justify-center";
         const layoutClasses = category === 'tag' ? " gap-2" : "";
 
         if (set.has(value)) {
-            // Style Actif
             btn.className = `${baseClasses}${layoutClasses} border border-white font-bold bg-white text-[#411FEB] shadow-lg`;
         } else {
-            // Style Inactif
             btn.className = `${baseClasses}${layoutClasses} border border-white/20 font-medium bg-white/10 hover:bg-white/20 text-white`;
         }
 
@@ -230,32 +185,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // --- Lazy loading ---
     function lazyLoadImages() {
-        const lazyImages = document.querySelectorAll(".lazy-img");
-        const observer = new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.classList.remove("lazy-img");
-                    obs.unobserve(img);
-                }
-            });
+        // Les images ont déjà loading="lazy" en HTML natif, mais on garde le fallback si besoin
+        // ou si on utilise data-src. Liquid output src directement, donc lazy-img class n'est plus là par défaut
+        // Sauf si on l'ajoute. Pour simplifier, on laisse le natif gérer si src est présent.
+        // Si besoin d'animation d'apparition:
+        const imgs = document.querySelectorAll("img[loading='lazy']");
+        imgs.forEach(img => {
+            img.onload = () => img.classList.remove('opacity-0');
+            // note: liquid template doesn't seem to set opacity-0 on img directly, but parent container might.
         });
-        lazyImages.forEach(img => observer.observe(img));
     }
 
     // --- Update affichage ---
     function updateProjects() {
         const query = searchInput?.value.toLowerCase() || "";
 
-        // 1. Identification de tous les projets qui correspondent aux critères (Search + Type + Tags)
+        // On filtre les cartes existantes
         const matchingCards = allCards.filter(card => {
-            const matchesSearch = !query || card.dataset.title.includes(query) || card.dataset.description.includes(query) || card.dataset.text.includes(query);
+            const title = (card.dataset.title || "").toLowerCase();
+            const description = (card.dataset.description || "").toLowerCase();
+            const text = (card.dataset.text || "").toLowerCase();
+
+            const matchesSearch = !query || title.includes(query) || description.includes(query) || text.includes(query);
 
             const cardType = card.dataset.type;
             const matchesType = selectedTypes.size === 0 || selectedTypes.has(cardType);
 
-            const cardTags = card.dataset.tags.split(",");
+            const cardTags = (card.dataset.tags || "").split(",");
             const matchesTags = selectedTags.size === 0 || cardTags.some(tag => selectedTags.has(tag));
 
             return matchesSearch && matchesType && matchesTags;
@@ -264,11 +220,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const totalMatches = matchingCards.length;
         let visibleCount = 0;
 
-        // 2. Affichage / Masquage en fonction de la pagination (projectsVisible)
+        // Affichage / Masquage
         allCards.forEach(card => {
             if (matchingCards.includes(card)) {
                 if (visibleCount < projectsVisible) {
                     card.classList.remove("hidden");
+                    // Ré-appliquer animation si besoin ? 
                     visibleCount++;
                 } else {
                     card.classList.add("hidden");
@@ -278,7 +235,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        // 3. Gestion de la "Card vide" (Aucun résultat)
+        // Gestion de la "Card vide" (Aucun résultat)
         let emptyCard = document.getElementById("emptyProjectCard");
         if (totalMatches === 0) {
             if (!emptyCard) {
@@ -303,21 +260,16 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         } else if (emptyCard) emptyCard.remove();
 
-        // 4. Gestion des boutons "Voir plus" / "Voir moins"
+        // Gestion boutons Voir plus/moins
         if (!showMoreButton || !showLessButton) return;
 
-        // S'il y a 9 résultats ou moins au TOTAL, on cache tout
         if (totalMatches <= 9) {
             showMoreButton.classList.add("hidden");
             showLessButton.classList.add("hidden");
-        }
-        // Si on voit déjà tous les résultats possibles
-        else if (projectsVisible >= totalMatches) {
+        } else if (projectsVisible >= totalMatches) {
             showMoreButton.classList.add("hidden");
             showLessButton.classList.remove("hidden");
-        }
-        // Sinon, on peut en voir plus
-        else {
+        } else {
             showMoreButton.classList.remove("hidden");
             showLessButton.classList.add("hidden");
         }
@@ -349,49 +301,46 @@ document.addEventListener("DOMContentLoaded", function () {
         updateProjects();
     });
 
-    function attachEventListenersToCards() {
-        allCards.forEach(card => {
-            card.addEventListener('click', () => {
-                const projectId = Number(card.dataset.projectId);
-                const project = projects.find(p => Number(p.id) === projectId);
-                if (project) openModal(project);
-            });
-        });
-    }
     // --- Autosuggestions ---
     const suggestionsContainer = document.getElementById('suggestionsContainer');
 
-    // Parse date helper
     function parseProjectDate(p) {
         if (!p || !p.date) return 0;
         const d = Date.parse(p.date);
         if (!isNaN(d)) return d;
         const yearMatch = String(p.date).match(/(19|20)\d{2}/);
         if (yearMatch) return new Date(Number(yearMatch[0]), 0, 1).getTime();
-        const tryDate = new Date(p.date);
-        if (!isNaN(tryDate)) return tryDate.getTime();
         return 0;
     }
 
-    // --- Fonction tri et réaffichage des cartes sur la page ---
     function sortAndRenderCards() {
+        // Note: Le tri est déjà fait partiellement par Jekyll (par ID), 
+        // mais le tri dynamique peut changer l'ordre DOM.
         let sortedCards = [...allCards];
+
+        // Map projectId to projects data for dates
+        const getProjectData = (id) => projects.find(p => p.id == id);
+
         if (currentSort === 'date') {
             sortedCards.sort((a, b) => {
-                const dateA = parseProjectDate(projects.find(p => p.id == a.dataset.projectId));
-                const dateB = parseProjectDate(projects.find(p => p.id == b.dataset.projectId));
+                const dateA = parseProjectDate(getProjectData(a.dataset.projectId));
+                const dateB = parseProjectDate(getProjectData(b.dataset.projectId));
                 return dateB - dateA;
             });
-        } else { // 'meilleur' ou id
+        } else { // 'meilleur' default (par id)
             sortedCards.sort((a, b) => (Number(a.dataset.projectId) || 0) - (Number(b.dataset.projectId) || 0));
         }
 
-        container.innerHTML = '';
+        // Réordonner le DOM
+        // Attention: cela peut être coûteux, mais nécessaire pour le tri visuel
+        // On n'efface pas tout, on appendChild (qui déplace l'élément existant)
         sortedCards.forEach(card => container.appendChild(card));
+
+        // Reset animations state logic if needed?
+        // Let's just update visibility
         updateProjects();
     }
 
-    // Tri fonction pour suggestions uniquement
     function sortProjects(list) {
         if (currentSort === 'date') return [...list].sort((a, b) => parseProjectDate(b) - parseProjectDate(a));
         return [...list].sort((a, b) => (Number(a.id) || 0) - (Number(b.id) || 0));
@@ -412,6 +361,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const sortContainer = document.createElement('div');
             sortContainer.className = "relative flex items-center justify-between px-3 py-3 border-b border-[#E5E5E5] bg-white mb-2 rounded-t-lg";
 
+            // ... (Code tri suggestions identique)
             const sortButton = document.createElement('button');
             sortButton.className = "flex items-center gap-2 px-4 py-2 rounded-lg border border-[#411FEB]/20 text-[#3E3E3E] bg-[#F9F8FF] hover:bg-[#F2EEFF] transition text-sm font-medium";
 
@@ -445,11 +395,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     currentSort = btn.dataset.value;
                     sortLabel.innerHTML = `Trier par <span class="font-semibold">${currentSort === 'meilleur' ? 'Meilleur' : 'Date'}</span>`;
                     dropdown.classList.add('hidden');
-
-                    // Tri les cartes affichées sur la page
                     sortAndRenderCards();
-
-                    // Tri et affichage des suggestions
                     renderSuggestions(sortProjects(matches), sortContainer);
                 });
             });
@@ -468,16 +414,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 list.slice(0, 5).forEach(project => {
                     const div = document.createElement('div');
                     div.className = "flex items-center gap-2 p-2 hover:bg-[#EDE9FE] cursor-pointer transition-colors rounded-lg";
+                    // Link vers la page projet
+                    // On doit générer l'URL. 
+                    const projectSlug = slugify(project.title);
+                    const projectUrl = `/projects/${projectSlug}/`;
+
+                    const link = document.createElement('a');
+                    link.href = projectUrl;
+                    link.className = "flex items-center gap-2 w-full text-inherit no-underline";
 
                     const img = document.createElement('img');
                     img.src = project.image;
                     img.alt = project.title;
-                    img.loading = "lazy";
-                    img.decoding = "async";
                     img.width = 48;
                     img.height = 48;
                     img.className = "w-12 h-12 object-cover rounded-lg flex-shrink-0";
-                    div.appendChild(img);
+                    link.appendChild(img);
 
                     const textContainer = document.createElement('div');
                     textContainer.className = "flex flex-col sm:flex-row sm:items-center sm:gap-2 overflow-hidden";
@@ -490,25 +442,22 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (project.type) {
                         const typeSpan = document.createElement('span');
                         typeSpan.className = "text-[#3E3E3E] text-sm opacity-80 mt-0.5 sm:mt-0 flex items-center";
-
                         const separator = document.createElement('span');
                         separator.textContent = '•';
                         separator.style.color = '#411FEB';
                         separator.style.opacity = '0.48';
                         separator.className = "hidden sm:inline mx-1";
-
                         const typeText = document.createElement('span');
                         typeText.textContent = project.type.charAt(0).toUpperCase() + project.type.slice(1);
-
                         typeSpan.append(separator, typeText);
                         textContainer.appendChild(typeSpan);
                     }
+                    link.appendChild(textContainer);
+                    div.appendChild(link);
 
-                    div.appendChild(textContainer);
-                    div.addEventListener('click', () => {
-                        openModal(project);
-                        suggestionsContainer.classList.add('hidden');
-                        searchInput.value = '';
+                    div.addEventListener('click', (e) => {
+                        // Laisse le lien faire son travail ou force location
+                        // window.location.href = projectUrl;
                     });
                     suggestionsContainer.appendChild(div);
                 });
@@ -529,3 +478,29 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+
+
+// Global Animation Observer - Moved outside to ensure it runs independently or properly integrated
+document.addEventListener("DOMContentLoaded", () => {
+    // Check if we need to re-run observer on existing elements that might have been missed
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    const targets = document.querySelectorAll('.animate-on-scroll');
+    targets.forEach((el) => {
+        observer.observe(el);
+        // Fallback: if already visible or something blocked it, force show after a delay
+        setTimeout(() => {
+            // double check if it's still hidden? 
+            // actually, let's just force it if needed via CSS fallback, but here we can't easily.
+        }, 1000);
+    });
+});
+

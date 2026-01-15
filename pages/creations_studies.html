@@ -19,7 +19,7 @@ permalink: /creations_studies/
     <link rel="stylesheet" href="/assets/css/tailwind.css">
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/x-icon" href="/media/favicon.ico">
-    <script src="/js/project-modal.js" defer></script>
+
     <script src="/js/script.js" defer></script>
     <script src="/js/layout.js" defer></script>
     <script src="/js/theme.js" defer></script>
@@ -65,7 +65,36 @@ permalink: /creations_studies/
             <i class='bx bxs-palette'></i> Mes autres créations en tout genre...
         </h2>
         <div id="projectsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <!-- Les cartes seront insérées ici dynamiquement par JavaScript -->
+            {% assign sorted_projects = site.data.projects | sort: 'id' %}
+            {% for project in sorted_projects %}
+            {% assign pid = project.id | plus: 0 %}
+            {% if pid >= 27 %}
+            {% assign slug = project.title | slugify %}
+            <a href="/creations/{{ slug }}/"
+                class="projectCard animate-on-scroll transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212] block"
+                data-project-id="{{ project.id }}" data-title="{{ project.title | downcase }}"
+                data-description="{{ project.description | downcase }}"
+                data-text="{{ project.content | strip_html | downcase | replace: '"', ' &quot;' }}"
+                data-type="{{ project.type }}" data-tags="{{ project.tags | map: 'name' | join: ',' }}">
+
+                <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
+                    <img src="{{ project.image }}" loading="lazy" decoding="async" alt="{{ project.title }}"
+                        class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
+                </div>
+                <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">{{ project.title }}</h3>
+                <div class="mt-1 flex flex-wrap gap-2">
+                    {% for tag in project.tags %}
+                    <span
+                        class="inline-flex items-center gap-1 px-2 rounded-full border border-[#411FEB] text-[#411FEB] font-semibold text-sm dark:text-[#5536ED] dark:border-[#5536ED]"
+                        style="background-color: rgba(65, 31, 235, 0.12)">
+                        <i class='{{ tag.icon }} text-base'></i> {{ tag.name }}
+                    </span>
+                    {% endfor %}
+                </div>
+                <p class="text-sm text-[#121212] dark:text-white mt-2">{{ project.description }}</p>
+            </a>
+            {% endif %}
+            {% endfor %}
         </div>
         <!-- Bouton pour afficher les projets supplémentaires -->
         <button id="showMoreButton"
@@ -129,70 +158,7 @@ permalink: /creations_studies/
 
         <div id="footer-container"></div>
 
-        <div id="modal"
-            class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center overflow-y-auto z-50">
-            <div
-                class="bg-white dark:bg-[#121212] rounded-xl shadow-lg w-11/12 md:w-2/3 lg:w-1/2 max-h-[90vh] my-6 flex flex-col">
-                <div
-                    class="bg-[#411FEB] bg-opacity-[0.04] p-4 pr-14 border-b border-[#411FEB]/12 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between relative">
-                    <div class="flex flex-col gap-1 sm:flex-1">
-                        <h3 id="modalTitle" class="text-xl font-semibold text-[#411FEB] dark:text-[#5536ED]">Titre du
-                            projet</h3>
-                        <div id="modalMeta" class="flex items-center text-sm text-[#121212] dark:text-white gap-1">
-                            <i class="bx bxs-calendar-alt text-[#411FEB]/48 dark:text-[#5536ED]/48"></i>
-                            <span>Date</span>
-                            <span class="text-[#411FEB] dark:text-[#5536ED] opacity-[0.48] mx-1">&middot;</span>
-                            <span></span>
-                            <span class="text-[#411FEB] dark:text-[#5536ED] opacity-[0.48] mx-1">&middot;</span>
-                            <span></span>
-                        </div>
-                    </div>
-                    <i class="bx bx-x text-3xl text-[#411FEB] text-opacity-[0.64] cursor-pointer hover:text-[#411FEB] transition absolute right-6 top-1/2 -translate-y-1/2"
-                        onclick="closeModal()"></i>
-                </div>
-                <div class="p-4 flex-1 lg:overflow-hidden overflow-y-auto">
-                    <div class="flex flex-col lg:flex-row gap-4 lg:h-[520px]">
-                        <div class="lg:w-1/2 lg:h-full">
-                            <div id="modalCarousel" class="hidden flex flex-col gap-2 h-full">
-                                <div
-                                    class="relative overflow-hidden rounded-xl bg-[#121212] dark:bg-[#1A162C] flex-1 min-h-[260px]">
-                                    <div id="carouselTrack"
-                                        class="flex h-full transition-transform duration-500 ease-in-out"></div>
-                                    <button id="carouselPrev" type="button"
-                                        class="modal-nav-btn absolute left-3 top-1/2 -translate-y-1/2 shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:scale-105 transition">
-                                        <i class="bx bx-chevron-left text-2xl"></i>
-                                    </button>
-                                    <button id="carouselNext" type="button"
-                                        class="modal-nav-btn absolute right-3 top-1/2 -translate-y-1/2 shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:scale-105 transition">
-                                        <i class="bx bx-chevron-right text-2xl"></i>
-                                    </button>
-                                    <div id="carouselCounter"
-                                        class="absolute right-3 top-3 text-xs font-semibold px-3 py-1 rounded-full bg-black/60 text-white hidden">
-                                    </div>
-                                </div>
-                                <div id="carouselDots" class="flex items-center justify-center gap-2"></div>
-                            </div>
-                        </div>
-                        <div class="lg:w-1/2 flex flex-col gap-4 lg:h-full lg:overflow-hidden">
-                            <div id="modalTags" class="flex flex-wrap gap-2 text-sm w-full"></div>
-                            <div class="flex-1 overflow-y-auto pr-1">
-                                <p id="modalText" class="text-[#121212] dark:text-white text-sm leading-relaxed"></p>
-                            </div>
-                            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-start pt-1">
-                                <a id="modalWebsite" href="#" target="_blank"
-                                    class="flex items-center justify-center gap-2 bg-white border border-[#411FEB] text-[#411FEB] font-semibold px-4 py-2 rounded-md hover:bg-[#f5f3ff] transition">
-                                    <i class="bx bx-globe"></i> Visiter le site web
-                                </a>
-                                <a id="modalButton" href="#" target="_blank"
-                                    class="flex items-center justify-center gap-2 bg-[#411FEB] text-white font-semibold px-4 py-2 rounded-md hover:bg-[#3A1CC5] transition">
-                                    <i class="bx bx-show"></i> Voir le resultat
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 
         <div class="gtranslate_wrapper"></div>
         <script>
