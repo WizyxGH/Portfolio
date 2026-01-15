@@ -71,7 +71,7 @@ image:
             {% for project in sorted_projects %}
             {% assign pid = project.id | plus: 0 %}
             {% if pid >= 27 %}
-            {% assign slug = project.title | slugify %}
+            {% assign slug = project.title | slugify: "latin" %}
             <a href="/creations/{{ slug }}/"
                 class="projectCard animate-on-scroll transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212] block"
                 data-project-id="{{ project.id }}" data-title="{{ project.title | downcase }}"
