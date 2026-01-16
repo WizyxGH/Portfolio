@@ -15,16 +15,23 @@
     <nav id="navMenu"
       class="hidden absolute top-full left-0 w-full bg-[#411FEB] shadow-lg lg:shadow-none lg:static lg:flex lg:items-center lg:space-x-4 lg:w-auto transition-all duration-300">
       <ul class="flex flex-col lg:flex-row lg:space-x-4">
+        
+        
+        <!-- Lien simple -->
         <li><a href="/about/" class="block px-6 py-2 text-white hover:font-semibold">Qui suis-je ?</a></li>
-
-        <!-- Menu déroulant "Réalisations" -->
+        
+        
+        
+        <!-- Menu déroulant -->
         <li class="relative lg:group">
-          <button id="dropdownButton" class="inline-flex items-center px-6 py-2 text-white gap-1">
+          <button id="dropdownButton"
+            class="inline-flex items-center px-6 py-2 text-white gap-1 w-full text-left lg:w-auto lg:text-center">
             Réalisations
-            <i id="dropdownChevron" class='bx bx-chevron-down text-lg text-gray-300'></i>
+            <i id="dropdownChevron" class='bx bx-chevron-down text-lg text-gray-300 ml-auto lg:ml-0'></i>
           </button>
           <ul id="dropdownMenu"
             class="hidden flex-col bg-white dark:bg-[#121212] text-[#411FEB] dark:text-[#5536ED] lg:absolute lg:shadow-md lg:rounded-md lg:w-64">
+            
             <li>
               <a href="/creations/"
                 class="group block lg:px-2 px-6 py-2 hover:bg-[#E8E4FC] dark:hover:bg-[#1A162C] hover:text-[#411FEB] dark:hover:text-[#5536ED] hover:font-semibold lg:hover:rounded-t-md">
@@ -35,12 +42,12 @@
                   </span>
                   <div class="flex flex-col">
                     <span>Professionnel</span>
-                    <span
-                      class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed">UI/UX Design, articles</span>
+                    <span class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed">UI/UX Design, articles</span>
                   </div>
                 </div>
               </a>
             </li>
+            
             <li>
               <a href="/creations_studies/"
                 class="group block lg:px-2 px-6 py-2 hover:bg-[#E8E4FC] dark:hover:bg-[#1A162C] hover:text-[#411FEB] dark:hover:text-[#5536ED] hover:font-semibold lg:hover:rounded-b-md">
@@ -51,17 +58,26 @@
                   </span>
                   <div class="flex flex-col">
                     <span>Académique</span>
-                    <span
-                      class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed">Réalisé en BUT MMI</span>
+                    <span class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed">Réalisé en BUT MMI</span>
                   </div>
                 </div>
               </a>
             </li>
+            
           </ul>
         </li>
-
+        
+        
+        
+        <!-- Lien simple -->
         <li><a href="/services/" class="block px-6 py-2 text-white hover:font-semibold">Services</a></li>
+        
+        
+        
+        <!-- Lien simple -->
         <li><a href="/contact/" class="block px-6 py-2 text-white hover:font-semibold">Contact</a></li>
+        
+        
 
         <!-- Bouton Theme Toggle - visible uniquement sur mobile -->
         <li class="block lg:hidden border-t border-white/20 mt-2">

@@ -1,8 +1,11 @@
+---
+permalink: /partials/navbar.html
+---
 <header class="bg-[#411FEB] fixed top-0 left-0 w-full z-50 transition-colors duration-200" id="navbar">
   <div class="mx-auto px-6 lg:px-32 py-3 flex justify-between items-center">
     <!-- Logo -->
     <a href="/" class="flex items-center gap-2 text-lg font-bold text-white">
-      <img src="/media/logo.png" alt="Logo Wizyx" class="w-6 h-6">
+      <img src="{{ site.brand_logo | relative_url }}" alt="Logo Wizyx" class="w-6 h-6">
       Wizyx
     </a>
 
@@ -15,53 +18,42 @@
     <nav id="navMenu"
       class="hidden absolute top-full left-0 w-full bg-[#411FEB] shadow-lg lg:shadow-none lg:static lg:flex lg:items-center lg:space-x-4 lg:w-auto transition-all duration-300">
       <ul class="flex flex-col lg:flex-row lg:space-x-4">
-        <li><a href="/about/" class="block px-6 py-2 text-white hover:font-semibold">Qui suis-je ?</a></li>
-
-        <!-- Menu déroulant "Réalisations" -->
+        {% for item in site.navigation %}
+        {% if item.dropdown %}
+        <!-- Menu déroulant -->
         <li class="relative lg:group">
-          <button id="dropdownButton" class="inline-flex items-center px-6 py-2 text-white gap-1">
-            Réalisations
-            <i id="dropdownChevron" class='bx bx-chevron-down text-lg text-gray-300'></i>
+          <button id="{{ item.id }}"
+            class="inline-flex items-center px-6 py-2 text-white gap-1 w-full text-left lg:w-auto lg:text-center">
+            {{ item.title }}
+            <i id="dropdownChevron" class='bx bx-chevron-down text-lg text-gray-300 ml-auto lg:ml-0'></i>
           </button>
           <ul id="dropdownMenu"
             class="hidden flex-col bg-white dark:bg-[#121212] text-[#411FEB] dark:text-[#5536ED] lg:absolute lg:shadow-md lg:rounded-md lg:w-64">
+            {% for subitem in item.dropdown %}
             <li>
-              <a href="/creations/"
-                class="group block lg:px-2 px-6 py-2 hover:bg-[#E8E4FC] dark:hover:bg-[#1A162C] hover:text-[#411FEB] dark:hover:text-[#5536ED] hover:font-semibold lg:hover:rounded-t-md">
+              <a href="{{ subitem.url }}"
+                class="group block lg:px-2 px-6 py-2 hover:bg-[#E8E4FC] dark:hover:bg-[#1A162C] hover:text-[#411FEB] dark:hover:text-[#5536ED] hover:font-semibold lg:hover:{{ subitem.style }}-md">
                 <div class="flex items-center gap-3">
                   <span
                     class="bg-[#E8E4FC] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] p-2 text-xl rounded-md flex items-center justify-center group-hover:bg-[#411FEB] group-hover:text-white">
-                    <i class='bx bxs-briefcase-alt-2'></i>
+                    <i class='{{ subitem.icon }}'></i>
                   </span>
                   <div class="flex flex-col">
-                    <span>Professionnel</span>
-                    <span
-                      class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed">UI/UX Design, articles</span>
+                    <span>{{ subitem.title }}</span>
+                    <span class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed">{{ subitem.description
+                      }}</span>
                   </div>
                 </div>
               </a>
             </li>
-            <li>
-              <a href="/creations_studies/"
-                class="group block lg:px-2 px-6 py-2 hover:bg-[#E8E4FC] dark:hover:bg-[#1A162C] hover:text-[#411FEB] dark:hover:text-[#5536ED] hover:font-semibold lg:hover:rounded-b-md">
-                <div class="flex items-center gap-3">
-                  <span
-                    class="bg-[#E8E4FC] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] p-2 text-xl rounded-md flex items-center justify-center group-hover:bg-[#411FEB] group-hover:text-white">
-                    <i class='bx bxs-graduation'></i>
-                  </span>
-                  <div class="flex flex-col">
-                    <span>Académique</span>
-                    <span
-                      class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed">Réalisé en BUT MMI</span>
-                  </div>
-                </div>
-              </a>
-            </li>
+            {% endfor %}
           </ul>
         </li>
-
-        <li><a href="/services/" class="block px-6 py-2 text-white hover:font-semibold">Services</a></li>
-        <li><a href="/contact/" class="block px-6 py-2 text-white hover:font-semibold">Contact</a></li>
+        {% else %}
+        <!-- Lien simple -->
+        <li><a href="{{ item.url }}" class="block px-6 py-2 text-white hover:font-semibold">{{ item.title }}</a></li>
+        {% endif %}
+        {% endfor %}
 
         <!-- Bouton Theme Toggle - visible uniquement sur mobile -->
         <li class="block lg:hidden border-t border-white/20 mt-2">

@@ -472,29 +472,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
-
-
-// Global Animation Observer - Moved outside to ensure it runs independently or properly integrated
-document.addEventListener("DOMContentLoaded", () => {
-    // Check if we need to re-run observer on existing elements that might have been missed
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-
-    const targets = document.querySelectorAll('.animate-on-scroll');
-    targets.forEach((el) => {
-        observer.observe(el);
-        // Fallback: if already visible or something blocked it, force show after a delay
-        setTimeout(() => {
-            // double check if it's still hidden? 
-            // actually, let's just force it if needed via CSS fallback, but here we can't easily.
-        }, 1000);
-    });
-});
-
