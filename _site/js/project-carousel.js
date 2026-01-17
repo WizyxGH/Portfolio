@@ -501,6 +501,49 @@
         preloadSlide(0);
         preloadSlide(1);
 
+        // --- Auto-Play ---
+        let autoPlayInterval;
+        const AUTO_PLAY_DELAY = 10000; // 10 seconds
+
+        function startAutoPlay() {
+            stopAutoPlay();
+            autoPlayInterval = setInterval(() => {
+                const total = activeGalleryImages.length;
+                if (!total) return;
+
+                // Calculate next slide with loop
+                let nextIndex = currentSlideIndex + 1;
+                if (nextIndex >= total) {
+                    nextIndex = 0;
+                }
+
+                goToSlide(nextIndex);
+            }, AUTO_PLAY_DELAY);
+        }
+
+        function stopAutoPlay() {
+            if (autoPlayInterval) {
+                clearInterval(autoPlayInterval);
+                autoPlayInterval = null;
+            }
+        }
+
+        function resetAutoPlay() {
+            stopAutoPlay();
+            startAutoPlay();
+        }
+
+        // Start auto-play
+        startAutoPlay();
+
+        // Stop/Reset on interaction
+        // Wrap existing event listeners or add new ones to resets
+        container.addEventListener('pointerdown', resetAutoPlay);
+        container.addEventListener('keydown', resetAutoPlay);
+        if (carouselEls.prev) carouselEls.prev.addEventListener('click', resetAutoPlay);
+        if (carouselEls.next) carouselEls.next.addEventListener('click', resetAutoPlay);
+        if (carouselEls.dots) carouselEls.dots.addEventListener('click', resetAutoPlay);
+
         return {
             destroy: () => {
                 // cleanup if needed
