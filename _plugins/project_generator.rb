@@ -20,6 +20,8 @@ module Jekyll
       self.data['title'] = project['title']
       self.data['description'] = project['description']
       self.data['image'] = project['image']
+      self.data['width'] = project['width']
+      self.data['height'] = project['height']
       self.data['date'] = project['date']
       self.data['type'] = project['type']
       self.data['context'] = project['context']

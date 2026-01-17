@@ -9,7 +9,7 @@ author:
   name: "Florian Gertner Kilian"
   email: "contact@wizyx.me"
 
-image: "https://opengraph.b-cdn.net/production/images/59129536-2074-4333-9e04-70d6cffd3d0f.jpg?token=Oj5V7Gb5wGaScWNgROHh8HDeCIdtoZtqvgIpBFaIi1g&height=640&width=1200&expires=33294662852"
+image: "/media/opengraph/default-og.jpg"
 
 twitter:
   card: summary_large_image

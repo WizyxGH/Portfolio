@@ -7,7 +7,16 @@
     <title>{{ page.title }} - Florian Gertner Kilian</title>
 
     <!-- SEO & Open Graph -->
+
+    <!-- SEO & Open Graph -->
     {% seo %}
+    {% if page.image %}
+    <meta property="og:image:alt" content="{{ page.title | escape }}">
+    {% if page.width %}
+    <meta property="og:image:width" content="{{ page.width }}">{% endif %}
+    {% if page.height %}
+    <meta property="og:image:height" content="{{ page.height }}">{% endif %}
+    {% endif %}
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

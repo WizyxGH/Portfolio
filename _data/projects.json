@@ -22,7 +22,9 @@
                 "name": "Responsive",
                 "icon": "bx bxs-devices"
             }
-        ]
+        ],
+        "width": 1600,
+        "height": 785
     },
     {
         "id": 2,
@@ -47,7 +49,9 @@
                 "name": "Copywriting",
                 "icon": "bx bxs-pen"
             }
-        ]
+        ],
+        "width": 800,
+        "height": 502
     },
     {
         "id": 3,
@@ -68,7 +72,9 @@
                 "name": "Copywriting",
                 "icon": "bx bxs-pen"
             }
-        ]
+        ],
+        "width": 1440,
+        "height": 856
     },
     {
         "id": 4,
@@ -85,7 +91,9 @@
                 "name": "UI/UX Design",
                 "icon": "bx bxs-layout"
             }
-        ]
+        ],
+        "width": 1600,
+        "height": 730
     },
     {
         "id": 5,
@@ -106,7 +114,9 @@
                 "name": "Prototyping",
                 "icon": "bx bx-play-circle"
             }
-        ]
+        ],
+        "width": 711,
+        "height": 400
     },
     {
         "id": 6,
@@ -127,7 +137,9 @@
                 "name": "Prototyping",
                 "icon": "bx bx-play-circle"
             }
-        ]
+        ],
+        "width": 711,
+        "height": 400
     },
     {
         "id": 7,
@@ -152,7 +164,9 @@
                 "name": "Responsive",
                 "icon": "bx bxs-devices"
             }
-        ]
+        ],
+        "width": 1440,
+        "height": 827
     },
     {
         "id": 8,
@@ -173,7 +187,9 @@
                 "name": "Prototyping",
                 "icon": "bx bx-play-circle"
             }
-        ]
+        ],
+        "width": 719,
+        "height": 408
     },
     {
         "id": 9,
@@ -194,7 +210,9 @@
                 "name": "Prototyping",
                 "icon": "bx bx-play-circle"
             }
-        ]
+        ],
+        "width": 711,
+        "height": 400
     },
     {
         "id": 10,
@@ -215,7 +233,9 @@
                 "name": "Prototyping",
                 "icon": "bx bx-play-circle"
             }
-        ]
+        ],
+        "width": 1604,
+        "height": 613
     },
     {
         "id": 11,
@@ -236,7 +256,9 @@
                 "name": "Prototyping",
                 "icon": "bx bx-play-circle"
             }
-        ]
+        ],
+        "width": 1600,
+        "height": 868
     },
     {
         "id": 12,
@@ -261,7 +283,9 @@
                 "name": "Responsive",
                 "icon": "bx bxs-devices"
             }
-        ]
+        ],
+        "width": 1440,
+        "height": 825
     },
     {
         "id": 13,
@@ -282,7 +306,9 @@
                 "name": "Prototyping",
                 "icon": "bx bx-play-circle"
             }
-        ]
+        ],
+        "width": 1600,
+        "height": 682
     },
     {
         "id": 14,
@@ -304,7 +330,9 @@
                 "name": "Prototyping",
                 "icon": "bx bx-play-circle"
             }
-        ]
+        ],
+        "width": 1600,
+        "height": 1742
     },
     {
         "id": 15,
@@ -325,7 +353,9 @@
                 "name": "Prototyping",
                 "icon": "bx bx-play-circle"
             }
-        ]
+        ],
+        "width": 1600,
+        "height": 837
     },
     {
         "id": 16,
@@ -342,7 +372,9 @@
                 "name": "UI/UX Design",
                 "icon": "bx bxs-layout"
             }
-        ]
+        ],
+        "width": 1440,
+        "height": 669
     },
     {
         "id": 18,
@@ -359,7 +391,9 @@
                 "name": "Wireframing",
                 "icon": "bx bxs-layout"
             }
-        ]
+        ],
+        "width": 1600,
+        "height": 1540
     },
     {
         "id": 19,
@@ -409,7 +443,9 @@
                 "name": "Copywriting",
                 "icon": "bx bxs-pen"
             }
-        ]
+        ],
+        "width": 1366,
+        "height": 2322
     },
     {
         "id": 21,
@@ -430,7 +466,9 @@
                 "name": "UX Writing",
                 "icon": "bx bxs-pen"
             }
-        ]
+        ],
+        "width": 475,
+        "height": 225
     },
     {
         "id": 22,
@@ -447,7 +485,9 @@
                 "name": "UI/UX Design",
                 "icon": "bx bxs-layout"
             }
-        ]
+        ],
+        "width": 711,
+        "height": 400
     },
     {
         "id": 23,
@@ -472,7 +512,9 @@
                 "name": "Copywriting",
                 "icon": "bx bxs-pen"
             }
-        ]
+        ],
+        "width": 1440,
+        "height": 900
     },
     {
         "id": 24,
@@ -497,7 +539,9 @@
                 "name": "Copywriting",
                 "icon": "bx bxs-pen"
             }
-        ]
+        ],
+        "width": 1440,
+        "height": 836
     },
     {
         "id": 25,
@@ -522,7 +566,9 @@
                 "name": "Copywriting",
                 "icon": "bx bxs-pen"
             }
-        ]
+        ],
+        "width": 1920,
+        "height": 1080
     },
     {
         "id": 26,
@@ -547,7 +593,9 @@
                 "name": "Copywriting",
                 "icon": "bx bxs-pen"
             }
-        ]
+        ],
+        "width": 1920,
+        "height": 1080
     },
     {
         "id": 27,
@@ -569,7 +617,9 @@
                 "name": "Modélisation 3D",
                 "icon": "bx bxs-cube"
             }
-        ]
+        ],
+        "width": 735,
+        "height": 642
     },
     {
         "id": 28,
@@ -595,7 +645,9 @@
                 "name": "Mise en page",
                 "icon": "bx bxs-layout"
             }
-        ]
+        ],
+        "width": 1367,
+        "height": 618
     },
     {
         "id": 29,
@@ -621,7 +673,9 @@
                 "name": "Modélisation & Animation 3D",
                 "icon": "bx bxs-cube"
             }
-        ]
+        ],
+        "width": 960,
+        "height": 733
     },
     {
         "id": 30,
@@ -647,7 +701,9 @@
                 "name": "Communication / Marketing",
                 "icon": "bx bx-message-bubble"
             }
-        ]
+        ],
+        "width": 728,
+        "height": 410
     },
     {
         "id": 31,
@@ -665,7 +721,9 @@
                 "name": "Communication / Marketing",
                 "icon": "bxr bx-message-bubble"
             }
-        ]
+        ],
+        "width": 1373,
+        "height": 712
     },
     {
         "id": 32,
@@ -683,7 +741,9 @@
                 "name": "Design graphique",
                 "icon": "bx bxs-layout"
             }
-        ]
+        ],
+        "width": 1600,
+        "height": 819
     },
     {
         "id": 33,
@@ -701,7 +761,9 @@
                 "name": "Développement",
                 "icon": "bx bx-code-alt"
             }
-        ]
+        ],
+        "width": 306,
+        "height": 165
     },
     {
         "id": 34,
@@ -719,6 +781,8 @@
                 "name": "Mise en page",
                 "icon": "bx bxs-layout"
             }
-        ]
+        ],
+        "width": 887,
+        "height": 622
     }
 ]
