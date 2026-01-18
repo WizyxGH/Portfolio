@@ -21,7 +21,6 @@ permalink: /legal/
     <link rel="stylesheet" href="{{ '/assets/css/tailwind.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
     <link rel="icon" type="image/x-icon" href="{{ '/media/favicon.ico' | relative_url }}">
-    <script src="{{ '/js/script.js' | relative_url }}" defer></script>
     <script src="{{ '/js/layout.js' | relative_url }}" defer></script>
     <script src="{{ '/js/theme.js' | relative_url }}" defer></script>
     <meta name="robots" content="noindex, nofollow">
@@ -34,13 +33,13 @@ permalink: /legal/
 <body class="font-inter text-[#411FEB] dark:bg-[#121212]">
 
     <!-- Navbar -->
-    <div id="navbar-container"></div>
+    {% include navbar.html %}
 
-    <section class="py-16 px-6 lg:px-12">
+    <main class="flex-1 pt-8 pb-12 lg:px-32 px-8">
         <div class="max-w-4xl mx-auto space-y-10">
             <header class="space-y-4">
                 <div>
-                    <a href="/" class="text-[#411FEB] hover:font-semibold transition-all duration-200">
+                    <a href="/" class="text-white hover:font-semibold transition-all duration-200">
                         <i class='bx bx-arrow-left-stroke'></i>
                         <span>Retour à l'accueil</span>
                     </a>
@@ -131,11 +130,11 @@ permalink: /legal/
                 <p class="text-sm text-gray-500">Dernière mise à jour : Novembre 2025</p>
             </div>
         </div>
-    </section>
+    </main>
 
-    <div id="footer-container"></div>
+    {% include footer.html %}
 
-    <!--<div class="gtranslate_wrapper"></div>
+    <div class="gtranslate_wrapper"></div>
     <script>
         window.gtranslateSettings = {
             "default_language": "fr",

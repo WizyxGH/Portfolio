@@ -1,7 +1,6 @@
 ﻿document.addEventListener('DOMContentLoaded', () => {
     ensureBoxiconsStyles();
-    // Charger navbar et footer en parallèle
-    Promise.all([loadNavbar(), loadFooter()]);
+    initNavbar();
 });
 
 function ensureBoxiconsStyles() {
@@ -51,7 +50,7 @@ function bindNavbarThemeToggle(root = document) {
             } else {
                 document.documentElement.classList.toggle('dark', next === 'dark');
                 syncNavbarThemeIcons(root);
-                try { localStorage.setItem('theme', next); } catch (e) {}
+                try { localStorage.setItem('theme', next); } catch (e) { }
             }
         }
         // Mise à jour des icônes immédiatement après bascule
@@ -86,41 +85,36 @@ function bindNavbarThemeToggle(root = document) {
     }
 }
 
-async function loadNavbar() {
-    const container = document.getElementById('navbar-container');
+function initNavbar() {
+    const container = document.getElementById('navbar');
     if (!container) return;
-    try {
-        const res = await fetch('/partials/navbar.html');
-        const html = await res.text();
-        // Supprime les scripts inline du fragment pour éviter les collisions avec theme.js
-        const sanitized = html.replace(/<script[\s\S]*?<\/script>/gi, '');
-        container.innerHTML = sanitized;
 
-        // Initialiser les interactions après l'injection du HTML
-        initNavbarInteractions();
-        setActiveNavLinks();
-        
-        // Initialiser le thème après le chargement de la navbar
-        const currentTheme = localStorage.getItem('theme') || 
-            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        if (typeof window.updateTheme === 'function') {
-            window.updateTheme(currentTheme, { updateIcons: true });
-        } else {
-            document.documentElement.classList.toggle('dark', currentTheme === 'dark');
-        }
-        if (typeof window.ensureThemeToggleListener === 'function') {
-            window.ensureThemeToggleListener();
-        }
-        // Réaffecte les helpers globaux vers ceux de theme.js si disponibles
-        if (window.themeManager) {
-            window.updateTheme = window.themeManager.updateTheme;
-            window.toggleTheme = window.themeManager.toggleTheme;
-            window.ensureThemeToggleListener = window.themeManager.ensureThemeToggleListener;
-        }
-        bindNavbarThemeToggle(container);
-    } catch (e) {
-        console.error('Erreur chargement navbar:', e);
+    // Initialiser les interactions
+    initNavbarInteractions();
+    setActiveNavLinks();
+
+    // Initialiser le thème
+    const currentTheme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+    if (typeof window.updateTheme === 'function') {
+        window.updateTheme(currentTheme, { updateIcons: true });
+    } else {
+        document.documentElement.classList.toggle('dark', currentTheme === 'dark');
     }
+
+    if (typeof window.ensureThemeToggleListener === 'function') {
+        window.ensureThemeToggleListener();
+    }
+
+    // Réaffecte les helpers globaux vers ceux de theme.js si disponibles
+    if (window.themeManager) {
+        window.updateTheme = window.themeManager.updateTheme;
+        window.toggleTheme = window.themeManager.toggleTheme;
+        window.ensureThemeToggleListener = window.themeManager.ensureThemeToggleListener;
+    }
+
+    bindNavbarThemeToggle(container);
 }
 
 function initNavbarInteractions() {
@@ -166,16 +160,4 @@ function setActiveNavLinks() {
             link.classList.add('font-semibold');
         }
     });
-}
-
-async function loadFooter() {
-    const container = document.getElementById('footer-container');
-    if (!container) return;
-    try {
-        const res = await fetch('/partials/footer.html');
-        const html = await res.text();
-        container.innerHTML = html;
-    } catch (e) {
-        console.error('Erreur chargement footer:', e);
-    }
 }

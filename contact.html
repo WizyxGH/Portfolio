@@ -21,7 +21,6 @@ permalink: /contact/
     <link rel="stylesheet" href="{{ '/assets/css/tailwind.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
     <link rel="icon" type="image/x-icon" href="{{ '/media/favicon.ico' | relative_url }}">
-    <script src="{{ '/js/script.js' | relative_url }}" defer></script>
     <script src="{{ '/js/layout.js' | relative_url }}" defer></script>
     <script src="{{ '/js/theme.js' | relative_url }}" defer></script>
     <script type="application/ld+json">
@@ -54,7 +53,7 @@ permalink: /contact/
 <body class="min-h-screen flex flex-col dark:bg-[#121212] font-inter text-[#411FEB] dark:text-[#5536ED]">
 
     <!-- Navbar -->
-    <div id="navbar-container"></div>
+    {% include navbar.html %}
 
     <main class="flex-1 flex flex-col">
         <section class="w-full max-w-5xl mx-auto px-6 py-8 text-center space-y-8">
@@ -201,7 +200,7 @@ permalink: /contact/
         </script>
     </main>
 
-    <div id="footer-container"></div>
+    {% include footer.html %}
 
     <div class="gtranslate_wrapper"></div>
     <script>
