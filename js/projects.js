@@ -15,6 +15,13 @@ document.addEventListener("DOMContentLoaded", function () {
     let selectedTypes = new Set();
     let selectedTags = new Set();
 
+    // Helper de style unifié pour TOUS les boutons (Filtres, Tri, Tags, Types)
+    function getSharedBtnStyle(isActive) {
+        return isActive
+            ? "h-9 px-4 rounded-full bg-white text-[#411FEB] border border-white text-sm font-medium shadow-md transition-all flex items-center gap-1 whitespace-nowrap flex-shrink-0"
+            : "h-9 px-4 rounded-full bg-white/10 text-white border border-white/20 hover:bg-white/20 text-sm font-medium transition-all flex items-center gap-1 whitespace-nowrap flex-shrink-0";
+    }
+
     let scrollAnimationObserver = null;
     let rowDelayMap = new Map();
 
@@ -84,6 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             generateFilters();
+            generateSortControls();
             sortAndRenderCards(); // Tri initial (aussi masque ceux qui doivent l'être)
             lazyLoadImages();
 
@@ -117,44 +125,127 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        // 2. Créer l'UI pour les Types
-        if (typeCounts.size > 0) {
-            const typeGroup = document.createElement('div');
-            typeGroup.className = 'flex gap-2 overflow-x-auto pb-2';
-            typeGroup.style.scrollbarWidth = 'none';
-            typeGroup.style.msOverflowStyle = 'none';
+        // Style Helper (Style Pillule / Translucide unifié)
 
+
+        // 2. Créer l'UI pour les Types
+        // Ajouter le label "Filtrer par :" au début
+        const filterLabel = document.createElement('span');
+        filterLabel.className = "text-sm text-white font-medium whitespace-nowrap mr-2";
+        filterLabel.textContent = "Filtrer par :";
+        filtersContainer.appendChild(filterLabel);
+
+        if (typeCounts.size > 0) {
             Array.from(typeCounts.keys())
                 .sort((a, b) => typeCounts.get(b) - typeCounts.get(a))
                 .forEach(type => {
                     const btn = document.createElement('button');
-                    btn.className = `h-10 px-4 rounded-full border border-white/20 text-sm font-medium transition bg-white/10 hover:bg-white/20 text-white flex-shrink-0 flex items-center justify-center`;
+                    const isActive = selectedTypes.has(type);
+                    btn.className = getSharedBtnStyle(isActive);
                     btn.textContent = type;
                     btn.onclick = () => toggleFilter(btn, type, 'type');
-                    typeGroup.appendChild(btn);
+                    filtersContainer.appendChild(btn);
                 });
-            filtersContainer.appendChild(typeGroup);
         }
 
         // 3. Créer l'UI pour les Tags
         if (tagCounts.size > 0) {
-            const tagGroup = document.createElement('div');
-            tagGroup.className = 'flex gap-2 overflow-x-auto pb-2';
-            tagGroup.style.scrollbarWidth = 'none';
-            tagGroup.style.msOverflowStyle = 'none';
-
             Array.from(tagCounts.keys())
                 .sort((a, b) => tagCounts.get(b) - tagCounts.get(a))
                 .forEach(tagName => {
                     const tagIcon = tagIcons.get(tagName);
                     const btn = document.createElement('button');
-                    btn.className = `h-10 px-4 rounded-full border border-white/20 text-sm font-medium transition bg-white/10 hover:bg-white/20 text-white flex items-center gap-2 flex-shrink-0 justify-center`;
-                    btn.innerHTML = `<i class='${tagIcon} text-lg'></i> ${tagName}`;
+                    const isActive = selectedTags.has(tagName);
+                    btn.className = getSharedBtnStyle(isActive);
+                    btn.innerHTML = `<i class='${tagIcon} text-base'></i> ${tagName}`;
                     btn.onclick = () => toggleFilter(btn, tagName, 'tag');
-                    tagGroup.appendChild(btn);
+                    filtersContainer.appendChild(btn);
                 });
-            filtersContainer.appendChild(tagGroup);
         }
+    }
+
+
+
+    // --- Gestion du Tri (Sort Controls) ---
+    function generateSortControls() {
+        const sortContainer = document.getElementById('sortControlsContainer');
+        if (!sortContainer) return;
+        sortContainer.innerHTML = '';
+
+        const wrapper = document.createElement('div');
+        wrapper.className = "w-full flex flex-nowrap overflow-x-auto gap-2 items-center scrollbar-hide mb-2";
+
+        const label = document.createElement('span');
+        label.className = "text-sm text-white font-medium whitespace-nowrap";
+        label.textContent = "Trier par :";
+        wrapper.appendChild(label);
+
+        const btnGroup = document.createElement('div');
+        btnGroup.className = "flex items-center gap-2";
+        btnGroup.id = "sortBtnGroup";
+        wrapper.appendChild(btnGroup);
+
+        sortContainer.appendChild(wrapper);
+        updateSortUI();
+    }
+
+    function updateSortUI() {
+        const btnGroup = document.getElementById('sortBtnGroup');
+        if (!btnGroup) return;
+        btnGroup.innerHTML = '';
+
+        // Fonction pour générer le style des boutons (DOIT ETRE IDENTIQUE AU FILTRE)
+        // Utilisation du helper partagé
+        const getBtnStyle = getSharedBtnStyle;
+
+        // Bouton "Plus populaire"
+        const btnPop = document.createElement('button');
+        const isPopActive = currentSort === 'meilleur';
+        btnPop.className = getBtnStyle(isPopActive);
+        btnPop.innerHTML = `<i class='bx ${isPopActive ? 'bxs-star' : 'bx-star'} text-base'></i> Plus populaire`;
+        btnPop.onclick = () => {
+            if (currentSort === 'meilleur') {
+                currentSort = 'default';
+            } else {
+                currentSort = 'meilleur';
+            }
+            updateSortUI();
+            sortAndRenderCards();
+        };
+        btnGroup.appendChild(btnPop);
+
+        // Bouton "Date"
+        const btnDate = document.createElement('button');
+        const isDateActive = currentSort === 'date_desc' || currentSort === 'date_asc' || currentSort === 'date';
+        const isAsc = currentSort === 'date_asc'; // Plus ancien
+
+        let dateLabel = "Date : Plus récent";
+        let dateIconClass = "bx-sort-down";
+
+        if (isDateActive) {
+            if (isAsc) {
+                dateLabel = "Date : Plus ancien";
+                dateIconClass = "bx-sort-up";
+            } else {
+                dateLabel = "Date : Plus récent";
+                dateIconClass = "bx-sort-down";
+            }
+        }
+
+        btnDate.className = getBtnStyle(isDateActive);
+        btnDate.innerHTML = `<i class='bx ${dateIconClass} text-base'></i> ${dateLabel}`;
+        btnDate.onclick = () => {
+            if (currentSort === 'date_desc' || currentSort === 'date') {
+                currentSort = 'date_asc';
+            } else if (currentSort === 'date_asc') {
+                currentSort = 'default';
+            } else {
+                currentSort = 'date_desc';
+            }
+            updateSortUI();
+            sortAndRenderCards();
+        };
+        btnGroup.appendChild(btnDate);
     }
 
     function toggleFilter(btn, value, category) {
@@ -166,14 +257,8 @@ document.addEventListener("DOMContentLoaded", function () {
             set.add(value);
         }
 
-        const baseClasses = "h-10 px-4 rounded-full text-sm transition flex-shrink-0 flex items-center justify-center";
-        const layoutClasses = category === 'tag' ? " gap-2" : "";
-
-        if (set.has(value)) {
-            btn.className = `${baseClasses}${layoutClasses} border border-white font-bold bg-white text-[#411FEB] shadow-lg`;
-        } else {
-            btn.className = `${baseClasses}${layoutClasses} border border-white/20 font-medium bg-white/10 hover:bg-white/20 text-white`;
-        }
+        const isActive = set.has(value);
+        btn.className = getSharedBtnStyle(isActive);
 
         updateProjects();
     }
@@ -317,28 +402,30 @@ document.addEventListener("DOMContentLoaded", function () {
         // Map projectId to projects data for dates
         const getProjectData = (id) => projects.find(p => p.id == id);
 
-        if (currentSort === 'date') {
+        if (currentSort === 'date_asc') {
             sortedCards.sort((a, b) => {
                 const dateA = parseProjectDate(getProjectData(a.dataset.projectId));
                 const dateB = parseProjectDate(getProjectData(b.dataset.projectId));
-                return dateB - dateA;
+                return dateA - dateB; // Ancien -> Récent
+            });
+        } else if (currentSort === 'date_desc' || currentSort === 'date') {
+            sortedCards.sort((a, b) => {
+                const dateA = parseProjectDate(getProjectData(a.dataset.projectId));
+                const dateB = parseProjectDate(getProjectData(b.dataset.projectId));
+                return dateB - dateA; // Récent -> Ancien
             });
         } else { // 'meilleur' default (par id)
             sortedCards.sort((a, b) => (Number(a.dataset.projectId) || 0) - (Number(b.dataset.projectId) || 0));
         }
 
         // Réordonner le DOM
-        // Attention: cela peut être coûteux, mais nécessaire pour le tri visuel
-        // On n'efface pas tout, on appendChild (qui déplace l'élément existant)
         sortedCards.forEach(card => container.appendChild(card));
-
-        // Reset animations state logic if needed?
-        // Let's just update visibility
         updateProjects();
     }
 
     function sortProjects(list) {
-        if (currentSort === 'date') return [...list].sort((a, b) => parseProjectDate(b) - parseProjectDate(a));
+        if (currentSort === 'date_asc') return [...list].sort((a, b) => parseProjectDate(a) - parseProjectDate(b));
+        if (currentSort === 'date_desc' || currentSort === 'date') return [...list].sort((a, b) => parseProjectDate(b) - parseProjectDate(a));
         return [...list].sort((a, b) => (Number(a.id) || 0) - (Number(b.id) || 0));
     }
 
@@ -354,111 +441,54 @@ document.addEventListener("DOMContentLoaded", function () {
 
         suggestionsContainer.innerHTML = '';
         if (q && matches.length) {
-            const sortContainer = document.createElement('div');
-            sortContainer.className = "relative flex items-center justify-between px-3 py-3 border-b border-[#E5E5E5] bg-white mb-2 rounded-t-lg";
+            matches.slice(0, 5).forEach(project => {
+                const div = document.createElement('div');
+                div.className = "flex items-center gap-2 p-2 hover:bg-[#EDE9FE] cursor-pointer transition-colors rounded-lg";
 
-            // ... (Code tri suggestions identique)
-            const sortButton = document.createElement('button');
-            sortButton.className = "flex items-center gap-2 px-4 py-2 rounded-lg border border-[#411FEB]/20 text-[#3E3E3E] bg-[#F9F8FF] hover:bg-[#F2EEFF] transition text-sm font-medium";
+                const projectSlug = project.slug || slugify(project.title);
+                const projectUrl = `/creations/${projectSlug}/`;
 
-            const sortIcon = document.createElement('i');
-            sortIcon.className = "bx bx-sort text-[#411FEB] dark:text-[#5536ED]";
-            sortButton.appendChild(sortIcon);
+                const link = document.createElement('a');
+                link.href = projectUrl;
+                link.className = "flex items-center gap-2 w-full text-inherit no-underline";
 
-            const sortLabel = document.createElement('span');
-            sortLabel.innerHTML = `Trier par <span class="font-semibold">${currentSort === 'meilleur' ? 'Meilleur' : 'Date'}</span>`;
-            sortButton.appendChild(sortLabel);
+                const img = document.createElement('img');
+                img.src = project.image;
+                img.alt = project.title;
+                img.width = 48;
+                img.height = 48;
+                img.className = "w-12 h-12 object-cover rounded-lg flex-shrink-0";
+                link.appendChild(img);
 
-            const sortChevron = document.createElement('i');
-            sortChevron.className = "bx bx-chevron-down text-[#411FEB] dark:text-[#5536ED]";
-            sortButton.appendChild(sortChevron);
+                const textContainer = document.createElement('div');
+                textContainer.className = "flex flex-col sm:flex-row sm:items-center overflow-hidden";
 
-            const dropdown = document.createElement('div');
-            dropdown.className = "absolute top-full left-0 mt-2 w-40 bg-white border border-[#E5E5E5] rounded-xl shadow-md hidden z-20";
-            dropdown.innerHTML = `
-                <button data-value="meilleur" class="block w-full text-left px-4 py-2 text-[#3E3E3E] hover:bg-[#EDE9FE] transition rounded-t-xl">Meilleur</button>
-                <button data-value="date" class="block w-full text-left px-4 py-2 text-[#3E3E3E] hover:bg-[#EDE9FE] transition rounded-b-xl">Date</button>
-            `;
+                const titleSpan = document.createElement('span');
+                titleSpan.className = "font-semibold text-[#3E3E3E] truncate max-w-[200px] sm:max-w-[250px]";
+                titleSpan.textContent = project.title;
+                textContainer.appendChild(titleSpan);
 
-            sortButton.addEventListener('click', e => {
-                e.stopPropagation();
-                dropdown.classList.toggle('hidden');
-            });
+                if (project.type) {
+                    const typeSpan = document.createElement('span');
+                    typeSpan.className = "text-[#3E3E3E] text-sm opacity-80 mt-0.5 sm:mt-0 flex items-center";
+                    const separator = document.createElement('span');
+                    separator.innerHTML = '•';
+                    separator.className = "hidden sm:inline mx-1 text-[#411FEB] dark:text-[#5536ED] opacity-[0.48]";
+                    const typeText = document.createElement('span');
+                    typeText.textContent = project.type.charAt(0).toUpperCase() + project.type.slice(1);
+                    typeSpan.append(separator, typeText);
+                    textContainer.appendChild(typeSpan);
+                }
+                link.appendChild(textContainer);
+                div.appendChild(link);
 
-            dropdown.querySelectorAll('button').forEach(btn => {
-                btn.addEventListener('click', e => {
-                    e.stopPropagation();
-                    currentSort = btn.dataset.value;
-                    sortLabel.innerHTML = `Trier par <span class="font-semibold">${currentSort === 'meilleur' ? 'Meilleur' : 'Date'}</span>`;
-                    dropdown.classList.add('hidden');
-                    sortAndRenderCards();
-                    renderSuggestions(sortProjects(matches), sortContainer);
+                div.addEventListener('click', (e) => {
+                    // let default link behavior happen
                 });
+                suggestionsContainer.appendChild(div);
             });
-
-            document.addEventListener('click', e => {
-                if (!sortButton.contains(e.target) && !dropdown.contains(e.target)) dropdown.classList.add('hidden');
-            });
-
-            sortContainer.append(sortButton, dropdown);
-            suggestionsContainer.appendChild(sortContainer);
-
-            function renderSuggestions(list, containerTop) {
-                suggestionsContainer.innerHTML = '';
-                suggestionsContainer.appendChild(containerTop);
-
-                list.slice(0, 5).forEach(project => {
-                    const div = document.createElement('div');
-                    div.className = "flex items-center gap-2 p-2 hover:bg-[#EDE9FE] cursor-pointer transition-colors rounded-lg";
-                    // Link vers la page projet
-                    // On doit générer l'URL. 
-                    const projectSlug = project.slug || slugify(project.title);
-                    const projectUrl = `/creations/${projectSlug}/`;
-
-                    const link = document.createElement('a');
-                    link.href = projectUrl;
-                    link.className = "flex items-center gap-2 w-full text-inherit no-underline";
-
-                    const img = document.createElement('img');
-                    img.src = project.image;
-                    img.alt = project.title;
-                    img.width = 48;
-                    img.height = 48;
-                    img.className = "w-12 h-12 object-cover rounded-lg flex-shrink-0";
-                    link.appendChild(img);
-
-                    const textContainer = document.createElement('div');
-                    textContainer.className = "flex flex-col sm:flex-row sm:items-center sm:gap-2 overflow-hidden";
-
-                    const titleSpan = document.createElement('span');
-                    titleSpan.className = "font-semibold text-[#3E3E3E] truncate max-w-[200px] sm:max-w-[250px]";
-                    titleSpan.textContent = project.title;
-                    textContainer.appendChild(titleSpan);
-
-                    if (project.type) {
-                        const typeSpan = document.createElement('span');
-                        typeSpan.className = "text-[#3E3E3E] text-sm opacity-80 mt-0.5 sm:mt-0 flex items-center";
-                        const separator = document.createElement('span');
-                        separator.innerHTML = '&middot;';
-                        separator.className = "hidden sm:inline mx-1 text-[#411FEB] dark:text-[#5536ED] opacity-[0.48]";
-                        const typeText = document.createElement('span');
-                        typeText.textContent = project.type.charAt(0).toUpperCase() + project.type.slice(1);
-                        typeSpan.append(separator, typeText);
-                        textContainer.appendChild(typeSpan);
-                    }
-                    link.appendChild(textContainer);
-                    div.appendChild(link);
-
-                    div.addEventListener('click', (e) => {
-                        // Laisse le lien faire son travail ou force location
-                        // window.location.href = projectUrl;
-                    });
-                    suggestionsContainer.appendChild(div);
-                });
-            }
-
-            renderSuggestions(matches, sortContainer);
             suggestionsContainer.classList.remove('hidden');
+
         } else {
             suggestionsContainer.classList.add('hidden');
         }

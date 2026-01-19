@@ -1,10 +1,11 @@
 @layer utilities {
-    .text-stroke {
-      -webkit-background-clip: text;
-      -webkit-text-stroke: 1.5px white; /* Taille et couleur du contour */
-      color: transparent;
-    }
+  .text-stroke {
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 1.5px white;
+    /* Taille et couleur du contour */
+    color: transparent;
   }
+}
 
 .show {
   opacity: 1 !important;
@@ -13,7 +14,8 @@
 
 .animate-on-scroll {
   opacity: 0;
-  transform: translateY(2.5rem); /* équivalent translate-y-10 */
+  transform: translateY(2.5rem);
+  /* équivalent translate-y-10 */
   transition: all 0.7s;
 }
 
@@ -33,6 +35,7 @@
   border: 1px solid rgba(65, 31, 235, 0.15);
   color: #411FEB;
 }
+
 .dark .modal-nav-btn {
   background-color: #121212;
   border-color: rgba(85, 54, 237, 0.15);
@@ -43,7 +46,36 @@
   content: '|';
   animation: blink 1.25s infinite;
 }
+
 @keyframes blink {
-  0%, 50%, 100% { opacity: 1; }
-  25%, 75% { opacity: 0; }
+
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
+/* Scrollbar Hide Utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari and Opera */
+}
+
+@media (min-width: 1024px) {
+  .lg-header-pb {
+    padding-bottom: 150px !important;
+  }
 }

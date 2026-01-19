@@ -53,6 +53,7 @@ priority: 0.9
             ]
         }
     </script>
+
 </head>
 
 <body class="dark:bg-[#121212] font-inter text-[#411FEB]">
@@ -60,7 +61,7 @@ priority: 0.9
     <!-- Navbar -->
     {% include navbar.html %}
 
-    <header class="text-white bg-[#411FEB] py-20 lg:px-32 px-8">
+    <header class="text-white bg-[#411FEB] p-8 lg:px-32 lg:pt-20 lg-header-pb">
         <h1 class="text-5xl font-bold">Designer d'expériences</h1>
         <h2 class="text-stroke text-5xl font-bold mt-2">Rédacteur émotionnel</h2>
         <p class="mt-4">Je crée des interfaces premium et intuitives en alliant clarté, esthétique et storytelling pour
@@ -85,14 +86,19 @@ priority: 0.9
             </div>
         </div>
 
+        <!-- Container pour le tri -->
+        <div id="sortControlsContainer" class="w-full mt-6 mb-2">
+            <!-- Les contrôles de tri seront injectés ici par JS -->
+        </div>
+
         <!-- Container pour les filtres -->
-        <div id="filtersContainer" class="w-full mt-6 flex flex-col gap-2">
+        <div id="filtersContainer" class="w-full flex flex-nowrap overflow-x-auto gap-2 items-center scrollbar-hide">
             <!-- Les filtres seront injectés ici par JS -->
         </div>
         </div>
     </header>
 
-    <section class="py-16 text-center lg:px-32 px-8 lg:-mt-40">
+    <section class="p-8 text-center lg:px-32 lg:-mt-40">
         <h2 class="text-2xl font-bold mb-6 lg:text-white">
             <i class='bx bxs-diamond-alt'></i> Mes maquettes
         </h2>
