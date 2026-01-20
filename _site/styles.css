@@ -130,3 +130,22 @@
 .citation-line {
   width: 4px;
 }
+
+/* Timeline Line Utility */
+.timeline-line {
+  position: absolute;
+  left: -4px;
+  top: 0.5rem;
+  bottom: 0;
+  width: 4px;
+  background-color: #411FEB;
+}
+
+/* CV Image Hover Animation */
+.cv-img {
+  transition: transform 500ms;
+}
+
+.group:hover .cv-img {
+  transform: rotate(0deg) !important;
+}
