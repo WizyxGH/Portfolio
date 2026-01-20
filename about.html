@@ -1,14 +1,13 @@
 ---
-title: "Qui suis-je ?"
+title: "À propos"
 description: "Étudiant de 22 ans passionné par l'UI/UX Design, l'écriture et le voyage. Découvrez mon parcours, mes
 compétences et ce qui m'anime au quotidien."
-
 permalink: /about/
 priority: 0.8
 ---
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
@@ -46,7 +45,7 @@ priority: 0.8
                 {
                     "@type": "ListItem",
                     "position": 2,
-                    "name": "Qui suis-je",
+                    "name": "À propos",
                     "item": "https://wizyx.me/about/"
                 }
             ]
@@ -54,141 +53,241 @@ priority: 0.8
     </script>
 </head>
 
-<body class="font-inter text-[#411FEB] dark:text-white dark:bg-[#121212]">
+<body class="font-inter transition-colors duration-300" style="background-color: rgba(65, 31, 235, 0.04);">
 
     <!-- Navbar -->
     {% include navbar.html %}
 
-    <header class="text-white bg-[#411FEB] py-20 lg:px-32 px-8">
-        <h1 class="text-5xl font-bold">Florian <span class="uppercase">Gertner Kilian</span></h1>
-        <h2 class="text-stroke text-5xl font-bold mt-2">Product Designer (UI/UX) • Rédacteur</h2>
-    </header>
+    <main class="container mx-auto px-6 py-16 lg:px-32 flex flex-col gap-8">
 
-    <section class="pt-8 lg:px-32 text-center px-8">
-        <h2 class="text-2xl font-bold mb-6 text-[#411FEB] dark:text-[#5536ED]">
-            <i class='bx bxs-user-detail'></i> Présentation
-        </h2>
-        <p class="text-[#121212] dark:text-white lg:text-md text-sm text-left leading-relaxed">
-            Étudiant de 22 ans ayant terminé un BUT MMI (Métiers du Multimédia et de l’Internet) dans le sud de la
-            France, je
-            ressens le besoin de libérer ma créativité par le biais de l’art. Également conscient des avantages que
-            permettent le numérique, j’ai toujours eu l’ambition de créer et faire vivre tout un tas de projets qui me
-            tiennent à cœur et m’animent au quotidien.
-        </p>
-    </section>
-
-    <!-- Section "Qui suis-je ?" -->
-    <section class="text-[#121212] dark:text-white py-8 px-8 lg:px-32">
-        <div class="container mx-auto flex flex-col lg:flex-row items-start space-y-8 lg:space-y-0 lg:gap-24">
-            <!-- Conteneur des deux textes alignés verticalement -->
-            <div class="lg:w-1/2 space-y-4">
-                <!-- Premier texte -->
-                <div>
-                    <h2 class="text-[#411FEB] dark:text-[#5536ED] text-xl font-semibold mb-2">Apprentissages</h2>
-                    <p class="lg:text-md text-sm leading-relaxed">
-                        De ce fait, après avoir longtemps expérimenté dans mon coin comme autodidacte, devant la
-                        complexité technique que représente ce merveilleux outil, j'ai décidé de m'orienter vers des
-                        études courtes
-                        et professionnalisantes. J'ai alors choisi de faire un BTS informatique (SIO) afin d'apprendre à
-                        coder.
-                        Cela aurait permis de savoir donner vie aux diverses idées de sites et d'applications qui me
-                        viennent en tête.
-                        Malgré l'obtention du diplôme, je me suis rendu compte que passer la journée à écrire des lignes
-                        de code ne correspondait pas à ma vie rêvée. Ce que j'aime c'est certes créer des solutions
-                        numériques
-                        mais surtout l'aspect visuel et esthétique pour concevoir des interfaces agréables, intuitives
-                        et efficaces à naviguer.
-                        Le numérique doit être à l'avantage de l'Homme et non prendre son contrôle.
-                    </p>
+        <!-- HEADER -->
+        <header class="flex flex-col items-center text-center space-y-6">
+            <div class="relative lg:w-40 lg:h-40" style="width: 160px; height: 160px;">
+                <!-- Lightbulb Icon -->
+                <div class="absolute -top-12 -right-16 z-20 animate-float">
+                    {% include icons/lightbulb_3d.svg %}
                 </div>
-
-                <!-- Deuxième texte -->
-                <div>
-                    <h2 class="text-[#411FEB] dark:text-[#5536ED] text-xl font-semibold mb-2">Passions</h2>
-                    <p class="lg:text-md text-sm leading-relaxed">
-                        Ce besoin d'entraide et de partage, je le transmet aussi par l'écriture. C'est un vecteur
-                        d'échange bien pratique qui me permet de m'exprimer. J'aime faire découvrir aux autres mes
-                        passions pour
-                        les emmener avec moi. C'est pourquoi, je contribue à la communauté des fans de bandes dessinées
-                        Disney (oui, ça existe !) en archivant des magazines du monde entier et en rédigeant des
-                        articles de
-                        temps à autre.
-                    </p>
-                </div>
-
-                <div>
-                    <h2 class="text-[#411FEB] dark:text-[#5536ED] text-xl font-semibold mb-2">Voyages</h2>
-                    <p class="lg:text-md text-sm leading-relaxed">
-                        Mes parents m'ont donné leur passion du voyage. Rien de mieux pour comprendre le monde qui nous
-                        entoure que le parcourir et l'explorer (de sa beauté à ses failles). Alors que beaucoup de
-                        différences nous divisent, on se rend compte que dans le fond on est tous les mêmes. Avoir la
-                        Terre comme terrain de jeu ouvre l'esprit et donne de nouvelles perspectives.
-                    </p>
+                <!-- Profile Picture -->
+                <div class="relative w-full h-full rounded-full p-1.5"
+                    style="background: linear-gradient(to top right, #411FEB, #7000FF); box-shadow: 0 10px 40px -10px rgba(65,31,235,0.6);">
+                    <img src="/media/photo.webp" alt="Florian Gertner Kilian"
+                        class="w-full h-full rounded-full object-cover border-[4px] border-white dark:border-[#1E1E1E] relative z-0">
                 </div>
             </div>
 
-            <!-- Image à droite -->
-            <div class="lg:w-1/3 h-full">
-                <img src="/media/photoperso.webp" alt="Image de moi" class="w-full rounded-lg" loading="lazy"
-                    decoding="async">
-            </div>
-        </div>
-    </section>
-
-    <section class="text-[#121212] dark:text-white lg:px-32 px-8 pb-4">
-        <h2 class="text-[#411FEB] dark:text-[#5536ED] text-xl font-semibold mb-2">Esprit sportif</h2>
-        <p class="lg:text-md text-sm text-left leading-relaxed">
-            J'ai toujours eu l'envie de bouger et de me surpasser. Le sport est donc un moyen évident. Que cela passe
-            par le collectif en faisant partie pendant 7 ans d'un club de foot puis autant d'années dans un club de
-            basket ou par les performances individuelles en se surpassant physiquement et mentalement grâce à la course
-            à pied.
-        </p>
-        <h3 class="text-[#411FEB] text-md font-medium my-2">Objectifs :</h3>
-        <ul class="list-disc pl-5 text-sm leading-relaxed">
-            <li>Courir 10 km par jour pendant 100j ✅</li>
-            <li>Courir un marathon en moins de 4h (record actuel : semi-marathon en 1h43m06s) 🔜</li>
-            <li>Faire le GR20 en Corse</li>
-            <li>Gravir le Mont-Blanc en partant de Chamonix puis le Kilimandjaro</li>
-        </ul>
-    </section>
-
-    <section class="flex flex-col md:flex-row items-center text-white bg-[#411FEB] lg:mx-32 mx-8 rounded-md">
-        <!-- Image à gauche -->
-        <div class="w-full md:w-1/3 flex justify-center">
-            <img src="/media/photoprofil.webp" alt="Photo de Florian"
-                class="rounded-lg shadow-lg object-cover w-full max-w-sm md:max-w-full transform scale-x-[-1]"
-                loading="lazy" decoding="async">
-        </div>
-        <!-- Texte à droite -->
-        <div class="w-full md:w-2/3 p-8 space-y-3">
-            <h2 class="text-2xl font-semibold">Florian, en bref</h2>
-            <p class="lg:text-md text-sm text-left leading-relaxed">
-                Enthousiaste, curieux et toujours optimiste, je donne le meilleur de moi-même pour exprimer ma
-                créativité et
-                étoffer mon panel de compétences. Honnête et attentionné, j’ai la volonté d’aider les gens à mon échelle
-                pour laisser un impact positif.
-            </p>
-            <!-- Citation -->
-            <div class="bg-white border-l-4 border-[#E8E4FC] p-4 rounded-lg shadow-sm">
-                <p class="text-gray-800 italic" style="text-align: justify;">
-                    Life's greatest moments and deepest connections exist outside of your comfort zone
+            <div class="space-y-3">
+                <h1 class="text-[#121212] dark:text-white leading-tight"
+                    style="font-size: 3.5rem; font-weight: 800; font-family: 'Inter', sans-serif;">
+                    Florian <span class="text-[#121212] dark:text-white">Gertner Kilian</span>
+                </h1>
+                <p class="text-xl lg:text-2xl text-gray-500 font-semibold dark:text-gray-400">
+                    UI/UX Designer • Copywriter
                 </p>
             </div>
-        </div>
-    </section>
+        </header>
 
+        <!-- HISTOIRE CARD -->
+        <section
+            class="bg-white dark:bg-[#1E1E1E] border border-[rgba(65,31,235,0.24)] dark:border-gray-800 flex flex-col items-start gap-8 self-stretch"
+            style="border-radius: 16px; padding: 24px 32px;">
+            <div class="mb-10 flex flex-col gap-6">
+                <span class="text-xs font-bold text-[#411FEB] uppercase block">Histoire</span>
+                <h2 class="text-2xl font-bold text-[#121212] dark:text-white leading-relaxed">
+                    Pourquoi exercer le métier d'<span class="font-bold text-transparent bg-clip-text"
+                        style="background: linear-gradient(180deg, #411FEB 0%, #251285 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">UI/UX
+                        Designer freelance</span> ?
+                </h2>
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Étudiant de 22 ans ayant terminé un BUT MMI (Métiers du Multimédia et de l’Internet) dans le sud de
+                    la France, je ressens le besoin de libérer ma créativité par le biais de l’art. Également conscient
+                    des avantages que permettent le numérique, j’ai toujours eu l’ambition de créer et faire vivre tout
+                    un tas de projets qui me tiennent à cœur et m’animent au quotidien.
+                </p>
+            </div>
 
-    <section class="py-16 lg:px-32 text-center px-8">
-        <h2 class="text-2xl dark:text-[#5536ED] font-bold mb-6">
-            <i class='bx bxs-note'></i> Curriculum Vitae
-        </h2>
-        <a href="/media/CV.pdf" target="_blank" rel="noopener noreferrer">
-            <button
-                class="border-2 border-[#411FEB] dark:border-[#5536ED] text-[#411FEB] dark:text-[#5536ED] px-4 py-2 rounded-full hover:bg-[#3509B6] hover:text-white">
-                Envie d'aussi voir mon CV ?
-            </button>
-        </a>
-    </section>
+            <!-- TIMELINE -->
+            <div class="space-y-12 pb-2" style="border-left: 4px solid #411FEB; padding-left: 24px; margin-left: 8px;">
+
+                <!-- Item 1 -->
+                <div class="relative flex flex-col space-y-3">
+                    <!-- Dot -->
+                    <span class="absolute rounded-full bg-[#411FEB]"
+                        style="left: -32px; top: 8px; width: 16px; height: 16px; z-index: 10;"></span>
+                    <h3 class="font-bold text-xl text-[#121212] dark:text-white">Apprentissages</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm lg:text-base leading-7 text-justify">
+                        De ce fait, après avoir longtemps expérimenté dans mon coin comme <strong>autodidacte</strong>,
+                        devant la complexité technique que représente ce merveilleux outil, j'ai décidé de m'orienter
+                        vers des <strong>études courtes et professionnalisantes</strong>. J'ai alors choisi de faire un
+                        <strong>BTS informatique (SIO)</strong> afin d'<strong>apprendre à coder</strong>. Cela aurait
+                        permis de savoir <strong>donner vie aux diverses idées de sites et d'applications</strong> qui
+                        me viennent en tête. Malgré l'obtention du diplôme, je me suis rendu compte que passer la
+                        journée à écrire des lignes de code ne correspondait pas à ma vie rêvée. Ce que j'aime c'est
+                        certes créer
+                        des solutions numériques mais surtout <strong>l'aspect visuel et esthétique</strong> pour
+                        concevoir des
+                        interfaces agréables, intuitives et efficaces à naviguer. Le numérique doit être à l'avantage de
+                        l'Homme et
+                        non prendre son contrôle.</span>
+                    </p>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="relative flex flex-col gap-3">
+                    <span class="absolute rounded-full bg-[#411FEB]"
+                        style="left: -32px; top: 8px; width: 16px; height: 16px; z-index: 10;"></span>
+                    <h3 class="font-bold text-xl text-[#121212] dark:text-white">Passions</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm lg:text-base leading-7 text-justify">
+                        Ce <strong>besoin d'entraide et de partage</strong>, je le transmet aussi par
+                        l'<strong>écriture</strong>. C'est un <strong>vecteur d'échange</strong> bien pratique qui me
+                        permet de <strong>m'exprimer</strong>. J'aime
+                        <strong>faire découvrir aux autres mes passions</strong> pour les emmener avec moi. C'est
+                        pourquoi, je contribue à la communauté des <strong>fans de bandes dessinées Disney</strong>
+                        (oui, ça existe !) en <strong>archivant des magazines</strong> du monde entier et en
+                        <strong>rédigeant des articles</strong> de temps à autre.
+                    </p>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="relative flex flex-col gap-3">
+                    <span class="absolute rounded-full bg-[#411FEB]"
+                        style="left: -32px; top: 8px; width: 16px; height: 16px; z-index: 10;"></span>
+                    <h3 class="font-bold text-xl text-[#121212] dark:text-white">Voyages</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm lg:text-base leading-7 text-justify">
+                        Mes parents m'ont donné leur <strong>goût du voyage</strong>. Rien de mieux pour
+                        <strong>comprendre le monde qui nous entoure</strong> que le <strong>parcourir et
+                            l'explorer</strong> (de sa
+                        <strong>beauté</strong> à ses failles). Alors que beaucoup de
+                        différences nous divisent, on se rend compte que dans le fond on est <strong>tous les
+                            mêmes</strong>. Avoir la Terre comme <strong>terrain de jeu</strong> ouvre l'esprit et donne
+                        de nouvelles perspectives.
+                    </p>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="relative flex flex-col gap-3">
+                    <span class="absolute rounded-full bg-[#411FEB]"
+                        style="left: -32px; top: 8px; width: 16px; height: 16px; z-index: 10;"></span>
+                    <h3 class="font-bold text-xl text-[#121212] dark:text-white">Esprit sportif</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm lg:text-base leading-7 text-justify">
+                        J'ai toujours eu l'envie de <strong>bouger</strong> et de <strong>me surpasser</strong>. Le
+                        <strong>sport</strong> est donc un moyen évident. Que cela passe
+                        par le <strong>collectif</strong> en faisant partie pendant 7 ans d'un club de foot puis autant
+                        d'années dans un club de basket ou par les <strong>performances individuelles</strong> en se
+                        <strong>surpassant physiquement et mentalement</strong> grâce à la course à pied.
+                    </p>
+
+                    <p class="font-bold text-[#121212] dark:text-white uppercase text-xs opacity-80 mb-2">
+                        Objectifs :</p>
+                    <ul class="list-disc pl-5 space-y-2 text-sm lg:text-[0.95rem] text-gray-700 dark:text-gray-300">
+                        <li>Courir 10 km par jour pendant 100j ✅</li>
+                        <li>Courir un marathon en moins de 4h (record actuel : semi-marathon en 1h50m12s)</li>
+                        <li>Faire le GR20 en Corse</li>
+                        <li>Gravir le Mont-Blanc en partant de Chamonix puis le Kilimandjaro</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CITATIONS CARD -->
+        <section
+            class="bg-white dark:bg-[#1E1E1E] shadow-[0_10px_60px_-15px_rgba(0,0,0,0.03)] border border-[rgba(65,31,235,0.24)] dark:border-gray-800 flex flex-col items-start gap-8 self-stretch"
+            style="border-radius: 16px; padding: 24px 32px;">
+            <div class="mb-12 flex flex-col gap-6">
+                <span class="text-sm font-bold text-[#411FEB] uppercase block">Citations</span>
+                <h2 class="text-2xl font-bold text-[#121212] dark:text-white leading-relaxed">
+                    Mon état d'esprit</h2>
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Enthousiaste, curieux et toujours optimiste, je donne le meilleur de moi-même pour exprimer ma
+                    créativité et étoffer mon panel de compétences. Honnête et attentionné, j’ai la volonté d’aider les
+                    gens à mon échelle pour laisser un impact positif.
+                </p>
+            </div>
+
+            <!-- Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                <!-- Quote 1 -->
+                <div class="flex items-center gap-3 h-full hover:shadow-sm transition-shadow"
+                    style="border-radius: 24px;">
+                    <div class="w-[4px] bg-[#411FEB] rounded-full shrink-0 self-stretch"></div>
+                    <div class="py-3 quote-bg rounded-xl px-4 w-full">
+                        <p class="italic text-[#121212] dark:text-gray-200 font-medium leading-relaxed text-sm">
+                            Life's greatest moments and deepest connections exist outside of your comfort zone
+                        </p>
+                    </div>
+                </div>
+                <!-- Quote 2 -->
+                <div class="flex items-center gap-3 h-full hover:shadow-sm transition-shadow"
+                    style="border-radius: 24px;">
+                    <div class="w-[4px] bg-[#411FEB] rounded-full shrink-0 self-stretch"></div>
+                    <div class="py-3 quote-bg rounded-xl px-4 w-full">
+                        <p class="italic text-[#121212] dark:text-gray-200 font-medium leading-relaxed text-sm">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus elit eu nisi tempus,
+                            id tristique nibh imperdiet.
+                        </p>
+                    </div>
+                </div>
+                <!-- Quote 3 -->
+                <div class="flex items-center gap-3 h-full hover:shadow-sm transition-shadow"
+                    style="border-radius: 24px;">
+                    <div class="w-[4px] bg-[#411FEB] rounded-full shrink-0 self-stretch"></div>
+                    <div class="py-3 quote-bg rounded-xl px-4 w-full">
+                        <p class="italic text-[#121212] dark:text-gray-200 font-medium leading-relaxed text-sm">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus elit eu nisi tempus,
+                            id tristique nibh imperdiet.
+                        </p>
+                    </div>
+                </div>
+                <!-- Quote 4 -->
+                <div class="flex items-center gap-3 pr-3 h-full hover:shadow-sm transition-shadow"
+                    style="border-radius: 24px;">
+                    <div class="w-[4px] bg-[#411FEB] rounded-full shrink-0 self-stretch"></div>
+                    <div class="py-3 quote-bg rounded-xl px-4 w-full">
+                        <p class="italic text-[#121212] dark:text-gray-200 font-medium leading-relaxed text-sm">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus elit eu nisi tempus,
+                            id tristique nibh imperdiet.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CV BANNER -->
+        <section
+            class="text-white relative mx-auto transform hover:scale-[1.01] transition-transform duration-500 overflow-hidden flex flex-col items-center justify-between shadow-[0_4px_4px_0_rgba(0,0,0,0.20)] w-fit"
+            style="background: linear-gradient(180deg, #411FEB 0%, #251285 100%); border-radius: 16px; border: 4px solid rgba(255, 255, 255, 0.24); padding: 24px; gap: 32px;">
+
+            <!-- Content Container -->
+            <div class="relative z-10 flex flex-col md:flex-row items-center gap-8">
+
+                <!-- Image/Preview Side -->
+                <div class="flex justify-center">
+                    <img src="/media/CV.png" alt="Aperçu du CV"
+                        class="transform shadow-[0_4px_4px_0_rgba(255,255,255,0.10)]"
+                        style="width: 135px; height: auto; transform: rotate(-5deg); border-radius: 2px; border: 1px solid #FFF;">
+                </div>
+
+                <!-- Content Side -->
+                <div class="space-y-4">
+                    <h2 class="text-xl lg:text-2xl font-bold">Vous partagez une vision plus traditionnelle
+                        du recrutement ?</h2>
+                    <p class="text-white opacity-80 text-sm leading-relaxed">
+                        Découvrez mes compétences techniques et relationnelles, le détail de mes études accompagné de
+                        mes différentes expériences professionnelles ainsi que ce qui me passionne.
+                    </p>
+
+                    <div class="pt-4 flex">
+                        <a href="/media/CV.pdf" target="_blank" rel="noopener noreferrer"
+                            class="flex justify-center items-center gap-1 bg-white rounded-full px-4 py-1.5 text-[#411FEB] font-inter text-xs font-semibold hover:bg-gray-50 transition-all shadow-sm h-fit">
+                            <span>Voir mon CV en PDF</span>
+                            <i class='bx bx-link-external text-[#121212] opacity-80 flex items-center mb-[2px]'></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     {% include footer.html %}
 

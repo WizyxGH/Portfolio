@@ -79,3 +79,31 @@
     padding-bottom: 150px !important;
   }
 }
+
+/* Custom Float Animation for Lightbulb */
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(12deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(12deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(12deg);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Quote Background Utility */
+.quote-bg {
+  background-color: rgba(65, 31, 235, 0.04);
+}
+
+.dark .quote-bg {
+  background-color: #252525;
+}
