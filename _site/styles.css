@@ -107,3 +107,26 @@
 .dark .quote-bg {
   background-color: #252525;
 }
+
+/* Card Background Utility */
+.card-bg {
+  background-color: #ffffff;
+}
+
+.dark .card-bg {
+  background-color: #1E1E1E;
+}
+
+/* Page Background Utility */
+.page-bg {
+  background-color: rgba(65, 31, 235, 0.04);
+}
+
+.dark .page-bg {
+  background-color: #121212;
+}
+
+/* Citation Line Utility */
+.citation-line {
+  width: 4px;
+}

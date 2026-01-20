@@ -53,7 +53,7 @@ priority: 0.8
     </script>
 </head>
 
-<body class="font-inter transition-colors duration-300" style="background-color: rgba(65, 31, 235, 0.04);">
+<body class="font-inter transition-colors duration-300 page-bg">
 
     <!-- Navbar -->
     {% include navbar.html %}
@@ -64,23 +64,23 @@ priority: 0.8
         <header class="flex flex-col items-center text-center space-y-6">
             <div class="relative lg:w-40 lg:h-40" style="width: 160px; height: 160px;">
                 <!-- Lightbulb Icon -->
-                <div class="absolute -top-12 -right-16 z-20 animate-float">
+                <div class="absolute z-20 animate-float" style="top: -48px; right: -56px;">
                     {% include icons/lightbulb_3d.svg %}
                 </div>
                 <!-- Profile Picture -->
                 <div class="relative w-full h-full rounded-full p-1.5"
                     style="background: linear-gradient(to top right, #411FEB, #7000FF); box-shadow: 0 10px 40px -10px rgba(65,31,235,0.6);">
-                    <img src="/media/photo.webp" alt="Florian Gertner Kilian"
-                        class="w-full h-full rounded-full object-cover border-[4px] border-white dark:border-[#1E1E1E] relative z-0">
+                    <img src="/media/profilepicturepro.png" alt="Florian Gertner Kilian"
+                        class="w-full h-full rounded-full object-cover outline-4 border-[#2200CE] relative z-0">
                 </div>
             </div>
 
-            <div class="space-y-3">
-                <h1 class="text-[#121212] dark:text-white leading-tight"
-                    style="font-size: 3.5rem; font-weight: 800; font-family: 'Inter', sans-serif;">
+            <div class="space-y-2">
+                <h1 class="text-5xl font-bold text-[#121212] dark:text-white leading-tight"
+                    style="font-family: 'Inter', sans-serif;">
                     Florian <span class="text-[#121212] dark:text-white">Gertner Kilian</span>
                 </h1>
-                <p class="text-xl lg:text-2xl text-gray-500 font-semibold dark:text-gray-400">
+                <p class="lg:text-2xl text-gray-500 font-semibold dark:text-gray-400">
                     UI/UX Designer • Copywriter
                 </p>
             </div>
@@ -88,13 +88,13 @@ priority: 0.8
 
         <!-- HISTOIRE CARD -->
         <section
-            class="bg-white dark:bg-[#1E1E1E] border border-[rgba(65,31,235,0.24)] dark:border-gray-800 flex flex-col items-start gap-8 self-stretch"
+            class="card-bg border border-[rgba(65,31,235,0.24)] dark:border-gray-800 flex flex-col items-start gap-8 self-stretch"
             style="border-radius: 16px; padding: 24px 32px;">
-            <div class="mb-10 flex flex-col gap-6">
-                <span class="text-xs font-bold text-[#411FEB] uppercase block">Histoire</span>
+            <div class="flex flex-col gap-4">
+                <span class="text-xs font-bold text-[#411FEB] uppercase block">Mon histoire</span>
                 <h2 class="text-2xl font-bold text-[#121212] dark:text-white leading-relaxed">
                     Pourquoi exercer le métier d'<span class="font-bold text-transparent bg-clip-text"
-                        style="background: linear-gradient(180deg, #411FEB 0%, #251285 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">UI/UX
+                        style="background: linear-gradient(180deg, #411FEB 0%, #251285 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">UI/UX
                         Designer freelance</span> ?
                 </h2>
                 <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -106,15 +106,16 @@ priority: 0.8
             </div>
 
             <!-- TIMELINE -->
-            <div class="space-y-12 pb-2" style="border-left: 4px solid #411FEB; padding-left: 24px; margin-left: 8px;">
+            <div class="space-y-16"
+                style="border-left: 4px solid #411FEB; border-top-left-radius: 4px; border-bottom-left-radius: 4px; padding-left: 24px; margin-left: 8px; padding-top: 8px;">
 
                 <!-- Item 1 -->
-                <div class="relative flex flex-col space-y-3">
+                <div class="relative flex flex-col gap-3">
                     <!-- Dot -->
                     <span class="absolute rounded-full bg-[#411FEB]"
-                        style="left: -32px; top: 8px; width: 16px; height: 16px; z-index: 10;"></span>
+                        style="left: -34px; top: 8px; width: 16px; height: 16px; z-index: 10;"></span>
                     <h3 class="font-bold text-xl text-[#121212] dark:text-white">Apprentissages</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm lg:text-base leading-7 text-justify">
+                    <p class="text-gray-600 dark:text-gray-300 text-sm lg:text-base leading-7 text-justify">
                         De ce fait, après avoir longtemps expérimenté dans mon coin comme <strong>autodidacte</strong>,
                         devant la complexité technique que représente ce merveilleux outil, j'ai décidé de m'orienter
                         vers des <strong>études courtes et professionnalisantes</strong>. J'ai alors choisi de faire un
@@ -134,9 +135,9 @@ priority: 0.8
                 <!-- Item 2 -->
                 <div class="relative flex flex-col gap-3">
                     <span class="absolute rounded-full bg-[#411FEB]"
-                        style="left: -32px; top: 8px; width: 16px; height: 16px; z-index: 10;"></span>
+                        style="left: -34px; top: 8px; width: 16px; height: 16px; z-index: 10;"></span>
                     <h3 class="font-bold text-xl text-[#121212] dark:text-white">Passions</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm lg:text-base leading-7 text-justify">
+                    <p class="text-gray-600 dark:text-gray-300 text-sm lg:text-base leading-7 text-justify">
                         Ce <strong>besoin d'entraide et de partage</strong>, je le transmet aussi par
                         l'<strong>écriture</strong>. C'est un <strong>vecteur d'échange</strong> bien pratique qui me
                         permet de <strong>m'exprimer</strong>. J'aime
@@ -150,9 +151,9 @@ priority: 0.8
                 <!-- Item 3 -->
                 <div class="relative flex flex-col gap-3">
                     <span class="absolute rounded-full bg-[#411FEB]"
-                        style="left: -32px; top: 8px; width: 16px; height: 16px; z-index: 10;"></span>
+                        style="left: -34px; top: 8px; width: 16px; height: 16px; z-index: 10;"></span>
                     <h3 class="font-bold text-xl text-[#121212] dark:text-white">Voyages</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm lg:text-base leading-7 text-justify">
+                    <p class="text-gray-600 dark:text-gray-300 text-sm lg:text-base leading-7 text-justify">
                         Mes parents m'ont donné leur <strong>goût du voyage</strong>. Rien de mieux pour
                         <strong>comprendre le monde qui nous entoure</strong> que le <strong>parcourir et
                             l'explorer</strong> (de sa
@@ -166,9 +167,9 @@ priority: 0.8
                 <!-- Item 4 -->
                 <div class="relative flex flex-col gap-3">
                     <span class="absolute rounded-full bg-[#411FEB]"
-                        style="left: -32px; top: 8px; width: 16px; height: 16px; z-index: 10;"></span>
+                        style="left: -34px; top: 8px; width: 16px; height: 16px; z-index: 10;"></span>
                     <h3 class="font-bold text-xl text-[#121212] dark:text-white">Esprit sportif</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm lg:text-base leading-7 text-justify">
+                    <p class="text-gray-600 dark:text-gray-300 text-sm lg:text-base leading-7 text-justify">
                         J'ai toujours eu l'envie de <strong>bouger</strong> et de <strong>me surpasser</strong>. Le
                         <strong>sport</strong> est donc un moyen évident. Que cela passe
                         par le <strong>collectif</strong> en faisant partie pendant 7 ans d'un club de foot puis autant
@@ -178,7 +179,7 @@ priority: 0.8
 
                     <p class="font-bold text-[#121212] dark:text-white uppercase text-xs opacity-80 mb-2">
                         Objectifs :</p>
-                    <ul class="list-disc pl-5 space-y-2 text-sm lg:text-[0.95rem] text-gray-700 dark:text-gray-300">
+                    <ul class="list-disc pl-5 text-sm text-gray-700 dark:text-gray-300">
                         <li>Courir 10 km par jour pendant 100j ✅</li>
                         <li>Courir un marathon en moins de 4h (record actuel : semi-marathon en 1h50m12s)</li>
                         <li>Faire le GR20 en Corse</li>
@@ -191,9 +192,9 @@ priority: 0.8
 
         <!-- CITATIONS CARD -->
         <section
-            class="bg-white dark:bg-[#1E1E1E] shadow-[0_10px_60px_-15px_rgba(0,0,0,0.03)] border border-[rgba(65,31,235,0.24)] dark:border-gray-800 flex flex-col items-start gap-8 self-stretch"
+            class="card-bg shadow-[0_10px_60px_-15px_rgba(0,0,0,0.03)] border border-[rgba(65,31,235,0.24)] dark:border-gray-800 flex flex-col items-start gap-8 self-stretch"
             style="border-radius: 16px; padding: 24px 32px;">
-            <div class="mb-12 flex flex-col gap-6">
+            <div class="mb-12 flex flex-col gap-4">
                 <span class="text-sm font-bold text-[#411FEB] uppercase block">Citations</span>
                 <h2 class="text-2xl font-bold text-[#121212] dark:text-white leading-relaxed">
                     Mon état d'esprit</h2>
@@ -207,43 +208,47 @@ priority: 0.8
             <!-- Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
                 <!-- Quote 1 -->
-                <div class="flex items-center gap-3 h-full hover:shadow-sm transition-shadow"
-                    style="border-radius: 24px;">
-                    <div class="w-[4px] bg-[#411FEB] rounded-full shrink-0 self-stretch"></div>
-                    <div class="py-3 quote-bg rounded-xl px-4 w-full">
-                        <p class="italic text-[#121212] dark:text-gray-200 font-medium leading-relaxed text-sm">
+                <div class="flex items-stretch h-full hover:shadow-sm transition-shadow"
+                    style="border-top-right-radius: 24px; border-bottom-right-radius: 24px;">
+                    <div class="citation-line bg-[#411FEB] rounded-full shrink-0 self-stretch"></div>
+                    <div class="py-3 quote-bg px-4 w-full"
+                        style="border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
+                        <p class="italic text-[#121212] dark:text-white font-medium leading-relaxed text-sm">
                             Life's greatest moments and deepest connections exist outside of your comfort zone
                         </p>
                     </div>
                 </div>
                 <!-- Quote 2 -->
-                <div class="flex items-center gap-3 h-full hover:shadow-sm transition-shadow"
-                    style="border-radius: 24px;">
-                    <div class="w-[4px] bg-[#411FEB] rounded-full shrink-0 self-stretch"></div>
-                    <div class="py-3 quote-bg rounded-xl px-4 w-full">
-                        <p class="italic text-[#121212] dark:text-gray-200 font-medium leading-relaxed text-sm">
+                <div class="flex items-stretch h-full hover:shadow-sm transition-shadow"
+                    style="border-top-right-radius: 24px; border-bottom-right-radius: 24px;">
+                    <div class="citation-line bg-[#411FEB] rounded-full shrink-0 self-stretch"></div>
+                    <div class="py-3 quote-bg px-4 w-full"
+                        style="border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
+                        <p class="italic text-[#121212] dark:text-white font-medium leading-relaxed text-sm">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus elit eu nisi tempus,
                             id tristique nibh imperdiet.
                         </p>
                     </div>
                 </div>
                 <!-- Quote 3 -->
-                <div class="flex items-center gap-3 h-full hover:shadow-sm transition-shadow"
-                    style="border-radius: 24px;">
-                    <div class="w-[4px] bg-[#411FEB] rounded-full shrink-0 self-stretch"></div>
-                    <div class="py-3 quote-bg rounded-xl px-4 w-full">
-                        <p class="italic text-[#121212] dark:text-gray-200 font-medium leading-relaxed text-sm">
+                <div class="flex items-stretch h-full hover:shadow-sm transition-shadow"
+                    style="border-top-right-radius: 24px; border-bottom-right-radius: 24px;">
+                    <div class="citation-line bg-[#411FEB] rounded-full shrink-0 self-stretch"></div>
+                    <div class="py-3 quote-bg px-4 w-full"
+                        style="border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
+                        <p class="italic text-[#121212] dark:text-white font-medium leading-relaxed text-sm">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus elit eu nisi tempus,
                             id tristique nibh imperdiet.
                         </p>
                     </div>
                 </div>
                 <!-- Quote 4 -->
-                <div class="flex items-center gap-3 pr-3 h-full hover:shadow-sm transition-shadow"
-                    style="border-radius: 24px;">
-                    <div class="w-[4px] bg-[#411FEB] rounded-full shrink-0 self-stretch"></div>
-                    <div class="py-3 quote-bg rounded-xl px-4 w-full">
-                        <p class="italic text-[#121212] dark:text-gray-200 font-medium leading-relaxed text-sm">
+                <div class="flex items-stretch pr-3 h-full hover:shadow-sm transition-shadow"
+                    style="border-top-right-radius: 24px; border-bottom-right-radius: 24px;">
+                    <div class="citation-line bg-[#411FEB] rounded-full shrink-0 self-stretch"></div>
+                    <div class="py-3 quote-bg px-4 w-full"
+                        style="border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
+                        <p class="italic text-[#121212] dark:text-white font-medium leading-relaxed text-sm">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus elit eu nisi tempus,
                             id tristique nibh imperdiet.
                         </p>
@@ -254,7 +259,7 @@ priority: 0.8
 
         <!-- CV BANNER -->
         <section
-            class="text-white relative mx-auto transform hover:scale-[1.01] transition-transform duration-500 overflow-hidden flex flex-col items-center justify-between shadow-[0_4px_4px_0_rgba(0,0,0,0.20)] w-fit"
+            class="group text-white relative mx-auto transform hover:scale-[1.01] transition-transform duration-500 overflow-hidden flex flex-col items-center justify-between shadow-[0_4px_4px_0_rgba(0,0,0,0.20)] w-fit"
             style="background: linear-gradient(180deg, #411FEB 0%, #251285 100%); border-radius: 16px; border: 4px solid rgba(255, 255, 255, 0.24); padding: 24px; gap: 32px;">
 
             <!-- Content Container -->
@@ -263,7 +268,7 @@ priority: 0.8
                 <!-- Image/Preview Side -->
                 <div class="flex justify-center">
                     <img src="/media/CV.png" alt="Aperçu du CV"
-                        class="transform shadow-[0_4px_4px_0_rgba(255,255,255,0.10)]"
+                        class="transform shadow-[0_4px_4px_0_rgba(255,255,255,0.10)] transition-transform duration-500 group-hover:rotate-0"
                         style="width: 135px; height: auto; transform: rotate(-5deg); border-radius: 2px; border: 1px solid #FFF;">
                 </div>
 
@@ -276,9 +281,9 @@ priority: 0.8
                         mes différentes expériences professionnelles ainsi que ce qui me passionne.
                     </p>
 
-                    <div class="pt-4 flex">
+                    <div class="pt-4 flex w-full md:w-auto">
                         <a href="/media/CV.pdf" target="_blank" rel="noopener noreferrer"
-                            class="flex justify-center items-center gap-1 bg-white rounded-full px-4 py-1.5 text-[#411FEB] font-inter text-xs font-semibold hover:bg-gray-50 transition-all shadow-sm h-fit">
+                            class="w-full md:w-auto flex justify-center items-center gap-1 bg-white rounded-full px-4 py-2 text-[#411FEB] font-inter font-semibold hover:bg-gray-50 transition-all shadow-sm h-fit">
                             <span>Voir mon CV en PDF</span>
                             <i class='bx bx-link-external text-[#121212] opacity-80 flex items-center mb-[2px]'></i>
                         </a>
