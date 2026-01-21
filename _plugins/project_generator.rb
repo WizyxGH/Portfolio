@@ -67,7 +67,7 @@ module Jekyll
              gallery_path_abs = nil
 
              candidates.uniq.each do |cand|
-                check_rel = File.join('media', 'projects', 'results', cand)
+                check_rel = File.join('assets', 'media', 'projects', 'results', cand)
                 check_abs = File.join(site.source, check_rel)
                 if File.directory?(check_abs)
                    gallery_path_rel = check_rel
