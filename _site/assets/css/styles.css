@@ -1,0 +1,159 @@
+@layer utilities {
+  .text-stroke {
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 1.5px white;
+    /* Taille et couleur du contour */
+    color: transparent;
+  }
+}
+
+.show {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(2.5rem);
+  /* équivalent translate-y-10 */
+  transition: all 0.7s;
+}
+
+.animate-on-scroll.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ensure Inter font applies when using the Tailwind class */
+/*.font-inter {
+  font-family: 'Inter', sans-serif;
+}*/
+
+/* Modal carousel buttons consistency */
+.modal-nav-btn {
+  background-color: #ffffff;
+  border: 1px solid rgba(65, 31, 235, 0.15);
+  color: #411FEB;
+}
+
+.dark .modal-nav-btn {
+  background-color: #121212;
+  border-color: rgba(85, 54, 237, 0.15);
+  color: #5536ED;
+}
+
+#typewriter::after {
+  content: '|';
+  animation: blink 1.25s infinite;
+}
+
+@keyframes blink {
+
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
+/* Scrollbar Hide Utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari and Opera */
+}
+
+@media (min-width: 1024px) {
+  .lg-header-pb {
+    padding-bottom: 150px !important;
+  }
+}
+
+/* Custom Float Animation for Lightbulb */
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(12deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(12deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(12deg);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Quote Background Utility */
+.quote-bg {
+  background-color: rgba(65, 31, 235, 0.04);
+}
+
+.dark .quote-bg {
+  background-color: #252525;
+}
+
+/* Card Background Utility */
+.card-bg {
+  background-color: #ffffff;
+}
+
+.dark .card-bg {
+  background-color: #1E1E1E;
+}
+
+/* Page Background Utility */
+.page-bg {
+  background-color: rgba(65, 31, 235, 0.04);
+}
+
+.dark .page-bg {
+  background-color: #121212;
+}
+
+/* Citation Line Utility */
+.citation-line {
+  width: 4px;
+}
+
+.dark .citation-line {
+  background-color: #5536ED;
+}
+
+/* Timeline Line Utility */
+.timeline-line {
+  position: absolute;
+  left: -4px;
+  top: 0.5rem;
+  bottom: 0;
+  width: 4px;
+  background-color: #411FEB;
+}
+
+.dark .timeline-line {
+  background-color: #5536ED;
+}
+
+/* CV Image Hover Animation */
+.cv-img {
+  transition: transform 500ms;
+}
+
+.group:hover .cv-img {
+  transform: rotate(3deg) !important;
+}
