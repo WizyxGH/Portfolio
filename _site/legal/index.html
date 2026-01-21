@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions légales</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/boxicons.min.css">
+    <link rel="stylesheet" href="/assets/css/tailwind.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="/assets/media/favicon.ico">
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/theme.js" defer></script>
+    <meta name="robots" content="noindex, nofollow">
+    <meta property="og:image"
+        content="https://opengraph.b-cdn.net/production/images/59129536-2074-4333-9e04-70d6cffd3d0f.jpg?token=Oj5V7Gb5wGaScWNgROHh8HDeCIdtoZtqvgIpBFaIi1g&height=640&width=1200&expires=33294662852">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6PJB5NW1Y5"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-6PJB5NW1Y5'); </script>
+</head>
+
+<body class="font-inter text-[#411FEB] dark:bg-[#121212]">
+
+    <!-- Navbar -->
+    <header class="bg-[#411FEB] fixed top-0 left-0 w-full z-50 transition-colors duration-200" id="navbar">
+    <div class="mx-auto px-6 lg:px-32 py-3 flex justify-between items-center">
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-2 text-lg font-bold text-white">
+            <img src="/assets/media/logo.png" alt="Logo Wizyx" class="w-6 h-6">
+            Wizyx
+        </a>
+
+        <!-- Bouton Menu Burger (visible sur mobile) -->
+        <button id="menuButton" class="text-white text-3xl lg:hidden" aria-label="Ouvrir le menu de navigation">
+            <i class="bx bx-menu"></i>
+        </button>
+
+        <!-- Menu de navigation -->
+        <nav id="navMenu"
+            class="hidden absolute top-full left-0 w-full bg-[#411FEB] shadow-lg lg:shadow-none lg:static lg:flex lg:items-center lg:space-x-4 lg:w-auto transition-all duration-300">
+            <ul class="flex flex-col lg:flex-row lg:space-x-4">
+                
+                
+                <!-- Lien simple -->
+                <li><a href="/about/" class="block px-6 py-2 text-white hover:font-semibold">Qui suis-je ?</a>
+                </li>
+                
+                
+                
+                <!-- Menu déroulant -->
+                <li class="relative lg:group">
+                    <button id="dropdownButton"
+                        class="inline-flex items-center px-6 py-2 text-white gap-1 w-full text-left lg:w-auto lg:text-center">
+                        Réalisations
+                        <i id="dropdownChevron" class='bx bx-chevron-down text-lg text-gray-300 ml-auto lg:ml-0'></i>
+                    </button>
+                    <ul id="dropdownMenu"
+                        class="hidden flex-col bg-white dark:bg-[#121212] text-[#411FEB] dark:text-[#5536ED] lg:absolute lg:shadow-md lg:rounded-md lg:w-64">
+                        
+                        <li>
+                            <a href="/creations/"
+                                class="group block lg:px-2 px-6 py-2 hover:bg-[#E8E4FC] dark:hover:bg-[#1A162C] hover:text-[#411FEB] dark:hover:text-[#5536ED] hover:font-semibold lg:hover:rounded-t-md">
+                                <div class="flex items-center gap-3">
+                                    <span
+                                        class="bg-[#E8E4FC] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] p-2 text-xl rounded-md flex items-center justify-center group-hover:bg-[#411FEB] group-hover:text-white">
+                                        <i class='bx bxs-briefcase-alt-2'></i>
+                                    </span>
+                                    <div class="flex flex-col">
+                                        <span>Professionnel</span>
+                                        <span class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed">UI/UX Design, articles</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="/creations_studies/"
+                                class="group block lg:px-2 px-6 py-2 hover:bg-[#E8E4FC] dark:hover:bg-[#1A162C] hover:text-[#411FEB] dark:hover:text-[#5536ED] hover:font-semibold lg:hover:rounded-b-md">
+                                <div class="flex items-center gap-3">
+                                    <span
+                                        class="bg-[#E8E4FC] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] p-2 text-xl rounded-md flex items-center justify-center group-hover:bg-[#411FEB] group-hover:text-white">
+                                        <i class='bx bxs-graduation'></i>
+                                    </span>
+                                    <div class="flex flex-col">
+                                        <span>Académique</span>
+                                        <span class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed">Réalisé en BUT MMI</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                <!-- Lien simple -->
+                <li><a href="/services/" class="block px-6 py-2 text-white hover:font-semibold">Services</a>
+                </li>
+                
+                
+                
+                <!-- Lien simple -->
+                <li><a href="/contact/" class="block px-6 py-2 text-white hover:font-semibold">Contact</a>
+                </li>
+                
+                
+
+                <!-- Bouton Theme Toggle - visible uniquement sur mobile -->
+                <li class="block lg:hidden border-t border-white/20 mt-2">
+                    <button id="themeToggleMobile"
+                        class="w-full text-left px-6 py-3 text-white hover:bg-white/10 flex items-center gap-2">
+                        <i class="bx bx-sun text-xl"></i>
+                        <span>Changer de thème</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Bouton Theme Toggle - visible uniquement sur desktop -->
+        <button id="themeToggleDesktop" aria-label="Basculer le thème"
+            class="hidden lg:block text-white hover:bg-white/10 py-2 px-3 rounded-lg transition-colors duration-200">
+            <i class='bx bx-sun text-xl'></i>
+        </button>
+    </div>
+</header>
+
+<!-- Spacer -->
+<div class="h-[60px] lg:h-[64px]"></div>
+
+    <main class="flex-1 pt-8 pb-12 lg:px-32 px-8">
+        <div class="max-w-4xl mx-auto space-y-10">
+            <header class="space-y-4">
+                <div>
+                    <a href="/" class="text-white hover:font-semibold transition-all duration-200">
+                        <i class='bx bx-arrow-left-stroke'></i>
+                        <span>Retour à l'accueil</span>
+                    </a>
+                </div>
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-[#5536ED]">Mentions légales</h1>
+            </header>
+
+            <div class="space-y-8 text-left text-gray-800">
+                <article class="space-y-3">
+                    <h2 class="text-xl font-semibold text-gray-900 dark:text-[#5536ED]">1. &Eacute;diteur du site</h2>
+                    <div class="rounded-2xl bg-gray-50 border border-gray-100 p-6 space-y-2 shadow-sm">
+                        <p><strong>Site :</strong> wizyx.me</p>
+                        <p><strong>&Eacute;diteur :</strong> Florian Gertner Kilian</p>
+                        <p><strong>Nationalité :</strong> Française</p>
+                        <p><strong>Numéro SIRET :</strong> 99994280800018</p>
+                        <p><strong>Numéro TVA intracommunautaire :</strong> Coming soon</p>
+                    </div>
+                </article>
+
+                <article class="space-y-3">
+                    <h2 class="text-xl font-semibold text-gray-900 dark:text-[#5536ED]">2. H&eacute;bergement</h2>
+                    <div class="rounded-2xl bg-gray-50 border border-gray-100 p-6 space-y-2 shadow-sm">
+                        <p><strong>H&eacute;bergeur :</strong>GitHub, Inc.</p>
+                        <p><strong>Adresse :</strong> 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, Etats-Unis
+                        </p>
+                        <p><strong>Contact support :</strong> <a href="https://support.github.com"
+                                class="text-[#411FEB]" target="_blank" rel="noopener">support.github.com</a></p>
+                    </div>
+                </article>
+
+                <article class="space-y-3">
+                    <h2 class="text-xl font-semibold text-gray-900 dark:text-[#5536ED]">3. Directeur de la publication
+                    </h2>
+                    <div class="rounded-2xl bg-gray-50 border border-gray-100 p-6 space-y-2 shadow-sm">
+                        <p>Florian Gertner Kilian</p>
+                    </div>
+                </article>
+
+                <article class="space-y-3">
+                    <h2 class="text-xl font-semibold text-gray-900 dark:text-[#5536ED]">4. Contact</h2>
+                    <div class="rounded-2xl bg-gray-50 border border-gray-100 p-6 space-y-2 shadow-sm">
+                        <p><strong>T&eacute;l&eacute;phone :</strong> <a href="tel:+33778407887"
+                                class="text-[#411FEB]">+33 7 78 40 78 87</a></p>
+                        <p><strong>Email :</strong> <a href="mailto:hello@wizyx.me"
+                                class="text-[#411FEB]">hello@wizyx.me</a></p>
+                    </div>
+                </article>
+
+                <article class="space-y-3">
+                    <h2 class="text-xl font-semibold text-gray-900 dark:text-[#5536ED]">5. Protection des données
+                        personnelles</h2>
+                    <div class="rounded-2xl bg-gray-50 border border-gray-100 p-6 space-y-2 shadow-sm">
+                        <p>Le traitement de vos données personnelles est régi par la Charte de protection des données,
+                            accessible depuis la section &laquo; Charte de Protection des Données Personnelles &raquo;,
+                            conformément au R&egrave;glement (UE) 2016/679 (RGPD).</p>
+                    </div>
+                </article>
+
+                <article class="space-y-3">
+                    <h2 class="text-xl font-semibold text-gray-900 dark:text-[#5536ED]">6. Cookies</h2>
+                    <div class="rounded-2xl bg-gray-50 border border-gray-100 p-6 space-y-2 shadow-sm">
+                        <p>Ce site utilise des cookies pour améliorer l'expérience utilisateur et mesurer l'audience. En
+                            continuant à naviguer sur ce site, vous acceptez l'utilisation de cookies conformément à
+                            notre politique de confidentialité.</p>
+                    </div>
+                </article>
+
+                <article class="space-y-3">
+                    <h2 class="text-xl font-semibold text-gray-900 dark:text-[#5536ED]">7. Propriété intellectuelle</h2>
+                    <div class="rounded-2xl bg-gray-50 border border-gray-100 p-6 space-y-2 shadow-sm">
+                        <p>Sauf mention contraire, l'ensemble des contenus (textes, images, graphismes, logo, icones)
+                            présents sur ce site est la propriété exclusive de Florian Gertner Kilian. Toute
+                            reproduction, modification, adaptation ou publication est interdite sans autorisation
+                            &eacute;crite pr&eacute;alable.</p>
+                    </div>
+                </article>
+
+                <article class="space-y-3">
+                    <h2 class="text-xl font-semibold text-gray-900 dark:text-[#5536ED]">8. Responsabilité</h2>
+                    <div class="rounded-2xl bg-gray-50 border border-gray-100 p-6 space-y-2 shadow-sm">
+                        <p>L'&eacute;diteur s'efforce de fournir des informations exactes et à jour mais ne peut
+                            garantir l'absence d'erreur. L'utilisation du site se fait sous la seule
+                            responsabilit&eacute; de l'utilisateur.</p>
+                    </div>
+                </article>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-200">
+                <i class='bx bx-clock'></i>
+                <p class="text-sm text-gray-500">Dernière mise à jour : janvier 2026</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-[#411FEB] text-white p-6">
+    <div class="mx-auto lg:px-32 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+
+        <!-- Colonne 1 : Branding et réseaux sociaux -->
+        <div class="w-full flex flex-col justify-between gap-4">
+            <div class="space-y-2">
+                <a href="/" class="flex items-center gap-2 text-lg font-bold text-white">
+                    <img src="/assets/media/logo.png" alt="Logo Wizyx" class="w-6 h-6">
+                    Wizyx
+                </a>
+                <p class="text-sm">
+                    Je crée des interfaces premium et intuitives en alliant clarté, esthétique et storytelling pour
+                    offrir
+                    la meilleure expérience possible aux utilisateurs.
+                </p>
+                <p class="text-sm font-semibold mt-2">
+                    UI/UX Designer freelance basé à Toulon
+                </p>
+            </div>
+            <div class="flex space-x-2 text-[#411FEB] text-2xl" aria-label="Liens sociaux">
+                
+                
+                
+                
+
+                
+
+                <a href="https://linkedin.com/in/flogk/" target="_blank" rel="noopener noreferrer"
+                    class="w-12 h-12 flex items-center justify-center bg-white rounded-xl" aria-label="Profil LinkedIn">
+                    <i class='bx bxl-linkedin'></i>
+                </a>
+                
+                
+                
+
+                
+
+                <a href="https://wa.me/33778407887" target="_blank" rel="noopener noreferrer"
+                    class="w-12 h-12 flex items-center justify-center bg-white rounded-xl" aria-label="Contacter sur WhatsApp">
+                    <i class='bx bxl-whatsapp'></i>
+                </a>
+                
+                
+                
+
+                
+
+                <a href="https://t.me/wizyx0" target="_blank" rel="noopener noreferrer"
+                    class="w-12 h-12 flex items-center justify-center bg-white rounded-xl" aria-label="Contacter sur Telegram">
+                    <i class='bx bxl-telegram'></i>
+                </a>
+                
+                
+                
+
+                
+
+                <a href="https://github.com/WizyxGH" target="_blank" rel="noopener noreferrer"
+                    class="w-12 h-12 flex items-center justify-center bg-white rounded-xl" aria-label="Profil GitHub">
+                    <i class='bx bxl-github'></i>
+                </a>
+                
+                
+                
+
+                
+
+                <a href="https://www.figma.com/@wizyx" target="_blank" rel="noopener noreferrer"
+                    class="w-12 h-12 flex items-center justify-center bg-white rounded-xl" aria-label="Profil Figma">
+                    <i class='bx bxl-figma'></i>
+                </a>
+                
+
+                
+                <a href="mailto:contact@wizyx.me" target="_blank" rel="noopener noreferrer"
+                    class="w-12 h-12 flex items-center justify-center bg-white rounded-xl"
+                    aria-label="Envoyer un e-mail">
+                    <i class='bx bxs-envelope'></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Colonne 2 : Navigation -->
+        <div class="w-full flex flex-col h-full justify-start gap-2">
+            <p class="font-bold">Navigation</p>
+            <div class="flex flex-col gap-1">
+                <a href="/about/" class="hover:font-semibold">Qui suis-je ?</a>
+                <a href="/creations/" class="hover:font-semibold">Réalisations</a>
+                <a href="/services/" class="hover:font-semibold">Services</a>
+                <a href="/contact/" class="hover:font-semibold">Contact</a>
+                <a href="/legal/" class="hover:font-semibold">Mentions légales</a>
+            </div>
+        </div>
+
+        <!-- Colonne 3 : Newsletter -->
+        <div class="w-full flex flex-col h-full justify-start text-left md:text-right gap-4">
+            <div class="space-y-2">
+                <p class="font-bold">Rejoindre la newsletter</p>
+                <p>En cours de création, revenez plus tard...</p>
+            </div>
+            <form class="flex gap-2 justify-start md:justify-end">
+                <input type="email" placeholder="Entrez votre adresse e-mail"
+                    class="w-full px-3 rounded-xl h-12 border border-white text-black">
+                <button type="submit"
+                    class="flex items-center justify-center w-12 h-12 bg-white text-[#411FEB] rounded-xl font-semibold text-2xl"
+                    aria-label="Envoyer">
+                    <i class='bx bx-send-alt'></i>
+                </button>
+            </form>
+        </div>
+
+    </div>
+</footer>
+
+    <div class="gtranslate_wrapper"></div>
+    <script>
+        window.gtranslateSettings = {
+            "default_language": "fr",
+            "native_language_names": true,
+            "detect_browser_language": true,
+            "languages": ["da", "de", "en", "el", "es", "fr", "it", "nl", "no", "pt", "sv", "vi"],
+            "wrapper_selector": ".gtranslate_wrapper"
+        };
+    </script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>-->
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Accueil",
+                    "item": "https://wizyx.me/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Mentions légales",
+                    "item": "https://wizyx.me/legal/"
+                }
+            ]
+        }
+    </script>
+
+</body>
+
+</html>

@@ -46,11 +46,6 @@ navigation:
 
 permalink: /:title/
 
-collections:
-  pages:
-    output: true
-    permalink: /:path/
-
 plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
