@@ -1,7 +1,6 @@
-include: ["_pages"]
-
 url: "https://wizyx.me" # the base hostname & protocol for your site
 lang: fr-FR
+include: [_pages]
 logo: "https://opengraph.b-cdn.net/production/images/59129536-2074-4333-9e04-70d6cffd3d0f.jpg?token=Oj5V7Gb5wGaScWNgROHh8HDeCIdtoZtqvgIpBFaIi1g&height=640&width=1200&expires=33294662852"
 brand_logo: /assets/media/logo.png
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -20,13 +19,13 @@ social:
   name: Florian Gertner Kilian
   links:
     - https://linkedin.com/in/flogk/
+    - https://github.com/WizyxGH
+    - https://t.me/wizyx0
     - https://wa.me/33778407887
     - https://www.figma.com/@wizyx
-    - https://t.me/wizyx0
-    - https://github.com/WizyxGH
 
 navigation:
-  - title: À propos
+  - title: Qui suis-je ?
     url: /about/
   - title: Réalisations
     id: dropdownButton
