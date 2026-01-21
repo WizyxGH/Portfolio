@@ -1,0 +1,81 @@
+---
+title: "Page non trouvée - 404"
+description: "Oups ! La page que vous recherchez semble introuvable."
+permalink: /404.html
+sitemap: false
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>404 - Page non trouvée | Florian Gertner Kilian</title>
+    <meta name="description" content="Oups ! La page que vous recherchez semble introuvable.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
+    <link rel="preload" href="{{ '/assets/css/boxicons.min.css' | relative_url }}" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="{{ '/assets/css/boxicons.min.css' | relative_url }}">
+    <link rel="preload" href="{{ '/assets/css/tailwind.css' | relative_url }}" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="{{ '/assets/css/tailwind.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+    <link rel="icon" type="image/x-icon" href="{{ '/assets/media/favicon.ico' | relative_url }}">
+
+    <script src="{{ '/js/theme.js' | relative_url }}" defer></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6PJB5NW1Y5"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-6PJB5NW1Y5'); </script>
+</head>
+
+<body class="font-inter transition-colors duration-300 page-bg">
+
+    <!-- Logo in top left -->
+    <div class="fixed top-0 left-0 right-0 z-50 px-6 lg:px-32 py-3">
+        <a href="/"
+            class="flex items-center gap-2 text-xl font-bold text-[#121212] dark:text-white hover:opacity-80 transition-opacity w-fit">
+            <img src="/assets/media/favicon.ico" alt="Logo Wizyx" class="w-6 h-6">
+            Wizyx
+        </a>
+    </div>
+
+    <main class="flex flex-col items-center justify-center min-h-screen px-6 py-16">
+
+        <!-- Content Container -->
+        <div class="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-24 max-w-5xl">
+
+            <!-- Illustration -->
+            <div class="w-full max-w-md lg:max-w-lg">
+                <img src="/assets/media/projects/projectnoresult.svg" alt="Page non trouvée" class="w-full h-auto">
+            </div>
+
+            <!-- Text Content -->
+            <div class="flex flex-col items-start gap-6 max-w-md">
+                <h1 class="text-5xl lg:text-6xl font-bold text-[#121212] dark:text-white">
+                    Oups !
+                </h1>
+                <p class="text-lg text-gray-600 dark:text-gray-400">
+                    Nous n'avons pas trouvé la page que vous recherchiez
+                </p>
+
+                <!-- Go Home Button -->
+                <a href="/"
+                    class="bg-[#411FEB] inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold rounded-xl transition-all text-white hover:opacity-90">
+                    <i class='bx bx-left-arrow-alt text-xl'></i>
+                    <span>Retour à l'accueil</span>
+                </a>
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

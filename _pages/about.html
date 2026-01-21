@@ -15,6 +15,8 @@ priority: 0.8
     {% seo %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://cdn.gtranslate.net">
     <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
     <link rel="preload" href="{{ '/assets/css/boxicons.min.css' | relative_url }}" as="style"
         onload="this.onload=null;this.rel='stylesheet'">
@@ -22,8 +24,8 @@ priority: 0.8
     <link rel="preload" href="{{ '/assets/css/tailwind.css' | relative_url }}" as="style"
         onload="this.onload=null;this.rel='stylesheet'">
     <link rel="stylesheet" href="{{ '/assets/css/tailwind.css' | relative_url }}">
-    <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
-    <link rel="icon" type="image/x-icon" href="{{ '/media/favicon.ico' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+    <link rel="icon" type="image/x-icon" href="{{ '/assets/media/favicon.ico' | relative_url }}">
 
     <script src="{{ '/js/layout.js' | relative_url }}" defer></script>
     <script src="{{ '/js/theme.js' | relative_url }}" defer></script>
@@ -70,7 +72,7 @@ priority: 0.8
                 <!-- Profile Picture -->
                 <div class="relative w-full h-full rounded-full p-1.5"
                     style="background: linear-gradient(to top right, #411FEB, #7000FF); box-shadow: 0 10px 40px -10px rgba(65,31,235,0.6);">
-                    <img id="profile-pic" src="/media/profilepicturepro.png" alt="Florian Gertner Kilian"
+                    <img id="profile-pic" src="/assets/media/profilepicturepro.png" alt="Florian Gertner Kilian"
                         class="w-full h-full rounded-full object-cover outline-4 border-[#2200CE] relative z-0 transition-all duration-500 ease-in-out">
                 </div>
             </div>
@@ -267,7 +269,7 @@ priority: 0.8
 
                 <!-- Image/Preview Side -->
                 <div class="flex justify-center">
-                    <img src="/media/CV.png" alt="Aperçu du CV"
+                    <img src="/assets/media/CV.png" alt="Aperçu du CV"
                         class="cv-img transform shadow-[0_4px_4px_0_rgba(255,255,255,0.10)]"
                         style="width: 135px; height: auto; transform: rotate(-5deg); border-radius: 2px; border: 1px solid #FFF;">
                 </div>
@@ -282,7 +284,7 @@ priority: 0.8
                     </p>
 
                     <div class="pt-4 flex w-full md:w-auto">
-                        <a href="/media/CV.pdf" target="_blank" rel="noopener noreferrer"
+                        <a href="/assets/media/CV.pdf" target="_blank" rel="noopener noreferrer"
                             class="w-full md:w-auto flex justify-center items-center gap-1 bg-white rounded-full px-4 py-2 text-[#411FEB] font-inter font-semibold hover:bg-gray-50 transition-all shadow-sm h-fit">
                             <span>Voir mon CV en PDF</span>
                             <i class='bx bx-link-external text-[#121212] opacity-80 flex items-center mb-[2px]'></i>
@@ -313,8 +315,8 @@ priority: 0.8
 <script>
     // Profile picture hover effect
     const profilePic = document.getElementById('profile-pic');
-    const defaultImage = '/media/profilepicturepro.png';
-    const hoverImage = '/media/photo.webp';
+    const defaultImage = '/assets/media/profilepicturepro.png';
+    const hoverImage = '/assets/media/photo.webp';
 
     if (profilePic) {
         profilePic.addEventListener('mouseenter', () => {

@@ -325,7 +325,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 emptyCard.className = "projectCard animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-white rounded-lg text-left border-8 border-white hover:bg-[#EDE9FE] dark:hover:bg-[#EDE9FE] cursor-default";
                 emptyCard.innerHTML = `
                     <div class="h-40 mb-3 rounded-lg bg-[rgba(65,31,235,0.12)] border-2 border-dashed border-[#411FEB] flex items-center justify-center overflow-hidden">
-                        <img src="/media/projects/projectnoresult.svg" alt="Aucun projet trouvé" class="h-64 w-64">
+                        <img src="/assets/media/projects/projectnoresult.svg" alt="Aucun projet trouvé" class="h-64 w-64">
                     </div>
                     <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED] mb-1">Aucun projet trouvé...</h3>
                     <p class="text-sm text-[#121212] dark:text-white mt-2 mb-4">
