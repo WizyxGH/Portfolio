@@ -7,27 +7,11 @@
     
   
     
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
     <url>
       <loc>http://localhost:4000/creations/le-guide-du-golfe-de-saint-tropez/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/guidegolfesainttropez.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/guidegolfesainttropez.webp</image:loc>
         <image:title><![CDATA[Le Guide du Golfe de Saint-Tropez]]></image:title>
       </image:image>
       
@@ -40,7 +24,7 @@
       <loc>http://localhost:4000/creations/maxime-click/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/maximeclick.gif</image:loc>
+        <image:loc>http://localhost:4000/media/projects/maximeclick.gif</image:loc>
         <image:title><![CDATA[Maxime Click]]></image:title>
       </image:image>
       
@@ -53,7 +37,7 @@
       <loc>http://localhost:4000/creations/mon-gardien/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/mongardien.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/mongardien.webp</image:loc>
         <image:title><![CDATA[Mon Gardien]]></image:title>
       </image:image>
       
@@ -66,7 +50,7 @@
       <loc>http://localhost:4000/creations/france-galop-live/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/francegaloplive.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/francegaloplive.webp</image:loc>
         <image:title><![CDATA[France Galop Live]]></image:title>
       </image:image>
       
@@ -79,7 +63,7 @@
       <loc>http://localhost:4000/creations/bioquest/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/bioquest.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/bioquest.webp</image:loc>
         <image:title><![CDATA[BioQuest]]></image:title>
       </image:image>
       
@@ -92,7 +76,7 @@
       <loc>http://localhost:4000/creations/wca-world-cube-association/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/wca.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/wca.webp</image:loc>
         <image:title><![CDATA[WCA - World Cube Association]]></image:title>
       </image:image>
       
@@ -105,7 +89,7 @@
       <loc>http://localhost:4000/creations/papa-france/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/papafrance.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/papafrance.webp</image:loc>
         <image:title><![CDATA[PAPA France]]></image:title>
       </image:image>
       
@@ -118,7 +102,7 @@
       <loc>http://localhost:4000/creations/picsou-soir/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/picsousoir.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/picsousoir.webp</image:loc>
         <image:title><![CDATA[Picsou-Soir]]></image:title>
       </image:image>
       
@@ -131,7 +115,7 @@
       <loc>http://localhost:4000/creations/what-the-duck/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/whattheduck.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/whattheduck.webp</image:loc>
         <image:title><![CDATA[What The Duck]]></image:title>
       </image:image>
       
@@ -144,7 +128,7 @@
       <loc>http://localhost:4000/creations/tom-et-lola/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/tometlola.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/tometlola.webp</image:loc>
         <image:title><![CDATA[Tom et Lola]]></image:title>
       </image:image>
       
@@ -157,7 +141,7 @@
       <loc>http://localhost:4000/creations/dumili/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/dumili.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/dumili.webp</image:loc>
         <image:title><![CDATA[DuMILi]]></image:title>
       </image:image>
       
@@ -170,7 +154,7 @@
       <loc>http://localhost:4000/creations/break-screen/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/breakscreen.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/breakscreen.webp</image:loc>
         <image:title><![CDATA[Break Screen]]></image:title>
       </image:image>
       
@@ -183,7 +167,7 @@
       <loc>http://localhost:4000/creations/pizz-ami/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/pizzami.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/pizzami.webp</image:loc>
         <image:title><![CDATA[Pizz'Ami]]></image:title>
       </image:image>
       
@@ -196,7 +180,7 @@
       <loc>http://localhost:4000/creations/inducks/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/inducks.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/inducks.webp</image:loc>
         <image:title><![CDATA[I.N.D.U.C.K.S.]]></image:title>
       </image:image>
       
@@ -209,7 +193,7 @@
       <loc>http://localhost:4000/creations/ballon-nike-academy-team/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/ballonfoot.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/ballonfoot.webp</image:loc>
         <image:title><![CDATA[Ballon Nike Academy Team]]></image:title>
       </image:image>
       
@@ -222,7 +206,7 @@
       <loc>http://localhost:4000/creations/run-rerun/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/runandrerun.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/runandrerun.webp</image:loc>
         <image:title><![CDATA[Run&Rerun]]></image:title>
       </image:image>
       
@@ -235,7 +219,7 @@
       <loc>http://localhost:4000/creations/planete-loto-live/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/cartaloto.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/cartaloto.webp</image:loc>
         <image:title><![CDATA[Planète Loto Live]]></image:title>
       </image:image>
       
@@ -248,7 +232,7 @@
       <loc>http://localhost:4000/creations/joyca-trouve-la-regle/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/projectnoresult.svg</image:loc>
+        <image:loc>http://localhost:4000/media/projects/projectnoresult.svg</image:loc>
         <image:title><![CDATA[Joyca, Trouve la règle]]></image:title>
       </image:image>
       
@@ -261,7 +245,7 @@
       <loc>http://localhost:4000/creations/digital-unicorn/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/digitalunicorn.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/digitalunicorn.webp</image:loc>
         <image:title><![CDATA[Digital Unicorn]]></image:title>
       </image:image>
       
@@ -274,7 +258,7 @@
       <loc>http://localhost:4000/creations/promodentaire/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/promodentaire.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/promodentaire.webp</image:loc>
         <image:title><![CDATA[Promodentaire]]></image:title>
       </image:image>
       
@@ -287,7 +271,7 @@
       <loc>http://localhost:4000/creations/direct-democracy/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/directdemocracy.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/directdemocracy.webp</image:loc>
         <image:title><![CDATA[Direct Democracy]]></image:title>
       </image:image>
       
@@ -300,7 +284,7 @@
       <loc>http://localhost:4000/creations/darknet/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/darknet.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/darknet.webp</image:loc>
         <image:title><![CDATA[Darknet]]></image:title>
       </image:image>
       
@@ -313,7 +297,7 @@
       <loc>http://localhost:4000/creations/vaylune/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/vaylune.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/vaylune.webp</image:loc>
         <image:title><![CDATA[Vaylune]]></image:title>
       </image:image>
       
@@ -326,7 +310,7 @@
       <loc>http://localhost:4000/creations/jobbrr/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/jobbrr.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/jobbrr.webp</image:loc>
         <image:title><![CDATA[JOBBRR]]></image:title>
       </image:image>
       
@@ -339,7 +323,7 @@
       <loc>http://localhost:4000/creations/phoq-tv/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/phoq.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/phoq.webp</image:loc>
         <image:title><![CDATA[PHOQ.tv]]></image:title>
       </image:image>
       
@@ -352,7 +336,7 @@
       <loc>http://localhost:4000/creations/danse-a-l-opera/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/dansealopera.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/dansealopera.webp</image:loc>
         <image:title><![CDATA[Danse à l'Opéra]]></image:title>
       </image:image>
       
@@ -365,7 +349,7 @@
       <loc>http://localhost:4000/creations/introduction-sur-la-faune-et-la-flore-du-var/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/fauneflorevar.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/fauneflorevar.webp</image:loc>
         <image:title><![CDATA[Introduction sur la faune et la flore du Var]]></image:title>
       </image:image>
       
@@ -378,7 +362,7 @@
       <loc>http://localhost:4000/creations/video-oeuvre-culturelle/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/tresdemayo.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/tresdemayo.webp</image:loc>
         <image:title><![CDATA[Vidéo œuvre culturelle]]></image:title>
       </image:image>
       
@@ -391,7 +375,7 @@
       <loc>http://localhost:4000/creations/tom-et-lola-campagne/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/tometlola2.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/tometlola2.webp</image:loc>
         <image:title><![CDATA[Tom et Lola (Campagne)]]></image:title>
       </image:image>
       
@@ -404,7 +388,7 @@
       <loc>http://localhost:4000/creations/strategie-de-communication-mafigue/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/mafigue.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/mafigue.webp</image:loc>
         <image:title><![CDATA[Stratégie de communication Mafigue]]></image:title>
       </image:image>
       
@@ -417,7 +401,7 @@
       <loc>http://localhost:4000/creations/jeu-de-l-oie-cultophoto/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/cultophoto.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/cultophoto.webp</image:loc>
         <image:title><![CDATA[Jeu de l'oie : CultoPhoto]]></image:title>
       </image:image>
       
@@ -430,7 +414,7 @@
       <loc>http://localhost:4000/creations/sites-wordpress/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/wordpress.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/wordpress.webp</image:loc>
         <image:title><![CDATA[Sites WordPress]]></image:title>
       </image:image>
       
@@ -443,7 +427,7 @@
       <loc>http://localhost:4000/creations/maquette-fanzine-picsou-soir/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/picsousoir2.webp</image:loc>
+        <image:loc>http://localhost:4000/media/projects/picsousoir2.webp</image:loc>
         <image:title><![CDATA[Maquette fanzine Picsou-Soir]]></image:title>
       </image:image>
       
