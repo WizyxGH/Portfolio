@@ -20,7 +20,7 @@ social:
     - https://linkedin.com/in/flogk/
     - https://wa.me/33778407887
     - https://t.me/wizyx0
-    - https://wa.me/33778407887
+    - https://github.com/WizyxGH
     - https://www.figma.com/@wizyx
 
 navigation:
@@ -45,6 +45,11 @@ navigation:
     url: /contact/
 
 permalink: /:title/
+
+collections:
+  pages:
+    output: true
+    permalink: /:path/
 
 plugins:
   - jekyll-sitemap
