@@ -157,3 +157,19 @@
 .group:hover .cv-img {
   transform: rotate(3deg) !important;
 }
+
+/* Custom Cursor */
+* {
+  cursor: url('/assets/media/cursor.png'), auto !important;
+}
+
+/* Pointer cursor for interactive elements */
+a,
+button,
+input[type="submit"],
+input[type="button"],
+select,
+[role="button"],
+.cursor-pointer {
+  cursor: url('/assets/media/cursor-hover.png'), pointer !important;
+}

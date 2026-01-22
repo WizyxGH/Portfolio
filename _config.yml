@@ -24,7 +24,7 @@ social:
     - https://www.figma.com/@wizyx
 
 navigation:
-  - title: Qui suis-je ?
+  - title: À propos
     url: /about/
   - title: Réalisations
     id: dropdownButton
