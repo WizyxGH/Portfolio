@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentSort = 'meilleur'; // 'meilleur' (par id) ou 'date'
     let selectedTypes = new Set();
     let selectedTags = new Set();
+    let selectedSuggestionIndex = -1;
 
     // Helper de style unifié pour TOUS les boutons (Filtres, Tri, Tags, Types)
     function getSharedBtnStyle(isActive) {
@@ -443,7 +444,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (q && matches.length) {
             matches.slice(0, 5).forEach(project => {
                 const div = document.createElement('div');
-                div.className = "flex items-center gap-2 p-2 hover:bg-[#EDE9FE] cursor-pointer transition-colors rounded-lg";
+                div.className = "flex items-center gap-2 p-2 hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] cursor-pointer transition-colors rounded-lg";
 
                 const projectSlug = project.slug || slugify(project.title);
                 const projectUrl = `/creations/${projectSlug}/`;
@@ -464,13 +465,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 textContainer.className = "flex flex-col sm:flex-row sm:items-center overflow-hidden";
 
                 const titleSpan = document.createElement('span');
-                titleSpan.className = "font-semibold text-[#3E3E3E] truncate max-w-[200px] sm:max-w-[250px]";
+                titleSpan.className = "font-semibold text-[#3E3E3E] dark:text-white truncate max-w-[200px] sm:max-w-[250px]";
                 titleSpan.textContent = project.title;
                 textContainer.appendChild(titleSpan);
 
                 if (project.type) {
                     const typeSpan = document.createElement('span');
-                    typeSpan.className = "text-[#3E3E3E] text-sm opacity-80 mt-0.5 sm:mt-0 flex items-center";
+                    typeSpan.className = "text-[#3E3E3E] dark:text-gray-300 text-sm opacity-80 mt-0.5 sm:mt-0 flex items-center";
                     const separator = document.createElement('span');
                     separator.innerHTML = '•';
                     separator.className = "hidden sm:inline mx-1 text-[#411FEB] dark:text-[#5536ED] opacity-[0.48]";
@@ -488,13 +489,51 @@ document.addEventListener("DOMContentLoaded", function () {
                 suggestionsContainer.appendChild(div);
             });
             suggestionsContainer.classList.remove('hidden');
+            selectedSuggestionIndex = 0;
+            updateSuggestionsHighlight(suggestionsContainer.children);
 
         } else {
             suggestionsContainer.classList.add('hidden');
+            selectedSuggestionIndex = -1;
         }
 
         updateProjects();
     });
+
+    searchInput.addEventListener('keydown', (e) => {
+        const items = suggestionsContainer.children;
+        if (items.length === 0 || suggestionsContainer.classList.contains('hidden')) return;
+
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            selectedSuggestionIndex++;
+            if (selectedSuggestionIndex >= items.length) selectedSuggestionIndex = -1;
+            updateSuggestionsHighlight(items);
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            selectedSuggestionIndex--;
+            if (selectedSuggestionIndex < -1) selectedSuggestionIndex = items.length - 1;
+            updateSuggestionsHighlight(items);
+        } else if (e.key === 'Enter') {
+            if (selectedSuggestionIndex > -1 && items[selectedSuggestionIndex]) {
+                e.preventDefault();
+                const link = items[selectedSuggestionIndex].querySelector('a');
+                if (link) link.click();
+            }
+        }
+    });
+
+    function updateSuggestionsHighlight(items) {
+        Array.from(items).forEach((item, index) => {
+            if (index === selectedSuggestionIndex) {
+                item.classList.add('bg-[#EDE9FE]', 'dark:bg-[#1A162C]');
+                // Ensure the item is visible in the scrollable container
+                item.scrollIntoView({ block: 'nearest' });
+            } else {
+                item.classList.remove('bg-[#EDE9FE]', 'dark:bg-[#1A162C]');
+            }
+        });
+    }
 
     document.addEventListener('click', e => {
         if (!searchInput.contains(e.target) && !suggestionsContainer.contains(e.target)) {

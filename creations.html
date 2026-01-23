@@ -64,11 +64,11 @@ priority: 0.9
             offrir la meilleure expérience possible aux utilisateurs.</p>
         <div class="relative w-full mt-8">
             <!-- Icône loupe à gauche -->
-            <i class='bx bx-search absolute left-5 top-1/2 -translate-y-1/2 text-[#3E3E3E] text-xl'></i>
+            <i class='bx bx-search absolute left-5 top-1/2 -translate-y-1/2 text-[#3E3E3E] dark:text-white text-xl'></i>
 
             <!-- Input -->
             <input type="text" id="searchInput" placeholder="Rechercher parmi les projets"
-                class="w-full pl-12 pr-12 py-3 rounded-xl border-2 border-[#3E3E3E]/20 bg-white focus:outline-none focus:ring-2 focus:ring-[#411FEB] placeholder-gray-400 text-gray-800" />
+                class="w-full pl-12 pr-12 py-3 rounded-xl border-2 border-[#3E3E3E]/20 bg-white dark:bg-[#121212] dark:border-[#3E3E3E] dark:text-white dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#411FEB] placeholder-gray-400 text-gray-800" />
 
             <!-- Bouton "x" à droite -->
             <button id="clearSearch"
@@ -78,7 +78,7 @@ priority: 0.9
 
             <!-- Container pour les suggestions -->
             <div id="suggestionsContainer"
-                class="absolute z-20 w-full bg-white border border-gray-200 rounded-xl mt-1 shadow-lg hidden max-h-60 overflow-auto">
+                class="absolute z-20 w-full bg-white dark:bg-[#121212] border border-gray-200 dark:border-[#3E3E3E] rounded-xl mt-1 shadow-lg hidden max-h-60 overflow-auto">
             </div>
         </div>
 
