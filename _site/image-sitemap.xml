@@ -1187,11 +1187,23 @@
   
     
     <url>
-      <loc>http://localhost:4000/creations/jeu-de-l-oie-cultophoto/</loc>
+      <loc>http://localhost:4000/creations/cultophoto/</loc>
       
       <image:image>
         <image:loc>http://localhost:4000/assets/media/projects/cultophoto.webp</image:loc>
-        <image:title><![CDATA[Jeu de l'oie : CultoPhoto]]></image:title>
+        <image:title><![CDATA[CultoPhoto]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/CultoPhoto/Packaging%20CultoPhoto.jpg</image:loc>
+        <image:title><![CDATA[Packaging cultophoto]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/CultoPhoto/Plateau%20de%20jeu.png</image:loc>
+        <image:title><![CDATA[Plateau de jeu]]></image:title>
       </image:image>
       
       
