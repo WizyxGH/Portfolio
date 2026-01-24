@@ -44,7 +44,8 @@
                 {% endif %}
 
                 <a href="{{ link }}" target="_blank" rel="noopener noreferrer"
-                    class="w-12 h-12 flex items-center justify-center bg-white rounded-xl" aria-label="{{ label }}">
+                    class="w-12 h-12 flex items-center justify-center bg-white rounded-xl transition-colors hover:bg-gray-300 hover:text-[#3215c7]"
+                    aria-label="{{ label }}">
                     <i class='{{ icon_class }}'></i>
                 </a>
                 {% endfor %}
@@ -52,7 +53,7 @@
                 {% comment %} Email Link (kept separate usually, but can be integrated if desired. Keeping separate as
                 per original layout having it in the mix but it's a mailto) {% endcomment %}
                 <a href="mailto:{{ site.author.email }}" target="_blank" rel="noopener noreferrer"
-                    class="w-12 h-12 flex items-center justify-center bg-white rounded-xl"
+                    class="w-12 h-12 flex items-center justify-center bg-white rounded-xl transition-colors hover:bg-gray-300 hover:text-[#3215c7]"
                     aria-label="Envoyer un e-mail">
                     <i class='bx bxs-envelope'></i>
                 </a>
