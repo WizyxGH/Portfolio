@@ -332,8 +332,13 @@
 
             // Counter
             if (carouselEls.currentSlide && carouselEls.totalSlides) {
-                carouselEls.currentSlide.textContent = currentSlideIndex + 1;
-                carouselEls.totalSlides.textContent = total;
+                if (total <= 1) {
+                    carouselEls.currentSlide.parentElement.style.display = 'none';
+                } else {
+                    carouselEls.currentSlide.parentElement.style.display = '';
+                    carouselEls.currentSlide.textContent = currentSlideIndex + 1;
+                    carouselEls.totalSlides.textContent = total;
+                }
             }
 
             renderDots(total);

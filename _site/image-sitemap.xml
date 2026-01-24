@@ -789,7 +789,7 @@
   
     
     <url>
-      <loc>http://localhost:4000/creations/inducks/</loc>
+      <loc>http://localhost:4000/creations/i-n-d-u-c-k-s/</loc>
       
       <image:image>
         <image:loc>http://localhost:4000/assets/media/projects/inducks.webp</image:loc>
@@ -799,12 +799,12 @@
       
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/inducks/Accueil%20-%20Mobile.jpg</image:loc>
+        <image:loc>http://localhost:4000/assets/media/projects/results/INDUCKS/Accueil%20-%20Mobile.jpg</image:loc>
         <image:title><![CDATA[Accueil   mobile]]></image:title>
       </image:image>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/inducks/Accueil.jpg</image:loc>
+        <image:loc>http://localhost:4000/assets/media/projects/results/INDUCKS/Accueil.jpg</image:loc>
         <image:title><![CDATA[Accueil]]></image:title>
       </image:image>
       
@@ -1111,7 +1111,7 @@
       
       <image:image>
         <image:loc>http://localhost:4000/assets/media/projects/phoq.webp</image:loc>
-        <image:title><![CDATA[PHOQ.tv]]></image:title>
+        <image:title><![CDATA[PHOQ.TV]]></image:title>
       </image:image>
       
       

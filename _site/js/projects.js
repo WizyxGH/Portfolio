@@ -226,10 +226,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (isDateActive) {
             if (isAsc) {
                 dateLabel = "Date : Plus ancien";
-                dateIconClass = "bx-sort-up";
+                dateIconClass = "bx-sort-down";
             } else {
                 dateLabel = "Date : Plus récent";
-                dateIconClass = "bx-sort-down";
+                dateIconClass = "bx-sort-up";
             }
         }
 
@@ -421,6 +421,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Réordonner le DOM
         sortedCards.forEach(card => container.appendChild(card));
+
+        // Mettre à jour la liste de référence pour que le rendu (slice des 9 premiers) suive le nouveau tri
+        allCards = sortedCards;
+
         updateProjects();
     }
 

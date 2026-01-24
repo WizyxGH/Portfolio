@@ -72,7 +72,7 @@ priority: 0.9
 
             <!-- Bouton "x" à droite -->
             <button id="clearSearch"
-                class="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#3E3E3E] opacity-0 pointer-events-none transition-opacity">
+                class="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#3E3E3E] dark:text-white opacity-0 pointer-events-none transition-opacity">
                 <i class='bx bx-x text-xl'></i>
             </button>
 
@@ -137,15 +137,20 @@ priority: 0.9
                 {% endfor %}
         </div>
         <!-- Bouton pour afficher les projets supplémentaires -->
-        <button id="showMoreButton"
-            class="border-2 border-[#411FEB] dark:border-[#5536ED] text-[#411FEB] dark:text-[#5536ED] px-6 py-2 rounded-full mt-6 hover:bg-[#3509B6] hover:text-white">
-            Afficher tous les projets...
-        </button>
+        <!-- Bouton pour afficher les projets supplémentaires -->
+        <div class="flex justify-center mt-12 mb-8">
+            <button id="showMoreButton"
+                class="bg-[#411FEB] text-white font-semibold px-8 py-3 rounded-full hover:bg-[#3215c7] transition flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                <span>Afficher tous les projets</span>
+                <i class='bx bx-plus text-xl'></i>
+            </button>
 
-        <button id="showLessButton"
-            class="border-2 border-[#411FEB] dark:border-[#5536ED] text-[#411FEB] dark:text-[#5536ED] px-6 py-2 rounded-full mt-6 hover:bg-[#3509B6] hover:text-white hidden">
-            Afficher moins de projets...
-        </button>
+            <button id="showLessButton"
+                class="bg-[#411FEB] text-white font-semibold px-8 py-3 rounded-full hover:bg-[#3215c7] transition flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1 hidden">
+                <span>Afficher moins de projets</span>
+                <i class='bx bx-minus text-xl'></i>
+            </button>
+        </div>
 
     </section>
 

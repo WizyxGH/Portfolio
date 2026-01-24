@@ -186,7 +186,7 @@
 
             <!-- Bouton "x" à droite -->
             <button id="clearSearch"
-                class="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#3E3E3E] opacity-0 pointer-events-none transition-opacity">
+                class="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#3E3E3E] dark:text-white opacity-0 pointer-events-none transition-opacity">
                 <i class='bx bx-x text-xl'></i>
             </button>
 
@@ -676,7 +676,7 @@
                 
                 
             
-              <a href="/creations/inducks/"
+              <a href="/creations/i-n-d-u-c-k-s/"
                 class="projectCard animate-on-scroll transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212] block"
                 data-project-id="14" data-title="i.n.d.u.c.k.s."
                 data-description="redesign de la page d'accueil de inducks. la base de données de bandes dessinées disney."
@@ -1071,11 +1071,11 @@
 
                 
                 <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
-                    <img src="/assets/media/projects/phoq.webp" loading="lazy" decoding="async" alt="PHOQ.tv"
+                    <img src="/assets/media/projects/phoq.webp" loading="lazy" decoding="async" alt="PHOQ.TV"
                         class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
                 </div>
                 
-                <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">PHOQ.tv</h3>
+                <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">PHOQ.TV</h3>
                 <div class="mt-1 flex flex-wrap gap-2">
                     
                     <span
@@ -1127,15 +1127,20 @@
                 
         </div>
         <!-- Bouton pour afficher les projets supplémentaires -->
-        <button id="showMoreButton"
-            class="border-2 border-[#411FEB] dark:border-[#5536ED] text-[#411FEB] dark:text-[#5536ED] px-6 py-2 rounded-full mt-6 hover:bg-[#3509B6] hover:text-white">
-            Afficher tous les projets...
-        </button>
+        <!-- Bouton pour afficher les projets supplémentaires -->
+        <div class="flex justify-center mt-12 mb-8">
+            <button id="showMoreButton"
+                class="bg-[#411FEB] text-white font-semibold px-8 py-3 rounded-full hover:bg-[#3215c7] transition flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                <span>Afficher tous les projets</span>
+                <i class='bx bx-plus text-xl'></i>
+            </button>
 
-        <button id="showLessButton"
-            class="border-2 border-[#411FEB] dark:border-[#5536ED] text-[#411FEB] dark:text-[#5536ED] px-6 py-2 rounded-full mt-6 hover:bg-[#3509B6] hover:text-white hidden">
-            Afficher moins de projets...
-        </button>
+            <button id="showLessButton"
+                class="bg-[#411FEB] text-white font-semibold px-8 py-3 rounded-full hover:bg-[#3215c7] transition flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1 hidden">
+                <span>Afficher moins de projets</span>
+                <i class='bx bx-minus text-xl'></i>
+            </button>
+        </div>
 
     </section>
 

@@ -55,24 +55,34 @@ module Jekyll
           if !project.key?('gallery') || project['gallery'].empty?
              # Try multiple potential folder names
              candidates = [
+                slug, # slug is typically lowercase-hyphenated "le-guide-du-golfe..."
                 project['title'],
                 project['title'].strip,
-                slug, # slug is typically lowercase-hyphenated "le-guide-du-golfe..."
                 project['title'].gsub(' ', '_'),
                 project['title'].gsub(' ', ''),
+                project['title'].gsub('.', ''),
                 project['title'].gsub(/[^0-9a-z]/i, '')
              ]
              
              gallery_path_rel = nil
              gallery_path_abs = nil
 
-             candidates.uniq.each do |cand|
-                check_rel = File.join('assets', 'media', 'projects', 'results', cand)
-                check_abs = File.join(site.source, check_rel)
-                if File.directory?(check_abs)
-                   gallery_path_rel = check_rel
-                   gallery_path_abs = check_abs
-                   break
+             # Define base directory for results
+             results_base_rel = File.join('assets', 'media', 'projects', 'results')
+             results_base_abs = File.join(site.source, results_base_rel)
+
+             if File.directory?(results_base_abs)
+                # List all actual directories in results folder
+                existing_dirs = Dir.entries(results_base_abs).select { |entry| File.directory?(File.join(results_base_abs, entry)) && !(entry =='.' || entry == '..') }
+                
+                # Case-insensitive matching
+                candidates.uniq.each do |cand|
+                    matched_dir = existing_dirs.find { |d| d.downcase == cand.downcase }
+                    if matched_dir
+                        gallery_path_rel = File.join(results_base_rel, matched_dir)
+                        gallery_path_abs = File.join(results_base_abs, matched_dir)
+                        break
+                    end
                 end
              end
              
@@ -80,14 +90,6 @@ module Jekyll
                 images = []
                 images = Dir.glob(File.join(gallery_path_abs, "**", "*.{jpg,jpeg,png,gif,webp,svg}")).map do |file|
                   # Convert absolute path to site-relative path
-                  # The glob pattern already filters extensions, so no need for an 'if' here.
-                  # Also, File.basename(file) is correct for the file name, but we need the path relative to gallery_path_rel
-                  # Example: gallery_path_abs = /site/source/media/projects/results/ProjectA
-                  #          file = /site/source/media/projects/results/ProjectA/subdir/image.jpg
-                  #          rel_path_from_gallery_root = subdir/image.jpg
-                  #          final_rel_path = /media/projects/results/ProjectA/subdir/image.jpg
-                  
-                  # Calculate the path relative to gallery_path_abs
                   relative_to_gallery_root = Pathname.new(file).relative_path_from(Pathname.new(gallery_path_abs)).to_s
                   
                   # Construct the full site-relative URL
