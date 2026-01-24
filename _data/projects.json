@@ -625,7 +625,7 @@
         "id": 28,
         "title": "Introduction sur la faune et la flore du Var",
         "text": "Coming soon...",
-        "description": "Vidéo et article",
+        "description": "Production d'une vidéo et d'un article sur la faune et la flore du Var en partenariat avec le Muséum départemental du Var",
         "image": "/assets/media/projects/fauneflorevar.webp",
         "driveLink": "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
         "projectLink": "#",
@@ -635,7 +635,7 @@
         "tags": [
             {
                 "name": "Vidéo",
-                "icon": "bxr bx-video-cinema"
+                "icon": "bx bx-film"
             },
             {
                 "name": "Rédaction",
@@ -663,7 +663,7 @@
         "tags": [
             {
                 "name": "Montage vidéo",
-                "icon": "bxr bx-video-cinema"
+                "icon": "bx bx-film"
             },
             {
                 "name": "Rédaction / Storytelling",
@@ -679,7 +679,7 @@
     },
     {
         "id": 30,
-        "title": "Tom et Lola (Campagne)",
+        "title": "Campagne de communication Tom et Lola",
         "text": "Coming soon...",
         "description": "Lorem ipsum.",
         "image": "/assets/media/projects/tometlola2.webp",
@@ -695,7 +695,7 @@
             },
             {
                 "name": "Vidéo",
-                "icon": "bxr bx-video-cinema"
+                "icon": "bx bx-film"
             },
             {
                 "name": "Communication / Marketing",
@@ -768,25 +768,5 @@
         ],
         "width": 306,
         "height": 165
-    },
-    {
-        "id": 34,
-        "title": "Maquette fanzine Picsou-Soir",
-        "text": "Coming soon...",
-        "description": "Réalisation de la maquette du fanzine Picsou-Soir pendant plusieurs numéros.",
-        "image": "/assets/media/projects/picsousoir2.webp",
-        "driveLink": "https://drive.google.com/drive/folders/1qDS8JjcUb_VIU27vZV6jGVnYZoY2ddAn?usp=sharing",
-        "projectLink": "#",
-        "date": "2000-01-01",
-        "type": "",
-        "context": "Personnel",
-        "tags": [
-            {
-                "name": "Mise en page",
-                "icon": "bx bxs-layout"
-            }
-        ],
-        "width": 887,
-        "height": 622
     }
 ]

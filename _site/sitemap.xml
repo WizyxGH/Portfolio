@@ -106,7 +106,7 @@
 <loc>http://localhost:4000/creations/video-oeuvre-culturelle/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/creations/tom-et-lola-campagne/</loc>
+<loc>http://localhost:4000/creations/campagne-de-communication-tom-et-lola/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/creations/strategie-de-communication-mafigue/</loc>
@@ -116,9 +116,6 @@
 </url>
 <url>
 <loc>http://localhost:4000/creations/sites-wordpress/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/creations/maquette-fanzine-picsou-soir/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/assets/media/CV.pdf</loc>

@@ -17,6 +17,10 @@
         }
     }
 
+    function isVideo(src) {
+        return /\.(mp4|webm|mov)$/i.test(src);
+    }
+
     function initProjectCarousel(config) {
         const {
             images = [],
@@ -49,10 +53,12 @@
 
         let activeGalleryImages = (images || []).filter(Boolean);
         let currentSlideIndex = 0;
+        let isGlobalMuted = true; // Default to muted like Instagram
+        let globalVolumeLevel = 1.0; // 0 to 1
 
         // Fullscreen vars
         let fullscreenOverlay = null;
-        let fullscreenImage = null;
+        let fullscreenMedia = null; // Can be img or video
         let fullscreenZoomed = false;
         let fullscreenPanX = 0;
         let fullscreenPanY = 0;
@@ -70,17 +76,121 @@
         const wheelDebounceMs = 220;
         let lastWheelTs = 0;
 
+        // --- Video Management ---
+        function stopAllVideosInTrack() {
+            if (!carouselEls.track) return;
+            const videos = carouselEls.track.querySelectorAll('video');
+            videos.forEach(v => {
+                v.pause();
+                v.currentTime = 0;
+            });
+        }
 
+        function playCurrentVideo() {
+            if (!carouselEls.track) return;
+            const slides = carouselEls.track.children;
+            const total = slides.length;
+            if (!total) return;
+
+            // Current slide
+            const currentSlide = slides[currentSlideIndex];
+            if (!currentSlide) return;
+
+            const video = currentSlide.querySelector('video');
+            if (video) {
+                // Apply global state
+                video.muted = isGlobalMuted;
+                video.volume = globalVolumeLevel;
+                updateVolumeUI(currentSlide);
+
+                const playPromise = video.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        // console.log("Auto-play prevented:", error);
+                        // If unmuted autoplay fails, try muted?
+                        if (!isGlobalMuted) {
+                            video.muted = true;
+                            updateVolumeUI(currentSlide);
+                            video.play().catch(e => { });
+                        }
+                    });
+                }
+            }
+        }
+
+        function toggleMute(e, slide) {
+            e.stopPropagation(); // Don't trigger fullscreen
+
+            isGlobalMuted = !isGlobalMuted;
+
+            // If unmoting and volume is 0, set to 1
+            if (!isGlobalMuted && globalVolumeLevel === 0) {
+                globalVolumeLevel = 1.0;
+            }
+
+            // Update current video immediately
+            const video = slide.querySelector('video');
+            if (video) {
+                video.muted = isGlobalMuted;
+                if (!isGlobalMuted) video.volume = globalVolumeLevel;
+            }
+            updateVolumeUI(slide);
+        }
+
+        function onVolumeChange(e, slide) {
+            e.stopPropagation();
+            const value = parseFloat(e.target.value);
+            globalVolumeLevel = value;
+
+            if (globalVolumeLevel > 0 && isGlobalMuted) {
+                isGlobalMuted = false;
+            } else if (globalVolumeLevel === 0) {
+                isGlobalMuted = true;
+            }
+
+            const video = slide.querySelector('video');
+            if (video) {
+                video.muted = isGlobalMuted;
+                video.volume = globalVolumeLevel;
+            }
+            updateVolumeUI(slide);
+        }
+
+        function updateVolumeUI(slide) {
+            const btnIcon = slide.querySelector('.volume-icon');
+            const slider = slide.querySelector('input[type="range"]');
+
+            // Update Icon
+            if (btnIcon) {
+                if (isGlobalMuted || globalVolumeLevel === 0) {
+                    btnIcon.className = 'bx bx-volume-mute text-md volume-icon';
+                } else if (globalVolumeLevel < 0.5) {
+                    btnIcon.className = 'bx bx-volume-low text-md volume-icon';
+                } else {
+                    btnIcon.className = 'bx bx-volume-full text-md volume-icon';
+                }
+            }
+
+            // Update Slider Value
+            if (slider) {
+                slider.value = isGlobalMuted ? 0 : globalVolumeLevel;
+                // Update track background (simulating fill)
+                // Need to use css variable or direct style
+                const percentage = (slider.value) * 100;
+                // Since input is rotated -90deg, "right" is visually "top".
+                slider.style.background = `linear-gradient(to right, white ${percentage}%, rgba(255,255,255,0.2) ${percentage}%)`;
+            }
+        }
 
         // --- Fullscreen Logic ---
         function ensureFullscreenOverlay() {
-            if (fullscreenOverlay && fullscreenImage) return;
+            if (fullscreenOverlay && fullscreenMedia) return;
 
             fullscreenOverlay = document.createElement("div");
             fullscreenOverlay.id = "modalImageFullscreen";
             fullscreenOverlay.className = "fixed inset-0 w-screen h-screen flex items-center justify-center px-4 z-[100000] hidden backdrop-blur-sm";
             fullscreenOverlay.style.zIndex = "100000";
-            fullscreenOverlay.style.backgroundColor = "rgba(0, 0, 0, 0.85)";
+            fullscreenOverlay.style.backgroundColor = "rgba(0, 0, 0, 0.90)";
             fullscreenOverlay.setAttribute("aria-hidden", "true");
 
             fullscreenOverlay.addEventListener("click", (e) => {
@@ -89,7 +199,9 @@
                     e.stopPropagation();
                     return;
                 }
-                closeFullscreenImage();
+                // Don't close if clicking video controls
+                if (e.target.tagName === 'VIDEO') return;
+                closeFullscreenMedia();
             });
 
             const closeBtn = document.createElement("button");
@@ -99,57 +211,101 @@
             closeBtn.style.top = "20px";
             closeBtn.style.right = "20px";
             closeBtn.style.zIndex = "100001";
-            closeBtn.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+            closeBtn.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
             closeBtn.style.backdropFilter = "blur(6px)";
             closeBtn.innerHTML = "<i class='bx bx-x'></i>";
             closeBtn.addEventListener("click", (e) => {
                 e.stopPropagation();
-                closeFullscreenImage();
+                closeFullscreenMedia();
             });
 
-            fullscreenImage = document.createElement("img");
-            fullscreenImage.className = "max-h-[90vh] max-w-[90vw] object-contain shadow-2xl";
-            fullscreenImage.alt = "";
-            fullscreenImage.draggable = false;
-            fullscreenImage.style.userSelect = "none";
-            fullscreenImage.style.cursor = "zoom-in";
-            fullscreenImage.addEventListener("click", (e) => e.stopPropagation());
-            fullscreenImage.addEventListener("dblclick", (e) => {
-                e.preventDefault();
-                toggleFullscreenZoom(e);
-            });
-            fullscreenImage.addEventListener("pointerdown", onFullscreenPointerDown);
-            fullscreenImage.addEventListener("pointermove", onFullscreenPointerMove);
-            fullscreenImage.addEventListener("pointerup", endFullscreenPointer);
-            fullscreenImage.addEventListener("pointercancel", endFullscreenPointer);
-            fullscreenImage.addEventListener("pointerleave", endFullscreenPointer);
+            // Container for media
+            const mediaContainer = document.createElement("div");
+            mediaContainer.id = "fullscreenMediaContainer";
+            mediaContainer.className = "contents"; // Allow direct child styling
 
-            fullscreenOverlay.appendChild(fullscreenImage);
+            fullscreenOverlay.appendChild(mediaContainer);
             fullscreenOverlay.appendChild(closeBtn);
             document.body.appendChild(fullscreenOverlay);
             attachSwipeHandlers(fullscreenOverlay);
         }
 
-        function openFullscreenImage(src, alt) {
+        function openFullscreenMedia(src, alt) {
             if (!src) return;
             ensureFullscreenOverlay();
             resetFullscreenZoom();
-            fullscreenImage.src = src;
-            fullscreenImage.alt = alt || "";
+
+            const container = document.getElementById("fullscreenMediaContainer");
+            container.innerHTML = ""; // Clear previous
+
+            if (isVideo(src)) {
+                fullscreenMedia = document.createElement("video");
+                fullscreenMedia.className = "max-h-[90vh] max-w-[90vw] shadow-2xl";
+                fullscreenMedia.controls = true; // Use controls in fullscreen
+                fullscreenMedia.autoplay = true;
+                fullscreenMedia.src = src;
+
+                // Keep global volume intent?
+                // Fullscreen usually implies explicit watching, so unmute or keep global level?
+                // Defaulting to unmuted for full immersion
+                fullscreenMedia.muted = false;
+                fullscreenMedia.volume = Math.max(0.5, globalVolumeLevel);
+            } else {
+                fullscreenMedia = document.createElement("img");
+                fullscreenMedia.className = "max-h-[90vh] max-w-[90vw] object-contain shadow-2xl";
+                fullscreenMedia.alt = alt || "";
+                fullscreenMedia.draggable = false;
+                fullscreenMedia.style.userSelect = "none";
+                fullscreenMedia.style.cursor = "zoom-in";
+                fullscreenMedia.src = src;
+
+                fullscreenMedia.addEventListener("click", (e) => e.stopPropagation());
+                fullscreenMedia.addEventListener("dblclick", (e) => {
+                    e.preventDefault();
+                    toggleFullscreenZoom(e);
+                });
+                fullscreenMedia.addEventListener("pointerdown", onFullscreenPointerDown);
+                fullscreenMedia.addEventListener("pointermove", onFullscreenPointerMove);
+                fullscreenMedia.addEventListener("pointerup", endFullscreenPointer);
+                fullscreenMedia.addEventListener("pointercancel", endFullscreenPointer);
+                fullscreenMedia.addEventListener("pointerleave", endFullscreenPointer);
+            }
+
+            container.appendChild(fullscreenMedia);
+
             fullscreenOverlay.classList.remove("hidden");
             fullscreenOverlay.setAttribute("aria-hidden", "false");
             overlaySwipeConsumed = false;
             document.body.classList.add("overflow-hidden");
+
+            // Pause carousel video if playing
+            const currentSlide = carouselEls.track.children[currentSlideIndex];
+            const video = currentSlide?.querySelector('video');
+            if (video) video.pause();
         }
 
-        function closeFullscreenImage() {
-            if (!fullscreenOverlay || !fullscreenImage) return;
+        function closeFullscreenMedia() {
+            if (!fullscreenOverlay) return;
             fullscreenOverlay.classList.add("hidden");
             fullscreenOverlay.setAttribute("aria-hidden", "true");
-            fullscreenImage.src = "";
+
+            const container = document.getElementById("fullscreenMediaContainer");
+            if (container) container.innerHTML = "";
+            fullscreenMedia = null;
+
             overlaySwipeConsumed = false;
             resetFullscreenZoom();
             document.body.classList.remove("overflow-hidden");
+
+            // Resume carousel video (muted) if appropriate
+            if (activeGalleryImages.length > 0) {
+                const currentSlide = carouselEls.track.children[currentSlideIndex];
+                const video = currentSlide?.querySelector('video');
+                if (video) {
+                    video.muted = isGlobalMuted; // Restore mute state
+                    video.play().catch(e => { });
+                }
+            }
         }
 
         function resetFullscreenZoom() {
@@ -158,29 +314,29 @@
             fullscreenPanY = 0;
             fullscreenPointerId = null;
             fullscreenDragStart = null;
-            if (!fullscreenImage) return;
-            fullscreenImage.style.transformOrigin = "center center";
-            fullscreenImage.style.transform = "translate(0px, 0px) scale(1)";
-            fullscreenImage.style.cursor = "zoom-in";
+            if (!fullscreenMedia || fullscreenMedia.tagName === 'VIDEO') return;
+            fullscreenMedia.style.transformOrigin = "center center";
+            fullscreenMedia.style.transform = "translate(0px, 0px) scale(1)";
+            fullscreenMedia.style.cursor = "zoom-in";
         }
 
         function applyFullscreenTransform() {
-            if (!fullscreenImage) return;
+            if (!fullscreenMedia || fullscreenMedia.tagName === 'VIDEO') return;
             const scale = fullscreenZoomed ? 2 : 1;
-            fullscreenImage.style.transform = `translate(${fullscreenPanX}px, ${fullscreenPanY}px) scale(${scale})`;
+            fullscreenMedia.style.transform = `translate(${fullscreenPanX}px, ${fullscreenPanY}px) scale(${scale})`;
         }
 
         function toggleFullscreenZoom(event) {
-            if (!fullscreenImage) return;
+            if (!fullscreenMedia || fullscreenMedia.tagName === 'VIDEO') return;
             if (!fullscreenZoomed) {
-                const rect = fullscreenImage.getBoundingClientRect();
+                const rect = fullscreenMedia.getBoundingClientRect();
                 const originX = ((event?.clientX ?? rect.left + rect.width / 2) - rect.left) / rect.width * 100;
                 const originY = ((event?.clientY ?? rect.top + rect.height / 2) - rect.top) / rect.height * 100;
-                fullscreenImage.style.transformOrigin = `${originX}% ${originY}%`;
+                fullscreenMedia.style.transformOrigin = `${originX}% ${originY}%`;
                 fullscreenZoomed = true;
                 fullscreenPanX = 0;
                 fullscreenPanY = 0;
-                fullscreenImage.style.cursor = "grab";
+                fullscreenMedia.style.cursor = "grab";
                 applyFullscreenTransform();
                 return;
             }
@@ -188,14 +344,16 @@
         }
 
         function onFullscreenPointerDown(e) {
+            if (fullscreenMedia?.tagName === 'VIDEO') return;
             if (!fullscreenZoomed || e.button !== 0) return;
             fullscreenPointerId = e.pointerId;
             fullscreenDragStart = { x: e.clientX, y: e.clientY, panX: fullscreenPanX, panY: fullscreenPanY };
-            fullscreenImage?.setPointerCapture(fullscreenPointerId);
-            fullscreenImage.style.cursor = "grabbing";
+            fullscreenMedia?.setPointerCapture(fullscreenPointerId);
+            fullscreenMedia.style.cursor = "grabbing";
         }
 
         function onFullscreenPointerMove(e) {
+            if (fullscreenMedia?.tagName === 'VIDEO') return;
             if (!fullscreenZoomed || fullscreenPointerId !== e.pointerId || !fullscreenDragStart) return;
             const dx = e.clientX - fullscreenDragStart.x;
             const dy = e.clientY - fullscreenDragStart.y;
@@ -205,24 +363,15 @@
         }
 
         function endFullscreenPointer(e) {
+            if (fullscreenMedia?.tagName === 'VIDEO') return;
             if (fullscreenPointerId === null || e.pointerId !== fullscreenPointerId) return;
             fullscreenPointerId = null;
             fullscreenDragStart = null;
-            if (!fullscreenImage) return;
-            fullscreenImage.releasePointerCapture?.(e.pointerId);
-            fullscreenImage.style.cursor = fullscreenZoomed ? "grab" : "zoom-in";
+            if (!fullscreenMedia) return;
+            fullscreenMedia.releasePointerCapture?.(e.pointerId);
+            fullscreenMedia.style.cursor = fullscreenZoomed ? "grab" : "zoom-in";
         }
 
-        function refreshFullscreenImage() {
-            if (!fullscreenOverlay || !fullscreenImage || fullscreenOverlay.classList.contains("hidden")) return;
-            const src = activeGalleryImages[currentSlideIndex];
-            if (!src) return;
-            resetFullscreenZoom();
-            fullscreenImage.src = src;
-            fullscreenImage.alt = projectTitle
-                ? `${projectTitle} - visuel ${currentSlideIndex + 1}`
-                : "";
-        }
 
         // --- Carousel Rendering & Nav ---
         function renderCarousel() {
@@ -239,44 +388,142 @@
             if (carouselEls.prev) carouselEls.prev.className = `${NAV_BTN_CLASS} left-3`;
             if (carouselEls.next) carouselEls.next.className = `${NAV_BTN_CLASS} right-3`;
 
-            if (!activeGalleryImages.length) return; // Should handle empty state?
+            if (!activeGalleryImages.length) return;
 
             activeGalleryImages.forEach((src, idx) => {
                 const slide = document.createElement("div");
                 slide.className = "flex-none h-full flex items-center justify-center bg-black overflow-hidden relative";
-                // Force correct width for slide
                 slide.style.width = `${100 / totalSlides}%`;
                 slide.style.flex = `0 0 ${100 / totalSlides}%`;
 
-                const img = document.createElement("img");
-                img.dataset.src = src;
                 const fileName = extractFileName(src);
-                img.alt = fileName ? `${projectTitle} - ${fileName}` : `${projectTitle} - visuel ${idx + 1}`;
+                const altText = fileName ? `${projectTitle} - ${fileName}` : `${projectTitle} - visuel ${idx + 1}`;
 
-                // Styling exact matches from user provided code, adjusted for container
-                img.className = "h-full object-contain opacity-0 transition-opacity duration-300 cursor-pointer";
-                img.draggable = false;
-                img.style.userSelect = "none";
+                if (isVideo(src)) {
+                    // --- VIDEO ---
+                    const video = document.createElement("video");
+                    video.className = "h-full w-full object-contain cursor-pointer opacity-0 transition-opacity duration-300";
+                    video.src = src;
+                    video.loop = true;
+                    video.muted = true; // start muted
+                    video.playsInline = true;
+                    video.setAttribute('playsinline', '');
 
-                img.addEventListener("load", () => {
-                    img.classList.remove("opacity-0");
-                });
+                    video.onloadeddata = () => video.classList.remove("opacity-0");
 
-                // Check if already complete (cached)
-                if (img.complete && img.naturalHeight !== 0) {
-                    img.classList.remove("opacity-0");
+                    // Click to Toggle Play/Pause instead of Fullscreen
+                    video.addEventListener("click", () => {
+                        if (video.paused) {
+                            video.play();
+                        } else {
+                            video.pause();
+                        }
+                    });
+
+                    // --- VOLUME CONTAINER (Instagram style) ---
+                    const volContainer = document.createElement("div");
+                    // justified-end to keep button at bottom
+                    // Using Tailwind classes for positioning
+                    // Reverting to inline styles for positioning to guarantee strict adherence to "bottom right" without CSS conflicts
+                    volContainer.className = "absolute z-20 flex flex-col items-center justify-end h-auto transition-all";
+                    volContainer.style.bottom = "24px";
+                    volContainer.style.right = "24px";
+
+                    // Slider Wrapper
+                    const sliderWrapper = document.createElement("div");
+                    // Static Tailwind classes for formatting
+                    sliderWrapper.className = "bg-black/60 backdrop-blur-md rounded-full flex flex-col justify-center items-center overflow-hidden transition-all duration-300 px-3";
+
+                    // Dynamic styles for animation (Inline for robustness)
+                    sliderWrapper.style.height = "0px";
+                    sliderWrapper.style.opacity = "0";
+                    sliderWrapper.style.marginBottom = "0px";
+                    sliderWrapper.style.pointerEvents = "none";
+
+                    // JS Hover Behavior
+                    const showSlider = () => {
+                        sliderWrapper.style.height = "128px"; // Equivalent to h-32
+                        sliderWrapper.style.opacity = "1";
+                        sliderWrapper.style.marginBottom = "12px"; // Equivalent to mb-3
+                        sliderWrapper.style.pointerEvents = "auto";
+                    };
+                    const hideSlider = () => {
+                        sliderWrapper.style.height = "0px";
+                        sliderWrapper.style.opacity = "0";
+                        sliderWrapper.style.marginBottom = "0px";
+                        sliderWrapper.style.pointerEvents = "none";
+                    };
+
+                    volContainer.addEventListener("mouseenter", showSlider);
+                    volContainer.addEventListener("mouseleave", hideSlider);
+
+                    // Input Holder to constrain visual width
+                    const inputHolder = document.createElement("div");
+                    inputHolder.className = "w-1 h-20 relative";
+
+                    // Native range input styled vertical via rotation
+                    // We use a horizontal input rotated -90deg.
+                    // This is robust formatting for all browsers.
+                    const range = document.createElement("input");
+                    range.type = "range";
+                    range.min = "0";
+                    range.max = "1";
+                    range.step = "0.01";
+                    range.value = "0"; // initial
+
+                    // Uses utilities for centering and rotation
+                    // w-20 (80px), h-6 (24px) to fit container, rounded-2xl
+                    // Added z-40 to ensure it sits on top
+                    range.className = "appearance-none bg-transparent cursor-pointer w-20 h-6 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-90 rounded-2xl outline-none z-40";
+
+                    range.addEventListener("input", (e) => onVolumeChange(e, slide));
+                    range.addEventListener("click", (e) => e.stopPropagation());
+                    range.addEventListener("pointerdown", (e) => e.stopPropagation());
+
+                    inputHolder.appendChild(range);
+                    sliderWrapper.appendChild(inputHolder);
+
+                    // Button
+                    const volBtn = document.createElement("button");
+                    // Matching counter style: bg-black/60 backdrop-blur-md. Added hover for interactivity.
+                    // Added p-2 as requested
+                    volBtn.className = "bg-black/60 hover:bg-black/80 text-white w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-md transition-colors relative z-30 p-2";
+                    volBtn.ariaLabel = "Activer/Désactiver le son";
+                    volBtn.innerHTML = "<i class='bx bx-volume-mute text-xl volume-icon'></i>";
+                    // Only toggle mute on click. Slider is for volume.
+                    volBtn.addEventListener("click", (e) => toggleMute(e, slide));
+                    // Prevent propagation to video
+                    volBtn.addEventListener("pointerdown", (e) => e.stopPropagation());
+
+                    volContainer.appendChild(sliderWrapper);
+                    volContainer.appendChild(volBtn);
+
+                    slide.appendChild(video);
+                    slide.appendChild(volContainer);
+
+                    // Initial UI state
+                    setTimeout(() => updateVolumeUI(slide), 0);
+
+                } else {
+                    // --- IMAGE ---
+                    const img = document.createElement("img");
+                    img.dataset.src = src;
+                    img.alt = altText;
+                    img.className = "h-full object-contain opacity-0 transition-opacity duration-300 cursor-pointer";
+                    img.draggable = false;
+                    img.style.userSelect = "none";
+
+                    img.onload = () => img.classList.remove("opacity-0");
+                    // Preload check
+                    if (img.complete && img.naturalHeight !== 0) img.classList.remove("opacity-0");
+
+                    if (idx === 0) img.src = src;
+
+                    img.addEventListener("click", () => openFullscreenMedia(img.src || img.dataset.src, altText));
+
+                    slide.appendChild(img);
                 }
 
-                if (idx === 0) {
-                    img.src = src;
-                }
-
-                img.addEventListener("click", () => {
-                    const srcToShow = img.src || img.dataset.src || "";
-                    if (srcToShow) openFullscreenImage(srcToShow, img.alt);
-                });
-
-                slide.appendChild(img);
                 carouselEls.track.appendChild(slide);
             });
 
@@ -306,15 +553,12 @@
                 const btn = document.createElement("button");
                 btn.type = "button";
                 btn.className = i === currentSlideIndex ? DOT_ACTIVE_CLASS : DOT_CLASS;
-                btn.ariaLabel = `Voir image ${i + 1}`;
-                // Force dimensions inline to ensure visibility
+                btn.ariaLabel = `Voir slide ${i + 1}`;
                 btn.style.width = "12px";
                 btn.style.height = "12px";
                 btn.style.display = "block";
                 btn.style.padding = "0";
                 btn.style.border = "none";
-
-                // Force colors inline because Tailwind class parsing might be failing for these
                 const isActive = (i === currentSlideIndex);
                 btn.style.backgroundColor = "#411FEB";
                 btn.style.opacity = isActive ? "1" : "0.3";
@@ -361,11 +605,15 @@
             const total = slides.length;
             if (!total) return;
             const normalized = ((index % total) + total) % total;
-            const img = slides[normalized]?.querySelector("img");
-            if (!img) return;
-            if (img.getAttribute("src")) return;
-            const srcToLoad = img.dataset.src;
-            if (srcToLoad) img.src = srcToLoad;
+
+            const slide = slides[normalized];
+            const img = slide.querySelector("img");
+            if (img && !img.getAttribute("src")) {
+                const srcToLoad = img.dataset.src;
+                if (srcToLoad) img.src = srcToLoad;
+            }
+            // Videos are not "lazy-loaded" in src usually but we could.
+            // For now they are created with src immediately but autoplay handles loading priority.
         }
 
         function goToSlide(index) {
@@ -373,15 +621,20 @@
             const total = activeGalleryImages.length;
             let target = index;
 
-            // Disable wrapping: stop at edges
-            if (target < 0 || target >= total) return;
+            // Stop playback on current slide before moving
+            stopAllVideosInTrack();
+            resetAutoPlay(); // Also resets interval
+
+            if (target < 0 || target >= total) return; // No wrapping with buttons, but check logic
 
             currentSlideIndex = target;
             preloadSlide(target);
             preloadSlide(target + 1);
-            preloadSlide(target - 1); // preload prev as well (wrapping handled by modulo in preloadSlide)
+            preloadSlide(target - 1);
             updateCarouselUI();
-            refreshFullscreenImage();
+
+            // Play new video if any
+            playCurrentVideo();
         }
 
         // --- Swipe / Inputs ---
@@ -390,9 +643,9 @@
             if (Math.abs(dx) <= Math.abs(dy)) return;
             if (Math.abs(dx) < swipeThreshold) return;
             if (dx < 0) {
-                goToSlide(currentSlideIndex + 1);
+                if (currentSlideIndex < activeGalleryImages.length - 1) goToSlide(currentSlideIndex + 1);
             } else {
-                goToSlide(currentSlideIndex - 1);
+                if (currentSlideIndex > 0) goToSlide(currentSlideIndex - 1);
             }
             if (sourceEl === fullscreenOverlay) overlaySwipeConsumed = true;
         }
@@ -464,65 +717,99 @@
                 if (now - lastWheelTs < wheelDebounceMs) return;
                 if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
                 if (Math.abs(e.deltaX) < wheelThreshold) return;
+
                 lastWheelTs = now;
                 e.preventDefault();
                 if (e.deltaX > 0) {
-                    goToSlide(currentSlideIndex + 1);
+                    if (currentSlideIndex < activeGalleryImages.length - 1) goToSlide(currentSlideIndex + 1);
                 } else {
-                    goToSlide(currentSlideIndex - 1);
+                    if (currentSlideIndex > 0) goToSlide(currentSlideIndex - 1);
                 }
             }, { passive: false });
         }
 
         // --- Init ---
         renderCarousel();
+        // Initial Play
+        playCurrentVideo();
 
         // Bind events
-        if (carouselEls.prev) carouselEls.prev.addEventListener('click', () => goToSlide(currentSlideIndex - 1));
-        if (carouselEls.next) carouselEls.next.addEventListener('click', () => goToSlide(currentSlideIndex + 1));
+        if (carouselEls.prev) carouselEls.prev.addEventListener('click', () => {
+            if (currentSlideIndex > 0) goToSlide(currentSlideIndex - 1);
+        });
+        if (carouselEls.next) carouselEls.next.addEventListener('click', () => {
+            if (currentSlideIndex < activeGalleryImages.length - 1) goToSlide(currentSlideIndex + 1);
+        });
 
         attachSwipeHandlers(carouselEls.track);
 
         document.addEventListener("keydown", (e) => {
-            // Only capture if not focused in inputs
             if (["INPUT", "TEXTAREA"].includes(document.activeElement?.tagName)) return;
 
-            // Check if fullscreen is open
             if (fullscreenOverlay && !fullscreenOverlay.classList.contains("hidden")) {
-                if (e.key === "ArrowLeft") { e.preventDefault(); goToSlide(currentSlideIndex - 1); }
-                if (e.key === "ArrowRight") { e.preventDefault(); goToSlide(currentSlideIndex + 1); }
-                if (e.key === "Escape") closeFullscreenImage();
+                // In fullscreen, we might want to navigate gallery too?
+                // The current implementation closes or stays.
+                // Let's keep it simple: Escape closes.
+                if (e.key === "Escape") closeFullscreenMedia();
                 return;
             }
 
-            // Otherwise check if element is visible on screen approximately?
-            // Actually for project page, it's the main focus, so reasonable to capture arrows always
-            // unless we scroll out of view? Let's keep it simple.
-            if (e.key === "ArrowLeft") { e.preventDefault(); goToSlide(currentSlideIndex - 1); }
-            if (e.key === "ArrowRight") { e.preventDefault(); goToSlide(currentSlideIndex + 1); }
+            if (e.key === "ArrowLeft") {
+                e.preventDefault();
+                if (currentSlideIndex > 0) goToSlide(currentSlideIndex - 1);
+            }
+            if (e.key === "ArrowRight") {
+                e.preventDefault();
+                if (currentSlideIndex < activeGalleryImages.length - 1) goToSlide(currentSlideIndex + 1);
+            }
         });
 
-        // Initialize first slide preload
+        // Initialize first slide preload (images)
         preloadSlide(0);
         preloadSlide(1);
 
-        // --- Auto-Play ---
+        // --- Auto-Play Interval (Slideshow) ---
+        // Instagram does NOT auto-advance if video is long.
+        // For mixed content, usually we wait X seconds or video end.
+        // Let's keep the existing 10s interval but pause it if video is playing?
+        // Or just keep it simple: 10s interval unless interacted.
+
         let autoPlayInterval;
-        const AUTO_PLAY_DELAY = 10000; // 10 seconds
+        const AUTO_PLAY_DELAY = 10000;
 
         function startAutoPlay() {
             stopAutoPlay();
             autoPlayInterval = setInterval(() => {
                 const total = activeGalleryImages.length;
-                if (!total) return;
+                if (!total || total <= 1) return;
 
-                // Calculate next slide with loop
-                let nextIndex = currentSlideIndex + 1;
-                if (nextIndex >= total) {
-                    nextIndex = 0;
+                // Check if current slide is a playing video
+                const currentSlide = carouselEls.track.children[currentSlideIndex];
+                const video = currentSlide?.querySelector('video');
+
+                // Stop auto-advance if a video is present (user request)
+                // Whether playing or paused, we don't interrupt the video experience.
+                if (video) {
+                    return;
                 }
 
-                goToSlide(nextIndex);
+                let nextIndex = currentSlideIndex + 1;
+                if (nextIndex >= total) {
+                    nextIndex = 0; // Loop back
+                    // But goToSlide logic above prevents wrapping on click.
+                    // AutoPlay usually loops.
+                }
+
+                // Allow wrapping for autoplay
+                if (nextIndex === 0) {
+                    stopAllVideosInTrack();
+                    currentSlideIndex = 0;
+                    updateCarouselUI();
+                    playCurrentVideo();
+                } else {
+                    goToSlide(nextIndex);
+                }
+
             }, AUTO_PLAY_DELAY);
         }
 
@@ -538,20 +825,17 @@
             startAutoPlay();
         }
 
-        // Start auto-play
         startAutoPlay();
 
         // Stop/Reset on interaction
-        // Wrap existing event listeners or add new ones to resets
         container.addEventListener('pointerdown', resetAutoPlay);
         container.addEventListener('keydown', resetAutoPlay);
-        if (carouselEls.prev) carouselEls.prev.addEventListener('click', resetAutoPlay);
-        if (carouselEls.next) carouselEls.next.addEventListener('click', resetAutoPlay);
+        // Note: clicks on buttons handled by goToSlide calling resetAutoPlay
         if (carouselEls.dots) carouselEls.dots.addEventListener('click', resetAutoPlay);
 
         return {
             destroy: () => {
-                // cleanup if needed
+                stopAutoPlay();
             }
         };
     }

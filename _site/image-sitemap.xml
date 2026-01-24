@@ -799,12 +799,12 @@
       
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/inducks/Accueil%20-%20Mobile.jpg</image:loc>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Inducks/Accueil%20-%20Mobile.jpg</image:loc>
         <image:title><![CDATA[Accueil   mobile]]></image:title>
       </image:image>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/inducks/Accueil.jpg</image:loc>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Inducks/Accueil.jpg</image:loc>
         <image:title><![CDATA[Accueil]]></image:title>
       </image:image>
       
@@ -1143,6 +1143,13 @@
       </image:image>
       
       
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Introduction%20sur%20la%20faune%20et%20la%20flore%20du%20Var/Reportage%20La%20faune%20et%20la%20flore%20du%20Var.mp4</image:loc>
+        <image:title><![CDATA[Reportage la faune et la flore du var]]></image:title>
+      </image:image>
+      
+      
     </url>
     
   
@@ -1156,16 +1163,18 @@
       </image:image>
       
       
+      
+      
     </url>
     
   
     
     <url>
-      <loc>http://localhost:4000/creations/tom-et-lola-campagne/</loc>
+      <loc>http://localhost:4000/creations/campagne-de-communication-tom-et-lola/</loc>
       
       <image:image>
         <image:loc>http://localhost:4000/assets/media/projects/tometlola2.webp</image:loc>
-        <image:title><![CDATA[Tom et Lola (Campagne)]]></image:title>
+        <image:title><![CDATA[Campagne de communication Tom et Lola]]></image:title>
       </image:image>
       
       
@@ -1217,19 +1226,6 @@
       <image:image>
         <image:loc>http://localhost:4000/assets/media/projects/wordpress.webp</image:loc>
         <image:title><![CDATA[Sites WordPress]]></image:title>
-      </image:image>
-      
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/creations/maquette-fanzine-picsou-soir/</loc>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/picsousoir2.webp</image:loc>
-        <image:title><![CDATA[Maquette fanzine Picsou-Soir]]></image:title>
       </image:image>
       
       
