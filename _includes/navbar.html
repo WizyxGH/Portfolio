@@ -21,7 +21,7 @@
                 <li class="relative lg:group">
                     <button id="{{ item.id }}"
                         class="inline-flex items-center px-6 py-2 text-white gap-1 w-full text-left lg:w-auto lg:text-center">
-                        {{ item.title }}
+                        <span data-i18n="{{ item.i18n }}">{{ item.title }}</span>
                         <i id="dropdownChevron" class='bx bx-chevron-down text-lg text-gray-300 ml-auto lg:ml-0'></i>
                     </button>
                     <ul id="dropdownMenu"
@@ -36,8 +36,9 @@
                                         <i class='{{ subitem.icon }}'></i>
                                     </span>
                                     <div class="flex flex-col">
-                                        <span>{{ subitem.title }}</span>
-                                        <span class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed">{{
+                                        <span data-i18n="{{ subitem.i18n }}">{{ subitem.title }}</span>
+                                        <span class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed"
+                                            data-i18n="{{ subitem.desc_i18n }}">{{
                                             subitem.description
                                             }}</span>
                                     </div>
@@ -49,27 +50,49 @@
                 </li>
                 {% else %}
                 <!-- Lien simple -->
-                <li><a href="{{ item.url }}" class="block px-6 py-2 text-white hover:font-semibold">{{ item.title }}</a>
+                <li><a href="{{ item.url }}" class="block px-6 py-2 text-white hover:font-semibold"
+                        data-i18n="{{ item.i18n }}">{{ item.title }}</a>
                 </li>
                 {% endif %}
                 {% endfor %}
 
-                <!-- Bouton Theme Toggle - visible uniquement sur mobile -->
+                <!-- Language Selector Mobile (Hidden) -->
+                {% comment %}
                 <li class="block lg:hidden border-t border-white/20 mt-2">
+                    <button onclick="setLanguage(localStorage.getItem('lang') === 'en' ? 'fr' : 'en')"
+                        class="w-full text-left px-6 py-3 text-white hover:bg-white/10 flex items-center gap-2">
+                        <i class='bx bx-world text-xl'></i>
+                        <span id="lang-text-mobile">FR / EN</span>
+                    </button>
+                </li>
+                {% endcomment %}
+
+                <!-- Bouton Theme Toggle - visible uniquement sur mobile -->
+                <li class="block lg:hidden border-t border-white/20 mt-0">
                     <button id="themeToggleMobile"
                         class="w-full text-left px-6 py-3 text-white hover:bg-white/10 flex items-center gap-2">
                         <i class="bx bx-sun text-xl"></i>
-                        <span>Changer de thème</span>
+                        <span data-i18n="nav_theme_toggle">Changer de thème</span>
                     </button>
                 </li>
             </ul>
         </nav>
 
-        <!-- Bouton Theme Toggle - visible uniquement sur desktop -->
-        <button id="themeToggleDesktop" aria-label="Basculer le thème"
-            class="hidden lg:block text-white hover:bg-white/10 py-2 px-3 rounded-lg transition-colors duration-200">
-            <i class='bx bx-sun text-xl'></i>
-        </button>
+        <div class="hidden lg:flex items-center gap-2">
+            <!-- Language Selector Desktop (Hidden) -->
+            {% comment %}
+            <button id="lang-toggle" onclick="setLanguage(localStorage.getItem('lang') === 'en' ? 'fr' : 'en')"
+                class="text-white hover:bg-white/10 py-2 px-3 rounded-lg transition-colors duration-200 font-bold text-sm border border-white/30">
+                EN
+            </button>
+            {% endcomment %}
+
+            <!-- Bouton Theme Toggle - visible uniquement sur desktop -->
+            <button id="themeToggleDesktop" aria-label="Basculer le thème"
+                class="hidden lg:block text-white hover:bg-white/10 py-2 px-3 rounded-lg transition-colors duration-200">
+                <i class='bx bx-sun text-xl'></i>
+            </button>
+        </div>
     </div>
 </header>
 

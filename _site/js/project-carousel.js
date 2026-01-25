@@ -432,6 +432,8 @@
                     // Slider Wrapper
                     const sliderWrapper = document.createElement("div");
                     // Static Tailwind classes for formatting
+                    // Removed overflow-hidden: this was clipping the unrotated 80px input in the layout phase,
+                    // making ends unclickable. using opacity/pointer-events is sufficient for hiding.
                     sliderWrapper.className = "bg-black/60 backdrop-blur-md rounded-full flex flex-col justify-center items-center overflow-hidden transition-all duration-300 px-3";
 
                     // Dynamic styles for animation (Inline for robustness)
@@ -474,7 +476,7 @@
                     // Uses utilities for centering and rotation
                     // w-20 (80px), h-6 (24px) to fit container, rounded-2xl
                     // Added z-40 to ensure it sits on top
-                    range.className = "appearance-none bg-transparent cursor-pointer w-20 h-6 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-90 rounded-2xl outline-none z-40";
+                    range.className = "appearance-none bg-transparent cursor-pointer w-20 h-6 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-90 rounded-2xl outline-none z-40 transform";
 
                     range.addEventListener("input", (e) => onVolumeChange(e, slide));
                     range.addEventListener("click", (e) => e.stopPropagation());

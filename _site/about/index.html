@@ -85,7 +85,8 @@
                 
                 
                 <!-- Lien simple -->
-                <li><a href="/about/" class="block px-6 py-2 text-white hover:font-semibold">À propos</a>
+                <li><a href="/about/" class="block px-6 py-2 text-white hover:font-semibold"
+                        data-i18n="nav_about">À propos</a>
                 </li>
                 
                 
@@ -94,7 +95,7 @@
                 <li class="relative lg:group">
                     <button id="dropdownButton"
                         class="inline-flex items-center px-6 py-2 text-white gap-1 w-full text-left lg:w-auto lg:text-center">
-                        Réalisations
+                        <span data-i18n="nav_creations">Réalisations</span>
                         <i id="dropdownChevron" class='bx bx-chevron-down text-lg text-gray-300 ml-auto lg:ml-0'></i>
                     </button>
                     <ul id="dropdownMenu"
@@ -109,8 +110,9 @@
                                         <i class='bx bxs-briefcase-alt-2'></i>
                                     </span>
                                     <div class="flex flex-col">
-                                        <span>Professionnel</span>
-                                        <span class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed">UI/UX Design, articles</span>
+                                        <span data-i18n="nav_pro">Professionnel</span>
+                                        <span class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed"
+                                            data-i18n="nav_pro_desc">UI/UX Design, articles</span>
                                     </div>
                                 </div>
                             </a>
@@ -125,8 +127,9 @@
                                         <i class='bx bxs-graduation'></i>
                                     </span>
                                     <div class="flex flex-col">
-                                        <span>Académique</span>
-                                        <span class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed">Réalisé en BUT MMI</span>
+                                        <span data-i18n="nav_academic">Académique</span>
+                                        <span class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed"
+                                            data-i18n="nav_academic_desc">Réalisé en BUT MMI</span>
                                     </div>
                                 </div>
                             </a>
@@ -138,33 +141,43 @@
                 
                 
                 <!-- Lien simple -->
-                <li><a href="/services/" class="block px-6 py-2 text-white hover:font-semibold">Services</a>
+                <li><a href="/services/" class="block px-6 py-2 text-white hover:font-semibold"
+                        data-i18n="nav_services">Services</a>
                 </li>
                 
                 
                 
                 <!-- Lien simple -->
-                <li><a href="/contact/" class="block px-6 py-2 text-white hover:font-semibold">Contact</a>
+                <li><a href="/contact/" class="block px-6 py-2 text-white hover:font-semibold"
+                        data-i18n="nav_contact">Contact</a>
                 </li>
                 
                 
 
+                <!-- Language Selector Mobile (Hidden) -->
+                
+
                 <!-- Bouton Theme Toggle - visible uniquement sur mobile -->
-                <li class="block lg:hidden border-t border-white/20 mt-2">
+                <li class="block lg:hidden border-t border-white/20 mt-0">
                     <button id="themeToggleMobile"
                         class="w-full text-left px-6 py-3 text-white hover:bg-white/10 flex items-center gap-2">
                         <i class="bx bx-sun text-xl"></i>
-                        <span>Changer de thème</span>
+                        <span data-i18n="nav_theme_toggle">Changer de thème</span>
                     </button>
                 </li>
             </ul>
         </nav>
 
-        <!-- Bouton Theme Toggle - visible uniquement sur desktop -->
-        <button id="themeToggleDesktop" aria-label="Basculer le thème"
-            class="hidden lg:block text-white hover:bg-white/10 py-2 px-3 rounded-lg transition-colors duration-200">
-            <i class='bx bx-sun text-xl'></i>
-        </button>
+        <div class="hidden lg:flex items-center gap-2">
+            <!-- Language Selector Desktop (Hidden) -->
+            
+
+            <!-- Bouton Theme Toggle - visible uniquement sur desktop -->
+            <button id="themeToggleDesktop" aria-label="Basculer le thème"
+                class="hidden lg:block text-white hover:bg-white/10 py-2 px-3 rounded-lg transition-colors duration-200">
+                <i class='bx bx-sun text-xl'></i>
+            </button>
+        </div>
     </div>
 </header>
 
@@ -440,12 +453,12 @@
                     <img src="/assets/media/logo.png" alt="Logo Wizyx" class="w-6 h-6">
                     Wizyx
                 </a>
-                <p class="text-sm">
+                <p class="text-sm" data-i18n="footer_bio">
                     Je crée des interfaces premium et intuitives en alliant clarté, esthétique et storytelling pour
                     offrir
                     la meilleure expérience possible aux utilisateurs.
                 </p>
-                <p class="text-sm font-semibold mt-2">
+                <p class="text-sm font-semibold mt-2" data-i18n="footer_role">
                     UI/UX Designer freelance basé à Toulon
                 </p>
             </div>
@@ -459,7 +472,7 @@
 
                 <a href="https://linkedin.com/in/flogk/" target="_blank" rel="noopener noreferrer"
                     class="w-12 h-12 flex items-center justify-center bg-white rounded-xl transition-colors hover:bg-gray-300 hover:text-[#3215c7]"
-                    aria-label="Profil LinkedIn">
+                    data-i18n-aria="footer_social_linkedin" aria-label="Lien social">
                     <i class='bx bxl-linkedin'></i>
                 </a>
                 
@@ -470,7 +483,7 @@
 
                 <a href="https://wa.me/33778407887" target="_blank" rel="noopener noreferrer"
                     class="w-12 h-12 flex items-center justify-center bg-white rounded-xl transition-colors hover:bg-gray-300 hover:text-[#3215c7]"
-                    aria-label="Contacter sur WhatsApp">
+                    data-i18n-aria="footer_social_whatsapp" aria-label="Lien social">
                     <i class='bx bxl-whatsapp'></i>
                 </a>
                 
@@ -481,7 +494,7 @@
 
                 <a href="https://t.me/wizyx0" target="_blank" rel="noopener noreferrer"
                     class="w-12 h-12 flex items-center justify-center bg-white rounded-xl transition-colors hover:bg-gray-300 hover:text-[#3215c7]"
-                    aria-label="Contacter sur Telegram">
+                    data-i18n-aria="footer_social_telegram" aria-label="Lien social">
                     <i class='bx bxl-telegram'></i>
                 </a>
                 
@@ -492,7 +505,7 @@
 
                 <a href="https://github.com/WizyxGH" target="_blank" rel="noopener noreferrer"
                     class="w-12 h-12 flex items-center justify-center bg-white rounded-xl transition-colors hover:bg-gray-300 hover:text-[#3215c7]"
-                    aria-label="Profil GitHub">
+                    data-i18n-aria="footer_social_github" aria-label="Lien social">
                     <i class='bx bxl-github'></i>
                 </a>
                 
@@ -503,7 +516,7 @@
 
                 <a href="https://www.figma.com/@wizyx" target="_blank" rel="noopener noreferrer"
                     class="w-12 h-12 flex items-center justify-center bg-white rounded-xl transition-colors hover:bg-gray-300 hover:text-[#3215c7]"
-                    aria-label="Profil Figma">
+                    data-i18n-aria="footer_social_figma" aria-label="Lien social">
                     <i class='bx bxl-figma'></i>
                 </a>
                 
@@ -511,7 +524,7 @@
                 
                 <a href="mailto:contact@wizyx.me" target="_blank" rel="noopener noreferrer"
                     class="w-12 h-12 flex items-center justify-center bg-white rounded-xl transition-colors hover:bg-gray-300 hover:text-[#3215c7]"
-                    aria-label="Envoyer un e-mail">
+                    data-i18n-aria="footer_email" aria-label="Envoyer un e-mail">
                     <i class='bx bxs-envelope'></i>
                 </a>
             </div>
@@ -519,34 +532,36 @@
 
         <!-- Colonne 2 : Navigation -->
         <div class="w-full flex flex-col h-full justify-start gap-2">
-            <p class="font-bold">Navigation</p>
+            <p class="font-bold" data-i18n="footer_nav_title">Navigation</p>
             <div class="flex flex-col gap-1">
-                <a href="/about/" class="hover:font-semibold">À propos</a>
-                <a href="/creations/" class="hover:font-semibold">Réalisations</a>
-                <a href="/services/" class="hover:font-semibold">Services</a>
-                <a href="/contact/" class="hover:font-semibold">Contact</a>
-                <a href="/legal/" class="hover:font-semibold">Mentions légales</a>
+                <a href="/about/" class="hover:font-semibold" data-i18n="nav_about">À propos</a>
+                <a href="/creations/" class="hover:font-semibold" data-i18n="nav_creations">Réalisations</a>
+                <a href="/services/" class="hover:font-semibold" data-i18n="nav_services">Services</a>
+                <a href="/contact/" class="hover:font-semibold" data-i18n="nav_contact">Contact</a>
+                <a href="/legal/" class="hover:font-semibold" data-i18n="footer_legal">Mentions légales</a>
             </div>
         </div>
 
         <!-- Colonne 3 : Newsletter -->
         <div class="w-full flex flex-col h-full justify-start text-left md:text-right gap-4">
             <div class="space-y-2">
-                <p class="font-bold">Rejoindre la newsletter</p>
-                <p>En cours de création, revenez plus tard...</p>
+                <p class="font-bold" data-i18n="footer_newsletter_title">Rejoindre la newsletter</p>
+                <p data-i18n="footer_newsletter_text">En cours de création, revenez plus tard...</p>
             </div>
             <form class="flex gap-2 justify-start md:justify-end">
-                <input type="email" placeholder="Entrez votre adresse e-mail"
+                <input type="email" placeholder="Entrez votre adresse e-mail" data-i18n="footer_newsletter_placeholder"
                     class="w-full px-3 rounded-xl h-12 border border-white text-black">
                 <button type="submit"
                     class="flex items-center justify-center w-12 h-12 bg-white text-[#411FEB] rounded-xl font-semibold text-2xl"
                     aria-label="Envoyer">
-                    <i class='bx bx-send-alt'></i>
+                    <i class='bx bx-send'></i>
                 </button>
             </form>
         </div>
-
     </div>
+
+    <!-- Language Script -->
+    <script src="/js/language.js" defer></script>
 </footer>
 
     <div class="gtranslate_wrapper"></div>

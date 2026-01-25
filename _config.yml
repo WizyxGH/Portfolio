@@ -26,23 +26,31 @@ social:
 navigation:
   - title: À propos
     url: /about/
+    i18n: nav_about
   - title: Réalisations
     id: dropdownButton
+    i18n: nav_creations
     dropdown:
       - title: Professionnel
         url: /creations/
         description: UI/UX Design, articles
+        i18n: nav_pro
+        desc_i18n: nav_pro_desc
         icon: bx bxs-briefcase-alt-2
         style: rounded-t
       - title: Académique
         url: /creations_studies/
         description: Réalisé en BUT MMI
+        i18n: nav_academic
+        desc_i18n: nav_academic_desc
         icon: bx bxs-graduation
         style: rounded-b
   - title: Services
     url: /services/
+    i18n: nav_services
   - title: Contact
     url: /contact/
+    i18n: nav_contact
 
 permalink: /:title/
 

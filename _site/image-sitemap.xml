@@ -1164,6 +1164,11 @@
       
       
       
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Vid%C3%A9o%20%C5%93uvre%20culturelle/Vid%C3%A9o%20El%20tres%20de%20mayo.mp4</image:loc>
+        <image:title><![CDATA[Vidéo el tres de mayo]]></image:title>
+      </image:image>
+      
       
     </url>
     
