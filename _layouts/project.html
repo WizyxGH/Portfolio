@@ -197,8 +197,16 @@
                             {% for img in page.gallery %}
                             <div class="min-w-full w-full flex-none h-full flex items-center justify-center p-0 lg:p-4 carousel-slide"
                                 style="flex: 0 0 100% !important; min-width: 100% !important; width: 100% !important;">
+                                {% if img contains '.pdf' %}
+                                <div
+                                    class="h-full w-full flex items-center justify-center bg-gray-100 relative group-pdf">
+                                    <iframe src="{{ img }}#toolbar=0&navpanes=0"
+                                        class="h-full w-full object-contain border-0" type="application/pdf"></iframe>
+                                </div>
+                                {% else %}
                                 <img src="{{ img }}" alt="{{ page.title }} - Gallery {{ forloop.index }}"
                                     class="h-full object-contain" loading="lazy">
+                                {% endif %}
                             </div>
                             {% endfor %}
                             {% endif %}

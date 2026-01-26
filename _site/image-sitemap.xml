@@ -937,6 +937,11 @@
       </image:image>
       
       <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Promodentaire/Promodentaire%20Pr%C3%A9sentation.pdf</image:loc>
+        <image:title><![CDATA[Promodentaire présentation]]></image:title>
+      </image:image>
+      
+      <image:image>
         <image:loc>http://localhost:4000/assets/media/projects/results/Promodentaire/Search%20After%200.png</image:loc>
         <image:title><![CDATA[Search after 0]]></image:title>
       </image:image>
@@ -1130,6 +1135,8 @@
       </image:image>
       
       
+      
+      
     </url>
     
   
@@ -1143,6 +1150,11 @@
       </image:image>
       
       
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Introduction%20sur%20la%20faune%20et%20la%20flore%20du%20Var/Article%20Mus%C3%A9um%20Tavares.pdf</image:loc>
+        <image:title><![CDATA[Article muséum tavares]]></image:title>
+      </image:image>
       
       <image:image>
         <image:loc>http://localhost:4000/assets/media/projects/results/Introduction%20sur%20la%20faune%20et%20la%20flore%20du%20Var/Reportage%20La%20faune%20et%20la%20flore%20du%20Var.mp4</image:loc>

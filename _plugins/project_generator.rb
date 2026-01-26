@@ -88,7 +88,7 @@ module Jekyll
              
              if gallery_path_abs && File.directory?(gallery_path_abs)
                 images = []
-                images = Dir.glob(File.join(gallery_path_abs, "**", "*.{jpg,jpeg,png,gif,webp,svg,mp4,webm,mov}")).map do |file|
+                images = Dir.glob(File.join(gallery_path_abs, "**", "*.{jpg,jpeg,png,gif,webp,svg,mp4,webm,mov,pdf}")).map do |file|
                   # Convert absolute path to site-relative path
                   relative_to_gallery_root = Pathname.new(file).relative_path_from(Pathname.new(gallery_path_abs)).to_s
                   

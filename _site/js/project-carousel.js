@@ -21,6 +21,10 @@
         return /\.(mp4|webm|mov)$/i.test(src);
     }
 
+    function isPdf(src) {
+        return /\.(pdf)$/i.test(src);
+    }
+
     function initProjectCarousel(config) {
         const {
             images = [],
@@ -184,7 +188,7 @@
 
         // --- Fullscreen Logic ---
         function ensureFullscreenOverlay() {
-            if (fullscreenOverlay && fullscreenMedia) return;
+            if (fullscreenOverlay) return;
 
             fullscreenOverlay = document.createElement("div");
             fullscreenOverlay.id = "modalImageFullscreen";
@@ -224,10 +228,46 @@
             mediaContainer.id = "fullscreenMediaContainer";
             mediaContainer.className = "contents"; // Allow direct child styling
 
+            // Navigation Buttons (Fullscreen)
+            const prevFsBtn = document.createElement("button");
+            prevFsBtn.className = "absolute left-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-white hover:scale-110 transition z-[100002] p-4";
+            prevFsBtn.innerHTML = "<i class='bx bx-chevron-left text-5xl drop-shadow-lg'></i>";
+            prevFsBtn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                navigateFullscreen(-1);
+            });
+
+            const nextFsBtn = document.createElement("button");
+            nextFsBtn.className = "absolute right-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-white hover:scale-110 transition z-[100002] p-4";
+            nextFsBtn.innerHTML = "<i class='bx bx-chevron-right text-5xl drop-shadow-lg'></i>";
+            nextFsBtn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                navigateFullscreen(1);
+            });
+
             fullscreenOverlay.appendChild(mediaContainer);
             fullscreenOverlay.appendChild(closeBtn);
+            fullscreenOverlay.appendChild(prevFsBtn);
+            fullscreenOverlay.appendChild(nextFsBtn);
             document.body.appendChild(fullscreenOverlay);
             attachSwipeHandlers(fullscreenOverlay);
+        }
+
+        function navigateFullscreen(dir) {
+            if (!activeGalleryImages.length) return;
+            const total = activeGalleryImages.length;
+            let nextIndex = currentSlideIndex + dir;
+
+            if (nextIndex < 0) nextIndex = total - 1; // infinite loop left
+            if (nextIndex >= total) nextIndex = 0; // infinite loop right
+
+            goToSlide(nextIndex); // Sync carousel background
+
+            // Re-open fullscreen with new content
+            const src = activeGalleryImages[nextIndex];
+            const fileName = extractFileName(src);
+            const altText = fileName ? `${projectTitle} - ${fileName}` : `${projectTitle} - visuel ${nextIndex + 1}`;
+            openFullscreenMedia(src, altText);
         }
 
         function openFullscreenMedia(src, alt) {
@@ -250,6 +290,13 @@
                 // Defaulting to unmuted for full immersion
                 fullscreenMedia.muted = false;
                 fullscreenMedia.volume = Math.max(0.5, globalVolumeLevel);
+            } else if (isPdf(src)) {
+                fullscreenMedia = document.createElement("iframe");
+                // "Same system as images": using 90vw/90vh to match max-w-[90vw] max-h-[90vh] of images
+                fullscreenMedia.className = "w-[90vw] h-[90vh] shadow-2xl bg-white rounded-lg";
+                // Adding view=Fit to try to auto-fit content
+                fullscreenMedia.src = src + "#toolbar=0&navpanes=0&view=Fit";
+                fullscreenMedia.setAttribute("type", "application/pdf");
             } else {
                 fullscreenMedia = document.createElement("img");
                 fullscreenMedia.className = "max-h-[90vh] max-w-[90vw] object-contain shadow-2xl";
@@ -314,20 +361,20 @@
             fullscreenPanY = 0;
             fullscreenPointerId = null;
             fullscreenDragStart = null;
-            if (!fullscreenMedia || fullscreenMedia.tagName === 'VIDEO') return;
+            if (!fullscreenMedia || fullscreenMedia.tagName === 'VIDEO' || fullscreenMedia.tagName === 'IFRAME') return;
             fullscreenMedia.style.transformOrigin = "center center";
             fullscreenMedia.style.transform = "translate(0px, 0px) scale(1)";
             fullscreenMedia.style.cursor = "zoom-in";
         }
 
         function applyFullscreenTransform() {
-            if (!fullscreenMedia || fullscreenMedia.tagName === 'VIDEO') return;
+            if (!fullscreenMedia || fullscreenMedia.tagName === 'VIDEO' || fullscreenMedia.tagName === 'IFRAME') return;
             const scale = fullscreenZoomed ? 2 : 1;
             fullscreenMedia.style.transform = `translate(${fullscreenPanX}px, ${fullscreenPanY}px) scale(${scale})`;
         }
 
         function toggleFullscreenZoom(event) {
-            if (!fullscreenMedia || fullscreenMedia.tagName === 'VIDEO') return;
+            if (!fullscreenMedia || fullscreenMedia.tagName === 'VIDEO' || fullscreenMedia.tagName === 'IFRAME') return;
             if (!fullscreenZoomed) {
                 const rect = fullscreenMedia.getBoundingClientRect();
                 const originX = ((event?.clientX ?? rect.left + rect.width / 2) - rect.left) / rect.width * 100;
@@ -402,14 +449,14 @@
                 if (isVideo(src)) {
                     // --- VIDEO ---
                     const video = document.createElement("video");
-                    video.className = "h-full w-full object-contain cursor-pointer opacity-0 transition-opacity duration-300";
-                    video.src = src;
+                    // removed opacity-0 entirely to ensure visibility
+                    video.className = "h-full w-full object-contain cursor-pointer";
                     video.loop = true;
                     video.muted = true; // start muted
                     video.playsInline = true;
                     video.setAttribute('playsinline', '');
-
-                    video.onloadeddata = () => video.classList.remove("opacity-0");
+                    video.preload = "metadata";
+                    video.src = src;
 
                     // Click to Toggle Play/Pause instead of Fullscreen
                     video.addEventListener("click", () => {
@@ -505,6 +552,54 @@
 
                     // Initial UI state
                     setTimeout(() => updateVolumeUI(slide), 0);
+
+                } else if (isPdf(src)) {
+                    // --- PDF ---
+                    const container = document.createElement("div");
+                    container.className = "h-full w-full flex items-center justify-center bg-gray-100 relative group-pdf";
+
+                    const iframe = document.createElement("iframe");
+                    // Remove scrollbar=0 to ensure scrolling is possible if needed.
+                    iframe.src = src + "#toolbar=0&navpanes=0";
+                    iframe.className = "h-full w-full object-contain border-0";
+                    iframe.setAttribute("type", "application/pdf");
+
+                    // Fullscreen Button
+                    const fsBtn = document.createElement("button");
+                    // Match Volume Button: w-8 h-8, p-2, bg-black/60, etc.
+                    // Using inline styles for bottom/right to guarantee exact match with volume container
+                    fsBtn.className = "absolute z-20 bg-black/60 hover:bg-black/80 text-white w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-md transition-colors shadow-md p-2";
+                    fsBtn.style.bottom = "24px";
+                    fsBtn.style.right = "24px";
+                    fsBtn.ariaLabel = "Agrandir le PDF";
+                    fsBtn.innerHTML = "<i class='bx bx-fullscreen text-xl'></i>";
+                    fsBtn.addEventListener("click", (e) => {
+                        e.stopPropagation();
+                        openFullscreenMedia(src, altText);
+                    });
+
+                    container.appendChild(iframe);
+
+                    // Interaction Overlay for Desktop (Mouse)
+                    // Allows clicking "body" to fullscreen, but leaves right gap for scrollbar
+                    // On Touch/Mobile, we skip this to allow native touch interaction (scroll/pan)
+                    const isTouch = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+
+                    if (!isTouch) {
+                        const clickOverlay = document.createElement("div");
+                        // inset-0 but right-4 (16px) or right-6 (24px) for scrollbar
+                        clickOverlay.className = "absolute top-0 left-0 bottom-0 right-6 z-10 cursor-pointer bg-transparent";
+                        clickOverlay.title = "Cliquez pour agrandir (utilisez la barre de droite pour scroller)";
+
+                        clickOverlay.addEventListener("click", (e) => {
+                            e.stopPropagation();
+                            openFullscreenMedia(src, altText);
+                        });
+                        container.appendChild(clickOverlay);
+                    }
+
+                    container.appendChild(fsBtn);
+                    slide.appendChild(container);
 
                 } else {
                     // --- IMAGE ---
@@ -753,6 +848,8 @@
                 // The current implementation closes or stays.
                 // Let's keep it simple: Escape closes.
                 if (e.key === "Escape") closeFullscreenMedia();
+                if (e.key === "ArrowLeft") navigateFullscreen(-1);
+                if (e.key === "ArrowRight") navigateFullscreen(1);
                 return;
             }
 
