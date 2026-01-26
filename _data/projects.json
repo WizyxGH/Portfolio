@@ -138,8 +138,8 @@
                 "icon": "bx bx-play-circle"
             }
         ],
-        "width": 711,
-        "height": 400
+        "width": 1200,
+        "height": 630
     },
     {
         "id": 7,
@@ -467,8 +467,8 @@
                 "icon": "bx bxs-pen"
             }
         ],
-        "width": 475,
-        "height": 225
+        "width": 1200,
+        "height": 630
     },
     {
         "id": 22,
