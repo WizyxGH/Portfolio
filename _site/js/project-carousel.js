@@ -51,7 +51,7 @@
             totalSlides: document.getElementById(totalSlidesId)
         };
 
-        const NAV_BTN_CLASS = "absolute top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white w-10 h-10 rounded-full flex items-center justify-center shadow-md text-[#111] dark:text-white transition z-30 transform hover:scale-110";
+        const NAV_BTN_CLASS = "absolute top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 backdrop-blur-md w-10 h-10 rounded-full flex items-center justify-center shadow-md text-white transition z-30 transform hover:scale-110";
         const DOT_CLASS = "rounded-full transition-all duration-300 w-3 h-3 block flex-shrink-0 bg-[#411FEB]/30 hover:bg-[#411FEB]/50 focus:outline-none p-0 border-0";
         const DOT_ACTIVE_CLASS = "rounded-full transition-all duration-300 w-3 h-3 block flex-shrink-0 bg-[#411FEB] focus:outline-none scale-125 p-0 border-0";
 

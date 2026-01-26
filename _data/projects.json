@@ -244,7 +244,7 @@
         "description": "Design d'un SaaS permettant d'aider grâce à l'IA à générer des index de BD Disney pour la base de données Inducks.",
         "image": "/assets/media/projects/dumili.webp",
         "projectLink": "https://dumili.ducksmanager.net",
-        "date": "2000-01-01",
+        "date": "2025-02-01",
         "type": "SaaS",
         "context": "Personnel",
         "tags": [
@@ -454,7 +454,7 @@
         "description": "Design de la version mobile du site e-commerce de Promodentaire dédiée aux professionnels dentaire, avec intégration de fonctionnalités alimentées par l'IA.",
         "image": "/assets/media/projects/promodentaire.webp",
         "projectLink": "https://promodentaire.com/",
-        "date": "2000-01-01",
+        "date": "2025-03-01",
         "type": "Site internet",
         "context": "Professionnel",
         "tags": [
@@ -572,9 +572,9 @@
     },
     {
         "id": 26,
-        "title": "PHOQ.TV",
+        "title": "PHOQ.tv",
         "text": "Lorem ipsum.",
-        "description": "Lorem ipsum.",
+        "description": "Redesign de la landing page de l'agence créative PHOQ.tv spécialisée en motion design et 3D.",
         "image": "/assets/media/projects/phoq.webp",
         "projectLink": "https://www.phoq.tv",
         "date": "2026-01-01",
