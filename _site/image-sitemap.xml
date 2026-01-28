@@ -1136,6 +1136,11 @@
       
       
       
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Danse%20%C3%A0%20l&apos;Op%C3%A9ra/Affiche%20Danse%20%C3%A0%20l&apos;Op%C3%A9ra.jpg</image:loc>
+        <image:title><![CDATA[Affiche danse à l'opéra]]></image:title>
+      </image:image>
+      
       
     </url>
     
@@ -1253,6 +1258,43 @@
       <image:image>
         <image:loc>http://localhost:4000/assets/media/projects/wordpress.webp</image:loc>
         <image:title><![CDATA[Sites WordPress]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Sites%20WordPress/Brigitte%20-%20Accueil.jpg</image:loc>
+        <image:title><![CDATA[Brigitte   accueil]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Sites%20WordPress/Brigitte%20-%20Actualit%C3%A9s.jpg</image:loc>
+        <image:title><![CDATA[Brigitte   actualités]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Sites%20WordPress/Brigitte%20-%20Contact.jpg</image:loc>
+        <image:title><![CDATA[Brigitte   contact]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Sites%20WordPress/Brigitte%20-%20%C5%92uvres.png</image:loc>
+        <image:title><![CDATA[Brigitte   œuvres]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Sites%20WordPress/Game%20Dev%20-%20Accueil%20-%20Desktop.jpg</image:loc>
+        <image:title><![CDATA[Game dev   accueil   desktop]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Sites%20WordPress/Game%20Dev%20-%20Accueil%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Game dev   accueil   mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Sites%20WordPress/Game%20Dev%20-%20Accueil%20-%20Tablet.jpg</image:loc>
+        <image:title><![CDATA[Game dev   accueil   tablet]]></image:title>
       </image:image>
       
       

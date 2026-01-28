@@ -787,7 +787,11 @@
             {
                 "name": "Modélisation 3D",
                 "icon": "bx bxs-cube"
-            }
+            },
+            {
+                "name": "Design graphique",
+                "icon": "bx bxs-layout"
+            },
         ],
         "width": 735,
         "height": 642,
@@ -795,6 +799,10 @@
             {
                 "name": "Blender",
                 "icon": "bx bxl-blender"
+            },
+            {
+                "name": "Photoshop",
+                "icon": "bx bxl-photoshop"
             }
         ]
     },
