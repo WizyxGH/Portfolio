@@ -58,16 +58,15 @@ permalink: /creations_studies/
     </header>
 
     <section class="dark:bg-[#121212] py-16 text-center lg-px:32 px-8">
-        <h2 class="text-2xl font-bold mb-6">
+        <h2 class="text-2xl font-bold mb-6 flex items-center justify-center gap-2">
             <i class='bx bxs-palette'></i> Mes autres créations en tout genre...
         </h2>
         <div id="projectsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {% assign sorted_projects = site.data.projects | sort: 'id' %}
             {% for project in sorted_projects %}
-            {% assign pid = project.id | plus: 0 %}
-            {% if pid >= 27 %}
+            {% if project.is_study == true %}
             {% assign slug = project.title | slugify: "latin" %}
-            <a href="/creations/{{ slug }}/"
+            <a href="/creations_studies/{{ slug }}/"
                 class="projectCard animate-on-scroll transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212] block"
                 data-project-id="{{ project.id }}" data-title="{{ project.title | downcase }}"
                 data-description="{{ project.description | downcase }}"
@@ -106,68 +105,23 @@ permalink: /creations_studies/
 
     </section>
 
-    {% comment %}
-    Bloc SEO/LLM : contenu textuel + liens vers les projets académiques, sans impact visuel.
-    Généré automatiquement depuis _data/projects.json.
-    Section désactivée car _data/projects.json a été remplacé par un fichier statique js/projects.json.
 
-    {% assign studies_projects = site.data.projects
-    | where_exp:"p","p.id >= 27"
-    | where_exp:"p","p.id <= 34" %} <style>
-        .seo-projects { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-        </style>
-        <div class="seo-projects" aria-hidden="true">
-            {% for p in studies_projects %}
-            <article itemscope itemtype="https://schema.org/CreativeWork">
-                <h3 itemprop="name"><a href="/creations_studies/?project={{ p.id }}">{{ p.title }}</a></h3>
-                <p itemprop="description">{{ p.description | strip_html }}</p>
-                {% if p.date %}<p><span itemprop="datePublished">{{ p.date }}</span></p>{% endif %}
-                {% if p.image %}<img src="{{ p.image }}" alt="{{ p.title }}" loading="lazy" itemprop="image">{% endif %}
-            </article>
-            {% endfor %}
-        </div>
 
-        {% assign origin = site.url | append: site.baseurl %}
-        <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "itemListElement": [
-        {% for p in studies_projects %}
-        {
-          "@type": "ListItem",
-          "position": {{ forloop.index }},
-          "url": "{{ origin }}/creations_studies/?project={{ p.id }}",
-          "item": {
-            "@type": "CreativeWork",
-            "name": {{ p.title | jsonify }},
-            "description": {{ p.description | strip_html | jsonify }}{% if p.image %},
-            "image": "{{ origin }}{{ p.image }}"{% endif %}{% if p.date %},
-            "datePublished": {{ p.date | jsonify }}{% endif %},
-            "inLanguage": "fr"
-          }
-        }{% unless forloop.last %},{% endunless %}
-        {% endfor %}
-      ]
-    }
+
+    {% include footer.html %}
+
+    <div class="gtranslate_wrapper"></div>
+    <script>
+        window.gtranslateSettings = {
+            "default_language": "fr",
+            "native_language_names": true,
+            "detect_browser_language": true,
+            "languages": ["da", "de", "en", "el", "es", "fr", "it", "nl", "no", "pt", "sv", "vi"],
+            "wrapper_selector": ".gtranslate_wrapper",
+            "alt_flags": { "en": "usa" }
+        };
     </script>
-        {% endcomment %}
-
-
-        {% include footer.html %}
-
-        <div class="gtranslate_wrapper"></div>
-        <script>
-            window.gtranslateSettings = {
-                "default_language": "fr",
-                "native_language_names": true,
-                "detect_browser_language": true,
-                "languages": ["da", "de", "en", "el", "es", "fr", "it", "nl", "no", "pt", "sv", "vi"],
-                "wrapper_selector": ".gtranslate_wrapper",
-                "alt_flags": { "en": "usa" }
-            };
-        </script>
-        <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 
 </body>
 

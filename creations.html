@@ -101,9 +101,8 @@ priority: 0.9
         <div id="projectsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {% assign sorted_projects = site.data.projects | sort: 'id' %}
             {% for project in sorted_projects %}
-            {% assign pid = project.id | plus: 0 %}
-            {% if pid <= 26 %} {% if project.slug %} {% assign slug=project.slug %} {% else %} {% assign
-                slug=project.title | slugify: "latin" %} {% endif %} <a href="/creations/{{ slug }}/"
+            {% if project.is_study != true %} {% if project.slug %} {% assign slug=project.slug %} {% else %} {% assign
+            slug=project.title | slugify: "latin" %} {% endif %} <a href="/creations/{{ slug }}/"
                 class="projectCard animate-on-scroll transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212] block"
                 data-project-id="{{ project.id }}" data-title="{{ project.title | downcase }}"
                 data-description="{{ project.description | downcase }}"
@@ -132,9 +131,9 @@ priority: 0.9
                     {% endfor %}
                 </div>
                 <p class="text-sm text-[#121212] dark:text-white mt-2">{{ project.description }}</p>
-                </a>
-                {% endif %}
-                {% endfor %}
+            </a>
+            {% endif %}
+            {% endfor %}
         </div>
         <!-- Bouton pour afficher les projets supplémentaires -->
         <!-- Bouton pour afficher les projets supplémentaires -->
@@ -154,237 +153,219 @@ priority: 0.9
 
     </section>
 
-    {% comment %}
-    Bloc SEO/LLM : contenu textuel + liens vers chaque projet pour les moteurs/LLM (hors rendu visuel).
-    Généré automatiquement depuis _data/projects.json pour éviter toute maintenance manuelle.
-    Section désactivée car _data/projects.json a été remplacé par un fichier statique js/projects.json.
 
-    {% assign visible_projects = site.data.projects
-    | where_exp:'p','p.id >= 1'
-    | where_exp:'p','p.id <= 26' %} <style>
-        .seo-projects { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-        </style>
-        <div class="seo-projects" aria-hidden="true">
-            {% for p in visible_projects %}
-            <article itemscope itemtype="https://schema.org/CreativeWork">
-                <h3 itemprop="name"><a href="/creations/?project={{ p.id }}">{{ p.title }}</a></h3>
-                <p itemprop="description">{{ p.description | strip_html }}</p>
-                {% if p.date %}<p><span itemprop="datePublished">{{ p.date }}</span></p>{% endif %}
-                {% if p.image %}<img src="{{ p.image }}" alt="{{ p.title }}" loading="lazy" itemprop="image">{% endif %}
-            </article>
-            {% endfor %}
-        </div>
 
-        {% assign origin = site.url | append: site.baseurl %}
-        <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "itemListElement": [
-        {% for p in visible_projects %}
-        {
-          "@type": "ListItem",
-          "position": {{ forloop.index }},
-          "url": "{{ origin }}/creations/?project={{ p.id }}",
-          "item": {
-            "@type": "CreativeWork",
-            "name": {{ p.title | jsonify }},
-            "description": {{ p.description | strip_html | jsonify }}{% if p.image %},
-            "image": "{{ origin }}{{ p.image }}"{% endif %}{% if p.date %},
-            "datePublished": {{ p.date | jsonify }}{% endif %},
-            "inLanguage": "fr"
-          }
-        }{% unless forloop.last %},{% endunless %}
-        {% endfor %}
-      ]
-    }
-    </script>
-        {% endcomment %}
-
-        <section class="py-16 text-center lg:px-32 px-8">
-            <h2 class="text-2xl font-bold mb-6">
-                <i class='bx bxs-note-book'></i> Mes articles
-            </h2>
-            <div
-                class="flex space-x-6 overflow-x-auto scrollbar-thin scrollbar-thumb-[#411FEB]/40 scrollbar-track-gray-100 px-4 py-1">
-                <!-- Cartes des projets -->
-                <a href="https://inducks.org/story.php?c=Qfr%2FPS+++14H" target="_blank" class="flex-none w-64">
-                    <div class="bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE]">
-                        <div class="h-40 bg-cover bg-center mb-4 rounded-lg outline outline-2"
-                            style="background-image: url('/assets/media/articles/jmag.webp');"></div>
-                        <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">Obscures Mickey
-                            d'avant-guerre
-                        </h3>
-                        <div class="mt-1 flex space-x-2">
-                            <span
-                                class="bg-[#EDE9FE] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
-                                <i class='bx bx-calendar-event text-sm mr-1'></i> 23/12/2023
-                            </span>
-                        </div>
-                        <p class="text-sm text-[#121212] dark:text-white mt-2">À quoi ressemble les premières versions
-                            du
-                            plus vieux
-                            hebdomadaire jeunesse encore en activité ?</p>
+    <section class="py-16 text-center lg:px-32 px-8">
+        <h2 class="text-2xl font-bold mb-6">
+            <i class='bx bxs-note-book'></i> Mes articles
+        </h2>
+        <div id="articlesCarousel" class="flex space-x-6 overflow-x-auto scrollbar-hide px-4 py-1 cursor-grab">
+            <!-- Cartes des projets -->
+            <a href="https://inducks.org/story.php?c=Qfr%2FPS+++14H" target="_blank" class="flex-none w-64">
+                <div
+                    class="transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212]">
+                    <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
+                        <img src="/assets/media/articles/jmag.webp" alt="Obscures Mickey d'avant-guerre"
+                            class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
                     </div>
-                </a>
-                <a href="https://inducks.org/story.php?c=Qfr%2FPS+++13H" target="_blank" class="flex-none w-64">
-                    <div class="bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE]">
-                        <div class="h-40 bg-cover bg-center mb-4 rounded-lg outline outline-2"
-                            style="background-image: url('/assets/media/articles/brazil.webp');"></div>
-                        <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">L'univers Disney brésilien
-                        </h3>
-                        <div class="mt-1 flex space-x-2">
-                            <span
-                                class="bg-[#EDE9FE] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
-                                <i class='bx bx-calendar-event text-sm mr-1'></i> 29/05/2023
-                            </span>
-                        </div>
-                        <p class="text-sm text-[#121212] dark:text-white mt-2">Les publications et histoires
-                            brésiliennes
-                            ont beaucoup de
-                            différences par rapport à ce que l'on connaît en France.</p>
+                    <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">Obscures Mickey
+                        d'avant-guerre
+                    </h3>
+                    <div class="mt-1 flex space-x-2">
+                        <span
+                            class="bg-[#EDE9FE] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                            <i class='bx bx-calendar-event text-sm mr-1'></i> 23/12/2023
+                        </span>
                     </div>
-                </a>
-                <a href="https://inducks.org/story.php?c=Qfr%2FPS+++13E" target="_blank" class="flex-none w-64">
-                    <div class="bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE]">
-                        <div class="h-40 bg-cover bg-center mb-4 rounded-lg outline outline-2"
-                            style="background-image: url('/assets/media/articles/censorship.webp');"></div>
-                        <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">Disney censure La Jeunesse
-                            de
-                            Picsou !</h3>
-                        <div class="mt-1 flex space-x-2">
-                            <span
-                                class="bg-[#EDE9FE] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
-                                <i class='bx bx-calendar-event text-sm mr-1'></i> 29/05/2023
-                            </span>
-                        </div>
-                        <p class="text-sm text-[#121212] dark:text-white mt-2">Disney décide de censurer l'iconique
-                            Jeunesse
-                            de Picsou de Don
-                            Rosa.</p>
-                    </div>
-                </a>
-                <a href="https://inducks.org/story.php?c=Qfr%2FPS+++12I" target="_blank" class="flex-none w-64">
-                    <div class="bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE]">
-                        <div class="h-40 bg-cover bg-center mb-4 rounded-lg outline outline-2"
-                            style="background-image: url('/assets/media/articles/firstdime.webp');"></div>
-                        <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">Quand Rosa ne cite pas
-                            Barks
-                        </h3>
-                        <div class="mt-1 flex space-x-2">
-                            <span
-                                class="bg-[#EDE9FE] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
-                                <i class='bx bx-calendar-event text-sm mr-1'></i> 08/12/2022
-                            </span>
-                        </div>
-                        <p class="text-sm text-[#121212] dark:text-white mt-2">Connu pour se baser exclusivement sur le
-                            travail de Carl
-                            Barks, il est parfois allé chercher ses sources ailleurs...</p>
-                    </div>
-                </a>
-                <a href="https://inducks.org/story.php?c=Qfr%2FPS+++11J" target="_blank" class="flex-none w-64">
-                    <div class="bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE]">
-                        <div class="h-40 bg-cover bg-center mb-4 rounded-lg outline outline-2"
-                            style="background-image: url('/assets/media/articles/ducksmanager.webp');"></div>
-                        <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">Le monde de DucksManager
-                        </h3>
-                        <div class="mt-1 flex space-x-2">
-                            <span
-                                class="bg-[#EDE9FE] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
-                                <i class='bx bx-calendar-event text-sm mr-1'></i> 25/09/2022
-                            </span>
-                        </div>
-                        <p class="text-sm text-[#121212] dark:text-white mt-2">Découvrez l'écosystème de DucksManager
-                            (site,
-                            application
-                            jusqu'à un jeu) créé par un passionné.</p>
-                    </div>
-                </a>
-                <a href="https://inducks.org/story.php?c=Qfr%2FPS+++11E" target="_blank" class="flex-none w-64">
-                    <div class="bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE]">
-                        <div class="h-40 bg-cover bg-center mb-4 rounded-lg outline outline-2"
-                            style="background-image: url('/assets/media/articles/donrosatgs.webp');"></div>
-                        <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">Un Louisvillois à Toulouse
-                        </h3>
-                        <div class="mt-1 flex space-x-2">
-                            <span
-                                class="bg-[#EDE9FE] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
-                                <i class='bx bx-calendar-event text-sm mr-1'></i> 25/09/2022
-                            </span>
-                        </div>
-                        <p class="text-sm text-[#121212] dark:text-white mt-2">Évènement : Don Rosa revient enfin en
-                            France
-                            au Toulouse Game
-                            Show !</p>
-                    </div>
-                </a>
-                <a href="https://inducks.org/story.php?c=Qfr%2FPS+++11C" target="_blank" class="flex-none w-64">
-                    <div class="bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE]">
-                        <div class="h-40 bg-cover bg-center mb-4 rounded-lg outline outline-2"
-                            style="background-image: url('/assets/media/articles/journaldemickey.webp');"></div>
-                        <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">Grand ménage d'automne pour
-                            Mickey</h3>
-                        <div class="mt-1 flex space-x-2">
-                            <span
-                                class="bg-[#EDE9FE] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
-                                <i class='bx bx-calendar-event text-sm mr-1'></i> 25/09/2022
-                            </span>
-                        </div>
-                        <p class="text-sm text-[#121212] dark:text-white mt-2">Le Journal de Mickey fait peau neuve avec
-                            une
-                            nouvelle
-                            formule.</p>
-                    </div>
-                </a>
-                <a href="https://inducks.org/story.php?c=Qfr%2FPS+++10C" target="_blank" class="flex-none w-64">
-                    <div class="bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE]">
-                        <div class="h-40 bg-cover bg-center mb-4 rounded-lg outline outline-2"
-                            style="background-image: url('/assets/media/articles/angouleme.webp');"></div>
-                        <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]"> Année Picsou et festival
-                            d'Angoulême</h3>
-                        <div class="mt-1 flex space-x-2">
-                            <span
-                                class="bg-[#EDE9FE] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
-                                <i class='bx bx-calendar-event text-sm mr-1'></i> 30/05/2022
-                            </span>
-                        </div>
-                        <p class="text-sm text-[#121212] dark:text-white mt-2">Découvrez ce que nous réserve la fameuse
-                            "année Picsou".</p>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <section class="text-[#411FEB] bg-[#E8E4FC] py-16 text-center lg:px-32 px-8">
-            <h2 class="text-2xl font-bold mb-4"><i class='bx bx-laptop'></i> Autres créations</h2>
-            <p class="max-w-xl mx-auto mb-6">Récemment diplômé d’un BUT en Métiers du Multimédia et de l’Internet (MMI),
-                au
-                cours de
-                ma formation, j’ai eu l’occasion de participer à divers projets
-                mêlants des disciplines variées dans le vaste domaine du multimédia.</p>
-            <a href="/creations_studies/" class="bg-white text-[#411FEB] px-6 py-3 rounded-lg">
-                Découvrir mes autres créations
-                <i class='bx bx-arrow-up-right'></i>
+                    <p class="text-sm text-[#121212] dark:text-white mt-2">À quoi ressemble les premières versions
+                        du
+                        plus vieux
+                        hebdomadaire jeunesse encore en activité ?</p>
+                </div>
             </a>
-        </section>
+            <a href="https://inducks.org/story.php?c=Qfr%2FPS+++13H" target="_blank" class="flex-none w-64">
+                <div
+                    class="transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212]">
+                    <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
+                        <img src="/assets/media/articles/brazil.webp" alt="L'univers Disney brésilien"
+                            class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
+                    </div>
+                    <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">L'univers Disney brésilien
+                    </h3>
+                    <div class="mt-1 flex space-x-2">
+                        <span
+                            class="bg-[#EDE9FE] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                            <i class='bx bx-calendar-event text-sm mr-1'></i> 29/05/2023
+                        </span>
+                    </div>
+                    <p class="text-sm text-[#121212] dark:text-white mt-2">Les publications et histoires
+                        brésiliennes
+                        ont beaucoup de
+                        différences par rapport à ce que l'on connaît en France.</p>
+                </div>
+            </a>
+            <a href="https://inducks.org/story.php?c=Qfr%2FPS+++13E" target="_blank" class="flex-none w-64">
+                <div
+                    class="transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212]">
+                    <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
+                        <img src="/assets/media/articles/censorship.webp" alt="Disney censure La Jeunesse de Picsou !"
+                            class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
+                    </div>
+                    <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">Disney censure La Jeunesse
+                        de
+                        Picsou !</h3>
+                    <div class="mt-1 flex space-x-2">
+                        <span
+                            class="bg-[#EDE9FE] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                            <i class='bx bx-calendar-event text-sm mr-1'></i> 29/05/2023
+                        </span>
+                    </div>
+                    <p class="text-sm text-[#121212] dark:text-white mt-2">Disney décide de censurer l'iconique
+                        Jeunesse
+                        de Picsou de Don
+                        Rosa.</p>
+                </div>
+            </a>
+            <a href="https://inducks.org/story.php?c=Qfr%2FPS+++12I" target="_blank" class="flex-none w-64">
+                <div
+                    class="transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212]">
+                    <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
+                        <img src="/assets/media/articles/firstdime.webp" alt="Quand Rosa ne cite pas Barks"
+                            class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
+                    </div>
+                    <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">Quand Rosa ne cite pas
+                        Barks
+                    </h3>
+                    <div class="mt-1 flex space-x-2">
+                        <span
+                            class="bg-[#EDE9FE] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                            <i class='bx bx-calendar-event text-sm mr-1'></i> 08/12/2022
+                        </span>
+                    </div>
+                    <p class="text-sm text-[#121212] dark:text-white mt-2">Connu pour se baser exclusivement sur le
+                        travail de Carl
+                        Barks, il est parfois allé chercher ses sources ailleurs...</p>
+                </div>
+            </a>
+            <a href="https://inducks.org/story.php?c=Qfr%2FPS+++11J" target="_blank" class="flex-none w-64">
+                <div
+                    class="transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212]">
+                    <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
+                        <img src="/assets/media/articles/ducksmanager.webp" alt="Le monde de DucksManager"
+                            class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
+                    </div>
+                    <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">Le monde de DucksManager
+                    </h3>
+                    <div class="mt-1 flex space-x-2">
+                        <span
+                            class="bg-[#EDE9FE] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                            <i class='bx bx-calendar-event text-sm mr-1'></i> 25/09/2022
+                        </span>
+                    </div>
+                    <p class="text-sm text-[#121212] dark:text-white mt-2">Découvrez l'écosystème de DucksManager
+                        (site,
+                        application
+                        jusqu'à un jeu) créé par un passionné.</p>
+                </div>
+            </a>
+            <a href="https://inducks.org/story.php?c=Qfr%2FPS+++11E" target="_blank" class="flex-none w-64">
+                <div
+                    class="transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212]">
+                    <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
+                        <img src="/assets/media/articles/donrosatgs.webp" alt="Un Louisvillois à Toulouse"
+                            class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
+                    </div>
+                    <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">Un Louisvillois à Toulouse
+                    </h3>
+                    <div class="mt-1 flex space-x-2">
+                        <span
+                            class="bg-[#EDE9FE] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                            <i class='bx bx-calendar-event text-sm mr-1'></i> 25/09/2022
+                        </span>
+                    </div>
+                    <p class="text-sm text-[#121212] dark:text-white mt-2">Évènement : Don Rosa revient enfin en
+                        France
+                        au Toulouse Game
+                        Show !</p>
+                </div>
+            </a>
+            <a href="https://inducks.org/story.php?c=Qfr%2FPS+++11C" target="_blank" class="flex-none w-64">
+                <div
+                    class="transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212]">
+                    <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
+                        <img src="/assets/media/articles/journaldemickey.webp" alt="Grand ménage d'automne pour Mickey"
+                            class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
+                    </div>
+                    <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">Grand ménage d'automne pour
+                        Mickey</h3>
+                    <div class="mt-1 flex space-x-2">
+                        <span
+                            class="bg-[#EDE9FE] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                            <i class='bx bx-calendar-event text-sm mr-1'></i> 25/09/2022
+                        </span>
+                    </div>
+                    <p class="text-sm text-[#121212] dark:text-white mt-2">Le Journal de Mickey fait peau neuve avec
+                        une
+                        nouvelle
+                        formule.</p>
+                </div>
+            </a>
+            <a href="https://inducks.org/story.php?c=Qfr%2FPS+++10C" target="_blank" class="flex-none w-64">
+                <div
+                    class="transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212]">
+                    <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
+                        <img src="/assets/media/articles/angouleme.webp" alt="Année Picsou et festival d'Angoulême"
+                            class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
+                    </div>
+                    <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]"> Année Picsou et festival
+                        d'Angoulême</h3>
+                    <div class="mt-1 flex space-x-2">
+                        <span
+                            class="bg-[#EDE9FE] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                            <i class='bx bx-calendar-event text-sm mr-1'></i> 30/05/2022
+                        </span>
+                    </div>
+                    <p class="text-sm text-[#121212] dark:text-white mt-2">Découvrez ce que nous réserve la fameuse
+                        "année Picsou".</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="text-[#411FEB] bg-[#E8E4FC] py-16 text-center lg:px-32 px-8">
+        <h2 class="text-2xl font-bold mb-4 flex items-center justify-center gap-2"><i class='bx bx-laptop'></i>
+            Autres créations</h2>
+        <p class="max-w-xl mx-auto mb-6">Récemment diplômé d’un BUT en Métiers du Multimédia et de l’Internet (MMI),
+            au
+            cours de
+            ma formation, j’ai eu l’occasion de participer à divers projets
+            mêlants des disciplines variées dans le vaste domaine du multimédia.</p>
+        <a href="/creations_studies/"
+            class="inline-flex items-center justify-center gap-2 bg-[#411FEB] text-white font-semibold py-3 px-6 rounded-full hover:bg-[#3215c7] transition">
+            <span>Découvrir mes autres créations</span>
+            <i class='bx bx-arrow-up-right'></i>
+        </a>
+    </section>
 
 
 
-        {% include footer.html %}
+    {% include footer.html %}
 
 
-        <div class='gtranslate_wrapper'></div>
-        <script>
-            window.gtranslateSettings = {
-                "default_language": "fr",
-                "native_language_names": true,
-                "detect_browser_language": true,
-                "languages": ["da", "de", "en", "el", "es", "fr", "it", "nl", "no", "pt", "sv", "vi"],
-                "wrapper_selector": ".gtranslate_wrapper",
-                "alt_flags": { "en": "usa" }
-            };
-        </script>
-        <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+    <div class='gtranslate_wrapper'></div>
+    <script>
+        window.gtranslateSettings = {
+            "default_language": "fr",
+            "native_language_names": true,
+            "detect_browser_language": true,
+            "languages": ["da", "de", "en", "el", "es", "fr", "it", "nl", "no", "pt", "sv", "vi"],
+            "wrapper_selector": ".gtranslate_wrapper",
+            "alt_flags": { "en": "usa" }
+        };
+    </script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+
+
 
 </body>
 

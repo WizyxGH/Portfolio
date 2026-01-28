@@ -229,26 +229,29 @@
             mediaContainer.className = "contents"; // Allow direct child styling
 
             // Navigation Buttons (Fullscreen)
-            const prevFsBtn = document.createElement("button");
-            prevFsBtn.className = "absolute left-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-white hover:scale-110 transition z-[100002] p-4";
-            prevFsBtn.innerHTML = "<i class='bx bx-chevron-left text-5xl drop-shadow-lg'></i>";
-            prevFsBtn.addEventListener("click", (e) => {
-                e.stopPropagation();
-                navigateFullscreen(-1);
-            });
+            if (activeGalleryImages.length > 1) {
+                const prevFsBtn = document.createElement("button");
+                prevFsBtn.className = "absolute left-4 top-1/2 -translate-y-1/2 w-16 h-16 flex items-center justify-center bg-black/60 hover:bg-black/80 backdrop-blur-md text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 focus:outline-none z-[100002]";
+                prevFsBtn.innerHTML = "<i class='bx bx-chevron-left text-5xl'></i>";
+                prevFsBtn.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    navigateFullscreen(-1);
+                });
 
-            const nextFsBtn = document.createElement("button");
-            nextFsBtn.className = "absolute right-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-white hover:scale-110 transition z-[100002] p-4";
-            nextFsBtn.innerHTML = "<i class='bx bx-chevron-right text-5xl drop-shadow-lg'></i>";
-            nextFsBtn.addEventListener("click", (e) => {
-                e.stopPropagation();
-                navigateFullscreen(1);
-            });
+                const nextFsBtn = document.createElement("button");
+                nextFsBtn.className = "absolute right-4 top-1/2 -translate-y-1/2 w-16 h-16 flex items-center justify-center bg-black/60 hover:bg-black/80 backdrop-blur-md text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 focus:outline-none z-[100002]";
+                nextFsBtn.innerHTML = "<i class='bx bx-chevron-right text-5xl'></i>";
+                nextFsBtn.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    navigateFullscreen(1);
+                });
+
+                fullscreenOverlay.appendChild(prevFsBtn);
+                fullscreenOverlay.appendChild(nextFsBtn);
+            }
 
             fullscreenOverlay.appendChild(mediaContainer);
             fullscreenOverlay.appendChild(closeBtn);
-            fullscreenOverlay.appendChild(prevFsBtn);
-            fullscreenOverlay.appendChild(nextFsBtn);
             document.body.appendChild(fullscreenOverlay);
             attachSwipeHandlers(fullscreenOverlay);
         }
@@ -848,10 +851,15 @@
                 // The current implementation closes or stays.
                 // Let's keep it simple: Escape closes.
                 if (e.key === "Escape") closeFullscreenMedia();
-                if (e.key === "ArrowLeft") navigateFullscreen(-1);
-                if (e.key === "ArrowRight") navigateFullscreen(1);
+
+                if (activeGalleryImages.length > 1) {
+                    if (e.key === "ArrowLeft") navigateFullscreen(-1);
+                    if (e.key === "ArrowRight") navigateFullscreen(1);
+                }
                 return;
             }
+
+            if (activeGalleryImages.length <= 1) return;
 
             if (e.key === "ArrowLeft") {
                 e.preventDefault();

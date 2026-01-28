@@ -857,7 +857,7 @@
       <loc>http://localhost:4000/creations/planete-loto-live/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/cartaloto.webp</image:loc>
+        <image:loc>http://localhost:4000/assets/media/projects/planetelotolive.webp</image:loc>
         <image:title><![CDATA[Planète Loto Live]]></image:title>
       </image:image>
       
@@ -1127,7 +1127,7 @@
   
     
     <url>
-      <loc>http://localhost:4000/creations/danse-a-l-opera/</loc>
+      <loc>http://localhost:4000/creations_studies/danse-a-l-opera/</loc>
       
       <image:image>
         <image:loc>http://localhost:4000/assets/media/projects/dansealopera.webp</image:loc>
@@ -1142,7 +1142,7 @@
   
     
     <url>
-      <loc>http://localhost:4000/creations/introduction-sur-la-faune-et-la-flore-du-var/</loc>
+      <loc>http://localhost:4000/creations_studies/introduction-sur-la-faune-et-la-flore-du-var/</loc>
       
       <image:image>
         <image:loc>http://localhost:4000/assets/media/projects/fauneflorevar.webp</image:loc>
@@ -1167,7 +1167,7 @@
   
     
     <url>
-      <loc>http://localhost:4000/creations/video-oeuvre-culturelle/</loc>
+      <loc>http://localhost:4000/creations_studies/video-oeuvre-culturelle/</loc>
       
       <image:image>
         <image:loc>http://localhost:4000/assets/media/projects/tresdemayo.webp</image:loc>
@@ -1187,7 +1187,7 @@
   
     
     <url>
-      <loc>http://localhost:4000/creations/campagne-de-communication-tom-et-lola/</loc>
+      <loc>http://localhost:4000/creations_studies/campagne-de-communication-tom-et-lola/</loc>
       
       <image:image>
         <image:loc>http://localhost:4000/assets/media/projects/tometlola2.webp</image:loc>
@@ -1200,7 +1200,7 @@
   
     
     <url>
-      <loc>http://localhost:4000/creations/strategie-de-communication-mafigue/</loc>
+      <loc>http://localhost:4000/creations_studies/strategie-de-communication-mafigue/</loc>
       
       <image:image>
         <image:loc>http://localhost:4000/assets/media/projects/mafigue.webp</image:loc>
@@ -1213,7 +1213,7 @@
   
     
     <url>
-      <loc>http://localhost:4000/creations/cultophoto/</loc>
+      <loc>http://localhost:4000/creations_studies/cultophoto/</loc>
       
       <image:image>
         <image:loc>http://localhost:4000/assets/media/projects/cultophoto.webp</image:loc>
@@ -1248,7 +1248,7 @@
   
     
     <url>
-      <loc>http://localhost:4000/creations/sites-wordpress/</loc>
+      <loc>http://localhost:4000/creations_studies/sites-wordpress/</loc>
       
       <image:image>
         <image:loc>http://localhost:4000/assets/media/projects/wordpress.webp</image:loc>

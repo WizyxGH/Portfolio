@@ -24,7 +24,13 @@
             }
         ],
         "width": 1600,
-        "height": 785
+        "height": 785,
+        "technologies": [
+            {
+                "name": "Figma",
+                "icon": "bx bxl-figma"
+            }
+        ]
     },
     {
         "id": 2,
@@ -51,7 +57,13 @@
             }
         ],
         "width": 800,
-        "height": 502
+        "height": 502,
+        "technologies": [
+            {
+                "name": "Figma",
+                "icon": "bx bxl-figma"
+            }
+        ]
     },
     {
         "id": 3,
@@ -61,7 +73,7 @@
         "image": "/assets/media/projects/mongardien.webp",
         "projectLink": "#",
         "date": "2024-02-01",
-        "type": "Application",
+        "type": "Landing page",
         "context": "Professionnel",
         "tags": [
             {
@@ -74,7 +86,17 @@
             }
         ],
         "width": 1440,
-        "height": 856
+        "height": 856,
+        "technologies": [
+            {
+                "name": "Figma",
+                "icon": "bx bxl-figma"
+            },
+            {
+                "name": "Webflow",
+                "icon": "bx bxl-webflow"
+            }
+        ]
     },
     {
         "id": 4,
@@ -93,7 +115,13 @@
             }
         ],
         "width": 1600,
-        "height": 730
+        "height": 730,
+        "technologies": [
+            {
+                "name": "Figma",
+                "icon": "bx bxl-figma"
+            }
+        ]
     },
     {
         "id": 5,
@@ -115,8 +143,18 @@
                 "icon": "bx bx-play-circle"
             }
         ],
-        "width": 711,
-        "height": 400
+        "width": 1200,
+        "height": 630,
+        "technologies": [
+            {
+                "name": "Figma",
+                "icon": "bx bxl-figma"
+            },
+            {
+                "name": "React",
+                "icon": "bx bxl-react"
+            }
+        ]
     },
     {
         "id": 6,
@@ -126,7 +164,7 @@
         "image": "/assets/media/projects/wca.webp",
         "projectLink": "https://www.worldcubeassociation.org",
         "date": "2024-09-01",
-        "type": "Site internet",
+        "type": "Application",
         "context": "Personnel",
         "tags": [
             {
@@ -139,7 +177,17 @@
             }
         ],
         "width": 1200,
-        "height": 630
+        "height": 630,
+        "technologies": [
+            {
+                "name": "Figma",
+                "icon": "bx bxl-figma"
+            },
+            {
+                "name": "Vue.js",
+                "icon": "bx bxl-vuejs"
+            }
+        ]
     },
     {
         "id": 7,
@@ -166,7 +214,13 @@
             }
         ],
         "width": 1440,
-        "height": 827
+        "height": 827,
+        "technologies": [
+            {
+                "name": "Figma",
+                "icon": "bx bxl-figma"
+            }
+        ]
     },
     {
         "id": 8,
@@ -189,7 +243,13 @@
             }
         ],
         "width": 719,
-        "height": 408
+        "height": 408,
+        "technologies": [
+            {
+                "name": "Figma",
+                "icon": "bx bxl-figma"
+            }
+        ]
     },
     {
         "id": 9,
@@ -212,7 +272,13 @@
             }
         ],
         "width": 711,
-        "height": 400
+        "height": 400,
+        "technologies": [
+            {
+                "name": "Figma",
+                "icon": "bx bxl-figma"
+            }
+        ]
     },
     {
         "id": 10,
@@ -235,7 +301,13 @@
             }
         ],
         "width": 1604,
-        "height": 613
+        "height": 613,
+        "technologies": [
+            {
+                "name": "Figma",
+                "icon": "bx bxl-figma"
+            }
+        ]
     },
     {
         "id": 11,
@@ -258,7 +330,13 @@
             }
         ],
         "width": 1600,
-        "height": 868
+        "height": 868,
+        "technologies": [
+            {
+                "name": "Figma",
+                "icon": "bx bxl-figma"
+            }
+        ]
     },
     {
         "id": 12,
@@ -285,7 +363,13 @@
             }
         ],
         "width": 1440,
-        "height": 825
+        "height": 825,
+        "technologies": [
+            {
+                "name": "Figma",
+                "icon": "bx bxl-figma"
+            }
+        ]
     },
     {
         "id": 13,
@@ -308,7 +392,13 @@
             }
         ],
         "width": 1600,
-        "height": 682
+        "height": 682,
+        "technologies": [
+            {
+                "name": "Figma",
+                "icon": "bx bxl-figma"
+            }
+        ]
     },
     {
         "id": 14,
@@ -331,8 +421,14 @@
                 "icon": "bx bx-play-circle"
             }
         ],
-        "width": 1600,
-        "height": 1742
+        "width": 1200,
+        "height": 630,
+        "technologies": [
+            {
+                "name": "Figma",
+                "icon": "bx bxl-figma"
+            }
+        ]
     },
     {
         "id": 15,
@@ -355,7 +451,13 @@
             }
         ],
         "width": 1600,
-        "height": 837
+        "height": 837,
+        "technologies": [
+            {
+                "name": "Figma",
+                "icon": "bx bxl-figma"
+            }
+        ]
     },
     {
         "id": 16,
@@ -374,14 +476,20 @@
             }
         ],
         "width": 1440,
-        "height": 669
+        "height": 669,
+        "technologies": [
+            {
+                "name": "Figma",
+                "icon": "bx bxl-figma"
+            }
+        ]
     },
     {
         "id": 18,
         "title": "Planète Loto Live",
         "text": "Coming soon...",
         "description": "Design du wireframe pour le redesign de la landing page.",
-        "image": "/assets/media/projects/cartaloto.webp",
+        "image": "/assets/media/projects/planetelotolive.webp",
         "projectLink": "https://www.planete-lotolive.fr",
         "date": "2025-03-01",
         "type": "Site internet",
@@ -392,8 +500,14 @@
                 "icon": "bx bxs-layout"
             }
         ],
-        "width": 1600,
-        "height": 1540
+        "width": 1200,
+        "height": 630,
+        "technologies": [
+            {
+                "name": "Figma",
+                "icon": "bx bxl-figma"
+            }
+        ]
     },
     {
         "id": 19,
@@ -422,6 +536,16 @@
                 "name": "Game Design",
                 "icon": "bx bxs-joystick"
             }
+        ],
+        "technologies": [
+            {
+                "name": "Figma",
+                "icon": "bx bxl-figma"
+            },
+            {
+                "name": "LottieFiles",
+                "icon": "bxl bx-lottie-files"
+            }
         ]
     },
     {
@@ -445,7 +569,13 @@
             }
         ],
         "width": 1366,
-        "height": 2322
+        "height": 2322,
+        "technologies": [
+            {
+                "name": "Figma",
+                "icon": "bx bxl-figma"
+            }
+        ]
     },
     {
         "id": 21,
@@ -468,7 +598,13 @@
             }
         ],
         "width": 1200,
-        "height": 630
+        "height": 630,
+        "technologies": [
+            {
+                "name": "Figma",
+                "icon": "bx bxl-figma"
+            }
+        ]
     },
     {
         "id": 22,
@@ -486,8 +622,14 @@
                 "icon": "bx bxs-layout"
             }
         ],
-        "width": 711,
-        "height": 400
+        "width": 1200,
+        "height": 630,
+        "technologies": [
+            {
+                "name": "Figma",
+                "icon": "bx bxl-figma"
+            }
+        ]
     },
     {
         "id": 23,
@@ -514,7 +656,13 @@
             }
         ],
         "width": 1440,
-        "height": 900
+        "height": 900,
+        "technologies": [
+            {
+                "name": "Figma",
+                "icon": "bx bxl-figma"
+            }
+        ]
     },
     {
         "id": 24,
@@ -541,7 +689,17 @@
             }
         ],
         "width": 1440,
-        "height": 836
+        "height": 836,
+        "technologies": [
+            {
+                "name": "Figma",
+                "icon": "bx bxl-figma"
+            },
+            {
+                "name": "Midjourney",
+                "icon": "bx bxl-midjourney"
+            }
+        ]
     },
     {
         "id": 25,
@@ -568,7 +726,13 @@
             }
         ],
         "width": 1920,
-        "height": 1080
+        "height": 1080,
+        "technologies": [
+            {
+                "name": "Figma",
+                "icon": "bx bxl-figma"
+            }
+        ]
     },
     {
         "id": 26,
@@ -595,10 +759,17 @@
             }
         ],
         "width": 1920,
-        "height": 1080
+        "height": 1080,
+        "technologies": [
+            {
+                "name": "Figma",
+                "icon": "bx bxl-figma"
+            }
+        ]
     },
     {
         "id": 27,
+        "is_study": true,
         "title": "Danse à l'Opéra",
         "text": "Coming soon...",
         "description": "Création de la scénographie et de l'affiche pour l'édition 2025 du spectacle \"Danse à l'Opéra\" sur le thème \"Sous le signe du soleil\".",
@@ -619,10 +790,17 @@
             }
         ],
         "width": 735,
-        "height": 642
+        "height": 642,
+        "technologies": [
+            {
+                "name": "Blender",
+                "icon": "bx bxl-blender"
+            }
+        ]
     },
     {
         "id": 28,
+        "is_study": true,
         "title": "Introduction sur la faune et la flore du Var",
         "text": "Coming soon...",
         "description": "Production d'une vidéo et d'un article sur la faune et la flore du Var en partenariat avec le Muséum départemental du Var",
@@ -647,10 +825,21 @@
             }
         ],
         "width": 1367,
-        "height": 618
+        "height": 618,
+        "technologies": [
+            {
+                "name": "Adobe Premiere Pro",
+                "icon": "bx bxs-video"
+            },
+            {
+                "name": "Scribus",
+                "icon": "bx bxs-layout"
+            }
+        ]
     },
     {
         "id": 29,
+        "is_study": true,
         "title": "Vidéo œuvre culturelle",
         "text": "Coming soon...",
         "description": "Création d'une vidéo de présentation du tableau de Francisco de Goya \"Tres de Mayo\".",
@@ -675,10 +864,21 @@
             }
         ],
         "width": 960,
-        "height": 733
+        "height": 733,
+        "technologies": [
+            {
+                "name": "Adobe Premiere Pro",
+                "icon": "bx bxs-video"
+            },
+            {
+                "name": "Blender",
+                "icon": "bx bxl-blender"
+            }
+        ]
     },
     {
         "id": 30,
+        "is_study": true,
         "title": "Campagne de communication Tom et Lola",
         "text": "Coming soon...",
         "description": "Définition et exécution d'une campagne de communication pour la série TV Tom et Lola diffusée sur France 2.",
@@ -703,10 +903,21 @@
             }
         ],
         "width": 728,
-        "height": 410
+        "height": 410,
+        "technologies": [
+            {
+                "name": "Adobe Premiere Pro",
+                "icon": "bx bxs-video"
+            },
+            {
+                "name": "Figma",
+                "icon": "bx bxl-figma"
+            }
+        ]
     },
     {
         "id": 31,
+        "is_study": true,
         "title": "Stratégie de communication Mafigue",
         "text": "Coming soon...",
         "description": "Définition et exécution de la stratégie de communication de la micro-entreprise Mafigue.",
@@ -727,10 +938,12 @@
             }
         ],
         "width": 1373,
-        "height": 712
+        "height": 712,
+        "technologies": []
     },
     {
         "id": 32,
+        "is_study": true,
         "title": "CultoPhoto",
         "text": "Coming soon...",
         "description": "Réalisation des visuels d'un jeu de l'oie sur le thème de la photographie.",
@@ -747,10 +960,17 @@
             }
         ],
         "width": 1600,
-        "height": 819
+        "height": 819,
+        "technologies": [
+            {
+                "name": "Figma",
+                "icon": "bx bxl-figma"
+            }
+        ]
     },
     {
         "id": 33,
+        "is_study": true,
         "title": "Sites WordPress",
         "text": "Coming soon...",
         "description": "Développement de plusieurs sites WordPress fictifs.",
@@ -767,6 +987,12 @@
             }
         ],
         "width": 306,
-        "height": 165
+        "height": 165,
+        "technologies": [
+            {
+                "name": "WordPress",
+                "icon": "bx bxl-wordpress"
+            }
+        ]
     }
 ]

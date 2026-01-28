@@ -175,6 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const wrapper = document.createElement('div');
         wrapper.className = "w-full flex flex-nowrap overflow-x-auto gap-2 items-center scrollbar-hide mb-2";
+        enableDragScroll(wrapper);
 
         const label = document.createElement('span');
         label.className = "text-sm text-white font-medium whitespace-nowrap";
@@ -323,7 +324,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!emptyCard) {
                 emptyCard = document.createElement("div");
                 emptyCard.id = "emptyProjectCard";
-                emptyCard.className = "projectCard animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-white rounded-lg text-left border-8 border-white hover:bg-[#EDE9FE] dark:hover:bg-[#EDE9FE] cursor-default";
+                emptyCard.className = "projectCard animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left border-8 border-white dark:border-[#121212] hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] cursor-default p-2";
                 emptyCard.innerHTML = `
                     <div class="h-40 mb-3 rounded-lg bg-[rgba(65,31,235,0.12)] border-2 border-dashed border-[#411FEB] flex items-center justify-center overflow-hidden">
                         <img src="/assets/media/projects/projectnoresult.svg" alt="Aucun projet trouvé" class="h-64 w-64">
@@ -544,4 +545,51 @@ document.addEventListener("DOMContentLoaded", function () {
             suggestionsContainer.classList.add('hidden');
         }
     });
+    // --- Drag to Scroll ---
+    function enableDragScroll(el) {
+        if (!el) return;
+
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        el.style.cursor = 'grab';
+
+        el.addEventListener('mousedown', (e) => {
+            isDown = true;
+            el.style.cursor = 'grabbing';
+            startX = e.pageX - el.offsetLeft;
+            scrollLeft = el.scrollLeft;
+        });
+
+        el.addEventListener('mouseleave', () => {
+            isDown = false;
+            el.style.cursor = 'grab';
+        });
+
+        el.addEventListener('mouseup', () => {
+            isDown = false;
+            el.style.cursor = 'grab';
+        });
+
+        el.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - el.offsetLeft;
+            const walk = (x - startX) * 2; // scroll-fast
+            el.scrollLeft = scrollLeft - walk;
+        });
+
+        // Wheel support
+        el.addEventListener("wheel", (evt) => {
+            evt.preventDefault();
+            el.scrollLeft += evt.deltaY;
+        });
+    }
+
+    // Initialize drag scroll for static containers
+    const articlesCarousel = document.getElementById("articlesCarousel");
+    enableDragScroll(filtersContainer);
+    enableDragScroll(articlesCarousel);
+
 });

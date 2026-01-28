@@ -27,6 +27,7 @@ module Jekyll
       self.data['context'] = project['context']
       self.data['tags'] = project['tags']
       self.data['gallery'] = project['gallery']
+      self.data['technologies'] = project['technologies']
 
       
       # Set the content of the page
@@ -37,6 +38,7 @@ module Jekyll
       self.data['projectLink'] = project['projectLink']
       self.data['driveLink'] = project['driveLink']
       self.data['id'] = project['id']
+      self.data['is_study'] = project['is_study']
     end
   end
 
@@ -102,8 +104,9 @@ module Jekyll
           end
 
 
-          # Create the page at /creations/slug/
-          dir = File.join('creations', slug)
+          # Create the page at /creations/slug/ or /creations_studies/slug/
+          base_dir = project['is_study'] ? 'creations_studies' : 'creations'
+          dir = File.join(base_dir, slug)
           site.pages << ProjectPage.new(site, site.source, dir, project)
         end
       end
