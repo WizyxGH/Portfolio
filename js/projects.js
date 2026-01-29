@@ -449,7 +449,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (q && matches.length) {
             matches.slice(0, 5).forEach(project => {
                 const div = document.createElement('div');
-                div.className = "flex items-center gap-2 p-2 hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] cursor-pointer transition-colors rounded-lg";
+                div.className = "flex items-center gap-2 p-2 hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] cursor-pointer transition-colors rounded-xl";
 
                 const projectSlug = project.slug || slugify(project.title);
                 const projectUrl = `/creations/${projectSlug}/`;
