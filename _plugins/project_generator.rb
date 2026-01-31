@@ -28,6 +28,7 @@ module Jekyll
       self.data['tags'] = project['tags']
       self.data['gallery'] = project['gallery']
       self.data['technologies'] = project['technologies']
+      self.data['collaborators'] = project['collaborators']
 
       
       # Set the content of the page

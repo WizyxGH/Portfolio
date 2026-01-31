@@ -165,12 +165,31 @@
                 <hr class="my-6 border-gray-200 dark:border-white/10">
                 <a href="/services/"
                     class="group flex items-center gap-3 hover:bg-gray-100 dark:hover:bg-white/5 -mx-4 px-4 py-2 transition-colors cursor-pointer">
-                    <img src="/assets/media/profilepicturepro.png" alt="Florian Gertner Kilian"
-                        class="w-12 h-12 rounded-full object-cover border-2 border-transparent group-hover:border-[#411FEB] transition-colors">
+
+                    <div class="flex flex-shrink-0 mr-2">
+                        <img src="/assets/media/profilepicturepro.png" alt="Florian Gertner Kilian"
+                            class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-white dark:border-[#121212] group-hover:border-[#411FEB] transition-colors relative z-30">
+                        {% if page.collaborators %}
+                        {% for collaborator in page.collaborators %}
+                        <img src="{{ collaborator.avatar }}" alt="{{ collaborator.name }}"
+                            class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-white dark:border-[#121212] group-hover:border-[#411FEB] transition-colors relative"
+                            style="z-index: {{ 20 | minus: forloop.index }}; margin-left: -1rem;">
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+
                     <div>
                         <p
                             class="text-sm font-semibold text-[#121212] dark:text-white group-hover:text-[#411FEB] transition-colors">
-                            Designé par Florian Gertner Kilian</p>
+                            {% assign collaborator_count = page.collaborators | size %}
+                            {% if collaborator_count == 0 %}
+                            Designé par Florian Gertner Kilian
+                            {% elsif collaborator_count == 1 %}
+                            Designé par Florian Gertner Kilian et {{ page.collaborators[0].name }}
+                            {% else %}
+                            Designé par Florian Gertner Kilian + {{ collaborator_count }} autres personnes
+                            {% endif %}
+                        </p>
                         <p
                             class="text-xs text-gray-500 dark:text-gray-400 group-hover:text-[#411FEB] transition-colors">
                             Besoin d'un design pour votre projet ? <span

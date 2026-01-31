@@ -284,108 +284,58 @@
   
     
     <url>
-      <loc>http://localhost:4000/creations/bioquest/</loc>
+      <loc>http://localhost:4000/creations/jobbrr/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/bioquest.webp</image:loc>
-        <image:title><![CDATA[BioQuest]]></image:title>
+        <image:loc>http://localhost:4000/assets/media/projects/jobbrr.webp</image:loc>
+        <image:title><![CDATA[JOBBRR]]></image:title>
       </image:image>
       
       
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/BioQuest/Accueil.jpg</image:loc>
-        <image:title><![CDATA[Accueil]]></image:title>
+        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Landing%20page%20entreprise%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Landing page entreprise   mobile]]></image:title>
       </image:image>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/BioQuest/Animation%20esp%C3%A8ces.jpg</image:loc>
-        <image:title><![CDATA[Animation espèces]]></image:title>
+        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Landing%20page%20entreprise.jpg</image:loc>
+        <image:title><![CDATA[Landing page entreprise]]></image:title>
       </image:image>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/BioQuest/Capture.jpg</image:loc>
-        <image:title><![CDATA[Capture]]></image:title>
+        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Landing%20page%20%C3%A9tudiant%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Landing page étudiant   mobile]]></image:title>
       </image:image>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/BioQuest/D%C3%A9tails%20esp%C3%A8ces%20-%20Entretien.jpg</image:loc>
-        <image:title><![CDATA[Détails espèces   entretien]]></image:title>
+        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Landing%20page%20%C3%A9tudiant.jpg</image:loc>
+        <image:title><![CDATA[Landing page étudiant]]></image:title>
       </image:image>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/BioQuest/D%C3%A9tails%20esp%C3%A8ces%20-%20G%C3%A9n%C3%A9ral.jpg</image:loc>
-        <image:title><![CDATA[Détails espèces   général]]></image:title>
+        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Profil%20Etudiant%20mobile.jpg</image:loc>
+        <image:title><![CDATA[Profil etudiant mobile]]></image:title>
       </image:image>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/BioQuest/D%C3%A9tails%20esp%C3%A8ces%20-%20Migrations.jpg</image:loc>
-        <image:title><![CDATA[Détails espèces   migrations]]></image:title>
+        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Profil%20entreprise%20mobile.jpg</image:loc>
+        <image:title><![CDATA[Profil entreprise mobile]]></image:title>
       </image:image>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/BioQuest/Inventaire%20-%20Badges.jpg</image:loc>
-        <image:title><![CDATA[Inventaire   badges]]></image:title>
+        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Profil%20entreprise.jpg</image:loc>
+        <image:title><![CDATA[Profil entreprise]]></image:title>
       </image:image>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/BioQuest/Inventaire%20-%20Esp%C3%A8ces.jpg</image:loc>
-        <image:title><![CDATA[Inventaire   espèces]]></image:title>
+        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Profil%20%C3%A9tudiant%20-%20Vue%20entreprise.jpg</image:loc>
+        <image:title><![CDATA[Profil étudiant   vue entreprise]]></image:title>
       </image:image>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/BioQuest/Modal%20-%20Indices.jpg</image:loc>
-        <image:title><![CDATA[Modal   indices]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/BioQuest/Onboarding%20-%20Connexion.jpg</image:loc>
-        <image:title><![CDATA[Onboarding   connexion]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/BioQuest/Onboarding%20-%20Inscription.jpg</image:loc>
-        <image:title><![CDATA[Onboarding   inscription]]></image:title>
-      </image:image>
-      
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/creations/wca-world-cube-association/</loc>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/wca.webp</image:loc>
-        <image:title><![CDATA[WCA - World Cube Association]]></image:title>
-      </image:image>
-      
-      
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/WCA%20-%20World%20Cube%20Association/Photo%20de%20profil.png</image:loc>
-        <image:title><![CDATA[Photo de profil]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/WCA%20-%20World%20Cube%20Association/Profil%20WCA%20-%20ID.png</image:loc>
-        <image:title><![CDATA[Profil wca   id]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/WCA%20-%20World%20Cube%20Association/Profil%20WCA%20-%20Liste%20comp%C3%A9titions.jpg</image:loc>
-        <image:title><![CDATA[Profil wca   liste compétitions]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/WCA%20-%20World%20Cube%20Association/Profil%20WCA%20on%20scroll.jpg</image:loc>
-        <image:title><![CDATA[Profil wca on scroll]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/WCA%20-%20World%20Cube%20Association/Profil%20WCA.jpg</image:loc>
-        <image:title><![CDATA[Profil wca]]></image:title>
+        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Profil%20%C3%A9tudiant.jpg</image:loc>
+        <image:title><![CDATA[Profil étudiant]]></image:title>
       </image:image>
       
       
@@ -469,6 +419,146 @@
   
     
     <url>
+      <loc>http://localhost:4000/creations/darknet/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/darknet.webp</image:loc>
+        <image:title><![CDATA[Darknet]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Darknet/Home.jpg</image:loc>
+        <image:title><![CDATA[Home]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Darknet/Page%20Item.jpg</image:loc>
+        <image:title><![CDATA[Page item]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Darknet/Shop.jpg</image:loc>
+        <image:title><![CDATA[Shop]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/phoq-tv/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/phoq.webp</image:loc>
+        <image:title><![CDATA[PHOQ.tv]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/PHOQ.tv/Home.jpg</image:loc>
+        <image:title><![CDATA[Home]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/vaylune/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/vaylune.webp</image:loc>
+        <image:title><![CDATA[Vaylune]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Vaylune/Landing%20page.jpg</image:loc>
+        <image:title><![CDATA[Landing page]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/bioquest/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/bioquest.webp</image:loc>
+        <image:title><![CDATA[BioQuest]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/BioQuest/Accueil.jpg</image:loc>
+        <image:title><![CDATA[Accueil]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/BioQuest/Animation%20esp%C3%A8ces.jpg</image:loc>
+        <image:title><![CDATA[Animation espèces]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/BioQuest/Capture.jpg</image:loc>
+        <image:title><![CDATA[Capture]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/BioQuest/D%C3%A9tails%20esp%C3%A8ces%20-%20Entretien.jpg</image:loc>
+        <image:title><![CDATA[Détails espèces   entretien]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/BioQuest/D%C3%A9tails%20esp%C3%A8ces%20-%20G%C3%A9n%C3%A9ral.jpg</image:loc>
+        <image:title><![CDATA[Détails espèces   général]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/BioQuest/D%C3%A9tails%20esp%C3%A8ces%20-%20Migrations.jpg</image:loc>
+        <image:title><![CDATA[Détails espèces   migrations]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/BioQuest/Inventaire%20-%20Badges.jpg</image:loc>
+        <image:title><![CDATA[Inventaire   badges]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/BioQuest/Inventaire%20-%20Esp%C3%A8ces.jpg</image:loc>
+        <image:title><![CDATA[Inventaire   espèces]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/BioQuest/Modal%20-%20Indices.jpg</image:loc>
+        <image:title><![CDATA[Modal   indices]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/BioQuest/Onboarding%20-%20Connexion.jpg</image:loc>
+        <image:title><![CDATA[Onboarding   connexion]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/BioQuest/Onboarding%20-%20Inscription.jpg</image:loc>
+        <image:title><![CDATA[Onboarding   inscription]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
       <loc>http://localhost:4000/creations/picsou-soir/</loc>
       
       <image:image>
@@ -501,6 +591,46 @@
       <image:image>
         <image:loc>http://localhost:4000/assets/media/projects/results/Picsou-Soir/Splash%20screen.jpg</image:loc>
         <image:title><![CDATA[Splash screen]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/wca-world-cube-association/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/wca.webp</image:loc>
+        <image:title><![CDATA[WCA - World Cube Association]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/WCA%20-%20World%20Cube%20Association/Photo%20de%20profil.png</image:loc>
+        <image:title><![CDATA[Photo de profil]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/WCA%20-%20World%20Cube%20Association/Profil%20WCA%20-%20ID.png</image:loc>
+        <image:title><![CDATA[Profil wca   id]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/WCA%20-%20World%20Cube%20Association/Profil%20WCA%20-%20Liste%20comp%C3%A9titions.jpg</image:loc>
+        <image:title><![CDATA[Profil wca   liste compétitions]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/WCA%20-%20World%20Cube%20Association/Profil%20WCA%20on%20scroll.jpg</image:loc>
+        <image:title><![CDATA[Profil wca on scroll]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/WCA%20-%20World%20Cube%20Association/Profil%20WCA.jpg</image:loc>
+        <image:title><![CDATA[Profil wca]]></image:title>
       </image:image>
       
       
@@ -571,46 +701,6 @@
       <image:image>
         <image:loc>http://localhost:4000/assets/media/projects/results/What%20The%20Duck/Navnar%20menu.jpg</image:loc>
         <image:title><![CDATA[Navnar menu]]></image:title>
-      </image:image>
-      
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/creations/tom-et-lola/</loc>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/tometlola.webp</image:loc>
-        <image:title><![CDATA[Tom et Lola]]></image:title>
-      </image:image>
-      
-      
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/Tom%20et%20Lola/Accueil.jpg</image:loc>
-        <image:title><![CDATA[Accueil]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/Tom%20et%20Lola/Blog.jpg</image:loc>
-        <image:title><![CDATA[Blog]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/Tom%20et%20Lola/Casting.jpg</image:loc>
-        <image:title><![CDATA[Casting]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/Tom%20et%20Lola/Clips%20vid%C3%A9o.jpg</image:loc>
-        <image:title><![CDATA[Clips vidéo]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/Tom%20et%20Lola/Merchandising.jpg</image:loc>
-        <image:title><![CDATA[Merchandising]]></image:title>
       </image:image>
       
       
@@ -734,53 +824,38 @@
   
     
     <url>
-      <loc>http://localhost:4000/creations/pizz-ami/</loc>
+      <loc>http://localhost:4000/creations/direct-democracy/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/pizzami.webp</image:loc>
-        <image:title><![CDATA[Pizz'Ami]]></image:title>
+        <image:loc>http://localhost:4000/assets/media/projects/directdemocracy.webp</image:loc>
+        <image:title><![CDATA[Direct Democracy]]></image:title>
       </image:image>
       
       
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/Pizz&apos;Ami/Accueil.jpg</image:loc>
-        <image:title><![CDATA[Accueil]]></image:title>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Direct%20Democracy/Home%20-%20Logged%20in.jpg</image:loc>
+        <image:title><![CDATA[Home   logged in]]></image:title>
       </image:image>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/Pizz&apos;Ami/Carte%20-%20Calzone.jpg</image:loc>
-        <image:title><![CDATA[Carte   calzone]]></image:title>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Direct%20Democracy/Home%20-%20Not%20logged%20in.jpg</image:loc>
+        <image:title><![CDATA[Home   not logged in]]></image:title>
       </image:image>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/Pizz&apos;Ami/Carte%20-%20Desserts.jpg</image:loc>
-        <image:title><![CDATA[Carte   desserts]]></image:title>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Direct%20Democracy/Results.jpg</image:loc>
+        <image:title><![CDATA[Results]]></image:title>
       </image:image>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/Pizz&apos;Ami/Carte%20-%20Pizza.jpg</image:loc>
-        <image:title><![CDATA[Carte   pizza]]></image:title>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Direct%20Democracy/Settings.jpg</image:loc>
+        <image:title><![CDATA[Settings]]></image:title>
       </image:image>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/Pizz&apos;Ami/Carte%20-%20Salades.jpg</image:loc>
-        <image:title><![CDATA[Carte   salades]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/Pizz&apos;Ami/Choix%20additionnels%20boissons.png</image:loc>
-        <image:title><![CDATA[Choix additionnels boissons]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/Pizz&apos;Ami/Info%20produit.png</image:loc>
-        <image:title><![CDATA[Info produit]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/Pizz&apos;Ami/Page%20produit%20personnalis%C3%A9.jpg</image:loc>
-        <image:title><![CDATA[Page produit personnalisé]]></image:title>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Direct%20Democracy/Vote.jpg</image:loc>
+        <image:title><![CDATA[Vote]]></image:title>
       </image:image>
       
       
@@ -807,99 +882,6 @@
         <image:loc>http://localhost:4000/assets/media/projects/results/Inducks/Accueil.jpg</image:loc>
         <image:title><![CDATA[Accueil]]></image:title>
       </image:image>
-      
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/creations/ballon-nike-academy-team/</loc>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/ballonfoot.webp</image:loc>
-        <image:title><![CDATA[Ballon Nike Academy Team]]></image:title>
-      </image:image>
-      
-      
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/Ballon%20Nike%20Academy%20Team/Page%20produit.jpg</image:loc>
-        <image:title><![CDATA[Page produit]]></image:title>
-      </image:image>
-      
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/creations/run-rerun/</loc>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/runandrerun.webp</image:loc>
-        <image:title><![CDATA[Run&Rerun]]></image:title>
-      </image:image>
-      
-      
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/Run&amp;Rerun/Home%20page.jpg</image:loc>
-        <image:title><![CDATA[Home page]]></image:title>
-      </image:image>
-      
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/creations/planete-loto-live/</loc>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/planetelotolive.webp</image:loc>
-        <image:title><![CDATA[Planète Loto Live]]></image:title>
-      </image:image>
-      
-      
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/Plan%C3%A8te%20Loto%20Live/Landing%20page.jpg</image:loc>
-        <image:title><![CDATA[Landing page]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/Plan%C3%A8te%20Loto%20Live/Wireframe%20Landing%20page.jpg</image:loc>
-        <image:title><![CDATA[Wireframe landing page]]></image:title>
-      </image:image>
-      
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/creations/joyca-trouve-la-regle/</loc>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/projectnoresult.svg</image:loc>
-        <image:title><![CDATA[Joyca, Trouve la règle]]></image:title>
-      </image:image>
-      
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/creations/digital-unicorn/</loc>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/digitalunicorn.webp</image:loc>
-        <image:title><![CDATA[Digital Unicorn]]></image:title>
-      </image:image>
-      
-      
       
       
     </url>
@@ -962,38 +944,18 @@
   
     
     <url>
-      <loc>http://localhost:4000/creations/direct-democracy/</loc>
+      <loc>http://localhost:4000/creations/ballon-nike-academy-team/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/directdemocracy.webp</image:loc>
-        <image:title><![CDATA[Direct Democracy]]></image:title>
+        <image:loc>http://localhost:4000/assets/media/projects/ballonfoot.webp</image:loc>
+        <image:title><![CDATA[Ballon Nike Academy Team]]></image:title>
       </image:image>
       
       
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/Direct%20Democracy/Home%20-%20Logged%20in.jpg</image:loc>
-        <image:title><![CDATA[Home   logged in]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/Direct%20Democracy/Home%20-%20Not%20logged%20in.jpg</image:loc>
-        <image:title><![CDATA[Home   not logged in]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/Direct%20Democracy/Results.jpg</image:loc>
-        <image:title><![CDATA[Results]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/Direct%20Democracy/Settings.jpg</image:loc>
-        <image:title><![CDATA[Settings]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/Direct%20Democracy/Vote.jpg</image:loc>
-        <image:title><![CDATA[Vote]]></image:title>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Ballon%20Nike%20Academy%20Team/Page%20produit.jpg</image:loc>
+        <image:title><![CDATA[Page produit]]></image:title>
       </image:image>
       
       
@@ -1002,28 +964,53 @@
   
     
     <url>
-      <loc>http://localhost:4000/creations/darknet/</loc>
+      <loc>http://localhost:4000/creations/pizz-ami/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/darknet.webp</image:loc>
-        <image:title><![CDATA[Darknet]]></image:title>
+        <image:loc>http://localhost:4000/assets/media/projects/pizzami.webp</image:loc>
+        <image:title><![CDATA[Pizz'Ami]]></image:title>
       </image:image>
       
       
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/Darknet/Home.jpg</image:loc>
-        <image:title><![CDATA[Home]]></image:title>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Pizz&apos;Ami/Accueil.jpg</image:loc>
+        <image:title><![CDATA[Accueil]]></image:title>
       </image:image>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/Darknet/Page%20Item.jpg</image:loc>
-        <image:title><![CDATA[Page item]]></image:title>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Pizz&apos;Ami/Carte%20-%20Calzone.jpg</image:loc>
+        <image:title><![CDATA[Carte   calzone]]></image:title>
       </image:image>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/Darknet/Shop.jpg</image:loc>
-        <image:title><![CDATA[Shop]]></image:title>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Pizz&apos;Ami/Carte%20-%20Desserts.jpg</image:loc>
+        <image:title><![CDATA[Carte   desserts]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Pizz&apos;Ami/Carte%20-%20Pizza.jpg</image:loc>
+        <image:title><![CDATA[Carte   pizza]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Pizz&apos;Ami/Carte%20-%20Salades.jpg</image:loc>
+        <image:title><![CDATA[Carte   salades]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Pizz&apos;Ami/Choix%20additionnels%20boissons.png</image:loc>
+        <image:title><![CDATA[Choix additionnels boissons]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Pizz&apos;Ami/Info%20produit.png</image:loc>
+        <image:title><![CDATA[Info produit]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Pizz&apos;Ami/Page%20produit%20personnalis%C3%A9.jpg</image:loc>
+        <image:title><![CDATA[Page produit personnalisé]]></image:title>
       </image:image>
       
       
@@ -1032,78 +1019,63 @@
   
     
     <url>
-      <loc>http://localhost:4000/creations/vaylune/</loc>
+      <loc>http://localhost:4000/creations/tom-et-lola/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/vaylune.webp</image:loc>
-        <image:title><![CDATA[Vaylune]]></image:title>
+        <image:loc>http://localhost:4000/assets/media/projects/tometlola.webp</image:loc>
+        <image:title><![CDATA[Tom et Lola]]></image:title>
       </image:image>
       
       
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/Vaylune/Landing%20page.jpg</image:loc>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Tom%20et%20Lola/Accueil.jpg</image:loc>
+        <image:title><![CDATA[Accueil]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Tom%20et%20Lola/Blog.jpg</image:loc>
+        <image:title><![CDATA[Blog]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Tom%20et%20Lola/Casting.jpg</image:loc>
+        <image:title><![CDATA[Casting]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Tom%20et%20Lola/Clips%20vid%C3%A9o.jpg</image:loc>
+        <image:title><![CDATA[Clips vidéo]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Tom%20et%20Lola/Merchandising.jpg</image:loc>
+        <image:title><![CDATA[Merchandising]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/planete-loto-live/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/planetelotolive.webp</image:loc>
+        <image:title><![CDATA[Planète Loto Live]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Plan%C3%A8te%20Loto%20Live/Landing%20page.jpg</image:loc>
         <image:title><![CDATA[Landing page]]></image:title>
       </image:image>
       
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/creations/jobbrr/</loc>
-      
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/jobbrr.webp</image:loc>
-        <image:title><![CDATA[JOBBRR]]></image:title>
-      </image:image>
-      
-      
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Landing%20page%20entreprise%20-%20Mobile.jpg</image:loc>
-        <image:title><![CDATA[Landing page entreprise   mobile]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Landing%20page%20entreprise.jpg</image:loc>
-        <image:title><![CDATA[Landing page entreprise]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Landing%20page%20%C3%A9tudiant%20-%20Mobile.jpg</image:loc>
-        <image:title><![CDATA[Landing page étudiant   mobile]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Landing%20page%20%C3%A9tudiant.jpg</image:loc>
-        <image:title><![CDATA[Landing page étudiant]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Profil%20Etudiant%20mobile.jpg</image:loc>
-        <image:title><![CDATA[Profil etudiant mobile]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Profil%20entreprise%20mobile.jpg</image:loc>
-        <image:title><![CDATA[Profil entreprise mobile]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Profil%20entreprise.jpg</image:loc>
-        <image:title><![CDATA[Profil entreprise]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Profil%20%C3%A9tudiant%20-%20Vue%20entreprise.jpg</image:loc>
-        <image:title><![CDATA[Profil étudiant   vue entreprise]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Profil%20%C3%A9tudiant.jpg</image:loc>
-        <image:title><![CDATA[Profil étudiant]]></image:title>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Plan%C3%A8te%20Loto%20Live/Wireframe%20Landing%20page.jpg</image:loc>
+        <image:title><![CDATA[Wireframe landing page]]></image:title>
       </image:image>
       
       
@@ -1112,14 +1084,47 @@
   
     
     <url>
-      <loc>http://localhost:4000/creations/phoq-tv/</loc>
+      <loc>http://localhost:4000/creations/run-rerun/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/phoq.webp</image:loc>
-        <image:title><![CDATA[PHOQ.tv]]></image:title>
+        <image:loc>http://localhost:4000/assets/media/projects/runandrerun.webp</image:loc>
+        <image:title><![CDATA[Run&Rerun]]></image:title>
       </image:image>
       
       
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Run&amp;Rerun/Home%20page.jpg</image:loc>
+        <image:title><![CDATA[Home page]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/digital-unicorn/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/digitalunicorn.webp</image:loc>
+        <image:title><![CDATA[Digital Unicorn]]></image:title>
+      </image:image>
+      
+      
+      
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/creations/joyca-trouve-la-regle/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/projectnoresult.svg</image:loc>
+        <image:title><![CDATA[Joyca, Trouve la règle]]></image:title>
+      </image:image>
       
       
     </url>
@@ -1235,16 +1240,6 @@
       <image:image>
         <image:loc>http://localhost:4000/assets/media/projects/results/CultoPhoto/Plateau%20de%20jeu.png</image:loc>
         <image:title><![CDATA[Plateau de jeu]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/CultoPhoto/WCA%20Profile%20Small%20Name.jpg</image:loc>
-        <image:title><![CDATA[Wca profile small name]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/CultoPhoto/WCA%20Profile.jpg</image:loc>
-        <image:title><![CDATA[Wca profile]]></image:title>
       </image:image>
       
       
