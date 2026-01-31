@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Définir le scope des projets selon la page (pour les filtres)
             const path = window.location.pathname;
             if (path.includes('creations_studies')) filteredProjects = projects.filter(p => p.id >= 27 && p.id <= 34);
-            else if (path.includes('creations')) filteredProjects = projects.filter(p => p.id >= 1 && p.id <= 26);
+            else if (path.includes('creations')) filteredProjects = projects.filter(p => p.id >= 1 && p.id <= 25);
             else filteredProjects = [...projects];
 
             if (searchInput)
