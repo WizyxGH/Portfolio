@@ -40,7 +40,16 @@
                 "name": "Enzo Capaldi",
                 "avatar": "https://enzocapaldi.com/wp-content/uploads/2023/10/Enzo-Capaldi-1.png"
             }
-        ]
+        ],
+        "testimonial": {
+            "text": "Un travail pro et sérieux comme on aime et surtout comme on a BESOIN ! Florian a fait parti de l'équipe qui nous a conçu les maquettes de notre dernière version et ce fut un régal de travailler ensemble. De part les outils proposés mais surtout dans la façon. Rapide, efficace et agréable. Merci encore pour ton travail🙏🏼😉",
+            "author": {
+                "name": "Jonathan Vaissière",
+                "title": "Entrepreneur",
+                "companyUrl": "https://guidedugolfe.com",
+                "avatar": "/assets/media/jonathanvaissiere.webp"
+            }
+        }
     },
     {
         "id": 2,
@@ -136,7 +145,7 @@
     {
         "id": 5,
         "title": "JOBBRR",
-        "text": "Lorem ipsum.",
+        "text": "En France, une trop grande partie des étudiants fait face à une précarité croissante. Entre besoin de revenus pour subvenir à leur dépense, contraintes de temps et la difficulté à concilier études et travail. Et pourtant paradoxalement, beaucoup d'entre eux développent très tôt des compétences créatives solides (design graphique, vidéo, communication, marketing, développement...), souvent avant même l'obtention d'un diplôme.<br><br>Pourtant, ces profils restent peu visibles.<br><br>D'un côté, les étudiants :<br>- cherchent des missions flexibles et rémunérées<br>- souhaitent valoriser leurs compétences réelles, même sans diplôme<br>- peinent à se démarquer avec un CV classique<br><br>De l'autre, les entreprises :<br>- ont besoin de profils fiables et rapidement opérationnels<br>- cherchent des signaux clairs sur les compétences et la disponibilité<br>- manquent de temps pour trier et qualifier<br><br>Les solutions actuelles échouent à faire matcher talent créatif pur en pleine expansion, contraintes étudiantes avec les besoins business des entreprises. Les plateformes existantes de jobs étudiants reposent sur des codes dépassés, et sur une vision incomplète du talent.<br><br>JOBBRR part du principe que le problème n'est pas le manque de compétences, mais leur invisibilité.",
         "description": "Design des pages d’accueil et profils pour une plateforme de mise en relation professionnelle entre étudiants et entreprises.",
         "image": "/assets/media/projects/jobbrr.webp",
         "projectLink": "https://jobbrr.io",
@@ -155,6 +164,10 @@
             {
                 "name": "Copywriting",
                 "icon": "bx bxs-pen"
+            },
+            {
+                "name": "Responsive",
+                "icon": "bx bxs-devices"
             }
         ],
         "width": 1920,

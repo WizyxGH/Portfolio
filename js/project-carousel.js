@@ -56,9 +56,18 @@
         const DOT_ACTIVE_CLASS = "rounded-full transition-all duration-300 w-3 h-3 block flex-shrink-0 bg-[#411FEB] focus:outline-none scale-125 p-0 border-0";
 
         let activeGalleryImages = (images || []).filter(Boolean);
+        let allGalleryImages = (images || []).filter(Boolean); // Keep original list
+        let currentFilter = 'all'; // Track current filter state
         let currentSlideIndex = 0;
         let isGlobalMuted = true; // Default to muted like Instagram
         let globalVolumeLevel = 1.0; // 0 to 1
+
+        // Detect image type based on filename
+        function getImageType(src) {
+            if (!src) return 'desktop';
+            const fileName = extractFileName(src).toLowerCase();
+            return fileName.includes('mobile') ? 'mobile' : 'desktop';
+        }
 
         // Fullscreen vars
         let fullscreenOverlay = null;
@@ -423,12 +432,30 @@
         }
 
 
+        // --- Filtering Logic ---
+        function filterSlides(filterType) {
+            currentFilter = filterType;
+
+            if (filterType === 'all') {
+                activeGalleryImages = allGalleryImages.slice();
+            } else {
+                activeGalleryImages = allGalleryImages.filter(src => getImageType(src) === filterType);
+            }
+
+            // Reset to first slide
+            currentSlideIndex = 0;
+
+            // Re-render carousel with filtered images
+            renderCarousel();
+            playCurrentVideo();
+        }
+
         // --- Carousel Rendering & Nav ---
         function renderCarousel() {
             if (!carouselEls.track) return;
 
             carouselEls.track.innerHTML = "";
-            activeGalleryImages = (images || []).filter(Boolean);
+            activeGalleryImages = activeGalleryImages.filter(Boolean);
 
             carouselEls.track.style.transform = "translateX(0%)";
             const totalSlides = activeGalleryImages.length || 1;
@@ -939,6 +966,33 @@
         container.addEventListener('keydown', resetAutoPlay);
         // Note: clicks on buttons handled by goToSlide calling resetAutoPlay
         if (carouselEls.dots) carouselEls.dots.addEventListener('click', resetAutoPlay);
+
+        // --- Filter Button Handlers ---
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        if (filterButtons.length > 0) {
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const filterType = btn.dataset.filter;
+
+                    // Update button states
+                    filterButtons.forEach(b => {
+                        if (b === btn) {
+                            b.classList.add('active');
+                            b.classList.remove('bg-transparent', 'text-[#411FEB]', 'dark:text-[#5536ED]');
+                            b.classList.add('bg-[#411FEB]', 'dark:bg-[#5536ED]', 'text-white');
+                        } else {
+                            b.classList.remove('active');
+                            b.classList.add('bg-transparent', 'text-[#411FEB]', 'dark:text-[#5536ED]');
+                            b.classList.remove('bg-[#411FEB]', 'dark:bg-[#5536ED]', 'text-white');
+                        }
+                    });
+
+                    // Apply filter
+                    filterSlides(filterType);
+                    resetAutoPlay();
+                });
+            });
+        }
 
         return {
             destroy: () => {
