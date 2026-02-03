@@ -78,7 +78,7 @@ permalink: /contact/
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
-                <form action="https://formsubmit.co/ajax/hello@wizyx.me" method="POST"
+                <form action="https://formsubmit.co/ajax/0072bc2f7aa3ef8f3cdcee2277752884" method="POST"
                     class="flex flex-col gap-4 lg:col-span-3" id="contactForm">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_subject" value="Nouveau message depuis le formulaire">
@@ -99,8 +99,11 @@ permalink: /contact/
                         </span>
                         <input type="text" name="subject" placeholder="Projet de site, Refonte d'une application..."
                             required
-                            class="mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-[#121212] dark:border-[#3E3E3E] dark:text-white dark:placeholder-gray-500">
+                            class="mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-[#121212] dark:bg-[#121212] dark:border-[#3E3E3E] dark:text-white dark:placeholder-gray-500">
                     </label>
+
+                    <!-- Honeypot anti-spam (caché) -->
+                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
                     <!-- Message -->
                     <label class="flex flex-col">
@@ -179,10 +182,31 @@ permalink: /contact/
         <script>
             const form = document.getElementById('contactForm');
             const formMessage = document.getElementById('formMessage');
+            const formLoadTime = Date.now();
 
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const formData = new FormData(form);
+
+                // 1. Vérifier le honeypot (anti-bots)
+                if (formData.get('_honey')) {
+                    console.log('Spam détecté : honeypot rempli');
+                    return;
+                }
+
+                // 2. Vérifier le temps minimum (3 secondes - anti-soumission automatique)
+                const timeSinceLoad = Date.now() - formLoadTime;
+                if (timeSinceLoad < 3000) {
+                    alert("Veuillez prendre le temps de remplir le formulaire correctement.");
+                    return;
+                }
+
+                // 3. Vérifier la longueur minimale du message
+                const message = formData.get('message') || '';
+                if (message.length < 10) {
+                    alert("Votre message est trop court. Veuillez fournir plus de détails.");
+                    return;
+                }
 
                 // Mettre à jour le sujet pour l'email reçu
                 formData.set('_subject', formData.get('subject') || 'Nouveau message');
