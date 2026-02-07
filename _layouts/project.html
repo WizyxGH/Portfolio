@@ -7,8 +7,7 @@
     <title>{{ page.title }} - Florian Gertner Kilian</title>
 
     <!-- SEO & Open Graph -->
-
-    <!-- SEO & Open Graph -->
+    <meta name="description" content="{{ page.description | escape }}">
     {% seo %}
     {% if page.image %}
     <meta property="og:image:alt" content="{{ page.title | escape }}">
