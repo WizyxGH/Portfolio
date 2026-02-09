@@ -51,28 +51,7 @@
         content="Product Designer UI/UX & Copywriter. Je crée des interfaces premium, esthétiques et intuitives qui allient design et storytelling.">
     <meta name="twitter:image" content="http://localhost:4000/assets/media/opengraph/default-og.jpg">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        /* Configure Tailwind (CDN) so darkMode uses class strategy and ensure commonly used dark classes are generated */
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        inter: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        // Preserve any custom colors if needed, though they seem to be arbitrary in HTML
-                    }
-                }
-            },
-            // Safelist classes that may be added dynamically or contain arbitrary values
-            safelist: [
-                'dark:text-white',
-                'dark:bg-[#121212]',
-            ]
-        };
-    </script>
+
     <script src="/js/layout.js" defer></script>
     <script src="/js/theme.js" defer></script>
     <script src="/js/home.js" defer></script>
@@ -327,13 +306,13 @@
         <div class="flex flex-col lg:flex-row gap-4 items-stretch justify-center">
             <!-- Photo -->
             <img src="/assets/media/photoperso.webp" alt="Photo de Florian Gertner Kilian"
-                class="w-80 self-stretch object-cover rounded-2xl opacity-0 translate-y-8 transition-all duration-700 animate-on-scroll">
+                class="w-full lg:w-80 self-stretch object-cover rounded-2xl opacity-0 translate-y-8 transition-all duration-700 animate-on-scroll">
 
             <!-- Stats Cards -->
-            <div class="flex flex-wrap lg:flex-col lg:w-auto gap-4 opacity-0 translate-y-8 transition-all duration-700 animate-on-scroll"
+            <div class="grid grid-cols-2 lg:flex lg:flex-col lg:w-auto gap-4 opacity-0 translate-y-8 transition-all duration-700 animate-on-scroll"
                 data-delay="200">
                 <!-- Card 1 -->
-                <div class="w-full lg:w-auto text-white rounded-2xl p-4 text-left flex flex-col justify-center gap-1"
+                <div class="lg:w-auto text-white rounded-2xl p-4 text-left flex flex-col justify-center gap-1"
                     style="border: 1px solid rgba(255, 255, 255, 0.24); background: linear-gradient(180deg, #411FEB 0%, #251285 100%);">
                     <div class="rounded-full p-2 w-10 h-10 flex items-center justify-center mb-1"
                         style="background-color: rgba(255, 255, 255, 0.12);">
@@ -344,7 +323,7 @@
                 </div>
 
                 <!-- Card 2 -->
-                <div class="w-full lg:w-auto text-white rounded-2xl p-4 text-left flex flex-col justify-center gap-1"
+                <div class="lg:w-auto text-white rounded-2xl p-4 text-left flex flex-col justify-center gap-1"
                     style="border: 1px solid rgba(255, 255, 255, 0.24); background: linear-gradient(180deg, #411FEB 0%, #251285 100%);">
                     <div class="rounded-full p-2 w-10 h-10 flex items-center justify-center mb-1"
                         style="background-color: rgba(255, 255, 255, 0.12);">
@@ -357,7 +336,7 @@
             </div>
 
             <!-- Card 3 -->
-            <div class="w-full lg:w-auto text-white rounded-2xl p-4 text-left flex flex-col justify-center gap-1"
+            <div class="col-span-2 lg:col-span-1 lg:w-auto text-white rounded-2xl p-4 text-left flex flex-col justify-center gap-1"
                 style="border: 1px solid rgba(255, 255, 255, 0.24); background: linear-gradient(180deg, #411FEB 0%, #251285 100%);">
                 <div class="rounded-full p-2 w-10 h-10 flex items-center justify-center mb-1"
                     style="background-color: rgba(255, 255, 255, 0.12);">
@@ -373,7 +352,7 @@
     <!-- Projects Section -->
     <section class="p-8 lg:px-32 bg-[#E8E4FC] dark:bg-[#1A162C] space-y-8">
         <div class="">
-            <h2 class="text-xl font-semibold text-[#121212] dark:text-white mb-2">Mes réalisations</h2>
+            <h2 class="text-2xl font-semibold text-[#121212] dark:text-white mb-2">Mes réalisations</h2>
             <p class="text-sm text-[#3E3E3E] dark:text-[#B0B0B0]">
                 Maquettes de site internet, landing page, application mobile, SaaS
             </p>
@@ -381,7 +360,8 @@
 
         <!-- Projects Carousel (will be populated by existing projects.json) -->
         <div class="overflow-x-auto mb-8 -mx-8 lg:-mx-32 lg:px-32 scrollbar-hide">
-            <div class="flex gap-6 pb-4 cursor-grab" id="projects-grid">
+            <div class="flex gap-6 pb-4 px-8 lg:px-0 cursor-grab after:content-[''] after:min-w-8 after:block after:h-1"
+                id="projects-grid">
                 <!-- Projects will be loaded here via JavaScript (limited to 5) -->
             </div>
         </div>
@@ -714,15 +694,23 @@
                 // Show only first 6 projects for carousel
                 const projects = data.slice(0, 6);
 
-                projects.forEach(project => {
+                // Add padding to container for scroll snap alignment/visuals if needed
+                // Note: The visual margin fix is handled by CSS classes on the container in HTML usually, or here on items
+                // The user wanted "carousel collé au bord de l'écran à gauche sans marge" -> needs padding-left on container
+
+                projects.forEach((project, index) => {
                     const projectCard = document.createElement('a');
                     // Generate slug from title if not provided
                     const slug = project.slug || slugify(project.title);
                     projectCard.href = `/creations/${slug}/`;
+
+                    // Add ml-8 to the first item only for mobile margin, or we can use padding on container
+                    // Using px-8 on container is safer for scrolling.
                     projectCard.className = 'flex-shrink-0 w-80 transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212] block';
 
                     // Get image (projects.json uses 'image' property, not 'images' array)
                     const projectImage = project.image || '';
+                    const isVideo = /\.(mp4|webm|mov)$/i.test(projectImage); // Check for video formatting
 
                     // Generate tags HTML with icons
                     let tagsHTML = '';
@@ -738,10 +726,23 @@
                         }).join('');
                     }
 
+                    let mediaHTML;
+                    if (isVideo) {
+                        mediaHTML = `
+                            <video autoplay loop muted playsinline class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
+                                <source src="${projectImage}" type="video/webm">
+                            </video>
+                        `;
+                    } else {
+                        mediaHTML = `
+                            <img src="${projectImage}" alt="${project.title}" loading="lazy"
+                                class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
+                        `;
+                    }
+
                     projectCard.innerHTML = `
                         <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
-                            <img src="${projectImage}" alt="${project.title}" 
-                                class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
+                            ${mediaHTML}
                         </div>
                         <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">${project.title}</h3>
                         <div class="mt-1 flex flex-wrap gap-2">

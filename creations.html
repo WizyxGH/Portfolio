@@ -126,7 +126,15 @@ priority: 0.9
                 data-text="{{ project.content | strip_html | downcase | replace: '"', ' &quot;' }}"
                 data-type="{{ project.type }}" data-tags="{{ project.tags | map: 'name' | join: ',' }}">
 
-                {% if project.image contains 'projectnoresult.svg' %}
+                {% if project.image contains '.webm' or project.image contains '.mp4' %}
+                <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
+                    <video autoplay loop muted playsinline
+                        class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
+                        <source src="{{ project.image }}" type="video/webm">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                {% elsif project.image contains 'projectnoresult.svg' %}
                 <div
                     class="h-40 mb-3 rounded-lg bg-[rgba(65,31,235,0.12)] outline outline-2 flex items-center justify-center overflow-hidden">
                     <img src="{{ project.image }}" alt="{{ project.title }}" class="h-64 w-64">

@@ -267,7 +267,14 @@
                             {% if page.image %}
                             <div class="min-w-full w-full flex-none h-full flex items-center justify-center p-0 lg:p-4 carousel-slide"
                                 style="flex: 0 0 100% !important; min-width: 100% !important; width: 100% !important;">
+                                {% if page.image contains '.webm' or page.image contains '.mp4' %}
+                                <video autoplay loop muted playsinline class="h-full object-contain">
+                                    <source src="{{ page.image }}" type="video/webm">
+                                    Your browser does not support the video tag.
+                                </video>
+                                {% else %}
                                 <img src="{{ page.image }}" alt="{{ page.title }} - Main" class="h-full object-contain">
+                                {% endif %}
                             </div>
                             {% endif %}
 
@@ -282,6 +289,11 @@
                                     <iframe src="{{ img }}#toolbar=0&navpanes=0"
                                         class="h-full w-full object-contain border-0" type="application/pdf"></iframe>
                                 </div>
+                                {% elsif img contains '.webm' or img contains '.mp4' %}
+                                <video autoplay loop muted playsinline class="h-full object-contain">
+                                    <source src="{{ img }}" type="video/webm">
+                                    Your browser does not support the video tag.
+                                </video>
                                 {% else %}
                                 <img src="{{ img }}" alt="{{ page.title }} - Gallery {{ forloop.index }}"
                                     class="h-full object-contain" loading="lazy">
