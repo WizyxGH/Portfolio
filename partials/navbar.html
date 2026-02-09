@@ -2,7 +2,7 @@
     <div class="mx-auto px-6 lg:px-32 py-3 flex justify-between items-center">
         <!-- Logo -->
         <a href="/" class="flex items-center gap-2 text-lg font-bold text-white">
-            <img src="{{ site.brand_logo | relative_url }}" alt="Logo Wizyx" class="w-6 h-6">
+            <img src="/assets/media/logo.png" alt="Logo Wizyx" class="w-6 h-6">
             Wizyx
         </a>
 
@@ -15,57 +15,67 @@
         <nav id="navMenu"
             class="hidden absolute top-full left-0 w-full bg-[#411FEB] shadow-lg lg:shadow-none lg:static lg:flex lg:items-center lg:space-x-4 lg:w-auto transition-all duration-300">
             <ul class="flex flex-col lg:flex-row lg:space-x-4">
-                {% for item in site.navigation %}
-                {% if item.dropdown %}
-                <!-- Menu déroulant -->
+
+                <!-- À propos -->
+                <li><a href="/about/" class="block px-6 py-2 text-white hover:font-semibold" data-i18n="nav_about">À
+                        propos</a>
+                </li>
+
+                <!-- Réalisations (Dropdown) -->
                 <li class="relative lg:group">
-                    <button id="{{ item.id }}"
+                    <button id="dropdownButton"
                         class="inline-flex items-center px-6 py-2 text-white gap-1 w-full text-left lg:w-auto lg:text-center">
-                        <span data-i18n="{{ item.i18n }}">{{ item.title }}</span>
+                        <span data-i18n="nav_creations">Réalisations</span>
                         <i id="dropdownChevron" class='bx bx-chevron-down text-lg text-gray-300 ml-auto lg:ml-0'></i>
                     </button>
                     <ul id="dropdownMenu"
                         class="hidden flex-col bg-white dark:bg-[#121212] text-[#411FEB] dark:text-[#5536ED] lg:absolute lg:shadow-md lg:rounded-md lg:w-64">
-                        {% for subitem in item.dropdown %}
+
                         <li>
-                            <a href="{{ subitem.url }}"
-                                class="group block lg:px-2 px-6 py-2 hover:bg-[#E8E4FC] dark:hover:bg-[#1A162C] hover:text-[#411FEB] dark:hover:text-[#5536ED] hover:font-semibold lg:hover:{{ subitem.style }}-md">
+                            <a href="/creations/"
+                                class="group block lg:px-2 px-6 py-2 hover:bg-[#E8E4FC] dark:hover:bg-[#1A162C] hover:text-[#411FEB] dark:hover:text-[#5536ED] hover:font-semibold lg:hover:rounded-t-md">
                                 <div class="flex items-center gap-3">
                                     <span
                                         class="bg-[#E8E4FC] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] p-2 text-xl rounded-md flex items-center justify-center group-hover:bg-[#411FEB] group-hover:text-white">
-                                        <i class='{{ subitem.icon }}'></i>
+                                        <i class='bx bxs-briefcase-alt-2'></i>
                                     </span>
                                     <div class="flex flex-col">
-                                        <span data-i18n="{{ subitem.i18n }}">{{ subitem.title }}</span>
+                                        <span data-i18n="nav_pro">Professionnel</span>
                                         <span class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed"
-                                            data-i18n="{{ subitem.desc_i18n }}">{{
-                                            subitem.description
-                                            }}</span>
+                                            data-i18n="nav_pro_desc">UI/UX Design, articles</span>
                                     </div>
                                 </div>
                             </a>
                         </li>
-                        {% endfor %}
+
+                        <li>
+                            <a href="/creations_studies/"
+                                class="group block lg:px-2 px-6 py-2 hover:bg-[#E8E4FC] dark:hover:bg-[#1A162C] hover:text-[#411FEB] dark:hover:text-[#5536ED] hover:font-semibold lg:hover:rounded-b-md">
+                                <div class="flex items-center gap-3">
+                                    <span
+                                        class="bg-[#E8E4FC] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] p-2 text-xl rounded-md flex items-center justify-center group-hover:bg-[#411FEB] group-hover:text-white">
+                                        <i class='bx bxs-graduation'></i>
+                                    </span>
+                                    <div class="flex flex-col">
+                                        <span data-i18n="nav_academic">Académique</span>
+                                        <span class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed"
+                                            data-i18n="nav_academic_desc">Réalisé en BUT MMI</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
                     </ul>
                 </li>
-                {% else %}
-                <!-- Lien simple -->
-                <li><a href="{{ item.url }}" class="block px-6 py-2 text-white hover:font-semibold"
-                        data-i18n="{{ item.i18n }}">{{ item.title }}</a>
-                </li>
-                {% endif %}
-                {% endfor %}
 
-                <!-- Language Selector Mobile (Hidden) -->
-                {% comment %}
-                <li class="block lg:hidden border-t border-white/20 mt-2">
-                    <button onclick="setLanguage(localStorage.getItem('lang') === 'en' ? 'fr' : 'en')"
-                        class="w-full text-left px-6 py-3 text-white hover:bg-white/10 flex items-center gap-2">
-                        <i class='bx bx-world text-xl'></i>
-                        <span id="lang-text-mobile">FR / EN</span>
-                    </button>
+                <!-- Services -->
+                <li><a href="/services/" class="block px-6 py-2 text-white hover:font-semibold"
+                        data-i18n="nav_services">Services</a>
                 </li>
-                {% endcomment %}
+
+                <!-- Contact -->
+                <li><a href="/contact/" class="block px-6 py-2 text-white hover:font-semibold"
+                        data-i18n="nav_contact">Contact</a>
+                </li>
 
                 <!-- Bouton Theme Toggle - visible uniquement sur mobile -->
                 <li class="block lg:hidden border-t border-white/20 mt-0">
@@ -79,14 +89,6 @@
         </nav>
 
         <div class="hidden lg:flex items-center gap-2">
-            <!-- Language Selector Desktop (Hidden) -->
-            {% comment %}
-            <button id="lang-toggle" onclick="setLanguage(localStorage.getItem('lang') === 'en' ? 'fr' : 'en')"
-                class="text-white hover:bg-white/10 py-2 px-3 rounded-lg transition-colors duration-200 font-bold text-sm border border-white/30">
-                EN
-            </button>
-            {% endcomment %}
-
             <!-- Bouton Theme Toggle - visible uniquement sur desktop -->
             <button id="themeToggleDesktop" aria-label="Basculer le thème"
                 class="hidden lg:block text-white hover:bg-white/10 py-2 px-3 rounded-lg transition-colors duration-200">
@@ -95,6 +97,4 @@
         </div>
     </div>
 </header>
-
-<!-- Spacer -->
 <div class="h-[60px] lg:h-[64px]"></div>

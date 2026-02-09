@@ -5,7 +5,7 @@
         <div class="w-full flex flex-col justify-between gap-4">
             <div class="space-y-2">
                 <a href="/" class="flex items-center gap-2 text-lg font-bold text-white">
-                    <img src="{{ site.brand_logo | relative_url }}" alt="Logo Wizyx" class="w-6 h-6">
+                    <img src="/assets/media/logo.png" alt="Logo Wizyx" class="w-6 h-6">
                     Wizyx
                 </a>
                 <p class="text-sm" data-i18n="footer_bio">
@@ -18,40 +18,44 @@
                 </p>
             </div>
             <div class="flex space-x-2 text-[#411FEB] text-2xl" aria-label="Liens sociaux">
-                {% comment %} Social Links Loop {% endcomment %}
-                {% for link in site.social.links %}
-                {% assign icon_class = "bx bxs-link" %}
-                {% assign label_key = "footer_social_link" %}
 
-                {% if link contains "linkedin" %}
-                {% assign icon_class = "bx bxl-linkedin" %}
-                {% assign label_key = "footer_social_linkedin" %}
-                {% elsif link contains "github" %}
-                {% assign icon_class = "bx bxl-github" %}
-                {% assign label_key = "footer_social_github" %}
-                {% elsif link contains "instagram" %}
-                {% assign icon_class = "bx bxl-instagram" %}
-                {% assign label_key = "footer_social_instagram" %}
-                {% elsif link contains "t.me" %}
-                {% assign icon_class = "bx bxl-telegram" %}
-                {% assign label_key = "footer_social_telegram" %}
-                {% elsif link contains "wa.me" %}
-                {% assign icon_class = "bx bxl-whatsapp" %}
-                {% assign label_key = "footer_social_whatsapp" %}
-                {% elsif link contains "figma" %}
-                {% assign icon_class = "bx bxl-figma" %}
-                {% assign label_key = "footer_social_figma" %}
-                {% endif %}
-
-                <a href="{{ link }}" target="_blank" rel="noopener noreferrer"
+                <!-- LinkedIn -->
+                <a href="https://linkedin.com/in/flogk/" target="_blank" rel="noopener noreferrer"
                     class="w-12 h-12 flex items-center justify-center bg-white rounded-xl transition-colors hover:bg-gray-300 hover:text-[#3215c7]"
-                    data-i18n-aria="{{ label_key }}" aria-label="Lien social">
-                    <i class='{{ icon_class }}'></i>
+                    data-i18n-aria="footer_social_linkedin" aria-label="Lien social">
+                    <i class='bx bxl-linkedin'></i>
                 </a>
-                {% endfor %}
 
-                {% comment %} Email Link {% endcomment %}
-                <a href="mailto:{{ site.author.email }}" target="_blank" rel="noopener noreferrer"
+                <!-- WhatsApp -->
+                <a href="https://wa.me/33778407887" target="_blank" rel="noopener noreferrer"
+                    class="w-12 h-12 flex items-center justify-center bg-white rounded-xl transition-colors hover:bg-gray-300 hover:text-[#3215c7]"
+                    data-i18n-aria="footer_social_whatsapp" aria-label="Lien social">
+                    <i class='bx bxl-whatsapp'></i>
+                </a>
+
+                <!-- Telegram -->
+                <a href="https://t.me/wizyx0" target="_blank" rel="noopener noreferrer"
+                    class="w-12 h-12 flex items-center justify-center bg-white rounded-xl transition-colors hover:bg-gray-300 hover:text-[#3215c7]"
+                    data-i18n-aria="footer_social_telegram" aria-label="Lien social">
+                    <i class='bx bxl-telegram'></i>
+                </a>
+
+                <!-- GitHub -->
+                <a href="https://github.com/WizyxGH" target="_blank" rel="noopener noreferrer"
+                    class="w-12 h-12 flex items-center justify-center bg-white rounded-xl transition-colors hover:bg-gray-300 hover:text-[#3215c7]"
+                    data-i18n-aria="footer_social_github" aria-label="Lien social">
+                    <i class='bx bxl-github'></i>
+                </a>
+
+                <!-- Figma -->
+                <a href="https://www.figma.com/@wizyx" target="_blank" rel="noopener noreferrer"
+                    class="w-12 h-12 flex items-center justify-center bg-white rounded-xl transition-colors hover:bg-gray-300 hover:text-[#3215c7]"
+                    data-i18n-aria="footer_social_figma" aria-label="Lien social">
+                    <i class='bx bxl-figma'></i>
+                </a>
+
+                <!-- Email Link -->
+                <a href="mailto:contact@wizyx.me" target="_blank" rel="noopener noreferrer"
                     class="w-12 h-12 flex items-center justify-center bg-white rounded-xl transition-colors hover:bg-gray-300 hover:text-[#3215c7]"
                     data-i18n-aria="footer_email" aria-label="Envoyer un e-mail">
                     <i class='bx bxs-envelope'></i>
