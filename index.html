@@ -147,9 +147,10 @@ permalink: /
             <img src="/assets/media/vector-field.svg" alt="" class="w-full h-full object-cover">
         </div>
 
-        <!-- Photo Background Overlay -->
-        <div class="absolute inset-0 flex items-end justify-center pointer-events-none">
-            <img src="/assets/media/photoprofil.png" alt="" class="h-full w-auto object-contain opacity-90">
+        <!-- Photo Foreground Overlay (in front of text) -->
+        <div class="absolute inset-0 flex items-end justify-center pointer-events-none z-30">
+            <img src="/assets/media/photoprofil.png" alt=""
+                class="h-full w-auto object-contain opacity-90 -scale-x-100 translate-x-[10%]">
         </div>
 
         <!-- Services List (Right Side) -->
@@ -161,8 +162,9 @@ permalink: /
             </div>
         </div>
 
-        <div class="relative z-20 px-8 lg:px-16 py-16 text-left max-w-7xl mx-auto w-full">
-            <h1 class="text-5xl lg:text-7xl font-black mb-6 uppercase tracking-tight max-w-3xl">
+        <div class="relative z-10 px-8 lg:px-16 py-16 text-left max-w-7xl mx-auto w-full">
+            <h1
+                class="text-7xl lg:text-9xl font-black mb-6 uppercase tracking-tight whitespace-nowrap lg:leading-tight">
                 Florian Gertner
             </h1>
             <p class="text-base lg:text-lg mb-8 max-w-md leading-relaxed font-normal">
@@ -178,11 +180,15 @@ permalink: /
             </div>
         </div>
 
-        <!-- Brands Section (Bottom) -->
-        <div class="absolute bottom-8 left-8 lg:left-16 z-30 hidden lg:block">
-            <div class="flex items-center gap-8 text-white">
-                <div class="text-xl font-bold">PHOQ.TV</div>
-                <div class="text-xl font-bold opacity-60">JOBBRR</div>
+        <!-- Brands Section (Bottom Center with Gradient) -->
+        <div class="absolute bottom-0 left-0 right-0 z-30 hidden lg:block">
+            <div class="h-32 bg-gradient-to-t from-black/20 to-transparent flex items-center justify-center">
+                <div class="flex items-center gap-8">
+                    <img src="/assets/media/brands/PHOQTV.svg" alt="PHOQ.TV"
+                        class="h-8 w-auto opacity-50 hover:opacity-100 transition-opacity duration-300">
+                    <img src="/assets/media/brands/JOBBRR.svg" alt="JOBBRR"
+                        class="h-8 w-auto opacity-50 hover:opacity-100 transition-opacity duration-300">
+                </div>
             </div>
         </div>
     </header>
@@ -247,8 +253,8 @@ permalink: /
     </section>
 
     <!-- Projects Section -->
-    <section class="px-8 lg:px-32 py-20 bg-[#E8E4FC] dark:bg-[#1A162C] space-y-8">
-        <div class="text-left mb-12">
+    <section class="p-8 lg:px-32 bg-[#E8E4FC] dark:bg-[#1A162C] space-y-8">
+        <div class="">
             <h2 class="text-xl font-semibold text-[#121212] dark:text-white mb-2">Mes réalisations</h2>
             <p class="text-sm text-[#3E3E3E] dark:text-[#B0B0B0]">
                 Maquettes de site internet, landing page, application mobile, SaaS
@@ -256,8 +262,8 @@ permalink: /
         </div>
 
         <!-- Projects Carousel (will be populated by existing projects.json) -->
-        <div class="overflow-x-auto mb-8 -mx-8 lg:-mx-32 lg:px-32">
-            <div class="flex gap-6 pb-4" id="projects-grid">
+        <div class="overflow-x-auto mb-8 -mx-8 lg:-mx-32 lg:px-32 scrollbar-hide">
+            <div class="flex gap-6 pb-4 cursor-grab" id="projects-grid">
                 <!-- Projects will be loaded here via JavaScript (limited to 5) -->
             </div>
         </div>
@@ -266,12 +272,10 @@ permalink: /
             <a href="/creations/"
                 class="inline-flex items-center gap-2 text-[#121212] dark:text-white font-semibold text-base hover:text-[#411FEB] dark:hover:text-[#411FEB] transition-colors">
                 Voir tous les projets
-                <i class='bx bx-arrow-right text-xl'></i>
+                <i class='bx bx-right-arrow-alt text-xl'></i>
             </a>
         </div>
     </section>
-
-
 
     <section class="p-8 lg:px-32 text-center space-y-8">
         <div>
@@ -287,7 +291,7 @@ permalink: /
         <div class="grid md:grid-cols-3 gap-6">
 
             <div
-                class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.10] border border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
+                class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.10] border border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl max-w-xl flex flex-col gap-3">
                 <!-- Guillemets -->
                 <div class="text-4xl font-bold text-[#411FEB] dark:text-[#5536ED]">
                     <i class='bx bxs-quote-left'></i>
@@ -382,8 +386,6 @@ permalink: /
                 </div>
             </div>
 
-
-
             <div
                 class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.10] border border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
                 <!-- Guillemets -->
@@ -452,6 +454,19 @@ permalink: /
 
     <!-- Load Projects Script -->
     <script>
+        // Slugify function to match Jekyll's Utils.slugify behavior
+        function slugify(text) {
+            return text
+                .toString()
+                .toLowerCase()
+                .trim()
+                .replace(/\s+/g, '-')           // Replace spaces with -
+                .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+                .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+                .replace(/^-+/, '')             // Trim - from start of text
+                .replace(/-+$/, '');            // Trim - from end of text
+        }
+
         // Load projects for the homepage
         fetch('/js/projects.json')
             .then(response => response.json())
@@ -459,13 +474,15 @@ permalink: /
                 const projectsGrid = document.getElementById('projects-grid');
                 if (!projectsGrid) return;
 
-                // Show only first 5 projects for carousel
-                const projects = data.slice(0, 5);
+                // Show only first 6 projects for carousel
+                const projects = data.slice(0, 6);
 
                 projects.forEach(project => {
                     const projectCard = document.createElement('a');
-                    projectCard.href = `/creations/${project.slug}/`;
-                    projectCard.className = 'flex-shrink-0 w-80 transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212] block shadow-sm hover:shadow-md';
+                    // Generate slug from title if not provided
+                    const slug = project.slug || slugify(project.title);
+                    projectCard.href = `/creations/${slug}/`;
+                    projectCard.className = 'flex-shrink-0 w-80 transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212] block';
 
                     // Get image (projects.json uses 'image' property, not 'images' array)
                     const projectImage = project.image || '';
@@ -485,20 +502,54 @@ permalink: /
                     }
 
                     projectCard.innerHTML = `
-                        <div class="h-48 mb-4 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
+                        <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
                             <img src="${projectImage}" alt="${project.title}" 
-                                class="h-48 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
+                                class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
                         </div>
-                        <h3 class="text-lg font-bold text-[#411FEB] dark:text-[#5536ED] mb-3">${project.title}</h3>
-                        <div class="flex flex-wrap gap-2">
+                        <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">${project.title}</h3>
+                        <div class="mt-1 flex flex-wrap gap-2">
                             ${tagsHTML}
                         </div>
+                        <p class="text-sm text-[#121212] dark:text-white mt-2">${project.description}</p>
                     `;
 
                     projectsGrid.appendChild(projectCard);
                 });
             })
             .catch(error => console.error('Error loading projects:', error));
+
+        // Drag-to-scroll functionality for projects carousel
+        const projectsGrid = document.getElementById('projects-grid');
+        if (projectsGrid) {
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            projectsGrid.addEventListener('mousedown', (e) => {
+                isDown = true;
+                projectsGrid.style.cursor = 'grabbing';
+                startX = e.pageX - projectsGrid.offsetLeft;
+                scrollLeft = projectsGrid.parentElement.scrollLeft;
+            });
+
+            projectsGrid.addEventListener('mouseleave', () => {
+                isDown = false;
+                projectsGrid.style.cursor = 'grab';
+            });
+
+            projectsGrid.addEventListener('mouseup', () => {
+                isDown = false;
+                projectsGrid.style.cursor = 'grab';
+            });
+
+            projectsGrid.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - projectsGrid.offsetLeft;
+                const walk = (x - startX) * 2; // Scroll speed multiplier
+                projectsGrid.parentElement.scrollLeft = scrollLeft - walk;
+            });
+        }
     </script>
 
 
