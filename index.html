@@ -12,7 +12,7 @@ permalink: /
     <title>Portfolio Florian Gertner Kilian</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ '/assets/css/boxicons.min.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/tailwind.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
@@ -37,12 +37,21 @@ permalink: /
         content="Product Designer UI/UX & Copywriter. Je crée des interfaces premium, esthétiques et intuitives qui allient design et storytelling.">
     <meta name="twitter:image" content="{{ site.url }}/assets/media/opengraph/default-og.jpg">
 
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         /* Configure Tailwind (CDN) so darkMode uses class strategy and ensure commonly used dark classes are generated */
-        window.tailwind = window.tailwind || {};
         tailwind.config = {
             darkMode: 'class',
-            theme: { extend: {} },
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        // Preserve any custom colors if needed, though they seem to be arbitrary in HTML
+                    }
+                }
+            },
             // Safelist classes that may be added dynamically or contain arbitrary values
             safelist: [
                 'dark:text-white',
@@ -141,56 +150,115 @@ permalink: /
     {% include navbar.html %}
 
     <!-- Hero Section -->
-    <header class="relative text-white bg-[#411FEB] overflow-hidden min-h-[85vh] flex items-center justify-center">
-        <!-- Vector Field Generator Background -->
-        <div class="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none">
-            <img src="/assets/media/vector-field.svg" alt="" class="w-full h-full object-cover">
+    <header
+        class="relative w-full min-h-[90vh] lg:min-h-screen overflow-hidden bg-gradient-to-b from-[#411FEB] to-[#251285] flex flex-col justify-center text-white font-inter">
+
+        <!-- Decor Elements -->
+        <!-- Vector Field -->
+        <div
+            class="absolute inset-x-0 top-1/4 lg:top-[339px] -translate-y-1/2 flex items-center justify-center pointer-events-none opacity-60 mix-blend-overlay">
+            <img src="/assets/media/vector-field.svg" class="w-[600px] h-[600px] object-contain" alt="">
         </div>
 
-        <!-- Photo Foreground Overlay (in front of text) -->
-        <div class="absolute inset-0 flex items-end justify-center pointer-events-none z-30">
-            <img src="/assets/media/photoprofil.png" alt=""
-                class="h-full w-auto object-contain opacity-90 -scale-x-100 translate-x-[10%]">
-        </div>
-
-        <!-- Services List (Right Side) -->
-        <div class="absolute top-1/2 right-8 lg:right-16 -translate-y-1/2 z-30 text-right hidden lg:block">
-            <div class="flex flex-col gap-3 text-white">
-                <div class="text-base font-semibold">Product Design</div>
-                <div class="text-base font-semibold">UI/UX Design</div>
-                <div class="text-base font-semibold opacity-40">Copywriting</div>
-            </div>
-        </div>
-
-        <div class="relative z-10 px-8 lg:px-16 py-16 text-left max-w-7xl mx-auto w-full">
-            <h1
-                class="text-7xl lg:text-9xl font-black mb-6 uppercase tracking-tight whitespace-nowrap lg:leading-tight">
+        <!-- Big Background Text (H1) -->
+        <div class="absolute inset-x-0 top-[110px] text-center pointer-events-none select-none z-10 hidden lg:block">
+            <h1 class="font-black text-[160px] uppercase leading-none text-white tracking-wide whitespace-nowrap">
                 Florian Gertner
             </h1>
-            <p class="text-base lg:text-lg mb-8 max-w-md leading-relaxed font-normal">
-                Je crée des interfaces premium et intuitives en alliant clarté, esthétique et storytelling pour offrir
-                la meilleure expérience possible aux utilisateurs.
-            </p>
-            <div>
-                <a href="/services/"
-                    class="bg-white text-[#411FEB] px-8 py-3 font-semibold rounded-full inline-flex items-center gap-2 transition-all hover:bg-gray-100 hover:scale-105">
-                    M'embaucher
-                    <i class='bx bx-right-arrow-alt text-xl'></i>
-                </a>
+        </div>
+        <!-- Mobile H1 (Visible only on mobile) -->
+        <div class="absolute inset-x-0 top-[120px] text-center pointer-events-none select-none z-10 lg:hidden">
+            <h1 class="font-black text-6xl md:text-8xl uppercase leading-none text-white tracking-wide">
+                Florian Gertner
+            </h1>
+        </div>
+
+        <!-- Main Workspace (Desktop) -->
+        <div class="relative hidden lg:block w-full max-w-[1600px] mx-auto h-full min-h-screen">
+
+            <!-- Profile Image (Figma: top: 110px, centered) -->
+            <div class="absolute top-[110px] left-1/2 -translate-x-1/2 z-20 pointer-events-none">
+                <img src="/assets/media/photoprofil.png" alt="Florian Gertner"
+                    class="w-[900px] h-auto object-contain drop-shadow-2xl opacity-90">
+            </div>
+
+            <!-- Intro Section (Figma: top: 635px, left-aligned with content) -->
+            <div class="absolute top-[635px] left-12 w-[776px] z-30 flex flex-col gap-10">
+                <p class="text-[24px] font-medium leading-[140%] text-white drop-shadow-md">
+                    Je crée des interfaces premium et intuitives en alliant clarté, esthétique et storytelling pour
+                    offrir la meilleure expérience possible aux utilisateurs.
+                </p>
+                <div class="flex items-center gap-6">
+                    <a href="/services/"
+                        class="inline-flex items-center gap-2 bg-white text-[#121212] px-10 py-4 rounded-full font-bold text-[20px] transition-transform hover:scale-105 shadow-xl group">
+                        <span>M'embaucher</span>
+                        <div class="w-6 h-6 relative overflow-hidden">
+                            <i
+                                class='bx bx-right-arrow-alt text-2xl absolute transition-transform group-hover:translate-x-1'></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Side Skills (Right) -->
+            <div class="absolute top-[110px] right-12 z-30 flex flex-col items-end gap-6 text-right pt-10">
+                <div class="text-[24px] font-medium text-white">Product Design</div>
+                <div class="text-[24px] font-medium text-white/50">UI/UX Design</div>
+                <div class="text-[24px] font-medium text-white/50">Copywriting</div>
             </div>
         </div>
 
-        <!-- Brands Section (Bottom Center with Gradient) -->
-        <div class="absolute bottom-0 left-0 right-0 z-30 hidden lg:block">
-            <div class="h-32 bg-gradient-to-t from-black/20 to-transparent flex items-center justify-center">
-                <div class="flex items-center gap-8">
-                    <img src="/assets/media/brands/PHOQTV.svg" alt="PHOQ.TV"
-                        class="h-8 w-auto opacity-50 hover:opacity-100 transition-opacity duration-300">
-                    <img src="/assets/media/brands/JOBBRR.svg" alt="JOBBRR"
-                        class="h-8 w-auto opacity-50 hover:opacity-100 transition-opacity duration-300">
+        <!-- Mobile Redesign (Figma 1289:8735) -->
+        <div class="relative z-40 w-full min-h-screen flex flex-col lg:hidden overflow-hidden">
+            <!-- Top Content Container (Figma top: 46px) -->
+            <div class="flex flex-col items-start px-6 pt-12 gap-12 w-full">
+                <!-- H1 (3 lines) -->
+                <div class="font-black text-[64px] uppercase leading-[0.9] text-white tracking-wide">
+                    <div class="block">Florian</div>
+                    <div class="block">Gertner</div>
+                    <div class="block text-white/90">Kilian</div>
+                </div>
+
+                <!-- Intro Text -->
+                <p class="text-[16px] font-normal leading-relaxed text-white max-w-[340px]">
+                    Je crée des interfaces premium et intuitives en alliant clarté, esthétique et storytelling pour
+                    offrir la meilleure expérience possible aux utilisateurs.
+                </p>
+
+                <!-- CTA -->
+                <a href="/services/"
+                    class="inline-flex items-center gap-2 bg-white text-[#121212] px-8 py-3 rounded-full font-bold text-[20px] shadow-lg">
+                    <span>M'embaucher</span>
+                    <i class='bx bx-right-arrow-alt text-2xl'></i>
+                </a>
+            </div>
+
+            <!-- Bottom Image/Brands -->
+            <div class="mt-auto relative w-full flex flex-col items-center">
+                <!-- Profile Image (Moi de dos) -->
+                <div class="w-full flex justify-center -mb-8">
+                    <img src="/assets/media/photoprofil.png" alt="Florian Gertner"
+                        class="w-full max-w-[500px] h-auto object-contain drop-shadow-2xl opacity-90 -scale-x-100">
+                </div>
+
+                <!-- Brands Area -->
+                <div class="w-full bg-black/10 backdrop-blur-sm py-8 flex justify-center gap-10">
+                    <img src="/assets/media/brands/PHOQTV.svg" class="h-8 w-auto opacity-70 filter brightness-0 invert"
+                        alt="PHOQ">
+                    <img src="/assets/media/brands/JOBBRR.svg" class="h-8 w-auto opacity-70 filter brightness-0 invert"
+                        alt="JOBBRR">
                 </div>
             </div>
         </div>
+
+        <!-- Brands Section (Desktop Only) -->
+        <div class="absolute bottom-10 left-0 w-full hidden lg:flex justify-center pointer-events-none z-40">
+            <div class="flex items-center gap-12 opacity-80 filter brightness-0 invert">
+                <img src="/assets/media/brands/PHOQTV.svg" class="h-10 w-auto opacity-70" alt="PHOQ">
+                <img src="/assets/media/brands/JOBBRR.svg" class="h-10 w-auto opacity-70" alt="JOBBRR">
+            </div>
+        </div>
+
     </header>
 
     <!-- About Section -->
