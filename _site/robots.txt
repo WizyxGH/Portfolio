@@ -1,5 +1,0 @@
-Sitemap: https://wizyx.me/sitemap.xml
-Sitemap: https://wizyx.me/image-sitemap.xml
-User-agent: *
-Disallow: /pages/legal.html
-Disallow: /partials/
