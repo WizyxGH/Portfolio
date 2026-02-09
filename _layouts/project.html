@@ -7,27 +7,23 @@
     <title>{{ page.title }} - Florian Gertner Kilian</title>
 
     <!-- SEO & Open Graph -->
-    <meta name="description" content="{{ page.description | default: page.title }}">
-    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="{{ page.title }}">
-    <meta property="og:description" content="{{ page.description | default: page.title }}">
-    <meta property="og:image" content="{{ site.url }}{{ page.image }}">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta property="twitter:domain" content="wizyx.me">
-    <meta property="twitter:url" content="{{ site.url }}{{ page.url }}">
-    <meta name="twitter:title" content="{{ page.title }}">
-    <meta name="twitter:description" content="{{ page.description | default: page.title }}">
-    <meta name="twitter:image" content="{{ site.url }}{{ page.image }}">
+    <meta name="description" content="{{ page.description | escape }}">
+    {% seo %}
+    {% if page.image %}
+    <meta property="og:image:alt" content="{{ page.title | escape }}">
+    {% if page.width %}
+    <meta property="og:image:width" content="{{ page.width }}">{% endif %}
+    {% if page.height %}
+    <meta property="og:image:height" content="{{ page.height }}">{% endif %}
+    {% endif %}
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/boxicons.min.css">
-    <link rel="stylesheet" href="/assets/css/tailwind.css">
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="icon" type="image/x-icon" href="/media/favicon.ico">
+    <link rel="stylesheet" href="{{ '/assets/css/boxicons.min.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/tailwind.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+    <link rel="icon" type="image/x-icon" href="{{ '/assets/media/favicon.ico' | relative_url }}">
 
     <link rel="canonical" href="{{ site.url }}{{ page.url }}">
 
@@ -50,7 +46,30 @@
     }
     </script>
 
-    <script src="/js/script.js" defer></script>
+    <!-- Breadcrumb JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Accueil",
+        "item": "{{ site.url }}"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Créations",
+        "item": "{{ site.url }}/creations"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "{{ page.title | escape }}",
+        "item": "{{ site.url }}{{ page.url }}"
+      }]
+    }
+    </script>
+
     <script src="/js/layout.js" defer></script>
     <script src="/js/theme.js" defer></script>
 </head>
@@ -58,12 +77,12 @@
 <body class="dark:bg-[#121212] font-inter text-[#411FEB]">
 
     <!-- Navbar -->
-    <div id="navbar-container"></div>
+    {% include navbar.html %}
 
     <main class="px-6 lg:px-32 mx-auto p-8 space-y-4">
         <div>
             <div class="flex flex-col items-start lg:flex-row lg:items-center">
-                <a href="/creations"
+                <a href="{% if page.is_study %}/creations_studies/{% else %}/creations/{% endif %}"
                     class="inline-flex items-center justify-center text-[#121212] dark:text-white hover:text-[#411FEB] dark:hover:text-[#5536ED] transition-colors p-2 -ml-2 rounded-full hover:bg-black/5 dark:hover:bg-white/5 leading-none"
                     aria-label="Retour aux créations">
                     <i class='bx bx-arrow-back text-2xl lg:text-3xl leading-none'></i>
@@ -109,10 +128,62 @@
 
         <article class="flex flex-col lg:flex-row gap-8">
             <!-- Project Content -->
-            <div class="lg:w-1/2 space-y-4">
+            <div class="lg:w-1/2 space-y-4 order-2 lg:order-1">
                 <div class="prose dark:prose-invert max-w-none text-[#121212] dark:text-white leading-relaxed">
                     {{ content }}
                 </div>
+
+                {% if page.technologies %}
+                <div class="mt-6 mb-8">
+                    <h3 class="text-lg font-bold text-[#121212] dark:text-white mb-3">Outils utilisés</h3>
+                    <div class="flex flex-wrap gap-2">
+                        {% for tech in page.technologies %}
+                        <span
+                            class="inline-flex items-center gap-2 px-3 py-1.5 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg text-sm font-medium text-gray-700 dark:text-[#5536ED]">
+                            {% if tech.icon %}
+                            <i class="{{ tech.icon }}"></i>
+                            {% endif %}
+                            {{ tech.name }}
+                        </span>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if page.testimonial %}
+                <div class="mt-6 mb-8">
+                    <div
+                        class="bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.10] border border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg flex flex-col gap-3">
+                        <!-- Guillemets -->
+                        <div class="text-4xl font-bold text-[#411FEB] dark:text-[#5536ED]">
+                            <i class='bx bxs-quote-left'></i>
+                        </div>
+                        <!-- Texte du témoignage -->
+                        <p class="text-base dark:text-white leading-relaxed">
+                            {{ page.testimonial.text }}
+                        </p>
+                        <!-- Auteur -->
+                        <div class="flex items-center gap-3 mt-auto">
+                            <img src="{{ page.testimonial.author.avatar }}" alt="{{ page.testimonial.author.name }}"
+                                class="w-12 h-12 rounded-full object-cover" width="48" height="48" loading="lazy"
+                                decoding="async">
+                            <div>
+                                <h4 class="font-bold text-[#411FEB] dark:text-[#5536ED]">{{ page.testimonial.author.name
+                                    }}</h4>
+                                <p class="font-light text-sm text-[#411FEB] dark:text-[#5536ED]">
+                                    {% if page.testimonial.author.companyUrl %}
+                                    <a href="{{ page.testimonial.author.companyUrl }}" target="_blank"
+                                        rel="noopener noreferrer">{{ page.testimonial.author.title }}</a>
+                                    {% else %}
+                                    {{ page.testimonial.author.title }}
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
                 {% if page.projectLink and page.projectLink != "#" %}
                 <a href="{{ page.projectLink }}" target="_blank"
                     class="flex items-center justify-center gap-2 bg-[#411FEB] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#3A1CC5] transition w-full lg:w-auto lg:self-start">
@@ -123,15 +194,60 @@
                     {% endif %}
                 </a>
                 {% endif %}
+
+                <hr class="my-6 border-gray-200 dark:border-white/10">
+                <a href="/services/"
+                    class="group flex items-center gap-3 hover:bg-gray-100 dark:hover:bg-white/5 -mx-4 px-4 py-2 transition-colors cursor-pointer">
+
+                    <div class="flex flex-shrink-0 mr-2">
+                        <img src="/assets/media/profilepicturepro.png" alt="Florian Gertner Kilian"
+                            class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-white dark:border-[#121212] group-hover:border-[#411FEB] transition-colors relative z-30">
+                        {% if page.collaborators %}
+                        {% for collaborator in page.collaborators %}
+                        <img src="{{ collaborator.avatar }}" alt="{{ collaborator.name }}"
+                            class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-white dark:border-[#121212] group-hover:border-[#411FEB] transition-colors relative"
+                            style="z-index: {{ 20 | minus: forloop.index }}; margin-left: -1rem;">
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+
+                    <div>
+                        <p
+                            class="text-sm font-semibold text-[#121212] dark:text-white group-hover:text-[#411FEB] transition-colors">
+                            {% assign collaborator_count = page.collaborators | size %}
+                            {% if collaborator_count == 0 %}
+                            Designé par Florian Gertner Kilian
+                            {% elsif collaborator_count == 1 %}
+                            Designé par Florian Gertner Kilian et {{ page.collaborators[0].name }}
+                            {% else %}
+                            Designé par Florian Gertner Kilian + {{ collaborator_count }} autres personnes
+                            {% endif %}
+                        </p>
+                        <p
+                            class="text-xs text-gray-500 dark:text-gray-400 group-hover:text-[#411FEB] transition-colors">
+                            Besoin d'un design pour votre projet ? <span
+                                class="underline decoration-[#411FEB]/30 group-hover:decoration-[#411FEB]">Voir mes
+                                services</span></p>
+                    </div>
+                </a>
             </div>
 
             <!-- Project Visuals (Carousel with Dots & Counter) -->
-            <div class="lg:w-1/2">
+            <div class="lg:w-1/2 order-1 lg:order-2">
                 <div class="flex flex-col">
                     {% assign hasGallery = false %}
                     {% if page.gallery.size > 0 %}
                     {% assign hasGallery = true %}
                     {% endif %}
+
+                    {% comment %} Check if project has Responsive tag {% endcomment %}
+                    {% assign hasResponsiveTag = false %}
+                    {% for tag in page.tags %}
+                    {% if tag.name == "Responsive" %}
+                    {% assign hasResponsiveTag = true %}
+                    {% break %}
+                    {% endif %}
+                    {% endfor %}
 
                     <!-- Main Display (Carousel Viewport) -->
                     <div class="relative group w-full bg-black rounded-xl overflow-hidden flex flex-col justify-center shadow-2xl border border-white/10"
@@ -160,8 +276,16 @@
                             {% for img in page.gallery %}
                             <div class="min-w-full w-full flex-none h-full flex items-center justify-center p-0 lg:p-4 carousel-slide"
                                 style="flex: 0 0 100% !important; min-width: 100% !important; width: 100% !important;">
+                                {% if img contains '.pdf' %}
+                                <div
+                                    class="h-full w-full flex items-center justify-center bg-gray-100 relative group-pdf">
+                                    <iframe src="{{ img }}#toolbar=0&navpanes=0"
+                                        class="h-full w-full object-contain border-0" type="application/pdf"></iframe>
+                                </div>
+                                {% else %}
                                 <img src="{{ img }}" alt="{{ page.title }} - Gallery {{ forloop.index }}"
                                     class="h-full object-contain" loading="lazy">
+                                {% endif %}
                             </div>
                             {% endfor %}
                             {% endif %}
@@ -169,12 +293,12 @@
 
                         <!-- Navigation Buttons -->
                         <button id="prevBtn"
-                            class="absolute top-1/2 left-4 -translate-y-1/2 w-12 h-12 flex items-center justify-center bg-white text-black rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 focus:outline-none z-30"
+                            class="absolute top-1/2 left-4 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-black/60 hover:bg-black/80 backdrop-blur-md text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 focus:outline-none z-30"
                             aria-label="Previous image">
                             <i class='bx bx-chevron-left text-3xl'></i>
                         </button>
                         <button id="nextBtn"
-                            class="absolute top-1/2 right-4 -translate-y-1/2 w-12 h-12 flex items-center justify-center bg-white text-black rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 focus:outline-none z-30"
+                            class="absolute top-1/2 right-4 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-black/60 hover:bg-black/80 backdrop-blur-md text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 focus:outline-none z-30"
                             aria-label="Next image">
                             <i class='bx bx-chevron-right text-3xl'></i>
                         </button>
@@ -185,13 +309,34 @@
                     <div class="flex justify-center mt-4 gap-3" id="carouselDots">
                         <!-- Dots generated by JS -->
                     </div>
+
+                    {% if hasResponsiveTag %}
+                    <!-- Responsive Filter Buttons -->
+                    <div class="flex justify-center gap-2 mt-4" id="responsiveFilter">
+                        <button
+                            class="filter-btn active px-4 py-2 rounded-lg border-2 border-[#C1B4F8] dark:border-[#281E5A] bg-[#411FEB] dark:bg-[#5536ED] text-white font-semibold text-sm transition-all duration-200 hover:bg-[#3A1CC5] dark:hover:bg-[#4429C9]"
+                            data-filter="all">
+                            Toutes
+                        </button>
+                        <button
+                            class="filter-btn px-4 py-2 rounded-lg border-2 border-[#C1B4F8] dark:border-[#281E5A] bg-transparent text-[#411FEB] dark:text-[#5536ED] font-semibold text-sm transition-all duration-200 hover:bg-[#E8E4FC] dark:hover:bg-[#5536ED]/10"
+                            data-filter="desktop">
+                            Desktop
+                        </button>
+                        <button
+                            class="filter-btn px-4 py-2 rounded-lg border-2 border-[#C1B4F8] dark:border-[#281E5A] bg-transparent text-[#411FEB] dark:text-[#5536ED] font-semibold text-sm transition-all duration-200 hover:bg-[#E8E4FC] dark:hover:bg-[#5536ED]/10"
+                            data-filter="mobile">
+                            Mobile
+                        </button>
+                    </div>
+                    {% endif %}
                 </div>
 
             </div>
         </article>
     </main>
 
-    <div id="footer-container"></div>
+    {% include footer.html %}
 
     <script type="application/json" id="project-data">
     {

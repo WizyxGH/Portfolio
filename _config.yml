@@ -1,4 +1,59 @@
-url: https://wizyx.me
-baseurl: ""
-title: Portfolio
+url: "https://wizyx.me" # the base hostname & protocol for your site
+lang: fr-FR
+logo: "https://opengraph.b-cdn.net/production/images/59129536-2074-4333-9e04-70d6cffd3d0f.jpg?token=Oj5V7Gb5wGaScWNgROHh8HDeCIdtoZtqvgIpBFaIi1g&height=640&width=1200&expires=33294662852"
+brand_logo: /assets/media/logo.png
+baseurl: "" # the subpath of your site, e.g. /blog
+title: "Portfolio Florian Gertner Kilian" # the name of your site
+description: "Product Designer UI/UX & Copywriter. Je crée des interfaces premium, esthétiques et intuitives qui allient design et storytelling. Découvrez mes projets et collaborations."
+author:
+  name: "Florian Gertner Kilian"
+  email: "contact@wizyx.me"
+
+image: "/assets/media/opengraph/default-og.jpg"
+
+twitter:
+  card: summary_large_image
+
+social:
+  name: Florian Gertner Kilian
+  links:
+    - https://linkedin.com/in/flogk/
+    - https://wa.me/33778407887
+    - https://t.me/wizyx0
+    - https://github.com/WizyxGH
+    - https://www.figma.com/@wizyx
+
+navigation:
+  - title: À propos
+    url: /about/
+    i18n: nav_about
+  - title: Réalisations
+    id: dropdownButton
+    i18n: nav_creations
+    dropdown:
+      - title: Professionnel
+        url: /creations/
+        description: UI/UX Design, articles
+        i18n: nav_pro
+        desc_i18n: nav_pro_desc
+        icon: bx bxs-briefcase-alt-2
+        style: rounded-t
+      - title: Académique
+        url: /creations_studies/
+        description: Réalisé en BUT MMI
+        i18n: nav_academic
+        desc_i18n: nav_academic_desc
+        icon: bx bxs-graduation
+        style: rounded-b
+  - title: Services
+    url: /services/
+    i18n: nav_services
+  - title: Contact
+    url: /contact/
+    i18n: nav_contact
+
 permalink: /:title/
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
