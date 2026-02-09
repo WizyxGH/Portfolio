@@ -161,3 +161,60 @@ function setActiveNavLinks() {
         }
     });
 }
+
+// ===== Scroll Animations =====
+function initScrollAnimations() {
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const delay = entry.target.dataset.delay || 0;
+                setTimeout(() => {
+                    entry.target.classList.remove('opacity-0', 'translate-y-8');
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+
+                    // Trigger counter animation if element has counters
+                    const counters = entry.target.querySelectorAll('[data-counter]');
+                    counters.forEach(counter => animateCounter(counter));
+                }, delay);
+
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    animatedElements.forEach(el => observer.observe(el));
+}
+
+function animateCounter(element) {
+    const target = parseInt(element.dataset.counter);
+    const suffix = element.dataset.suffix || '';
+    const duration = 1500; // 1.5 seconds
+    const steps = 60;
+    const increment = target / steps;
+    let current = 0;
+
+    // Reset to 0 before starting animation
+    element.textContent = '0';
+
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            element.textContent = target + suffix;
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(current);
+        }
+    }, duration / steps);
+}
+
+// Initialize scroll animations when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initScrollAnimations);
+} else {
+    initScrollAnimations();
+}

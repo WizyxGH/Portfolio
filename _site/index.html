@@ -271,39 +271,141 @@
 <!-- Spacer -->
 <div class="h-[60px] lg:h-[64px]"></div>
 
-    <!-- Header -->
-    <header
-        class="text-white bg-[#411FEB] p-8 lg:px-32 flex flex-col lg:flex-row items-stretch gap-4 transition-colors duration-200">
-        <!-- Image -->
-        <div class="flex justify-start lg:justify-end lg:w-1/2 order-1 lg:order-2 mb-4">
-            <img src="/assets/media/photo.webp" alt="Photo de Florian Gertner Kilian" fetchpriority="high"
-                class="h-full lg:max-h-[250px] rounded-xl shadow-lg object-cover">
+    <!-- Hero Section -->
+    <header class="relative text-white bg-[#411FEB] overflow-hidden min-h-[85vh] flex items-center justify-center">
+        <!-- Vector Field Generator Background -->
+        <div class="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none">
+            <img src="/assets/media/vector-field.svg" alt="" class="w-full h-full object-cover">
         </div>
-        <!-- Texte -->
-        <div class="lg:w-1/2 flex flex-col justify-center order-2 lg:order-1 gap-6">
-            <div>
-                <h1 class="text-5xl font-bold">Florian <span class="uppercase">Gertner Kilian</span></h1>
-                <h2 class="text-stroke lg:text-5xl text-4xl font-bold mt-2">
-                    <span id="typewriter"></span>
-                </h2>
+
+        <!-- Photo Foreground Overlay (in front of text) -->
+        <div class="absolute inset-0 flex items-end justify-center pointer-events-none z-30">
+            <img src="/assets/media/photoprofil.png" alt=""
+                class="h-full w-auto object-contain opacity-90 -scale-x-100 translate-x-[10%]">
+        </div>
+
+        <!-- Services List (Right Side) -->
+        <div class="absolute top-1/2 right-8 lg:right-16 -translate-y-1/2 z-30 text-right hidden lg:block">
+            <div class="flex flex-col gap-3 text-white">
+                <div class="text-base font-semibold">Product Design</div>
+                <div class="text-base font-semibold">UI/UX Design</div>
+                <div class="text-base font-semibold opacity-40">Copywriting</div>
             </div>
-            <p>Je crée des interfaces premium et intuitives en alliant clarté, esthétique et storytelling pour offrir la
-                meilleure expérience possible aux utilisateurs.</p>
-            <div class="flex flex-wrap gap-4">
+        </div>
+
+        <div class="relative z-10 px-8 lg:px-16 py-16 text-left max-w-7xl mx-auto w-full">
+            <h1
+                class="text-7xl lg:text-9xl font-black mb-6 uppercase tracking-tight whitespace-nowrap lg:leading-tight">
+                Florian Gertner
+            </h1>
+            <p class="text-base lg:text-lg mb-8 max-w-md leading-relaxed font-normal">
+                Je crée des interfaces premium et intuitives en alliant clarté, esthétique et storytelling pour offrir
+                la meilleure expérience possible aux utilisateurs.
+            </p>
+            <div>
                 <a href="/services/"
-                    class="bg-white text-[#411FEB] px-6 py-3 font-semibold rounded-xl w-full md:w-auto text-center transition-colors hover:bg-gray-100 hover:text-[#3215c7]">
-                    Alors, on collabore ?
+                    class="bg-white text-[#411FEB] px-8 py-3 font-semibold rounded-full inline-flex items-center gap-2 transition-all hover:bg-gray-100 hover:scale-105">
+                    M'embaucher
+                    <i class='bx bx-right-arrow-alt text-xl'></i>
                 </a>
-                <a href="/creations/"
-                    class="outline outline-2 text-white px-6 py-3 font-semibold rounded-xl flex items-center justify-center gap-2 w-full md:w-auto transition-colors hover:bg-[#3215c7] hover:outline-[#3215c7]">
-                    Découvrir mes créations
-                    <i class='bx bx-arrow-up-right'></i>
-                </a>
+            </div>
+        </div>
+
+        <!-- Brands Section (Bottom Center with Gradient) -->
+        <div class="absolute bottom-0 left-0 right-0 z-30 hidden lg:block">
+            <div class="h-32 bg-gradient-to-t from-black/20 to-transparent flex items-center justify-center">
+                <div class="flex items-center gap-8">
+                    <img src="/assets/media/brands/PHOQTV.svg" alt="PHOQ.TV"
+                        class="h-8 w-auto opacity-50 hover:opacity-100 transition-opacity duration-300">
+                    <img src="/assets/media/brands/JOBBRR.svg" alt="JOBBRR"
+                        class="h-8 w-auto opacity-50 hover:opacity-100 transition-opacity duration-300">
+                </div>
             </div>
         </div>
     </header>
 
+    <!-- About Section -->
+    <section class="p-8 lg:px-32 text-center space-y-8" id="about">
+        <div>
+            <h2 class="text-2xl text-[#121212] dark:text-white font-medium mb-4">
+                Fini le blabla, place au concret.
+            </h2>
+            <div class="inline-flex items-center gap-2 rounded-full bg-[#411FEB] px-4 py-1.5 text-white">
+                <i class='bx bxs-trophy'></i>
+                <span class="text-sm font-semibold">Des résultats mesurables</span>
+            </div>
+        </div>
 
+        <div class="flex flex-col lg:flex-row gap-4 items-stretch justify-center">
+            <!-- Photo -->
+            <img src="/assets/media/photoperso.webp" alt="Photo de Florian Gertner Kilian"
+                class="w-80 self-stretch object-cover rounded-2xl opacity-0 translate-y-8 transition-all duration-700 animate-on-scroll">
+
+            <!-- Stats Cards -->
+            <div class="flex flex-wrap lg:flex-col lg:w-auto gap-4 opacity-0 translate-y-8 transition-all duration-700 animate-on-scroll"
+                data-delay="200">
+                <!-- Card 1 -->
+                <div class="w-full lg:w-auto text-white rounded-2xl p-4 text-left flex flex-col justify-center gap-1"
+                    style="border: 1px solid rgba(255, 255, 255, 0.24); background: linear-gradient(180deg, #411FEB 0%, #251285 100%);">
+                    <div class="rounded-full p-2 w-10 h-10 flex items-center justify-center mb-1"
+                        style="background-color: rgba(255, 255, 255, 0.12);">
+                        <i class='bx bxs-star text-xl text-white' aria-hidden="true"></i>
+                    </div>
+                    <div class="text-sm font-normal opacity-80 leading-tight">Années d'expériences</div>
+                    <div class="text-4xl font-bold" data-counter="3">3</div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="w-full lg:w-auto text-white rounded-2xl p-4 text-left flex flex-col justify-center gap-1"
+                    style="border: 1px solid rgba(255, 255, 255, 0.24); background: linear-gradient(180deg, #411FEB 0%, #251285 100%);">
+                    <div class="rounded-full p-2 w-10 h-10 flex items-center justify-center mb-1"
+                        style="background-color: rgba(255, 255, 255, 0.12);">
+                        <i class='bx bxs-folder text-xl text-white' aria-hidden="true"></i>
+                    </div>
+                    <div class="text-sm font-normal opacity-80 leading-tight">Projets réalisés</div>
+                      <div class="text-4xl font-bold"
+                        data-counter="20" data-suffix="+">20+
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="w-full lg:w-auto text-white rounded-2xl p-4 text-left flex flex-col justify-center gap-1"
+                style="border: 1px solid rgba(255, 255, 255, 0.24); background: linear-gradient(180deg, #411FEB 0%, #251285 100%);">
+                <div class="rounded-full p-2 w-10 h-10 flex items-center justify-center mb-1"
+                    style="background-color: rgba(255, 255, 255, 0.12);">
+                    <i class='bx bxs-heart text-xl text-white' aria-hidden="true"></i>
+                </div>
+                <div class="text-sm font-normal opacity-80 leading-tight">Satisfaction client</div>
+                <div class="text-4xl font-bold" data-counter="100" data-suffix="%">100%</div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="p-8 lg:px-32 bg-[#E8E4FC] dark:bg-[#1A162C] space-y-8">
+        <div class="">
+            <h2 class="text-xl font-semibold text-[#121212] dark:text-white mb-2">Mes réalisations</h2>
+            <p class="text-sm text-[#3E3E3E] dark:text-[#B0B0B0]">
+                Maquettes de site internet, landing page, application mobile, SaaS
+            </p>
+        </div>
+
+        <!-- Projects Carousel (will be populated by existing projects.json) -->
+        <div class="overflow-x-auto mb-8 -mx-8 lg:-mx-32 lg:px-32 scrollbar-hide">
+            <div class="flex gap-6 pb-4 cursor-grab" id="projects-grid">
+                <!-- Projects will be loaded here via JavaScript (limited to 5) -->
+            </div>
+        </div>
+
+        <div class="text-right">
+            <a href="/creations/"
+                class="inline-flex items-center gap-2 text-[#121212] dark:text-white font-semibold text-base hover:text-[#411FEB] dark:hover:text-[#411FEB] transition-colors">
+                Voir tous les projets
+                <i class='bx bx-right-arrow-alt text-xl'></i>
+            </a>
+        </div>
+    </section>
 
     <section class="p-8 lg:px-32 text-center space-y-8">
         <div>
@@ -319,7 +421,7 @@
         <div class="grid md:grid-cols-3 gap-6">
 
             <div
-                class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.10] border border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
+                class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.10] border border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl max-w-xl flex flex-col gap-3">
                 <!-- Guillemets -->
                 <div class="text-4xl font-bold text-[#411FEB] dark:text-[#5536ED]">
                     <i class='bx bxs-quote-left'></i>
@@ -327,10 +429,9 @@
                 <!-- Texte du témoignage -->
                 <p class="text-base dark:text-white leading-relaxed">
                     Florian a fait son stage chez Digital Unicorn en tant que UI/UX Designer et ça a été un vrai plaisir
+                    de travailler avec lui. Super impliqué, intelligent et toujours dans l’action, il a vraiment apporté
                     de
-                    travailler avec lui. Super impliqué, intelligent et toujours dans l’action, il a vraiment apporté de
-                    la valeur à
-                    l’équipe. 💪👋
+                    la valeur à l’équipe. 💪👋
                 </p>
                 <!-- Auteur -->
                 <div class="flex items-center gap-3 mt-auto">
@@ -415,8 +516,6 @@
                 </div>
             </div>
 
-
-
             <div
                 class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.10] border border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
                 <!-- Guillemets -->
@@ -443,7 +542,7 @@
             </div>
 
             <div
-                class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.06] border-dashed border-2 border-[#C1B4F8] dark:border-[#29197F] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
+                class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#F8F6FE] dark:bg-[#5536ED] dark:bg-opacity-[0.04] border-dashed border-2 border-[#C1B4F8] dark:border-[#29197F] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
                 <!-- Guillemets -->
                 <div class="text-4xl font-bold text-[#411FEB] dark:text-[#5536ED]">
                     <i class='bx bxs-quote-left'></i>
@@ -601,6 +700,106 @@
         };
     </script>
     <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+
+    <!-- Load Projects Script -->
+    <script>
+        // Slugify function to match Jekyll's Utils.slugify behavior
+        function slugify(text) {
+            return text
+                .toString()
+                .toLowerCase()
+                .trim()
+                .replace(/\s+/g, '-')           // Replace spaces with -
+                .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+                .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+                .replace(/^-+/, '')             // Trim - from start of text
+                .replace(/-+$/, '');            // Trim - from end of text
+        }
+
+        // Load projects for the homepage
+        fetch('/js/projects.json')
+            .then(response => response.json())
+            .then(data => {
+                const projectsGrid = document.getElementById('projects-grid');
+                if (!projectsGrid) return;
+
+                // Show only first 6 projects for carousel
+                const projects = data.slice(0, 6);
+
+                projects.forEach(project => {
+                    const projectCard = document.createElement('a');
+                    // Generate slug from title if not provided
+                    const slug = project.slug || slugify(project.title);
+                    projectCard.href = `/creations/${slug}/`;
+                    projectCard.className = 'flex-shrink-0 w-80 transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212] block';
+
+                    // Get image (projects.json uses 'image' property, not 'images' array)
+                    const projectImage = project.image || '';
+
+                    // Generate tags HTML with icons
+                    let tagsHTML = '';
+                    if (project.tags && project.tags.length > 0) {
+                        tagsHTML = project.tags.map(tag => {
+                            const tagName = tag.name || tag;
+                            const iconClass = tag.icon || 'bx bx-tag';
+                            return `
+                                <span class="inline-flex items-center gap-1 px-2 rounded-full border border-[#411FEB] text-[#411FEB] font-semibold text-sm dark:text-[#5536ED] dark:border-[#5536ED]" style="background-color: rgba(65, 31, 235, 0.12)">
+                                    <i class='${iconClass} text-base'></i> ${tagName}
+                                </span>
+                            `;
+                        }).join('');
+                    }
+
+                    projectCard.innerHTML = `
+                        <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
+                            <img src="${projectImage}" alt="${project.title}" 
+                                class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
+                        </div>
+                        <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">${project.title}</h3>
+                        <div class="mt-1 flex flex-wrap gap-2">
+                            ${tagsHTML}
+                        </div>
+                        <p class="text-sm text-[#121212] dark:text-white mt-2">${project.description}</p>
+                    `;
+
+                    projectsGrid.appendChild(projectCard);
+                });
+            })
+            .catch(error => console.error('Error loading projects:', error));
+
+        // Drag-to-scroll functionality for projects carousel
+        const projectsGrid = document.getElementById('projects-grid');
+        if (projectsGrid) {
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            projectsGrid.addEventListener('mousedown', (e) => {
+                isDown = true;
+                projectsGrid.style.cursor = 'grabbing';
+                startX = e.pageX - projectsGrid.offsetLeft;
+                scrollLeft = projectsGrid.parentElement.scrollLeft;
+            });
+
+            projectsGrid.addEventListener('mouseleave', () => {
+                isDown = false;
+                projectsGrid.style.cursor = 'grab';
+            });
+
+            projectsGrid.addEventListener('mouseup', () => {
+                isDown = false;
+                projectsGrid.style.cursor = 'grab';
+            });
+
+            projectsGrid.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - projectsGrid.offsetLeft;
+                const walk = (x - startX) * 2; // Scroll speed multiplier
+                projectsGrid.parentElement.scrollLeft = scrollLeft - walk;
+            });
+        }
+    </script>
 
 
 
