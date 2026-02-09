@@ -6,7 +6,9 @@ module.exports = {
     './partials/**/*.{html,js}',
     './pages/**/*.{html,js}',
     './js/**/*.{html,js}',
-    './*.{html,js}',
+    './*.html',
+    './index.html',
+    './_site/**/*.html',
   ],
   theme: {
     extend: {},
