@@ -1,0 +1,254 @@
+---
+title: "Contact"
+permalink: /contact/
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% seo %}
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://wizyx.me/contact/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contact - Florian Gertner Kilian">
+    <meta property="og:description" content="Contactez-moi pour discuter de votre projet. Réponse sous 24h.">
+    <meta property="og:image" content="{{ site.url }}/assets/media/opengraph/default-og.jpg">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="wizyx.me">
+    <meta property="twitter:url" content="https://wizyx.me/contact/">
+    <meta name="twitter:title" content="Contact - Florian Gertner Kilian">
+    <meta name="twitter:description" content="Contactez-moi pour discuter de votre projet. Réponse sous 24h.">
+    <meta name="twitter:image" content="{{ site.url }}/assets/media/opengraph/default-og.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/assets/css/boxicons.min.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/tailwind.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+    <link rel="icon" type="image/x-icon" href="{{ '/assets/media/favicon.ico' | relative_url }}">
+    <script src="{{ '/js/layout.js' | relative_url }}" defer></script>
+    <script src="{{ '/js/theme.js' | relative_url }}" defer></script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Accueil",
+                    "item": "https://wizyx.me/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Contact",
+                    "item": "https://wizyx.me/contact/"
+                }
+            ]
+        }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6PJB5NW1Y5"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-6PJB5NW1Y5'); </script>
+</head>
+
+<body class="min-h-screen flex flex-col dark:bg-[#121212] font-inter text-[#411FEB] dark:text-[#5536ED]">
+
+    <!-- Navbar -->
+    {% include navbar.html %}
+
+    <main class="flex-1 flex flex-col">
+        <section class="w-full max-w-5xl mx-auto px-6 py-8 text-center space-y-8">
+            <div>
+                <h2 class="text-2xl text-[#121212] dark:text-white font-medium mb-4">
+                    Contactez-moi
+                </h2>
+                <div class="inline-flex items-center gap-2 rounded-full bg-[#411FEB] px-4 py-1.5 text-white">
+                    <i class='bx bxs-wink-smile'></i>
+                    <span class="text-sm font-semibold">Réponse sous 24h</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
+                <form action="https://formsubmit.co/ajax/0072bc2f7aa3ef8f3cdcee2277752884" method="POST"
+                    class="flex flex-col gap-4 lg:col-span-3" id="contactForm">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_subject" value="Nouveau message depuis le formulaire">
+
+                    <!-- Email -->
+                    <label class="flex flex-col">
+                        <span class="flex items-center gap-2 text-[#121212] dark:text-white font-medium">
+                            Adresse mail
+                        </span>
+                        <input type="email" name="email" placeholder="johndoe@mail.com" required
+                            class="mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-[#121212] dark:border-[#3E3E3E] dark:text-white dark:placeholder-gray-500">
+                    </label>
+
+                    <!-- Objet -->
+                    <label class="flex flex-col">
+                        <span class="flex items-center gap-2 text-[#121212] dark:text-white font-medium">
+                            Objet
+                        </span>
+                        <input type="text" name="subject" placeholder="Projet de site, Refonte d'une application..."
+                            required
+                            class="mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-[#121212] dark:bg-[#121212] dark:border-[#3E3E3E] dark:text-white dark:placeholder-gray-500">
+                    </label>
+
+                    <!-- Honeypot anti-spam (caché) -->
+                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+                    <!-- Message -->
+                    <label class="flex flex-col">
+                        <span class="flex items-center gap-2 text-[#121212] dark:text-white font-medium">
+                            Message
+                        </span>
+                        <textarea name="message" rows="6" placeholder="Écrivez votre message ici..." required
+                            class="mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800 dark:bg-[#121212] dark:border-[#3E3E3E] dark:text-white dark:placeholder-gray-500"></textarea>
+                    </label>
+
+                    <!-- Bouton -->
+                    <button type="submit"
+                        class="mt-2 bg-[#411FEB] text-white font-semibold py-3 rounded-full shadow-md hover:bg-[#3215c7] transition flex items-center justify-center gap-2">
+                        <i class='bx bx-send-alt'></i><span>Envoyer</span>
+                    </button>
+
+                    <!-- Feedback -->
+                    <p id="formMessage" class="text-center mt-2 font-medium text-green-600 hidden">Message envoyé !</p>
+                </form>
+
+                <div
+                    class="w-full lg:col-span-2 bg-[#F0ECFF] text-[#411FEB] rounded-3xl shadow-md p-6 flex flex-col gap-4">
+                    <h3 class="text-lg md:text-xl font-bold text-center leading-tight">Prendre un<br>rendez-vous gratuit
+                    </h3>
+                    <div class="rounded-2xl bg-white/70 border border-white/80 p-4 shadow-inner">
+                        <div
+                            class="grid grid-cols-7 text-[10px] font-semibold text-center uppercase tracking-wide mb-3 text-[#121212]/80">
+                            <span>LUN</span><span>MAR</span><span>MER</span><span>JEU</span><span>VEN</span><span>SAM</span><span>DIM</span>
+                        </div>
+                        <div class="grid grid-cols-7 gap-2 text-base font-semibold text-center text-[#121212]">
+                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">1</span>
+                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">2</span>
+                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">3</span>
+                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">4</span>
+                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">5</span>
+                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">6</span>
+                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">7</span>
+                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">8</span>
+                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">9</span>
+                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">10</span>
+                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">11</span>
+                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">12</span>
+                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">13</span>
+                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">14</span>
+                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">15</span>
+                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">16</span>
+                            <span
+                                class="w-9 h-9 flex items-center justify-center rounded-full bg-[#411FEB] text-white shadow-md">17</span>
+                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">18</span>
+                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">19</span>
+                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">20</span>
+                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">21</span>
+                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">22</span>
+                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">23</span>
+                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">24</span>
+                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">25</span>
+                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">26</span>
+                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">27</span>
+                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">28</span>
+                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">29</span>
+                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">30</span>
+                            <span class="w-9 h-9 flex items-center justify-center rounded-full bg-white/90">31</span>
+                        </div>
+                    </div>
+                    <a href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener noreferrer"
+                        class="w-full inline-flex items-center justify-center bg-[#411FEB] text-white font-semibold py-2 rounded-full shadow-md hover:bg-[#3215c7] transition">
+                        <span>Réserver 30 min</span>
+                        <i class='bx bx-right-arrow-alt text-2xl'></i>
+                    </a>
+                    <p class="text-xs text-center text-[#2D1D7F] opacity-80">Disponibilités mises à jour en temps réel.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- JS pour feedback sans rechargement -->
+        <script>
+            const form = document.getElementById('contactForm');
+            const formMessage = document.getElementById('formMessage');
+            const formLoadTime = Date.now();
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const formData = new FormData(form);
+
+                // 1. Vérifier le honeypot (anti-bots)
+                if (formData.get('_honey')) {
+                    console.log('Spam détecté : honeypot rempli');
+                    return;
+                }
+
+                // 2. Vérifier le temps minimum (3 secondes - anti-soumission automatique)
+                const timeSinceLoad = Date.now() - formLoadTime;
+                if (timeSinceLoad < 3000) {
+                    alert("Veuillez prendre le temps de remplir le formulaire correctement.");
+                    return;
+                }
+
+                // 3. Vérifier la longueur minimale du message
+                const message = formData.get('message') || '';
+                if (message.length < 10) {
+                    alert("Votre message est trop court. Veuillez fournir plus de détails.");
+                    return;
+                }
+
+                // Mettre à jour le sujet pour l'email reçu
+                formData.set('_subject', formData.get('subject') || 'Nouveau message');
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: form.method,
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        formMessage.classList.remove('hidden');
+                        form.reset();
+                        setTimeout(() => formMessage.classList.add('hidden'), 5000);
+                    } else {
+                        alert("Une erreur est survenue. Veuillez réessayer.");
+                    }
+                } catch (err) {
+                    alert("Impossible d'envoyer le message. Vérifiez votre connexion et réessayez.");
+                }
+            });
+        </script>
+    </main>
+
+    {% include footer.html %}
+
+    <div class="gtranslate_wrapper"></div>
+    <script>
+        window.gtranslateSettings = {
+            "default_language": "fr",
+            "native_language_names": true,
+            "detect_browser_language": true,
+            "languages": ["da", "de", "en", "el", "es", "fr", "it", "nl", "no", "pt", "sv", "vi"],
+            "wrapper_selector": ".gtranslate_wrapper",
+            "alt_flags": { "en": "usa" }
+        };
+    </script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+
+</body>
+
+</html>

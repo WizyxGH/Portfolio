@@ -1,0 +1,360 @@
+---
+title: "À propos"
+description: "Étudiant de 22 ans passionné par l'UI/UX Design, l'écriture et le voyage. Découvrez mon parcours, mes
+compétences et ce qui m'anime au quotidien."
+permalink: /about/
+priority: 0.8
+---
+
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% seo %}
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://wizyx.me/about/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="À propos - Florian Gertner Kilian">
+    <meta property="og:description"
+        content="Étudiant de 22 ans passionné par l'UI/UX Design, l'écriture et le voyage. Découvrez mon parcours, mes compétences et ce qui m'anime au quotidien.">
+    <meta property="og:image" content="{{ site.url }}/assets/media/opengraph/default-og.jpg">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="wizyx.me">
+    <meta property="twitter:url" content="https://wizyx.me/about/">
+    <meta name="twitter:title" content="À propos - Florian Gertner Kilian">
+    <meta name="twitter:description"
+        content="Étudiant de 22 ans passionné par l'UI/UX Design, l'écriture et le voyage. Découvrez mon parcours, mes compétences et ce qui m'anime au quotidien.">
+    <meta name="twitter:image" content="{{ site.url }}/assets/media/opengraph/default-og.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://cdn.gtranslate.net">
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/assets/css/boxicons.min.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/tailwind.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+    <link rel="icon" type="image/x-icon" href="{{ '/assets/media/favicon.ico' | relative_url }}">
+
+    <script src="{{ '/js/layout.js' | relative_url }}" defer></script>
+    <script src="{{ '/js/theme.js' | relative_url }}" defer></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6PJB5NW1Y5"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-6PJB5NW1Y5'); </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Accueil",
+                    "item": "https://wizyx.me/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "À propos",
+                    "item": "https://wizyx.me/about/"
+                }
+            ]
+        }
+    </script>
+</head>
+
+<body class="font-inter transition-colors duration-300 page-bg">
+
+    <!-- Navbar -->
+    {% include navbar.html %}
+
+    <main class="container mx-auto px-6 py-16 lg:px-32 flex flex-col gap-8">
+
+        <!-- HEADER -->
+        <header class="flex flex-col items-center text-center gap-4">
+            <div class="relative lg:w-40 lg:h-40" style="width: 160px; height: 160px;">
+                <!-- Lightbulb Icon -->
+                <div class="absolute z-20 animate-float" style="top: -48px; right: -56px;">
+                    {% include icons/lightbulb_3d.svg %}
+                </div>
+                <!-- Profile Picture -->
+                <div class="relative w-full h-full rounded-full p-1.5"
+                    style="background: linear-gradient(to top right, #411FEB, #7000FF); box-shadow: 0 10px 40px -10px rgba(65,31,235,0.6);">
+                    <img id="profile-pic" src="/assets/media/profilepicturepro.png" alt="Florian Gertner Kilian"
+                        class="w-full h-full rounded-full object-cover outline-4 border-[#2200CE] relative z-0 transition-all duration-500 ease-in-out">
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <h1 class="text-5xl font-bold text-[#121212] dark:text-white leading-tight"
+                    style="font-family: 'Inter', sans-serif;">
+                    Florian <span class="text-[#121212] dark:text-white">Gertner Kilian</span>
+                </h1>
+                <p class="lg:text-2xl text-gray-500 font-semibold dark:text-gray-400">
+                    UI/UX Designer • Copywriter
+                </p>
+            </div>
+        </header>
+
+        <!-- HISTOIRE CARD -->
+        <section id="mon-histoire"
+            class="card-bg border border-[rgba(65,31,235,0.24)] dark:border-[rgba(85,54,237,0.24)] flex flex-col items-start gap-8 self-stretch p-8"
+            style="border-radius: 16px;">
+            <div class="flex flex-col gap-4">
+                <span class="text-xs font-bold text-[#411FEB] dark:text-[#5536ED] uppercase block">Mon histoire</span>
+                <h2 class="text-2xl font-bold text-[#121212] dark:text-white leading-relaxed">
+                    Pourquoi exercer le métier d'<span class="font-bold text-transparent bg-clip-text"
+                        style="background: linear-gradient(180deg, #411FEB 0%, #251285 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">UI/UX
+                        Designer freelance</span> ?
+                </h2>
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Étudiant de 22 ans ayant terminé un BUT MMI (Métiers du Multimédia et de l’Internet) dans le sud de
+                    la France, je ressens le besoin de libérer ma créativité par le biais de l’art. Également conscient
+                    des avantages que permettent le numérique, j’ai toujours eu l’ambition de créer et faire vivre tout
+                    un tas de projets qui me tiennent à cœur et m’animent au quotidien.
+                </p>
+            </div>
+
+            <!-- TIMELINE -->
+            <div class="relative"
+                style="display: flex; flex-direction: column; gap: 16px; padding-left: 24px; margin-left: 8px;">
+                <!-- Timeline vertical line -->
+                <div class="absolute left-0 top-2 bottom-0 timeline-line"
+                    style="border-top-left-radius: 4px; border-bottom-left-radius: 4px;"></div>
+
+                <!-- Item 1 -->
+                <div class="relative flex flex-col gap-3">
+                    <!-- Dot -->
+                    <span class="absolute rounded-full bg-[#411FEB]"
+                        style="left: -34px; top: 8px; width: 16px; height: 16px; z-index: 10;"></span>
+                    <h3 class="font-bold text-xl text-[#121212] dark:text-white">Apprentissages</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm lg:text-base leading-7 text-justify">
+                        De ce fait, après avoir longtemps expérimenté dans mon coin comme <strong>autodidacte</strong>,
+                        devant la complexité technique que représente ce merveilleux outil, j'ai décidé de m'orienter
+                        vers des <strong>études courtes et professionnalisantes</strong>. J'ai alors choisi de faire un
+                        <strong>BTS informatique (SIO)</strong> afin d'<strong>apprendre à coder</strong>. Cela aurait
+                        permis de savoir <strong>donner vie aux diverses idées de sites et d'applications</strong> qui
+                        me viennent en tête. Malgré l'obtention du diplôme, je me suis rendu compte que passer la
+                        journée à écrire des lignes de code ne correspondait pas à ma vie rêvée. Ce que j'aime c'est
+                        certes créer
+                        des solutions numériques mais surtout <strong>l'aspect visuel et esthétique</strong> pour
+                        concevoir des
+                        interfaces agréables, intuitives et efficaces à naviguer. Le numérique doit être à l'avantage de
+                        l'Homme et
+                        non prendre son contrôle.</span>
+                    </p>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="relative flex flex-col gap-3">
+                    <span class="absolute rounded-full bg-[#411FEB]"
+                        style="left: -34px; top: 8px; width: 16px; height: 16px; z-index: 10;"></span>
+                    <h3 class="font-bold text-xl text-[#121212] dark:text-white">Passions</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm lg:text-base leading-7 text-justify">
+                        Ce <strong>besoin d'entraide et de partage</strong>, je le transmet aussi par
+                        l'<strong>écriture</strong>. C'est un <strong>vecteur d'échange</strong> bien pratique qui me
+                        permet de <strong>m'exprimer</strong>. J'aime
+                        <strong>faire découvrir aux autres mes passions</strong> pour les emmener avec moi. C'est
+                        pourquoi, je contribue à la communauté des <strong>fans de bandes dessinées Disney</strong>
+                        (oui, ça existe !) en <strong>archivant des magazines</strong> du monde entier et en
+                        <strong>rédigeant des articles</strong> de temps à autre.
+                    </p>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="relative flex flex-col gap-3">
+                    <span class="absolute rounded-full bg-[#411FEB]"
+                        style="left: -34px; top: 8px; width: 16px; height: 16px; z-index: 10;"></span>
+                    <h3 class="font-bold text-xl text-[#121212] dark:text-white">Voyages</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm lg:text-base leading-7 text-justify">
+                        Mes parents m'ont donné leur <strong>goût du voyage</strong>. Rien de mieux pour
+                        <strong>comprendre le monde qui nous entoure</strong> que le <strong>parcourir et
+                            l'explorer</strong> (de sa <strong>beauté</strong> à ses failles). Alors que beaucoup de
+                        différences nous divisent, on se rend compte que dans le fond on est <strong>tous les
+                            mêmes</strong>. Avoir la Terre comme <strong>terrain de jeu</strong> ouvre l'esprit et donne
+                        de nouvelles perspectives.
+                    </p>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="relative flex flex-col gap-3">
+                    <span class="absolute rounded-full bg-[#411FEB]"
+                        style="left: -34px; top: 8px; width: 16px; height: 16px; z-index: 10;"></span>
+                    <h3 class="font-bold text-xl text-[#121212] dark:text-white">Esprit sportif</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm lg:text-base leading-7 text-justify">
+                        J'ai toujours eu l'envie de <strong>bouger</strong> et de <strong>me surpasser</strong>. Le
+                        <strong>sport</strong> est donc un moyen évident. Que cela passe
+                        par le <strong>collectif</strong> en faisant partie pendant 7 ans d'un club de foot puis autant
+                        d'années dans un club de basket ou par les <strong>performances individuelles</strong> en se
+                        <strong>surpassant physiquement et mentalement</strong> grâce à la course à pied.
+                    </p>
+
+                    <p class="font-bold text-[#121212] dark:text-white uppercase text-xs opacity-80 mb-2">
+                        Objectifs :</p>
+                    <ul class="list-disc pl-5 text-sm text-gray-700 dark:text-gray-300">
+                        <li>Courir 10 km par jour pendant 100j ✅</li>
+                        <li>Courir un marathon en moins de 4h (record actuel : semi-marathon en 1h50m12s)</li>
+                        <li>Faire le GR20 en Corse</li>
+                        <li>Gravir le Mont-Blanc en partant de Chamonix puis le Kilimandjaro</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CITATIONS CARD -->
+        <section id="citations"
+            class="card-bg shadow-[0_10px_60px_-15px_rgba(0,0,0,0.03)] border border-[rgba(65,31,235,0.24)] dark:border-[rgba(85,54,237,0.24)] flex flex-col items-start gap-8 self-stretch p-8"
+            style="border-radius: 16px;">
+            <div class="mb-12 flex flex-col gap-4">
+                <span class="text-sm font-bold text-[#411FEB] dark:text-[#5536ED] uppercase block">Citations</span>
+                <h2 class="text-2xl font-bold text-[#121212] dark:text-white leading-relaxed">
+                    Mon état d'esprit</h2>
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Enthousiaste, curieux et toujours optimiste, je donne le meilleur de moi-même pour exprimer ma
+                    créativité et étoffer mon panel de compétences. Honnête et attentionné, j’ai la volonté d’aider les
+                    gens à mon échelle pour laisser un impact positif.
+                </p>
+            </div>
+
+            <!-- Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                <!-- Quote 1 -->
+                <div class="flex items-stretch h-full hover:shadow-sm transition-shadow"
+                    style="border-top-right-radius: 24px; border-bottom-right-radius: 24px;">
+                    <div class="citation-line bg-[#411FEB] rounded-full shrink-0 self-stretch"></div>
+                    <div class="py-3 quote-bg px-4 w-full"
+                        style="border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
+                        <p class="italic text-[#121212] dark:text-white font-medium leading-relaxed text-sm">
+                            Life's greatest moments and deepest connections exist outside of your comfort zone
+                        </p>
+                    </div>
+                </div>
+                <!-- Quote 2 -->
+                <div class="flex items-stretch h-full hover:shadow-sm transition-shadow"
+                    style="border-top-right-radius: 24px; border-bottom-right-radius: 24px;">
+                    <div class="citation-line bg-[#411FEB] rounded-full shrink-0 self-stretch"></div>
+                    <div class="py-3 quote-bg px-4 w-full"
+                        style="border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
+                        <p class="italic text-[#121212] dark:text-white font-medium leading-relaxed text-sm">
+                            A head full of fears has no space for dreams.
+                        </p>
+                    </div>
+                </div>
+                <!-- Quote 3 -->
+                <div class="flex items-stretch h-full hover:shadow-sm transition-shadow"
+                    style="border-top-right-radius: 24px; border-bottom-right-radius: 24px;">
+                    <div class="citation-line bg-[#411FEB] rounded-full shrink-0 self-stretch"></div>
+                    <div class="py-3 quote-bg px-4 w-full"
+                        style="border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
+                        <p class="italic text-[#121212] dark:text-white font-medium leading-relaxed text-sm">
+                            A stranger is a friend you haven't met yet.
+                        </p>
+                    </div>
+                </div>
+                <!-- Quote 4 -->
+                <div class="flex items-stretch pr-3 h-full hover:shadow-sm transition-shadow"
+                    style="border-top-right-radius: 24px; border-bottom-right-radius: 24px;">
+                    <div class="citation-line bg-[#411FEB] rounded-full shrink-0 self-stretch"></div>
+                    <div class="py-3 quote-bg px-4 w-full"
+                        style="border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
+                        <p class="italic text-[#121212] dark:text-white font-medium leading-relaxed text-sm">
+                            Insanity is doing the same thing over and over again and expecting different results.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CV BANNER -->
+        <section
+            class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 group text-white relative mx-auto transform hover:scale-[1.01] transition-transform duration-300 overflow-hidden flex flex-col items-center justify-between shadow-[0_4px_4px_0_rgba(0,0,0,0.20)] w-fit p-8"
+            style="background: linear-gradient(180deg, #411FEB 0%, #251285 100%); border-radius: 16px; border: 4px solid rgba(255, 255, 255, 0.24); gap: 32px;">
+
+            <!-- Content Container -->
+            <div class="relative z-10 flex flex-col md:flex-row items-center gap-8">
+
+                <!-- Image/Preview Side -->
+                <div class="flex justify-center">
+                    <img src="/assets/media/CV.png" alt="Aperçu du CV"
+                        class="cv-img transform shadow-[0_4px_4px_0_rgba(255,255,255,0.10)]"
+                        style="width: 135px; height: auto; transform: rotate(-5deg); border-radius: 2px; border: 1px solid #FFF;">
+                </div>
+
+                <!-- Content Side -->
+                <div class="space-y-4">
+                    <h2 class="text-xl lg:text-2xl font-bold">Vous partagez une vision plus traditionnelle
+                        du recrutement ?</h2>
+                    <p class="text-white opacity-80 text-sm leading-relaxed">
+                        Découvrez mes compétences techniques et relationnelles, le détail de mes études accompagné de
+                        mes différentes expériences professionnelles ainsi que ce qui me passionne.
+                    </p>
+
+                    <div class="pt-4 flex w-full md:w-auto">
+                        <a href="/assets/media/CV.pdf" target="_blank" rel="noopener noreferrer"
+                            class="w-full md:w-auto flex justify-center items-center gap-1 bg-white rounded-full px-4 py-2 text-[#411FEB] font-inter font-semibold hover:bg-gray-300 hover:text-[#3215c7] transition-all shadow-sm h-fit">
+                            <span>Voir mon CV en PDF</span>
+                            <i class='bx bx-link-external text-[#121212] opacity-80 flex items-center mb-[2px]'></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    {% include footer.html %}
+
+    <div class="gtranslate_wrapper"></div>
+    <script>
+        window.gtranslateSettings = {
+            "default_language": "fr",
+            "native_language_names": true,
+            "detect_browser_language": true,
+            "languages": ["da", "de", "en", "el", "es", "fr", "it", "nl", "no", "pt", "sv", "vi"],
+            "wrapper_selector": ".gtranslate_wrapper",
+            "alt_flags": { "en": "usa" }
+        };
+    </script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+</body>
+
+<script>
+    // Profile picture hover effect
+    const profilePic = document.getElementById('profile-pic');
+    const defaultImage = '/assets/media/profilepicturepro.png';
+    const hoverImage = '/assets/media/photo.webp';
+
+    if (profilePic) {
+        profilePic.addEventListener('mouseenter', () => {
+            profilePic.src = hoverImage;
+        });
+
+        profilePic.addEventListener('mouseleave', () => {
+            profilePic.src = defaultImage;
+        });
+    }
+
+    // Animation on Scroll
+    document.addEventListener("DOMContentLoaded", () => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+            observer.observe(el);
+        });
+    });
+</script>
+
+</html>

@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://localhost:4000/about/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/contact/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/creations/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/creations_studies/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/legal/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/services/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/creations/le-guide-du-golfe-de-saint-tropez/</loc>
@@ -98,5 +116,17 @@
 </url>
 <url>
 <loc>http://localhost:4000/creations_studies/sites-wordpress/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/assets/media/CV.pdf</loc>
+<lastmod>2026-02-09T12:15:13+01:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/assets/media/projects/results/Introduction%20sur%20la%20faune%20et%20la%20flore%20du%20Var/Article%20Mus%C3%A9um%20Tavares.pdf</loc>
+<lastmod>2026-02-09T12:15:39+01:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/assets/media/projects/results/Promodentaire/Promodentaire%20Pr%C3%A9sentation.pdf</loc>
+<lastmod>2026-02-09T12:15:39+01:00</lastmod>
 </url>
 </urlset>
