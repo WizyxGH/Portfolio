@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .toLowerCase()
             .trim()
             .replace(/\s+/g, '-')
-            .replace(/[^\w\-]+/g, '')
+            .replace(/[^\w\-]+/g, '-')
             .replace(/\-\-+/g, '-');
     }
 
@@ -458,13 +458,29 @@ document.addEventListener("DOMContentLoaded", function () {
                 link.href = projectUrl;
                 link.className = "flex items-center gap-2 w-full text-inherit no-underline";
 
-                const img = document.createElement('img');
-                img.src = project.image;
-                img.alt = project.title;
-                img.width = 48;
-                img.height = 48;
-                img.className = "w-12 h-12 object-cover rounded-lg flex-shrink-0";
-                link.appendChild(img);
+                if (project.image.endsWith('.webm') || project.image.endsWith('.mp4')) {
+                    const video = document.createElement('video');
+                    video.autoplay = true;
+                    video.loop = true;
+                    video.muted = true;
+                    video.playsInline = true;
+                    video.className = "w-12 h-12 object-cover rounded-lg flex-shrink-0 bg-gray-100 dark:bg-gray-800";
+
+                    const source = document.createElement('source');
+                    source.src = project.image;
+                    source.type = project.image.endsWith('.webm') ? 'video/webm' : 'video/mp4';
+
+                    video.appendChild(source);
+                    link.appendChild(video);
+                } else {
+                    const img = document.createElement('img');
+                    img.src = project.image;
+                    img.alt = project.title;
+                    img.width = 48;
+                    img.height = 48;
+                    img.className = "w-12 h-12 object-cover rounded-lg flex-shrink-0";
+                    link.appendChild(img);
+                }
 
                 const textContainer = document.createElement('div');
                 textContainer.className = "flex flex-col sm:flex-row sm:items-center overflow-hidden";

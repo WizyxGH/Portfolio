@@ -34,6 +34,7 @@ priority: 0.9
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
+    <link rel="preload" href="/assets/fonts/boxicons.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="{{ '/assets/css/boxicons.min.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/tailwind.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
@@ -130,7 +131,8 @@ priority: 0.9
                 <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
                     <video autoplay loop muted playsinline
                         class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
-                        <source src="{{ project.image }}" type="video/webm">
+                        <source src="{{ project.image }}"
+                            type="{% if project.image contains '.webm' %}video/webm{% else %}video/mp4{% endif %}">
                         Your browser does not support the video tag.
                     </video>
                 </div>

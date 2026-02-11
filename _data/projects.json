@@ -82,7 +82,16 @@
                 "name": "Figma",
                 "icon": "bx bxl-figma"
             }
-        ]
+        ],
+        "testimonial": {
+            "text": "Je l'ai vu direct !! Très fort 👍",
+            "author": {
+                "name": "Maxime \"Click\" Peiffer",
+                "title": "Créateur de contenu (1.1M sur YouTube)",
+                "companyUrl": "https://www.youtube.com/@MaximeClick",
+                "avatar": "/assets/media/maximeclick.webp"
+            }
+        }
     },
     {
         "id": 3,
@@ -257,13 +266,13 @@
     },
     {
         "id": 8,
-        "title": "PHOQ.tv",
+        "title": "PHOQ.TV",
         "text": "Lorem ipsum.",
-        "description": "Redesign de la landing page de l'agence créative PHOQ.tv spécialisée en motion design et 3D.",
+        "description": "Redesign de la landing page de l'agence créative PHOQ.TV spécialisée en motion design et 3D.",
         "image": "/assets/media/projects/phoq.webp",
         "projectLink": "https://www.phoq.tv",
         "date": "2026-01-01",
-        "type": "Site internet",
+        "type": "Landing page",
         "context": "Professionnel",
         "tags": [
             {
@@ -277,6 +286,10 @@
             {
                 "name": "Copywriting",
                 "icon": "bx bxs-pen"
+            },
+            {
+                "name": "Responsive",
+                "icon": "bx bxs-devices"
             }
         ],
         "width": 1920,

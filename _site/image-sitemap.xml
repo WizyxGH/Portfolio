@@ -453,7 +453,7 @@
       
       <image:image>
         <image:loc>http://localhost:4000/assets/media/projects/phoq.webp</image:loc>
-        <image:title><![CDATA[PHOQ.tv]]></image:title>
+        <image:title><![CDATA[PHOQ.TV]]></image:title>
       </image:image>
       
       
@@ -461,6 +461,11 @@
       <image:image>
         <image:loc>http://localhost:4000/assets/media/projects/results/PHOQ.tv/Home.jpg</image:loc>
         <image:title><![CDATA[Home]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/PHOQ.tv/Mobile%20-%20Home.jpg</image:loc>
+        <image:title><![CDATA[Mobile   home]]></image:title>
       </image:image>
       
       
