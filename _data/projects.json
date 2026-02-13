@@ -179,8 +179,8 @@
                 "icon": "bx bxs-devices"
             }
         ],
-        "width": 1920,
-        "height": 1080,
+        "width": 1440,
+        "height": 637,
         "technologies": [
             {
                 "name": "Figma",
@@ -266,7 +266,7 @@
     },
     {
         "id": 8,
-        "title": "PHOQ.TV",
+        "title": "PHOQ.tv",
         "text": "Lorem ipsum.",
         "description": "Redesign de la landing page de l'agence créative PHOQ.TV spécialisée en motion design et 3D.",
         "image": "/assets/media/projects/phoq.webp",
