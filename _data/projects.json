@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": 5,
         "title": "Le Guide du Golfe de Saint-Tropez",
         "text": "Dans le cadre de mon stage de BUT MMI de 2ᵉ année, j'ai participé avec Caroline Aubert et Enzo Capaldi (un autre stagiaire) au redesign du site et de l'application du Guide du Golfe de Saint-Tropez. On se répartissait le travail et l'on a dû faire plusieurs itérations en fonction des retours clients mais je me suis occupé de redesigner la plupart des pages.<br><br>Le Guide du Golfe de Saint-Tropez est un site internet ainsi qu'une application mobile permettant aux touristes comme aux résidents de connaître les établissements et évènements qu'il y a dans le golfe de Saint-Tropez. Il s'agit d'un guide touristique local.<br><br>Ils ont la volonté de s'expandre en mettant plus en avant l'aspect média du site car ils ont une journaliste qui rédige des articles sur les établissements et évènements.<br><br>Le site actuel, bien que fonctionnel, a un style plutôt désuet et pourrait être plus plaisant à naviguer. C'était donc notre objectif. Il fallait s'approprier leur idée pour retravailler la navigation du site ainsi que les inspirations visuels fournis (notamment le Bento Design) afin de fournir un tout cohérent pour l'utilisateur.",
         "description": "Redesign du site et de l'application du guide touristique local, Le Guide du Golfe de Saint-Tropez.",
@@ -152,7 +152,7 @@
         ]
     },
     {
-        "id": 5,
+        "id": 1,
         "title": "JOBBRR",
         "text": "En France, une trop grande partie des étudiants fait face à une précarité croissante. Entre besoin de revenus pour subvenir à leur dépense, contraintes de temps et la difficulté à concilier études et travail. Et pourtant paradoxalement, beaucoup d'entre eux développent très tôt des compétences créatives solides (design graphique, vidéo, communication, marketing, développement...), souvent avant même l'obtention d'un diplôme.<br><br>Pourtant, ces profils restent peu visibles.<br><br>D'un côté, les étudiants :<br>- cherchent des missions flexibles et rémunérées<br>- souhaitent valoriser leurs compétences réelles, même sans diplôme<br>- peinent à se démarquer avec un CV classique<br><br>De l'autre, les entreprises :<br>- ont besoin de profils fiables et rapidement opérationnels<br>- cherchent des signaux clairs sur les compétences et la disponibilité<br>- manquent de temps pour trier et qualifier<br><br>Les solutions actuelles échouent à faire matcher talent créatif pur en pleine expansion, contraintes étudiantes avec les besoins business des entreprises. Les plateformes existantes de jobs étudiants reposent sur des codes dépassés, et sur une vision incomplète du talent.<br><br>JOBBRR part du principe que le problème n'est pas le manque de compétences, mais leur invisibilité.",
         "description": "Design des pages d’accueil et profils pour une plateforme de mise en relation professionnelle entre étudiants et entreprises.",
@@ -779,7 +779,7 @@
         "title": "Joyca, Trouve la règle",
         "text": "Coming soon (encore sous NDA)...",
         "description": "Coming soon (encore sous NDA)...",
-        "image": "/assets/media/projects/projectnoresult.svg",
+        "image": "/assets/media/projects/trouvelaregle.webp",
         "projectLink": "#",
         "date": "2025-03-01",
         "type": "Application",
@@ -821,7 +821,9 @@
                 "name": "Thùy Trang",
                 "avatar": "https://media.licdn.com/dms/image/v2/D5603AQF4zgVsR7zIjg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1686543517585?e=1771459200&v=beta&t=7X3XvboAwreF-Mko9Bejs2LuSCF09kTq50vcdImbykg"
             }
-        ]
+        ],
+        "width": 1280,
+        "height": 720
     },
     {
         "id": 26,

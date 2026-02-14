@@ -130,32 +130,101 @@ permalink: /
     {% include navbar.html %}
 
     <!-- Header -->
-    <header
-        class="text-white bg-[#411FEB] p-8 lg:px-32 flex flex-col lg:flex-row items-stretch gap-4 transition-colors duration-200">
-        <!-- Image -->
-        <div class="flex justify-start lg:justify-end lg:w-1/2 order-1 lg:order-2 mb-4">
-            <img src="/assets/media/photo.webp" alt="Photo de Florian Gertner Kilian" fetchpriority="high"
-                class="h-full lg:max-h-[250px] rounded-xl shadow-lg object-cover">
-        </div>
-        <!-- Texte -->
-        <div class="lg:w-1/2 flex flex-col justify-center order-2 lg:order-1 gap-6">
-            <div>
-                <h1 class="text-5xl font-bold">Florian <span class="uppercase">Gertner Kilian</span></h1>
-                <h2 class="text-stroke lg:text-5xl text-4xl font-bold mt-2">
-                    <span id="typewriter"></span>
-                </h2>
+    <header class="text-white bg-[#411FEB] p-8 lg:px-32 transition-colors duration-200">
+        <!-- Hero Content -->
+        <div class="flex flex-col lg:flex-row items-stretch gap-4 mb-8">
+            <!-- Image -->
+            <div class="flex justify-start lg:justify-end lg:w-1/2 order-1 lg:order-2 mb-4">
+                <img src="/assets/media/photo.webp" alt="Photo de Florian Gertner Kilian" fetchpriority="high"
+                    class="h-full lg:max-h-[250px] rounded-xl shadow-lg object-cover">
             </div>
-            <p>Je crée des interfaces premium et intuitives en alliant clarté, esthétique et storytelling pour offrir la
-                meilleure expérience possible aux utilisateurs.</p>
-            <div class="flex flex-wrap gap-4">
-                <a href="/services/"
-                    class="bg-white text-[#411FEB] px-6 py-3 font-semibold rounded-xl w-full md:w-auto text-center transition-colors hover:bg-gray-100 hover:text-[#3215c7]">
-                    Alors, on collabore ?
+            <!-- Texte -->
+            <div class="lg:w-1/2 flex flex-col justify-center order-2 lg:order-1 gap-6">
+                <div>
+                    <h1 class="text-5xl font-bold">Florian <span class="uppercase">Gertner Kilian</span></h1>
+                    <h2 class="text-stroke lg:text-5xl text-4xl font-bold mt-2">
+                        <span id="typewriter"></span>
+                    </h2>
+                </div>
+                <p>Je crée des interfaces premium et intuitives en alliant clarté, esthétique et storytelling pour
+                    offrir la
+                    meilleure expérience possible aux utilisateurs.</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="/services/"
+                        class="bg-white text-[#411FEB] px-6 py-3 font-semibold rounded-xl w-full md:w-auto text-center transition-colors hover:bg-gray-100 hover:text-[#3215c7]">
+                        Alors, on collabore ?
+                    </a>
+                    <a href="/creations/"
+                        class="outline outline-2 text-white px-6 py-3 font-semibold rounded-xl flex items-center justify-center gap-2 w-full md:w-auto transition-colors hover:bg-[#3215c7] hover:outline-[#3215c7]">
+                        Découvrir mes créations
+                        <i class='bx bx-arrow-up-right'></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Brands -->
+        <style>
+            @keyframes scroll-brands {
+                0% {
+                    transform: translateX(0);
+                }
+
+                100% {
+                    transform: translateX(-50%);
+                }
+            }
+
+            .brands-scroll {
+                animation: scroll-brands 20s linear infinite;
+            }
+
+            @media (max-width: 1024px) {
+                .brands-scroll {
+                    animation: scroll-brands 10s linear infinite;
+                }
+            }
+
+            .brands-scroll:hover {
+                animation-play-state: paused;
+            }
+        </style>
+        <div class="overflow-hidden">
+            <div class="brands-scroll flex items-center gap-16 lg:gap-24">
+                <!-- First set of logos -->
+                <a href="https://www.phoq.tv" target="_blank" rel="noopener noreferrer"
+                    class="transition-opacity hover:opacity-80 flex-shrink-0">
+                    <img src="/assets/media/brands/PHOQTV.svg" alt="PHOQ.tv" class="h-10 object-contain">
                 </a>
-                <a href="/creations/"
-                    class="outline outline-2 text-white px-6 py-3 font-semibold rounded-xl flex items-center justify-center gap-2 w-full md:w-auto transition-colors hover:bg-[#3215c7] hover:outline-[#3215c7]">
-                    Découvrir mes créations
-                    <i class='bx bx-arrow-up-right'></i>
+                <a href="https://jobbrr.io" target="_blank" rel="noopener noreferrer"
+                    class="transition-opacity hover:opacity-80 flex-shrink-0">
+                    <img src="/assets/media/brands/JOBBRR.svg" alt="JOBBRR" class="h-10 object-contain">
+                </a>
+                <a href="https://digitalunicorn.fr" target="_blank" rel="noopener noreferrer"
+                    class="transition-opacity hover:opacity-80 flex-shrink-0">
+                    <img src="/assets/media/brands/Digital Unicorn.svg" alt="Digital Unicorn"
+                        class="h-10 object-contain">
+                </a>
+                <a href="https://www.mafigue.com" target="_blank" rel="noopener noreferrer"
+                    class="transition-opacity hover:opacity-80 flex-shrink-0">
+                    <img src="/assets/media/brands/Mafigue.svg" alt="Mafigue" class="h-10 object-contain">
+                </a>
+                <!-- Duplicate set for seamless loop -->
+                <a href="https://www.phoq.tv" target="_blank" rel="noopener noreferrer"
+                    class="transition-opacity hover:opacity-80 flex-shrink-0">
+                    <img src="/assets/media/brands/PHOQTV.svg" alt="PHOQ.tv" class="h-10 object-contain">
+                </a>
+                <a href="https://jobbrr.io" target="_blank" rel="noopener noreferrer"
+                    class="transition-opacity hover:opacity-80 flex-shrink-0">
+                    <img src="/assets/media/brands/JOBBRR.svg" alt="JOBBRR" class="h-10 object-contain">
+                </a>
+                <a href="https://digitalunicorn.fr" target="_blank" rel="noopener noreferrer"
+                    class="transition-opacity hover:opacity-80 flex-shrink-0">
+                    <img src="/assets/media/brands/Digital Unicorn.svg" alt="Digital Unicorn"
+                        class="h-10 object-contain">
+                </a>
+                <a href="https://www.mafigue.com" target="_blank" rel="noopener noreferrer"
+                    class="transition-opacity hover:opacity-80 flex-shrink-0">
+                    <img src="/assets/media/brands/Mafigue.svg" alt="Mafigue" class="h-10 object-contain">
                 </a>
             </div>
         </div>
