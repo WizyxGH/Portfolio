@@ -31,13 +31,20 @@ navigation:
     id: dropdownButton
     i18n: nav_creations
     dropdown:
-      - title: Professionnel
+      - title: UI/UX Design
         url: /creations/
-        description: UI/UX Design, articles
+        description: UI/UX Design
         i18n: nav_pro
         desc_i18n: nav_pro_desc
-        icon: bx bxs-briefcase-alt-2
+        icon: bx bx-layer
         style: rounded-t
+      - title: Articles
+        url: /articles/
+        description: Picsou-Soir
+        i18n: nav_articles
+        desc_i18n: nav_articles_desc
+        icon: bx bx-pen
+        style: rounded-none
       - title: Académique
         url: /creations_studies/
         description: Réalisé en BUT MMI

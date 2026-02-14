@@ -512,8 +512,12 @@ permalink: /
                 const projectsGrid = document.getElementById('projects-grid');
                 if (!projectsGrid) return;
 
-                // Show only first 6 projects for carousel
-                const projects = data.slice(0, 6);
+                // Sort by ID, filter out study projects, and show only first 6 non-study projects for carousel
+                // This matches the behavior of the creations page
+                const projects = data
+                    .sort((a, b) => a.id - b.id)  // Sort by ID ascending
+                    .filter(project => project.is_study !== true)
+                    .slice(0, 6);
 
                 // Add padding to container for scroll snap alignment/visuals if needed
                 // Note: The visual margin fix is handled by CSS classes on the container in HTML usually, or here on items
