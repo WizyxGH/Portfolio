@@ -192,7 +192,7 @@ select,
 
 @media (max-width: 1024px) {
   .brands-scroll {
-    animation: scroll-brands 22s linear infinite;
+    animation: scroll-brands 12s linear infinite;
   }
 }
 
@@ -201,8 +201,8 @@ select,
 }
 
 /* Fade effect on carousel edges - applied to parent container to stay fixed */
-.overflow-hidden.relative::before,
-.overflow-hidden.relative::after {
+.brands-carousel-wrapper::before,
+.brands-carousel-wrapper::after {
   content: '';
   position: absolute;
   top: 0;
@@ -212,12 +212,12 @@ select,
   pointer-events: none;
 }
 
-.overflow-hidden.relative::before {
+.brands-carousel-wrapper::before {
   left: 0;
   background: linear-gradient(to right, #411FEB, transparent);
 }
 
-.overflow-hidden.relative::after {
+.brands-carousel-wrapper::after {
   right: 0;
   background: linear-gradient(to left, #411FEB, transparent);
 }
