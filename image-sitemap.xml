@@ -6,6 +6,38 @@ permalink: /image-sitemap.xml
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   {% for page in site.pages %}
+    {% if page.url == '/' %}
+    <url>
+      <loc>{{ site.url }}/</loc>
+      <image:image>
+        <image:loc>{{ site.url }}/assets/media/brands/PHOQTV.svg</image:loc>
+        <image:title>PHOQ.tv Logo</image:title>
+      </image:image>
+      <image:image>
+        <image:loc>{{ site.url }}/assets/media/brands/JOBBRR.svg</image:loc>
+        <image:title>JOBBRR Logo</image:title>
+      </image:image>
+      <image:image>
+        <image:loc>{{ site.url }}/assets/media/brands/Digital Unicorn.svg</image:loc>
+        <image:title>Digital Unicorn Logo</image:title>
+      </image:image>
+      <image:image>
+        <image:loc>{{ site.url }}/assets/media/brands/Mafigue.svg</image:loc>
+        <image:title>Mafigue Logo</image:title>
+      </image:image>
+    </url>
+    {% endif %}
+    
+    {% if page.url == '/about/' %}
+    <url>
+      <loc>{{ site.url }}/about/</loc>
+      <image:image>
+        <image:loc>{{ site.url }}/assets/media/profilepicturepro.png</image:loc>
+        <image:title>Florian Gertner Kilian Profile Picture</image:title>
+      </image:image>
+    </url>
+    {% endif %}
+
     {% if page.layout == 'project' %}
     <url>
       <loc>{{ site.url }}{{ page.url | uri_escape | xml_escape }}</loc>

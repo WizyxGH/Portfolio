@@ -3,27 +3,103 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   
     
-  
+    
+    
+
     
   
     
-  
+    
+    
+    <url>
+      <loc>http://localhost:4000/about/</loc>
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/profilepicturepro.png</image:loc>
+        <image:title>Florian Gertner Kilian Profile Picture</image:title>
+      </image:image>
+    </url>
+    
+
     
   
     
-  
+    
+    
+
     
   
     
-  
+    
+    
+
     
   
     
-  
+    
+    
+
     
   
     
+    
+    
+
+    
   
+    
+    
+    
+
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/</loc>
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/brands/PHOQTV.svg</image:loc>
+        <image:title>PHOQ.tv Logo</image:title>
+      </image:image>
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/brands/JOBBRR.svg</image:loc>
+        <image:title>JOBBRR Logo</image:title>
+      </image:image>
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/brands/Digital Unicorn.svg</image:loc>
+        <image:title>Digital Unicorn Logo</image:title>
+      </image:image>
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/brands/Mafigue.svg</image:loc>
+        <image:title>Mafigue Logo</image:title>
+      </image:image>
+    </url>
+    
+    
+    
+
+    
+  
+    
+    
+    
+
+    
+  
+    
+    
+    
+
+    
+  
+    
+    
+    
+
+    
+  
+    
+    
+    
+
     
     <url>
       <loc>http://localhost:4000/creations/le-guide-du-golfe-de-saint-tropez/</loc>
@@ -225,6 +301,10 @@
     
   
     
+    
+    
+
+    
     <url>
       <loc>http://localhost:4000/creations/maxime-click/</loc>
       
@@ -244,6 +324,10 @@
     </url>
     
   
+    
+    
+    
+
     
     <url>
       <loc>http://localhost:4000/creations/mon-gardien/</loc>
@@ -265,6 +349,10 @@
     
   
     
+    
+    
+
+    
     <url>
       <loc>http://localhost:4000/creations/france-galop-live/</loc>
       
@@ -284,6 +372,10 @@
     </url>
     
   
+    
+    
+    
+
     
     <url>
       <loc>http://localhost:4000/creations/jobbrr/</loc>
@@ -344,6 +436,10 @@
     </url>
     
   
+    
+    
+    
+
     
     <url>
       <loc>http://localhost:4000/creations/papa-france/</loc>
@@ -420,6 +516,10 @@
     
   
     
+    
+    
+
+    
     <url>
       <loc>http://localhost:4000/creations/darknet/</loc>
       
@@ -450,6 +550,10 @@
     
   
     
+    
+    
+
+    
     <url>
       <loc>http://localhost:4000/creations/phoq-tv/</loc>
       
@@ -475,6 +579,10 @@
     
   
     
+    
+    
+
+    
     <url>
       <loc>http://localhost:4000/creations/vaylune/</loc>
       
@@ -494,6 +602,10 @@
     </url>
     
   
+    
+    
+    
+
     
     <url>
       <loc>http://localhost:4000/creations/bioquest/</loc>
@@ -565,6 +677,10 @@
     
   
     
+    
+    
+
+    
     <url>
       <loc>http://localhost:4000/creations/picsou-soir/</loc>
       
@@ -605,6 +721,10 @@
     
   
     
+    
+    
+
+    
     <url>
       <loc>http://localhost:4000/creations/wca-world-cube-association/</loc>
       
@@ -644,6 +764,10 @@
     </url>
     
   
+    
+    
+    
+
     
     <url>
       <loc>http://localhost:4000/creations/what-the-duck/</loc>
@@ -715,6 +839,10 @@
     
   
     
+    
+    
+
+    
     <url>
       <loc>http://localhost:4000/creations/dumili/</loc>
       
@@ -754,6 +882,10 @@
     </url>
     
   
+    
+    
+    
+
     
     <url>
       <loc>http://localhost:4000/creations/break-screen/</loc>
@@ -830,6 +962,10 @@
     
   
     
+    
+    
+
+    
     <url>
       <loc>http://localhost:4000/creations/direct-democracy/</loc>
       
@@ -870,6 +1006,10 @@
     
   
     
+    
+    
+
+    
     <url>
       <loc>http://localhost:4000/creations/inducks/</loc>
       
@@ -894,6 +1034,10 @@
     </url>
     
   
+    
+    
+    
+
     
     <url>
       <loc>http://localhost:4000/creations/promodentaire/</loc>
@@ -950,6 +1094,10 @@
     
   
     
+    
+    
+
+    
     <url>
       <loc>http://localhost:4000/creations/ballon-nike-academy-team/</loc>
       
@@ -969,6 +1117,10 @@
     </url>
     
   
+    
+    
+    
+
     
     <url>
       <loc>http://localhost:4000/creations/pizz-ami/</loc>
@@ -1025,6 +1177,10 @@
     
   
     
+    
+    
+
+    
     <url>
       <loc>http://localhost:4000/creations/tom-et-lola/</loc>
       
@@ -1065,6 +1221,10 @@
     
   
     
+    
+    
+
+    
     <url>
       <loc>http://localhost:4000/creations/planete-loto-live/</loc>
       
@@ -1090,6 +1250,10 @@
     
   
     
+    
+    
+
+    
     <url>
       <loc>http://localhost:4000/creations/run-rerun/</loc>
       
@@ -1110,6 +1274,10 @@
     
   
     
+    
+    
+
+    
     <url>
       <loc>http://localhost:4000/creations/digital-unicorn/</loc>
       
@@ -1123,6 +1291,10 @@
     
   
     
+    
+    
+
+    
     <url>
       <loc>http://localhost:4000/creations/joyca-trouve-la-regle/</loc>
       
@@ -1135,6 +1307,10 @@
     </url>
     
   
+    
+    
+    
+
     
     <url>
       <loc>http://localhost:4000/creations_studies/danse-a-l-opera/</loc>
@@ -1155,6 +1331,10 @@
     </url>
     
   
+    
+    
+    
+
     
     <url>
       <loc>http://localhost:4000/creations_studies/introduction-sur-la-faune-et-la-flore-du-var/</loc>
@@ -1181,6 +1361,10 @@
     
   
     
+    
+    
+
+    
     <url>
       <loc>http://localhost:4000/creations_studies/video-oeuvre-culturelle/</loc>
       
@@ -1201,6 +1385,10 @@
     
   
     
+    
+    
+
+    
     <url>
       <loc>http://localhost:4000/creations_studies/campagne-de-communication-tom-et-lola/</loc>
       
@@ -1214,6 +1402,10 @@
     
   
     
+    
+    
+
+    
     <url>
       <loc>http://localhost:4000/creations_studies/strategie-de-communication-mafigue/</loc>
       
@@ -1226,6 +1418,10 @@
     </url>
     
   
+    
+    
+    
+
     
     <url>
       <loc>http://localhost:4000/creations_studies/cultophoto/</loc>
@@ -1251,6 +1447,10 @@
     </url>
     
   
+    
+    
+    
+
     
     <url>
       <loc>http://localhost:4000/creations_studies/sites-wordpress/</loc>
@@ -1301,6 +1501,10 @@
     </url>
     
   
+    
+    
+    
+
     
   
 </urlset>
