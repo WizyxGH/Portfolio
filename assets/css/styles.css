@@ -1,5 +1,6 @@
 @layer utilities {
   .text-stroke {
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-stroke: 1.5px white;
     /* Taille et couleur du contour */
@@ -172,4 +173,51 @@ select,
 [role="button"],
 .cursor-pointer {
   cursor: url('/assets/media/cursor-hover.png'), pointer !important;
+}
+
+/* Brand Carousel Infinite Scroll Animation */
+@keyframes scroll-brands {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.brands-scroll {
+  animation: scroll-brands 32s linear infinite;
+}
+
+@media (max-width: 1024px) {
+  .brands-scroll {
+    animation: scroll-brands 22s linear infinite;
+  }
+}
+
+.brands-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Fade effect on carousel edges - applied to parent container to stay fixed */
+.overflow-hidden.relative::before,
+.overflow-hidden.relative::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.overflow-hidden.relative::before {
+  left: 0;
+  background: linear-gradient(to right, #411FEB, transparent);
+}
+
+.overflow-hidden.relative::after {
+  right: 0;
+  background: linear-gradient(to left, #411FEB, transparent);
 }
