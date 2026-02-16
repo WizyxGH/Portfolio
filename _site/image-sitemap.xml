@@ -102,6 +102,159 @@
 
     
     <url>
+      <loc>http://localhost:4000/creations/trouve-la-regle-avec-joyca/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/trouvelaregleavecjoyca.webp</image:loc>
+        <image:title><![CDATA[Trouve la Règle avec Joyca]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    
+    
+
+    
+    <url>
+      <loc>http://localhost:4000/creations/jobbrr/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/jobbrr.webp</image:loc>
+        <image:title><![CDATA[JOBBRR]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Landing%20page%20entreprise%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Landing page entreprise   mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Landing%20page%20entreprise.jpg</image:loc>
+        <image:title><![CDATA[Landing page entreprise]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Landing%20page%20%C3%A9tudiant%20-%20Mobile.jpg</image:loc>
+        <image:title><![CDATA[Landing page étudiant   mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Landing%20page%20%C3%A9tudiant.jpg</image:loc>
+        <image:title><![CDATA[Landing page étudiant]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Profil%20Etudiant%20mobile.jpg</image:loc>
+        <image:title><![CDATA[Profil etudiant mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Profil%20entreprise%20mobile.jpg</image:loc>
+        <image:title><![CDATA[Profil entreprise mobile]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Profil%20entreprise.jpg</image:loc>
+        <image:title><![CDATA[Profil entreprise]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Profil%20%C3%A9tudiant%20-%20Vue%20entreprise.jpg</image:loc>
+        <image:title><![CDATA[Profil étudiant   vue entreprise]]></image:title>
+      </image:image>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Profil%20%C3%A9tudiant.jpg</image:loc>
+        <image:title><![CDATA[Profil étudiant]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    
+    
+
+    
+    <url>
+      <loc>http://localhost:4000/creations/maxime-click/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/maximeclick.webm</image:loc>
+        <image:title><![CDATA[Maxime Click]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Maxime%20Click/Landing%20page.jpg</image:loc>
+        <image:title><![CDATA[Landing page]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    
+    
+
+    
+    <url>
+      <loc>http://localhost:4000/creations/mon-gardien/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/mongardien.webp</image:loc>
+        <image:title><![CDATA[Mon Gardien]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Mon%20Gardien/Landing%20page.jpg</image:loc>
+        <image:title><![CDATA[Landing page]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    
+    
+
+    
+    <url>
+      <loc>http://localhost:4000/creations/france-galop-live/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/francegaloplive.webp</image:loc>
+        <image:title><![CDATA[France Galop Live]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/France%20Galop%20Live/Accueil.jpg</image:loc>
+        <image:title><![CDATA[Accueil]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    
+    
+
+    
+    <url>
       <loc>http://localhost:4000/creations/le-guide-du-golfe-de-saint-tropez/</loc>
       
       <image:image>
@@ -294,142 +447,6 @@
       <image:image>
         <image:loc>http://localhost:4000/assets/media/projects/results/Le%20Guide%20du%20Golfe%20de%20Saint-Tropez/Version%20mobile/%C3%89v%C3%A8nements%20du%20jour%20-%20Mobile.jpg</image:loc>
         <image:title><![CDATA[Évènements du jour   mobile]]></image:title>
-      </image:image>
-      
-      
-    </url>
-    
-  
-    
-    
-    
-
-    
-    <url>
-      <loc>http://localhost:4000/creations/maxime-click/</loc>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/maximeclick.webm</image:loc>
-        <image:title><![CDATA[Maxime Click]]></image:title>
-      </image:image>
-      
-      
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/Maxime%20Click/Landing%20page.jpg</image:loc>
-        <image:title><![CDATA[Landing page]]></image:title>
-      </image:image>
-      
-      
-    </url>
-    
-  
-    
-    
-    
-
-    
-    <url>
-      <loc>http://localhost:4000/creations/mon-gardien/</loc>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/mongardien.webp</image:loc>
-        <image:title><![CDATA[Mon Gardien]]></image:title>
-      </image:image>
-      
-      
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/Mon%20Gardien/Landing%20page.jpg</image:loc>
-        <image:title><![CDATA[Landing page]]></image:title>
-      </image:image>
-      
-      
-    </url>
-    
-  
-    
-    
-    
-
-    
-    <url>
-      <loc>http://localhost:4000/creations/france-galop-live/</loc>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/francegaloplive.webp</image:loc>
-        <image:title><![CDATA[France Galop Live]]></image:title>
-      </image:image>
-      
-      
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/France%20Galop%20Live/Accueil.jpg</image:loc>
-        <image:title><![CDATA[Accueil]]></image:title>
-      </image:image>
-      
-      
-    </url>
-    
-  
-    
-    
-    
-
-    
-    <url>
-      <loc>http://localhost:4000/creations/jobbrr/</loc>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/jobbrr.webp</image:loc>
-        <image:title><![CDATA[JOBBRR]]></image:title>
-      </image:image>
-      
-      
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Landing%20page%20entreprise%20-%20Mobile.jpg</image:loc>
-        <image:title><![CDATA[Landing page entreprise   mobile]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Landing%20page%20entreprise.jpg</image:loc>
-        <image:title><![CDATA[Landing page entreprise]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Landing%20page%20%C3%A9tudiant%20-%20Mobile.jpg</image:loc>
-        <image:title><![CDATA[Landing page étudiant   mobile]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Landing%20page%20%C3%A9tudiant.jpg</image:loc>
-        <image:title><![CDATA[Landing page étudiant]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Profil%20Etudiant%20mobile.jpg</image:loc>
-        <image:title><![CDATA[Profil etudiant mobile]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Profil%20entreprise%20mobile.jpg</image:loc>
-        <image:title><![CDATA[Profil entreprise mobile]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Profil%20entreprise.jpg</image:loc>
-        <image:title><![CDATA[Profil entreprise]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Profil%20%C3%A9tudiant%20-%20Vue%20entreprise.jpg</image:loc>
-        <image:title><![CDATA[Profil étudiant   vue entreprise]]></image:title>
-      </image:image>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/results/JOBBRR/Profil%20%C3%A9tudiant.jpg</image:loc>
-        <image:title><![CDATA[Profil étudiant]]></image:title>
       </image:image>
       
       
@@ -1284,23 +1301,6 @@
       <image:image>
         <image:loc>http://localhost:4000/assets/media/projects/digitalunicorn.webp</image:loc>
         <image:title><![CDATA[Digital Unicorn]]></image:title>
-      </image:image>
-      
-      
-    </url>
-    
-  
-    
-    
-    
-
-    
-    <url>
-      <loc>http://localhost:4000/creations/joyca-trouve-la-regle/</loc>
-      
-      <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/trouvelaregle.webp</image:loc>
-        <image:title><![CDATA[Joyca, Trouve la règle]]></image:title>
       </image:image>
       
       
