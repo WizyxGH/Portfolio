@@ -2,7 +2,8 @@
     {
         "id": 1,
         "title": "Trouve la Règle avec Joyca",
-        "text": "Beta test de l'application en cours...",
+        "slug": "trouve-la-regle-avec-joyca",
+        "text": "Beta test de l'application en cours. Les images des maquettes arrivent bientôt...",
         "description": "Création du jeu mobile officiel pour jouer entre potes et contre des streamers au concept \"Trouve la règle\" imaginé par le youtubeur Joyca.",
         "image": "/assets/media/projects/trouvelaregleavecjoyca.webp",
         "projectLink": "https://discord.gg/x8ZJZ52XyW",
