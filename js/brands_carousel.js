@@ -1,25 +1,55 @@
 /**
- * Brand Carousel - Infinite Scroll
- * Creates 3 duplicate sets for a track that is 4x the original length.
- * Animation goes to -25% (= 1 original set) for a perfectly seamless loop
- * with no visible reset even on narrow mobile screens.
+ * Brand Carousel - Seamless Infinite Scroll
+ * Uses requestAnimationFrame to move pixel-by-pixel — zero teleportation.
+ * Creates exactly 1 clone set. When position reaches the width of 1 original
+ * set, it subtracts that width (invisible since clone = original).
  */
 
 document.addEventListener('DOMContentLoaded', function () {
     const brandsScroll = document.querySelector('.brands-scroll');
-
     if (!brandsScroll) return;
 
-    // Get all original brand links
+    // Build exactly 1 clone set
     const originalBrands = Array.from(brandsScroll.children);
+    originalBrands.forEach(function (brand) {
+        brandsScroll.appendChild(brand.cloneNode(true));
+    });
 
-    // Create 3 duplicate sets so the track is 4x the original length.
-    // The animation translates by -25% (= 1 original set width), which is
-    // invisible at the loop point because the next set is identical.
-    for (let i = 0; i < 3; i++) {
-        originalBrands.forEach(brand => {
-            const clone = brand.cloneNode(true);
-            brandsScroll.appendChild(clone);
-        });
+    function getSpeed() {
+        return window.innerWidth <= 1024 ? 24 : 20;
     }
+
+    var position = 0;
+    var lastTime = null;
+    var halfWidth = 0;
+    var paused = false;
+
+    function updateHalfWidth() {
+        halfWidth = brandsScroll.scrollWidth / 2;
+    }
+
+    brandsScroll.addEventListener('mouseenter', function () { paused = true; });
+    brandsScroll.addEventListener('mouseleave', function () { paused = false; });
+    window.addEventListener('resize', updateHalfWidth);
+
+    // Wait one frame so layout is computed before measuring
+    requestAnimationFrame(function () {
+        updateHalfWidth();
+
+        function animate(timestamp) {
+            if (lastTime !== null && !paused) {
+                var delta = (timestamp - lastTime) / 1000; // seconds
+                position += getSpeed() * delta;
+                // Mathematical reset: visually identical because clone === original
+                if (halfWidth > 0 && position >= halfWidth) {
+                    position -= halfWidth;
+                }
+                brandsScroll.style.transform = 'translateX(-' + position + 'px)';
+            }
+            lastTime = timestamp;
+            requestAnimationFrame(animate);
+        }
+
+        requestAnimationFrame(animate);
+    });
 });

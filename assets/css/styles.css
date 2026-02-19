@@ -175,29 +175,9 @@ select,
   cursor: url('/assets/media/cursor-hover.png'), pointer !important;
 }
 
-/* Brand Carousel Infinite Scroll Animation */
-@keyframes scroll-brands {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-25%);
-  }
-}
-
+/* Brand Carousel - animated by brands_carousel.js via requestAnimationFrame */
 .brands-scroll {
-  animation: scroll-brands 32s linear infinite;
-}
-
-@media (max-width: 1024px) {
-  .brands-scroll {
-    animation: scroll-brands 8s linear infinite;
-  }
-}
-
-.brands-scroll:hover {
-  animation-play-state: paused;
+  will-change: transform;
 }
 
 /* Fade effect on carousel edges - applied to parent container to stay fixed */
