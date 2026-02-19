@@ -1,7 +1,8 @@
 /**
  * Brand Carousel - Infinite Scroll
- * Automatically duplicates brand logos for seamless infinite scrolling animation
- * Uses exactly 1 duplicate set for perfect -50% translateX loop (no teleportation)
+ * Creates 3 duplicate sets for a track that is 4x the original length.
+ * Animation goes to -25% (= 1 original set) for a perfectly seamless loop
+ * with no visible reset even on narrow mobile screens.
  */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -12,10 +13,13 @@ document.addEventListener('DOMContentLoaded', function () {
     // Get all original brand links
     const originalBrands = Array.from(brandsScroll.children);
 
-    // Create exactly 1 duplicate set for perfect -50% translateX seamless loop
-    // This is the ONLY way to eliminate teleportation completely
-    originalBrands.forEach(brand => {
-        const clone = brand.cloneNode(true);
-        brandsScroll.appendChild(clone);
-    });
+    // Create 3 duplicate sets so the track is 4x the original length.
+    // The animation translates by -25% (= 1 original set width), which is
+    // invisible at the loop point because the next set is identical.
+    for (let i = 0; i < 3; i++) {
+        originalBrands.forEach(brand => {
+            const clone = brand.cloneNode(true);
+            brandsScroll.appendChild(clone);
+        });
+    }
 });

@@ -182,7 +182,7 @@ select,
   }
 
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-25%);
   }
 }
 
@@ -192,7 +192,7 @@ select,
 
 @media (max-width: 1024px) {
   .brands-scroll {
-    animation: scroll-brands 12s linear infinite;
+    animation: scroll-brands 8s linear infinite;
   }
 }
 

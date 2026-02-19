@@ -6,7 +6,7 @@
         "text": "Beta test de l'application en cours. Les images des maquettes arrivent bientôt...",
         "description": "Création du jeu mobile officiel pour jouer entre potes et contre des streamers au concept \"Trouve la règle\" imaginé par le youtubeur Joyca.",
         "image": "/assets/media/projects/trouvelaregleavecjoyca.webp",
-        "projectLink": "https://discord.gg/x8ZJZ52XyW",
+        "projectLink": "https://play.google.com/store/apps/details?id=com.games4creators.joyca",
         "date": "2025-03-01",
         "type": "Application",
         "context": "Professionnel",
@@ -41,11 +41,11 @@
         "collaborators": [
             {
                 "name": "Uyen Uyen",
-                "avatar": "https://media.licdn.com/dms/image/v2/D4E03AQGcW8XmaCdqYQ/profile-displayphoto-crop_800_800/B4EZk75hnbIUAI-/0/1757646560718?e=1771459200&v=beta&t=WY_lIweBHLhZPDeA5rkV3MlQQzEyTordi8iRIflBVgE"
+                "avatar": "/assets/media/photo/uyenuyen.jpg"
             },
             {
                 "name": "Thùy Trang",
-                "avatar": "https://media.licdn.com/dms/image/v2/D5603AQF4zgVsR7zIjg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1686543517585?e=1771459200&v=beta&t=7X3XvboAwreF-Mko9Bejs2LuSCF09kTq50vcdImbykg"
+                "avatar": "/assets/media/photo/thuytrang.jpg"
             }
         ],
         "width": 1200,
@@ -126,7 +126,7 @@
                 "name": "Maxime \"Click\" Peiffer",
                 "title": "Créateur de contenu (1.1M sur YouTube)",
                 "companyUrl": "https://www.youtube.com/@MaximeClick",
-                "avatar": "/assets/media/maximeclick.webp"
+                "avatar": "/assets/media/photo/maximeclick.webp"
             }
         }
     },
@@ -223,7 +223,7 @@
         "collaborators": [
             {
                 "name": "Caroline Aubert",
-                "avatar": "/assets/media/carolineaubert.webp"
+                "avatar": "/assets/media/photo/carolineaubert.webp"
             },
             {
                 "name": "Enzo Capaldi",
@@ -236,7 +236,7 @@
                 "name": "Jonathan Vaissière",
                 "title": "Entrepreneur",
                 "companyUrl": "https://guidedugolfe.com",
-                "avatar": "/assets/media/jonathanvaissiere.webp"
+                "avatar": "/assets/media/photo/jonathanvaissiere.webp"
             }
         }
     },
@@ -275,7 +275,7 @@
         "collaborators": [
             {
                 "name": "Caroline Aubert",
-                "avatar": "/assets/media/carolineaubert.webp"
+                "avatar": "/assets/media/photo/carolineaubert.webp"
             },
             {
                 "name": "Enzo Capaldi",
