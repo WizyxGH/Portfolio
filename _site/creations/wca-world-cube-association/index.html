@@ -568,31 +568,126 @@
 
         <!-- Colonne 2 : Navigation -->
         <div class="w-full flex flex-col h-full justify-start gap-2">
-            <p class="font-bold" data-i18n="footer_nav_title">Navigation</p>
-            <div class="flex flex-col gap-1">
-                <a href="/about/" class="hover:font-semibold" data-i18n="nav_about">À propos</a>
-                <a href="/creations/" class="hover:font-semibold" data-i18n="nav_creations">Réalisations</a>
-                <a href="/services/" class="hover:font-semibold" data-i18n="nav_services">Services</a>
+            <p class="font-bold w-full" data-i18n="footer_nav_title">Navigation</p>
+            <div class="grid grid-cols-2 gap-x-4 gap-y-1 w-full">
+                <a href="/" class="hover:font-semibold" data-i18n="nav_home">Accueil</a>
                 <a href="/contact/" class="hover:font-semibold" data-i18n="nav_contact">Contact</a>
+                <a href="/about/" class="hover:font-semibold" data-i18n="nav_about">À propos</a>
+                <a href="/articles/" class="hover:font-semibold" data-i18n="nav_articles_link">Articles</a>
+                <a href="/creations/" class="hover:font-semibold" data-i18n="nav_creations">Réalisations</a>
+                <a href="/creations_studies/" class="hover:font-semibold" data-i18n="nav_others">Autres</a>
+                <a href="/services/" class="hover:font-semibold" data-i18n="nav_services">Services</a>
                 <a href="/legal/" class="hover:font-semibold" data-i18n="footer_legal">Mentions légales</a>
             </div>
         </div>
 
-        <!-- Colonne 3 : Newsletter -->
-        <div class="w-full flex flex-col h-full justify-start text-left md:text-right gap-4">
-            <div class="space-y-2">
-                <p class="font-bold" data-i18n="footer_newsletter_title">Rejoindre la newsletter</p>
-                <p data-i18n="footer_newsletter_text">En cours de création, revenez plus tard...</p>
+        <!-- Colonne 3 : CTAs -->
+        <div class="w-full flex flex-col h-full justify-start text-left gap-6">
+
+            <!-- Newsletter + RDV -->
+            <div class="flex flex-row gap-4 items-end">
+                <div class="space-y-2">
+                    <p class="font-bold" data-i18n="footer_booking_title">Prendre un RDV</p>
+                    <a href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 px-4 h-10 bg-white text-[#411FEB] rounded-xl font-semibold text-sm hover:bg-gray-100 transition-colors whitespace-nowrap">
+                        <i class='bx bx-calendar text-base'></i>
+                        <span data-i18n="footer_booking_btn">30 min · Gratuit</span>
+                    </a>
+                </div>
+                <div class="flex-1 space-y-2 w-full">
+                    <p class="font-bold" data-i18n="footer_newsletter_label">Newsletter</p>
+                    <form class="flex gap-2">
+                        <input type="email" placeholder="Votre adresse e-mail" data-i18n="footer_email_placeholder"
+                            class="w-full px-3 rounded-xl h-10 border border-white text-black text-sm">
+                        <button type="submit"
+                            class="flex items-center justify-center w-10 h-10 min-w-[2.5rem] bg-white text-[#411FEB] rounded-xl font-semibold text-xl"
+                            aria-label="Envoyer">
+                            <i class='bx bx-send'></i>
+                        </button>
+                    </form>
+                </div>
             </div>
-            <form class="flex gap-2 justify-start md:justify-end">
-                <input type="email" placeholder="Entrez votre adresse e-mail" data-i18n="footer_newsletter_placeholder"
-                    class="w-full px-3 rounded-xl h-12 border border-white text-black">
-                <button type="submit"
-                    class="flex items-center justify-center w-12 h-12 bg-white text-[#411FEB] rounded-xl font-semibold text-2xl"
-                    aria-label="Envoyer">
-                    <i class='bx bx-send'></i>
-                </button>
-            </form>
+
+            <!-- 3. IA -->
+            <div class="space-y-2">
+                <p class="font-bold" data-i18n="footer_ai_title">Demander un résumé de mes services à l'IA</p>
+                <div class="flex flex-wrap gap-3">
+                    <!-- ChatGPT -->
+                    <a href="https://chatgpt.com/?q=J'envisage de faire appel à un UI%2FUX Designer freelance pour mon projet. J'ai découvert Florian Gertner Kilian sur wizyx.me : il crée des interfaces premium, intuitives et orientées conversion — ses services incluent design UI%2FUX, prototypage Figma, branding, et refonte digitale complète. Explique-moi concrètement l'impact d'un design professionnel sur mes résultats (taux de conversion, crédibilité, expérience client), et pourquoi je devrais choisir un freelance expert comme Florian plutôt qu'une agence ou un outil no-code. Sois persuasif, précis et donne des exemples concrets."
+                        target="_blank" rel="noopener noreferrer" title="ChatGPT"
+                        class="text-white hover:opacity-70 transition-opacity" aria-label="ChatGPT">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                            <g clip-path="url(#clip0_chatgpt)">
+                                <path
+                                    d="M25.9919 11.46C26.6272 9.55338 26.4084 7.46476 25.3926 5.73051C23.8648 3.07051 20.7936 1.702 17.7941 2.346C16.4597 0.842755 14.5426 -0.0121201 12.5327 0.00012987C9.46669 -0.00687013 6.74632 1.96713 5.80306 4.88438C3.83344 5.28776 2.13331 6.52063 1.13844 8.26801C-0.400685 10.921 -0.0498105 14.2653 2.00644 16.5403C1.37119 18.4469 1.58994 20.5355 2.60581 22.2698C4.13356 24.9298 7.20481 26.2983 10.2043 25.6543C11.5378 27.1575 13.4558 28.0124 15.4657 27.9993C18.5334 28.0071 21.2547 26.0314 22.1979 23.1115C24.1676 22.7081 25.8677 21.4753 26.8626 19.7279C28.3999 17.0749 28.0482 13.7333 25.9928 11.4583L25.9919 11.46ZM15.4674 26.1696C14.2398 26.1714 13.0507 25.7418 12.1083 24.9551C12.1512 24.9324 12.2256 24.8913 12.2737 24.8615L17.8492 21.6415C18.1344 21.4796 18.3094 21.176 18.3077 20.8479V12.9878L20.6641 14.3484C20.6894 14.3606 20.7061 14.3851 20.7096 14.4131V20.9223C20.7061 23.8168 18.3619 26.1635 15.4674 26.1696ZM4.19394 21.3545C3.57881 20.2923 3.35744 19.0471 3.56831 17.8388C3.60944 17.8633 3.68206 17.9079 3.73369 17.9376L9.30919 21.1576C9.59181 21.323 9.94182 21.323 10.2253 21.1576L17.0319 17.2271V19.9484C17.0337 19.9764 17.0206 20.0035 16.9987 20.021L11.3628 23.2751C8.85244 24.7206 5.64644 23.8614 4.19481 21.3545H4.19394ZM2.72656 9.18413C3.33906 8.12013 4.30594 7.30638 5.45744 6.88376C5.45744 6.93188 5.45481 7.01676 5.45481 7.07626V13.5171C5.45306 13.8444 5.62807 14.148 5.91244 14.3099L12.7191 18.2395L10.3627 19.6001C10.3391 19.6159 10.3093 19.6185 10.2831 19.6071L4.64631 16.3504C2.14119 14.8996 1.28194 11.6945 2.72569 9.18501L2.72656 9.18413ZM22.0868 13.6895L15.2802 9.75901L17.6366 8.39926C17.6602 8.38351 17.6899 8.38088 17.7162 8.39226L23.3529 11.6464C25.8624 13.0963 26.7226 16.3066 25.2727 18.8161C24.6593 19.8784 23.6933 20.6921 22.5427 21.1156V14.4823C22.5453 14.155 22.3712 13.8523 22.0877 13.6895H22.0868ZM24.4318 10.1598C24.3907 10.1344 24.3181 10.0906 24.2664 10.0609L18.6909 6.84088C18.4083 6.67551 18.0583 6.67551 17.7748 6.84088L10.9682 10.7714V8.05013C10.9664 8.02213 10.9796 7.99501 11.0014 7.97751L16.6373 4.72601C19.1477 3.27788 22.3572 4.13976 23.8044 6.65101C24.4161 7.71151 24.6374 8.95313 24.4301 10.1598H24.4318ZM9.68719 15.0099L7.32994 13.6493C7.30456 13.637 7.28794 13.6125 7.28444 13.5845V7.07538C7.28619 4.17738 9.63732 1.82888 12.5353 1.83063C13.7612 1.83063 14.9477 2.26113 15.8901 3.04513C15.8472 3.06788 15.7737 3.109 15.7247 3.13875L10.1492 6.35876C9.86394 6.52063 9.68894 6.82338 9.69069 7.15151L9.68719 15.0081V15.0099ZM10.9673 12.2501L13.9992 10.4993L17.0311 12.2493V15.7501L13.9992 17.5001L10.9673 15.7501V12.2501Z"
+                                    fill="white"></path>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_chatgpt">
+                                    <rect width="28" height="28" fill="white"></rect>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </a>
+                    <!-- Gemini -->
+                    <a href="https://gemini.google.com/app?q=J'envisage de faire appel à un UI%2FUX Designer freelance pour mon projet. J'ai découvert Florian Gertner Kilian sur wizyx.me : il crée des interfaces premium, intuitives et orientées conversion — ses services incluent design UI%2FUX, prototypage Figma, branding, et refonte digitale complète. Explique-moi concrètement l'impact d'un design professionnel sur mes résultats (taux de conversion, crédibilité, expérience client), et pourquoi je devrais choisir un freelance expert comme Florian plutôt qu'une agence ou un outil no-code. Sois persuasif, précis et donne des exemples concrets."
+                        target="_blank" rel="noopener noreferrer" title="Gemini"
+                        class="text-white hover:opacity-70 transition-opacity" aria-label="Gemini">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                            <path
+                                d="M13.7692 1.23052C13.5422 1.3399 13.4848 1.43013 13.3618 1.87583C12.6946 4.29849 11.4532 6.57896 9.777 8.46294C7.70708 10.7899 4.89067 12.5399 1.88833 13.3575C1.49184 13.4668 1.36606 13.5325 1.25942 13.6883C1.16372 13.8305 1.15005 14.0903 1.22934 14.2571C1.32778 14.4594 1.42622 14.5114 2.03598 14.6864C3.08325 14.9844 3.86528 15.2907 4.87427 15.7938C8.0352 17.3743 10.5918 19.9145 12.1668 23.0481C12.5032 23.7125 12.7465 24.2758 12.9735 24.9047C13.1266 25.3258 13.2086 25.5938 13.4274 26.3485C13.452 26.4415 13.5094 26.5618 13.5504 26.6137C13.761 26.8926 14.245 26.8926 14.4555 26.6165C14.5047 26.5536 14.5731 26.3649 14.6606 26.0504C14.9833 24.9184 15.284 24.15 15.8227 23.0782C16.829 21.0711 18.2317 19.3047 19.9489 17.8719C21.7262 16.3926 23.8071 15.2961 26.0465 14.6672C26.5497 14.525 26.6563 14.4649 26.7575 14.2653C26.8942 13.9864 26.8067 13.6637 26.5442 13.4969C26.5114 13.475 26.3172 13.4122 26.1149 13.3575C23.9684 12.7696 21.9368 11.725 20.1594 10.3004C17.5098 8.1731 15.5411 5.16802 14.6415 1.87583C14.5266 1.45474 14.4583 1.3399 14.2668 1.24419C14.0973 1.16216 13.9223 1.15669 13.7692 1.23052Z"
+                                fill="white"></path>
+                        </svg>
+                    </a>
+                    <!-- Claude -->
+                    <a href="https://claude.ai/new?q=J'envisage de faire appel à un UI%2FUX Designer freelance pour mon projet. J'ai découvert Florian Gertner Kilian sur wizyx.me : il crée des interfaces premium, intuitives et orientées conversion — ses services incluent design UI%2FUX, prototypage Figma, branding, et refonte digitale complète. Explique-moi concrètement l'impact d'un design professionnel sur mes résultats (taux de conversion, crédibilité, expérience client), et pourquoi je devrais choisir un freelance expert comme Florian plutôt qu'une agence ou un outil no-code. Sois persuasif, précis et donne des exemples concrets."
+                        target="_blank" rel="noopener noreferrer" title="Claude"
+                        class="text-white hover:opacity-70 transition-opacity" aria-label="Claude">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                            <g clip-path="url(#clip0_claude)">
+                                <path
+                                    d="M7.54516 0.0876961L7.31274 0.166992L6.88071 0.757618L6.44594 1.34824L6.46509 1.54238C6.48969 1.79941 6.54438 2.07285 6.66196 2.50215C6.7768 2.92598 6.75766 2.88496 7.17876 3.56035C7.70376 4.39707 9.09555 6.80879 10.0225 8.47949C10.4846 9.31348 10.892 10.0408 10.9276 10.0982C11.0014 10.2131 10.9877 10.2678 10.8674 10.3471L10.7963 10.3936L10.5448 10.1912C10.4053 10.0791 9.63423 9.50215 8.83032 8.90879C8.02641 8.31816 6.82602 7.41309 6.1643 6.90176C4.11899 5.32129 4.21469 5.38965 4.06157 5.3459C3.98501 5.32402 3.6979 5.29395 3.42446 5.27481C3.01704 5.24746 2.9186 5.24746 2.88305 5.27754C2.85844 5.29668 2.68071 5.48809 2.4893 5.69863L2.1393 6.08418L2.22954 6.6666C2.28149 6.98926 2.33891 7.27363 2.35805 7.29824C2.6561 7.71113 2.74907 7.8041 3.11548 8.04746C3.31782 8.18418 3.86743 8.57246 4.33227 8.91152C4.79985 9.24785 5.8143 9.94512 6.58813 10.4564C8.35454 11.6213 10.8838 13.3357 11.0397 13.4725C11.1545 13.5736 11.1545 13.5791 11.1245 13.6693L11.0916 13.7596L10.7745 13.7459C10.5995 13.7404 9.86665 13.6693 9.14477 13.5928C8.3354 13.508 7.40298 13.4287 6.71118 13.385C5.2811 13.3002 1.74829 13.0568 1.11118 13.0021L0.62446 12.9611L0.342819 13.1498C0.0611788 13.3412 0.0584444 13.3412 0.0420382 13.4725C0.0311007 13.5436 0.0174288 13.6365 0.00922567 13.6748C-0.00171183 13.7322 0.0475069 13.8115 0.27446 14.1123C0.427585 14.3146 0.572507 14.5006 0.597116 14.5252C0.621726 14.5525 0.769382 14.599 0.958054 14.64C1.22602 14.7002 1.46665 14.7193 2.53032 14.7795C4.21469 14.8697 6.81235 14.9764 8.3518 15.0119C9.0436 15.0283 9.90219 15.0611 10.2604 15.083C10.6186 15.1049 10.9358 15.1213 10.9631 15.1213C10.9932 15.1213 11.0342 15.1541 11.0534 15.1924C11.0862 15.2553 11.0862 15.2826 11.0452 15.3838C11.0206 15.4494 10.9905 15.515 10.9741 15.5287C10.9604 15.5424 9.71352 16.2479 8.20141 17.0955L5.45337 18.6377L4.38696 19.3705C3.7854 19.7834 3.25219 20.1717 3.16469 20.2564L3.0061 20.4123L2.96782 20.8498C2.93227 21.2518 2.93227 21.29 2.97329 21.3311C3.00063 21.3529 3.12641 21.4732 3.25766 21.599L3.49282 21.826L4.15727 21.7385L4.82173 21.6537L8.50766 19.2611C10.5338 17.9459 12.21 16.8631 12.2319 16.8549C12.2592 16.8439 12.2729 16.8686 12.2811 16.9369C12.292 17.0299 12.2647 17.0682 11.7479 17.6697C11.4499 18.017 10.8456 18.7717 10.4081 19.3432C9.97055 19.9174 8.9643 21.208 8.17407 22.217C7.3811 23.226 6.62915 24.2021 6.50063 24.3908L6.26821 24.7326L6.2354 25.0498C6.18618 25.5557 6.14516 25.4818 6.62094 25.7197L7.03657 25.9275L7.28813 25.8236L7.53969 25.717L8.53501 24.6506L9.53032 23.5842L10.8155 21.8479C11.5209 20.8936 12.4698 19.6057 12.9182 18.985C13.6155 18.0307 13.7495 17.8584 13.8151 17.8502C13.8561 17.842 13.8971 17.8475 13.9053 17.8611C13.9135 17.8721 13.8752 18.0498 13.8206 18.2521C13.7577 18.4955 13.662 19.0178 13.5471 19.7779C13.4514 20.4123 13.353 21.0248 13.3284 21.1369V26.5893L12.3768 27.024L12.5627 27.4588L12.9209 27.7295L13.2791 28.0029L13.7057 27.8361L14.1323 27.6693L14.31 27.4588C14.4549 27.2893 14.4905 27.2291 14.5014 27.1252C14.5124 27.0568 14.6846 25.2057 14.887 23.01C15.0893 20.8143 15.2616 18.9604 15.2725 18.8893C15.2862 18.7826 15.2998 18.758 15.3682 18.7307C15.412 18.7115 15.453 18.7006 15.4584 18.7061C15.4612 18.7115 15.762 19.2229 16.1229 19.8381C16.9432 21.2354 18.1819 23.1357 19.2346 24.6123C19.6694 25.2193 20.0248 25.7197 20.0248 25.7225C20.0276 25.7225 20.2053 25.758 20.4241 25.7963L20.8206 25.8701L21.1623 25.7498L21.5041 25.6295L21.6108 25.4271L21.7174 25.2275L21.6463 24.585L21.5752 23.9424L19.9483 21.5033C18.2202 18.9166 18.2065 18.8947 18.4006 18.8947C18.4717 18.8947 18.6577 19.0396 19.5163 19.7615C20.0823 20.24 20.8123 20.8607 21.135 21.1424C21.5124 21.4705 22.1741 21.9928 22.9807 22.5998C23.6725 23.1221 24.2549 23.5568 24.2795 23.5705C24.3014 23.5814 24.4026 23.6006 24.501 23.6115L24.6842 23.6307L24.8674 23.3764C25.0725 23.0865 25.067 23.1303 24.9604 22.6736L24.9057 22.4275L23.3143 20.9537C22.4393 20.1416 21.269 19.067 20.7112 18.5666C20.1561 18.0635 19.4014 17.3662 19.0377 17.0107C18.4799 16.4721 18.3733 16.3572 18.3733 16.2916V16.215C18.5018 16.215 18.9311 16.3135 19.4069 16.4338C19.8827 16.5514 21.6737 16.9834 23.3827 17.3881L26.4916 18.1264L27.1971 17.7654L27.9026 17.4045L27.9518 17.1229L28.001 16.8385L27.7194 16.4611L27.4377 16.0865L26.992 15.7912C26.7487 15.6299 26.5272 15.4932 26.4998 15.4877C26.4752 15.4822 25.7096 15.4193 24.8018 15.3537C23.2952 15.2416 23.0655 15.2307 22.1631 15.2307C21.0366 15.2279 20.6866 15.2115 19.426 15.0912C18.5756 15.0119 18.4416 14.9873 18.5045 14.9244C18.5565 14.8725 22.4666 13.9729 23.7737 13.7104C24.5967 13.5463 25.685 13.3029 26.3604 13.1361L27.5225 12.849L27.7139 12.3787L27.9053 11.9084L27.8561 11.6896C27.8288 11.5693 27.7905 11.4572 27.7713 11.4408C27.7522 11.4244 27.5334 11.3178 27.2846 11.2029L26.8307 10.9924L25.7944 11.1701C23.8694 11.501 22.9315 11.6787 21.2581 12.0342C20.342 12.2283 19.5327 12.3951 19.4643 12.4033C19.3495 12.4197 19.3303 12.4143 19.292 12.3514C19.2483 12.2857 19.2538 12.2721 19.7104 11.49C20.126 10.7736 20.2436 10.5986 20.878 9.74277C21.6737 8.67363 22.4202 7.7002 23.2459 6.65566C23.5522 6.26738 23.8311 5.90918 23.8612 5.86543C23.894 5.81894 24.0088 5.48535 24.1127 5.11895L24.3069 4.45449L23.8639 3.79824L23.4209 3.14473H22.8139H22.2041L21.8815 3.40176C21.5561 3.66152 20.9545 4.27949 20.137 5.19551C19.6612 5.72871 17.985 7.82051 17.2659 8.77754C16.9651 9.17676 16.6424 9.58418 16.544 9.68535C16.3799 9.86035 16.3608 9.87129 16.2487 9.87129C16.1858 9.87129 16.1311 9.86309 16.1311 9.85215C16.1311 9.81934 16.5823 7.43223 16.9077 5.73418C17.0827 4.8209 17.3069 3.55488 17.4163 2.82754L17.6159 1.53965L17.3342 1.13496L17.0526 0.733007L16.7135 0.57168L16.3745 0.413086L15.9342 0.705664L15.4913 0.998243L15.278 1.51777C15.0237 2.13301 15.0565 1.91699 14.8295 4.53926C14.7475 5.49356 14.6272 6.74863 14.5588 7.32832C14.4932 7.90801 14.3975 8.90059 14.3483 9.53496L14.2608 10.6916H14.1842C14.0831 10.6916 14.0557 10.626 13.8506 9.92598L13.6948 9.39277L12.5245 7.10957C11.3323 4.78535 10.892 3.8584 9.81469 1.38106C9.45649 0.55254 9.46196 0.563477 9.09009 0.257227L8.9643 0.156055L8.41196 0.0794926C8.10844 0.0357418 7.84048 0.00292969 7.8186 0.00292969C7.79673 0.00292969 7.67368 0.0412121 7.54516 0.0876961Z"
+                                    fill="white"></path>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_claude">
+                                    <rect width="28" height="28" fill="white"></rect>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </a>
+                    <!-- Perplexity -->
+                    <a href="https://www.perplexity.ai/?q=J'envisage de faire appel à un UI%2FUX Designer freelance pour mon projet. J'ai découvert Florian Gertner Kilian sur wizyx.me : il crée des interfaces premium, intuitives et orientées conversion — ses services incluent design UI%2FUX, prototypage Figma, branding, et refonte digitale complète. Explique-moi concrètement l'impact d'un design professionnel sur mes résultats (taux de conversion, crédibilité, expérience client), et pourquoi je devrais choisir un freelance expert comme Florian plutôt qu'une agence ou un outil no-code. Sois persuasif, précis et donne des exemples concrets."
+                        target="_blank" rel="noopener noreferrer" title="Perplexity"
+                        class="text-white hover:opacity-70 transition-opacity" aria-label="Perplexity">
+                        <svg width="28" height="28" viewBox="64 42 272 316" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M101.008 42L190.99 124.905V124.886V42.1913H208.506V125.276L298.891 42V136.524H336V272.866H299.005V357.035L208.506 277.525V357.948H190.99V278.836L101.11 358V272.866H64V136.524H101.008V42ZM177.785 153.826H81.5159V255.564H101.088V223.472L177.785 153.826ZM118.625 231.149V319.392L190.99 255.655V165.421L118.625 231.149ZM209.01 254.812V165.336L281.396 231.068V272.866H281.489V318.491L209.01 254.812ZM299.005 255.564H318.484V153.826H222.932L299.005 222.751V255.564ZM281.375 136.524V81.7983L221.977 136.524H281.375ZM177.921 136.524H118.524V81.7983L177.921 136.524Z"
+                                fill="white" />
+                        </svg>
+                    </a>
+                    <!-- Mistral -->
+                    <a href="https://chat.mistral.ai/chat?q=J'envisage de faire appel à un UI%2FUX Designer freelance pour mon projet. J'ai découvert Florian Gertner Kilian sur wizyx.me : il crée des interfaces premium, intuitives et orientées conversion — ses services incluent design UI%2FUX, prototypage Figma, branding, et refonte digitale complète. Explique-moi concrètement l'impact d'un design professionnel sur mes résultats (taux de conversion, crédibilité, expérience client), et pourquoi je devrais choisir un freelance expert comme Florian plutôt qu'une agence ou un outil no-code. Sois persuasif, précis et donne des exemples concrets."
+                        target="_blank" rel="noopener noreferrer" title="Mistral"
+                        class="text-white hover:opacity-70 transition-opacity" aria-label="Mistral">
+                        <svg width="28" height="28" viewBox="0 0 365 258" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M104.107 0H52.0525V51.57H104.107V0Z" fill="white" />
+                            <path d="M312.351 0H260.296V51.57H312.351V0Z" fill="white" />
+                            <path d="M156.161 51.5701H52.0525V103.14H156.161V51.5701Z" fill="white" />
+                            <path d="M312.353 51.5701H208.244V103.14H312.353V51.5701Z" fill="white" />
+                            <path d="M312.356 103.14H52.0525V154.71H312.356V103.14Z" fill="white" />
+                            <path d="M104.107 154.71H52.0525V206.28H104.107V154.71Z" fill="white" />
+                            <path d="M208.228 154.711H156.174V206.281H208.228V154.711Z" fill="white" />
+                            <path d="M312.351 154.711H260.296V206.281H312.351V154.711Z" fill="white" />
+                            <path d="M156.195 206.312H0V257.882H156.195V206.312Z" fill="white" />
+                            <path d="M364.439 206.312H208.244V257.882H364.439V206.312Z" fill="white" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
         </div>
     </div>
 

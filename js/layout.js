@@ -193,6 +193,7 @@ function initScrollAnimations() {
 function animateCounter(element) {
     const target = parseInt(element.dataset.counter);
     const suffix = element.dataset.suffix || '';
+    const finalText = element.dataset.final || null; // e.g. "Illimité"
     const duration = 1500; // 1.5 seconds
     const steps = 60;
     const increment = target / steps;
@@ -204,7 +205,7 @@ function animateCounter(element) {
     const timer = setInterval(() => {
         current += increment;
         if (current >= target) {
-            element.textContent = target + suffix;
+            element.textContent = finalText !== null ? finalText : target + suffix;
             clearInterval(timer);
         } else {
             element.textContent = Math.floor(current);

@@ -1,13 +1,16 @@
 {
     "fr": {
+        "nav_home": "Accueil",
         "nav_about": "À propos",
         "nav_creations": "Réalisations",
         "nav_pro": "UI/UX Design",
         "nav_pro_desc": "Maquettes de site internet, landing page, application mobile, SaaS",
         "nav_articles": "Rédaction",
         "nav_articles_desc": "Articles",
+        "nav_articles_link": "Articles",
         "nav_academic": "Autres",
         "nav_academic_desc": "Réalisé en BUT MMI",
+        "nav_others": "Autres",
         "nav_services": "Services",
         "nav_contact": "Contact",
         "nav_theme_toggle": "Changer de thème",
@@ -20,19 +23,27 @@
         "footer_email": "Envoyer un e-mail",
         "footer_nav_title": "Navigation",
         "footer_legal": "Mentions légales",
+        "footer_newsletter_label": "Newsletter",
         "footer_newsletter_title": "Rejoindre la newsletter",
         "footer_newsletter_text": "En cours de création, revenez plus tard...",
-        "footer_newsletter_placeholder": "Entrez votre adresse e-mail"
+        "footer_newsletter_placeholder": "Entrez votre adresse e-mail",
+        "footer_email_placeholder": "Votre adresse e-mail",
+        "footer_booking_title": "Prendre un RDV",
+        "footer_booking_btn": "30 min · Gratuit",
+        "footer_ai_title": "Demander un résumé de mes services à l'IA"
     },
     "en": {
+        "nav_home": "Home",
         "nav_about": "About",
         "nav_creations": "Creations",
         "nav_pro": "UI/UX Design",
         "nav_pro_desc": "Layouts of websites, landing pages, mobile applications, SaaS",
         "nav_articles": "Writing",
         "nav_articles_desc": "Articles",
+        "nav_articles_link": "Articles",
         "nav_academic": "Others",
         "nav_academic_desc": "Made in BUT MMI",
+        "nav_others": "Others",
         "nav_services": "Services",
         "nav_contact": "Contact",
         "nav_theme_toggle": "Toggle theme",
@@ -45,8 +56,13 @@
         "footer_email": "Send an email",
         "footer_nav_title": "Navigation",
         "footer_legal": "Legal Notice",
+        "footer_newsletter_label": "Newsletter",
         "footer_newsletter_title": "Join the newsletter",
         "footer_newsletter_text": "Work in progress, come back later...",
-        "footer_newsletter_placeholder": "Enter your email address"
+        "footer_newsletter_placeholder": "Enter your email address",
+        "footer_email_placeholder": "Your email address",
+        "footer_booking_title": "Book a call",
+        "footer_booking_btn": "30 min · Free",
+        "footer_ai_title": "Ask an AI about my services"
     }
 }
