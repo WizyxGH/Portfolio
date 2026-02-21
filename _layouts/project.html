@@ -10,11 +10,19 @@
     <meta name="description" content="{{ page.description | escape }}">
     {% seo %}
     {% if page.image %}
-    <meta property="og:image:alt" content="{{ page.title | escape }}">
+    {% assign isVideo = false %}
+    {% if page.image contains '.webm' or page.image contains '.mp4' %}{% assign isVideo = true %}{% endif %}
+    {% if isVideo %}
+    {% assign ogImg = page.og_image | default: '/assets/media/opengraph/default-og.jpg' %}
+    <meta property="og:image" content="{{ site.url }}{{ ogImg }}">
+    <meta name="twitter:image" content="{{ site.url }}{{ ogImg }}">
+    {% else %}
     {% if page.width %}
     <meta property="og:image:width" content="{{ page.width }}">{% endif %}
     {% if page.height %}
     <meta property="og:image:height" content="{{ page.height }}">{% endif %}
+    {% endif %}
+    <meta property="og:image:alt" content="{{ page.title | escape }}">
     {% endif %}
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,7 +43,11 @@
       "@type": "CreativeWork",
       "headline": "{{ page.title | escape }}",
       "image": [
-        "{{ site.url }}{{ page.image }}"
+        {% assign isVideoLD = false %}
+        {% if page.image contains '.webm' or page.image contains '.mp4' %}{% assign isVideoLD = true %}{% endif %}
+        {% if isVideoLD and page.og_image %}"{{ site.url }}{{ page.og_image }}"
+        {% else %}"{{ site.url }}{{ page.image }}"
+        {% endif %}
         {% for img in page.gallery %},"{{ site.url }}{{ img }}"{% endfor %}
       ],
       "datePublished": "{{ page.date | date_to_xmlschema }}",

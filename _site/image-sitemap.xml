@@ -217,7 +217,7 @@
       <loc>http://localhost:4000/creations/mon-gardien/</loc>
       
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/projects/mongardien.webp</image:loc>
+        <image:loc>http://localhost:4000/assets/media/projects/mongardien.webm</image:loc>
         <image:title><![CDATA[Mon Gardien]]></image:title>
       </image:image>
       

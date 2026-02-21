@@ -547,8 +547,12 @@ permalink: /
 
                     let mediaHTML;
                     if (isVideo) {
+                        const thumbSrc = project.og_image || projectImage;
                         mediaHTML = `
-                            <video autoplay loop muted playsinline class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
+                            <img src="${thumbSrc}" alt="${project.title}" loading="lazy"
+                                class="card-thumbnail h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
+                            <video loop muted playsinline preload="none"
+                                class="card-video absolute inset-0 h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110 hidden">
                                 <source src="${projectImage}" type="video/webm">
                             </video>
                         `;
@@ -560,7 +564,7 @@ permalink: /
                     }
 
                     projectCard.innerHTML = `
-                        <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden text-[#411FEB]">
+                        <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden relative text-[#411FEB]">
                             ${mediaHTML}
                         </div>
                         <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">${project.title}</h3>
@@ -571,6 +575,26 @@ permalink: /
                     `;
 
                     projectsGrid.appendChild(projectCard);
+
+                    // Hover: swap thumbnail <-> video
+                    if (isVideo) {
+                        const cardVideo = projectCard.querySelector('.card-video');
+                        const cardThumb = projectCard.querySelector('.card-thumbnail');
+                        if (cardVideo) {
+                            projectCard.addEventListener('mouseenter', () => {
+                                if (cardThumb) cardThumb.classList.add('hidden');
+                                cardVideo.classList.remove('hidden');
+                                if (cardVideo.readyState === 0) cardVideo.load();
+                                cardVideo.play().catch(() => { });
+                            });
+                            projectCard.addEventListener('mouseleave', () => {
+                                cardVideo.pause();
+                                cardVideo.currentTime = 0;
+                                cardVideo.classList.add('hidden');
+                                if (cardThumb) cardThumb.classList.remove('hidden');
+                            });
+                        }
+                    }
                 });
             })
             .catch(error => console.error('Error loading projects:', error));

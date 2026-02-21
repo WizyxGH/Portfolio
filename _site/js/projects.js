@@ -608,4 +608,30 @@ document.addEventListener("DOMContentLoaded", function () {
     enableDragScroll(filtersContainer);
     enableDragScroll(articlesCarousel);
 
+    // --- Vidéo : lecture uniquement au hover de la carte ---
+    function initCardVideoHover() {
+        const cards = document.querySelectorAll('.projectCard');
+        cards.forEach(card => {
+            const video = card.querySelector('.card-video');
+            const thumbnail = card.querySelector('.card-thumbnail');
+            if (!video) return;
+
+            card.addEventListener('mouseenter', () => {
+                if (thumbnail) thumbnail.classList.add('hidden');
+                video.classList.remove('hidden');
+                if (video.readyState === 0) video.load();
+                video.play().catch(() => { });
+            });
+
+            card.addEventListener('mouseleave', () => {
+                video.pause();
+                video.currentTime = 0;
+                video.classList.add('hidden');
+                if (thumbnail) thumbnail.classList.remove('hidden');
+            });
+        });
+    }
+
+    initCardVideoHover();
+
 });

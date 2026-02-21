@@ -31,7 +31,7 @@
 <meta name="twitter:site" content="@" />
 <meta name="twitter:creator" content="@Florian Gertner Kilian" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"Florian Gertner Kilian"},"description":"Product Designer UI/UX &amp; Copywriter. Je crée des interfaces premium, esthétiques et intuitives qui allient design et storytelling. Découvrez mes projets et collaborations.","headline":"Portfolio Florian Gertner Kilian","name":"Florian Gertner Kilian","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://opengraph.b-cdn.net/production/images/59129536-2074-4333-9e04-70d6cffd3d0f.jpg?token=Oj5V7Gb5wGaScWNgROHh8HDeCIdtoZtqvgIpBFaIi1g&height=640&width=1200&expires=33294662852"},"name":"Florian Gertner Kilian"},"sameAs":["https://linkedin.com/in/flogk/","https://wa.me/33778407887","https://t.me/wizyx0","https://www.figma.com/@wizyx","https://www.malt.fr/profile/flogk"],"url":"http://localhost:4000/"}</script>
+{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"Florian Gertner Kilian"},"description":"Product Designer UI/UX &amp; Copywriter. Je crée des interfaces premium, esthétiques et intuitives qui allient design et storytelling. Découvrez mes projets et collaborations.","headline":"Portfolio Florian Gertner Kilian","name":"Florian Gertner Kilian","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://opengraph.b-cdn.net/production/images/59129536-2074-4333-9e04-70d6cffd3d0f.jpg?token=Oj5V7Gb5wGaScWNgROHh8HDeCIdtoZtqvgIpBFaIi1g&height=640&width=1200&expires=33294662852"},"name":"Florian Gertner Kilian"},"sameAs":["https://linkedin.com/in/flogk/","https://wa.me/33778407887","https://t.me/wizyx0","https://www.malt.fr/profile/flogk","https://www.figma.com/@wizyx"],"url":"http://localhost:4000/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -691,19 +691,6 @@
 
                 
 
-                <a href="https://www.figma.com/@wizyx" target="_blank" rel="noopener noreferrer"
-                    class="w-12 h-12 flex items-center justify-center bg-white rounded-xl transition-colors hover:bg-gray-300 hover:text-[#3215c7]"
-                    data-i18n-aria="footer_social_figma" aria-label="Lien social">
-                    
-                    <i class='bx bxl-figma'></i>
-                    
-                </a>
-                
-                
-                
-
-                
-
                 <a href="https://www.malt.fr/profile/flogk" target="_blank" rel="noopener noreferrer"
                     class="w-12 h-12 flex items-center justify-center bg-white rounded-xl transition-colors hover:bg-gray-300 hover:text-[#3215c7]"
                     data-i18n-aria="footer_social_malt" aria-label="Lien social">
@@ -713,6 +700,19 @@
                             d="M408.4 103.8C375.9 71.3998 341.3 92.3998 319.6 114L114.8 318.8C93.1 340.5 70.3999 373.5 104.6 407.6C138.7 441.7 171.6 419 193.3 397.3L398.1 192.5C419.8 170.9 440.8 136.2 408.4 103.8ZM212.7 95.3998L256.1 138.8L300.2 94.5998C303.2 91.5998 306.2 88.7998 309.3 86.1998C304.7 62.8998 291.4 41.7998 256 41.7998C220.6 41.7998 207.3 62.9998 202.8 86.2998C206.1 89.1998 209.4 92.0998 212.7 95.3998ZM300.2 417.5L256.1 373.4L212.7 416.7C209.4 420 206.2 423.1 202.9 425.9C207.9 449.7 221.9 471.4 256 471.4C290.2 471.4 304.3 449.5 309.2 425.7C306.2 423.1 303.2 420.5 300.2 417.5ZM194.3 200.5H110.7C80 200.5 40.7 210.2 40.7 256C40.7 290.3 62.6 304.3 86.5 309.2C89.3 306 194.3 200.5 194.3 200.5ZM425.8 202.8C423.2 205.8 317.9 311.6 317.9 311.6H400.3C431 311.6 470.3 304.3 470.3 256C470.3 220.7 449.2 207.4 425.8 202.8ZM221.7 173.1L236.6 158.2L193.3 114.8C171.6 93.0998 138.7 70.3998 104.5 104.6C79.5 129.6 85.1 154 98.3 173.7C102.4 173.4 221.7 173.1 221.7 173.1ZM290.4 339L275.4 354L319.6 398.1C341.3 419.8 375.9 440.8 408.3 408.4C432.5 384.2 427 358.7 413.6 338.4C409.3 338.7 290.4 339 290.4 339Z"
                             fill="#411FEB" />
                     </svg>
+                    
+                </a>
+                
+                
+                
+
+                
+
+                <a href="https://www.figma.com/@wizyx" target="_blank" rel="noopener noreferrer"
+                    class="w-12 h-12 flex items-center justify-center bg-white rounded-xl transition-colors hover:bg-gray-300 hover:text-[#3215c7]"
+                    data-i18n-aria="footer_social_figma" aria-label="Lien social">
+                    
+                    <i class='bx bxl-figma'></i>
                     
                 </a>
                 
@@ -922,8 +922,12 @@
 
                     let mediaHTML;
                     if (isVideo) {
+                        const thumbSrc = project.og_image || projectImage;
                         mediaHTML = `
-                            <video autoplay loop muted playsinline class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
+                            <img src="${thumbSrc}" alt="${project.title}" loading="lazy"
+                                class="card-thumbnail h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
+                            <video loop muted playsinline preload="none"
+                                class="card-video absolute inset-0 h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110 hidden">
                                 <source src="${projectImage}" type="video/webm">
                             </video>
                         `;
@@ -935,7 +939,7 @@
                     }
 
                     projectCard.innerHTML = `
-                        <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden text-[#411FEB]">
+                        <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden relative text-[#411FEB]">
                             ${mediaHTML}
                         </div>
                         <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">${project.title}</h3>
@@ -946,6 +950,26 @@
                     `;
 
                     projectsGrid.appendChild(projectCard);
+
+                    // Hover: swap thumbnail <-> video
+                    if (isVideo) {
+                        const cardVideo = projectCard.querySelector('.card-video');
+                        const cardThumb = projectCard.querySelector('.card-thumbnail');
+                        if (cardVideo) {
+                            projectCard.addEventListener('mouseenter', () => {
+                                if (cardThumb) cardThumb.classList.add('hidden');
+                                cardVideo.classList.remove('hidden');
+                                if (cardVideo.readyState === 0) cardVideo.load();
+                                cardVideo.play().catch(() => { });
+                            });
+                            projectCard.addEventListener('mouseleave', () => {
+                                cardVideo.pause();
+                                cardVideo.currentTime = 0;
+                                cardVideo.classList.add('hidden');
+                                if (cardThumb) cardThumb.classList.remove('hidden');
+                            });
+                        }
+                    }
                 });
             })
             .catch(error => console.error('Error loading projects:', error));

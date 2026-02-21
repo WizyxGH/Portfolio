@@ -120,6 +120,7 @@
                 "icon": "bx bxl-figma"
             }
         ],
+        "og_image": "/assets/media/projects/maximeclick.webp",
         "testimonial": {
             "text": "Je l'ai vu direct !! Très fort 👍",
             "author": {
@@ -135,7 +136,7 @@
         "title": "Mon Gardien",
         "text": "Dans le cadre de mon stage de BUT MMI de 2ᵉ année, j’ai participé à la conceptualisation de Mon Gardien.<br><br>Mon Gardien est un projet d'application mobile dont le but est d’aider à réduire le « doomscrolling », c’est-à-dire l’activité de faire défiler (scroller) son fil d’actualités ou de recommandations sur les réseaux sociaux de manière mécanique et quasi systématique sans même que l’on en ait pleinement conscience. Le fait même d’ouvrir ce genre d'applications est devenu pour beaucoup un réflexe. De là, par le biais même de leur conception dont le but final est de générer de l’argent pour subsister, un temps conséquent peut être perdu tandis qu’il aurait peut être utilisé à meilleur escient en faisant à la place des activités qui nous tiennent plus à cœur que la consommation d’un contenu que l’on aura en majorité oublié le lendemain.<br><br>Elle se base sur un système de ludification (gamification) en reprenant certains codes des jeux vidéos afin de donner envie et pousser l’utilisateur à être conscient de cette habitude et à y faire face.<br><br>Pour récolter des fonds auprès d'investisseurs et pour jauger la pertinence du projet, je me suis attelé à réaliser le design et le rédactionnel d’une landing page expliquant le problème du doomscrolling et la solution que propose la future application Mon Gardien.<br><br>L’intégralité de la landing page consiste en un tunnel dont le but est de rediriger les gens vers un formulaire (qu’il a aussi fallu intégralement préparer) permettant de témoigner de leur expérience personnelle sur le doomscrolling et sur les solutions concurrentes déjà existantes pour récolter de nouvelles données sur leur usage et répondre au mieux à ce problème. Le tout en récoltant l’adresse mail, de personnes potentiellement intéressées par Mon Gardien.",
         "description": "Design d'une landing page pour présenter le projet de l'application Mon Gardien dans le but de récolter des fonds et de jauger l'intérêt de la cible.",
-        "image": "/assets/media/projects/mongardien.webp",
+        "image": "/assets/media/projects/mongardien.webm",
         "projectLink": "#",
         "date": "2024-02-01",
         "type": "Landing page",
@@ -161,7 +162,8 @@
                 "name": "Webflow",
                 "icon": "bx bxl-webflow"
             }
-        ]
+        ],
+        "og_image": "/assets/media/projects/mongardien.webp"
     },
     {
         "id": 5,
@@ -185,6 +187,12 @@
             {
                 "name": "Figma",
                 "icon": "bx bxl-figma"
+            }
+        ],
+        "collaborators": [
+            {
+                "name": "Caroline Aubert",
+                "avatar": "/assets/media/photo/carolineaubert.webp"
             }
         ]
     },
@@ -320,7 +328,7 @@
         "id": 9,
         "title": "PHOQ.tv",
         "text": "Lorem ipsum.",
-        "description": "Redesign de la landing page de l'agence créative PHOQ.TV spécialisée en motion design et 3D.",
+        "description": "Redesign de la landing page de l'agence créative PHOQ.tv spécialisée en motion design et 3D.",
         "image": "/assets/media/projects/phoq.webp",
         "projectLink": "https://www.phoq.tv",
         "date": "2026-01-01",
@@ -351,7 +359,16 @@
                 "name": "Figma",
                 "icon": "bx bxl-figma"
             }
-        ]
+        ],
+        "testimonial": {
+            "text": "Coming soon...",
+            "author": {
+                "name": "Thibaut Maëns Rabier",
+                "title": "Founder & Creative Producer chez PHOQ.tv",
+                "companyUrl": "https://phoq.tv",
+                "avatar": "/assets/media/photo/thibautmaensrabier.webp"
+            }
+        }
     },
     {
         "id": 10,
