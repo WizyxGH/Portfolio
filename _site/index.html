@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="/assets/css/boxicons.min.css">
     <link rel="stylesheet" href="/assets/css/tailwind.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
-    <link rel="icon" type="image/x-icon" href="/assets/media/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <!-- HTML Meta Tags -->
     <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Portfolio Florian Gertner Kilian | Product Designer UI/UX &amp; Copywriter. Je crée des interfaces premium, esthétiques et intuitives qui allient design et storytelling. Découvrez mes projets et collaborations.</title>
@@ -426,7 +427,7 @@
         <!-- Projects Carousel (will be populated by existing projects.json) -->
         <div class="overflow-x-auto mb-8 -mx-8 lg:-mx-32 lg:px-32 scrollbar-hide">
             <div class="flex gap-6 pb-4 px-8 lg:px-0 cursor-grab after:content-[''] after:min-w-8 after:block after:h-1"
-                id="projects-grid">
+                id="projects-grid" data-drag-scroll>
                 <!-- Projects will be loaded here via JavaScript (limited to 5) -->
             </div>
         </div>
@@ -974,39 +975,8 @@
             })
             .catch(error => console.error('Error loading projects:', error));
 
-        // Drag-to-scroll functionality for projects carousel
-        const projectsGrid = document.getElementById('projects-grid');
-        if (projectsGrid) {
-            let isDown = false;
-            let startX;
-            let scrollLeft;
-
-            projectsGrid.addEventListener('mousedown', (e) => {
-                isDown = true;
-                projectsGrid.style.cursor = 'grabbing';
-                startX = e.pageX - projectsGrid.offsetLeft;
-                scrollLeft = projectsGrid.parentElement.scrollLeft;
-            });
-
-            projectsGrid.addEventListener('mouseleave', () => {
-                isDown = false;
-                projectsGrid.style.cursor = 'grab';
-            });
-
-            projectsGrid.addEventListener('mouseup', () => {
-                isDown = false;
-                projectsGrid.style.cursor = 'grab';
-            });
-
-            projectsGrid.addEventListener('mousemove', (e) => {
-                if (!isDown) return;
-                e.preventDefault();
-                const x = e.pageX - projectsGrid.offsetLeft;
-                const walk = (x - startX) * 2; // Scroll speed multiplier
-                projectsGrid.parentElement.scrollLeft = scrollLeft - walk;
-            });
-        }
     </script>
+    <script src="/js/drag_scroll.js" defer></script>
 
 
 
