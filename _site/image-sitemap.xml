@@ -14,7 +14,7 @@
     <url>
       <loc>http://localhost:4000/about/</loc>
       <image:image>
-        <image:loc>http://localhost:4000/assets/media/profilepicturepro.png</image:loc>
+        <image:loc>http://localhost:4000/assets/media/profilepicturepro.webp</image:loc>
         <image:title>Florian Gertner Kilian Profile Picture</image:title>
       </image:image>
     </url>
@@ -1308,6 +1308,30 @@
       <image:image>
         <image:loc>http://localhost:4000/assets/media/projects/digitalunicorn.webp</image:loc>
         <image:title><![CDATA[Digital Unicorn]]></image:title>
+      </image:image>
+      
+      
+    </url>
+    
+  
+    
+    
+    
+
+    
+    <url>
+      <loc>http://localhost:4000/creations/mentora/</loc>
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/mentora.webp</image:loc>
+        <image:title><![CDATA[Mentora]]></image:title>
+      </image:image>
+      
+      
+      
+      <image:image>
+        <image:loc>http://localhost:4000/assets/media/projects/results/Mentora/PLAQUETTE%20PRESENTATION%20MENTORA.webp</image:loc>
+        <image:title><![CDATA[Plaquette presentation mentora]]></image:title>
       </image:image>
       
       

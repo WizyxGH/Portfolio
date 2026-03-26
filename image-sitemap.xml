@@ -32,7 +32,7 @@ permalink: /image-sitemap.xml
     <url>
       <loc>{{ site.url }}/about/</loc>
       <image:image>
-        <image:loc>{{ site.url }}/assets/media/profilepicturepro.png</image:loc>
+        <image:loc>{{ site.url }}/assets/media/profilepicturepro.webp</image:loc>
         <image:title>Florian Gertner Kilian Profile Picture</image:title>
       </image:image>
     </url>

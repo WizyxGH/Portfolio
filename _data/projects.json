@@ -845,6 +845,35 @@
     },
     {
         "id": 26,
+        "title": "Mentora",
+        "text": "Cahier des Charges Recrutement : Design UI/UX<br><br>1. Objectif du Projet<br><br>Conception d'une application mobile native (iOS & Android) facilitant la mise en relation entre particuliers et professeurs indépendants. L'accent doit être mis sur la confiance, la clarté de l'offre et la fluidité de la réservation.<br><br>2. Livrables Attendus<br><br>1. Maquette : Un lien Figma pour la visualisation.<br>2. Design des 3 Écrans Clés uniquement :<br>L'écran d’Authentification (haute densité d'information).<br>L'écran d'Accueil Utilisateur Apprenant (gestion d'états multiples).<br>L'écran Fiche Profil Professeur (travail sur la hiérarchie visuelle).<br>La Plaquette de Présentation (Showcase) : Un visuel format 1920x1080 mettant en scène le projet (mockups modernes et à jour).<br><br>3. Périmètre Fonctionnel Détaillé<br><br>A. Système d'Authentification & Sécurité<br><br>- Connexion Hybride : Interface proposant le combo classique (Email/Password) et le Social Login (Meta, Apple ID).<br>- Sécurité 2FA : Design de l'étape de vérification (Code OTP par SMS ou Email) avec gestion des états d'erreur et de renvoi de code.<br>- Onboarding Évolutif : Parcours de 3 à 4 écrans illustrant la proposition de valeur. Doit inclure des micro-interactions pour engager l'utilisateur dès le premier lancement.<br><br>B. Flow Utilisateur (Apprenant)<br><br>- Dashboard (Accueil) : Vue synthétique des cours à venir (statut : confirmé, en attente, terminé). Barre de recherche contextuelle pour filtrer ses propres cours.<br>- Moteur de Recherche de Professeurs : Système de filtres avancés (matière, prix, géolocalisation, avis, disponibilités).<br>- Fiche Profil Professeur : Bio, diplômes vérifiés, galerie photo/vidéo de présentation, et section \"Avis clients\".<br>- Tunnel de Réservation : Vue détaillée d'un cours (descriptif, durée, matériel requis) et bouton d'action principal (CTA) de réservation.<br><br>C. Communication & Gestion<br><br>- Messagerie OTO (One-to-One) : Interface de chat épurée incluant l'envoi de pièces jointes (documents de cours) et indicateurs de lecture.<br>- Centre de Notifications : Historique granulaire (alertes de cours, nouveaux messages, rappels de paiement).<br>- Sécurité & Modération : Intégration fluide des logiques de signalement de contenu ou d'utilisateur (User Feedback Loop).<br><br>D. Paramètres Utilisateur (Apprenant)<br><br>- Gestion du Profil : Édition des informations personnelles, ajout de photo, gestion des modes de paiement enregistrés.<br>- Centre de Préférences : Gestion fine des notifications (Push vs Email), mode sombre/clair, et préférences linguistiques.<br>- Confidentialité & Sécurité : Gestion du mot de passe, activation/désactivation de la 2FA, et historique des sessions connectées.<br>- Support & Légal : Accès au centre d'aide, conditions générales (CGU), et option de suppression de compte (obligatoire sur iOS).<br><br>4. Contraintes & Règles<br><br>- Respect des Guidelines : Utilisation rigoureuse des composants natifs Human Interface Guidelines (iOS) et Material Design 3 (Android).<br>- Accessibilité : Contraste des couleurs (normes WCAG) et lisibilité des textes.",
+        "description": "Design d'une application mobile facilitant la mise en relation entre particuliers et professeurs indépendants en guise de test d'embauche.",
+        "image": "/assets/media/projects/mentora.webp",
+        "projectLink": "",
+        "date": "2026-03-13",
+        "type": "Application",
+        "context": "Professionnel",
+        "tags": [
+            {
+                "name": "UI/UX Design",
+                "icon": "bx bxs-layout"
+            },
+            {
+                "name": "Copywriting",
+                "icon": "bx bxs-pen"
+            }
+        ],
+        "width": 1920,
+        "height": 1080,
+        "technologies": [
+            {
+                "name": "Figma",
+                "icon": "bx bxl-figma"
+            }
+        ]
+    },
+    {
+        "id": 27,
         "is_study": true,
         "title": "Danse à l'Opéra",
         "text": "Coming soon...",
@@ -883,7 +912,7 @@
         ]
     },
     {
-        "id": 27,
+        "id": 28,
         "is_study": true,
         "title": "Introduction sur la faune et la flore du Var",
         "text": "Coming soon...",
@@ -922,7 +951,7 @@
         ]
     },
     {
-        "id": 28,
+        "id": 29,
         "is_study": true,
         "title": "Vidéo œuvre culturelle",
         "text": "Coming soon...",
@@ -961,7 +990,7 @@
         ]
     },
     {
-        "id": 29,
+        "id": 30,
         "is_study": true,
         "title": "Campagne de communication Tom et Lola",
         "text": "Coming soon...",
@@ -1000,7 +1029,7 @@
         ]
     },
     {
-        "id": 30,
+        "id": 31,
         "is_study": true,
         "title": "Stratégie de communication Mafigue",
         "text": "Coming soon...",
@@ -1026,7 +1055,7 @@
         "technologies": []
     },
     {
-        "id": 31,
+        "id": 32,
         "is_study": true,
         "title": "CultoPhoto",
         "text": "Coming soon...",
@@ -1053,7 +1082,7 @@
         ]
     },
     {
-        "id": 32,
+        "id": 33,
         "is_study": true,
         "title": "Sites WordPress",
         "text": "Coming soon...",
