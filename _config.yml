@@ -61,6 +61,12 @@ navigation:
 
 permalink: /:title/
 
+
 plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
+
+kramdown:
+  input: GFM
+  hard_wrap: true
+  syntax_highlighter: rouge

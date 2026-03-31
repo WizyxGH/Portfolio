@@ -125,7 +125,7 @@ priority: 0.9
                 class="projectCard group animate-on-scroll transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212] block"
                 data-project-id="{{ project.id }}" data-title="{{ project.title | downcase }}"
                 data-description="{{ project.description | downcase }}"
-                data-text="{{ project.content | strip_html | downcase | replace: '"', ' &quot;' }}"
+                data-text="{{ project.text | strip_html | downcase | replace: '"', ' &quot;' }}"
                 data-type="{{ project.type }}" data-tags="{{ project.tags | map: 'name' | join: ',' }}">
 
                 {% if project.image contains '.webm' or project.image contains '.mp4' %}

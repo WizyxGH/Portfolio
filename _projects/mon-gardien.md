@@ -1,0 +1,9 @@
+Dans le cadre de mon stage de BUT MMI de 2ᵉ année, j’ai participé à la conceptualisation de Mon Gardien.
+
+Mon Gardien est un projet d'application mobile dont le but est d’aider à réduire le « doomscrolling », c’est-à-dire l’activité de faire défiler (scroller) son fil d’actualités ou de recommandations sur les réseaux sociaux de manière mécanique et quasi systématique sans même que l’on en ait pleinement conscience. Le fait même d’ouvrir ce genre d'applications est devenu pour beaucoup un réflexe. De là, par le biais même de leur conception dont le but final est de générer de l’argent pour subsister, un temps conséquent peut être perdu tandis qu’il aurait peut être utilisé à meilleur escient en faisant à la place des activités qui nous tiennent plus à cœur que la consommation d’un contenu que l’on aura en majorité oublié le lendemain.
+
+Elle se base sur un système de ludification (gamification) en reprenant certains codes des jeux vidéos afin de donner envie et pousser l’utilisateur à être conscient de cette habitude et à y faire face.
+
+Pour récolter des fonds auprès d'investisseurs et pour jauger la pertinence du projet, je me suis attelé à réaliser le design et le rédactionnel d’une landing page expliquant le problème du doomscrolling et la solution que propose la future application Mon Gardien.
+
+L’intégralité de la landing page consiste en un tunnel dont le but est de rediriger les gens vers un formulaire (qu’il a aussi fallu intégralement préparer) permettant de témoigner de leur expérience personnelle sur le doomscrolling et sur les solutions concurrentes déjà existantes pour récolter de nouvelles données sur leur usage et répondre au mieux à ce problème. Le tout en récoltant l’adresse mail, de personnes potentiellement intéressées par Mon Gardien.

@@ -1,0 +1,7 @@
+I.N.D.U.C.K.S. est une base de données répertoriant l’ensemble des bandes dessinées Disney publiées dans le monde entier. Ce site sert aussi bien de références pour les fans que pour les sociétés qui éditent ces magazines.
+
+Différents projets de classification des histoires et magazines ont vu le jour avant même l’arrivée d’internet. L’objectif de Inducks est de centraliser toutes ces informations à un endroit unique.
+
+Au fil des années, la base de données est devenue plus riche en information (sur certains points) que les informations internes dont les éditeurs disposent. Cela fait de Inducks une source très précieuse de contenu (plus de 160 000 histoires et 180 000 magazines y sont listés avec toutes les informations associées imaginables).
+
+Développé à une autre ère, le site est fonctionnel mais reste repoussant et peut s’avérer non intuitif pour les personnes qui voudraient le consulter ou y contribuer. De ce fait, dans mon temps libre, j’ai imaginé une nouvelle version de la page d’accueil du site plus attrayante, moderne et qui améliorerait l’expérience utilisateur. Pour ne pas trop surcharger le développement, je me suis concentré presque exclusivement sur l’aspect visuel sans vraiment dénaturer l’existant.

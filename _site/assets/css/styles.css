@@ -201,3 +201,227 @@ select,
   right: 0;
   background: linear-gradient(to left, #411FEB, transparent);
 }
+
+/* --- Project Descriptions & Callouts --- */
+.prose p {
+    margin-bottom: 1.25rem !important;
+    line-height: 1.75 !important;
+}
+.prose ul, .prose ol {
+    margin-bottom: 1.25rem !important;
+    padding-left: 1.5rem !important;
+    list-style-position: outside !important;
+}
+.prose ul {
+    list-style-type: disc !important;
+}
+.prose ol {
+    list-style-type: decimal !important;
+}
+.prose h1, .prose h2, .prose h3, .prose h4 {
+    font-weight: 700 !important;
+    margin-top: 1.75rem !important;
+    margin-bottom: 0.75rem !important;
+    color: inherit !important;
+}
+.prose h2 { font-size: 1.5rem !important; }
+.prose h3 { font-size: 1.25rem !important; }
+
+/* Obsidian Callouts Support */
+.prose .callout {
+    --callout-color: 120, 82, 238; /* default purple/example */
+    padding: 1rem;
+    margin: 1.5rem 0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background-color: rgba(var(--callout-color), 0.08) !important;
+}
+.prose .callout-title {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: capitalize;
+    color: rgb(var(--callout-color)) !important;
+}
+.prose .callout-content {
+    font-size: 0.95em;
+}
+.prose .callout-content p:last-child {
+    margin-bottom: 0 !important;
+}
+.dark .prose .callout {
+    background-color: rgba(var(--callout-color), 0.15) !important;
+}
+.dark .prose .callout-title {
+    color: rgb(var(--callout-color)) !important;
+}
+
+/* Specific callout types */
+.prose .callout-note, .prose .callout-info, .prose .callout-todo { --callout-color: 8, 109, 221; }
+.prose .callout-abstract, .prose .callout-summary, .prose .callout-tldr { --callout-color: 0, 176, 171; }
+.prose .callout-tip, .prose .callout-hint, .prose .callout-important { --callout-color: 0, 191, 143; }
+.prose .callout-success, .prose .callout-check, .prose .callout-done { --callout-color: 8, 185, 78; }
+.prose .callout-question, .prose .callout-faq, .prose .callout-help { --callout-color: 236, 169, 15; }
+.prose .callout-warning, .prose .callout-caution, .prose .callout-attention { --callout-color: 233, 151, 63; }
+.prose .callout-failure, .prose .callout-fail, .prose .callout-missing, .prose .callout-danger, .prose .callout-error, .prose .callout-bug { --callout-color: 230, 80, 80; }
+.prose .callout-example { --callout-color: 120, 82, 238; }
+.prose .callout-quote, .prose .callout-cite { --callout-color: 158, 158, 158; }
+
+.dark .prose .callout-note, .dark .prose .callout-info, .dark .prose .callout-todo { --callout-color: 2, 122, 255; }
+.dark .prose .callout-abstract, .dark .prose .callout-summary, .dark .prose .callout-tldr { --callout-color: 0, 200, 194; }
+.dark .prose .callout-tip, .dark .prose .callout-hint, .dark .prose .callout-important { --callout-color: 0, 224, 167; }
+.dark .prose .callout-success, .dark .prose .callout-check, .dark .prose .callout-done { --callout-color: 16, 204, 82; }
+.dark .prose .callout-question, .dark .prose .callout-faq, .dark .prose .callout-help { --callout-color: 250, 189, 47; }
+.dark .prose .callout-warning, .dark .prose .callout-caution, .dark .prose .callout-attention { --callout-color: 251, 158, 41; }
+.dark .prose .callout-failure, .dark .prose .callout-fail, .dark .prose .callout-missing, .dark .prose .callout-danger, .dark .prose .callout-error, .dark .prose .callout-bug { --callout-color: 251, 70, 76; }
+.dark .prose .callout-example { --callout-color: 148, 115, 255; }
+.dark .prose .callout-quote, .dark .prose .callout-cite { --callout-color: 160, 160, 160; }
+
+/* Obsidian Markdown Advanced Syntax Rendering (js/obsidian.js & GFM) */
+
+/* Highlights (==text==) */
+.prose mark {
+    background-color: rgba(65, 31, 235, 0.2);
+    color: inherit;
+    padding: 0.1em 0.3em;
+    border-radius: 4px;
+    font-weight: 500;
+}
+.dark .prose mark {
+    background-color: rgba(85, 54, 237, 0.3);
+}
+
+/* Strikethrough (~~text~~) */
+.prose del {
+    opacity: 0.6;
+}
+
+/* Blockquotes (> text) */
+.prose blockquote:not(.callout) {
+    border-left: 4px solid #411FEB;
+    background: linear-gradient(to right, rgba(65, 31, 235, 0.05), transparent);
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 0.5rem 0.5rem 0;
+    font-style: italic;
+    color: #411FEB;
+}
+.prose blockquote:not(.callout) p:last-child {
+    margin-bottom: 0 !important;
+}
+.dark .prose blockquote:not(.callout) {
+    border-left-color: #5536ED;
+    background: linear-gradient(to right, rgba(85, 54, 237, 0.1), transparent);
+    color: #A090F0;
+}
+
+/* Dividers (---) */
+.prose hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, transparent, rgba(65, 31, 235, 0.3), transparent);
+    margin: 3rem 0;
+}
+.dark .prose hr {
+    background: linear-gradient(to right, transparent, rgba(85, 54, 237, 0.3), transparent);
+}
+
+/* Tables */
+.prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 0.95em;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+.prose thead {
+    background-color: rgba(65, 31, 235, 0.08);
+    text-align: left;
+}
+.dark .prose thead {
+    background-color: rgba(85, 54, 237, 0.15);
+}
+.prose th, .prose td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+.dark .prose th, .dark .prose td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.prose th {
+    font-weight: 600;
+    color: #411FEB;
+}
+.dark .prose th {
+    color: #5536ED;
+}
+.prose tr:last-child td {
+    border-bottom: none;
+}
+/* Responsive table wrapper (if needed, usually JS wraps it, or we rely on standard overflow) */
+.prose-table-wrapper {
+    overflow-x: auto;
+    margin: 2rem 0;
+}
+
+/* Task Lists (- [ ] / - [x]) */
+.prose ul.contains-task-list {
+    list-style-type: none !important;
+    padding-left: 0.5rem !important;
+}
+.prose .task-list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem !important;
+}
+.prose .task-list-item p {
+    margin: 0 !important;
+}
+.prose input[type="checkbox"].task-list-item-checkbox {
+    margin-top: 0.35rem; /* alignment with text */
+    width: 1.1em;
+    height: 1.1em;
+    accent-color: #411FEB;
+    cursor: not-allowed;
+    flex-shrink: 0;
+    border-radius: 0.25rem;
+}
+.dark .prose input[type="checkbox"].task-list-item-checkbox {
+    accent-color: #5536ED;
+}
+
+/* Iframes (Web page embeds and videos) */
+.prose iframe {
+    width: 100%;
+    /* 16:9 ratio approximately or min-height */
+    aspect-ratio: 16 / 9;
+    min-height: 400px;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(65, 31, 235, 0.1);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    margin: 2rem 0;
+}
+.dark .prose iframe {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Foldable Callouts (<details> & <summary>) */
+.prose details.callout summary.callout-title {
+    list-style: none; /* Hide default triangle in FF/Chrome */
+    user-select: none;
+    cursor: pointer;
+}
+.prose details.callout summary.callout-title::-webkit-details-marker {
+    display: none; /* Hide default triangle in older webkit */
+}
+.prose details.callout:not([open]) summary.callout-title {
+    margin-bottom: 0; /* Remove gap when collapsed */
+}
+.prose details.callout[open] > summary .fold-icon {
+    transform: rotate(90deg); /* bx-chevron-right turns to point down */
+}
