@@ -85,24 +85,58 @@ permalink: /contact/
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_subject" value="Nouveau message depuis le formulaire">
 
-                    <!-- Email -->
-                    <label class="flex flex-col">
-                        <span class="flex items-center gap-2 text-[#121212] dark:text-white font-medium">
-                            Adresse mail
-                        </span>
-                        <input type="email" name="email" placeholder="johndoe@mail.com" required
-                            class="mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-[#121212] dark:border-[#3E3E3E] dark:text-white dark:placeholder-gray-500">
-                    </label>
+                    <!-- Email & Téléphone -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+                        <div class="flex flex-col">
+                            <label for="emailInput" class="flex items-center gap-2 text-[#121212] dark:text-white font-medium cursor-pointer">
+                                Adresse mail
+                            </label>
+                            <input type="email" name="email" id="emailInput" placeholder="johndoe@mail.com" required
+                                class="mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-[#121212] dark:bg-[#121212] dark:border-[#3E3E3E] dark:text-white dark:placeholder-gray-500">
+                            <p id="emailError" class="text-xs text-red-500 font-medium mt-1.5 hidden"></p>
+                        </div>
+                        <div class="flex flex-col">
+                            <label for="phoneInput" class="flex items-center gap-2 text-[#121212] dark:text-white font-medium cursor-pointer">
+                                Téléphone <span class="text-xs text-gray-400 dark:text-gray-500 font-normal">(Optionnel)</span>
+                            </label>
+                            <input type="tel" name="phone" id="phoneInput" placeholder="06 12 34 56 78"
+                                class="mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-[#121212] dark:bg-[#121212] dark:border-[#3E3E3E] dark:text-white dark:placeholder-gray-500">
+                            <p id="phoneError" class="text-xs text-red-500 font-medium mt-1.5 hidden"></p>
+                        </div>
+                    </div>
 
                     <!-- Objet -->
                     <label class="flex flex-col">
                         <span class="flex items-center gap-2 text-[#121212] dark:text-white font-medium">
-                            Objet
+                            Demande / Projet
                         </span>
                         <input type="text" name="subject" placeholder="Projet de site, Refonte d'une application..."
                             required
                             class="mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-[#121212] dark:bg-[#121212] dark:border-[#3E3E3E] dark:text-white dark:placeholder-gray-500">
                     </label>
+
+                    <!-- Budget -->
+                    <div class="flex flex-col text-left">
+                        <span class="flex items-center gap-2 text-[#121212] dark:text-white font-medium mb-2">
+                            Budget
+                        </span>
+                        <input type="hidden" name="budget" id="budgetInput" value="">
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                            <button type="button" data-budget="Moins de 1 000 €" class="budget-pill px-3 py-2.5 text-xs font-semibold rounded-xl border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-400 bg-white dark:bg-[#121212] hover:border-[#411FEB]/40 dark:hover:border-[#5536ED]/40 transition-all duration-200">
+                                Moins de 1 000 €
+                            </button>
+                            <button type="button" data-budget="1 000 € - 3 000 €" class="budget-pill px-3 py-2.5 text-xs font-semibold rounded-xl border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-400 bg-white dark:bg-[#121212] hover:border-[#411FEB]/40 dark:hover:border-[#5536ED]/40 transition-all duration-200">
+                                1 000 € - 3 000 €
+                            </button>
+                            <button type="button" data-budget="3 000 € - 6 000 €" class="budget-pill px-3 py-2.5 text-xs font-semibold rounded-xl border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-400 bg-white dark:bg-[#121212] hover:border-[#411FEB]/40 dark:hover:border-[#5536ED]/40 transition-all duration-200">
+                                3 000 € - 6 000 €
+                            </button>
+                            <button type="button" data-budget="Plus de 6 000 €" class="budget-pill px-3 py-2.5 text-xs font-semibold rounded-xl border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-400 bg-white dark:bg-[#121212] hover:border-[#411FEB]/40 dark:hover:border-[#5536ED]/40 transition-all duration-200">
+                                Plus de 6 000 €
+                            </button>
+                        </div>
+                        <p id="budgetError" class="text-xs text-red-500 font-medium mt-1.5 hidden"></p>
+                    </div>
 
                     <!-- Honeypot anti-spam (caché) -->
                     <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
@@ -113,11 +147,50 @@ permalink: /contact/
                             Message
                         </span>
                         <textarea name="message" rows="6" placeholder="Écrivez votre message ici..." required
-                            class="mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800 dark:bg-[#121212] dark:border-[#3E3E3E] dark:text-white dark:placeholder-gray-500"></textarea>
+                            class="mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-[#121212] dark:bg-[#121212] dark:border-[#3E3E3E] dark:text-white dark:placeholder-gray-500"></textarea>
                     </label>
 
+                    <!-- Pièce jointe -->
+                    <div class="flex flex-col text-left">
+                        <span class="flex items-center gap-2 text-[#121212] dark:text-white font-medium mb-2">
+                            Pièce jointe <span class="text-xs text-gray-400 dark:text-gray-500 font-normal">(Optionnel)</span>
+                        </span>
+                        
+                        <!-- Hidden file input -->
+                        <input type="file" name="attachment" id="fileInput" class="hidden" accept=".pdf,.png,.jpg,.jpeg,.docx,.zip">
+                        
+                        <!-- Drag area -->
+                        <div id="dropZone" class="border-2 border-dashed border-gray-200 dark:border-gray-800 hover:border-[#411FEB]/40 dark:hover:border-[#5536ED]/40 bg-white dark:bg-[#121212] rounded-2xl p-6 text-center cursor-pointer transition-all duration-300 flex flex-col items-center justify-center gap-2">
+                            <!-- Non-selected state -->
+                            <div id="dropZonePrompt" class="flex flex-col items-center justify-center gap-2 text-gray-500 dark:text-gray-400">
+                                <i class='bx bx-cloud-upload text-3xl text-[#411FEB] dark:text-[#5536ED]'></i>
+                                <p class="text-sm font-semibold text-[#121212] dark:text-white">Glissez-déposez un fichier, ou <span class="text-[#411FEB] dark:text-[#5536ED] underline">parcourez</span></p>
+                                <p class="text-xs text-gray-400 dark:text-gray-500 leading-normal">Formats acceptés : PDF, PNG, JPG, DOCX, ZIP. Taille max : 10 Mo</p>
+                            </div>
+                            
+                            <!-- Selected state (hidden initially) -->
+                            <div id="dropZonePreview" class="hidden w-full flex items-center justify-between bg-[#F9F7FF] dark:bg-[#1A162C] border border-[#C1B4F8]/20 dark:border-[#281E5A]/30 p-3 rounded-xl">
+                                <div class="flex items-center gap-3 truncate">
+                                    <div class="w-10 h-10 rounded-lg bg-[#411FEB]/10 text-[#411FEB] dark:text-[#5536ED] flex items-center justify-center text-xl shrink-0">
+                                        <i class='bx bx-file' id="fileIcon"></i>
+                                    </div>
+                                    <div class="text-left truncate">
+                                        <p class="text-xs font-bold text-[#121212] dark:text-white truncate" id="fileName"></p>
+                                        <p class="text-[10px] text-gray-400 dark:text-gray-500" id="fileSize"></p>
+                                    </div>
+                                </div>
+                                <button type="button" id="removeFileButton" class="w-8 h-8 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center text-lg hover:bg-red-500 hover:text-white transition-all shrink-0">
+                                    <i class='bx bx-x'></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Error Message placeholder -->
+                        <p id="fileError" class="text-xs text-red-500 font-medium mt-1.5 hidden"></p>
+                    </div>
+
                     <!-- Bouton -->
-                    <button type="submit"
+                    <button type="submit" id="submitBtn"
                         class="mt-2 bg-[#411FEB] text-white font-semibold py-3 rounded-full shadow-md hover:bg-[#3215c7] transition flex items-center justify-center gap-2">
                         <i class='bx bx-send-alt'></i><span>Envoyer</span>
                     </button>
@@ -180,12 +253,256 @@ permalink: /contact/
                 </div>
             </div>
         </section>
-        <!-- JS pour feedback sans rechargement -->
         <script>
             const form = document.getElementById('contactForm');
             const formMessage = document.getElementById('formMessage');
             const formLoadTime = Date.now();
 
+            // Budget Selector Logic
+            const budgetInput = document.getElementById('budgetInput');
+            const budgetPills = document.querySelectorAll('.budget-pill');
+            const budgetError = document.getElementById('budgetError');
+
+            budgetPills.forEach(pill => {
+                pill.addEventListener('click', () => {
+                    const isSelected = pill.classList.contains('border-[#411FEB]');
+                    
+                    // Reset all pills
+                    budgetPills.forEach(p => {
+                        p.classList.remove('border-[#411FEB]', 'bg-[#411FEB]/10', 'text-[#411FEB]', 'dark:border-[#5536ED]', 'dark:bg-[#5536ED]/10', 'dark:text-[#5536ED]');
+                        p.classList.add('border-gray-200', 'dark:border-gray-800', 'text-gray-600', 'dark:text-gray-400', 'bg-white', 'dark:bg-[#121212]');
+                    });
+
+                    if (isSelected) {
+                        // Toggle off if already selected
+                        budgetInput.value = '';
+                    } else {
+                        // Toggle on
+                        pill.classList.remove('border-gray-200', 'dark:border-gray-800', 'text-gray-600', 'dark:text-gray-400', 'bg-white', 'dark:bg-[#121212]');
+                        pill.classList.add('border-[#411FEB]', 'bg-[#411FEB]/10', 'text-[#411FEB]', 'dark:border-[#5536ED]', 'dark:bg-[#5536ED]/10', 'dark:text-[#5536ED]');
+                        budgetInput.value = pill.getAttribute('data-budget');
+                        // Clear error on select
+                        budgetError.classList.add('hidden');
+                    }
+                });
+            });
+
+            function validateBudgetField() {
+                if (budgetInput.value === '') {
+                    budgetError.textContent = "Veuillez sélectionner une tranche de budget pour votre projet.";
+                    budgetError.classList.remove('hidden');
+                    return false;
+                } else {
+                    budgetError.classList.add('hidden');
+                    return true;
+                }
+            }
+
+            // Email validation logic
+            const emailInput = document.getElementById('emailInput');
+            const emailError = document.getElementById('emailError');
+
+            function validateEmail(email) {
+                const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                return re.test(String(email).toLowerCase());
+            }
+
+            function validateEmailField() {
+                const value = emailInput.value.trim();
+                if (value === '') {
+                    emailError.textContent = "L'adresse mail est requise.";
+                    emailError.classList.remove('hidden');
+                    emailInput.classList.add('border-red-500', 'focus:ring-red-500');
+                    return false;
+                }
+                const isValid = validateEmail(value);
+                if (!isValid) {
+                    emailError.textContent = "L'adresse mail ne semble pas valide (ex. john@example.com).";
+                    emailError.classList.remove('hidden');
+                    emailInput.classList.add('border-red-500', 'focus:ring-red-500');
+                    return false;
+                } else {
+                    emailError.classList.add('hidden');
+                    emailInput.classList.remove('border-red-500', 'focus:ring-red-500');
+                    return true;
+                }
+            }
+
+            emailInput.addEventListener('input', () => {
+                if (emailInput.value.trim() === '') {
+                    emailError.classList.add('hidden');
+                    emailInput.classList.remove('border-red-500', 'focus:ring-red-500');
+                } else {
+                    validateEmailField();
+                }
+            });
+
+            // Phone validation logic
+            const phoneInput = document.getElementById('phoneInput');
+            const phoneError = document.getElementById('phoneError');
+
+            function validatePhone(phoneNumber) {
+                const cleaned = phoneNumber.replace(/[\s\-\.\(\)\+]/g, '');
+                if (cleaned === '') return true; // Optional field
+                
+                // Permissive check: digits only, between 8 and 15 digits
+                return /^\d{8,15}$/.test(cleaned);
+            }
+
+            function validatePhoneField() {
+                const value = phoneInput.value;
+                const isValid = validatePhone(value);
+                if (!isValid) {
+                    phoneError.textContent = "Le numéro de téléphone ne correspond pas au format attendu (ex. 06 12 34 56 78).";
+                    phoneError.classList.remove('hidden');
+                    phoneInput.classList.add('border-red-500', 'focus:ring-red-500');
+                    return false;
+                } else {
+                    phoneError.classList.add('hidden');
+                    phoneInput.classList.remove('border-red-500', 'focus:ring-red-500');
+                    return true;
+                }
+            }
+
+            phoneInput.addEventListener('input', () => {
+                if (phoneInput.value.trim() === '') {
+                    phoneError.classList.add('hidden');
+                    phoneInput.classList.remove('border-red-500', 'focus:ring-red-500');
+                } else {
+                    validatePhoneField();
+                }
+            });
+
+            // File Upload Logic
+            const fileInput = document.getElementById('fileInput');
+            const dropZone = document.getElementById('dropZone');
+            const dropZonePrompt = document.getElementById('dropZonePrompt');
+            const dropZonePreview = document.getElementById('dropZonePreview');
+            const fileName = document.getElementById('fileName');
+            const fileSize = document.getElementById('fileSize');
+            const fileIcon = document.getElementById('fileIcon');
+            const fileError = document.getElementById('fileError');
+            const removeFileButton = document.getElementById('removeFileButton');
+
+            const allowedExtensions = ['pdf', 'png', 'jpg', 'jpeg', 'docx', 'zip'];
+            const maxFileSize = 10 * 1024 * 1024; // 10MB
+
+            function validateAndSelectFile(file) {
+                if (!file) return;
+
+                const extension = file.name.split('.').pop().toLowerCase();
+                
+                // Validate Extension
+                if (!allowedExtensions.includes(extension)) {
+                    showFileError("Format non supporté. Veuillez joindre un PDF, PNG, JPG, DOCX ou ZIP.");
+                    clearFile();
+                    return;
+                }
+
+                // Validate Size
+                if (file.size > maxFileSize) {
+                    showFileError("Fichier trop lourd. La taille maximale autorisée est de 10 Mo.");
+                    clearFile();
+                    return;
+                }
+
+                // Hide errors
+                fileError.classList.add('hidden');
+                
+                // Update text
+                fileName.textContent = file.name;
+                fileSize.textContent = formatBytes(file.size);
+
+                // Set file icon based on extension
+                if (['png', 'jpg', 'jpeg'].includes(extension)) {
+                    fileIcon.className = "bx bx-image";
+                } else if (extension === 'zip') {
+                    fileIcon.className = "bx bx-archive";
+                } else {
+                    fileIcon.className = "bx bx-file";
+                }
+
+                // Update UI state
+                dropZonePrompt.classList.add('hidden');
+                dropZonePreview.classList.remove('hidden');
+                
+                // Add highlight style to dropzone
+                dropZone.classList.add('border-[#411FEB]', 'dark:border-[#5536ED]', 'bg-[#411FEB]/5', 'dark:bg-[#5536ED]/5');
+                dropZone.classList.remove('border-gray-200', 'dark:border-gray-800', 'bg-white', 'dark:bg-[#121212]');
+            }
+
+            function clearFile() {
+                fileInput.value = '';
+                dropZonePrompt.classList.remove('hidden');
+                dropZonePreview.classList.add('hidden');
+                
+                // Reset dropzone styles
+                dropZone.classList.remove('border-[#411FEB]', 'dark:border-[#5536ED]', 'bg-[#411FEB]/5', 'dark:bg-[#5536ED]/5');
+                dropZone.classList.add('border-gray-200', 'dark:border-gray-800', 'bg-white', 'dark:bg-[#121212]');
+            }
+
+            function showFileError(msg) {
+                fileError.textContent = msg;
+                fileError.classList.remove('hidden');
+            }
+
+            function formatBytes(bytes, decimals = 1) {
+                if (bytes === 0) return '0 Octets';
+                const k = 1024;
+                const dm = decimals < 0 ? 0 : decimals;
+                const sizes = ['Octets', 'Ko', 'Mo', 'Go'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+            }
+
+            // Click zone to trigger input
+            dropZone.addEventListener('click', (e) => {
+                // Ignore click if remove button was clicked
+                if (e.target.closest('#removeFileButton')) return;
+                fileInput.click();
+            });
+
+            fileInput.addEventListener('change', () => {
+                if (fileInput.files.length > 0) {
+                    validateAndSelectFile(fileInput.files[0]);
+                }
+            });
+
+            removeFileButton.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent trigger click on dropZone
+                clearFile();
+                fileError.classList.add('hidden');
+            });
+
+            // Drag & Drop event listeners
+            ['dragenter', 'dragover'].forEach(eventName => {
+                dropZone.addEventListener(eventName, (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    dropZone.classList.add('border-[#411FEB]', 'dark:border-[#5536ED]', 'bg-[#411FEB]/5', 'dark:bg-[#5536ED]/5');
+                }, false);
+            });
+
+            ['dragleave', 'drop'].forEach(eventName => {
+                dropZone.addEventListener(eventName, (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (fileInput.files.length === 0) {
+                        dropZone.classList.remove('border-[#411FEB]', 'dark:border-[#5536ED]', 'bg-[#411FEB]/5', 'dark:bg-[#5536ED]/5');
+                    }
+                }, false);
+            });
+
+            dropZone.addEventListener('drop', (e) => {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                if (files.length > 0) {
+                    fileInput.files = files; // Assign files to input
+                    validateAndSelectFile(files[0]);
+                }
+            });
+
+            // Submission Logic
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const formData = new FormData(form);
@@ -210,8 +527,37 @@ permalink: /contact/
                     return;
                 }
 
+                // 3b. Vérifier la validité de l'adresse mail
+                if (!validateEmailField()) {
+                    emailInput.focus();
+                    return;
+                }
+
+                // 3c. Vérifier la validité du budget (obligatoire)
+                if (!validateBudgetField()) {
+                    budgetError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return;
+                }
+
+                // 4. Vérifier la validité du numéro de téléphone
+                if (!validatePhoneField()) {
+                    phoneInput.focus();
+                    return;
+                }
+
                 // Mettre à jour le sujet pour l'email reçu
                 formData.set('_subject', formData.get('subject') || 'Nouveau message');
+
+                // State indicators
+                const submitBtn = document.getElementById('submitBtn');
+                const submitBtnText = submitBtn.querySelector('span');
+                const submitBtnIcon = submitBtn.querySelector('i');
+
+                // Loading State
+                submitBtn.disabled = true;
+                submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                submitBtnText.textContent = 'Envoi en cours...';
+                submitBtnIcon.className = 'bx bx-loader-alt animate-spin';
 
                 try {
                     const response = await fetch(form.action, {
@@ -225,12 +571,32 @@ permalink: /contact/
                     if (response.ok) {
                         formMessage.classList.remove('hidden');
                         form.reset();
+                        clearFile();
+                        // Reset budget selections visual state
+                        budgetPills.forEach(p => {
+                            p.classList.remove('border-[#411FEB]', 'bg-[#411FEB]/10', 'text-[#411FEB]', 'dark:border-[#5536ED]', 'dark:bg-[#5536ED]/10', 'dark:text-[#5536ED]');
+                            p.classList.add('border-gray-200', 'dark:border-gray-800', 'text-gray-600', 'dark:text-gray-400', 'bg-white', 'dark:bg-[#121212]');
+                        });
+                        budgetError.classList.add('hidden');
+                        // Reset email validation state
+                        emailError.classList.add('hidden');
+                        emailInput.classList.remove('border-red-500', 'focus:ring-red-500');
+                        // Reset phone validation state
+                        phoneError.classList.add('hidden');
+                        phoneInput.classList.remove('border-red-500', 'focus:ring-red-500');
+                        phoneInput.placeholder = '06 12 34 56 78';
                         setTimeout(() => formMessage.classList.add('hidden'), 5000);
                     } else {
                         alert("Une erreur est survenue. Veuillez réessayer.");
                     }
                 } catch (err) {
                     alert("Impossible d'envoyer le message. Vérifiez votre connexion et réessayez.");
+                } finally {
+                    // Reset Button State
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                    submitBtnText.textContent = 'Envoyer';
+                    submitBtnIcon.className = 'bx bx-send-alt';
                 }
             });
         </script>
