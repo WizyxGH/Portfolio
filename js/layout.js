@@ -1,4 +1,4 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     ensureBoxiconsStyles();
     initNavbar();
 });
@@ -137,6 +137,17 @@ function initNavbarInteractions() {
                 dropdownChevron.classList.toggle('bx-chevron-up', !dropdownMenu.classList.contains('hidden'));
             }
         });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!dropdownButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+                if (dropdownChevron) {
+                    dropdownChevron.classList.add('bx-chevron-down');
+                    dropdownChevron.classList.remove('bx-chevron-up');
+                }
+            }
+        });
     }
 }
 
@@ -172,7 +183,7 @@ function initScrollAnimations() {
                 const delay = entry.target.dataset.delay || 0;
                 setTimeout(() => {
                     entry.target.classList.remove('opacity-0', 'translate-y-8');
-                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.add('opacity-100', 'translate-y-0', 'show');
 
                     // Trigger counter animation if element has counters
                     const counters = entry.target.querySelectorAll('[data-counter]');
