@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Page non trouvée - 404" description="Oups ! La page que vous recherchez semble introuvable." body_class="">
+    <main class="flex flex-col items-center justify-center min-h-screen px-6 py-16 pt-24">
+        <!-- Content Container -->
+        <div class="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-24 max-w-5xl">
+            <!-- Illustration -->
+            <div class="w-full max-w-md lg:max-w-lg">
+                <img src="/assets/media/projects/projectnoresult.svg" alt="Page non trouvée" class="w-full h-auto">
+            </div>
+
+            <!-- Text Content -->
+            <div class="flex flex-col items-start justify-center gap-6 max-w-md">
+                <h1 class="text-5xl lg:text-6xl font-bold text-[#121212] dark:text-white">
+                    Oups...
+                </h1>
+                <p class="text-lg text-gray-600 dark:text-gray-300">
+                    Nous n'avons pas trouvé la page que vous recherchiez
+                </p>
+
+                <!-- Go Home Button -->
+                <a href="/"
+                    class="bg-[#411FEB] inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold rounded-xl transition-all text-white hover:opacity-90">
+                    <i class='bx bx-left-arrow-alt text-xl'></i>
+                    <span>Retour à l'accueil</span>
+                </a>
+            </div>
+        </div>
+    </main>
+</Layout>

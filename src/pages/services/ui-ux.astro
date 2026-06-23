@@ -1,0 +1,2020 @@
+---
+import FaqItem from '../../components/ui/FaqItem.astro';
+import CheckListItem from '../../components/ui/CheckListItem.astro';
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Freelance UI/UX Designer - Refonte, Audit & Design d'interfaces - Florian Gertner Kilian" description="Besoin d'une refonte, d'un audit UX/UI ou de concevoir votre site/application ? Je crée des interfaces" body_class="">
+<main class="flex-1 flex flex-col">
+
+        <!-- 1. HERO SECTION -->
+        <section class="w-full px-8 lg:px-32 py-16 bg-[#411FEB] text-white transition-colors duration-200">
+            <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-2/3 space-y-6 text-left">
+                    <div class="flex flex-wrap gap-3 animate-fade-in-up">
+                        <div
+                            class="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-4 py-1.5 text-white">
+                            <i class='bx bxs-star text-yellow-400'></i>
+                            <span class="text-sm font-semibold">100% de clients satisfaits</span>
+                        </div>
+                        <div
+                            class="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-4 py-1.5 text-white">
+                            <i class='bx bx-map-pin text-white/80'></i>
+                            <span class="text-sm font-semibold">Toulon, Nice & Remote</span>
+                        </div>
+                    </div>
+                    <h1 class="text-4xl lg:text-6xl font-bold leading-tight animate-fade-in-up" style="animation-delay: 100ms;">
+                        Conception d'interfaces qui convertissent vos visiteurs en acheteurs.
+                    </h1>
+                    <p class="text-lg opacity-90 leading-relaxed animate-fade-in-up" style="animation-delay: 200ms;">
+                        Que vous lanciez un nouveau projet ou optimisiez l'existant, je traduis vos idées en interfaces fluides, esthétiques et intuitives. Vous recevez des maquettes Figma structurées et prêtes pour le développement.
+                    </p>
+                    <!-- Target platforms -->
+                    <div class="flex flex-wrap gap-3.5 pt-2 text-sm text-white/95 animate-fade-in-up" style="animation-delay: 250ms;">
+                        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/10 rounded-full border border-white/10 font-medium"><i class='bx bx-laptop text-base text-white/90'></i> Sites Web / E-commerce</span>
+                        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/10 rounded-full border border-white/10 font-medium"><i class='bx bx-mobile-alt text-base text-white/90'></i> Applications mobiles (iOS/Android)</span>
+                        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/10 rounded-full border border-white/10 font-medium"><i class='bx bx-layer text-base text-white/90'></i> Plateformes SaaS</span>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4 animate-fade-in-up" style="animation-delay: 300ms;">
+                        <a href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener noreferrer"
+                            class="w-full sm:w-auto bg-white text-[#411FEB] px-8 py-4 font-semibold rounded-xl text-center transition-all hover:bg-gray-100 hover:scale-[1.02]">
+                            Prendre un RDV gratuit
+                        </a>
+                        <a href="/creations/"
+                            class="w-full sm:w-auto bg-white/10 text-white border border-white/20 px-8 py-4 font-semibold rounded-xl flex items-center justify-center gap-2 transition-all hover:bg-white/20">
+                            Découvrir mes réalisations
+                            <i class='bx bx-arrow-up-right'></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:w-1/3 flex justify-center">
+                    <!-- Photo de profil de Florian avec badges flottants -->
+                    <div class="relative w-64 h-64 lg:w-80 lg:h-80">
+                        <!-- Effet de halo / dégradé en arrière-plan -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-tr from-[#5536ED] to-[#411FEB] rounded-3xl opacity-30 blur-lg animate-pulse-slow">
+                        </div>
+
+                        <!-- Conteneur de la photo -->
+                        <div
+                            class="relative w-full h-full rounded-3xl border border-white/20 overflow-hidden shadow-2xl bg-white/5 backdrop-blur-sm animate-scale-in-elastic" style="animation-delay: 150ms;">
+                            <img src="/assets/media/profilepicturepro.webp" alt="Florian Gertner Kilian"
+                                class="w-full h-full object-cover">
+                        </div>
+
+                        <!-- Badges Flottants -->
+                        <div
+                            class="absolute -top-4 -right-4 bg-white text-[#411FEB] px-4 py-2 rounded-lg font-bold text-sm shadow-lg animate-float-badge z-10">
+                            Product Designer ✨
+                        </div>
+                        <div
+                            class="absolute -bottom-4 -left-4 bg-[#E8E4FC] text-[#411FEB] px-4 py-2 rounded-lg font-bold text-sm shadow-lg dark:bg-[#1A162C] dark:text-white animate-float-badge-reverse z-10">
+                            Figma Expert 📐
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. LE PROBLÈME (AGITATION) -->
+        <section class="w-full px-8 lg:px-32 py-16 bg-white dark:bg-[#121212]">
+            <div class="max-w-5xl mx-auto text-center space-y-12">
+                <div class="space-y-4">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-[#121212] dark:text-white">
+                        Pourquoi un design "moyen" vous coûte plus cher qu'un designer senior
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                        La plupart des produits numériques échouent non pas à cause de leur code, mais à cause d'une
+                        expérience utilisateur approximative qui fait fuir les clients et frustre les équipes.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                    <!-- Point 1: Double travail -->
+                    <div
+                        class="bg-[#F9F7FF] dark:bg-[#1A162C] p-6 rounded-2xl border border-[#C1B4F8]/20 dark:border-[#281E5A]/30 space-y-3 animate-on-scroll transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:border-[#411FEB]/30 dark:hover:border-[#5536ED]/30">
+                        <div class="text-red-500 text-3xl"><i class='bx bx-code-block'></i></div>
+                        <h3 class="font-bold text-[#121212] dark:text-white">Le piège du double travail (Refonte + Code)
+                        </h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                            Engager un designer junior sans bagage technique mène souvent à des maquettes irréalistes.
+                            Vos développeurs devront bricoler, multiplier les allers-retours ou tout jeter. Corriger une
+                            erreur après développement coûte <strong>jusqu'à 100 fois plus cher</strong> qu'en phase de
+                            design.
+                        </p>
+                    </div>
+
+                    <!-- Point 2: Budget marketing gâché -->
+                    <div class="bg-[#F9F7FF] dark:bg-[#1A162C] p-6 rounded-2xl border border-[#C1B4F8]/20 dark:border-[#281E5A]/30 space-y-3 animate-on-scroll transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:border-[#411FEB]/30 dark:hover:border-[#5536ED]/30"
+                        style="transition-delay: 100ms;">
+                        <div class="text-red-500 text-3xl"><i class='bx bx-trending-down'></i></div>
+                        <h3 class="font-bold text-[#121212] dark:text-white">Le gaspillage budgétaire (CAC & Publicités)
+                        </h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                            Attirer du trafic via Google Ads, Meta Ads ou SEO coûte cher. Si l'ergonomie de votre
+                            interface est confuse, vos visiteurs s'en vont immédiatement chez vos concurrents. Un design
+                            clair et fluide augmente les taux de conversion de <strong>200% à 400%</strong>,
+                            rentabilisant chaque euro dépensé en marketing.
+                        </p>
+                    </div>
+
+                    <!-- Point 3: Support client débordé -->
+                    <div class="bg-[#F9F7FF] dark:bg-[#1A162C] p-6 rounded-2xl border border-[#C1B4F8]/20 dark:border-[#281E5A]/30 space-y-3 animate-on-scroll transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:border-[#411FEB]/30 dark:hover:border-[#5536ED]/30"
+                        style="transition-delay: 200ms;">
+                        <div class="text-red-500 text-3xl"><i class='bx bx-message-rounded-error'></i></div>
+                        <h3 class="font-bold text-[#121212] dark:text-white">La surcharge constante du Support Client
+                        </h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                            Chaque zone d'ombre dans votre parcours utilisateur crée de la frustration et pousse vos
+                            clients à contacter le support (tickets d'aide, réclamations). Une UX intuitive résout ces
+                            frictions de manière autonome et <strong>réduit drastiquement vos coûts
+                                opérationnels</strong> de gestion.
+                        </p>
+                    </div>
+
+                    <!-- Point 4: Dévalorisation de votre marque -->
+                    <div class="bg-[#F9F7FF] dark:bg-[#1A162C] p-6 rounded-2xl border border-[#C1B4F8]/20 dark:border-[#281E5A]/30 space-y-3 animate-on-scroll transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:border-[#411FEB]/30 dark:hover:border-[#5536ED]/30"
+                        style="transition-delay: 300ms;">
+                        <div class="text-red-500 text-3xl"><i class='bx bx-shield-x'></i></div>
+                        <h3 class="font-bold text-[#121212] dark:text-white">La perte de crédibilité et de valeur</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                            Vos clients potentiels n'accorderont jamais leur confiance (ni leur carte bancaire) à une
+                            interface obsolète ou instable. Un design premium de niveau mondial rassure instantanément
+                            sur votre professionnalisme et vous permet de <strong>justifier des tarifs plus
+                                élevés</strong>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Données chiffrées & Sources -->
+                <div class="bg-[#E8E4FC] dark:bg-[#1A162C]/40 border border-[#C1B4F8]/60 dark:border-[#281E5A]/60 rounded-2xl p-6 lg:p-8 text-left space-y-6 animate-on-scroll"
+                    style="transition-delay: 400ms;">
+                    <h4 class="font-bold text-[#121212] dark:text-white text-lg flex items-center gap-2">
+                        <i class='bx bx-line-chart text-[#411FEB] dark:text-[#5536ED] text-xl'></i>
+                        L'impact financier du design
+                    </h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="space-y-1">
+                            <span class="text-3xl font-extrabold text-[#411FEB] dark:text-[#5536ED] block">+200% à
+                                +400%</span>
+                            <p class="text-xs text-gray-600 dark:text-gray-400 leading-normal">
+                                d'augmentation des taux de conversion grâce à une interface de qualité.
+                                <span class="block mt-1 font-semibold text-gray-400 text-[10px]">Source : Forrester
+                                    Research</span>
+                            </p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-3xl font-extrabold text-[#411FEB] dark:text-[#5536ED] block">100 $ de
+                                retour</span>
+                            <p class="text-xs text-gray-600 dark:text-gray-400 leading-normal">
+                                pour chaque dollar (1 $) investi dans l'amélioration de l'UX (ROI de 9&nbsp;900&nbsp;%).
+                                <span class="block mt-1 font-semibold text-gray-400 text-[10px]">Source : Forrester
+                                    Research</span>
+                            </p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-3xl font-extrabold text-[#411FEB] dark:text-[#5536ED] block">100x moins
+                                cher</span>
+                            <p class="text-xs text-gray-600 dark:text-gray-400 leading-normal">
+                                de corriger un problème ergonomique en phase de design plutôt qu'après codage.
+                                <span class="block mt-1 font-semibold text-gray-400 text-[10px]">Source : IBM Systems
+                                    Journal</span>
+                            </p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-3xl font-extrabold text-[#411FEB] dark:text-[#5536ED] block">+32% de
+                                croissance</span>
+                            <p class="text-xs text-gray-600 dark:text-gray-400 leading-normal">
+                                de chiffre d'affaires sur 5 ans constatée chez les leaders du design.
+                                <span class="block mt-1 font-semibold text-gray-400 text-[10px]">Source : McKinsey (The
+                                    Business Value of Design)</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. LES POINTS FORTS / OBJECTIONS (DEVELOPPEURS & COPYWRITING) -->
+        <section class="w-full px-8 lg:px-32 py-16 bg-[#E8E4FC] dark:bg-[#1A162C]">
+            <div class="max-w-5xl mx-auto space-y-12">
+                <div class="text-center space-y-4">
+                    <span class="text-sm font-bold text-[#411FEB] dark:text-[#5536ED] uppercase">Mes points forts</span>
+                    <h2 class="text-3xl lg:text-4xl font-bold text-[#121212] dark:text-white">Pourquoi moi plutôt qu'un autre ?</h2>
+                    <p class="text-gray-600 dark:text-gray-400 max-w-xl mx-auto text-sm">
+                        Une double compétence technique et stratégique pour des interfaces esthétiques, performantes et prêtes à être intégrées.
+                    </p>
+                </div>
+                <div class="flex flex-col lg:flex-row gap-6 lg:gap-12 items-stretch">
+                    <!-- Atout Dev -->
+                    <div
+                        class="lg:w-1/2 bg-white dark:bg-[#121212] p-6 md:p-8 rounded-2xl border-2 border-[#C1B4F8] dark:border-[#281E5A] flex flex-col justify-between space-y-6 animate-on-scroll transition-all duration-300 hover:scale-[1.01] hover:shadow-xl hover:border-[#411FEB] dark:hover:border-[#5536ED]">
+                        <div class="space-y-4">
+                            <div
+                                class="w-12 h-12 rounded-full bg-[#411FEB]/15 text-[#411FEB] dark:bg-[#5536ED]/20 dark:text-[#5536ED] flex items-center justify-center text-2xl font-semibold">
+                                <i class='bx bx-code-alt'></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-[#121212] dark:text-white">Je ne dessine pas seulement des maquettes. Je conçois des produits prêts à être codés.</h3>
+                            <p class="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
+                                La plupart des designers créent des interfaces superbes qui s'avèrent impossibles à intégrer. Ayant débuté mes études en **BTS SIO** (développement informatique) avant de me spécialiser en design en **BUT MMI**, je sais coder et je comprends vos développeurs.
+                            </p>
+                            <ul class="space-y-3.5 text-sm text-gray-500 dark:text-gray-400">
+                                <li class="flex items-start gap-3"><i
+                                        class='bx bx-check text-green-500 text-xl shrink-0 mt-0.5'></i>
+                                    <span><strong>Zéro friction de handoff</strong> : Mes fichiers Figma sont construits comme du code (Auto-layout strict, variables, tokens CSS). Vos intégrateurs n'ont qu'à copier-coller les styles.</span>
+                                </li>
+                                <li class="flex items-start gap-3"><i
+                                        class='bx bx-check text-green-500 text-xl shrink-0 mt-0.5'></i>
+                                    <span><strong>Design System réutilisable</strong> : Je livre des composants propres et modulables, ce qui permet à vos équipes de faire évoluer le produit à l'infini sans recréer de dette technique.</span>
+                                </li>
+                                <li class="flex items-start gap-3"><i
+                                        class='bx bx-check text-green-500 text-xl shrink-0 mt-0.5'></i>
+                                    <span><strong>Faisabilité garantie à 100%</strong> : Pas de propositions irréalistes. Les contraintes de mise en page responsive et de structure sont anticipées dès le premier schéma.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="text-xs font-bold text-[#411FEB] dark:text-[#5536ED] uppercase tracking-wider pt-2 border-t border-gray-100 dark:border-gray-800/80">Vos développeurs vont adorer travailler avec moi, et vous gagnerez un temps précieux.</p>
+                    </div>
+
+                    <!-- Atout Copywriting -->
+                    <div class="lg:w-1/2 bg-white dark:bg-[#121212] p-6 md:p-8 rounded-2xl border-2 border-[#C1B4F8] dark:border-[#281E5A] flex flex-col justify-between space-y-6 animate-on-scroll transition-all duration-300 hover:scale-[1.01] hover:shadow-xl hover:border-[#411FEB] dark:hover:border-[#5536ED]"
+                        style="transition-delay: 150ms;">
+                        <div class="space-y-4">
+                            <div
+                                class="w-12 h-12 rounded-full bg-[#411FEB]/15 text-[#411FEB] dark:bg-[#5536ED]/20 dark:text-[#5536ED] flex items-center justify-center text-2xl font-semibold">
+                                <i class='bx bx-edit'></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-[#121212] dark:text-white">Le Design n'est rien sans les mots : je structure votre message pour convaincre.</h3>
+                            <p class="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
+                                Une magnifique interface remplie de "Lorem Ipsum" ou de textes fades ne convertira jamais. C'est pourquoi j'intègre le **Copywriting** (persuasion) et l'**UX Writing** (clarté) directement dans mon processus créatif.
+                            </p>
+                            <ul class="space-y-3.5 text-sm text-gray-500 dark:text-gray-400">
+                                <li class="flex items-start gap-3"><i
+                                        class='bx bx-check text-green-500 text-xl shrink-0 mt-0.5'></i>
+                                    <span><strong>Copywriting de conversion</strong> : Co-rédaction d'accroches percutantes et structuration logique de vos arguments pour lever les objections de vos visiteurs.</span>
+                                </li>
+                                <li class="flex items-start gap-3"><i
+                                        class='bx bx-check text-green-500 text-xl shrink-0 mt-0.5'></i>
+                                    <span><strong>UX Writing intuitif</strong> : Soin extrême apporté aux micro-copies (boutons, formulaires, aides) pour guider l'utilisateur de manière invisible et naturelle.</span>
+                                </li>
+                                <li class="flex items-start gap-3"><i
+                                        class='bx bx-check text-green-500 text-xl shrink-0 mt-0.5'></i>
+                                    <span><strong>Storytelling de marque</strong> : Conception du parcours de la page comme un entonnoir narratif, amenant le visiteur à s'intéresser, puis à passer à l'action.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="text-xs font-bold text-[#411FEB] dark:text-[#5536ED] uppercase tracking-wider pt-2 border-t border-gray-100 dark:border-gray-800/80">Vous n'avez pas encore rédigé vos textes ? Aucun problème, nous les créons ensemble.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. LA MÉTHODE (CONCRET ET TRANSPARENT) -->
+        <div id="processScrollTrack" class="relative lg:h-[400vh] w-full">
+            <section class="w-full px-8 lg:px-32 py-24 lg:py-0 bg-white dark:bg-[#121212] transition-colors duration-200 lg:sticky lg:top-0 lg:h-screen lg:flex lg:flex-col lg:justify-center lg:overflow-hidden" id="processSection">
+            <div class="max-w-6xl mx-auto space-y-16">
+                <div class="text-center space-y-4">
+                    <span class="text-sm font-bold text-[#411FEB] dark:text-[#5536ED] uppercase">Le processus</span>
+                    <h2 class="text-3xl lg:text-5xl font-bold text-[#121212] dark:text-white">
+                        Comment va se dérouler notre collaboration ?
+                    </h2>
+                    <p class="text-gray-500 dark:text-gray-400 max-w-xl mx-auto text-sm">
+                        Pas de blabla inutile, pas de réunions interminables. Une méthode claire en 5 étapes.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start relative">
+                    <!-- Left: Scrollable Steps -->
+                    <div id="stepsScrollContainer" class="space-y-4 lg:space-y-0 relative pl-4 lg:pl-6 lg:h-[450px] lg:overflow-hidden w-full">
+                        <div id="stepsTranslateWrapper" class="transition-transform duration-500 ease-out flex flex-col">
+                        <!-- Step 1 -->
+                        <div class="process-step group cursor-pointer hover:border-[#411FEB]/50 dark:hover:border-[#5536ED]/50 py-8 lg:py-10 first:lg:pt-0 last:lg:pb-0 pl-8 relative transition-all duration-300 border-l-2 border-gray-100 dark:border-gray-800" data-step="1">
+                            <div class="absolute -left-[13px] top-8 lg:top-16 bg-gray-200 dark:bg-gray-800 text-gray-500 dark:text-gray-400 rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs step-number-badge group-hover:bg-[#411FEB]/50 group-hover:text-white dark:group-hover:bg-[#5536ED]/50 transition-all duration-300">
+                                1
+                            </div>
+                            <h3 class="font-bold text-xl lg:text-2xl text-gray-400 dark:text-gray-600 group-hover:text-[#121212] dark:group-hover:text-white transition-colors duration-300 step-title">1. Appel Découverte (30 min)</h3>
+                            <p class="text-gray-400 dark:text-gray-600 group-hover:text-gray-600 dark:group-hover:text-gray-300 mt-2 leading-relaxed text-sm lg:text-base transition-colors duration-300 step-desc">
+                                Nous échangeons sur votre vision, vos objectifs commerciaux, vos cibles et vos contraintes
+                                techniques. C'est gratuit, sans engagement, et cela nous permet de voir si le "fit" est bon.
+                            </p>
+                            <!-- Mobile-only illustration -->
+                            <div class="block lg:hidden mt-6 w-full aspect-video rounded-2xl bg-[#F9F7FF] dark:bg-[#1A162C]/50 border border-[#C1B4F8]/20 dark:border-[#281E5A]/50 overflow-hidden relative p-4 flex items-center justify-center">
+                                <!-- Illustration 1: Video Call & Calendar -->
+                                <div class="relative w-full h-full flex items-center justify-center p-4 min-h-[260px]">
+                                    <!-- Video call screen mockup -->
+                                    <div class="w-full max-w-[280px] sm:max-w-[320px] aspect-video bg-white dark:bg-[#1E1B33] rounded-2xl border-2 border-gray-100 dark:border-[#2A2455] shadow-lg overflow-hidden relative flex flex-col justify-between p-3 transition-colors duration-200">
+                                        <!-- Video content (Florian profile) -->
+                                        <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-tr from-[#5536ED]/20 to-[#411FEB]/20 dark:from-[#5536ED]/10 dark:to-[#411FEB]/10">
+                                            <div class="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-[#411FEB] overflow-hidden shadow-md">
+                                                <img src="/assets/media/profilepicturepro.webp" alt="Florian" class="w-full h-full object-cover animate-on-scroll">
+                                            </div>
+                                            <!-- Online indicator -->
+                                            <div class="absolute bottom-6 right-1/2 translate-x-10 sm:translate-x-12 bg-green-500 border-2 border-white dark:border-[#1E1B33] rounded-full px-2 py-0.5 text-[8px] font-bold text-white uppercase tracking-wider">
+                                                Live
+                                            </div>
+                                        </div>
+                                        <!-- Top bar info -->
+                                        <div class="relative z-10 flex items-center justify-between">
+                                            <span class="text-[10px] font-bold text-[#121212] dark:text-white bg-white/70 dark:bg-black/50 backdrop-blur-sm px-2 py-0.5 rounded-full">Florian G. K.</span>
+                                            <div class="flex gap-1">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping"></span>
+                                                <span class="text-[8px] font-semibold text-red-500">00:12:45</span>
+                                            </div>
+                                        </div>
+                                        <!-- Bottom controls -->
+                                        <div class="relative z-10 flex justify-center gap-3 mt-auto">
+                                            <div class="w-6 h-6 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-xs text-gray-600 dark:text-white"><i class='bx bx-microphone'></i></div>
+                                            <div class="w-6 h-6 rounded-full bg-red-500 flex items-center justify-center text-xs text-white"><i class='bx bx-phone-off'></i></div>
+                                            <div class="w-6 h-6 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-xs text-gray-600 dark:text-white"><i class='bx bx-video'></i></div>
+                                        </div>
+                                    </div>
+                                    <!-- Floating Calendar Invite -->
+                                    <div class="absolute -top-2 right-2 sm:right-6 bg-white dark:bg-[#121212] border border-[#C1B4F8]/45 dark:border-[#281E5A] rounded-xl p-3 shadow-xl flex items-center gap-3 animate-bounce" style="animation-duration: 3s;">
+                                        <div class="w-8 h-8 rounded-lg bg-[#411FEB]/10 text-[#411FEB] dark:text-white flex items-center justify-center text-lg shrink-0">
+                                            <i class='bx bx-calendar'></i>
+                                        </div>
+                                        <div class="text-left">
+                                            <h5 class="text-[10px] font-bold text-[#121212] dark:text-white leading-tight">Appel de Cadrage</h5>
+                                            <p class="text-[8px] text-gray-400">Aujourd'hui, 10h00 (30m)</p>
+                                        </div>
+                                    </div>
+                                    <!-- Floating target goals -->
+                                    <div class="absolute -bottom-2 left-2 sm:left-6 bg-white dark:bg-[#121212] border border-[#C1B4F8]/45 dark:border-[#281E5A] rounded-xl p-3 shadow-xl flex items-center gap-3">
+                                        <div class="w-8 h-8 rounded-lg bg-green-500/10 text-green-500 flex items-center justify-center text-lg shrink-0">
+                                            <i class='bx bx-target-lock'></i>
+                                        </div>
+                                        <div class="text-left">
+                                            <h5 class="text-[10px] font-bold text-[#121212] dark:text-white leading-tight">Objectifs validés</h5>
+                                            <p class="text-[8px] text-gray-400">Besoins & Tech</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="process-step group cursor-pointer hover:border-[#411FEB]/50 dark:hover:border-[#5536ED]/50 py-8 lg:py-10 pl-8 relative transition-all duration-300 border-l-2 border-gray-100 dark:border-gray-800" data-step="2">
+                            <div class="absolute -left-[13px] top-8 lg:top-16 bg-gray-200 dark:bg-gray-800 text-gray-500 dark:text-gray-400 rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs step-number-badge group-hover:bg-[#411FEB]/50 group-hover:text-white dark:group-hover:bg-[#5536ED]/50 transition-all duration-300">
+                                2
+                            </div>
+                            <h3 class="font-bold text-xl lg:text-2xl text-gray-400 dark:text-gray-600 group-hover:text-[#121212] dark:group-hover:text-white transition-colors duration-300 step-title">2. Cadrage UX & Wireframes (La structure)</h3>
+                            <p class="text-gray-400 dark:text-gray-600 group-hover:text-gray-600 dark:group-hover:text-gray-300 mt-2 leading-relaxed text-sm lg:text-base transition-colors duration-300 step-desc">
+                                Avant d'ajouter de la couleur, nous validons l'arborescence, les parcours utilisateurs et la
+                                logique d'affichage sous forme de schémas simplifiés en noir et blanc (wireframes). C'est
+                                ici que se joue la simplicité d'utilisation.
+                            </p>
+                            <!-- Mobile-only illustration -->
+                            <div class="block lg:hidden mt-6 w-full aspect-video rounded-2xl bg-[#F9F7FF] dark:bg-[#1A162C]/50 border border-[#C1B4F8]/20 dark:border-[#281E5A]/50 overflow-hidden relative p-4 flex items-center justify-center">
+                                <!-- Illustration 2: Wireframe Mockup -->
+                                <div class="relative w-full h-full flex items-center justify-center p-4 min-h-[260px]">
+                                    <!-- Grid Paper style background -->
+                                    <div class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#2a2455_1px,transparent_1px)] [background-size:16px_16px] opacity-60"></div>
+                                    
+                                    <!-- Wireframe Dashboard Mockup -->
+                                    <div class="w-full max-w-[280px] sm:max-w-[320px] aspect-video bg-white dark:bg-[#121212] rounded-xl border border-gray-300 dark:border-gray-700 shadow-md flex overflow-hidden relative transition-colors duration-200">
+                                        <!-- Sidebar -->
+                                        <div class="w-12 border-r border-gray-200 dark:border-gray-800 p-2 space-y-2 flex flex-col items-center">
+                                            <div class="w-6 h-6 rounded bg-gray-200 dark:bg-gray-800"></div>
+                                            <div class="w-4 h-1.5 rounded bg-gray-100 dark:bg-gray-900"></div>
+                                            <div class="w-4 h-1.5 rounded bg-gray-100 dark:bg-gray-900"></div>
+                                            <div class="w-4 h-1.5 rounded bg-gray-100 dark:bg-gray-900"></div>
+                                        </div>
+                                        <!-- Main body -->
+                                        <div class="flex-1 p-3 flex flex-col justify-between relative">
+                                            <!-- Header wireframe -->
+                                            <div class="flex justify-between items-center pb-2 border-b border-gray-100 dark:border-gray-900">
+                                                <div class="w-16 h-3 rounded bg-gray-200 dark:bg-gray-800"></div>
+                                                <div class="w-6 h-6 rounded-full bg-gray-100 dark:bg-gray-800"></div>
+                                            </div>
+                                            <!-- Grid cards wireframe -->
+                                            <div class="grid grid-cols-2 gap-2 my-2 flex-1">
+                                                <div class="border border-dashed border-gray-300 dark:border-gray-700 rounded-lg p-2 flex flex-col justify-between">
+                                                    <div class="w-6 h-6 rounded bg-gray-100 dark:bg-gray-800"></div>
+                                                    <div class="space-y-1">
+                                                        <div class="w-10 h-1.5 rounded bg-gray-200 dark:bg-gray-800"></div>
+                                                        <div class="w-6 h-1 rounded bg-gray-100 dark:bg-gray-900"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="border border-dashed border-gray-300 dark:border-gray-755 rounded-lg p-2 flex flex-col justify-between">
+                                                    <!-- Image placeholder symbol (cross lines) -->
+                                                    <div class="w-full h-8 rounded border border-gray-200 dark:border-gray-800 relative overflow-hidden flex items-center justify-center">
+                                                        <div class="absolute w-full h-[1px] bg-gray-200 dark:bg-gray-800 rotate-12"></div>
+                                                        <div class="absolute w-full h-[1px] bg-gray-200 dark:bg-gray-800 -rotate-12"></div>
+                                                        <i class='bx bx-image text-gray-300 dark:text-gray-700 text-sm'></i>
+                                                    </div>
+                                                    <div class="w-12 h-1.5 rounded bg-gray-200 dark:bg-gray-800 mt-1"></div>
+                                                </div>
+                                            </div>
+                                            <!-- Bottom status -->
+                                            <div class="w-full h-3 rounded bg-gray-100 dark:bg-gray-900"></div>
+                                        </div>
+                                    </div>
+                                    <!-- Flow Arrow Overlay -->
+                                    <div class="absolute right-2 top-1/2 -translate-y-1/2 flex flex-col items-center">
+                                        <div class="w-6 h-6 rounded-full bg-[#411FEB]/10 border border-[#411FEB] dark:border-[#5536ED] flex items-center justify-center text-xs text-[#411FEB] dark:text-[#5536ED] font-bold shadow-md">
+                                            <i class='bx bx-mouse-pointer'></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="process-step group cursor-pointer hover:border-[#411FEB]/50 dark:hover:border-[#5536ED]/50 py-8 lg:py-10 pl-8 relative transition-all duration-300 border-l-2 border-gray-100 dark:border-gray-800" data-step="3">
+                            <div class="absolute -left-[13px] top-8 lg:top-16 bg-gray-200 dark:bg-gray-800 text-gray-500 dark:text-gray-400 rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs step-number-badge group-hover:bg-[#411FEB]/50 group-hover:text-white dark:group-hover:bg-[#5536ED]/50 transition-all duration-300">
+                                3
+                            </div>
+                            <h3 class="font-bold text-xl lg:text-2xl text-gray-400 dark:text-gray-600 group-hover:text-[#121212] dark:group-hover:text-white transition-colors duration-300 step-title">3. Direction Artistique & UI Premium (Le visuel)</h3>
+                            <p class="text-gray-400 dark:text-gray-600 group-hover:text-gray-600 dark:group-hover:text-gray-300 mt-2 leading-relaxed text-sm lg:text-base transition-colors duration-300 step-desc">
+                                Création de l'identité visuelle de votre interface. Typographies modernes, palette de
+                                couleurs harmonieuse, icônes, contrastes soignés. Nous concevons un design haut de gamme et
+                                à votre image.
+                            </p>
+                            <!-- Mobile-only illustration -->
+                            <div class="block lg:hidden mt-6 w-full aspect-video rounded-2xl bg-[#F9F7FF] dark:bg-[#1A162C]/50 border border-[#C1B4F8]/20 dark:border-[#281E5A]/50 overflow-hidden relative p-4 flex items-center justify-center">
+                                <!-- Illustration 3: Hi-Fi Dashboard Mockup -->
+                                <div class="relative w-full h-full flex items-center justify-center p-4 min-h-[260px]">
+                                    <!-- Hi-Fi Dashboard Mockup -->
+                                    <div class="w-full max-w-[280px] sm:max-w-[320px] aspect-video bg-white dark:bg-[#1E1B33] rounded-xl border-2 border-gray-100 dark:border-[#2A2455] shadow-xl flex overflow-hidden relative transition-colors duration-200">
+                                        <!-- Sidebar -->
+                                        <div class="w-12 bg-[#F9F7FF] dark:bg-[#121212] border-r border-[#E8E4FC] dark:border-gray-800 p-2 space-y-3 flex flex-col items-center">
+                                            <div class="w-6 h-6 rounded-lg bg-gradient-to-tr from-[#5536ED] to-[#411FEB] flex items-center justify-center text-white text-xs font-bold">F</div>
+                                            <div class="w-5 h-5 rounded bg-[#411FEB]/10 dark:bg-white/5 flex items-center justify-center text-[#411FEB] dark:text-[#5536ED]"><i class='bx bxs-dashboard text-xs'></i></div>
+                                            <div class="w-5 h-5 rounded flex items-center justify-center text-gray-400 hover:text-[#411FEB]"><i class='bx bx-analyse text-xs'></i></div>
+                                        </div>
+                                        <!-- Main body -->
+                                        <div class="flex-1 p-3 flex flex-col justify-between relative">
+                                            <!-- Header hi-fi -->
+                                            <div class="flex justify-between items-center pb-2 border-b border-gray-100 dark:border-gray-800">
+                                                <span class="text-[9px] font-bold text-[#121212] dark:text-white">Projet PHOQ</span>
+                                                <div class="flex items-center gap-1">
+                                                    <!-- Theme toggler -->
+                                                    <div class="w-5 h-3 rounded-full bg-gray-200 dark:bg-[#411FEB] p-0.5 flex items-center dark:justify-end transition-all">
+                                                        <div class="w-2.5 h-2.5 rounded-full bg-white shadow-sm"></div>
+                                                    </div>
+                                                    <img src="/assets/media/photo/thibautmaensrabier.webp" alt="Avatar" class="w-4 h-4 rounded-full object-cover border border-[#411FEB]">
+                                                </div>
+                                            </div>
+                                            <!-- Grid cards hi-fi -->
+                                            <div class="grid grid-cols-2 gap-2 my-2 flex-1">
+                                                <div class="bg-gradient-to-br from-[#E8E4FC]/60 to-[#F9F7FF]/60 dark:from-[#5536ED]/5 dark:to-[#411FEB]/5 border border-[#C1B4F8]/30 dark:border-[#281E5A]/50 rounded-lg p-2 flex flex-col justify-between shadow-sm">
+                                                    <span class="text-[7px] font-semibold text-gray-400">Conversion</span>
+                                                    <div class="flex items-baseline gap-0.5">
+                                                        <span class="text-xs font-extrabold text-[#411FEB] dark:text-[#5536ED]">+35%</span>
+                                                        <span class="text-[6px] text-green-500 font-bold"><i class='bx bx-trending-up'></i></span>
+                                                    </div>
+                                                </div>
+                                                <div class="bg-white dark:bg-[#1A162C] border border-[#C1B4F8]/20 dark:border-[#281E5A]/80 rounded-lg p-2 flex flex-col justify-between shadow-sm">
+                                                    <span class="text-[7px] font-semibold text-gray-400">Statut</span>
+                                                    <div class="inline-flex items-center gap-0.5 px-1 py-0.5 rounded-full bg-green-500/10 text-green-500 text-[5px] font-bold w-max">
+                                                        Actif
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Bottom UI status bar -->
+                                            <div class="flex items-center justify-between text-[5px] text-gray-400">
+                                                <span>Synchro OK</span>
+                                                <span class="text-[#411FEB] dark:text-[#5536ED] font-bold">100% opérationnel</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Floating Color Palette Widget -->
+                                    <div class="absolute -top-1 -right-2 bg-white dark:bg-[#121212] border border-[#C1B4F8]/40 dark:border-[#281E5A] rounded-xl p-2 shadow-xl space-y-1">
+                                        <div class="flex gap-1">
+                                            <div class="w-3 h-3 rounded-full bg-[#411FEB]"></div>
+                                            <div class="w-3 h-3 rounded-full bg-[#5536ED]"></div>
+                                            <div class="w-3 h-3 rounded-full bg-[#C1B4F8]"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Floating Typography Widget -->
+                                    <div class="absolute -bottom-2 -left-2 bg-white dark:bg-[#121212] border border-[#C1B4F8]/40 dark:border-[#281E5A] rounded-xl p-2 shadow-xl flex items-center gap-1.5">
+                                        <span class="text-[10px] font-extrabold text-[#411FEB] dark:text-[#5536ED]">Aa</span>
+                                        <span class="text-[7px] font-bold text-[#121212] dark:text-white">Inter</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="process-step group cursor-pointer hover:border-[#411FEB]/50 dark:hover:border-[#5536ED]/50 py-8 lg:py-10 pl-8 relative transition-all duration-300 border-l-2 border-gray-100 dark:border-gray-800" data-step="4">
+                            <div class="absolute -left-[13px] top-8 lg:top-16 bg-gray-200 dark:bg-gray-800 text-gray-500 dark:text-gray-400 rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs step-number-badge group-hover:bg-[#411FEB]/50 group-hover:text-white dark:group-hover:bg-[#5536ED]/50 transition-all duration-300">
+                                4
+                            </div>
+                            <h3 class="font-bold text-xl lg:text-2xl text-gray-400 dark:text-gray-600 group-hover:text-[#121212] dark:group-hover:text-white transition-colors duration-300 step-title">4. Prototype Interactif (Le test)</h3>
+                            <p class="text-gray-400 dark:text-gray-600 group-hover:text-gray-600 dark:group-hover:text-gray-300 mt-2 leading-relaxed text-sm lg:text-base transition-colors duration-300 step-desc">
+                                Je relie les écrans entre eux sur Figma pour créer une simulation cliquable de votre
+                                produit. Vous pouvez tester l'expérience en direct sur votre téléphone ou ordinateur comme
+                                s'il était déjà codé.
+                            </p>
+                            <!-- Mobile-only illustration -->
+                            <div class="block lg:hidden mt-6 w-full aspect-video rounded-2xl bg-[#F9F7FF] dark:bg-[#1A162C]/50 border border-[#C1B4F8]/20 dark:border-[#281E5A]/50 overflow-hidden relative p-4 flex items-center justify-center">
+                                <!-- Illustration 4: Phone Prototype Mockup -->
+                                <div class="relative w-full h-full flex items-center justify-center p-4 min-h-[260px]">
+                                    <!-- Phone Mockup -->
+                                    <div class="w-32 h-56 rounded-[28px] border-4 border-gray-800 bg-[#121212] shadow-xl p-1 relative overflow-hidden flex flex-col transition-all duration-300">
+                                        <!-- Notch -->
+                                        <div class="absolute top-1 right-1/2 translate-x-1/2 w-10 h-2 bg-gray-800 rounded-b-xl z-20"></div>
+                                        
+                                        <!-- Screen container -->
+                                        <div class="flex-1 rounded-[20px] bg-white dark:bg-[#1A162C] overflow-hidden p-2.5 flex flex-col justify-between relative transition-colors duration-200">
+                                            <!-- App Header -->
+                                            <div class="flex justify-between items-center mt-1">
+                                                <i class='bx bx-chevron-left text-[#411FEB] dark:text-[#5536ED] text-xs'></i>
+                                                <span class="text-[8px] font-bold text-[#121212] dark:text-white">Validation</span>
+                                                <i class='bx bx-dots-horizontal-rounded text-gray-350 text-xs'></i>
+                                            </div>
+                                            
+                                            <!-- Screen component content -->
+                                            <div class="my-auto space-y-2 text-center">
+                                                <div class="w-8 h-8 rounded-full bg-green-500/10 text-green-500 flex items-center justify-center text-lg mx-auto shadow-inner border border-green-500/20">
+                                                    <i class='bx bx-check-circle animate-pulse'></i>
+                                                </div>
+                                                <span class="text-[8px] font-bold text-[#121212] dark:text-white block">Activer ?</span>
+                                            </div>
+                                            
+                                            <!-- Action Button -->
+                                            <div class="w-full relative mt-auto pb-1">
+                                                <button class="w-full bg-[#411FEB] dark:bg-[#5536ED] text-white text-[7px] font-semibold py-1.5 rounded-lg shadow-md cursor-none flex items-center justify-center gap-1 relative overflow-hidden">
+                                                    <span>Valider</span>
+                                                    <i class='bx bx-right-arrow-alt'></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Floating Wiring Tag -->
+                                    <div class="absolute top-8 right-2 bg-[#411FEB] text-white rounded px-1.5 py-0.5 text-[6px] font-bold shadow-md animate-pulse">
+                                        OnClick -> Next
+                                    </div>
+                                    
+                                    <!-- Vector cursor pointer -->
+                                    <div class="absolute bottom-10 right-10 z-30 pointer-events-none text-lg text-gray-900 drop-shadow-md animate-bounce">
+                                        <i class='bx bxs-mouse-alt text-[#121212] dark:text-white'></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 5 -->
+                        <div class="process-step group cursor-pointer hover:border-[#411FEB]/50 dark:hover:border-[#5536ED]/50 py-8 lg:py-10 pl-8 relative transition-all duration-300 border-l-2 border-gray-100 dark:border-gray-800" data-step="5">
+                            <div class="absolute -left-[13px] top-8 lg:top-16 bg-gray-200 dark:bg-gray-800 text-gray-500 dark:text-gray-400 rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs step-number-badge group-hover:bg-[#411FEB]/50 group-hover:text-white dark:group-hover:bg-[#5536ED]/50 transition-all duration-300">
+                                5
+                            </div>
+                            <h3 class="font-bold text-xl lg:text-2xl text-gray-400 dark:text-gray-600 group-hover:text-[#121212] dark:group-hover:text-white transition-colors duration-300 step-title">5. Handoff Développeur & Design System (La livraison)</h3>
+                            <p class="text-gray-400 dark:text-gray-600 group-hover:text-gray-600 dark:group-hover:text-gray-300 mt-2 leading-relaxed text-sm lg:text-base transition-colors duration-300 step-desc">
+                                Livraison du fichier de conception Figma parfaitement structuré. Il contient une
+                                bibliothèque d'éléments réutilisables (Design System) et les différents comportements des
+                                boutons (au survol, cliqués) pour faciliter le travail des développeurs.
+                            </p>
+                            <!-- Mobile-only illustration -->
+                            <div class="block lg:hidden mt-6 w-full aspect-video rounded-2xl bg-[#F9F7FF] dark:bg-[#1A162C]/50 border border-[#C1B4F8]/20 dark:border-[#281E5A]/50 overflow-hidden relative p-4 flex items-center justify-center">
+                                <!-- Illustration 5: Handoff split content -->
+                                <div class="relative w-full h-full flex flex-row items-center justify-center gap-3 p-2 min-h-[260px]">
+                                    <!-- Code Card -->
+                                    <div class="w-1/2 aspect-square bg-[#1E1E2F] border border-gray-800 rounded-lg shadow-md p-2 flex flex-col justify-between font-mono text-[5px] text-[#A9B2C3] relative overflow-hidden">
+                                        <div class="flex items-center justify-between pb-1 border-b border-gray-800 mb-1">
+                                            <span class="text-[4px] text-gray-500">tailwind.config.js</span>
+                                        </div>
+                                        <div class="flex-1 space-y-0.5">
+                                            <p class="text-blue-400">module.exports = {"{"}</p>
+                                            <p class="pl-1 text-purple-400">theme: {"{"}</p>
+                                            <p class="pl-2 text-orange-400">primary: "#411FEB"</p>
+                                            <p class="pl-1 text-white">{"}"}</p>
+                                            <p class="text-white">{"}"}</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Design Card -->
+                                    <div class="w-1/2 aspect-square bg-white dark:bg-[#1A162C] border-2 border-dashed border-[#C1B4F8] dark:border-[#281E5A] rounded-lg shadow-md p-2 flex flex-col justify-between relative">
+                                        <span class="text-[6px] font-bold text-[#411FEB] dark:text-[#5536ED] uppercase tracking-wider block">Specs</span>
+                                        <div class="my-auto relative p-2 flex items-center justify-center">
+                                            <div class="absolute inset-0 border border-red-500/40 bg-red-500/5 rounded-lg"></div>
+                                            <button class="relative z-10 bg-[#411FEB] text-white text-[6px] px-2 py-1 rounded-lg pointer-events-none scale-75">
+                                                Bouton
+                                            </button>
+                                        </div>
+                                        <div class="flex justify-between items-center text-[5px] text-gray-400">
+                                            <span>h: 32px</span>
+                                            <span>r: 12px</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div> <!-- End of stepsTranslateWrapper -->
+                    </div> <!-- End of stepsScrollContainer -->
+
+                    <!-- Right: Sticky Illustrations Container (Large Screens Only) -->
+                    <div class="hidden lg:block lg:sticky lg:top-32 w-full h-[480px] rounded-3xl bg-[#F9F7FF] dark:bg-[#1A162C]/30 border border-[#C1B4F8]/20 dark:border-[#281E5A]/50 overflow-hidden shadow-inner relative transition-colors duration-200">
+                        
+                        <!-- Illustration 1: Video Call & Calendar -->
+                        <div class="absolute inset-0 transition-all duration-500 flex items-center justify-center p-8 opacity-0 scale-95 pointer-events-none" id="illustration-1">
+                            <div class="relative w-full h-full flex items-center justify-center p-4">
+                                <!-- Video call screen mockup -->
+                                <div class="w-full max-w-[320px] aspect-video bg-white dark:bg-[#1E1B33] rounded-2xl border-2 border-gray-150/80 dark:border-[#2A2455] shadow-xl overflow-hidden relative flex flex-col justify-between p-4 transition-colors duration-200">
+                                    <!-- Video content (Florian profile) -->
+                                    <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-tr from-[#5536ED]/20 to-[#411FEB]/20 dark:from-[#5536ED]/10 dark:to-[#411FEB]/10">
+                                        <div class="relative w-20 h-20 rounded-full border-2 border-[#411FEB] overflow-hidden shadow-md">
+                                            <img src="/assets/media/profilepicturepro.webp" alt="Florian" class="w-full h-full object-cover">
+                                        </div>
+                                        <!-- Online indicator -->
+                                        <div class="absolute bottom-6 right-1/2 translate-x-12 bg-green-500 border-2 border-white dark:border-[#1E1B33] rounded-full px-2 py-0.5 text-[8px] font-bold text-white uppercase tracking-wider">
+                                            Live
+                                        </div>
+                                    </div>
+                                    <!-- Top bar info -->
+                                    <div class="relative z-10 flex items-center justify-between">
+                                        <span class="text-xs font-bold text-[#121212] dark:text-white bg-white/70 dark:bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full">Florian G. K.</span>
+                                        <div class="flex items-center gap-1">
+                                            <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+                                            <span class="text-xs font-semibold text-red-500">00:12:45</span>
+                                        </div>
+                                    </div>
+                                    <!-- Bottom controls -->
+                                    <div class="relative z-10 flex justify-center gap-3 mt-auto">
+                                        <div class="w-8 h-8 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-sm text-gray-600 dark:text-white cursor-pointer hover:bg-gray-250"><i class='bx bx-microphone'></i></div>
+                                        <div class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-sm text-white cursor-pointer hover:bg-red-650"><i class='bx bx-phone-off'></i></div>
+                                        <div class="w-8 h-8 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-sm text-gray-600 dark:text-white cursor-pointer hover:bg-gray-250"><i class='bx bx-video'></i></div>
+                                    </div>
+                                </div>
+                                <!-- Floating Calendar Invite -->
+                                <div class="absolute top-4 right-4 bg-white dark:bg-[#121212] border border-[#C1B4F8]/45 dark:border-[#281E5A] rounded-2xl p-4 shadow-2xl flex items-center gap-3.5 animate-bounce" style="animation-duration: 3s;">
+                                    <div class="w-10 h-10 rounded-xl bg-[#411FEB]/10 text-[#411FEB] dark:text-white flex items-center justify-center text-xl shrink-0">
+                                        <i class='bx bx-calendar'></i>
+                                    </div>
+                                    <div class="text-left">
+                                        <h5 class="text-xs font-bold text-[#121212] dark:text-white leading-tight">Appel de Cadrage</h5>
+                                        <p class="text-[10px] text-gray-400 mt-0.5">Aujourd'hui, 10h00 (30m)</p>
+                                    </div>
+                                </div>
+                                <!-- Floating target goals -->
+                                <div class="absolute bottom-4 left-4 bg-white dark:bg-[#121212] border border-[#C1B4F8]/45 dark:border-[#281E5A] rounded-2xl p-4 shadow-2xl flex items-center gap-3.5">
+                                    <div class="w-10 h-10 rounded-xl bg-green-500/10 text-green-500 flex items-center justify-center text-xl shrink-0">
+                                        <i class='bx bx-target-lock'></i>
+                                    </div>
+                                    <div class="text-left">
+                                        <h5 class="text-xs font-bold text-[#121212] dark:text-white leading-tight">Objectifs validés</h5>
+                                        <p class="text-[10px] text-gray-400 mt-0.5">Besoins & Contraintes tech</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Illustration 2: Wireframe Mockup -->
+                        <div class="absolute inset-0 transition-all duration-500 flex items-center justify-center p-8 opacity-0 scale-95 pointer-events-none" id="illustration-2">
+                            <div class="relative w-full h-full flex items-center justify-center p-4">
+                                <!-- Grid Paper style background -->
+                                <div class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#2a2455_1.5px,transparent_1.5px)] [background-size:20px_20px] opacity-70"></div>
+                                
+                                <!-- Wireframe Dashboard Mockup -->
+                                <div class="w-full max-w-[340px] aspect-video bg-white dark:bg-[#121212] rounded-2xl border border-gray-300 dark:border-gray-700 shadow-xl flex overflow-hidden relative transition-colors duration-200">
+                                    <!-- Sidebar -->
+                                    <div class="w-14 border-r border-gray-200 dark:border-gray-800 p-3 space-y-3 flex flex-col items-center">
+                                        <div class="w-8 h-8 rounded-lg bg-gray-200 dark:bg-gray-800"></div>
+                                        <div class="w-6 h-2 rounded bg-gray-100 dark:bg-gray-900"></div>
+                                        <div class="w-6 h-2 rounded bg-gray-100 dark:bg-gray-900"></div>
+                                        <div class="w-6 h-2 rounded bg-gray-100 dark:bg-gray-900"></div>
+                                    </div>
+                                    <!-- Main body -->
+                                    <div class="flex-1 p-4 flex flex-col justify-between relative">
+                                        <!-- Header wireframe -->
+                                        <div class="flex justify-between items-center pb-2 border-b border-gray-150 dark:border-gray-900">
+                                            <div class="w-20 h-4 rounded bg-gray-200 dark:bg-gray-800"></div>
+                                            <div class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800"></div>
+                                        </div>
+                                        <!-- Grid cards wireframe -->
+                                        <div class="grid grid-cols-2 gap-3 my-2 flex-1">
+                                            <div class="border border-dashed border-gray-300 dark:border-gray-700 rounded-xl p-3 flex flex-col justify-between">
+                                                <div class="w-8 h-8 rounded bg-gray-100 dark:bg-gray-800"></div>
+                                                <div class="space-y-1.5">
+                                                    <div class="w-14 h-2 rounded bg-gray-200 dark:bg-gray-800"></div>
+                                                    <div class="w-8 h-1.5 rounded bg-gray-100 dark:bg-gray-900"></div>
+                                                </div>
+                                            </div>
+                                            <div class="border border-dashed border-gray-300 dark:border-gray-700 rounded-xl p-3 flex flex-col justify-between">
+                                                <!-- Image placeholder symbol (cross lines) -->
+                                                <div class="w-full h-10 rounded-lg border border-gray-200 dark:border-gray-800 relative overflow-hidden flex items-center justify-center">
+                                                    <div class="absolute w-full h-[1px] bg-gray-200 dark:bg-gray-850 rotate-12"></div>
+                                                    <div class="absolute w-full h-[1px] bg-gray-200 dark:bg-gray-850 -rotate-12"></div>
+                                                    <i class='bx bx-image text-gray-300 dark:text-gray-700 text-lg'></i>
+                                                </div>
+                                                <div class="w-16 h-2 rounded bg-gray-200 dark:bg-gray-800 mt-1"></div>
+                                            </div>
+                                        </div>
+                                        <!-- Bottom status -->
+                                        <div class="w-full h-4 rounded bg-gray-150 dark:bg-gray-900"></div>
+                                    </div>
+                                </div>
+                                <!-- Flow Arrow Overlay -->
+                                <div class="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col items-center">
+                                    <div class="w-8 h-8 rounded-full bg-[#411FEB]/10 border border-[#411FEB] dark:border-[#5536ED] flex items-center justify-center text-lg text-[#411FEB] dark:text-[#5536ED] font-bold shadow-xl animate-pulse">
+                                        <i class='bx bx-mouse-pointer'></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Illustration 3: Direction Artistique & UI Premium -->
+                        <div class="absolute inset-0 transition-all duration-500 flex items-center justify-center p-8 opacity-0 scale-95 pointer-events-none" id="illustration-3">
+                            <div class="relative w-full h-full flex items-center justify-center p-4">
+                                <!-- Hi-Fi Dashboard Mockup -->
+                                <div class="w-full max-w-[340px] aspect-video bg-white dark:bg-[#1E1B33] rounded-2xl border-2 border-gray-100 dark:border-[#2A2455] shadow-2xl flex overflow-hidden relative transition-colors duration-200">
+                                    <!-- Sidebar -->
+                                    <div class="w-14 bg-[#F9F7FF] dark:bg-[#121212] border-r border-[#E8E4FC] dark:border-gray-800 p-3 space-y-4 flex flex-col items-center">
+                                        <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#5536ED] to-[#411FEB] flex items-center justify-center text-white font-bold text-sm shadow-md">F</div>
+                                        <div class="w-6 h-6 rounded-lg bg-[#411FEB]/10 dark:bg-white/5 flex items-center justify-center text-[#411FEB] dark:text-[#5536ED]"><i class='bx bxs-dashboard text-sm'></i></div>
+                                        <div class="w-6 h-6 rounded flex items-center justify-center text-gray-400 hover:text-[#411FEB]"><i class='bx bx-analyse text-sm'></i></div>
+                                        <div class="w-6 h-6 rounded flex items-center justify-center text-gray-400 hover:text-[#411FEB]"><i class='bx bx-cog text-sm'></i></div>
+                                    </div>
+                                    <!-- Main body -->
+                                    <div class="flex-1 p-4 flex flex-col justify-between relative">
+                                        <!-- Header hi-fi -->
+                                        <div class="flex justify-between items-center pb-2 border-b border-gray-100 dark:border-gray-800">
+                                            <span class="text-xs font-bold text-[#121212] dark:text-white">Projet PHOQ.tv</span>
+                                            <div class="flex items-center gap-2">
+                                                <!-- Theme toggler -->
+                                                <div class="w-7 h-4 rounded-full bg-gray-250 dark:bg-[#411FEB] p-0.5 flex items-center dark:justify-end transition-all">
+                                                    <div class="w-3 h-3 rounded-full bg-white shadow-md"></div>
+                                                </div>
+                                                <img src="/assets/media/photo/thibautmaensrabier.webp" alt="Avatar" class="w-6 h-6 rounded-full object-cover border border-[#411FEB]">
+                                            </div>
+                                        </div>
+                                        <!-- Grid cards hi-fi -->
+                                        <div class="grid grid-cols-2 gap-3 my-2 flex-1">
+                                            <!-- Card 1 -->
+                                            <div class="bg-gradient-to-br from-[#E8E4FC]/60 to-[#F9F7FF]/60 dark:from-[#5536ED]/5 dark:to-[#411FEB]/5 border border-[#C1B4F8]/30 dark:border-[#281E5A]/50 rounded-xl p-3 flex flex-col justify-between shadow-sm">
+                                                <span class="text-[9px] font-semibold text-gray-400">Conversion</span>
+                                                <div class="flex items-baseline gap-1">
+                                                    <span class="text-base font-extrabold text-[#411FEB] dark:text-[#5536ED]">+35%</span>
+                                                    <span class="text-[8px] text-green-500 font-bold"><i class='bx bx-trending-up'></i></span>
+                                                </div>
+                                                <!-- Mini chart bar visual -->
+                                                <div class="flex items-end gap-1 h-5 mt-1">
+                                                    <div class="w-2 h-2.5 rounded-t bg-gray-200 dark:bg-gray-800"></div>
+                                                    <div class="w-2 h-4 rounded-t bg-gray-300 dark:bg-gray-700"></div>
+                                                    <div class="w-2 h-2 rounded-t bg-gray-200 dark:bg-gray-800"></div>
+                                                    <div class="w-2 h-5 rounded-t bg-gradient-to-t from-[#5536ED] to-[#411FEB] shadow-md"></div>
+                                                </div>
+                                            </div>
+                                            <!-- Card 2 -->
+                                            <div class="bg-white dark:bg-[#1A162C] border border-[#C1B4F8]/20 dark:border-[#281E5A]/80 rounded-xl p-3 flex flex-col justify-between shadow-sm">
+                                                <span class="text-[9px] font-semibold text-gray-400">Statut</span>
+                                                <div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-green-500/10 text-green-500 text-[8px] font-bold w-max">
+                                                    <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Actif
+                                                </div>
+                                                <div class="w-full h-2 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden mt-2">
+                                                    <div class="w-4/5 h-full bg-[#411FEB] dark:bg-[#5536ED]"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Bottom UI status bar -->
+                                        <div class="flex items-center justify-between text-[7px] text-gray-400">
+                                            <span>Dernière synchro : Il y a 2m</span>
+                                            <span class="text-[#411FEB] dark:text-[#5536ED] font-bold">100% opérationnel</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Floating Color Palette Widget -->
+                                <div class="absolute -top-1 -right-2 bg-white dark:bg-[#121212] border border-[#C1B4F8]/40 dark:border-[#281E5A] rounded-xl p-3 shadow-xl space-y-1">
+                                    <span class="text-[8px] font-bold text-gray-400 uppercase tracking-wider block">Palette</span>
+                                    <div class="flex gap-1.5">
+                                        <div class="w-4 h-4 rounded-full bg-[#411FEB] border border-white/20"></div>
+                                        <div class="w-4 h-4 rounded-full bg-[#5536ED] border border-white/20"></div>
+                                        <div class="w-4 h-4 rounded-full bg-[#C1B4F8] border border-white/20"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Floating Typography Widget -->
+                                <div class="absolute -bottom-2 -left-2 bg-white dark:bg-[#121212] border border-[#C1B4F8]/40 dark:border-[#281E5A] rounded-xl p-2.5 shadow-xl flex items-center gap-2">
+                                    <span class="text-sm font-extrabold text-[#411FEB] dark:text-[#5536ED]">Aa</span>
+                                    <div class="text-left leading-none">
+                                        <span class="text-[9px] font-bold text-[#121212] dark:text-white block">Inter</span>
+                                        <span class="text-[7px] text-gray-400 font-semibold">Sans-serif</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Illustration 4: Phone Prototype Mockup -->
+                        <div class="absolute inset-0 transition-all duration-500 flex items-center justify-center p-8 opacity-0 scale-95 pointer-events-none" id="illustration-4">
+                            <div class="relative w-full h-full flex items-center justify-center p-4">
+                                <!-- Phone Mockup -->
+                                <div class="w-44 h-76 rounded-[36px] border-4 border-gray-800 bg-[#121212] shadow-2xl p-1 relative overflow-hidden flex flex-col transition-all duration-300">
+                                    <!-- Speaker / Notch -->
+                                    <div class="absolute top-1 right-1/2 translate-x-1/2 w-14 h-3 bg-gray-800 rounded-b-xl z-20 flex items-center justify-center">
+                                        <div class="w-5 h-0.5 bg-gray-600 rounded-full"></div>
+                                    </div>
+                                    
+                                    <!-- Screen container -->
+                                    <div class="flex-1 rounded-[28px] bg-white dark:bg-[#1A162C] overflow-hidden p-4 flex flex-col justify-between relative transition-colors duration-200">
+                                        <!-- App Header -->
+                                        <div class="flex justify-between items-center mt-2">
+                                            <i class='bx bx-chevron-left text-[#411FEB] dark:text-[#5536ED] text-lg cursor-pointer'></i>
+                                            <span class="text-[10px] font-bold text-[#121212] dark:text-white">Validation</span>
+                                            <i class='bx bx-dots-horizontal-rounded text-gray-400 text-xs'></i>
+                                        </div>
+                                        
+                                        <!-- App Body Content -->
+                                        <div class="my-auto space-y-3 text-center">
+                                            <!-- Success circle icon mockup -->
+                                            <div class="w-14 h-14 rounded-full bg-green-500/10 text-green-500 flex items-center justify-center text-2xl mx-auto shadow-inner border border-green-500/20">
+                                                <i class='bx bx-check-circle animate-pulse'></i>
+                                            </div>
+                                            <div class="space-y-1">
+                                                <span class="text-[11px] font-bold text-[#121212] dark:text-white block">Activer le service ?</span>
+                                                <span class="text-[8px] text-gray-400 block leading-tight">Un clic suffit pour lancer le prototype.</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Action Button -->
+                                        <div class="w-full relative mt-auto pb-1">
+                                            <button class="w-full bg-[#411FEB] dark:bg-[#5536ED] text-white text-[9px] font-semibold py-2.5 rounded-xl shadow-md cursor-none flex items-center justify-center gap-1 relative overflow-hidden" id="protoBtn">
+                                                <span>Valider la commande</span>
+                                                <i class='bx bx-right-arrow-alt'></i>
+                                                <!-- Ripple circle effect placeholder -->
+                                                <span class="absolute w-10 h-10 rounded-full bg-white/30 -right-2 top-0 animate-ping"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Floating Prototype Wiring Tag -->
+                                <div class="absolute top-12 right-2 bg-[#411FEB] text-white rounded-lg px-2.5 py-1 text-[8px] font-bold shadow-md flex items-center gap-1 animate-pulse">
+                                    <i class='bx bx-git-commit'></i> OnClick -> Screen_02
+                                </div>
+                                
+                                <!-- Vector cursor pointer -->
+                                <div class="absolute bottom-16 right-16 z-30 pointer-events-none text-2xl text-gray-900 drop-shadow-md animate-bounce" style="animation-duration: 2s;">
+                                    <i class='bx bxs-mouse-alt text-[#121212] dark:text-white'></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Illustration 5: Handoff & Design System -->
+                        <div class="absolute inset-0 transition-all duration-500 flex items-center justify-center p-8 opacity-0 scale-95 pointer-events-none" id="illustration-5">
+                            <div class="relative w-full h-full flex flex-col sm:flex-row items-center justify-center gap-4 p-4">
+                                <!-- Left: Code Editor Mockup -->
+                                <div class="w-40 sm:w-44 aspect-square bg-[#1E1E2F] border border-gray-800 rounded-xl shadow-lg p-3 flex flex-col justify-between font-mono text-[7px] text-[#A9B2C3] leading-normal relative overflow-hidden transition-colors duration-200">
+                                    <!-- Header bar -->
+                                    <div class="flex items-center justify-between pb-1.5 border-b border-gray-800/80 mb-2">
+                                        <div class="flex gap-1.5">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                                            <span class="w-1.5 h-1.5 rounded-full bg-yellow-500"></span>
+                                            <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                                        </div>
+                                        <span class="text-[5px] text-gray-500 uppercase tracking-widest font-semibold">tailwind.config.js</span>
+                                    </div>
+                                    <!-- Code lines -->
+                                    <div class="flex-1 space-y-1">
+                                        <p class="text-blue-400">module<span class="text-white">.</span>exports <span class="text-white">= {"{"}</span></p>
+                                        <p class="pl-2 text-purple-400">theme<span class="text-white">: {"{"}</span></p>
+                                        <p class="pl-4 text-gray-400">colors<span class="text-white">: {"{"}</span></p>
+                                        <p class="pl-6 text-orange-400">primary<span class="text-white">: </span><span class="text-green-400">"#411FEB"</span><span class="text-white">,</span></p>
+                                        <p class="pl-6 text-orange-400">secondary<span class="text-white">: </span><span class="text-green-400">"#5536ED"</span></p>
+                                        <p class="pl-4 text-white">{"}"},</p>
+                                        <p class="pl-4 text-gray-400">borderRadius<span class="text-white">: {"{"}</span></p>
+                                        <p class="pl-6 text-orange-400">xl<span class="text-white">: </span><span class="text-green-400">"12px"</span></p>
+                                        <p class="pl-4 text-white">{"}"}</p>
+                                        <p class="pl-2 text-white">{"}"}</p>
+                                        <p class="text-white">{"}"}</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Right: Figma Inspect Card -->
+                                <div class="w-40 sm:w-44 aspect-square bg-white dark:bg-[#1A162C] border-2 border-dashed border-[#C1B4F8] dark:border-[#281E5A] rounded-xl shadow-lg p-3 flex flex-col justify-between relative transition-colors duration-200">
+                                    <span class="text-[7px] font-bold text-[#411FEB] dark:text-[#5536ED] uppercase tracking-wider block">Figma Dev Mode</span>
+                                    
+                                    <!-- Button component with Figma measurements -->
+                                    <div class="my-auto relative p-4 flex items-center justify-center">
+                                        <!-- Outline / specs guides -->
+                                        <div class="absolute inset-x-2 inset-y-1 border border-red-500/50 bg-red-500/5 rounded-xl"></div>
+                                        <!-- Horizontal padding lines -->
+                                        <div class="absolute left-2 top-1/2 -translate-y-1/2 w-4 border-t-2 border-red-500 flex items-center justify-center"><span class="text-[5px] text-red-500 font-bold bg-white dark:bg-[#1A162C] px-0.5 absolute -top-1.5">16</span></div>
+                                        <div class="absolute right-2 top-1/2 -translate-y-1/2 w-4 border-t-2 border-red-500 flex items-center justify-center"><span class="text-[5px] text-red-500 font-bold bg-white dark:bg-[#1A162C] px-0.5 absolute -top-1.5">16</span></div>
+                                        <!-- Vertical padding lines -->
+                                        <div class="absolute top-1 left-1/2 -translate-x-1/2 h-3 border-l-2 border-red-500 flex items-center justify-center"><span class="text-[5px] text-red-500 font-bold bg-white dark:bg-[#1A162C] px-0.5 absolute left-1">12</span></div>
+                                        <div class="absolute bottom-1 left-1/2 -translate-x-1/2 h-3 border-l-2 border-red-500 flex items-center justify-center"><span class="text-[5px] text-red-500 font-bold bg-white dark:bg-[#1A162C] px-0.5 absolute left-1">12</span></div>
+
+                                        <!-- Styled primary button inside -->
+                                        <button class="relative z-10 bg-[#411FEB] text-white text-[7px] font-semibold px-4 py-2 rounded-xl pointer-events-none shadow-sm flex items-center gap-1">
+                                            <span>Bouton</span>
+                                            <i class='bx bx-check-double'></i>
+                                        </button>
+                                    </div>
+                                    
+                                    <!-- Component specs description -->
+                                    <div class="flex justify-between items-center text-[6px] text-gray-400 font-mono">
+                                        <span>h: 32px</span>
+                                        <span>r: 12px (xl)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+        <!-- 4b. LA COLLABORATION (CONCRET ET ASYNCHRONE) -->
+        <section class="w-full px-8 lg:px-32 py-16 bg-[#F9F7FF] dark:bg-[#1A162C]">
+            <div class="max-w-5xl mx-auto space-y-12">
+                <div class="text-center space-y-4">
+                    <span class="text-sm font-bold text-[#411FEB] dark:text-[#5536ED] uppercase">Au quotidien</span>
+                    <h2 class="text-3xl lg:text-4xl font-bold text-[#121212] dark:text-white">
+                        Une collaboration fluide, de bout en bout
+                    </h2>
+                    <p class="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
+                        Pas de réunions interminables ni de longs fils d'e-mails. J'utilise des méthodes modernes pour
+                        avancer rapidement et vous laisser le plein contrôle sur le projet.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Card 1 -->
+                    <div
+                        class="bg-white dark:bg-[#121212] border border-gray-100 dark:border-gray-800 p-6 rounded-2xl flex flex-col gap-4 animate-on-scroll transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:border-[#411FEB]/30 dark:hover:border-[#5536ED]/30">
+                        <div
+                            class="flex items-center justify-center w-10 h-10 rounded-xl bg-[#411FEB]/10 text-[#411FEB] dark:text-white text-xl shrink-0">
+                            <i class='bx bx-message-rounded-dots'></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-[#121212] dark:text-white mb-2">Canaux directs & réactifs
+                            </h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                                Slack, WhatsApp, Telegram ou LinkedIn. Nous ouvrons un canal sur votre outil préféré pour
+                                échanger simplement au quotidien, sans formalités inutiles.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-white dark:bg-[#121212] border border-gray-100 dark:border-gray-800 p-6 rounded-2xl flex flex-col gap-4 animate-on-scroll transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:border-[#411FEB]/30 dark:hover:border-[#5536ED]/30"
+                        style="transition-delay: 100ms;">
+                        <div
+                            class="flex items-center justify-center w-10 h-10 rounded-xl bg-[#411FEB]/10 text-[#411FEB] dark:text-white text-xl shrink-0">
+                            <i class='bx bx-video'></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-[#121212] dark:text-white mb-2">Présentations vidéo
+                            </h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                                Plutôt que de bloquer 1 heure dans votre agenda, je vous envoie de courtes vidéos
+                                explicatives pour présenter mes choix de design. Vous commentez à votre rythme.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-white dark:bg-[#121212] border border-gray-100 dark:border-gray-800 p-6 rounded-2xl flex flex-col gap-4 animate-on-scroll transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:border-[#411FEB]/30 dark:hover:border-[#5536ED]/30"
+                        style="transition-delay: 200ms;">
+                        <div
+                            class="flex items-center justify-center w-10 h-10 rounded-xl bg-[#411FEB]/10 text-[#411FEB] dark:text-white text-xl shrink-0">
+                            <i class='bx bx-navigation'></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-[#121212] dark:text-white mb-2">Feedback visuel sur Figma
+                            </h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                                Vous pouvez poser des commentaires précis à l'endroit exact de la maquette qui vous fait
+                                réagir. C'est simple, extrêmement visuel et cela évite les quiproquos.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="bg-white dark:bg-[#121212] border border-gray-100 dark:border-gray-800 p-6 rounded-2xl flex flex-col gap-4 animate-on-scroll transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:border-[#411FEB]/30 dark:hover:border-[#5536ED]/30"
+                        style="transition-delay: 300ms;">
+                        <div
+                            class="flex items-center justify-center w-10 h-10 rounded-xl bg-[#411FEB]/10 text-[#411FEB] dark:text-white text-xl shrink-0">
+                            <i class='bx bx-sync'></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-[#121212] dark:text-white mb-2">Ajustements continus</h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                                Pas d'effet de surprise à la livraison. Vous suivez l'avancée de la conception au fil de
+                                l’eau, ce qui nous permet d'ajuster le tir en direct sans perdre de temps.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. TARIFICATION / ENTRANTS -->
+        <section class="w-full px-8 lg:px-32 py-16 bg-white dark:bg-[#121212]">
+            <div class="max-w-6xl mx-auto space-y-12">
+                <div class="text-center space-y-4">
+                    <span class="text-sm font-bold text-[#411FEB] dark:text-[#5536ED] uppercase">Tarification</span>
+                    <h2 class="text-3xl lg:text-4xl font-bold text-[#121212] dark:text-white">Un investissement
+                        transparent</h2>
+                    <p class="text-gray-500 dark:text-gray-400 max-w-xl mx-auto text-sm">
+                        Pas de tarification opaque. Chaque projet fait l'objet d'un devis précis et sur-mesure après
+                        notre appel de cadrage.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
+                    <!-- Offre 1 : Audit -->
+                    <!--
+                    <div
+                        class="bg-[#F9F7FF] dark:bg-[#1A162C] p-6 rounded-2xl border border-[#C1B4F8]/20 dark:border-[#281E5A]/30 flex flex-col justify-between gap-6 animate-on-scroll transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:border-[#411FEB]/30 dark:hover:border-[#5536ED]/30">
+                        <div class="space-y-4">
+                            <div
+                                class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#411FEB]/10 text-[#411FEB] dark:text-white text-xs font-semibold">
+                                Idéal pour optimiser l'existant
+                            </div>
+                            <h3 class="text-xl font-bold text-[#121212] dark:text-white">Audit Express UX/UI</h3>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                                Analyse de votre site ou application actuelle pour identifier immédiatement les freins
+                                visuels ou ergonomiques qui bloquent vos ventes.
+                            </p>
+                            <hr class="border-gray-100 dark:border-gray-800">
+                            <ul class="space-y-2 text-xs text-gray-600 dark:text-gray-400">
+                                <CheckListItem>Analyse complète de 5 écrans ou pages clés</CheckListItem>
+                                <CheckListItem>Rapport écrit détaillé et facile à comprendre</CheckListItem>
+                                <CheckListItem>Recommandations concrètes applicables de suite</CheckListItem>
+                                <CheckListItem>Session d'échange en vidéo de 45 minutes</CheckListItem>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="text-lg font-bold text-[#121212] dark:text-white mb-1">À partir de 450 € <span
+                                    class="text-xs font-normal text-gray-400">TTC (Forfait)</span></p>
+                            <p class="text-[10px] text-gray-400 dark:text-gray-500 mb-4 flex items-center gap-1.5"><i class='bx bx-clock text-[#411FEB] dark:text-[#5536ED] text-xs shrink-0'></i> Livraison sous 5 jours ouvrés.
+                            </p>
+                            <a href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener noreferrer"
+                                class="w-full border border-[#411FEB] text-[#411FEB] dark:text-white dark:border-white py-3 rounded-xl font-semibold hover:bg-[#411FEB]/10 transition flex items-center justify-center gap-2 text-xs">
+                                Lancer mon audit
+                            </a>
+                        </div>
+                    </div>
+                    -->
+
+                    <!-- Offre 2 : Refonte d'existant -->
+                    <div class="bg-white dark:bg-[#121212] p-6 rounded-2xl border-2 border-[#C1B4F8] dark:border-[#281E5A] flex flex-col justify-between gap-6 relative animate-on-scroll transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:border-[#411FEB] dark:hover:border-[#5536ED]"
+                        style="transition-delay: 100ms;">
+                        <span
+                            class="absolute -top-3 right-4 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#411FEB] text-white text-[10px] font-semibold shadow-sm">
+                            Plus demandé
+                        </span>
+                        <div class="space-y-4">
+                            <div
+                                class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#411FEB]/10 text-[#411FEB] dark:text-white text-xs font-semibold">
+                                Idéal pour moderniser et grandir
+                            </div>
+
+                            <!-- Illustration: Refonte -->
+                            <div class="w-full h-32 rounded-xl bg-gradient-to-br from-[#F9F7FF] to-[#E8E4FC]/30 dark:from-[#1A162C]/50 dark:to-[#121212]/30 border border-[#C1B4F8]/20 dark:border-[#281E5A]/50 overflow-hidden relative flex items-center justify-center p-3 select-none">
+                                <!-- Split container -->
+                                <div class="w-full h-full flex items-center justify-between gap-4 relative">
+                                    <!-- Left side: Outdated UI (Old) -->
+                                    <div class="w-[43%] h-[85%] bg-white dark:bg-[#121212] rounded-lg border border-gray-200 dark:border-gray-800 p-2 flex flex-col justify-between opacity-50 relative overflow-hidden">
+                                        <!-- Old simple grid -->
+                                        <div class="flex items-center gap-1">
+                                            <div class="w-2.5 h-2.5 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+                                            <div class="w-8 h-1.5 bg-gray-200 dark:bg-gray-800 rounded"></div>
+                                        </div>
+                                        <div class="space-y-1 my-1">
+                                            <div class="w-full h-1 bg-gray-200 dark:bg-gray-800 rounded"></div>
+                                            <div class="w-[70%] h-1 bg-gray-200 dark:bg-gray-800 rounded"></div>
+                                        </div>
+                                        <div class="w-full h-4 bg-gray-100 dark:bg-gray-900 rounded flex items-center justify-center">
+                                            <div class="w-6 h-1 bg-gray-300 dark:bg-gray-700 rounded"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Center transition arrow -->
+                                    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-[#411FEB] dark:bg-[#5536ED] text-white flex items-center justify-center shadow-md border-2 border-white dark:border-[#121212]">
+                                        <i class='bx bx-right-arrow-alt text-lg animate-pulse'></i>
+                                    </div>
+
+                                    <!-- Right side: Modern UI (New) -->
+                                    <div class="w-[43%] h-[85%] bg-[#F9F7FF] dark:bg-[#1A162C] rounded-lg border border-[#C1B4F8]/40 dark:border-[#281E5A]/60 p-2 flex flex-col justify-between relative overflow-hidden shadow-sm">
+                                        <!-- Modern Card with glow -->
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center gap-1">
+                                                <div class="w-2.5 h-2.5 rounded-full bg-gradient-to-tr from-[#5536ED] to-[#411FEB]"></div>
+                                                <div class="w-8 h-1.5 bg-[#411FEB]/30 dark:bg-[#5536ED]/40 rounded"></div>
+                                            </div>
+                                            <span class="text-[5px] text-green-500 font-bold flex items-center"><i class='bx bxs-up-arrow text-[4px] mr-0.5'></i>+45%</span>
+                                        </div>
+                                        <!-- Mini interactive Chart -->
+                                        <div class="h-6 flex items-end gap-0.5 my-1">
+                                            <div class="w-1.5 h-2 bg-[#411FEB]/20 dark:bg-[#5536ED]/20 rounded-t"></div>
+                                            <div class="w-1.5 h-3 bg-[#411FEB]/40 dark:bg-[#5536ED]/40 rounded-t"></div>
+                                            <div class="w-1.5 h-5 bg-[#411FEB] dark:bg-[#5536ED] rounded-t"></div>
+                                        </div>
+                                        <div class="w-full h-4 bg-[#411FEB] dark:bg-[#5536ED] rounded flex items-center justify-center shadow-sm">
+                                            <div class="w-6 h-1 bg-white rounded"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3 class="text-xl font-bold text-[#121212] dark:text-white">Refonte</h3>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                                Restructurer, moderniser et simplifier vos plateformes existantes (sites internet, applications mobiles ou produits SaaS) pour
+                                améliorer l'expérience de vos utilisateurs et augmenter vos taux de conversion.
+                            </p>
+                            <hr class="border-gray-100 dark:border-gray-800">
+                            <ul class="space-y-2 text-xs text-gray-600 dark:text-gray-400">
+                                <CheckListItem>Diagnostic complet du produit actuel</CheckListItem>
+                                <CheckListItem>Parcours de navigation simplifiés & évidents</CheckListItem>
+                                <CheckListItem>Design moderne & adapté aux mobiles</CheckListItem>
+                                <CheckListItem>Maquettes propres prêtes pour vos développeurs</CheckListItem>
+                                <CheckListItem>Simulation animée (prototype cliquable)</CheckListItem>
+                                <CheckListItem>Réécriture de vos textes (copywriting)</CheckListItem>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="text-lg font-bold text-[#121212] dark:text-white mb-1">À partir de 600 € <span
+                                    class="text-xs font-normal text-gray-400">TTC (Sur devis)</span></p>
+                            <p class="text-[10px] text-gray-400 dark:text-gray-500 mb-4">Adapté au nombre d'écrans à
+                                refondre.</p>
+                            <a href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener noreferrer"
+                                class="w-full bg-[#411FEB] text-white py-3 rounded-xl font-semibold hover:bg-[#3215c7] transition flex items-center justify-center gap-2 text-xs">
+                                Optimiser mon produit
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Offre 3 : Création de 0 -->
+                    <div class="bg-[#F9F7FF] dark:bg-[#1A162C] p-6 rounded-2xl border border-[#C1B4F8]/20 dark:border-[#281E5A]/30 flex flex-col justify-between gap-6 animate-on-scroll transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:border-[#411FEB]/30 dark:hover:border-[#5536ED]/30"
+                        style="transition-delay: 200ms;">
+                        <div class="space-y-4">
+                            <div
+                                class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#411FEB]/10 text-[#411FEB] dark:text-white text-xs font-semibold">
+                                Idéal pour lancer votre idée
+                            </div>
+
+                            <!-- Illustration: Création de A à Z -->
+                            <div class="w-full h-32 rounded-xl bg-gradient-to-br from-[#F9F7FF] to-[#E8E4FC]/30 dark:from-[#1A162C]/50 dark:to-[#121212]/30 border border-[#C1B4F8]/20 dark:border-[#281E5A]/50 overflow-hidden relative flex items-center justify-center p-3 select-none">
+                                <!-- Blueprint/grid background -->
+                                <div class="absolute inset-0 bg-[radial-gradient(#C1B4F8_0.8px,transparent_0.8px)] dark:bg-[radial-gradient(#281E5A_0.8px,transparent_0.8px)] [background-size:12px_12px] opacity-40"></div>
+                                
+                                <div class="w-full h-full flex items-center justify-center relative">
+                                    <!-- Blueprint Canvas Card -->
+                                    <div class="w-40 h-20 bg-white dark:bg-[#121212] rounded-lg border border-dashed border-[#C1B4F8]/70 dark:border-[#281E5A]/90 p-2 flex flex-col justify-between relative shadow-sm">
+                                        <!-- Header blueprint -->
+                                        <div class="flex justify-between items-center border-b border-gray-100 dark:border-gray-900 pb-1">
+                                            <div class="w-8 h-1.5 bg-gray-200 dark:bg-gray-800 rounded"></div>
+                                            <!-- Interactive circle dots -->
+                                            <div class="flex gap-0.5">
+                                                <div class="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+                                                <div class="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+                                            </div>
+                                        </div>
+                                        <!-- Blueprint wireframe body -->
+                                        <div class="flex-1 flex gap-2 items-center my-1.5">
+                                            <!-- Image placeholder box -->
+                                            <div class="w-8 h-8 rounded border border-[#C1B4F8]/40 dark:border-[#281E5A]/50 relative overflow-hidden flex items-center justify-center shrink-0">
+                                                <div class="absolute w-full h-[1px] bg-[#C1B4F8]/40 dark:bg-[#281E5A]/50 rotate-12"></div>
+                                                <div class="absolute w-full h-[1px] bg-[#C1B4F8]/40 dark:bg-[#281E5A]/50 -rotate-12"></div>
+                                                <i class='bx bx-image text-[#C1B4F8]/60 dark:text-[#281E5A]/70 text-xs'></i>
+                                            </div>
+                                            <!-- Skeleton text blocks -->
+                                            <div class="flex-1 space-y-1.5">
+                                                <div class="w-[85%] h-1 bg-gray-200 dark:bg-gray-800 rounded"></div>
+                                                <div class="w-[50%] h-1 bg-gray-200 dark:bg-gray-800 rounded"></div>
+                                            </div>
+                                        </div>
+                                        <!-- Bottom bar -->
+                                        <div class="w-full h-2 rounded bg-gray-100 dark:bg-gray-900"></div>
+                                    </div>
+
+                                    <!-- Floating Tool: Pen / Vector Ruler Widget -->
+                                    <div class="absolute -top-1 right-6 bg-white dark:bg-[#1E1B33] border border-[#C1B4F8]/40 dark:border-[#281E5A] rounded-lg p-1.5 shadow-lg flex items-center gap-1 animate-bounce" style="animation-duration: 2.5s;">
+                                        <i class='bx bx-edit-alt text-xs text-[#411FEB] dark:text-[#5536ED]'></i>
+                                        <span class="text-[6px] font-bold text-gray-500 uppercase">A à Z</span>
+                                    </div>
+
+                                    <!-- Floating Component snapping in: Premium Button -->
+                                    <div class="absolute -bottom-1 left-4 bg-gradient-to-tr from-[#5536ED] to-[#411FEB] text-white text-[7px] font-bold px-2.5 py-1 rounded shadow-lg flex items-center gap-1 animate-pulse">
+                                        <i class='bx bx-plus-circle text-[8px]'></i>
+                                        <span>Bouton</span>
+                                    </div>
+                                    
+                                    <!-- Designer Cursor -->
+                                    <div class="absolute right-12 bottom-2 flex flex-col items-center">
+                                        <i class='bx bxs-navigation text-sm text-[#411FEB] dark:text-[#5536ED] rotate-[270deg] filter drop-shadow'></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3 class="text-xl font-bold text-[#121212] dark:text-white">Création de A à Z</h3>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                                Concevoir la toute première version de votre futur site internet, application mobile ou produit SaaS à partir
+                                d'une page blanche. De l'idée de départ au design prêt à être codé.
+                            </p>
+                            <hr class="border-gray-100 dark:border-gray-800">
+                            <ul class="space-y-2 text-xs text-gray-600 dark:text-gray-400">
+                                <CheckListItem>Cadrage stratégique & recherche des besoins</CheckListItem>
+                                <CheckListItem>Parcours utilisateur & schémas (wireframes)</CheckListItem>
+                                <CheckListItem>Identité visuelle & design sur-mesure</CheckListItem>
+                                <CheckListItem>Prototype Figma interactif cliquable (pour tester)</CheckListItem>
+                                <CheckListItem>Création du mini catalogue d'éléments (Design System)</CheckListItem>
+                                <CheckListItem>Rédaction complète de vos textes de vente</CheckListItem>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="text-lg font-bold text-[#121212] dark:text-white mb-1">À partir de 1 000 € <span
+                                    class="text-xs font-normal text-gray-400">TTC (Sur devis)</span></p>
+                            <p class="text-[10px] text-gray-400 dark:text-gray-500 mb-4">Prix ajusté selon la taille du
+                                projet.</p>
+                            <a href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener noreferrer"
+                                class="w-full border border-[#411FEB] text-[#411FEB] dark:text-white dark:border-white py-3 rounded-xl font-semibold hover:bg-[#411FEB]/10 transition flex items-center justify-center gap-2 text-xs">
+                                Lancer mon projet de 0
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. TEMOIGNAGES & DEMO CLIENTS -->
+        <section class="w-full px-8 lg:px-32 py-16 bg-[#F9F7FF] dark:bg-[#1A162C] text-center space-y-16">
+            <div class="space-y-4 flex flex-col items-center animate-on-scroll">
+                <span class="text-sm font-bold text-[#411FEB] dark:text-[#5536ED] uppercase">Témoignages & Démos</span>
+                <h2 class="text-3xl lg:text-4xl font-bold text-[#121212] dark:text-white">Des résultats mesurables</h2>
+                <!-- Global Social Proof Badge -->
+                <div class="inline-flex items-center gap-2 bg-[#F9F7FF] dark:bg-[#1A162C] border border-[#C1B4F8]/30 dark:border-[#281E5A]/50 px-4 py-2 rounded-2xl shadow-sm">
+                    <div class="flex gap-0.5 text-yellow-400 text-sm">
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <span class="text-xs text-gray-500 dark:text-gray-400 font-semibold leading-none">
+                        <strong class="text-[#411FEB] dark:text-[#5536ED] font-bold">5/5</strong> basé sur <strong class="text-[#121212] dark:text-white font-bold">3 avis</strong>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Bandeau de logos de marques (Social Proof) -->
+            <div class="max-w-6xl mx-auto py-8 border-y border-gray-100 dark:border-gray-800/80 animate-on-scroll">
+                <p class="text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-6">
+                    Ils recommandent mon expertise ou ont collaboré avec moi
+                </p>
+                <div class="grid grid-cols-3 gap-6 items-center justify-items-center md:flex md:flex-wrap md:justify-center md:gap-16">
+                    <img src="/assets/media/brands/PHOQTV.svg" alt="PHOQ.tv"
+                        class="h-6 md:h-8 object-contain brightness-0 dark:brightness-100 opacity-40 hover:opacity-100 hover:scale-105 transition-all duration-300">
+                    <img src="/assets/media/brands/Digital%20Unicorn.svg" alt="Digital Unicorn"
+                        class="h-6 md:h-8 object-contain brightness-0 dark:brightness-100 opacity-40 hover:opacity-100 hover:scale-105 transition-all duration-300">
+                    <img src="/assets/media/brands/Kosmos Digital.png" alt="Kosmos Digital"
+                        class="h-6 md:h-8 object-contain brightness-0 dark:brightness-100 opacity-40 hover:opacity-100 hover:scale-105 transition-all duration-300">
+                    <img src="/assets/media/brands/Mafigue.svg" alt="Mafigue"
+                        class="h-7 md:h-9 object-contain brightness-0 dark:brightness-100 opacity-40 hover:opacity-100 hover:scale-105 transition-all duration-300">
+                    <img src="/assets/media/brands/JOBBRR.svg" alt="JOBBRR"
+                        class="h-5 md:h-7 object-contain brightness-0 dark:brightness-100 opacity-40 hover:opacity-100 hover:scale-105 transition-all duration-300">
+                    <img src="/assets/media/brands/Game4Creator.png" alt="Game4Creator"
+                        class="h-6 md:h-8 object-contain brightness-0 dark:brightness-100 opacity-40 hover:opacity-100 hover:scale-105 transition-all duration-300">
+                </div>
+            </div>
+
+            <!-- Chiffres Clés & ROI (Impact quantitatif) -->
+            <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12 animate-on-scroll">
+                <div
+                    class="bg-[#E8E4FC]/30 dark:bg-[#5536ED]/5 border border-[#C1B4F8]/30 dark:border-[#281E5A]/50 p-5 rounded-2xl text-center transition-all hover:scale-[1.02] hover:shadow-lg hover:border-[#411FEB] dark:hover:border-[#5536ED] group">
+                    <p class="text-3xl font-extrabold text-[#411FEB] dark:text-[#5536ED] mb-2">+35%</p>
+                    <p class="text-xs font-bold text-[#121212] dark:text-white mb-1">Taux de Conversion</p>
+                    <p class="text-[10px] text-gray-500 dark:text-gray-400">Hausse moyenne constatée après refonte</p>
+                </div>
+                <div
+                    class="bg-[#E8E4FC]/30 dark:bg-[#5536ED]/5 border border-[#C1B4F8]/30 dark:border-[#281E5A]/50 p-5 rounded-2xl text-center transition-all hover:scale-[1.02] hover:shadow-lg hover:border-[#411FEB] dark:hover:border-[#5536ED] group">
+                    <p class="text-3xl font-extrabold text-[#411FEB] dark:text-[#5536ED] mb-2">-50%</p>
+                    <p class="text-xs font-bold text-[#121212] dark:text-white mb-1">Temps d'Intégration</p>
+                    <p class="text-[10px] text-gray-500 dark:text-gray-400">Moins d'allers-retours dev/design</p>
+                </div>
+                <div
+                    class="bg-[#E8E4FC]/30 dark:bg-[#5536ED]/5 border border-[#C1B4F8]/30 dark:border-[#281E5A]/50 p-5 rounded-2xl text-center transition-all hover:scale-[1.02] hover:shadow-lg hover:border-[#411FEB] dark:hover:border-[#5536ED] group">
+                    <p class="text-3xl font-extrabold text-[#411FEB] dark:text-[#5536ED] mb-2">2x plus vite</p>
+                    <p class="text-xs font-bold text-[#121212] dark:text-white mb-1">Time to Market</p>
+                    <p class="text-[10px] text-gray-500 dark:text-gray-400">Méthode collaborative et asynchrone</p>
+                </div>
+                <div
+                    class="bg-[#E8E4FC]/30 dark:bg-[#5536ED]/5 border border-[#C1B4F8]/30 dark:border-[#281E5A]/50 p-5 rounded-2xl text-center transition-all hover:scale-[1.02] hover:shadow-lg hover:border-[#411FEB] dark:hover:border-[#5536ED] group">
+                    <p class="text-3xl font-extrabold text-[#411FEB] dark:text-[#5536ED] mb-2">100%</p>
+                    <p class="text-xs font-bold text-[#121212] dark:text-white mb-1">Respect des Délais</p>
+                    <p class="text-[10px] text-gray-500 dark:text-gray-400">Livraison progressive et validée</p>
+                </div>
+            </div>
+
+            <!-- Témoignage Vedette (Avec Vidéo) -->
+            <div class="max-w-5xl mx-auto flex flex-col lg:flex-row gap-8 items-stretch mb-12">
+                <!-- Testimonial Card (Left) -->
+                <div
+                    class="lg:w-1/2 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.10] border-2 border-[#C1B4F8] dark:border-[#281E5A] text-left p-6 rounded-2xl flex flex-col justify-between animate-on-scroll transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl hover:border-[#411FEB] dark:hover:border-[#5536ED] group">
+                    <div class="flex flex-col">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="text-[#411FEB]/20 dark:text-[#5536ED]/20 text-4xl transition-colors group-hover:text-[#411FEB] dark:group-hover:text-[#5536ED]">
+                                <i class='bx bxs-quote-left'></i>
+                            </div>
+                            <!-- Stars -->
+                            <div class="flex gap-0.5 text-yellow-400 text-base">
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                            </div>
+                        </div>
+                        <p class="text-[#121212] dark:text-white leading-relaxed italic mb-6">
+                            "Lorem ipsum dolor sit"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 mt-auto">
+                        <img src="/assets/media/photo/thibautmaensrabier.webp" alt="Thibaut Maëns Rabier"
+                            class="w-12 h-12 rounded-full object-cover shrink-0">
+                        <div>
+                            <h4 class="font-bold text-[#411FEB] dark:text-[#5536ED]">
+                                <a href="https://www.linkedin.com/in/thibaut-rabier/" target="_blank"
+                                    rel="noopener noreferrer" class="hover:underline inline-flex items-center gap-1">
+                                    Thibaut Maëns Rabier
+                                    <i class='bx bxl-linkedin-square text-sm opacity-70 hover:opacity-100'></i>
+                                </a>
+                            </h4>
+                            <p class="text-xs text-gray-500 dark:text-gray-400">
+                                Founder & Creative Producer,
+                                <a href="https://phoq.tv" target="_blank" rel="noopener noreferrer"
+                                    class="hover:underline font-semibold text-[#411FEB] dark:text-[#5536ED]">PHOQ.tv</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Showcase Player (Right) -->
+                <div class="lg:w-1/2 bg-white dark:bg-[#121212] border-2 border-gray-100 dark:border-gray-800 p-4 rounded-2xl flex flex-col justify-between animate-on-scroll transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl hover:border-[#411FEB]/30 dark:hover:border-[#5536ED]/30 group"
+                    style="transition-delay: 150ms;">
+                    <div
+                        class="relative w-full aspect-video rounded-xl overflow-hidden bg-black border border-gray-200 dark:border-gray-800 shadow-md">
+                        <video id="demoVideo" class="w-full h-full object-cover" controls preload="metadata"
+                            poster="/assets/media/projects/phoq.webp">
+                            <source src="/assets/media/projects/maximeclick.webm" type="video/webm">
+                            Votre navigateur ne supporte pas le lecteur vidéo.
+                        </video>
+                    </div>
+                    <div class="text-left mt-4 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h4 class="font-bold text-lg text-[#121212] dark:text-white flex items-center gap-2">
+                                <i class='bx bx-play-circle text-[#411FEB] dark:text-[#5536ED] text-xl'></i>
+                                Présentation vidéo du projet PHOQ.tv
+                            </h4>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                                Découvrez le prototype interactif Figma, les animations fluides et l'intégration
+                                responsive
+                                conçus pour ce projet.
+                            </p>
+                        </div>
+
+                        <!-- Impact & KPIs -->
+                        <div class="border-t border-[#411FEB]/15 dark:border-[#5536ED]/20 pt-3 mt-4 space-y-1 text-xs">
+                            <p class="text-gray-500 dark:text-gray-400 flex items-start gap-2"><i
+                                    class='bx bx-check text-green-500 text-base shrink-0 mt-0.5'></i>Redesign Landing
+                                Page</p>
+                            <p class="text-gray-500 dark:text-gray-400 flex items-start gap-2"><i
+                                    class='bx bx-check text-green-500 text-base shrink-0 mt-0.5'></i>Intégration dev
+                                100% fluide (zéro bug)</p>
+                            <p class="text-gray-500 dark:text-gray-400 flex items-start gap-2"><i
+                                    class='bx bx-check text-green-500 text-base shrink-0 mt-0.5'></i>Design premium
+                                aligné à l'identité créative</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Autres Recommandations -->
+            <div class="max-w-5xl mx-auto space-y-6 pt-4">
+                <div class="text-left px-2">
+                    <h3 class="text-xl font-bold text-[#121212] dark:text-white flex items-center gap-2">
+                        <i class='bx bxs-badge-check text-[#411FEB] dark:text-[#5536ED]'></i>
+                        Ils recommandent également mon travail
+                    </h3>
+                </div>
+
+                <!-- Testimonials Carousel Container -->
+                <div class="relative w-full overflow-hidden py-4 px-2" id="testimonialsCarousel">
+                    <!-- Testimonials Track -->
+                    <div class="flex flex-row flex-nowrap transition-transform duration-500 ease-in-out gap-6 w-full" id="testimonialsTrack">
+                        <!-- Lucas Kacem -->
+                        <div class="testimonial-slide w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 select-none bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.10] border-2 border-[#C1B4F8] dark:border-[#281E5A] p-6 rounded-2xl flex flex-col justify-between animate-on-scroll transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl hover:border-[#411FEB] dark:hover:border-[#5536ED] group">
+                            <div class="flex flex-col">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="text-[#411FEB]/20 dark:text-[#5536ED]/20 text-3xl transition-colors group-hover:text-[#411FEB] dark:group-hover:text-[#5536ED]">
+                                        <i class='bx bxs-quote-left'></i>
+                                    </div>
+                                    <!-- Stars -->
+                                    <div class="flex gap-0.5 text-yellow-400 text-sm">
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed italic mb-4 text-left">
+                                    "Florian a fait son stage chez Digital Unicorn en tant que UI/UX Designer et ça a été un
+                                    vrai plaisir de travailler avec lui. Super impliqué, intelligent et toujours dans
+                                    l’action, il a vraiment apporté de la valeur à l’équipe. 💪👋"
+                                </p>
+                            </div>
+                            <div class="flex gap-3 mt-auto text-left">
+                                <img src="/assets/media/photo/lucaskacem.webp" alt="Lucas Kacem"
+                                    class="w-10 h-10 rounded-full object-cover shrink-0">
+                                <div>
+                                    <h4 class="font-bold text-sm text-[#411FEB] dark:text-[#5536ED]">
+                                        <a href="https://www.linkedin.com/in/lucas-kacem/" target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="hover:underline inline-flex items-center gap-1">
+                                            Lucas Kacem
+                                            <i class='bx bxl-linkedin-square text-sm opacity-70 hover:opacity-100'></i>
+                                        </a>
+                                    </h4>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">
+                                        Co-fondateur & Président,
+                                        <a href="https://digitalunicorn.fr" target="_blank" rel="noopener noreferrer"
+                                            class="hover:underline font-semibold text-[#411FEB] dark:text-[#5536ED]">Digital
+                                            Unicorn</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Caroline Aubert -->
+                        <div class="testimonial-slide w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 select-none bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.10] border-2 border-[#C1B4F8] dark:border-[#281E5A] p-6 rounded-2xl flex flex-col justify-between animate-on-scroll transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl hover:border-[#411FEB] dark:hover:border-[#5536ED] group"
+                            style="transition-delay: 100ms;">
+                            <div class="flex flex-col">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="text-[#411FEB]/20 dark:text-[#5536ED]/20 text-3xl transition-colors group-hover:text-[#411FEB] dark:group-hover:text-[#5536ED]">
+                                        <i class='bx bxs-quote-left'></i>
+                                    </div>
+                                    <!-- Stars -->
+                                    <div class="flex gap-0.5 text-yellow-400 text-sm">
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed italic mb-4 text-left">
+                                    "J'ai eu la chance d'avoir Florian en stage pendant deux mois. Motivé, hyper proactif,
+                                    enseignable, il a su être opérationnel dès le départ. Il a une très bonne appétence pour
+                                    tout ce qui touche au rédactionnel et est force de proposition. C'est un expert de
+                                    l'Auto-layout Figma."
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-3 mt-auto text-left">
+                                <img src="/assets/media/photo/carolineaubert.webp" alt="Caroline Aubert"
+                                    class="w-10 h-10 rounded-full object-cover shrink-0">
+                                <div>
+                                    <h4 class="font-bold text-sm text-[#411FEB] dark:text-[#5536ED]">
+                                        <a href="https://www.linkedin.com/in/caroline-aubert-mafigue/" target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="hover:underline inline-flex items-center gap-1">
+                                            Caroline Aubert
+                                            <i class='bx bxl-linkedin-square text-sm opacity-70 hover:opacity-100'></i>
+                                        </a>
+                                    </h4>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">
+                                        Product Designer,
+                                        <a href="https://www.mafigue.com" target="_blank" rel="noopener noreferrer"
+                                            class="hover:underline font-semibold text-[#411FEB] dark:text-[#5536ED]">Mafigue</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Jonathan Vaissière -->
+                        <div class="testimonial-slide w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 select-none bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.10] border-2 border-[#C1B4F8] dark:border-[#281E5A] p-6 rounded-2xl flex flex-col justify-between animate-on-scroll transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl hover:border-[#411FEB] dark:hover:border-[#5536ED] group"
+                            style="transition-delay: 200ms;">
+                            <div class="flex flex-col">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="text-[#411FEB]/20 dark:text-[#5536ED]/20 text-3xl transition-colors group-hover:text-[#411FEB] dark:group-hover:text-[#5536ED]">
+                                        <i class='bx bxs-quote-left'></i>
+                                    </div>
+                                    <!-- Stars -->
+                                    <div class="flex gap-0.5 text-yellow-400 text-sm">
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed italic mb-4 text-left">
+                                    "Un travail pro et sérieux comme on aime et surtout comme on a BESOIN ! Florian a fait
+                                    partie de l’équipe qui nous a conçu les maquettes de notre dernière version et ce fut un
+                                    régal de travailler ensemble. Rapide, efficace et agréable. Merci encore !"
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-3 mt-auto text-left">
+                                <img src="/assets/media/photo/jonathanvaissiere.webp" alt="Jonathan Vaissière"
+                                    class="w-10 h-10 rounded-full object-cover shrink-0">
+                                <div>
+                                    <h4 class="font-bold text-sm text-[#411FEB] dark:text-[#5536ED]">
+                                        <a href="https://www.linkedin.com/in/jonathan-vaissiere/" target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="hover:underline inline-flex items-center gap-1">
+                                            Jonathan Vaissière
+                                            <i class='bx bxl-linkedin-square text-sm opacity-70 hover:opacity-100'></i>
+                                        </a>
+                                    </h4>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">
+                                        Entrepreneur,
+                                        <a href="https://guidedugolfe.com" target="_blank" rel="noopener noreferrer"
+                                            class="hover:underline font-semibold text-[#411FEB] dark:text-[#5536ED]">Le
+                                            Guide du Golfe</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Maxime Click -->
+                        <div class="testimonial-slide w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 select-none bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.10] border-2 border-[#C1B4F8] dark:border-[#281E5A] p-6 rounded-2xl flex flex-col justify-between animate-on-scroll transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl hover:border-[#411FEB] dark:hover:border-[#5536ED] group"
+                            style="transition-delay: 300ms;">
+                            <div class="flex flex-col">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="text-[#411FEB]/20 dark:text-[#5536ED]/20 text-3xl transition-colors group-hover:text-[#411FEB] dark:group-hover:text-[#5536ED]">
+                                        <i class='bx bxs-quote-left'></i>
+                                    </div>
+                                    <!-- Stars -->
+                                    <div class="flex gap-0.5 text-yellow-400 text-sm">
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed italic mb-4 text-left">
+                                    "Je l'ai vu direct !! Très fort 👍"
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-3 mt-auto text-left">
+                                <img src="/assets/media/photo/maximeclick.webp" alt="Maxime Peiffer"
+                                    class="w-10 h-10 rounded-full object-cover shrink-0">
+                                <div>
+                                    <h4 class="font-bold text-sm text-[#411FEB] dark:text-[#5536ED]">
+                                        <a href="https://www.youtube.com/@MaximeClick" target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="hover:underline inline-flex items-center gap-1">
+                                            Maxime "Click" Peiffer
+                                            <i class='bx bxl-youtube text-sm opacity-70 hover:opacity-100'></i>
+                                        </a>
+                                    </h4>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">
+                                        Créateur de contenu (1.1M sur YouTube)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation indicators (dots) -->
+                    <div class="flex justify-center gap-2 mt-6" id="carouselDots">
+                        <!-- Dots will be dynamically generated via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. FAQ (RÉPONSE AUX OBJECTIONS) -->
+        <section class="w-full px-8 lg:px-32 py-16 bg-white dark:bg-[#121212]">
+            <div class="max-w-3xl mx-auto space-y-8">
+                <div class="space-y-4">
+                    <span class="text-sm font-bold text-[#411FEB] dark:text-[#5536ED] uppercase">FAQ</span>
+                    <h2 class="text-3xl lg:text-4xl font-bold text-[#121212] dark:text-white">Questions fréquentes</h2>
+                </div>
+
+                <div class="space-y-3" id="faqList">
+                    <FaqItem question="Est-ce que mes développeurs vont
+                                pouvoir intégrer votre design ?">
+                            C'est ma priorité numéro 1. Ayant un bagage en développement (BTS SIO), je conçois des
+                            maquettes conformes aux contraintes d'intégration : grille CSS, Auto-layout Figma strict
+                            (équivalent des Flexbox), design adaptatif (desktop & mobile), styles de couleurs et
+                            typographies déclarés. Vos développeurs n'auront pas à deviner les espacements ni à
+                            réinventer les comportements réactifs.
+                        </FaqItem>
+
+                    <FaqItem question="Faites-vous l'intégration web
+                                (HTML/CSS, Webflow, WordPress) ?">
+                            Mon expertise se concentre sur l'étape UI/UX et Copywriting (la stratégie visuelle et
+                            textuelle). Je vous livre les maquettes Figma définitives prêtes à l'intégration. Si vous
+                            n'avez pas de développeur, je peux vous mettre en relation avec des profils de confiance de
+                            mon réseau (intégrateurs Webflow, développeurs WordPress ou Fullstack).
+                        </FaqItem>
+
+                    <FaqItem question="Combien de temps prend un projet
+                                UI/UX complet ?">
+                            La durée dépend de la taille et de la complexité de votre produit (nombre d'écrans et
+                            d'itérations). En moyenne, la conception d'un site vitrine complet prend 2 à 3 semaines, et
+                            un SaaS ou une application complexe prend entre 4 et 8 semaines. Dès le départ, nous fixons
+                            un planning de livraison précis.
+                        </FaqItem>
+
+                    <FaqItem question="Et si le design proposé ne me
+                                convient pas du tout ?">
+                            C'est impossible grâce à notre méthode progressive ! Nous validons d'abord la structure en
+                            wireframes (sans visuel). Ensuite, nous définissons une direction artistique (moodboard,
+                            typographies, styles). Ce n'est qu'après votre accord sur ces fondations que je conçois les
+                            écrans détaillés. De plus, chaque phase inclut des boucles de retours (itérations) pour
+                            affiner ensemble.
+                        </FaqItem>
+
+                    <FaqItem question="Comment s'organisent les retours et
+                                les modifications sur les maquettes ?">
+                            Le travail est entièrement collaboratif et transparent. À chaque étape importante
+                            (wireframes, maquettes graphiques), je vous partage un lien Figma interactif et de courtes
+                            présentations vidéo (Loom). Vous pouvez poser des commentaires précis directement sur la
+                            maquette aux endroits concernés. Les retours sont traités sous 24h à 48h.
+                        </FaqItem>
+
+                    <FaqItem question="Mon projet est très simple (site
+                                vitrine) ou au contraire très technique (SaaS, B2B) : pouvez-vous vous adapter ?">
+                            Oui, tout à fait. Mon cursus initial en informatique (BTS SIO) me permet de comprendre
+                            immédiatement les architectures de données complexes, les contraintes techniques et les
+                            logiques métiers des logiciels ou applications d'entreprise (SaaS, B2B). Mais je conçois
+                            également des sites vitrines simples, épurés et clairs, toujours avec le même objectif :
+                            rendre le parcours de vos utilisateurs évident et agréable.
+                        </FaqItem>
+
+                    <FaqItem question="Proposez-vous des facilités de
+                                paiement ?">
+                            Oui, tout à fait. Pour les prestations complètes, la facturation s'effectue généralement
+                            avec un acompte de 50% au lancement et le solde de 50% à la livraison finale. Selon la
+                            taille du projet, nous pouvons également diviser le paiement en 3 ou 4 échéances basées sur
+                            les livrables intermédiaires pour lisser votre trésorerie.
+                        </FaqItem>
+
+                    <FaqItem question="Pourquoi travailler avec un
+                                freelance plutôt qu'une agence ?">
+                            En travaillant avec moi, vous n'avez aucun intermédiaire (pas de chef de projet ou de
+                            commercial). Votre interlocuteur est celui qui conçoit votre produit de bout en bout. Cela
+                            garantit une communication ultra-rapide, une flexibilité maximale et une réduction
+                            significative des coûts par rapport à une agence (pas de frais de structure cachés). 
+                            Fini les pertes d'informations entre les différents membres de l'équipe.
+                        </FaqItem>
+
+                    <FaqItem question="Où êtes-vous basé ? Proposez-vous
+                                du présentiel ?">
+                            Je travaille principalement en <strong>full remote</strong> avec des clients dans toute la
+                            France ou à l'étranger. Cependant, je suis basé sur la Côte d'Azur et je peux me déplacer si nécessaire à
+                            <strong>Toulon</strong> ou <strong>Nice</strong> pour des réunions de cadrage, des ateliers
+                            de co-conception ou des points clés de votre projet.
+                        </FaqItem>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. FINAL CTA BANNER -->
+        <section
+            class="w-full px-8 lg:px-32 py-16 bg-[#E8E4FC] dark:bg-[#1A162C] text-center transition-colors duration-200">
+            <div class="max-w-4xl mx-auto space-y-6 animate-on-scroll">
+                <h2 class="text-3xl lg:text-5xl font-bold leading-tight text-[#121212] dark:text-white">Prêt à propulser
+                    votre produit digital ?</h2>
+                <p class="text-lg opacity-90 max-w-xl mx-auto text-gray-600 dark:text-gray-400">
+                    Réservez un appel découverte de 30 minutes. Nous ferons le point sur votre projet et je vous
+                    proposerai un plan d'action adapté.
+                </p>
+                <div class="pt-4">
+                    <a href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener noreferrer"
+                        class="inline-block bg-white text-[#5536ED] px-8 py-4 font-semibold rounded-xl transition-all hover:bg-gray-100 hover:scale-[1.02]">
+                        Réserver mon appel découverte (Gratuit)
+                    </a>
+                </div>
+                <p class="text-xs opacity-75">Aucun engagement requis — Parlons juste de vos objectifs.</p>
+            </div>
+        </section>
+
+    </main>
+
+    
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const cards = document.querySelectorAll(".animate-on-scroll");
+            if (cards.length) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("show");
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                cards.forEach((card) => {
+                    observer.observe(card);
+                });
+            }
+
+            // Process Step Intersection Observer
+            const processSteps = document.querySelectorAll(".process-step");
+            const firstStep = document.querySelector(".process-step[data-step='1']");
+
+            // Function to set a step as active and others inactive
+            function activateStep(activeStepId) {
+                processSteps.forEach(step => {
+                    const stepId = step.getAttribute("data-step");
+                    const stepTitle = step.querySelector(".step-title");
+                    const stepDesc = step.querySelector(".step-desc");
+                    const stepBadge = step.querySelector(".step-number-badge");
+                    const illustration = document.getElementById(`illustration-${stepId}`);
+                    const isActive = stepId === activeStepId;
+
+                    if (isActive) {
+                        step.classList.add("border-[#411FEB]", "dark:border-[#5536ED]");
+                        step.classList.remove("border-gray-100", "dark:border-gray-800");
+                        if (stepTitle) {
+                            stepTitle.classList.add("text-[#121212]", "dark:text-white");
+                            stepTitle.classList.remove("text-gray-400", "dark:text-gray-600");
+                        }
+                        if (stepDesc) {
+                            stepDesc.classList.add("text-gray-600", "dark:text-gray-300");
+                            stepDesc.classList.remove("text-gray-400", "dark:text-gray-600");
+                        }
+                        if (stepBadge) {
+                            stepBadge.classList.add("bg-[#411FEB]", "text-white");
+                            stepBadge.classList.remove("bg-gray-200", "dark:bg-gray-800", "text-gray-500", "dark:text-gray-400");
+                        }
+                        if (illustration) {
+                            illustration.classList.add("opacity-100", "scale-100");
+                            illustration.classList.remove("opacity-0", "scale-95", "pointer-events-none");
+                        }
+                    } else {
+                        step.classList.remove("border-[#411FEB]", "dark:border-[#5536ED]");
+                        step.classList.add("border-gray-100", "dark:border-gray-800");
+                        if (stepTitle) {
+                            stepTitle.classList.remove("text-[#121212]", "dark:text-white");
+                            stepTitle.classList.add("text-gray-400", "dark:text-gray-600");
+                        }
+                        if (stepDesc) {
+                            stepDesc.classList.remove("text-gray-600", "dark:text-gray-300");
+                            stepDesc.classList.add("text-gray-400", "dark:text-gray-600");
+                        }
+                        if (stepBadge) {
+                            stepBadge.classList.remove("bg-[#411FEB]", "text-white");
+                            stepBadge.classList.add("bg-gray-200", "dark:bg-gray-800", "text-gray-500", "dark:text-gray-400");
+                        }
+                        if (illustration) {
+                            illustration.classList.remove("opacity-100", "scale-100");
+                            illustration.classList.add("opacity-0", "scale-95", "pointer-events-none");
+                        }
+                    }
+                });
+            }
+
+            // Initialize first step as active on DOM load
+            if (firstStep) {
+                activateStep("1");
+            }
+
+            if (processSteps.length > 0) {
+                const processObserver = new IntersectionObserver((entries) => {
+                    // Force mobile-only for observer activation (since desktop uses scroll track)
+                    if (window.innerWidth >= 1024) return;
+
+                    const intersectingEntry = entries.find(entry => entry.isIntersecting);
+                    if (intersectingEntry) {
+                        const stepId = intersectingEntry.target.getAttribute("data-step");
+                        activateStep(stepId);
+                    }
+                }, {
+                    rootMargin: "-25% 0px -35% 0px",
+                    threshold: 0.1
+                });
+
+                processSteps.forEach((step, index) => {
+                    processObserver.observe(step);
+
+                    // Add click handler to scroll process track (desktop) or step directly (mobile)
+                    step.addEventListener("click", () => {
+                        if (window.innerWidth >= 1024) {
+                            if (!scrollTrack) return;
+                            const rect = scrollTrack.getBoundingClientRect();
+                            const scrollTrackOffsetTop = window.scrollY + rect.top;
+                            const scrollEnd = rect.height - window.innerHeight;
+                            const progress = index / (processSteps.length - 1);
+                            const targetScrollY = scrollTrackOffsetTop + progress * scrollEnd;
+                            window.scrollTo({
+                                top: targetScrollY,
+                                behavior: "smooth"
+                            });
+                        } else {
+                            step.scrollIntoView({
+                                behavior: "smooth",
+                                block: "center"
+                            });
+                        }
+                    });
+                });
+
+                // Desktop Scrollytelling Pinning logic
+                const scrollTrack = document.getElementById("processScrollTrack");
+                const translateWrapper = document.getElementById("stepsTranslateWrapper");
+                const stepsContainer = document.getElementById("stepsScrollContainer");
+
+                function updateDesktopSteps() {
+                    if (window.innerWidth < 1024) {
+                        // Reset wrapper transform on mobile
+                        if (translateWrapper) translateWrapper.style.transform = "none";
+                        return;
+                    }
+
+                    if (!scrollTrack || !translateWrapper || !stepsContainer) return;
+
+                    const rect = scrollTrack.getBoundingClientRect();
+                    const trackHeight = rect.height;
+                    const windowHeight = window.innerHeight;
+
+                    // Pin scrolling range calculation
+                    const scrollStart = 0;
+                    const scrollEnd = trackHeight - windowHeight;
+                    const currentScroll = -rect.top;
+
+                    let progress = currentScroll / scrollEnd;
+                    progress = Math.max(0, Math.min(1, progress));
+
+                    // Divide scroll progress into 5 equal zones
+                    const stepCount = processSteps.length;
+                    const stepProgress = progress * (stepCount - 1);
+                    const activeIndex = Math.round(stepProgress);
+
+                    // Activate corresponding step and mockup
+                    const activeStep = processSteps[activeIndex];
+                    if (activeStep) {
+                        const stepId = activeStep.getAttribute("data-step");
+                        activateStep(stepId);
+                    }
+
+                    // Calculate total height of all steps
+                    let totalStepsHeight = 0;
+                    processSteps.forEach(step => {
+                        totalStepsHeight += step.offsetHeight;
+                    });
+
+                    // Centering active step inside stepsScrollContainer with clamping
+                    const containerHeight = stepsContainer.offsetHeight;
+                    let targetCenteringY = 0;
+
+                    if (activeIndex > 0) {
+                        let previousStepsHeight = 0;
+                        for (let i = 0; i < activeIndex; i++) {
+                            previousStepsHeight += processSteps[i].offsetHeight;
+                        }
+                        const activeStepHeight = processSteps[activeIndex].offsetHeight;
+                        targetCenteringY = -(previousStepsHeight - (containerHeight / 2) + (activeStepHeight / 2));
+                    } else {
+                        const activeStepHeight = processSteps[0].offsetHeight;
+                        targetCenteringY = -(0 - (containerHeight / 2) + (activeStepHeight / 2));
+                    }
+
+                    // Clamp targetY:
+                    // - Max scroll is 0 (first step aligned to the top)
+                    // - Min scroll is containerHeight - totalStepsHeight (last step aligned to the bottom)
+                    const minScroll = containerHeight - totalStepsHeight;
+                    const maxScroll = 0;
+                    const targetY = Math.min(maxScroll, Math.max(minScroll, targetCenteringY));
+
+                    // Apply translation
+                    translateWrapper.style.transform = `translateY(${targetY}px)`;
+                }
+
+                // Bind event listeners for desktop scrolling
+                window.addEventListener("scroll", updateDesktopSteps);
+                window.addEventListener("resize", updateDesktopSteps);
+                
+                // Trigger once on load
+                updateDesktopSteps();
+            }
+
+            // Testimonials Carousel Logic
+            const carouselTrack = document.getElementById("testimonialsTrack");
+            const carouselSlides = document.querySelectorAll(".testimonial-slide");
+            const carouselDots = document.getElementById("carouselDots");
+            let carouselIndex = 0;
+            let carouselTimer = null;
+
+            function getCarouselVisibleCount() {
+                if (window.innerWidth >= 1024) return 3; // lg
+                if (window.innerWidth >= 768) return 2;  // md
+                return 1; // mobile
+            }
+
+            function updateCarousel() {
+                if (!carouselTrack || carouselSlides.length === 0) return;
+                
+                const visibleCount = getCarouselVisibleCount();
+                const maxIdx = Math.max(0, carouselSlides.length - visibleCount);
+                
+                if (carouselIndex > maxIdx) {
+                    carouselIndex = 0;
+                }
+                
+                const slideWidth = carouselSlides[0].offsetWidth;
+                const gap = 24; // gap-6 is 24px
+                const translateAmt = carouselIndex * (slideWidth + gap);
+                
+                carouselTrack.style.transform = `translateX(-${translateAmt}px)`;
+                
+                // Update dots active style
+                const dots = carouselDots.querySelectorAll("button");
+                dots.forEach((dot, idx) => {
+                    if (idx === carouselIndex) {
+                        dot.classList.add("bg-[#411FEB]", "w-6");
+                        dot.classList.remove("bg-gray-300", "dark:bg-gray-700", "w-2.5");
+                    } else {
+                        dot.classList.remove("bg-[#411FEB]", "w-6");
+                        dot.classList.add("bg-gray-300", "dark:bg-gray-700", "w-2.5");
+                    }
+                });
+            }
+
+            function startCarouselAutoplay() {
+                stopCarouselAutoplay();
+                carouselTimer = setInterval(() => {
+                    const visibleCount = getCarouselVisibleCount();
+                    const maxIdx = Math.max(0, carouselSlides.length - visibleCount);
+                    
+                    if (maxIdx === 0) return;
+                    
+                    if (carouselIndex >= maxIdx) {
+                        carouselIndex = 0;
+                    } else {
+                        carouselIndex++;
+                    }
+                    updateCarousel();
+                }, 4000);
+            }
+
+            function stopCarouselAutoplay() {
+                if (carouselTimer) {
+                    clearInterval(carouselTimer);
+                    carouselTimer = null;
+                }
+            }
+
+            function setupCarouselDots() {
+                if (!carouselDots) return;
+                carouselDots.innerHTML = "";
+                
+                const visibleCount = getCarouselVisibleCount();
+                const maxIdx = Math.max(0, carouselSlides.length - visibleCount);
+                
+                for (let i = 0; i <= maxIdx; i++) {
+                    const dotButton = document.createElement("button");
+                    dotButton.className = "h-2.5 rounded-full transition-all duration-300 " + 
+                                          (i === carouselIndex ? "bg-[#411FEB] w-6" : "bg-gray-300 dark:bg-gray-700 w-2.5");
+                    dotButton.setAttribute("aria-label", `Slide ${i + 1}`);
+                    dotButton.addEventListener("click", () => {
+                        carouselIndex = i;
+                        updateCarousel();
+                        startCarouselAutoplay(); // Reset timer on interaction
+                    });
+                    carouselDots.appendChild(dotButton);
+                }
+            }
+
+            // Carousel Event Listeners
+            window.addEventListener("resize", () => {
+                setupCarouselDots();
+                updateCarousel();
+            });
+
+            const carouselContainer = document.getElementById("testimonialsCarousel");
+            if (carouselContainer) {
+                carouselContainer.addEventListener("mouseenter", stopCarouselAutoplay);
+                carouselContainer.addEventListener("mouseleave", startCarouselAutoplay);
+            }
+
+            // Initialize Carousel
+            if (carouselSlides.length > 0) {
+                setupCarouselDots();
+                updateCarousel();
+                startCarouselAutoplay();
+            }
+
+            const faqItems = document.querySelectorAll("#faqList details");
+            faqItems.forEach((item) => {
+                item.addEventListener("toggle", () => {
+                    if (!item.open) return;
+                    faqItems.forEach(other => {
+                        if (other !== item) other.open = false;
+                    });
+                });
+
+                // Permettre de fermer la carte en cliquant n'importe où dessus lorsqu'elle est ouverte
+                item.addEventListener("click", (e) => {
+                    if (e.target.tagName === 'A' || window.getSelection().toString()) return;
+                    if (item.open && !e.target.closest('summary')) {
+                        e.preventDefault();
+                        item.open = false;
+                    }
+                });
+            });
+        });
+    </script>
+
+</Layout>

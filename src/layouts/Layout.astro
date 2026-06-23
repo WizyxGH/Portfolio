@@ -1,0 +1,84 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+	lang?: string;
+	og_image?: string;
+	canonical?: string;
+	body_class?: string;
+}
+
+const { 
+	title = "Portfolio Florian Gertner Kilian", 
+	description = "Product Designer UI/UX. Je crée des interfaces premium, esthétiques et intuitives qui allient design et storytelling.",
+	lang = "fr",
+	og_image = "/assets/media/opengraph/default-og.jpg",
+	canonical,
+	body_class = ""
+} = Astro.props;
+
+const siteUrl = "https://wizyx.me";
+const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
+const finalTitle = title === "Portfolio Florian Gertner Kilian" ? title : `${title} - Florian Gertner Kilian`;
+const canonicalUrl = canonical ? new URL(canonical, siteUrl).href : currentUrl;
+---
+
+<!DOCTYPE html>
+<html lang={lang} class="scroll-smooth">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<title>{finalTitle}</title>
+	<meta name="description" content={description} />
+
+	<!-- Facebook Meta Tags -->
+	<meta property="og:url" content={currentUrl} />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content={finalTitle} />
+	<meta property="og:description" content={description} />
+	<meta property="og:image" content={`${siteUrl}${og_image}`} />
+
+	<!-- Twitter Meta Tags -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta property="twitter:domain" content="wizyx.me" />
+	<meta property="twitter:url" content={currentUrl} />
+	<meta name="twitter:title" content={finalTitle} />
+	<meta name="twitter:description" content={description} />
+	<meta name="twitter:image" content={`${siteUrl}${og_image}`} />
+
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+	<link rel="dns-prefetch" href="https://cdn.gtranslate.net" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+	<link rel="preload" href="/assets/fonts/boxicons.woff2" as="font" type="font/woff2" crossorigin />
+	<link rel="preload" href="/assets/media/photo.webp" as="image" fetchpriority="high" />
+	<link rel="stylesheet" href="/assets/css/boxicons.min.css" />
+	<link rel="stylesheet" href="/assets/css/styles.css" />
+	<link rel="icon" type="image/png" href="/assets/media/logo.png" />
+	<link rel="apple-touch-icon" href="/assets/media/logo.png" />
+	<link rel="canonical" href={canonicalUrl} />
+
+	<script src="/assets/js/layout.js" defer></script>
+	<script src="/assets/js/theme.js" defer></script>
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-6PJB5NW1Y5"></script>
+	<script is:inline>
+		window.dataLayer = window.dataLayer || []; 
+		function gtag() { dataLayer.push(arguments); } 
+		gtag('js', new Date()); 
+		gtag('config', 'G-6PJB5NW1Y5'); 
+	</script>
+</head>
+<body class={`font-inter text-[#411FEB] dark:text-white dark:bg-[#121212] transition-colors duration-300 ${body_class}`}>
+	<Navbar />
+	<slot />
+	<Footer />
+</body>
+</html>
