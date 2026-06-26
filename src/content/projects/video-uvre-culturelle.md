@@ -2,7 +2,8 @@
 id: 29
 title: "Vidéo œuvre culturelle"
 description: "Création d'une vidéo de présentation du tableau de Francisco de Goya \"Tres de Mayo\"."
-image: "/assets/media/projects/tresdemayo.webp"
+image: "../../assets/media/projects/tresdemayo.webp"
+image_alt: "Aperçu du projet pour Vidéo œuvre culturelle"
 context: "Scolaire"
 is_study: true
 date: "2000-01-01"

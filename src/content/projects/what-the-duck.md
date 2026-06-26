@@ -2,7 +2,8 @@
 id: 14
 title: "What The Duck"
 description: "Design d'une fonctionnalité de cartes GPS de bouquineries (avec possibilité de les ajouter) directement depuis l'application What The Duck."
-image: "/assets/media/projects/whattheduck.webp"
+image: "../../assets/media/projects/whattheduck.webp"
+image_alt: "Aperçu du application pour What The Duck"
 type: "Application"
 context: "Personnel"
 date: "2024-07-01"

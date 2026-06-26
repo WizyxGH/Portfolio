@@ -347,14 +347,14 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!showMoreButton || !showLessButton) return;
 
         if (totalMatches <= 9) {
-            showMoreButton.classList.add("hidden");
-            showLessButton.classList.add("hidden");
+            showMoreButton.style.display = "none";
+            showLessButton.style.display = "none";
         } else if (projectsVisible >= totalMatches) {
-            showMoreButton.classList.add("hidden");
-            showLessButton.classList.remove("hidden");
+            showMoreButton.style.display = "none";
+            showLessButton.style.display = "";
         } else {
-            showMoreButton.classList.remove("hidden");
-            showLessButton.classList.add("hidden");
+            showMoreButton.style.display = "";
+            showLessButton.style.display = "none";
         }
     }
 

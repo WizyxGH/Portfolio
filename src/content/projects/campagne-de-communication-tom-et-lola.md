@@ -2,7 +2,8 @@
 id: 30
 title: "Campagne de communication Tom et Lola"
 description: "Définition et exécution d'une campagne de communication pour la série TV Tom et Lola diffusée sur France 2."
-image: "/assets/media/projects/tometlola2.webp"
+image: "../../assets/media/projects/tometlola2.webp"
+image_alt: "Aperçu du projet pour Campagne de communication Tom et Lola"
 context: "Scolaire"
 is_study: true
 date: "2000-01-01"

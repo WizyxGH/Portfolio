@@ -2,7 +2,8 @@
 id: 24
 title: "Run&Rerun"
 description: "Design d'une landing page pour une marque de chaussures de running."
-image: "/assets/media/projects/runandrerun.webp"
+image: "../../assets/media/projects/runandrerun.webp"
+image_alt: "Aperçu du landing page pour Run&Rerun"
 type: "Landing page"
 context: "Scolaire"
 date: "2023-10-01"

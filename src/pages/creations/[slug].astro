@@ -1,5 +1,8 @@
 ---
+import { Image } from 'astro:assets';
+import img0gwvys from '../../assets/media/profilepicturepro.webp';
 import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/ui/Button.astro';
 import { getCollection, render } from 'astro:content';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -16,16 +19,19 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 const { Content } = await render(project);
-const page = project.data;
+const page = project.data as any;
+
+// Helper to get string src from either string or ImageMetadata
+const getSrc = (img: any) => typeof img === 'string' ? img : img?.src;
 
 // Auto-load gallery images from public directory
-let autoGallery = [];
+let autoGallery: any[] = [];
 const resultsDir = path.join(process.cwd(), 'public/assets/media/projects/results', page.title);
 if (fs.existsSync(resultsDir)) {
     const files = fs.readdirSync(resultsDir, { recursive: true });
     autoGallery = files
-        .filter((f: string) => !fs.statSync(path.join(resultsDir, f)).isDirectory())
-        .map((f: string) => `/assets/media/projects/results/${page.title}/${f.replace(/\\/g, '/')}`);
+        .filter((f: any) => !fs.statSync(path.join(resultsDir, f as string)).isDirectory())
+        .map((f: any) => `/assets/media/projects/results/${page.title}/${f.replace(/\\/g, '/')}`);
 }
 
 const finalGallery = [...(page.gallery || []), ...autoGallery];
@@ -37,10 +43,10 @@ const months = ["janvier","février","mars","avril","mai","juin","juillet","aoû
 const d = new Date(page.date);
 const formattedDate = `${months[d.getMonth()]} ${d.getFullYear()}`;
 
-const isVideoLD = page.image && (page.image.includes('.webm') || page.image.includes('.mp4'));
+const isVideoLD = page.image && (getSrc(page.image).includes('.webm') || getSrc(page.image).includes('.mp4'));
 const imagesLd = [
-    isVideoLD && page.og_image ? `https://wizyx.me${page.og_image}` : `https://wizyx.me${page.image}`,
-    ...((finalGallery || []).map((img: string) => `https://wizyx.me${img}`))
+    isVideoLD && page.og_image ? `https://wizyx.me${page.og_image}` : `https://wizyx.me${getSrc(page.image)}`,
+    ...((finalGallery || []).map((img: any) => `https://wizyx.me${getSrc(img)}`))
 ];
 
 const ldJson1 = {
@@ -78,8 +84,8 @@ const ldJson2 = {
 };
 
 const projectDataJson = {
-    image: page.image,
-    gallery: finalGallery,
+    image: getSrc(page.image),
+    gallery: finalGallery.map(getSrc),
     title: page.title
 };
 ---
@@ -93,30 +99,30 @@ const projectDataJson = {
         <div>
             <div class="flex flex-col items-start lg:flex-row lg:items-center">
                 <a href={page.is_study ? "/creations_studies/" : "/creations/"}
-                    class="inline-flex items-center justify-center text-[#121212] dark:text-white hover:text-[#411FEB] dark:hover:text-[#5536ED] transition-colors p-2 -ml-2 rounded-full hover:bg-black/5 dark:hover:bg-white/5 leading-none"
+                    class="inline-flex items-center justify-center text-dark-bg dark:text-white hover:text-brand-primary dark:hover:text-brand-secondary transition-colors p-2 -ml-2 rounded-full hover:bg-black/5 dark:hover:bg-white/5 leading-none"
                     aria-label="Retour aux créations">
                     <i class='bx bx-arrow-back text-2xl lg:text-3xl leading-none'></i>
                 </a>
-                <h1 class="text-2xl lg:text-4xl font-bold text-[#411FEB] dark:text-[#5536ED] leading-tight">{page.title}</h1>
+                <h1 class="text-2xl lg:text-4xl font-bold text-brand-primary dark:text-brand-secondary leading-tight">{page.title}</h1>
             </div>
 
             <div class="flex flex-col gap-2 mb-8 mt-4">
-                <div class="flex flex-wrap items-center gap-2 text-sm text-[#121212] dark:text-white">
+                <div class="flex flex-wrap items-center gap-2 text-sm text-dark-bg dark:text-white">
                     <div class="flex items-center gap-1">
-                        <i class="bx bxs-calendar-alt text-[#411FEB] dark:text-[#5536ED] opacity-[0.48] text-base"></i>
+                        <i class="bx bxs-calendar-alt text-brand-primary dark:text-brand-secondary opacity-[0.48] text-base"></i>
                         <time datetime={d.toISOString()}>{formattedDate}</time>
                     </div>
 
                     {page.type && (
                         <Fragment>
-                            <span class="text-[#411FEB] dark:text-[#5536ED] opacity-[0.48]">&middot;</span>
+                            <span class="text-brand-primary dark:text-brand-secondary opacity-[0.48]">&middot;</span>
                             <span>{page.type}</span>
                         </Fragment>
                     )}
 
                     {page.context && (
                         <Fragment>
-                            <span class="text-[#411FEB] dark:text-[#5536ED] opacity-[0.48]">&middot;</span>
+                            <span class="text-brand-primary dark:text-brand-secondary opacity-[0.48]">&middot;</span>
                             <span>{page.context}</span>
                         </Fragment>
                     )}
@@ -124,7 +130,7 @@ const projectDataJson = {
 
                 <div class="flex flex-wrap gap-2 mt-2">
                     {(page.tags || []).map((tag: any) => (
-                        <span class="inline-flex items-center gap-1 px-2 rounded-full border border-[#411FEB] text-[#411FEB] font-semibold text-sm dark:text-[#5536ED] dark:border-[#5536ED]" style="background-color: rgba(65, 31, 235, 0.12)">
+                        <span class="inline-flex items-center gap-1 px-2 rounded-full border border-brand-primary text-brand-primary font-semibold text-sm dark:text-brand-secondary dark:border-brand-secondary" style="background-color: rgba(65, 31, 235, 0.12)">
                             <i class={`${tag.icon} text-base`}></i> {tag.name}
                         </span>
                     ))}
@@ -135,16 +141,16 @@ const projectDataJson = {
         <article class="flex flex-col lg:flex-row gap-8">
             <!-- Project Content -->
             <div class="lg:w-1/2 space-y-4 order-2 lg:order-1">
-                <div class="prose dark:prose-invert max-w-none text-[#121212] dark:text-white leading-relaxed">
+                <div class="prose dark:prose-invert max-w-none text-dark-bg dark:text-white leading-relaxed">
                     <Content />
                 </div>
 
                 {page.technologies && page.technologies.length > 0 && (
                 <div class="mt-6 mb-8">
-                    <h3 class="text-lg font-bold text-[#121212] dark:text-white mb-3">Outils utilisés</h3>
+                    <h3 class="text-lg font-bold text-dark-bg dark:text-white mb-3">Outils utilisés</h3>
                     <div class="flex flex-wrap gap-2">
                         {page.technologies.map((tech: any) => (
-                        <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg text-sm font-medium text-gray-700 dark:text-[#5536ED]">
+                        <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg text-sm font-medium text-gray-700 dark:text-brand-secondary">
                             {tech.icon && <i class={tech.icon}></i>}
                             {tech.name}
                         </span>
@@ -155,8 +161,8 @@ const projectDataJson = {
 
                 {page.testimonial && (
                 <div class="mt-6 mb-8">
-                    <div class="bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.10] border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg flex flex-col gap-3">
-                        <div class="text-4xl font-bold text-[#411FEB] dark:text-[#5536ED]">
+                    <div class="bg-brand-muted dark:bg-brand-secondary dark:bg-opacity-[0.10] border-2 border-brand-light dark:border-[#281E5A] text-brand-primary dark:text-brand-secondary text-left p-6 rounded-2xl shadow-lg flex flex-col gap-3">
+                        <div class="text-4xl font-bold text-brand-primary dark:text-brand-secondary">
                             <i class='bx bxs-quote-left'></i>
                         </div>
                         <p class="text-base dark:text-white leading-relaxed">
@@ -165,8 +171,8 @@ const projectDataJson = {
                         <div class="flex items-center gap-3 mt-auto pt-4">
                             <img src={page.testimonial.author.avatar} alt={page.testimonial.author.name} class="w-12 h-12 rounded-full object-cover" width="48" height="48" loading="lazy" decoding="async" />
                             <div>
-                                <h4 class="font-bold text-[#411FEB] dark:text-[#5536ED]">{page.testimonial.author.name}</h4>
-                                <p class="font-light text-sm text-[#411FEB] dark:text-[#5536ED]">
+                                <h4 class="font-bold text-brand-primary dark:text-brand-secondary">{page.testimonial.author.name}</h4>
+                                <p class="font-light text-sm text-brand-primary dark:text-brand-secondary">
                                     {page.testimonial.author.companyUrl ? (
                                         <a href={page.testimonial.author.companyUrl} target="_blank" rel="noopener noreferrer">{page.testimonial.author.title}</a>
                                     ) : (
@@ -180,28 +186,28 @@ const projectDataJson = {
                 )}
 
                 {page.projectLink && page.projectLink !== "#" && (
-                <a href={page.projectLink} target="_blank" class="flex items-center justify-center gap-2 bg-[#411FEB] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#3A1CC5] transition w-full lg:w-auto lg:self-start mt-6">
+                <Button href={page.projectLink} target="_blank" variant="primary" class="w-full lg:w-auto lg:self-start mt-6">
                     <i class="bx bx-globe"></i> {page.type === 'Application' ? "Voir l'application" : "Visiter le site web"}
-                </a>
+                </Button>
                 )}
 
                 <hr class="my-6 border-gray-200 dark:border-white/10" />
                 <a href="/services/" class="group flex items-center gap-3 hover:bg-gray-100 dark:hover:bg-white/5 -mx-4 px-4 py-2 transition-colors cursor-pointer">
                     <div class="flex flex-shrink-0 mr-2">
-                        <img src="/assets/media/profilepicturepro.webp" alt="Florian Gertner Kilian" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-white dark:border-[#121212] group-hover:border-[#411FEB] transition-colors relative z-30" />
+                        <Image loading="lazy" decoding="async" src={img0gwvys} alt="Florian Gertner Kilian" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-white dark:border-dark-bg group-hover:border-brand-primary transition-colors relative z-30" />
                         {(page.collaborators || []).map((collaborator: any, index: number) => (
-                        <img src={collaborator.avatar} alt={collaborator.name} class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-white dark:border-[#121212] group-hover:border-[#411FEB] transition-colors relative" style={`z-index: ${20 - index}; margin-left: -1rem;`} />
+                        <img loading="lazy" decoding="async" src={collaborator.avatar} alt={collaborator.name} class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-white dark:border-dark-bg group-hover:border-brand-primary transition-colors relative" style={`z-index: ${20 - index}; margin-left: -1rem;`} />
                         ))}
                     </div>
 
                     <div>
-                        <p class="text-sm font-semibold text-[#121212] dark:text-white group-hover:text-[#411FEB] transition-colors">
+                        <p class="text-sm font-semibold text-dark-bg dark:text-white group-hover:text-brand-primary transition-colors">
                             {!(page.collaborators) || page.collaborators.length === 0 ? "Designé par Florian Gertner Kilian" : 
                              page.collaborators.length === 1 ? `Designé par Florian Gertner Kilian et ${page.collaborators[0].name}` : 
                              `Designé par Florian Gertner Kilian + ${page.collaborators.length} autres personnes`}
                         </p>
-                        <p class="text-xs text-gray-500 dark:text-gray-400 group-hover:text-[#411FEB] transition-colors">
-                            Besoin d'un design pour votre projet ? <span class="underline decoration-[#411FEB]/30 group-hover:decoration-[#411FEB]">Voir mes services</span>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors">
+                            Besoin d'un design pour votre projet ? <span class="underline decoration-brand-primary/30 group-hover:decoration-brand-primary">Voir mes services</span>
                         </p>
                     </div>
                 </a>
@@ -218,21 +224,23 @@ const projectDataJson = {
                         <div class="carousel-track flex h-full transition-transform duration-500 ease-in-out w-full self-start">
                             {page.image && (
                             <div class="min-w-full w-full flex-none h-full flex items-center justify-center p-0 lg:p-4 carousel-slide" style="flex: 0 0 100% !important; min-width: 100% !important; width: 100% !important;">
-                                {(page.image.includes('.webm') || page.image.includes('.mp4')) ? (
+                                {(getSrc(page.image).includes('.webm') || getSrc(page.image).includes('.mp4')) ? (
                                 <video autoplay loop muted playsinline class="h-full object-contain">
-                                    <source src={page.image} type="video/webm" />
+                                    <source src={getSrc(page.image)} type="video/webm" />
                                 </video>
                                 ) : (
-                                <img src={page.image} alt={`${page.title} - Main`} class="h-full object-contain" />
+                                <img loading="lazy" decoding="async" src={getSrc(page.image)} alt={page.image_alt || `${page.title} - Main`} class="h-full object-contain" />
                                 )}
                             </div>
                             )}
 
-                            {hasGallery && finalGallery.map((img: string, i: number) => (
+                            {hasGallery && finalGallery.map((rawImg: any, i: number) => {
+                                const img = getSrc(rawImg);
+                                return (
                             <div class="min-w-full w-full flex-none h-full flex items-center justify-center p-0 lg:p-4 carousel-slide" style="flex: 0 0 100% !important; min-width: 100% !important; width: 100% !important;">
                                 {img.includes('.pdf') ? (
                                 <div class="h-full w-full flex items-center justify-center bg-gray-100 relative group-pdf">
-                                    <iframe src={`${img}#toolbar=0&navpanes=0`} class="h-full w-full object-contain border-0" type="application/pdf"></iframe>
+                                    <iframe src={`${img}#toolbar=0&navpanes=0`} class="h-full w-full object-contain border-0"></iframe>
                                 </div>
                                 ) : (img.includes('.webm') || img.includes('.mp4')) ? (
                                 <video autoplay loop muted playsinline class="h-full object-contain">
@@ -242,7 +250,7 @@ const projectDataJson = {
                                 <img src={img} alt={`${page.title} - Gallery ${i + 1}`} class="h-full object-contain" loading="lazy" />
                                 )}
                             </div>
-                            ))}
+                            )})}
                         </div>
 
                         <button id="prevBtn" class="absolute top-1/2 left-4 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-black/60 hover:bg-black/80 backdrop-blur-md text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 focus:outline-none z-30" aria-label="Previous image">
@@ -257,9 +265,9 @@ const projectDataJson = {
 
                     {hasResponsiveTag && (
                     <div class="flex justify-center gap-2 mt-4" id="responsiveFilter">
-                        <button class="filter-btn active px-4 py-2 rounded-lg border-2 border-[#C1B4F8] dark:border-[#281E5A] bg-[#411FEB] dark:bg-[#5536ED] text-white font-semibold text-sm transition-all duration-200 hover:bg-[#3A1CC5] dark:hover:bg-[#4429C9]" data-filter="all">Toutes</button>
-                        <button class="filter-btn px-4 py-2 rounded-lg border-2 border-[#C1B4F8] dark:border-[#281E5A] bg-transparent text-[#411FEB] dark:text-[#5536ED] font-semibold text-sm transition-all duration-200 hover:bg-[#E8E4FC] dark:hover:bg-[#5536ED]/10" data-filter="desktop">Desktop</button>
-                        <button class="filter-btn px-4 py-2 rounded-lg border-2 border-[#C1B4F8] dark:border-[#281E5A] bg-transparent text-[#411FEB] dark:text-[#5536ED] font-semibold text-sm transition-all duration-200 hover:bg-[#E8E4FC] dark:hover:bg-[#5536ED]/10" data-filter="mobile">Mobile</button>
+                        <button class="filter-btn active px-4 py-2 rounded-xl border-2 border-brand-light dark:border-[#281E5A] bg-brand-primary dark:bg-brand-secondary text-white font-semibold text-sm transition-all duration-200 hover:bg-[#3A1CC5] dark:hover:bg-[#4429C9]" data-filter="all">Toutes</button>
+                        <button class="filter-btn px-4 py-2 rounded-xl border-2 border-brand-light dark:border-[#281E5A] bg-transparent text-brand-primary dark:text-brand-secondary font-semibold text-sm transition-all duration-200 hover:bg-brand-muted dark:hover:bg-brand-secondary/10" data-filter="desktop">Desktop</button>
+                        <button class="filter-btn px-4 py-2 rounded-xl border-2 border-brand-light dark:border-[#281E5A] bg-transparent text-brand-primary dark:text-brand-secondary font-semibold text-sm transition-all duration-200 hover:bg-brand-muted dark:hover:bg-brand-secondary/10" data-filter="mobile">Mobile</button>
                     </div>
                     )}
                 </div>

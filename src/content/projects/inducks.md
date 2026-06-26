@@ -2,7 +2,8 @@
 id: 18
 title: "I.N.D.U.C.K.S."
 description: "Redesign de la page d'accueil de Inducks. La base de données de bandes dessinées Disney."
-image: "/assets/media/projects/inducks.webp"
+image: "../../assets/media/projects/inducks.webp"
+image_alt: "Aperçu du site internet pour I.N.D.U.C.K.S."
 type: "Site internet"
 context: "Personnel"
 date: "2024-09-01"

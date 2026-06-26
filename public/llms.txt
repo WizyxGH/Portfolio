@@ -1,0 +1,16 @@
+# Florian Gertner Kilian - Portfolio
+
+Je suis Florian Gertner Kilian, un Product Designer UI/UX freelance de 22 ans basé dans le sud de la France.
+Je transforme des idées en produits numériques performants, esthétiques et intuitifs.
+
+## Mes Services
+- UI/UX Design (Design d'interfaces Web et Mobile, Maquettage, Prototypage)
+- Recherche Utilisateur (UX Research)
+- Création de Design Systems
+- Développement et intégration Web 
+
+## Mon Parcours
+Après un BUT MMI (Métiers du Multimédia et de l'Internet) et un BTS informatique (SIO), j'ai choisi de me spécialiser dans le design d'interfaces. Mon approche allie la compréhension technique à la sensibilité esthétique pour concevoir des expériences utilisateurs optimales. Je suis par ailleurs passionné par le voyage, le sport et l'écriture.
+
+## Informations de contact
+- Site Web : https://wizyx.me/

@@ -2,7 +2,8 @@
 id: 16
 title: "Break Screen"
 description: "Design d'un site internet sensibilisant à l'addiction aux écrans. Il permet également de se positionner sur son usage personnel et propose des solutions."
-image: "/assets/media/projects/breakscreen.webp"
+image: "../../assets/media/projects/breakscreen.webp"
+image_alt: "Aperçu du site internet pour Break Screen"
 type: "Site internet"
 context: "Scolaire"
 date: "2023-11-01"

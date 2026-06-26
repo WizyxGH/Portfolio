@@ -2,7 +2,8 @@
 id: 25
 title: "Digital Unicorn"
 description: "Redesign de certains éléments du site de Digital Unicorn."
-image: "/assets/media/projects/digitalunicorn.webp"
+image: "../../assets/media/projects/digitalunicorn.webp"
+image_alt: "Aperçu du site internet pour Digital Unicorn"
 type: "Site internet"
 context: "Professionnel"
 date: "2025-04-01"

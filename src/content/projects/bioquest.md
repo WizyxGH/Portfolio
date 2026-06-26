@@ -2,7 +2,8 @@
 id: 11
 title: "BioQuest"
 description: "Design de l'application BioQuest visant à sensibiliser sur les espèces exotiques envahissantes."
-image: "/assets/media/projects/bioquest.webp"
+image: "../../assets/media/projects/bioquest.webp"
+image_alt: "Aperçu du application pour BioQuest"
 type: "Application"
 context: "Scolaire"
 date: "2025-01-01"

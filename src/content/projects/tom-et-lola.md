@@ -2,7 +2,8 @@
 id: 22
 title: "Tom et Lola"
 description: "Design d'un site internet dont l'objectif était de promouvoir la série Tom et Lola diffusée sur France 2."
-image: "/assets/media/projects/tometlola.webp"
+image: "../../assets/media/projects/tometlola.webp"
+image_alt: "Aperçu du site internet pour Tom et Lola"
 type: "Site internet"
 context: "Scolaire"
 date: "2023-10-01"

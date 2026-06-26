@@ -1,3 +1,17 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:is(.dark *));::selection { background-color: var(--color-brand-primary); color: white; }
+
+
+@theme {
+  --color-brand-primary: #411feb;
+  --color-brand-secondary: #5536ed;
+  --color-brand-light: #c1b4f8;
+  --color-brand-surface: #f9f7ff;
+  --color-brand-dark: #1a162c;
+  --color-brand-darker: #1e1b33;
+  --color-brand-border-dark: #2a2455;
+  --color-brand-muted: #e8e4fc;
+  --color-brand-hover: #3215c7;
+  --color-dark-bg: #121212;
+}

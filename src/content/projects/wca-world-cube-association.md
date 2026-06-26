@@ -2,7 +2,8 @@
 id: 13
 title: "WCA - World Cube Association"
 description: "Redesign de la page profil d'un compétiteur affilié à la World Cube Association."
-image: "/assets/media/projects/wca.webp"
+image: "../../assets/media/projects/wca.webp"
+image_alt: "Aperçu du application pour WCA - World Cube Association"
 type: "Application"
 context: "Personnel"
 date: "2024-09-01"

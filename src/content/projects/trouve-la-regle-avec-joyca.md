@@ -2,7 +2,8 @@
 id: 1
 title: "Trouve la Règle avec Joyca"
 description: "Création du jeu mobile officiel pour jouer entre potes et contre des streamers au concept \"Trouve la règle\" imaginé par le youtubeur Joyca."
-image: "/assets/media/projects/trouvelaregleavecjoyca.webp"
+image: "../../assets/media/projects/trouvelaregleavecjoyca.webp"
+image_alt: "Aperçu du application pour Trouve la Règle avec Joyca"
 type: "Application"
 context: "Professionnel"
 date: "2025-03-01"

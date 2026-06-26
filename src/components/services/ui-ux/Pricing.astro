@@ -1,0 +1,233 @@
+---
+import CheckListItem from '../../../components/ui/CheckListItem.astro';
+---
+        <!-- 5. TARIFICATION / ENTRANTS -->
+        <section class="w-full px-8 lg:px-32 py-16 bg-white dark:bg-dark-bg">
+            <div class="max-w-6xl mx-auto space-y-12">
+                <div class="text-center space-y-4">
+                    <span class="text-sm font-bold text-brand-primary dark:text-brand-secondary uppercase">Tarification</span>
+                    <h2 class="text-3xl lg:text-4xl font-bold text-dark-bg dark:text-white">Un investissement
+                        transparent</h2>
+                    <p class="text-gray-500 dark:text-gray-400 max-w-xl mx-auto text-sm">
+                        Pas de tarification opaque. Chaque projet fait l'objet d'un devis précis et sur-mesure après
+                        notre appel de cadrage.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
+                    <!-- Offre 1 : Audit -->
+                    <!--
+                    <div
+                        class="bg-brand-surface dark:bg-brand-dark p-6 rounded-2xl border border-brand-light/20 dark:border-[#281E5A]/30 flex flex-col justify-between gap-6 animate-on-scroll transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:border-brand-primary/30 dark:hover:border-brand-secondary/30">
+                        <div class="space-y-4">
+                            <div
+                                class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-primary/10 text-brand-primary dark:text-white text-xs font-semibold">
+                                Idéal pour optimiser l'existant
+                            </div>
+                            <h3 class="text-xl font-bold text-dark-bg dark:text-white">Audit Express UX/UI</h3>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                                Analyse de votre site ou application actuelle pour identifier immédiatement les freins
+                                visuels ou ergonomiques qui bloquent vos ventes.
+                            </p>
+                            <hr class="border-gray-100 dark:border-gray-800">
+                            <ul class="space-y-2 text-xs text-gray-600 dark:text-gray-400">
+                                <CheckListItem>Analyse complète de 5 écrans ou pages clés</CheckListItem>
+                                <CheckListItem>Rapport écrit détaillé et facile à comprendre</CheckListItem>
+                                <CheckListItem>Recommandations concrètes applicables de suite</CheckListItem>
+                                <CheckListItem>Session d'échange en vidéo de 45 minutes</CheckListItem>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="text-lg font-bold text-dark-bg dark:text-white mb-1">À partir de 450 € <span
+                                    class="text-xs font-normal text-gray-400">TTC (Forfait)</span></p>
+                            <p class="text-[10px] text-gray-400 dark:text-gray-500 mb-4 flex items-center gap-1.5"><i class='bx bx-clock text-brand-primary dark:text-brand-secondary text-xs shrink-0'></i> Livraison sous 5 jours ouvrés.
+                            </p>
+                            <a href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener noreferrer"
+                                class="w-full border border-brand-primary text-brand-primary dark:text-white dark:border-white py-3 rounded-xl font-semibold hover:bg-brand-primary/10 transition flex items-center justify-center gap-2 text-xs">
+                                Lancer mon audit
+                            </a>
+                        </div>
+                    </div>
+                    -->
+
+                    <!-- Offre 2 : Refonte d'existant -->
+                    <div class="bg-white dark:bg-dark-bg p-6 rounded-2xl border-2 border-brand-light dark:border-[#281E5A] flex flex-col justify-between gap-6 relative animate-on-scroll transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:border-brand-primary dark:hover:border-brand-secondary"
+                        style="transition-delay: 100ms;">
+                        <span
+                            class="absolute -top-3 right-4 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-brand-primary text-white text-[10px] font-semibold shadow-sm">
+                            Plus demandé
+                        </span>
+                        <div class="space-y-4">
+                            <div
+                                class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-primary/10 text-brand-primary dark:text-white text-xs font-semibold">
+                                Idéal pour moderniser et grandir
+                            </div>
+
+                            <!-- Illustration: Refonte -->
+                            <div class="w-full h-32 rounded-xl bg-gradient-to-br from-brand-surface to-brand-muted/30 dark:from-brand-dark/50 dark:to-dark-bg/30 border border-brand-light/20 dark:border-[#281E5A]/50 overflow-hidden relative flex items-center justify-center p-3 select-none">
+                                <!-- Split container -->
+                                <div class="w-full h-full flex items-center justify-between gap-4 relative">
+                                    <!-- Left side: Outdated UI (Old) -->
+                                    <div class="w-[43%] h-[85%] bg-white dark:bg-dark-bg rounded-lg border border-gray-200 dark:border-gray-800 p-2 flex flex-col justify-between opacity-50 relative overflow-hidden">
+                                        <!-- Old simple grid -->
+                                        <div class="flex items-center gap-1">
+                                            <div class="w-2.5 h-2.5 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+                                            <div class="w-8 h-1.5 bg-gray-200 dark:bg-gray-800 rounded"></div>
+                                        </div>
+                                        <div class="space-y-1 my-1">
+                                            <div class="w-full h-1 bg-gray-200 dark:bg-gray-800 rounded"></div>
+                                            <div class="w-[70%] h-1 bg-gray-200 dark:bg-gray-800 rounded"></div>
+                                        </div>
+                                        <div class="w-full h-4 bg-gray-100 dark:bg-gray-900 rounded flex items-center justify-center">
+                                            <div class="w-6 h-1 bg-gray-300 dark:bg-gray-700 rounded"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Center transition arrow -->
+                                    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-brand-primary dark:bg-brand-secondary text-white flex items-center justify-center shadow-md border-2 border-white dark:border-dark-bg">
+                                        <i class='bx bx-right-arrow-alt text-lg animate-pulse'></i>
+                                    </div>
+
+                                    <!-- Right side: Modern UI (New) -->
+                                    <div class="w-[43%] h-[85%] bg-brand-surface dark:bg-brand-dark rounded-lg border border-brand-light/40 dark:border-[#281E5A]/60 p-2 flex flex-col justify-between relative overflow-hidden shadow-sm">
+                                        <!-- Modern Card with glow -->
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center gap-1">
+                                                <div class="w-2.5 h-2.5 rounded-full bg-gradient-to-tr from-brand-secondary to-brand-primary"></div>
+                                                <div class="w-8 h-1.5 bg-brand-primary/30 dark:bg-brand-secondary/40 rounded"></div>
+                                            </div>
+                                            <span class="text-[5px] text-green-500 font-bold flex items-center"><i class='bx bxs-up-arrow text-[4px] mr-0.5'></i>+45%</span>
+                                        </div>
+                                        <!-- Mini interactive Chart -->
+                                        <div class="h-6 flex items-end gap-0.5 my-1">
+                                            <div class="w-1.5 h-2 bg-brand-primary/20 dark:bg-brand-secondary/20 rounded-t"></div>
+                                            <div class="w-1.5 h-3 bg-brand-primary/40 dark:bg-brand-secondary/40 rounded-t"></div>
+                                            <div class="w-1.5 h-5 bg-brand-primary dark:bg-brand-secondary rounded-t"></div>
+                                        </div>
+                                        <div class="w-full h-4 bg-brand-primary dark:bg-brand-secondary rounded flex items-center justify-center shadow-sm">
+                                            <div class="w-6 h-1 bg-white rounded"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3 class="text-xl font-bold text-dark-bg dark:text-white">Refonte</h3>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                                Restructurer, moderniser et simplifier vos plateformes existantes (sites internet, applications mobiles ou produits SaaS) pour
+                                améliorer l'expérience de vos utilisateurs et augmenter vos taux de conversion.
+                            </p>
+                            <hr class="border-gray-100 dark:border-gray-800">
+                            <ul class="space-y-2 text-xs text-gray-600 dark:text-gray-400">
+                                <CheckListItem>Diagnostic complet du produit actuel</CheckListItem>
+                                <CheckListItem>Parcours de navigation simplifiés & évidents</CheckListItem>
+                                <CheckListItem>Design moderne & adapté aux mobiles</CheckListItem>
+                                <CheckListItem>Maquettes propres prêtes pour vos développeurs</CheckListItem>
+                                <CheckListItem>Simulation animée (prototype cliquable)</CheckListItem>
+                                <CheckListItem>Réécriture de vos textes (copywriting)</CheckListItem>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="text-lg font-bold text-dark-bg dark:text-white mb-1">À partir de 600 € <span
+                                    class="text-xs font-normal text-gray-400">TTC (Sur devis)</span></p>
+                            <p class="text-[10px] text-gray-400 dark:text-gray-500 mb-4">Adapté au nombre d'écrans à
+                                refondre.</p>
+                            <a href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener noreferrer"
+                                class="w-full bg-brand-primary text-white py-3 rounded-xl font-semibold hover:bg-brand-hover transition flex items-center justify-center gap-2 text-xs">
+                                Optimiser mon produit
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Offre 3 : Création de 0 -->
+                    <div class="bg-brand-surface dark:bg-brand-dark p-6 rounded-2xl border border-brand-light/20 dark:border-[#281E5A]/30 flex flex-col justify-between gap-6 animate-on-scroll transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:border-brand-primary/30 dark:hover:border-brand-secondary/30"
+                        style="transition-delay: 200ms;">
+                        <div class="space-y-4">
+                            <div
+                                class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-primary/10 text-brand-primary dark:text-white text-xs font-semibold">
+                                Idéal pour lancer votre idée
+                            </div>
+
+                            <!-- Illustration: Création de A à Z -->
+                            <div class="w-full h-32 rounded-xl bg-gradient-to-br from-brand-surface to-brand-muted/30 dark:from-brand-dark/50 dark:to-dark-bg/30 border border-brand-light/20 dark:border-[#281E5A]/50 overflow-hidden relative flex items-center justify-center p-3 select-none">
+                                <!-- Blueprint/grid background -->
+                                <div class="absolute inset-0 bg-[radial-gradient(var(--color-brand-light)_0.8px,transparent_0.8px)] dark:bg-[radial-gradient(#281E5A_0.8px,transparent_0.8px)] [background-size:12px_12px] opacity-40"></div>
+                                
+                                <div class="w-full h-full flex items-center justify-center relative">
+                                    <!-- Blueprint Canvas Card -->
+                                    <div class="w-40 h-20 bg-white dark:bg-dark-bg rounded-lg border border-dashed border-brand-light/70 dark:border-[#281E5A]/90 p-2 flex flex-col justify-between relative shadow-sm">
+                                        <!-- Header blueprint -->
+                                        <div class="flex justify-between items-center border-b border-gray-100 dark:border-gray-900 pb-1">
+                                            <div class="w-8 h-1.5 bg-gray-200 dark:bg-gray-800 rounded"></div>
+                                            <!-- Interactive circle dots -->
+                                            <div class="flex gap-0.5">
+                                                <div class="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+                                                <div class="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+                                            </div>
+                                        </div>
+                                        <!-- Blueprint wireframe body -->
+                                        <div class="flex-1 flex gap-2 items-center my-1.5">
+                                            <!-- Image placeholder box -->
+                                            <div class="w-8 h-8 rounded border border-brand-light/40 dark:border-[#281E5A]/50 relative overflow-hidden flex items-center justify-center shrink-0">
+                                                <div class="absolute w-full h-[1px] bg-brand-light/40 dark:bg-[#281E5A]/50 rotate-12"></div>
+                                                <div class="absolute w-full h-[1px] bg-brand-light/40 dark:bg-[#281E5A]/50 -rotate-12"></div>
+                                                <i class='bx bx-image text-brand-light/60 dark:text-[#281E5A]/70 text-xs'></i>
+                                            </div>
+                                            <!-- Skeleton text blocks -->
+                                            <div class="flex-1 space-y-1.5">
+                                                <div class="w-[85%] h-1 bg-gray-200 dark:bg-gray-800 rounded"></div>
+                                                <div class="w-[50%] h-1 bg-gray-200 dark:bg-gray-800 rounded"></div>
+                                            </div>
+                                        </div>
+                                        <!-- Bottom bar -->
+                                        <div class="w-full h-2 rounded bg-gray-100 dark:bg-gray-900"></div>
+                                    </div>
+
+                                    <!-- Floating Tool: Pen / Vector Ruler Widget -->
+                                    <div class="absolute -top-1 right-6 bg-white dark:bg-brand-darker border border-brand-light/40 dark:border-[#281E5A] rounded-lg p-1.5 shadow-lg flex items-center gap-1 animate-bounce" style="animation-duration: 2.5s;">
+                                        <i class='bx bx-edit-alt text-xs text-brand-primary dark:text-brand-secondary'></i>
+                                        <span class="text-[6px] font-bold text-gray-500 uppercase">A à Z</span>
+                                    </div>
+
+                                    <!-- Floating Component snapping in: Premium Button -->
+                                    <div class="absolute -bottom-1 left-4 bg-gradient-to-tr from-brand-secondary to-brand-primary text-white text-[7px] font-bold px-2.5 py-1 rounded shadow-lg flex items-center gap-1 animate-pulse">
+                                        <i class='bx bx-plus-circle text-[8px]'></i>
+                                        <span>Bouton</span>
+                                    </div>
+                                    
+                                    <!-- Designer Cursor -->
+                                    <div class="absolute right-12 bottom-2 flex flex-col items-center">
+                                        <i class='bx bxs-navigation text-sm text-brand-primary dark:text-brand-secondary rotate-[270deg] filter drop-shadow'></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3 class="text-xl font-bold text-dark-bg dark:text-white">Création de A à Z</h3>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                                Concevoir la toute première version de votre futur site internet, application mobile ou produit SaaS à partir
+                                d'une page blanche. De l'idée de départ au design prêt à être codé.
+                            </p>
+                            <hr class="border-gray-100 dark:border-gray-800">
+                            <ul class="space-y-2 text-xs text-gray-600 dark:text-gray-400">
+                                <CheckListItem>Cadrage stratégique & recherche des besoins</CheckListItem>
+                                <CheckListItem>Parcours utilisateur & schémas (wireframes)</CheckListItem>
+                                <CheckListItem>Identité visuelle & design sur-mesure</CheckListItem>
+                                <CheckListItem>Prototype Figma interactif cliquable (pour tester)</CheckListItem>
+                                <CheckListItem>Création du mini catalogue d'éléments (Design System)</CheckListItem>
+                                <CheckListItem>Rédaction complète de vos textes de vente</CheckListItem>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="text-lg font-bold text-dark-bg dark:text-white mb-1">À partir de 1 000 € <span
+                                    class="text-xs font-normal text-gray-400">TTC (Sur devis)</span></p>
+                            <p class="text-[10px] text-gray-400 dark:text-gray-500 mb-4">Prix ajusté selon la taille du
+                                projet.</p>
+                            <a href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener noreferrer"
+                                class="w-full border border-brand-primary text-brand-primary dark:text-white dark:border-white py-3 rounded-xl font-semibold hover:bg-brand-primary/10 transition flex items-center justify-center gap-2 text-xs">
+                                Lancer mon projet de 0
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+

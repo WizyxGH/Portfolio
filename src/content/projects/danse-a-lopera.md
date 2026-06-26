@@ -2,7 +2,8 @@
 id: 27
 title: "Danse à l'Opéra"
 description: "Création de la scénographie et de l'affiche pour l'édition 2025 du spectacle \"Danse à l'Opéra\" sur le thème \"Sous le signe du soleil\"."
-image: "/assets/media/projects/dansealopera.webp"
+image: "../../assets/media/projects/dansealopera.webp"
+image_alt: "Aperçu du projet pour Danse à l'Opéra"
 context: "Scolaire"
 is_study: true
 date: "2000-01-01"

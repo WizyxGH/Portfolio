@@ -1,0 +1,120 @@
+---
+import Button from '../ui/Button.astro';
+---
+<form action="https://formsubmit.co/ajax/0072bc2f7aa3ef8f3cdcee2277752884" method="POST"
+    class="flex flex-col gap-4 lg:col-span-3" id="contactForm">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="Nouveau message depuis le formulaire">
+
+    <!-- Email & Téléphone -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+        <div class="flex flex-col">
+            <label for="emailInput" class="flex items-center gap-2 text-dark-bg dark:text-white font-medium cursor-pointer">
+                Adresse mail
+            </label>
+            <input type="email" name="email" id="emailInput" placeholder="johndoe@mail.com" required
+                class="mt-1 w-full p-3 border-2 border-[#3E3E3E]/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-secondary focus:border-transparent bg-white text-gray-800 dark:bg-dark-bg dark:border-[#3E3E3E] dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-colors">
+            <p id="emailError" class="text-xs text-red-500 font-medium mt-1.5 hidden"></p>
+        </div>
+        <div class="flex flex-col">
+            <label for="phoneInput" class="flex items-center gap-2 text-dark-bg dark:text-white font-medium cursor-pointer">
+                Téléphone <span class="text-xs text-gray-400 dark:text-gray-500 font-normal">(Optionnel)</span>
+            </label>
+            <input type="tel" name="phone" id="phoneInput" placeholder="06 12 34 56 78"
+                class="mt-1 w-full p-3 border-2 border-[#3E3E3E]/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-secondary focus:border-transparent bg-white text-gray-800 dark:bg-dark-bg dark:border-[#3E3E3E] dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-colors">
+            <p id="phoneError" class="text-xs text-red-500 font-medium mt-1.5 hidden"></p>
+        </div>
+    </div>
+
+    <!-- Objet -->
+    <label class="flex flex-col">
+        <span class="flex items-center gap-2 text-dark-bg dark:text-white font-medium">
+            Demande / Projet
+        </span>
+        <input type="text" name="subject" placeholder="Projet de site, Refonte d'une application..."
+            required
+            class="mt-1 w-full p-3 border-2 border-[#3E3E3E]/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-secondary focus:border-transparent bg-white text-gray-800 dark:bg-dark-bg dark:border-[#3E3E3E] dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-colors">
+    </label>
+
+    <!-- Budget -->
+    <div class="flex flex-col text-left">
+        <span class="flex items-center gap-2 text-dark-bg dark:text-white font-medium mb-2">
+            Budget
+        </span>
+        <input type="hidden" name="budget" id="budgetInput" value="">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <button type="button" data-budget="Moins de 1 000 €" class="budget-pill px-3 py-2.5 text-xs font-semibold rounded-xl border-2 border-[#3E3E3E]/20 dark:border-[#3E3E3E] text-gray-600 dark:text-gray-400 bg-white dark:bg-dark-bg hover:border-brand-primary/40 dark:hover:border-brand-secondary/40 transition-all duration-200">
+                Moins de 1 000 €
+            </button>
+            <button type="button" data-budget="1 000 € - 3 000 €" class="budget-pill px-3 py-2.5 text-xs font-semibold rounded-xl border-2 border-[#3E3E3E]/20 dark:border-[#3E3E3E] text-gray-600 dark:text-gray-400 bg-white dark:bg-dark-bg hover:border-brand-primary/40 dark:hover:border-brand-secondary/40 transition-all duration-200">
+                1 000 € - 3 000 €
+            </button>
+            <button type="button" data-budget="3 000 € - 6 000 €" class="budget-pill px-3 py-2.5 text-xs font-semibold rounded-xl border-2 border-[#3E3E3E]/20 dark:border-[#3E3E3E] text-gray-600 dark:text-gray-400 bg-white dark:bg-dark-bg hover:border-brand-primary/40 dark:hover:border-brand-secondary/40 transition-all duration-200">
+                3 000 € - 6 000 €
+            </button>
+            <button type="button" data-budget="Plus de 6 000 €" class="budget-pill px-3 py-2.5 text-xs font-semibold rounded-xl border-2 border-[#3E3E3E]/20 dark:border-[#3E3E3E] text-gray-600 dark:text-gray-400 bg-white dark:bg-dark-bg hover:border-brand-primary/40 dark:hover:border-brand-secondary/40 transition-all duration-200">
+                Plus de 6 000 €
+            </button>
+        </div>
+        <p id="budgetError" class="text-xs text-red-500 font-medium mt-1.5 hidden"></p>
+    </div>
+
+    <!-- Honeypot anti-spam (caché) -->
+    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+    <!-- Message -->
+    <label class="flex flex-col">
+        <span class="flex items-center gap-2 text-dark-bg dark:text-white font-medium">
+            Message
+        </span>
+        <textarea name="message" rows="6" placeholder="Écrivez votre message ici..." required
+            class="mt-1 w-full p-3 border-2 border-[#3E3E3E]/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-secondary focus:border-transparent bg-white text-gray-800 dark:bg-dark-bg dark:border-[#3E3E3E] dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-colors"></textarea>
+    </label>
+
+    <!-- Pièce jointe -->
+    <div class="flex flex-col text-left">
+        <span class="flex items-center gap-2 text-dark-bg dark:text-white font-medium mb-2">
+            Pièce jointe <span class="text-xs text-gray-400 dark:text-gray-500 font-normal">(Optionnel)</span>
+        </span>
+        
+        <!-- Hidden file input -->
+        <input type="file" name="attachment" id="fileInput" class="hidden" accept=".pdf,.png,.jpg,.jpeg,.docx,.zip">
+        
+        <!-- Drag area -->
+        <div id="dropZone" class="border-2 border-dashed border-[#3E3E3E]/20 dark:border-[#3E3E3E] hover:border-brand-primary/40 dark:hover:border-brand-secondary/40 bg-white dark:bg-dark-bg rounded-2xl p-6 text-center cursor-pointer transition-all duration-300 flex flex-col items-center justify-center gap-2">
+            <!-- Non-selected state -->
+            <div id="dropZonePrompt" class="flex flex-col items-center justify-center gap-2 text-gray-500 dark:text-gray-400">
+                <i class='bx bx-cloud-upload text-3xl text-brand-primary dark:text-brand-secondary'></i>
+                <p class="text-sm font-semibold text-dark-bg dark:text-white">Glissez-déposez un fichier, ou <span class="text-brand-primary dark:text-brand-secondary underline">parcourez</span></p>
+                <p class="text-xs text-gray-400 dark:text-gray-500 leading-normal">Formats acceptés : PDF, PNG, JPG, DOCX, ZIP. Taille max : 10 Mo</p>
+            </div>
+            
+            <!-- Selected state (hidden initially) -->
+            <div id="dropZonePreview" class="hidden w-full flex items-center justify-between bg-brand-surface dark:bg-brand-dark border border-brand-light/20 dark:border-[#281E5A]/30 p-3 rounded-xl">
+                <div class="flex items-center gap-3 truncate">
+                    <div class="w-10 h-10 rounded-lg bg-brand-primary/10 text-brand-primary dark:text-brand-secondary flex items-center justify-center text-xl shrink-0">
+                        <i class='bx bx-file' id="fileIcon"></i>
+                    </div>
+                    <div class="text-left truncate">
+                        <p class="text-xs font-bold text-dark-bg dark:text-white truncate" id="fileName"></p>
+                        <p class="text-[10px] text-gray-400 dark:text-gray-500" id="fileSize"></p>
+                    </div>
+                </div>
+                <button type="button" id="removeFileButton" class="w-8 h-8 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center text-lg hover:bg-red-500 hover:text-white transition-all shrink-0">
+                    <i class='bx bx-x'></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Error Message placeholder -->
+        <p id="fileError" class="text-xs text-red-500 font-medium mt-1.5 hidden"></p>
+    </div>
+
+    <!-- Bouton -->
+    <Button type="submit" id="submitBtn" variant="primary" class="mt-2 w-full">
+        <i class='bx bx-send-alt'></i><span>Envoyer</span>
+    </Button>
+
+    <!-- Feedback -->
+    <p id="formMessage" class="text-center mt-2 font-medium text-green-600 hidden">Message envoyé !</p>
+</form>

@@ -1,0 +1,64 @@
+---
+export interface Props {
+    href?: string;
+    variant?: 'primary' | 'secondary' | 'white' | 'ghost' | 'glass';
+    size?: 'sm' | 'md' | 'lg';
+    class?: string;
+    id?: string;
+    target?: string;
+    rel?: string;
+    type?: 'button' | 'submit' | 'reset';
+    "aria-label"?: string;
+    "data-filter"?: string;
+    "data-budget"?: string;
+}
+
+const { 
+    href, 
+    variant = 'primary', 
+    size = 'md', 
+    class: className = '', 
+    id, 
+    target, 
+    rel,
+    type,
+    "aria-label": ariaLabel,
+    "data-filter": dataFilter,
+    "data-budget": dataBudget,
+    ...rest
+} = Astro.props;
+
+const baseStyles = "inline-flex items-center justify-center gap-2 font-semibold transition-all duration-300 rounded-xl focus:outline-none";
+
+const variantStyles = {
+    primary: "bg-brand-primary dark:bg-brand-secondary text-white hover:bg-brand-hover dark:hover:bg-[#4429C9] shadow-sm",
+    secondary: "border border-brand-primary dark:border-brand-secondary bg-transparent text-brand-primary dark:text-brand-secondary hover:bg-brand-primary/10 dark:hover:bg-brand-secondary/10",
+    white: "bg-white text-brand-primary hover:bg-gray-100 shadow-sm",
+    ghost: "bg-transparent text-gray-600 dark:text-gray-400 hover:text-dark-bg dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5",
+    glass: "bg-white/5 hover:bg-white/10 border border-white/15 hover:border-white/25 text-white backdrop-blur-md shadow-sm"
+};
+
+const sizeStyles = {
+    sm: "px-4 py-2 text-sm",
+    md: "px-6 py-3",
+    lg: "px-8 py-4 text-lg"
+};
+
+const classes = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
+
+const Tag = href ? 'a' : 'button';
+---
+<Tag 
+    href={href} 
+    class={classes} 
+    id={id} 
+    target={target} 
+    rel={rel}
+    type={!href ? (type || 'button') : undefined}
+    aria-label={ariaLabel}
+    data-filter={dataFilter}
+    data-budget={dataBudget}
+    {...rest}
+>
+    <slot />
+</Tag>

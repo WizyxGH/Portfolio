@@ -2,7 +2,8 @@
 id: 7
 title: "PAPA France"
 description: "Redesign de la page produit, produit personnalisé et cadencier pour le site e-commerce d'un grossiste d'emballage alimentaire"
-image: "/assets/media/projects/papafrance.webp"
+image: "../../assets/media/projects/papafrance.webp"
+image_alt: "Aperçu du site internet pour PAPA France"
 type: "Site internet"
 context: "Professionnel"
 date: "2024-02-01"

@@ -1,0 +1,23 @@
+---
+// src/components/creations/CreationsHeader.astro
+---
+<header class="text-white bg-brand-primary p-8 lg:px-32 lg:pt-20 lg-header-pb">
+    <h1 class="text-5xl font-bold">Designer d'expériences</h1>
+    <h2 class="text-stroke text-5xl font-bold mt-2">Rédacteur émotionnel</h2>
+    <p class="mt-4">Je transforme vos idées en produits performants</p>
+    <div class="relative w-full mt-8">
+        <i class='bx bx-search absolute left-5 top-1/2 -translate-y-1/2 text-[#3E3E3E] dark:text-white text-xl'></i>
+        <input type="text" id="searchInput" placeholder="Rechercher parmi les projets"
+            class="w-full pl-12 pr-12 py-3 rounded-xl border-2 border-[#3E3E3E]/20 bg-white dark:bg-dark-bg dark:border-[#3E3E3E] dark:text-white dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-primary placeholder-gray-400 text-gray-800" />
+        <button id="clearSearch"
+            class="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#3E3E3E] dark:text-white opacity-0 pointer-events-none transition-opacity">
+            <i class='bx bx-x text-xl'></i>
+        </button>
+        <div id="suggestionsContainer"
+            class="absolute z-20 w-full bg-white dark:bg-dark-bg border border-gray-200 dark:border-[#3E3E3E] rounded-xl mt-1 shadow-lg hidden max-h-60 overflow-auto">
+        </div>
+    </div>
+
+    <div id="sortControlsContainer" class="w-full mt-6 mb-2"></div>
+    <div id="filtersContainer" class="w-full flex flex-nowrap overflow-x-auto gap-2 items-center scrollbar-hide"></div>
+</header>

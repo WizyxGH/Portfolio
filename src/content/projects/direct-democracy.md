@@ -2,7 +2,8 @@
 id: 17
 title: "Direct Democracy"
 description: "Redesign rapide du MVP de l'application Direct Democracy de Fidias Panayiotou en guise de test d'embauche."
-image: "/assets/media/projects/directdemocracy.webp"
+image: "../../assets/media/projects/directdemocracy.webp"
+image_alt: "Aperçu du application pour Direct Democracy"
 type: "Application"
 context: "Personnel"
 date: "2025-08-01"

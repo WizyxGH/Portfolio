@@ -2,7 +2,8 @@
 id: 23
 title: "Planète Loto Live"
 description: "Design du wireframe pour le redesign de la landing page."
-image: "/assets/media/projects/planetelotolive.webp"
+image: "../../assets/media/projects/planetelotolive.webp"
+image_alt: "Aperçu du site internet pour Planète Loto Live"
 type: "Site internet"
 context: "Professionnel"
 date: "2025-03-01"

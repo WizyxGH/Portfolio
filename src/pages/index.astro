@@ -4,10 +4,16 @@ import { getCollection } from 'astro:content';
 import Hero from '../components/home/Hero.astro';
 import AboutStats from '../components/home/AboutStats.astro';
 import Testimonials from '../components/home/Testimonials.astro';
+import ProjectCard from '../components/ui/ProjectCard.astro';
 
 const allProjects = await getCollection('projects');
-const creations = allProjects.filter((item) => item.data.id <= 25);
+const creations = allProjects.filter((item: any) => item.data.id <= 25);
 const roundedCount = Math.floor(creations.length / 10) * 10;
+
+const featured_projects = allProjects
+    .sort((a: any, b: any) => a.data.id - b.data.id)
+    .filter(project => project.data.is_study !== true)
+    .slice(0, 6);
 ---
 <Layout title="Portfolio Florian Gertner Kilian" description="" body_class="">
 <script type="application/ld+json">
@@ -22,11 +28,17 @@ const roundedCount = Math.floor(creations.length / 10) * 10;
             "jobTitle": "Product Designer UI/UX",
             "url": "https://wizyx.me/",
             "image": "https://wizyx.me/assets/media/photo.webp",
-            "description": "Je crée des interfaces premium, esthétiques et intuitives qui allient design et storytelling.",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Toulon"
-            },
+            "description": "Je transforme vos idées en produits performants",
+            "address": [
+                {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Toulon"
+                },
+                {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Nice"
+                }
+            ],
             "knowsAbout": [
                 "Product Design",
                 "UI/UX Design",
@@ -90,9 +102,9 @@ const roundedCount = Math.floor(creations.length / 10) * 10;
     <AboutStats roundedCount={roundedCount} />
 
     <!-- Projects Section -->
-    <section class="p-8 lg:px-32 bg-[#E8E4FC] dark:bg-[#1A162C] space-y-8">
+    <section class="p-8 lg:px-32 bg-brand-muted dark:bg-brand-dark space-y-8">
         <div class="">
-            <h2 class="text-2xl font-semibold text-[#121212] dark:text-white mb-2">Mes réalisations</h2>
+            <h2 class="text-2xl font-semibold text-dark-bg dark:text-white mb-2">Mes réalisations</h2>
             <p class="text-sm text-[#3E3E3E] dark:text-[#B0B0B0]">
                 Maquettes de site internet, landing page, application mobile, SaaS
             </p>
@@ -102,13 +114,17 @@ const roundedCount = Math.floor(creations.length / 10) * 10;
         <div class="overflow-x-auto mb-8 -mx-8 lg:-mx-32 lg:px-32 scrollbar-hide">
             <div class="flex gap-6 pb-4 px-8 lg:px-0 cursor-grab after:content-[''] after:min-w-8 after:block after:h-1"
                 id="projects-grid" data-drag-scroll>
-                <!-- Projects will be loaded here via JavaScript (limited to 5) -->
+                {featured_projects.map((project) => (
+                    <div class="flex-shrink-0 w-80">
+                        <ProjectCard project={project} />
+                    </div>
+                ))}
             </div>
         </div>
 
         <div class="text-right">
             <a href="/creations/"
-                class="inline-flex items-center gap-2 text-[#121212] dark:text-white font-semibold text-base hover:text-[#411FEB] dark:hover:text-[#411FEB] transition-colors">
+                class="inline-flex items-center gap-2 text-dark-bg dark:text-white font-semibold text-base hover:text-brand-primary dark:hover:text-brand-primary transition-colors">
                 Voir tous les projets
                 <i class='bx bx-right-arrow-alt text-xl'></i>
             </a>
@@ -121,124 +137,7 @@ const roundedCount = Math.floor(creations.length / 10) * 10;
 
 
 
-    <!-- Load Projects Script -->
-    <script>
-        // Slugify function to match Jekyll's Utils.slugify behavior
-        function slugify(text) {
-            return text
-                .toString()
-                .normalize('NFD')               // Split accented characters into their base chars and diacritical marks
-                .replace(/[\u0300-\u036f]/g, '') // Remove all the accents, which happen to be all in the \u03xx UNICODE block.
-                .toLowerCase()
-                .trim()
-                .replace(/\s+/g, '-')           // Replace spaces with -
-                .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
-                .replace(/\-\-+/g, '-')         // Replace multiple - with single -
-                .replace(/^-+/, '')             // Trim - from start of text
-                .replace(/-+$/, '');            // Trim - from end of text
-        }
-
-        // Load projects for the homepage
-        fetch('/api/projects.json')
-            .then(response => response.json())
-            .then(data => {
-                const projectsGrid = document.getElementById('projects-grid');
-                if (!projectsGrid) return;
-
-                // Sort by ID, filter out study projects, and show only first 6 non-study projects for carousel
-                // This matches the behavior of the creations page
-                const projects = data
-                    .sort((a, b) => a.id - b.id)  // Sort by ID ascending
-                    .filter(project => project.is_study !== true)
-                    .slice(0, 6);
-
-                // Add padding to container for scroll snap alignment/visuals if needed
-                // Note: The visual margin fix is handled by CSS classes on the container in HTML usually, or here on items
-                // The user wanted "carousel collé au bord de l'écran à gauche sans marge" -> needs padding-left on container
-
-                projects.forEach((project, index) => {
-                    const projectCard = document.createElement('a');
-                    // Generate slug from title if not provided
-                    const slug = project.slug || slugify(project.title);
-                    projectCard.href = `/creations/${slug}/`;
-
-                    // Add ml-8 to the first item only for mobile margin, or we can use padding on container
-                    // Using px-8 on container is safer for scrolling.
-                    projectCard.className = 'flex-shrink-0 w-80 transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212] block';
-
-                    // Get image (projects.json uses 'image' property, not 'images' array)
-                    const projectImage = project.image || '';
-                    const isVideo = /\.(mp4|webm|mov)$/i.test(projectImage); // Check for video formatting
-
-                    // Generate tags HTML with icons
-                    let tagsHTML = '';
-                    if (project.tags && project.tags.length > 0) {
-                        tagsHTML = project.tags.map(tag => {
-                            const tagName = tag.name || tag;
-                            const iconClass = tag.icon || 'bx bx-tag';
-                            return `
-                                <span class="inline-flex items-center gap-1 px-2 rounded-full border border-[#411FEB] text-[#411FEB] font-semibold text-sm dark:text-[#5536ED] dark:border-[#5536ED]" style="background-color: rgba(65, 31, 235, 0.12)">
-                                    <i class='${iconClass} text-base'></i> ${tagName}
-                                </span>
-                            `;
-                        }).join('');
-                    }
-
-                    let mediaHTML;
-                    if (isVideo) {
-                        const thumbSrc = project.og_image || projectImage;
-                        mediaHTML = `
-                            <img src="${thumbSrc}" alt="${project.title}" loading="lazy"
-                                class="card-thumbnail h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
-                            <video loop muted playsinline preload="none"
-                                class="card-video absolute inset-0 h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110 hidden">
-                                <source src="${projectImage}" type="video/webm">
-                            </video>
-                        `;
-                    } else {
-                        mediaHTML = `
-                            <img src="${projectImage}" alt="${project.title}" loading="lazy"
-                                class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
-                        `;
-                    }
-
-                    projectCard.innerHTML = `
-                        <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden relative text-[#411FEB]">
-                            ${mediaHTML}
-                        </div>
-                        <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">${project.title}</h3>
-                        <div class="mt-1 flex flex-wrap gap-2">
-                            ${tagsHTML}
-                        </div>
-                        <p class="text-sm text-[#121212] dark:text-white mt-2">${project.description}</p>
-                    `;
-
-                    projectsGrid.appendChild(projectCard);
-
-                    // Hover: swap thumbnail <-> video
-                    if (isVideo) {
-                        const cardVideo = projectCard.querySelector('.card-video');
-                        const cardThumb = projectCard.querySelector('.card-thumbnail');
-                        if (cardVideo) {
-                            projectCard.addEventListener('mouseenter', () => {
-                                if (cardThumb) cardThumb.classList.add('hidden');
-                                cardVideo.classList.remove('hidden');
-                                if (cardVideo.readyState === 0) cardVideo.load();
-                                cardVideo.play().catch(() => { });
-                            });
-                            projectCard.addEventListener('mouseleave', () => {
-                                cardVideo.pause();
-                                cardVideo.currentTime = 0;
-                                cardVideo.classList.add('hidden');
-                                if (cardThumb) cardThumb.classList.remove('hidden');
-                            });
-                        }
-                    }
-                });
-            })
-            .catch(error => console.error('Error loading projects:', error));
-
-    </script>
+    <!-- Load Projects Script was removed in favor of SSR -->
     <script src="/assets/js/drag_scroll.js" defer></script>
 
 </Layout>

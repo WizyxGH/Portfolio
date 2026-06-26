@@ -2,7 +2,8 @@
 id: 8
 title: "Darknet"
 description: "Design d'un site e-commerce dans l'univers du son Darknet du rappeur Vald."
-image: "/assets/media/projects/darknet.webp"
+image: "../../assets/media/projects/darknet.webp"
+image_alt: "Aperçu du site internet pour Darknet"
 type: "Site internet"
 context: "Scolaire"
 date: "2025-10-01"

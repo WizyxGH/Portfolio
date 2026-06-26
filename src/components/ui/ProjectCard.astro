@@ -1,0 +1,76 @@
+---
+import { Image } from 'astro:assets';
+export interface Props {
+    project: any;
+}
+
+const { project } = Astro.props;
+const data = project.data;
+const slug = project.id;
+const isVideo = data.image && typeof data.image === 'string' && (data.image.includes('.webm') || data.image.includes('.mp4'));
+const isNoResult = !data.image || (typeof data.image === 'string' && data.image.includes('projectnoresult.svg'));
+const cleanText = project.body ? project.body.replace(/<[^>]*>?/gm, '').toLowerCase().replace(/"/g, ' &quot;') : '';
+
+// Helper to get string src from either string or ImageMetadata
+const getSrc = (img: any) => typeof img === 'string' ? img : img?.src;
+---
+<a href={`/creations/${slug}/`}
+    class="projectCard group animate-on-scroll transition-all duration-600 bg-white dark:bg-dark-bg rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-brand-dark p-2 dark:border-dark-bg block"
+    data-project-id={data.id} data-title={data.title.toLowerCase()}
+    data-description={data.description?.toLowerCase()}
+    data-text={cleanText}
+    data-type={data.type} data-tags={(data.tags || []).map((t:any) => t.name).join(',')}>
+
+    {isVideo ? (
+    <div class="h-40 mb-3 rounded-lg bg-brand-primary bg-opacity-[0.12] outline outline-2 overflow-hidden relative">
+        <img src={getSrc(data.og_image || data.image)} loading="lazy" decoding="async"
+            alt={data.image_alt || data.title}
+            class="card-thumbnail h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out group-hover:scale-110" />
+        <video loop muted playsinline preload="none"
+            class="card-video absolute inset-0 h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out group-hover:scale-110 hidden">
+            <source src={getSrc(data.image)}
+                type={getSrc(data.image).includes('.webm') ? 'video/webm' : 'video/mp4'} />
+        </video>
+    </div>
+    ) : isNoResult ? (
+    <div class="h-40 mb-3 rounded-lg bg-[rgba(65,31,235,0.12)] outline outline-2 flex items-center justify-center overflow-hidden">
+        <img loading="lazy" decoding="async" src={getSrc(data.image) || '/assets/media/projects/projectnoresult.svg'} alt={data.image_alt || data.title} class="h-64 w-64" />
+    </div>
+    ) : (
+    <div class="h-40 mb-3 rounded-lg bg-brand-primary bg-opacity-[0.12] outline outline-2 overflow-hidden">
+        <Image src={data.image} loading="lazy" decoding="async" alt={data.image_alt || data.title} width={600} height={400}
+            class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out group-hover:scale-110" />
+    </div>
+    )}
+    
+    <h3 class="text-lg font-semibold text-brand-primary dark:text-brand-secondary">{data.title}</h3>
+    <div class="mt-1 flex flex-wrap gap-2">
+        {(data.tags || []).map((tag: any) => (
+        <span class="inline-flex items-center gap-1 px-2 rounded-full border border-brand-primary text-brand-primary font-semibold text-sm dark:text-brand-secondary dark:border-brand-secondary"
+            style="background-color: rgba(65, 31, 235, 0.12)">
+            <i class={`${tag.icon} text-base`}></i> {tag.name}
+        </span>
+        ))}
+    </div>
+    <p class="text-sm text-dark-bg dark:text-white mt-2">{data.description}</p>
+</a>
+<script>
+    document.querySelectorAll('.projectCard').forEach(card => {
+        const video = card.querySelector('video');
+        const img = card.querySelector('img.card-thumbnail');
+        if (video && img && !card.getAttribute('data-hover-bound')) {
+            card.setAttribute('data-hover-bound', 'true');
+            card.addEventListener('mouseenter', () => {
+                img.classList.add('hidden');
+                video.classList.remove('hidden');
+                video.play().catch(() => {});
+            });
+            card.addEventListener('mouseleave', () => {
+                video.pause();
+                video.currentTime = 0;
+                video.classList.add('hidden');
+                img.classList.remove('hidden');
+            });
+        }
+    });
+</script>

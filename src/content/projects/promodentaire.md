@@ -2,7 +2,8 @@
 id: 19
 title: "Promodentaire"
 description: "Design de la version mobile du site e-commerce de Promodentaire dédiée aux professionnels dentaire, avec intégration de fonctionnalités alimentées par l'IA."
-image: "/assets/media/projects/promodentaire.webp"
+image: "../../assets/media/projects/promodentaire.webp"
+image_alt: "Aperçu du site internet pour Promodentaire"
 type: "Site internet"
 context: "Professionnel"
 date: "2025-03-01"

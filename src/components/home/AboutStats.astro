@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import imgqgs2qi from '../../assets/media/photoperso.webp';
 // src/components/home/AboutStats.astro
 interface Props {
     roundedCount: number;
@@ -8,10 +10,10 @@ const { roundedCount } = Astro.props;
 <!-- About Section -->
 <section class="p-8 lg:px-32 text-center space-y-8" id="about">
     <div>
-        <h2 class="text-2xl text-[#121212] dark:text-white font-medium mb-4">
+        <h2 class="text-2xl text-dark-bg dark:text-white font-medium mb-4">
             Fini le blabla, place au concret.
         </h2>
-        <div class="inline-flex items-center gap-2 rounded-full bg-[#411FEB] px-4 py-1.5 text-white">
+        <div class="inline-flex items-center gap-2 rounded-full bg-brand-primary px-4 py-1.5 text-white">
             <i class='bx bxs-trophy'></i>
             <span class="text-sm font-semibold">Des résultats mesurables</span>
         </div>
@@ -19,15 +21,15 @@ const { roundedCount } = Astro.props;
 
     <div class="flex flex-col lg:flex-row gap-4 items-stretch justify-center">
         <!-- Photo -->
-        <img src="/assets/media/photoperso.webp" alt="Photo de Florian Gertner Kilian" loading="lazy" width="320" height="320"
-            class="w-full lg:w-80 self-stretch object-cover rounded-2xl opacity-0 translate-y-8 transition-all duration-700 animate-on-scroll">
+        <Image src={imgqgs2qi} alt="Photo de Florian Gertner Kilian" loading="lazy" width="320" height="320"
+            class="w-full lg:w-80 self-stretch object-cover rounded-2xl opacity-0 translate-y-8 transition-all duration-700 animate-on-scroll" />
 
         <!-- Stats Cards -->
         <div class="grid grid-cols-2 lg:flex lg:flex-col lg:w-auto gap-4 opacity-0 translate-y-8 transition-all duration-700 animate-on-scroll"
             data-delay="200">
             <!-- Card 1 -->
             <div class="lg:w-auto text-white rounded-2xl p-4 text-left flex flex-col justify-center gap-1"
-                style="border: 1px solid rgba(255, 255, 255, 0.24); background: linear-gradient(180deg, #411FEB 0%, #251285 100%);">
+                style="border: 1px solid rgba(255, 255, 255, 0.24); background: linear-gradient(180deg, var(--color-brand-primary) 0%, #251285 100%);">
                 <div class="rounded-full p-2 w-10 h-10 flex items-center justify-center mb-1"
                     style="background-color: rgba(255, 255, 255, 0.12);">
                     <i class='bx bxs-star text-xl text-white' aria-hidden="true"></i>
@@ -38,7 +40,7 @@ const { roundedCount } = Astro.props;
 
             <!-- Card 2 -->
             <div class="lg:w-auto text-white rounded-2xl p-4 text-left flex flex-col justify-center gap-1"
-                style="border: 1px solid rgba(255, 255, 255, 0.24); background: linear-gradient(180deg, #411FEB 0%, #251285 100%);">
+                style="border: 1px solid rgba(255, 255, 255, 0.24); background: linear-gradient(180deg, var(--color-brand-primary) 0%, #251285 100%);">
                 <div class="rounded-full p-2 w-10 h-10 flex items-center justify-center mb-1"
                     style="background-color: rgba(255, 255, 255, 0.12);">
                     <i class='bx bxs-folder text-xl text-white' aria-hidden="true"></i>
@@ -52,7 +54,7 @@ const { roundedCount } = Astro.props;
 
         <!-- Card 3 -->
         <div class="lg:col-span-1 lg:w-auto text-white rounded-2xl p-4 text-left flex flex-col justify-center gap-1 opacity-0 translate-y-8 transition-all duration-700 animate-on-scroll" data-delay="300"
-            style="border: 1px solid rgba(255, 255, 255, 0.24); background: linear-gradient(180deg, #411FEB 0%, #251285 100%);">
+            style="border: 1px solid rgba(255, 255, 255, 0.24); background: linear-gradient(180deg, var(--color-brand-primary) 0%, #251285 100%);">
             <div class="rounded-full p-2 w-10 h-10 flex items-center justify-center mb-1"
                 style="background-color: rgba(255, 255, 255, 0.12);">
                 <i class='bx bxs-heart text-xl text-white' aria-hidden="true"></i>
@@ -63,7 +65,7 @@ const { roundedCount } = Astro.props;
 
         <!-- Card 4 — Mobile only -->
         <div class="lg:hidden text-white rounded-2xl p-4 text-left flex flex-col justify-center gap-1 opacity-0 translate-y-8 transition-all duration-700 animate-on-scroll" data-delay="350"
-            style="border: 1px solid rgba(255, 255, 255, 0.24); background: linear-gradient(180deg, #411FEB 0%, #251285 100%);">
+            style="border: 1px solid rgba(255, 255, 255, 0.24); background: linear-gradient(180deg, var(--color-brand-primary) 0%, #251285 100%);">
             <div class="rounded-full p-2 w-10 h-10 flex items-center justify-center mb-1"
                 style="background-color: rgba(255, 255, 255, 0.12);">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"

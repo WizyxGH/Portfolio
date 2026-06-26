@@ -1,11 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import CreationsHeader from '../components/creations/CreationsHeader.astro';
+import ProjectCard from '../components/ui/ProjectCard.astro';
+import Button from '../components/ui/Button.astro';
 
 const allProjects = await getCollection('projects');
 const sorted_projects = allProjects
   .filter((p) => p.data.is_study !== true)
-  .sort((a, b) => a.data.id - b.data.id);
+  .sort((a: any, b: any) => (a.data.id || 0) - (b.data.id || 0));
 ---
 <Layout title="Maquettes UI/UX" description="Retrouvez tous les designs d'interfaces (UI & UX) que j'ai réalisé au cours de ma carrière (stages," body_class="">
     <script type="application/ld+json">
@@ -29,27 +32,7 @@ const sorted_projects = allProjects
         }
     </script>
     <script src="/assets/js/projects.js" defer></script>
-    <header class="text-white bg-[#411FEB] p-8 lg:px-32 lg:pt-20 lg-header-pb">
-        <h1 class="text-5xl font-bold">Designer d'expériences</h1>
-        <h2 class="text-stroke text-5xl font-bold mt-2">Rédacteur émotionnel</h2>
-        <p class="mt-4">Je crée des interfaces premium et intuitives en alliant clarté, esthétique et storytelling pour
-            offrir la meilleure expérience possible aux utilisateurs.</p>
-        <div class="relative w-full mt-8">
-            <i class='bx bx-search absolute left-5 top-1/2 -translate-y-1/2 text-[#3E3E3E] dark:text-white text-xl'></i>
-            <input type="text" id="searchInput" placeholder="Rechercher parmi les projets"
-                class="w-full pl-12 pr-12 py-3 rounded-xl border-2 border-[#3E3E3E]/20 bg-white dark:bg-[#121212] dark:border-[#3E3E3E] dark:text-white dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#411FEB] placeholder-gray-400 text-gray-800" />
-            <button id="clearSearch"
-                class="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#3E3E3E] dark:text-white opacity-0 pointer-events-none transition-opacity">
-                <i class='bx bx-x text-xl'></i>
-            </button>
-            <div id="suggestionsContainer"
-                class="absolute z-20 w-full bg-white dark:bg-[#121212] border border-gray-200 dark:border-[#3E3E3E] rounded-xl mt-1 shadow-lg hidden max-h-60 overflow-auto">
-            </div>
-        </div>
-
-        <div id="sortControlsContainer" class="w-full mt-6 mb-2"></div>
-        <div id="filtersContainer" class="w-full flex flex-nowrap overflow-x-auto gap-2 items-center scrollbar-hide"></div>
-    </header>
+    <CreationsHeader />
 
     <section class="p-8 text-center lg:px-32 lg:-mt-40">
         <h2 class="text-2xl font-bold mb-6 lg:text-white">
@@ -57,67 +40,21 @@ const sorted_projects = allProjects
         </h2>
         <div id="projectsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {sorted_projects.map((project) => {
-                const data = project.data;
-                const slug = project.id;
-                const isVideo = data.image && (data.image.includes('.webm') || data.image.includes('.mp4'));
-                const isNoResult = data.image && data.image.includes('projectnoresult.svg');
-                const cleanText = project.body ? project.body.replace(/<[^>]*>?/gm, '').toLowerCase().replace(/"/g, ' &quot;') : '';
                 return (
-                    <a href={`/creations/${slug}/`}
-                        class="projectCard group animate-on-scroll transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212] block"
-                        data-project-id={data.id} data-title={data.title.toLowerCase()}
-                        data-description={data.description?.toLowerCase()}
-                        data-text={cleanText}
-                        data-type={data.type} data-tags={(data.tags || []).map((t:any) => t.name).join(',')}>
-
-                        {isVideo ? (
-                        <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden relative">
-                            <img src={data.og_image || data.image} loading="lazy" decoding="async"
-                                alt={data.title}
-                                class="card-thumbnail h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out group-hover:scale-110" />
-                            <video loop muted playsinline preload="none"
-                                class="card-video absolute inset-0 h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out group-hover:scale-110 hidden">
-                                <source src={data.image}
-                                    type={data.image.includes('.webm') ? 'video/webm' : 'video/mp4'} />
-                            </video>
-                        </div>
-                        ) : isNoResult ? (
-                        <div class="h-40 mb-3 rounded-lg bg-[rgba(65,31,235,0.12)] outline outline-2 flex items-center justify-center overflow-hidden">
-                            <img src={data.image} alt={data.title} class="h-64 w-64" />
-                        </div>
-                        ) : (
-                        <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
-                            <img src={data.image} loading="lazy" decoding="async" alt={data.title}
-                                class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out group-hover:scale-110" />
-                        </div>
-                        )}
-                        
-                        <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">{data.title}</h3>
-                        <div class="mt-1 flex flex-wrap gap-2">
-                            {(data.tags || []).map((tag: any) => (
-                            <span class="inline-flex items-center gap-1 px-2 rounded-full border border-[#411FEB] text-[#411FEB] font-semibold text-sm dark:text-[#5536ED] dark:border-[#5536ED]"
-                                style="background-color: rgba(65, 31, 235, 0.12)">
-                                <i class={`${tag.icon} text-base`}></i> {tag.name}
-                            </span>
-                            ))}
-                        </div>
-                        <p class="text-sm text-[#121212] dark:text-white mt-2">{data.description}</p>
-                    </a>
+                    <ProjectCard project={project} />
                 )
             })}
         </div>
         <div class="flex justify-center mt-12 mb-8">
-            <button id="showMoreButton"
-                class="bg-[#411FEB] text-white font-semibold px-8 py-3 rounded-full hover:bg-[#3215c7] transition flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+            <Button id="showMoreButton" variant="primary" class="shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                 <span>Afficher tous les projets</span>
                 <i class='bx bx-plus text-xl'></i>
-            </button>
+            </Button>
 
-            <button id="showLessButton"
-                class="bg-[#411FEB] text-white font-semibold px-8 py-3 rounded-full hover:bg-[#3215c7] transition flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1 hidden">
+            <Button id="showLessButton" variant="primary" class="shadow-lg hover:shadow-xl transform hover:-translate-y-1" style="display: none;">
                 <span>Afficher moins de projets</span>
                 <i class='bx bx-minus text-xl'></i>
-            </button>
+            </Button>
         </div>
     </section>
 </Layout>

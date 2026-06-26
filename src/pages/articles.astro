@@ -1,4 +1,13 @@
 ---
+import { Image } from 'astro:assets';
+import imgaaub4 from '../assets/media/articles/jmag.webp';
+import imgoy8kwd from '../assets/media/articles/brazil.webp';
+import imgzjsmt8 from '../assets/media/articles/censorship.webp';
+import img9npiu3 from '../assets/media/articles/firstdime.webp';
+import imgxh6g6g from '../assets/media/articles/ducksmanager.webp';
+import img5cfwyu from '../assets/media/articles/donrosatgs.webp';
+import img3bpgd4 from '../assets/media/articles/journaldemickey.webp';
+import imglqkep from '../assets/media/articles/angouleme.webp';
 import Layout from '../layouts/Layout.astro';
 ---
 <Layout title="Articles" description="Retrouvez tous mes articles publiés dans le fanzine Picsou-Soir sur la bande dessinée Disney." body_class="">
@@ -22,7 +31,7 @@ import Layout from '../layouts/Layout.astro';
             ]
         }
     </script>
-<header class="text-white bg-[#411FEB] py-20 lg:px-32 px-8">
+<header class="text-white bg-brand-primary py-20 lg:px-32 px-8">
         <h1 class="text-5xl font-bold">Articles</h1>
         <p class="mt-4">Retrouvez tous mes articles publiés dans le fanzine Picsou-Soir sur la bande dessinée Disney.
             Des analyses, des découvertes et des anecdotes sur l'univers des canards les plus célèbres.</p>
@@ -36,21 +45,21 @@ import Layout from '../layouts/Layout.astro';
             <!-- Article 1 -->
             <a href="https://inducks.org/story.php?c=Qfr%2FPS+++14H" target="_blank">
                 <div
-                    class="transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212]">
-                    <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
-                        <img src="/assets/media/articles/jmag.webp" alt="Obscures Mickey d'avant-guerre"
-                            class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
+                    class="transition-all duration-600 bg-white dark:bg-dark-bg rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-brand-dark p-2 dark:border-dark-bg">
+                    <div class="h-40 mb-3 rounded-lg bg-brand-primary bg-opacity-[0.12] outline outline-2 overflow-hidden">
+                        <Image loading="lazy" decoding="async" src={imgaaub4} alt="Obscures Mickey d'avant-guerre"
+                            class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110" />
                     </div>
-                    <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">Obscures Mickey
+                    <h3 class="text-lg font-semibold text-brand-primary dark:text-brand-secondary">Obscures Mickey
                         d'avant-guerre
                     </h3>
                     <div class="mt-1 flex space-x-2">
                         <span
-                            class="bg-[#EDE9FE] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                            class="bg-[#EDE9FE] dark:bg-brand-dark text-brand-primary dark:text-brand-secondary border border-brand-primary px-2 text-xs rounded-full flex items-center">
                             <i class='bx bx-calendar-event text-sm mr-1'></i> 23/12/2023
                         </span>
                     </div>
-                    <p class="text-sm text-[#121212] dark:text-white mt-2">À quoi ressemble les premières versions
+                    <p class="text-sm text-dark-bg dark:text-white mt-2">À quoi ressemble les premières versions
                         du
                         plus vieux
                         hebdomadaire jeunesse encore en activité ?</p>
@@ -60,20 +69,20 @@ import Layout from '../layouts/Layout.astro';
             <!-- Article 2 -->
             <a href="https://inducks.org/story.php?c=Qfr%2FPS+++13H" target="_blank">
                 <div
-                    class="transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212]">
-                    <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
-                        <img src="/assets/media/articles/brazil.webp" alt="L'univers Disney brésilien"
-                            class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
+                    class="transition-all duration-600 bg-white dark:bg-dark-bg rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-brand-dark p-2 dark:border-dark-bg">
+                    <div class="h-40 mb-3 rounded-lg bg-brand-primary bg-opacity-[0.12] outline outline-2 overflow-hidden">
+                        <Image loading="lazy" decoding="async" src={imgoy8kwd} alt="L'univers Disney brésilien"
+                            class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110" />
                     </div>
-                    <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">L'univers Disney brésilien
+                    <h3 class="text-lg font-semibold text-brand-primary dark:text-brand-secondary">L'univers Disney brésilien
                     </h3>
                     <div class="mt-1 flex space-x-2">
                         <span
-                            class="bg-[#EDE9FE] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                            class="bg-[#EDE9FE] dark:bg-brand-dark text-brand-primary dark:text-brand-secondary border border-brand-primary px-2 text-xs rounded-full flex items-center">
                             <i class='bx bx-calendar-event text-sm mr-1'></i> 29/05/2023
                         </span>
                     </div>
-                    <p class="text-sm text-[#121212] dark:text-white mt-2">Les publications et histoires
+                    <p class="text-sm text-dark-bg dark:text-white mt-2">Les publications et histoires
                         brésiliennes
                         ont beaucoup de
                         différences par rapport à ce que l'on connaît en France.</p>
@@ -83,21 +92,21 @@ import Layout from '../layouts/Layout.astro';
             <!-- Article 3 -->
             <a href="https://inducks.org/story.php?c=Qfr%2FPS+++13E" target="_blank">
                 <div
-                    class="transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212]">
-                    <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
-                        <img src="/assets/media/articles/censorship.webp" alt="Disney censure La Jeunesse de Picsou !"
-                            class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
+                    class="transition-all duration-600 bg-white dark:bg-dark-bg rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-brand-dark p-2 dark:border-dark-bg">
+                    <div class="h-40 mb-3 rounded-lg bg-brand-primary bg-opacity-[0.12] outline outline-2 overflow-hidden">
+                        <Image loading="lazy" decoding="async" src={imgzjsmt8} alt="Disney censure La Jeunesse de Picsou !"
+                            class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110" />
                     </div>
-                    <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">Disney censure La Jeunesse
+                    <h3 class="text-lg font-semibold text-brand-primary dark:text-brand-secondary">Disney censure La Jeunesse
                         de
                         Picsou !</h3>
                     <div class="mt-1 flex space-x-2">
                         <span
-                            class="bg-[#EDE9FE] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                            class="bg-[#EDE9FE] dark:bg-brand-dark text-brand-primary dark:text-brand-secondary border border-brand-primary px-2 text-xs rounded-full flex items-center">
                             <i class='bx bx-calendar-event text-sm mr-1'></i> 29/05/2023
                         </span>
                     </div>
-                    <p class="text-sm text-[#121212] dark:text-white mt-2">Disney décide de censurer l'iconique
+                    <p class="text-sm text-dark-bg dark:text-white mt-2">Disney décide de censurer l'iconique
                         Jeunesse
                         de Picsou de Don
                         Rosa.</p>
@@ -107,21 +116,21 @@ import Layout from '../layouts/Layout.astro';
             <!-- Article 4 -->
             <a href="https://inducks.org/story.php?c=Qfr%2FPS+++12I" target="_blank">
                 <div
-                    class="transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212]">
-                    <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
-                        <img src="/assets/media/articles/firstdime.webp" alt="Quand Rosa ne cite pas Barks"
-                            class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
+                    class="transition-all duration-600 bg-white dark:bg-dark-bg rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-brand-dark p-2 dark:border-dark-bg">
+                    <div class="h-40 mb-3 rounded-lg bg-brand-primary bg-opacity-[0.12] outline outline-2 overflow-hidden">
+                        <Image loading="lazy" decoding="async" src={img9npiu3} alt="Quand Rosa ne cite pas Barks"
+                            class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110" />
                     </div>
-                    <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">Quand Rosa ne cite pas
+                    <h3 class="text-lg font-semibold text-brand-primary dark:text-brand-secondary">Quand Rosa ne cite pas
                         Barks
                     </h3>
                     <div class="mt-1 flex space-x-2">
                         <span
-                            class="bg-[#EDE9FE] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                            class="bg-[#EDE9FE] dark:bg-brand-dark text-brand-primary dark:text-brand-secondary border border-brand-primary px-2 text-xs rounded-full flex items-center">
                             <i class='bx bx-calendar-event text-sm mr-1'></i> 08/12/2022
                         </span>
                     </div>
-                    <p class="text-sm text-[#121212] dark:text-white mt-2">Connu pour se baser exclusivement sur le
+                    <p class="text-sm text-dark-bg dark:text-white mt-2">Connu pour se baser exclusivement sur le
                         travail de Carl
                         Barks, il est parfois allé chercher ses sources ailleurs...</p>
                 </div>
@@ -130,20 +139,20 @@ import Layout from '../layouts/Layout.astro';
             <!-- Article 5 -->
             <a href="https://inducks.org/story.php?c=Qfr%2FPS+++11J" target="_blank">
                 <div
-                    class="transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212]">
-                    <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
-                        <img src="/assets/media/articles/ducksmanager.webp" alt="Le monde de DucksManager"
-                            class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
+                    class="transition-all duration-600 bg-white dark:bg-dark-bg rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-brand-dark p-2 dark:border-dark-bg">
+                    <div class="h-40 mb-3 rounded-lg bg-brand-primary bg-opacity-[0.12] outline outline-2 overflow-hidden">
+                        <Image loading="lazy" decoding="async" src={imgxh6g6g} alt="Le monde de DucksManager"
+                            class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110" />
                     </div>
-                    <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">Le monde de DucksManager
+                    <h3 class="text-lg font-semibold text-brand-primary dark:text-brand-secondary">Le monde de DucksManager
                     </h3>
                     <div class="mt-1 flex space-x-2">
                         <span
-                            class="bg-[#EDE9FE] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                            class="bg-[#EDE9FE] dark:bg-brand-dark text-brand-primary dark:text-brand-secondary border border-brand-primary px-2 text-xs rounded-full flex items-center">
                             <i class='bx bx-calendar-event text-sm mr-1'></i> 25/09/2022
                         </span>
                     </div>
-                    <p class="text-sm text-[#121212] dark:text-white mt-2">Découvrez l'écosystème de DucksManager
+                    <p class="text-sm text-dark-bg dark:text-white mt-2">Découvrez l'écosystème de DucksManager
                         (site,
                         application
                         jusqu'à un jeu) créé par un passionné.</p>
@@ -153,20 +162,20 @@ import Layout from '../layouts/Layout.astro';
             <!-- Article 6 -->
             <a href="https://inducks.org/story.php?c=Qfr%2FPS+++11E" target="_blank">
                 <div
-                    class="transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212]">
-                    <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
-                        <img src="/assets/media/articles/donrosatgs.webp" alt="Un Louisvillois à Toulouse"
-                            class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
+                    class="transition-all duration-600 bg-white dark:bg-dark-bg rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-brand-dark p-2 dark:border-dark-bg">
+                    <div class="h-40 mb-3 rounded-lg bg-brand-primary bg-opacity-[0.12] outline outline-2 overflow-hidden">
+                        <Image loading="lazy" decoding="async" src={img5cfwyu} alt="Un Louisvillois à Toulouse"
+                            class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110" />
                     </div>
-                    <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">Un Louisvillois à Toulouse
+                    <h3 class="text-lg font-semibold text-brand-primary dark:text-brand-secondary">Un Louisvillois à Toulouse
                     </h3>
                     <div class="mt-1 flex space-x-2">
                         <span
-                            class="bg-[#EDE9FE] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                            class="bg-[#EDE9FE] dark:bg-brand-dark text-brand-primary dark:text-brand-secondary border border-brand-primary px-2 text-xs rounded-full flex items-center">
                             <i class='bx bx-calendar-event text-sm mr-1'></i> 25/09/2022
                         </span>
                     </div>
-                    <p class="text-sm text-[#121212] dark:text-white mt-2">Évènement : Don Rosa revient enfin en
+                    <p class="text-sm text-dark-bg dark:text-white mt-2">Évènement : Don Rosa revient enfin en
                         France
                         au Toulouse Game
                         Show !</p>
@@ -176,20 +185,20 @@ import Layout from '../layouts/Layout.astro';
             <!-- Article 7 -->
             <a href="https://inducks.org/story.php?c=Qfr%2FPS+++11C" target="_blank">
                 <div
-                    class="transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212]">
-                    <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
-                        <img src="/assets/media/articles/journaldemickey.webp" alt="Grand ménage d'automne pour Mickey"
-                            class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
+                    class="transition-all duration-600 bg-white dark:bg-dark-bg rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-brand-dark p-2 dark:border-dark-bg">
+                    <div class="h-40 mb-3 rounded-lg bg-brand-primary bg-opacity-[0.12] outline outline-2 overflow-hidden">
+                        <Image loading="lazy" decoding="async" src={img3bpgd4} alt="Grand ménage d'automne pour Mickey"
+                            class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110" />
                     </div>
-                    <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]">Grand ménage d'automne pour
+                    <h3 class="text-lg font-semibold text-brand-primary dark:text-brand-secondary">Grand ménage d'automne pour
                         Mickey</h3>
                     <div class="mt-1 flex space-x-2">
                         <span
-                            class="bg-[#EDE9FE] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                            class="bg-[#EDE9FE] dark:bg-brand-dark text-brand-primary dark:text-brand-secondary border border-brand-primary px-2 text-xs rounded-full flex items-center">
                             <i class='bx bx-calendar-event text-sm mr-1'></i> 25/09/2022
                         </span>
                     </div>
-                    <p class="text-sm text-[#121212] dark:text-white mt-2">Le Journal de Mickey fait peau neuve avec
+                    <p class="text-sm text-dark-bg dark:text-white mt-2">Le Journal de Mickey fait peau neuve avec
                         une
                         nouvelle
                         formule.</p>
@@ -199,20 +208,20 @@ import Layout from '../layouts/Layout.astro';
             <!-- Article 8 -->
             <a href="https://inducks.org/story.php?c=Qfr%2FPS+++10C" target="_blank">
                 <div
-                    class="transition-all duration-600 bg-white dark:bg-[#121212] rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-[#1A162C] p-2 dark:border-[#121212]">
-                    <div class="h-40 mb-3 rounded-lg bg-[#411FEB] bg-opacity-[0.12] outline outline-2 overflow-hidden">
-                        <img src="/assets/media/articles/angouleme.webp" alt="Année Picsou et festival d'Angoulême"
-                            class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110">
+                    class="transition-all duration-600 bg-white dark:bg-dark-bg rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-brand-dark p-2 dark:border-dark-bg">
+                    <div class="h-40 mb-3 rounded-lg bg-brand-primary bg-opacity-[0.12] outline outline-2 overflow-hidden">
+                        <Image loading="lazy" decoding="async" src={imglqkep} alt="Année Picsou et festival d'Angoulême"
+                            class="h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110" />
                     </div>
-                    <h3 class="text-lg font-semibold text-[#411FEB] dark:text-[#5536ED]"> Année Picsou et festival
+                    <h3 class="text-lg font-semibold text-brand-primary dark:text-brand-secondary"> Année Picsou et festival
                         d'Angoulême</h3>
                     <div class="mt-1 flex space-x-2">
                         <span
-                            class="bg-[#EDE9FE] dark:bg-[#1A162C] text-[#411FEB] dark:text-[#5536ED] border border-[#411FEB] px-2 text-xs rounded-full flex items-center">
+                            class="bg-[#EDE9FE] dark:bg-brand-dark text-brand-primary dark:text-brand-secondary border border-brand-primary px-2 text-xs rounded-full flex items-center">
                             <i class='bx bx-calendar-event text-sm mr-1'></i> 30/05/2022
                         </span>
                     </div>
-                    <p class="text-sm text-[#121212] dark:text-white mt-2">Découvrez ce que nous réserve la fameuse
+                    <p class="text-sm text-dark-bg dark:text-white mt-2">Découvrez ce que nous réserve la fameuse
                         "année Picsou".</p>
                 </div>
             </a>
@@ -223,7 +232,7 @@ import Layout from '../layouts/Layout.astro';
 
     <div class='gtranslate_wrapper'></div>
     <script>
-        window.gtranslateSettings = {
+        (window as any).gtranslateSettings = {
             "default_language": "fr",
             "native_language_names": true,
             "detect_browser_language": true,

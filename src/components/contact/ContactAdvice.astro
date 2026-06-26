@@ -1,0 +1,76 @@
+---
+// src/components/contact/ContactAdvice.astro
+---
+<section class="w-full px-8 lg:px-32 py-16 bg-brand-muted dark:bg-brand-dark transition-colors duration-200">
+    <div class="max-w-5xl mx-auto space-y-12">
+        <!-- Section Header -->
+        <div class="text-center space-y-4">
+            <span class="text-sm font-bold text-brand-primary dark:text-brand-secondary uppercase">Conseils</span>
+            <h2 class="text-3xl lg:text-4xl font-bold text-dark-bg dark:text-white">Bien préparer notre appel</h2>
+            <p class="text-gray-600 dark:text-gray-400 max-w-xl mx-auto text-sm">
+                Pour en tirer le maximum de valeur et avancer efficacement dès notre premier échange
+            </p>
+        </div>
+
+        <!-- Section Content Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left items-stretch">
+            <!-- Column 1: L'appel de 30 minutes -->
+            <div class="bg-white dark:bg-dark-bg p-6 md:p-8 rounded-2xl border border-gray-150 dark:border-gray-800/80 flex flex-col gap-4 transition-all duration-300 hover:scale-[1.01] hover:shadow-xl animate-on-scroll">
+                <div class="w-12 h-12 rounded-full bg-brand-primary/10 dark:bg-brand-secondary/20 text-brand-primary dark:text-brand-secondary flex items-center justify-center text-2xl shrink-0">
+                    <i class='bx bx-time-five'></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-dark-bg dark:text-white mb-2">Le déroulement de notre échange</h3>
+                    <p class="text-sm text-gray-600 dark:text-[#B0B0B0] leading-relaxed">
+                        C'est un échange téléphonique ou visio informel et sans engagement. Nous faisons le point sur votre vision, vos besoins et vos contraintes. À la fin du call, vous repartez avec :
+                    </p>
+                    <ul class="text-sm text-gray-600 dark:text-[#B0B0B0] space-y-2 mt-4">
+                        <li class="flex items-start gap-2">
+                            <i class='bx bx-check text-green-500 text-xl shrink-0 mt-0.5'></i>
+                            <span>Un premier avis stratégique sur l'expérience utilisateur (UX) et l'interface (UI) de votre produit.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class='bx bx-check text-green-500 text-xl shrink-0 mt-0.5'></i>
+                            <span>Une évaluation de la faisabilité technique (Figma, développement Web/Mobile).</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class='bx bx-check text-green-500 text-xl shrink-0 mt-0.5'></i>
+                            <span>Une estimation globale du budget et des délais de réalisation.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Column 2: Les questions de préparation -->
+            <div class="bg-white dark:bg-dark-bg p-6 md:p-8 rounded-2xl border border-gray-150 dark:border-gray-800/80 flex flex-col gap-4 transition-all duration-300 hover:scale-[1.01] hover:shadow-xl animate-on-scroll" data-delay="150">
+                <div class="w-12 h-12 rounded-full bg-brand-primary/10 dark:bg-brand-secondary/20 text-brand-primary dark:text-brand-secondary flex items-center justify-center text-2xl shrink-0">
+                    <i class='bx bx-list-ul'></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-dark-bg dark:text-white mb-2">Les questions clés à vous poser</h3>
+                    <p class="text-sm text-gray-600 dark:text-[#B0B0B0] leading-relaxed">
+                        Pour optimiser notre temps et me permettre de vous apporter des réponses précises, essayez de réfléchir à ces points clés avant l'appel :
+                    </p>
+                    <ul class="text-sm text-gray-600 dark:text-[#B0B0B0] space-y-3 mt-4">
+                        <li class="flex items-start gap-2.5">
+                            <i class='bx bx-chevron-right text-brand-primary dark:text-brand-secondary text-lg shrink-0 mt-0.5'></i>
+                            <span><strong class="font-semibold text-dark-bg dark:text-white">Cibles & Frustrations</strong> : À qui s'adresse le produit et quel problème précis résout-il ?</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class='bx bx-chevron-right text-brand-primary dark:text-brand-secondary text-lg shrink-0 mt-0.5'></i>
+                            <span><strong class="font-semibold text-dark-bg dark:text-white">Objectif principal</strong> : Quelle est l'action clé que vos utilisateurs doivent accomplir ?</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class='bx bx-chevron-right text-brand-primary dark:text-brand-secondary text-lg shrink-0 mt-0.5'></i>
+                            <span><strong class="font-semibold text-dark-bg dark:text-white">Inspirations</strong> : Quelles sont les applications ou sites dont le design vous inspire ?</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class='bx bx-chevron-right text-brand-primary dark:text-brand-secondary text-lg shrink-0 mt-0.5'></i>
+                            <span><strong class="font-semibold text-dark-bg dark:text-white">Planning & Budget</strong> : Quels sont vos délais idéaux et votre enveloppe budgétaire ?</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

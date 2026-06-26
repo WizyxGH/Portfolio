@@ -2,7 +2,8 @@
 id: 12
 title: "Picsou-Soir"
 description: "Design d'une application permettant de lire les numéros du fanzine Picsou-Soir et d'enrichir l'expérience de lecture."
-image: "/assets/media/projects/picsousoir.webp"
+image: "../../assets/media/projects/picsousoir.webp"
+image_alt: "Aperçu du application pour Picsou-Soir"
 type: "Application"
 context: "Personnel"
 date: "2024-01-01"

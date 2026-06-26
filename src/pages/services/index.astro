@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/ui/Button.astro';
 ---
 <Layout title="Services" description="" body_class="">
 <script type="application/ld+json">
@@ -27,8 +28,8 @@ import Layout from '../../layouts/Layout.astro';
             "@context": "https://schema.org",
             "@type": "Service",
             "name": "Design UI/UX et Copywriting",
-            "serviceType": ["UI/UX Design", "Copywriting", "Storytelling"],
-            "description": "Je crée des interfaces premium et intuitives en alliant clarté, esthétique et storytelling pour offrir la meilleure expérience possible aux utilisateurs.",
+            "serviceType": ["UI/UX Design", "Copywriting"],
+            "description": "Je transforme vos idées en produits performants",
             "provider": {
                 "@type": "Person",
                 "name": "Florian Gertner Kilian",
@@ -41,6 +42,15 @@ import Layout from '../../layouts/Layout.astro';
                     "address": {
                         "@type": "PostalAddress",
                         "addressLocality": "Toulon",
+                        "addressCountry": "FR"
+                    }
+                },
+                {
+                    "@type": "City",
+                    "name": "Nice",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Nice",
                         "addressCountry": "FR"
                     }
                 },
@@ -62,10 +72,10 @@ import Layout from '../../layouts/Layout.astro';
         <section class="w-full px-8 lg:px-32 py-8" id="services">
             <div class="max-w-6xl mx-auto text-center space-y-8">
                 <div>
-                    <h2 class="text-2xl text-[#121212] dark:text-white font-medium mb-4">
+                    <h2 class="text-2xl text-dark-bg dark:text-white font-medium mb-4">
                         Mes services
                     </h2>
-                    <div class="inline-flex items-center gap-2 rounded-full bg-[#411FEB] px-4 py-1.5 text-white">
+                    <div class="inline-flex items-center gap-2 rounded-full bg-brand-primary px-4 py-1.5 text-white">
                         <i class='bx bxs-star'></i>
                         <span class="text-sm font-semibold">Rejoignez 100% de clients satisfaits</span>
                     </div>
@@ -74,14 +84,14 @@ import Layout from '../../layouts/Layout.astro';
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <!-- Carte 1 -->
                     <div
-                        class="relative animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.12] border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#121212] dark:text-white text-left p-6 rounded-2xl shadow-lg flex flex-col gap-6">
+                        class="relative animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-brand-muted dark:bg-brand-secondary dark:bg-opacity-[0.12] border-2 border-brand-light dark:border-[#281E5A] text-dark-bg dark:text-white text-left p-6 rounded-2xl shadow-lg flex flex-col gap-6">
                         <span
-                            class="absolute top-4 right-4 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white text-[#411FEB] text-xs font-semibold shadow-sm border border-[#C1B4F8]">
+                            class="absolute top-4 right-4 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white text-brand-primary text-xs font-semibold shadow-sm border border-brand-light">
                             Best seller
                         </span>
 
                         <!-- Icon (Preserved) -->
-                        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-[#411FEB] mb-0">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-brand-primary mb-0">
                             <i class='bx bx-layer text-white text-2xl'></i>
                         </div>
 
@@ -95,45 +105,43 @@ import Layout from '../../layouts/Layout.astro';
 
                         <ul class="text-sm">
                             <li class="flex items-center gap-2">
-                                <i class='bx bxs-check-circle text-[#411FEB] text-xl shrink-0'></i>
+                                <i class='bx bxs-check-circle text-brand-primary text-xl shrink-0'></i>
                                 <span>Maquettes UI & UX</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <i class='bx bxs-check-circle text-[#411FEB] text-xl shrink-0'></i>
+                                <i class='bx bxs-check-circle text-brand-primary text-xl shrink-0'></i>
                                 <span>Responsive</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <i class='bx bxs-check-circle text-[#411FEB] text-xl shrink-0'></i>
+                                <i class='bx bxs-check-circle text-brand-primary text-xl shrink-0'></i>
                                 <span>Wireframes & prototypage</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <i class='bx bxs-check-circle text-[#411FEB] text-xl shrink-0'></i>
+                                <i class='bx bxs-check-circle text-brand-primary text-xl shrink-0'></i>
                                 <span>Design System</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <i class='bx bxs-check-circle text-[#411FEB] text-xl shrink-0'></i>
+                                <i class='bx bxs-check-circle text-brand-primary text-xl shrink-0'></i>
                                 <span>Optimisation de l’expérience utilisateur</span>
                             </li>
                         </ul>
 
                         <div class="mt-auto flex flex-col gap-2 w-full">
-                            <a class="w-full bg-[#411FEB] text-white font-semibold py-3 rounded-full hover:bg-[#3215c7] transition flex items-center justify-center gap-2"
-                                href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener noreferrer">
+                            <Button href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener noreferrer" variant="primary" size="md" class="w-full">
                                 <span>Prendre un rendez-vous</span>
-                            </a>
-                            <a class="w-full border border-[#411FEB] dark:border-white text-[#411FEB] dark:text-white font-semibold py-3 rounded-full hover:bg-[#411FEB]/10 transition flex items-center justify-center gap-2"
-                                href="/services/ui-ux/">
+                            </Button>
+                            <Button href="/services/ui-ux/" variant="secondary" size="md" class="w-full">
                                 <span>Découvrir l'offre en détail</span>
-                            </a>
+                            </Button>
                         </div>
                     </div>
 
                     <!-- Carte 2 -->
-                    <div class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.12] border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#121212] dark:text-white text-left p-6 rounded-2xl shadow-lg flex flex-col gap-6"
+                    <div class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-brand-muted dark:bg-brand-secondary dark:bg-opacity-[0.12] border-2 border-brand-light dark:border-[#281E5A] text-dark-bg dark:text-white text-left p-6 rounded-2xl shadow-lg flex flex-col gap-6"
                         style="transition-delay: 100ms;">
 
                         <!-- Icon (Preserved) -->
-                        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-[#411FEB] mb-0">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-brand-primary mb-0">
                             <i class='bx bx-pen text-white text-2xl'></i>
                         </div>
 
@@ -146,35 +154,34 @@ import Layout from '../../layouts/Layout.astro';
 
                         <ul class="text-sm">
                             <li class="flex items-center gap-2">
-                                <i class='bx bxs-check-circle text-[#411FEB] text-xl shrink-0'></i>
+                                <i class='bx bxs-check-circle text-brand-primary text-xl shrink-0'></i>
                                 <span>Rédaction persuasive</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <i class='bx bxs-check-circle text-[#411FEB] text-xl shrink-0'></i>
+                                <i class='bx bxs-check-circle text-brand-primary text-xl shrink-0'></i>
                                 <span>UX Writing</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <i class='bx bxs-check-circle text-[#411FEB] text-xl shrink-0'></i>
+                                <i class='bx bxs-check-circle text-brand-primary text-xl shrink-0'></i>
                                 <span>Storytelling</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <i class='bx bxs-check-circle text-[#411FEB] text-xl shrink-0'></i>
+                                <i class='bx bxs-check-circle text-brand-primary text-xl shrink-0'></i>
                                 <span>Optimisation référencement SEO</span>
                             </li>
                         </ul>
 
-                        <a class="mt-auto w-full bg-[#411FEB] text-white font-semibold py-3 rounded-full hover:bg-[#3215c7] transition flex items-center justify-center gap-2"
-                            href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener noreferrer">
+                        <Button href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener noreferrer" variant="primary" size="md" class="mt-auto w-full">
                             <span>Prendre un rendez-vous</span>
-                        </a>
+                        </Button>
                     </div>
 
                     <!-- Carte 3 -->
-                    <div class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#F9F7FF] dark:bg-[#5536ED] dark:bg-opacity-[0.04] border-2 border-dashed border-[#C7BFFF] dark:border-[#29197F] text-[#121212] dark:text-white text-left p-6 rounded-2xl shadow-lg flex flex-col gap-6"
+                    <div class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-brand-surface dark:bg-brand-secondary dark:bg-opacity-[0.04] border-2 border-dashed border-[#C7BFFF] dark:border-[#29197F] text-dark-bg dark:text-white text-left p-6 rounded-2xl shadow-lg flex flex-col gap-6"
                         style="transition-delay: 200ms;">
 
                         <!-- Icon (Preserved) -->
-                        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-[#411FEB] mb-0">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-brand-primary mb-0">
                             <i class='bx bx-bulb text-white text-2xl'></i>
                         </div>
 
@@ -187,38 +194,37 @@ import Layout from '../../layouts/Layout.astro';
 
                         <ul class="text-sm">
                             <li class="flex items-center gap-2">
-                                <i class='bx bxs-check-circle text-[#411FEB] text-xl shrink-0'></i>
+                                <i class='bx bxs-check-circle text-brand-primary text-xl shrink-0'></i>
                                 <span>Projet personnalisé</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <i class='bx bxs-check-circle text-[#411FEB] text-xl shrink-0'></i>
+                                <i class='bx bxs-check-circle text-brand-primary text-xl shrink-0'></i>
                                 <span>Accompagnement créatif</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <i class='bx bxs-check-circle text-[#411FEB] text-xl shrink-0'></i>
+                                <i class='bx bxs-check-circle text-brand-primary text-xl shrink-0'></i>
                                 <span>Collaboration sur mesure</span>
                             </li>
                         </ul>
 
-                        <a class="mt-auto w-full bg-[#411FEB] text-white font-semibold py-3 rounded-full hover:bg-[#3215c7] transition flex items-center justify-center gap-2"
-                            href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener noreferrer">
+                        <Button href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener noreferrer" variant="primary" size="md" class="mt-auto w-full">
                             <span>Prendre un rendez-vous</span>
-                        </a>
+                        </Button>
                     </div>
                 </div>
 
                 <!-- FAQ -->
                 <div class="mt-16 text-left">
-                    <h4 class="text-[#411FEB] dark:text-[#5536ED] font-semibold mb-2">Questions fréquemment posées</h4>
+                    <h4 class="text-brand-primary dark:text-brand-secondary font-semibold mb-2">Questions fréquemment posées</h4>
                     <div class="space-y-3" id="faqList">
                         <details
-                            class="group bg-white dark:bg-[#0f0f0f] border border-[#E5E5E5] dark:border-[#2A2455] rounded-xl p-4 transition-all hover:border-2 hover:border-[#411FEB] dark:hover:border-[#5536ED]">
+                            class="group bg-white dark:bg-[#0f0f0f] border border-[#E5E5E5] dark:border-brand-border-dark rounded-xl p-4 transition-all hover:border-2 hover:border-brand-primary dark:hover:border-brand-secondary">
                             <summary class="flex items-center justify-between cursor-pointer list-none">
-                                <span class="text-[#121212] dark:text-white font-medium">Est-ce que votre projet est adapté à mon profil ?</span>
+                                <span class="text-dark-bg dark:text-white font-medium">Est-ce que votre projet est adapté à mon profil ?</span>
                                 <i
-                                    class="bx bx-chevron-down text-2xl text-[#411FEB] dark:text-[#5536ED] transition-transform duration-200 group-open:rotate-180"></i>
+                                    class="bx bx-chevron-down text-2xl text-brand-primary dark:text-brand-secondary transition-transform duration-200 group-open:rotate-180"></i>
                             </summary>
-                            <p class="mt-3 text-sm text-[#121212] dark:text-white leading-relaxed">
+                            <p class="mt-3 text-sm text-dark-bg dark:text-white leading-relaxed">
                                 J’accompagne tous types de projets qui ont besoin de clarté, d’esthétique et
                                 d’efficacité :
                                 site internet, application mobile, landing page, SaaS, dashboard, etc.
@@ -231,14 +237,14 @@ import Layout from '../../layouts/Layout.astro';
                             </p>
                         </details>
                         <details
-                            class="group bg-white dark:bg-[#0f0f0f] border border-[#E5E5E5] dark:border-[#2A2455] rounded-xl p-4 transition-all hover:border-2 hover:border-[#411FEB] dark:hover:border-[#5536ED]">
+                            class="group bg-white dark:bg-[#0f0f0f] border border-[#E5E5E5] dark:border-brand-border-dark rounded-xl p-4 transition-all hover:border-2 hover:border-brand-primary dark:hover:border-brand-secondary">
                             <summary class="flex items-center justify-between cursor-pointer list-none">
-                                <span class="text-[#121212] dark:text-white font-medium">Puis-je commencer par un petit
+                                <span class="text-dark-bg dark:text-white font-medium">Puis-je commencer par un petit
                                     projet (audit, optimisation...) ?</span>
                                 <i
-                                    class="bx bx-chevron-down text-2xl text-[#411FEB] dark:text-[#5536ED] transition-transform duration-200 group-open:rotate-180"></i>
+                                    class="bx bx-chevron-down text-2xl text-brand-primary dark:text-brand-secondary transition-transform duration-200 group-open:rotate-180"></i>
                             </summary>
-                            <p class="mt-3 text-sm text-[#121212] dark:text-white leading-relaxed">
+                            <p class="mt-3 text-sm text-dark-bg dark:text-white leading-relaxed">
                                 Bien sûr. Un audit UX/UI, une optimisation ciblée ou une petite refonte peuvent déjà
                                 apporter des résultats rapides : clarifier une direction, résoudre un blocage ou
                                 améliorer
@@ -248,18 +254,18 @@ import Layout from '../../layouts/Layout.astro';
                             </p>
                         </details>
                         <details
-                            class="group bg-white dark:bg-[#0f0f0f] border border-[#E5E5E5] dark:border-[#2A2455] rounded-xl p-4 transition-all hover:border-2 hover:border-[#411FEB] dark:hover:border-[#5536ED]">
+                            class="group bg-white dark:bg-[#0f0f0f] border border-[#E5E5E5] dark:border-brand-border-dark rounded-xl p-4 transition-all hover:border-2 hover:border-brand-primary dark:hover:border-brand-secondary">
                             <summary class="flex items-center justify-between cursor-pointer list-none">
-                                <span class="text-[#121212] dark:text-white font-medium">Comment va se dérouler notre
+                                <span class="text-dark-bg dark:text-white font-medium">Comment va se dérouler notre
                                     collaboration ?</span>
                                 <i
-                                    class="bx bx-chevron-down text-2xl text-[#411FEB] dark:text-[#5536ED] transition-transform duration-200 group-open:rotate-180"></i>
+                                    class="bx bx-chevron-down text-2xl text-brand-primary dark:text-brand-secondary transition-transform duration-200 group-open:rotate-180"></i>
                             </summary>
-                            <p class="mt-3 text-sm text-[#121212] dark:text-white leading-relaxed">
+                            <p class="mt-3 text-sm text-dark-bg dark:text-white leading-relaxed">
                                 Cela dépend de la complexité de votre demande. De façon simple, transparente et
                                 structurée :
                             </p>
-                            <ol class="mt-3 ml-4 list-decimal text-sm text-[#121212] dark:text-white leading-relaxed">
+                            <ol class="mt-3 ml-4 list-decimal text-sm text-dark-bg dark:text-white leading-relaxed">
                                 <li>Appel découverte : pour comprendre vos besoins et définir les priorités.</li>
                                 <li>Phase UX : parcours utilisateur, arborescence, wireframes et logique fonctionnelle.
                                 </li>
@@ -268,7 +274,7 @@ import Layout from '../../layouts/Layout.astro';
                                 <li>Livraison : fichiers Figma et sources organisés avec des conseils d’intégration pour
                                     votre développeur.</li>
                             </ol>
-                            <p class="mt-3 text-sm text-[#121212] dark:text-white leading-relaxed">
+                            <p class="mt-3 text-sm text-dark-bg dark:text-white leading-relaxed">
                                 La communication peut se faire via différents canaux : WhatsApp, LinkedIn, Slack,
                                 Telegram
                                 ou encore Discord, avec des points rapides quand nécessaire.<br>L'objectif est d'avancer
@@ -276,15 +282,15 @@ import Layout from '../../layouts/Layout.astro';
                             </p>
                         </details>
                         <details
-                            class="group bg-white dark:bg-[#0f0f0f] border border-[#E5E5E5] dark:border-[#2A2455] rounded-xl p-4 transition-all hover:border-2 hover:border-[#411FEB] dark:hover:border-[#5536ED]">
+                            class="group bg-white dark:bg-[#0f0f0f] border border-[#E5E5E5] dark:border-brand-border-dark rounded-xl p-4 transition-all hover:border-2 hover:border-brand-primary dark:hover:border-brand-secondary">
                             <summary class="flex items-center justify-between cursor-pointer list-none">
-                                <span class="text-[#121212] dark:text-white font-medium">Que vais-je recevoir à la fin
+                                <span class="text-dark-bg dark:text-white font-medium">Que vais-je recevoir à la fin
                                     du
                                     projet ?</span>
                                 <i
-                                    class="bx bx-chevron-down text-2xl text-[#411FEB] dark:text-[#5536ED] transition-transform duration-200 group-open:rotate-180"></i>
+                                    class="bx bx-chevron-down text-2xl text-brand-primary dark:text-brand-secondary transition-transform duration-200 group-open:rotate-180"></i>
                             </summary>
-                            <p class="mt-3 text-sm text-[#121212] dark:text-white leading-relaxed">
+                            <p class="mt-3 text-sm text-dark-bg dark:text-white leading-relaxed">
                                 Vous repartez avec :
                                 <br>des maquettes Figma propres, organisées et même maintenables facilement
                                 <br>un prototype interactif pour visualiser l’expérience,
@@ -296,26 +302,26 @@ import Layout from '../../layouts/Layout.astro';
                             </p>
                         </details>
                         <details
-                            class="group bg-white dark:bg-[#0f0f0f] border border-[#E5E5E5] dark:border-[#2A2455] rounded-xl p-4 transition-all hover:border-2 hover:border-[#411FEB] dark:hover:border-[#5536ED]">
+                            class="group bg-white dark:bg-[#0f0f0f] border border-[#E5E5E5] dark:border-brand-border-dark rounded-xl p-4 transition-all hover:border-2 hover:border-brand-primary dark:hover:border-brand-secondary">
                             <summary class="flex items-center justify-between cursor-pointer list-none">
-                                <span class="text-[#121212] dark:text-white font-medium">En combien de temps mon projet
+                                <span class="text-dark-bg dark:text-white font-medium">En combien de temps mon projet
                                     peut-il être livré ?</span>
-                                <i class="bx bx-chevron-down text-2xl text-[#411FEB] dark:text-[#5536ED] transition-transform duration-200 group-open:rotate-180"></i>
+                                <i class="bx bx-chevron-down text-2xl text-brand-primary dark:text-brand-secondary transition-transform duration-200 group-open:rotate-180"></i>
                             </summary>
-                            <p class="mt-3 text-sm text-[#121212] dark:text-white leading-relaxed">
+                            <p class="mt-3 text-sm text-dark-bg dark:text-white leading-relaxed">
                                 La durée de conception d'un projet dépend de sa complexité et du nombre d'écrans à concevoir. Je vous donnerai une estimation précise lors de notre premier échange afin de s'assurer que cela convient avec vos deadlines.
                             </p>
                         </details>
                         <details
-                            class="group bg-white dark:bg-[#0f0f0f] border border-[#E5E5E5] dark:border-[#2A2455] rounded-xl p-4 transition-all hover:border-2 hover:border-[#411FEB] dark:hover:border-[#5536ED]">
+                            class="group bg-white dark:bg-[#0f0f0f] border border-[#E5E5E5] dark:border-brand-border-dark rounded-xl p-4 transition-all hover:border-2 hover:border-brand-primary dark:hover:border-brand-secondary">
                             <summary class="flex items-center justify-between cursor-pointer list-none">
-                                <span class="text-[#121212] dark:text-white font-medium">Comment fonctionne la
+                                <span class="text-dark-bg dark:text-white font-medium">Comment fonctionne la
                                     rémunération
                                     ?</span>
                                 <i
-                                    class="bx bx-chevron-down text-2xl text-[#411FEB] dark:text-[#5536ED] transition-transform duration-200 group-open:rotate-180"></i>
+                                    class="bx bx-chevron-down text-2xl text-brand-primary dark:text-brand-secondary transition-transform duration-200 group-open:rotate-180"></i>
                             </summary>
-                            <p class="mt-3 text-sm text-[#121212] dark:text-white leading-relaxed">
+                            <p class="mt-3 text-sm text-dark-bg dark:text-white leading-relaxed">
                                 Une fois que l'on s'est mis d'accord sur le prix et les modalités, je vous enverrai un devis suivi d'un contrat. Vous disposerez jusqu'à la fin du mois suivant pour effectuer le paiement.
                             </p>
                         </details>
@@ -342,26 +348,29 @@ import Layout from '../../layouts/Layout.astro';
                 }, { threshold: 0.1 });
 
                 cards.forEach((card, i) => {
-                    card.style.transitionDelay = `${i * 150}ms`;
+                    (card as HTMLElement).style.transitionDelay = `${i * 150}ms`;
                     observer.observe(card);
                 });
             }
 
             const faqItems = document.querySelectorAll("#faqList details");
             faqItems.forEach((item) => {
-                item.addEventListener("toggle", () => {
-                    if (!item.open) return;
+                const detailsItem = item as HTMLDetailsElement;
+                detailsItem.addEventListener("toggle", () => {
+                    if (!detailsItem.open) return;
                     faqItems.forEach(other => {
-                        if (other !== item) other.open = false;
+                        if (other !== detailsItem) (other as HTMLDetailsElement).open = false;
                     });
                 });
 
                 // Permettre de fermer la carte en cliquant n'importe où dessus lorsqu'elle est ouverte
-                item.addEventListener("click", (e) => {
-                    if (e.target.tagName === 'A' || window.getSelection().toString()) return;
-                    if (item.open && !e.target.closest('summary')) {
+                detailsItem.addEventListener("click", (e) => {
+                    const target = e.target as HTMLElement;
+                    if (!target) return;
+                    if (target.tagName === 'A' || window.getSelection()?.toString()) return;
+                    if (detailsItem.open && !target.closest('summary')) {
                         e.preventDefault();
-                        item.open = false;
+                        detailsItem.open = false;
                     }
                 });
             });

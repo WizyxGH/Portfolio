@@ -14,9 +14,9 @@ interface Props {
 
 const { 
 	title = "Portfolio Florian Gertner Kilian", 
-	description = "Product Designer UI/UX. Je crée des interfaces premium, esthétiques et intuitives qui allient design et storytelling.",
+	description = "Product Designer UI/UX. Je transforme vos idées en produits performants",
 	lang = "fr",
-	og_image = "/assets/media/opengraph/default-og.jpg",
+	og_image = "/assets/media/opengraph/default-og.webp",
 	canonical,
 	body_class = ""
 } = Astro.props;
@@ -68,15 +68,15 @@ const canonicalUrl = canonical ? new URL(canonical, siteUrl).href : currentUrl;
 	<script src="/assets/js/theme.js" defer></script>
 
 	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-6PJB5NW1Y5"></script>
-	<script is:inline>
+	<script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-6PJB5NW1Y5"></script>
+	<script type="text/partytown">
 		window.dataLayer = window.dataLayer || []; 
 		function gtag() { dataLayer.push(arguments); } 
 		gtag('js', new Date()); 
 		gtag('config', 'G-6PJB5NW1Y5'); 
 	</script>
 </head>
-<body class={`font-inter text-[#411FEB] dark:text-white dark:bg-[#121212] transition-colors duration-300 ${body_class}`}>
+<body class={`font-inter text-brand-primary dark:text-white dark:bg-dark-bg transition-colors duration-300 ${body_class}`}>
 	<Navbar />
 	<slot />
 	<Footer />

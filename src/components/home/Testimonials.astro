@@ -1,14 +1,22 @@
 ---
 // src/components/home/Testimonials.astro
+import { Image } from 'astro:assets';
+import lucasKacem from '../../assets/media/photo/lucaskacem.webp';
+import aurelienPalasse from '../../assets/media/photo/aurelienpalasse.webp';
+import carolineAubert from '../../assets/media/photo/carolineaubert.webp';
+import jonathanVaissiere from '../../assets/media/photo/jonathanvaissiere.webp';
+import maximeClick from '../../assets/media/photo/maximeclick.webp';
+import thibautMaens from '../../assets/media/photo/thibautmaensrabier.webp';
+import uncleSam from '../../assets/media/photo/unclesam.webp';
 ---
 <!-- Testimonials Section -->
 <section class="pt-8 px-8 pb-16 lg:pt-8 lg:px-32 lg:pb-24 text-center space-y-8">
     <div>
-        <h2 class="text-2xl text-[#121212] dark:text-white font-medium mb-4">
+        <h2 class="text-2xl text-dark-bg dark:text-white font-medium mb-4">
             On a travaillé ensemble et
             <br>ils me recommandent.
         </h2>
-        <div class="inline-flex items-center gap-2 rounded-full bg-[#411FEB] px-4 py-1.5 text-white">
+        <div class="inline-flex items-center gap-2 rounded-full bg-brand-primary px-4 py-1.5 text-white">
             <i class='bx bxs-wink-smile'></i>
             <span class="text-sm font-semibold">Un impact positif partout où je passe</span>
         </div>
@@ -16,9 +24,9 @@
     <div class="grid md:grid-cols-3 gap-6">
 
         <div
-            class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.10] border border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl max-w-xl flex flex-col gap-3">
+            class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-brand-muted dark:bg-brand-secondary dark:bg-opacity-[0.10] border border-2 border-brand-light dark:border-[#281E5A] text-brand-primary dark:text-brand-light text-left p-6 rounded-2xl max-w-xl flex flex-col gap-3">
             <!-- Guillemets -->
-            <div class="text-4xl font-bold text-[#411FEB] dark:text-[#5536ED]">
+            <div class="text-4xl font-bold text-brand-primary dark:text-brand-light">
                 <i class='bx bxs-quote-left'></i>
             </div>
             <!-- Texte du témoignage -->
@@ -29,12 +37,12 @@
             </p>
             <!-- Auteur -->
             <div class="flex items-center gap-3 mt-auto">
-                <img src="/assets/media/photo/lucaskacem.webp" alt="Lucas Kacem"
-                    class="w-12 h-12 rounded-full object-cover flex-shrink-0" width="48" height="48" loading="lazy"
-                    decoding="async">
+                <Image src={lucasKacem} alt="Lucas Kacem"
+                    class="w-12 h-12 rounded-full object-cover flex-shrink-0" width={48} height={48} loading="lazy"
+                    decoding="async" />
                 <div>
-                    <h3 class="font-bold text-[#411FEB] dark:text-[#5536ED]">Lucas Kacem</h3>
-                    <p class="font-light text-sm text-[#411FEB] dark:text-[#5536ED]">Co-fondateur & Président chez
+                    <h3 class="font-bold text-brand-primary dark:text-brand-light">Lucas Kacem</h3>
+                    <p class="font-light text-sm text-brand-primary dark:text-brand-light">Co-fondateur & Président chez
                         <a href="https://digitalunicorn.fr" target="_blank" rel="noopener noreferrer">Digital
                             Unicorn</a>
                     </p>
@@ -43,9 +51,9 @@
         </div>
 
         <div
-            class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.10] border border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
+            class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-brand-muted dark:bg-brand-secondary dark:bg-opacity-[0.10] border border-2 border-brand-light dark:border-[#281E5A] text-brand-primary dark:text-brand-light text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
             <!-- Guillemets -->
-            <div class="text-4xl font-bold text-[#411FEB] dark:text-[#5536ED]">
+            <div class="text-4xl font-bold text-brand-primary dark:text-brand-light">
                 <i class='bx bxs-quote-left'></i>
             </div>
 
@@ -56,34 +64,34 @@
 
             <!-- Auteur -->
             <div class="flex items-center gap-3 mt-auto">
-                <img src="/assets/media/photo/aurelienpalasse.webp" alt="Aurélien Palasse"
-                    class="w-12 h-12 rounded-full object-cover flex-shrink-0" width="48" height="48" loading="lazy"
-                    decoding="async">
+                <Image src={aurelienPalasse} alt="Aurélien Palasse"
+                    class="w-12 h-12 rounded-full object-cover flex-shrink-0" width={48} height={48} loading="lazy"
+                    decoding="async" />
                 <div>
-                    <h3 class="font-bold text-[#411FEB] dark:text-[#5536ED]">Aurélien Palasse</h3>
-                    <p class="font-light text-sm text-[#411FEB] dark:text-[#5536ED]">Managing Director chez <a
+                    <h3 class="font-bold text-brand-primary dark:text-brand-light">Aurélien Palasse</h3>
+                    <p class="font-light text-sm text-brand-primary dark:text-brand-light">Managing Director chez <a
                             href="https://www.ubisoft.com/fr-fr/company/careers/locations/da-nang" target="_blank"
                             rel="noopener noreferrer">Ubisoft Vietnam</a></p>
                 </div>
             </div>
         </div>
 
-        <div class="testimonial animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.10] border border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3"
+        <div class="testimonial animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-brand-muted dark:bg-brand-secondary dark:bg-opacity-[0.10] border border-2 border-brand-light dark:border-[#281E5A] text-brand-primary dark:text-brand-light text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3"
             data-fulltext="J'ai eu la chance d'avoir Florian en stage pendant deux mois dans ma structure. Je dis bien la chance, car ma première expérience d'avoir des stagiaires a été un succès grâce à lui. Motivé, hyper proactif, enseignable, il a su, dès les premiers jours, être opérationnel. Il a une très bonne appétence pour tout ce qui touche au rédactionnel. Il est force de proposition et sait répondre à des briefs client quasiment en autonomie. Je peux dire qu'il est aujourd'hui expert en autolayout sur Figma et sait utiliser cet outil de manière professionnelle. Je recommande son profil à l'embauche si vous souhaitez ne pas prendre de risque puisqu'il coche toutes les cases. Ce sera une force dans vos équipes.">
             <!-- Guillemets -->
-            <div class="text-4xl font-bold text-[#411FEB] dark:text-[#5536ED]">
+            <div class="text-4xl font-bold text-brand-primary dark:text-brand-light">
                 <i class='bx bxs-quote-left'></i>
             </div>
             <!-- Texte + bouton -->
             <p class="testimonial-text text-base dark:text-white leading-relaxed"></p>
             <!-- Auteur -->
             <div class="flex items-center gap-3 mt-auto">
-                <img src="/assets/media/photo/carolineaubert.webp" alt="Caroline Aubert"
-                    class="w-12 h-12 rounded-full object-cover flex-shrink-0" width="48" height="48" loading="lazy"
-                    decoding="async">
+                <Image src={carolineAubert} alt="Caroline Aubert"
+                    class="w-12 h-12 rounded-full object-cover flex-shrink-0" width={48} height={48} loading="lazy"
+                    decoding="async" />
                 <div>
-                    <h3 class="font-bold text-[#411FEB] dark:text-[#5536ED]">Caroline Aubert</h3>
-                    <p class="font-light text-sm text-[#411FEB] dark:text-[#5536ED]"><a
+                    <h3 class="font-bold text-brand-primary dark:text-brand-light">Caroline Aubert</h3>
+                    <p class="font-light text-sm text-brand-primary dark:text-brand-light"><a
                             href="https://www.mafigue.com" target="_blank"
                             rel="noopener noreferrer">Entrepreneuse</a>, Product Designer & Développeuse Webflow
                     </p>
@@ -91,19 +99,19 @@
             </div>
         </div>
 
-        <div class="testimonial animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.10] border border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3"
+        <div class="testimonial animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-brand-muted dark:bg-brand-secondary dark:bg-opacity-[0.10] border border-2 border-brand-light dark:border-[#281E5A] text-brand-primary dark:text-brand-light text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3"
             data-fulltext="Un travail pro et sérieux comme on aime et surtout comme on a BESOIN ! Florian a fait parti de l’équipe qui nous a conçu les maquettes de notre dernière version et ce fut un régal de travailler ensemble. De part les outils proposés mais surtout dans la façon. Rapide, efficace et agréable. Merci encore pour ton travail👏🏼✨">
-            <div class="text-4xl font-bold text-[#411FEB] dark:text-[#5536ED]">
+            <div class="text-4xl font-bold text-brand-primary dark:text-brand-light">
                 <i class='bx bxs-quote-left'></i>
             </div>
             <p class="testimonial-text text-base dark:text-white leading-relaxed"></p>
             <div class="flex items-center gap-3 mt-auto">
-                <img src="/assets/media/photo/jonathanvaissiere.webp" alt="Jonathan Vaissière"
-                    class="w-12 h-12 rounded-full object-cover flex-shrink-0" width="48" height="48" loading="lazy"
-                    decoding="async">
+                <Image src={jonathanVaissiere} alt="Jonathan Vaissière"
+                    class="w-12 h-12 rounded-full object-cover flex-shrink-0" width={48} height={48} loading="lazy"
+                    decoding="async" />
                 <div>
-                    <h3 class="font-bold text-[#411FEB] dark:text-[#5536ED]">Jonathan Vaissière</h3>
-                    <p class="font-light text-sm text-[#411FEB] dark:text-[#5536ED]"><a
+                    <h3 class="font-bold text-brand-primary dark:text-brand-light">Jonathan Vaissière</h3>
+                    <p class="font-light text-sm text-brand-primary dark:text-brand-light"><a
                             href="https://guidedugolfe.com" target="_blank"
                             rel="noopener noreferrer">Entrepreneur</a></p>
                 </div>
@@ -111,9 +119,9 @@
         </div>
 
         <div
-            class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.10] border border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
+            class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-brand-muted dark:bg-brand-secondary dark:bg-opacity-[0.10] border border-2 border-brand-light dark:border-[#281E5A] text-brand-primary dark:text-brand-light text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
             <!-- Guillemets -->
-            <div class="text-4xl font-bold text-[#411FEB] dark:text-[#5536ED]">
+            <div class="text-4xl font-bold text-brand-primary dark:text-brand-light">
                 <i class='bx bxs-quote-left'></i>
             </div>
             <!-- Texte du témoignage -->
@@ -122,12 +130,12 @@
             </p>
             <!-- Auteur -->
             <div class="flex items-center gap-3 mt-auto">
-                <img src="/assets/media/photo/maximeclick.webp" alt="Maxime Click"
-                    class="w-12 h-12 rounded-full object-cover flex-shrink-0" width="48" height="48" loading="lazy"
-                    decoding="async">
+                <Image src={maximeClick} alt="Maxime Click"
+                    class="w-12 h-12 rounded-full object-cover flex-shrink-0" width={48} height={48} loading="lazy"
+                    decoding="async" />
                 <div>
-                    <h3 class="font-bold text-[#411FEB] dark:text-[#5536ED]">Maxime "Click" Peiffer</h3>
-                    <p class="font-light text-sm text-[#411FEB] dark:text-[#5536ED]">Créateur de contenu (1.1M sur
+                    <h3 class="font-bold text-brand-primary dark:text-brand-light">Maxime "Click" Peiffer</h3>
+                    <p class="font-light text-sm text-brand-primary dark:text-brand-light">Créateur de contenu (1.1M sur
                         <a href="https://www.youtube.com/@MaximeClick" target="_blank"
                             rel="noopener noreferrer">YouTube</a>)
                     </p>
@@ -136,9 +144,9 @@
         </div>
 
         <div
-            class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#E8E4FC] dark:bg-[#5536ED] dark:bg-opacity-[0.10] border border-2 border-[#C1B4F8] dark:border-[#281E5A] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
+            class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-brand-muted dark:bg-brand-secondary dark:bg-opacity-[0.10] border border-2 border-brand-light dark:border-[#281E5A] text-brand-primary dark:text-brand-light text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
             <!-- Guillemets -->
-            <div class="text-4xl font-bold text-[#411FEB] dark:text-[#5536ED]">
+            <div class="text-4xl font-bold text-brand-primary dark:text-brand-light">
                 <i class='bx bxs-quote-left'></i>
             </div>
             <!-- Texte du témoignage -->
@@ -147,12 +155,12 @@
             </p>
             <!-- Auteur -->
             <div class="flex items-center gap-3 mt-auto">
-                <img src="/assets/media/photo/thibautmaensrabier.webp" alt="Thibaut Maëns Rabier"
-                    class="w-12 h-12 rounded-full object-cover flex-shrink-0" width="48" height="48" loading="lazy"
-                    decoding="async">
+                <Image src={thibautMaens} alt="Thibaut Maëns Rabier"
+                    class="w-12 h-12 rounded-full object-cover flex-shrink-0" width={48} height={48} loading="lazy"
+                    decoding="async" />
                 <div>
-                    <h3 class="font-bold text-[#411FEB] dark:text-[#5536ED]">Thibaut Maëns Rabier</h3>
-                    <p class="font-light text-sm text-[#411FEB] dark:text-[#5536ED]">Founder & Creative Producer
+                    <h3 class="font-bold text-brand-primary dark:text-brand-light">Thibaut Maëns Rabier</h3>
+                    <p class="font-light text-sm text-brand-primary dark:text-brand-light">Founder & Creative Producer
                         chez <a href="https://phoq.tv" target="_blank" rel="noopener noreferrer">PHOQ.tv</a>
                     </p>
                 </div>
@@ -160,9 +168,9 @@
         </div>
 
         <div
-            class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#F8F6FE] dark:bg-[#5536ED] dark:bg-opacity-[0.04] border-dashed border-2 border-[#C1B4F8] dark:border-[#29197F] text-[#411FEB] dark:text-[#5536ED] text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
+            class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#F8F6FE] dark:bg-brand-secondary dark:bg-opacity-[0.04] border-dashed border-2 border-brand-light dark:border-[#29197F] text-brand-primary dark:text-brand-light text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
             <!-- Guillemets -->
-            <div class="text-4xl font-bold text-[#411FEB] dark:text-[#5536ED]">
+            <div class="text-4xl font-bold text-brand-primary dark:text-brand-light">
                 <i class='bx bxs-quote-left'></i>
             </div>
             <!-- Texte du témoignage -->
@@ -172,12 +180,12 @@
             </p>
             <!-- Auteur -->
             <div class="flex items-center gap-3 mt-auto">
-                <img src="/assets/media/photo/unclesam.webp" alt="Uncle Sam"
-                    class="w-12 h-12 rounded-full object-cover flex-shrink-0" width="48" height="48" loading="lazy"
-                    decoding="async">
+                <Image src={uncleSam} alt="Uncle Sam"
+                    class="w-12 h-12 rounded-full object-cover flex-shrink-0" width={48} height={48} loading="lazy"
+                    decoding="async" />
                 <div>
-                    <h3 class="font-bold text-[#411FEB] dark:text-[#5536ED]">Vous</h3>
-                    <p class="font-light text-sm text-[#411FEB] dark:text-[#5536ED]">Une personne sûrement
+                    <h3 class="font-bold text-brand-primary dark:text-brand-light">Vous</h3>
+                    <p class="font-light text-sm text-brand-primary dark:text-brand-light">Une personne sûrement
                         sympathique</p>
                 </div>
             </div>

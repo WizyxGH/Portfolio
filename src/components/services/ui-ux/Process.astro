@@ -1,0 +1,745 @@
+---
+import { Image } from 'astro:assets';
+import imgevnu3o from '../../../assets/media/profilepicturepro.webp';
+import imgzx5gtf from '../../../assets/media/photo/thibautmaensrabier.webp';
+import imgd624hhi from '../../../assets/media/profilepicturepro.webp';
+import imgpal6qk from '../../../assets/media/photo/thibautmaensrabier.webp';
+---
+        <!-- 4. LA MÉTHODE (CONCRET ET TRANSPARENT) -->
+        <div id="processScrollTrack" class="relative lg:h-[400vh] w-full">
+            <section class="w-full px-8 lg:px-32 py-24 lg:py-0 bg-white dark:bg-dark-bg transition-colors duration-200 lg:sticky lg:top-0 lg:h-screen lg:flex lg:flex-col lg:justify-center lg:overflow-hidden" id="processSection">
+            <div class="max-w-6xl mx-auto space-y-16">
+                <div class="text-center space-y-4">
+                    <span class="text-sm font-bold text-brand-primary dark:text-brand-secondary uppercase">Le processus</span>
+                    <h2 class="text-3xl lg:text-5xl font-bold text-dark-bg dark:text-white">
+                        Comment va se dérouler notre collaboration ?
+                    </h2>
+                    <p class="text-gray-500 dark:text-gray-400 max-w-xl mx-auto text-sm">
+                        Pas de blabla inutile, pas de réunions interminables. Une méthode claire en 5 étapes.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start relative">
+                    <!-- Left: Scrollable Steps -->
+                    <div id="stepsScrollContainer" class="space-y-4 lg:space-y-0 relative pl-4 lg:pl-6 lg:h-[450px] lg:overflow-hidden w-full">
+                        <div id="stepsTranslateWrapper" class="transition-transform duration-500 ease-out flex flex-col">
+                        <!-- Step 1 -->
+                        <div class="process-step group cursor-pointer hover:border-brand-primary/50 dark:hover:border-brand-secondary/50 py-8 lg:py-10 first:lg:pt-0 last:lg:pb-0 pl-8 relative transition-all duration-300 border-l-2 border-gray-100 dark:border-gray-800" data-step="1">
+                            <div class="absolute -left-[13px] top-8 lg:top-16 bg-gray-200 dark:bg-gray-800 text-gray-500 dark:text-gray-400 rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs step-number-badge group-hover:bg-brand-primary/50 group-hover:text-white dark:group-hover:bg-brand-secondary/50 transition-all duration-300">
+                                1
+                            </div>
+                            <h3 class="font-bold text-xl lg:text-2xl text-gray-400 dark:text-gray-600 group-hover:text-dark-bg dark:group-hover:text-white transition-colors duration-300 step-title">1. Appel Découverte (30 min)</h3>
+                            <p class="text-gray-400 dark:text-gray-600 group-hover:text-gray-600 dark:group-hover:text-gray-300 mt-2 leading-relaxed text-sm lg:text-base transition-colors duration-300 step-desc">
+                                Nous échangeons sur votre vision, vos objectifs commerciaux, vos cibles et vos contraintes
+                                techniques. C'est gratuit, sans engagement, et cela nous permet de voir si le "fit" est bon.
+                            </p>
+                            <!-- Mobile-only illustration -->
+                            <div class="block lg:hidden mt-6 w-full aspect-video rounded-2xl bg-brand-surface dark:bg-brand-dark/50 border border-brand-light/20 dark:border-[#281E5A]/50 overflow-hidden relative p-4 flex items-center justify-center">
+                                <!-- Illustration 1: Video Call & Calendar -->
+                                <div class="relative w-full h-full flex items-center justify-center p-4 min-h-[260px]">
+                                    <!-- Video call screen mockup -->
+                                    <div class="w-full max-w-[280px] sm:max-w-[320px] aspect-video bg-white dark:bg-brand-darker rounded-2xl border-2 border-gray-100 dark:border-brand-border-dark shadow-lg overflow-hidden relative flex flex-col justify-between p-3 transition-colors duration-200">
+                                        <!-- Video content (Florian profile) -->
+                                        <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-tr from-brand-secondary/20 to-brand-primary/20 dark:from-brand-secondary/10 dark:to-brand-primary/10">
+                                            <div class="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-brand-primary overflow-hidden shadow-md">
+                                                <Image loading="lazy" decoding="async" src={imgevnu3o} alt="Florian" class="w-full h-full object-cover animate-on-scroll" />
+                                            </div>
+                                            <!-- Online indicator -->
+                                            <div class="absolute bottom-6 right-1/2 translate-x-10 sm:translate-x-12 bg-green-500 border-2 border-white dark:border-brand-darker rounded-full px-2 py-0.5 text-[8px] font-bold text-white uppercase tracking-wider">
+                                                Live
+                                            </div>
+                                        </div>
+                                        <!-- Top bar info -->
+                                        <div class="relative z-10 flex items-center justify-between">
+                                            <span class="text-[10px] font-bold text-dark-bg dark:text-white bg-white/70 dark:bg-black/50 backdrop-blur-sm px-2 py-0.5 rounded-full">Florian G. K.</span>
+                                            <div class="flex gap-1">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping"></span>
+                                                <span class="text-[8px] font-semibold text-red-500">00:12:45</span>
+                                            </div>
+                                        </div>
+                                        <!-- Bottom controls -->
+                                        <div class="relative z-10 flex justify-center gap-3 mt-auto">
+                                            <div class="w-6 h-6 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-xs text-gray-600 dark:text-white"><i class='bx bx-microphone'></i></div>
+                                            <div class="w-6 h-6 rounded-full bg-red-500 flex items-center justify-center text-xs text-white"><i class='bx bx-phone-off'></i></div>
+                                            <div class="w-6 h-6 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-xs text-gray-600 dark:text-white"><i class='bx bx-video'></i></div>
+                                        </div>
+                                    </div>
+                                    <!-- Floating Calendar Invite -->
+                                    <div class="absolute -top-2 right-2 sm:right-6 bg-white dark:bg-dark-bg border border-brand-light/45 dark:border-[#281E5A] rounded-xl p-3 shadow-xl flex items-center gap-3 animate-bounce" style="animation-duration: 3s;">
+                                        <div class="w-8 h-8 rounded-lg bg-brand-primary/10 text-brand-primary dark:text-white flex items-center justify-center text-lg shrink-0">
+                                            <i class='bx bx-calendar'></i>
+                                        </div>
+                                        <div class="text-left">
+                                            <h5 class="text-[10px] font-bold text-dark-bg dark:text-white leading-tight">Appel de Cadrage</h5>
+                                            <p class="text-[8px] text-gray-400">Aujourd'hui, 10h00 (30m)</p>
+                                        </div>
+                                    </div>
+                                    <!-- Floating target goals -->
+                                    <div class="absolute -bottom-2 left-2 sm:left-6 bg-white dark:bg-dark-bg border border-brand-light/45 dark:border-[#281E5A] rounded-xl p-3 shadow-xl flex items-center gap-3">
+                                        <div class="w-8 h-8 rounded-lg bg-green-500/10 text-green-500 flex items-center justify-center text-lg shrink-0">
+                                            <i class='bx bx-target-lock'></i>
+                                        </div>
+                                        <div class="text-left">
+                                            <h5 class="text-[10px] font-bold text-dark-bg dark:text-white leading-tight">Objectifs validés</h5>
+                                            <p class="text-[8px] text-gray-400">Besoins & Tech</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="process-step group cursor-pointer hover:border-brand-primary/50 dark:hover:border-brand-secondary/50 py-8 lg:py-10 pl-8 relative transition-all duration-300 border-l-2 border-gray-100 dark:border-gray-800" data-step="2">
+                            <div class="absolute -left-[13px] top-8 lg:top-16 bg-gray-200 dark:bg-gray-800 text-gray-500 dark:text-gray-400 rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs step-number-badge group-hover:bg-brand-primary/50 group-hover:text-white dark:group-hover:bg-brand-secondary/50 transition-all duration-300">
+                                2
+                            </div>
+                            <h3 class="font-bold text-xl lg:text-2xl text-gray-400 dark:text-gray-600 group-hover:text-dark-bg dark:group-hover:text-white transition-colors duration-300 step-title">2. Cadrage UX & Wireframes (La structure)</h3>
+                            <p class="text-gray-400 dark:text-gray-600 group-hover:text-gray-600 dark:group-hover:text-gray-300 mt-2 leading-relaxed text-sm lg:text-base transition-colors duration-300 step-desc">
+                                Avant d'ajouter de la couleur, nous validons l'arborescence, les parcours utilisateurs et la
+                                logique d'affichage sous forme de schémas simplifiés en noir et blanc (wireframes). C'est
+                                ici que se joue la simplicité d'utilisation.
+                            </p>
+                            <!-- Mobile-only illustration -->
+                            <div class="block lg:hidden mt-6 w-full aspect-video rounded-2xl bg-brand-surface dark:bg-brand-dark/50 border border-brand-light/20 dark:border-[#281E5A]/50 overflow-hidden relative p-4 flex items-center justify-center">
+                                <!-- Illustration 2: Wireframe Mockup -->
+                                <div class="relative w-full h-full flex items-center justify-center p-4 min-h-[260px]">
+                                    <!-- Grid Paper style background -->
+                                    <div class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(var(--color-brand-border-dark)_1px,transparent_1px)] [background-size:16px_16px] opacity-60"></div>
+                                    
+                                    <!-- Wireframe Dashboard Mockup -->
+                                    <div class="w-full max-w-[280px] sm:max-w-[320px] aspect-video bg-white dark:bg-dark-bg rounded-xl border border-gray-300 dark:border-gray-700 shadow-md flex overflow-hidden relative transition-colors duration-200">
+                                        <!-- Sidebar -->
+                                        <div class="w-12 border-r border-gray-200 dark:border-gray-800 p-2 space-y-2 flex flex-col items-center">
+                                            <div class="w-6 h-6 rounded bg-gray-200 dark:bg-gray-800"></div>
+                                            <div class="w-4 h-1.5 rounded bg-gray-100 dark:bg-gray-900"></div>
+                                            <div class="w-4 h-1.5 rounded bg-gray-100 dark:bg-gray-900"></div>
+                                            <div class="w-4 h-1.5 rounded bg-gray-100 dark:bg-gray-900"></div>
+                                        </div>
+                                        <!-- Main body -->
+                                        <div class="flex-1 p-3 flex flex-col justify-between relative">
+                                            <!-- Header wireframe -->
+                                            <div class="flex justify-between items-center pb-2 border-b border-gray-100 dark:border-gray-900">
+                                                <div class="w-16 h-3 rounded bg-gray-200 dark:bg-gray-800"></div>
+                                                <div class="w-6 h-6 rounded-full bg-gray-100 dark:bg-gray-800"></div>
+                                            </div>
+                                            <!-- Grid cards wireframe -->
+                                            <div class="grid grid-cols-2 gap-2 my-2 flex-1">
+                                                <div class="border border-dashed border-gray-300 dark:border-gray-700 rounded-lg p-2 flex flex-col justify-between">
+                                                    <div class="w-6 h-6 rounded bg-gray-100 dark:bg-gray-800"></div>
+                                                    <div class="space-y-1">
+                                                        <div class="w-10 h-1.5 rounded bg-gray-200 dark:bg-gray-800"></div>
+                                                        <div class="w-6 h-1 rounded bg-gray-100 dark:bg-gray-900"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="border border-dashed border-gray-300 dark:border-gray-755 rounded-lg p-2 flex flex-col justify-between">
+                                                    <!-- Image placeholder symbol (cross lines) -->
+                                                    <div class="w-full h-8 rounded border border-gray-200 dark:border-gray-800 relative overflow-hidden flex items-center justify-center">
+                                                        <div class="absolute w-full h-[1px] bg-gray-200 dark:bg-gray-800 rotate-12"></div>
+                                                        <div class="absolute w-full h-[1px] bg-gray-200 dark:bg-gray-800 -rotate-12"></div>
+                                                        <i class='bx bx-image text-gray-300 dark:text-gray-700 text-sm'></i>
+                                                    </div>
+                                                    <div class="w-12 h-1.5 rounded bg-gray-200 dark:bg-gray-800 mt-1"></div>
+                                                </div>
+                                            </div>
+                                            <!-- Bottom status -->
+                                            <div class="w-full h-3 rounded bg-gray-100 dark:bg-gray-900"></div>
+                                        </div>
+                                    </div>
+                                    <!-- Flow Arrow Overlay -->
+                                    <div class="absolute right-2 top-1/2 -translate-y-1/2 flex flex-col items-center">
+                                        <div class="w-6 h-6 rounded-full bg-brand-primary/10 border border-brand-primary dark:border-brand-secondary flex items-center justify-center text-xs text-brand-primary dark:text-brand-secondary font-bold shadow-md">
+                                            <i class='bx bx-mouse-pointer'></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="process-step group cursor-pointer hover:border-brand-primary/50 dark:hover:border-brand-secondary/50 py-8 lg:py-10 pl-8 relative transition-all duration-300 border-l-2 border-gray-100 dark:border-gray-800" data-step="3">
+                            <div class="absolute -left-[13px] top-8 lg:top-16 bg-gray-200 dark:bg-gray-800 text-gray-500 dark:text-gray-400 rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs step-number-badge group-hover:bg-brand-primary/50 group-hover:text-white dark:group-hover:bg-brand-secondary/50 transition-all duration-300">
+                                3
+                            </div>
+                            <h3 class="font-bold text-xl lg:text-2xl text-gray-400 dark:text-gray-600 group-hover:text-dark-bg dark:group-hover:text-white transition-colors duration-300 step-title">3. Direction Artistique & UI Premium (Le visuel)</h3>
+                            <p class="text-gray-400 dark:text-gray-600 group-hover:text-gray-600 dark:group-hover:text-gray-300 mt-2 leading-relaxed text-sm lg:text-base transition-colors duration-300 step-desc">
+                                Création de l'identité visuelle de votre interface. Typographies modernes, palette de
+                                couleurs harmonieuse, icônes, contrastes soignés. Nous concevons un design haut de gamme et
+                                à votre image.
+                            </p>
+                            <!-- Mobile-only illustration -->
+                            <div class="block lg:hidden mt-6 w-full aspect-video rounded-2xl bg-brand-surface dark:bg-brand-dark/50 border border-brand-light/20 dark:border-[#281E5A]/50 overflow-hidden relative p-4 flex items-center justify-center">
+                                <!-- Illustration 3: Hi-Fi Dashboard Mockup -->
+                                <div class="relative w-full h-full flex items-center justify-center p-4 min-h-[260px]">
+                                    <!-- Hi-Fi Dashboard Mockup -->
+                                    <div class="w-full max-w-[280px] sm:max-w-[320px] aspect-video bg-white dark:bg-brand-darker rounded-xl border-2 border-gray-100 dark:border-brand-border-dark shadow-xl flex overflow-hidden relative transition-colors duration-200">
+                                        <!-- Sidebar -->
+                                        <div class="w-12 bg-brand-surface dark:bg-dark-bg border-r border-brand-muted dark:border-gray-800 p-2 space-y-3 flex flex-col items-center">
+                                            <div class="w-6 h-6 rounded-lg bg-gradient-to-tr from-brand-secondary to-brand-primary flex items-center justify-center text-white text-xs font-bold">F</div>
+                                            <div class="w-5 h-5 rounded bg-brand-primary/10 dark:bg-white/5 flex items-center justify-center text-brand-primary dark:text-brand-secondary"><i class='bx bxs-dashboard text-xs'></i></div>
+                                            <div class="w-5 h-5 rounded flex items-center justify-center text-gray-400 hover:text-brand-primary"><i class='bx bx-analyse text-xs'></i></div>
+                                        </div>
+                                        <!-- Main body -->
+                                        <div class="flex-1 p-3 flex flex-col justify-between relative">
+                                            <!-- Header hi-fi -->
+                                            <div class="flex justify-between items-center pb-2 border-b border-gray-100 dark:border-gray-800">
+                                                <span class="text-[9px] font-bold text-dark-bg dark:text-white">Projet PHOQ</span>
+                                                <div class="flex items-center gap-1">
+                                                    <!-- Theme toggler -->
+                                                    <div class="w-5 h-3 rounded-full bg-gray-200 dark:bg-brand-primary p-0.5 flex items-center dark:justify-end transition-all">
+                                                        <div class="w-2.5 h-2.5 rounded-full bg-white shadow-sm"></div>
+                                                    </div>
+                                                    <Image loading="lazy" decoding="async" src={imgzx5gtf} alt="Avatar" class="w-4 h-4 rounded-full object-cover border border-brand-primary" />
+                                                </div>
+                                            </div>
+                                            <!-- Grid cards hi-fi -->
+                                            <div class="grid grid-cols-2 gap-2 my-2 flex-1">
+                                                <div class="bg-gradient-to-br from-brand-muted/60 to-brand-surface/60 dark:from-brand-secondary/5 dark:to-brand-primary/5 border border-brand-light/30 dark:border-[#281E5A]/50 rounded-lg p-2 flex flex-col justify-between shadow-sm">
+                                                    <span class="text-[7px] font-semibold text-gray-400">Conversion</span>
+                                                    <div class="flex items-baseline gap-0.5">
+                                                        <span class="text-xs font-extrabold text-brand-primary dark:text-brand-secondary">+35%</span>
+                                                        <span class="text-[6px] text-green-500 font-bold"><i class='bx bx-trending-up'></i></span>
+                                                    </div>
+                                                </div>
+                                                <div class="bg-white dark:bg-brand-dark border border-brand-light/20 dark:border-[#281E5A]/80 rounded-lg p-2 flex flex-col justify-between shadow-sm">
+                                                    <span class="text-[7px] font-semibold text-gray-400">Statut</span>
+                                                    <div class="inline-flex items-center gap-0.5 px-1 py-0.5 rounded-full bg-green-500/10 text-green-500 text-[5px] font-bold w-max">
+                                                        Actif
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Bottom UI status bar -->
+                                            <div class="flex items-center justify-between text-[5px] text-gray-400">
+                                                <span>Synchro OK</span>
+                                                <span class="text-brand-primary dark:text-brand-secondary font-bold">100% opérationnel</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Floating Color Palette Widget -->
+                                    <div class="absolute -top-1 -right-2 bg-white dark:bg-dark-bg border border-brand-light/40 dark:border-[#281E5A] rounded-xl p-2 shadow-xl space-y-1">
+                                        <div class="flex gap-1">
+                                            <div class="w-3 h-3 rounded-full bg-brand-primary"></div>
+                                            <div class="w-3 h-3 rounded-full bg-brand-secondary"></div>
+                                            <div class="w-3 h-3 rounded-full bg-brand-light"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Floating Typography Widget -->
+                                    <div class="absolute -bottom-2 -left-2 bg-white dark:bg-dark-bg border border-brand-light/40 dark:border-[#281E5A] rounded-xl p-2 shadow-xl flex items-center gap-1.5">
+                                        <span class="text-[10px] font-extrabold text-brand-primary dark:text-brand-secondary">Aa</span>
+                                        <span class="text-[7px] font-bold text-dark-bg dark:text-white">Inter</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="process-step group cursor-pointer hover:border-brand-primary/50 dark:hover:border-brand-secondary/50 py-8 lg:py-10 pl-8 relative transition-all duration-300 border-l-2 border-gray-100 dark:border-gray-800" data-step="4">
+                            <div class="absolute -left-[13px] top-8 lg:top-16 bg-gray-200 dark:bg-gray-800 text-gray-500 dark:text-gray-400 rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs step-number-badge group-hover:bg-brand-primary/50 group-hover:text-white dark:group-hover:bg-brand-secondary/50 transition-all duration-300">
+                                4
+                            </div>
+                            <h3 class="font-bold text-xl lg:text-2xl text-gray-400 dark:text-gray-600 group-hover:text-dark-bg dark:group-hover:text-white transition-colors duration-300 step-title">4. Prototype Interactif (Le test)</h3>
+                            <p class="text-gray-400 dark:text-gray-600 group-hover:text-gray-600 dark:group-hover:text-gray-300 mt-2 leading-relaxed text-sm lg:text-base transition-colors duration-300 step-desc">
+                                Je relie les écrans entre eux sur Figma pour créer une simulation cliquable de votre
+                                produit. Vous pouvez tester l'expérience en direct sur votre téléphone ou ordinateur comme
+                                s'il était déjà codé.
+                            </p>
+                            <!-- Mobile-only illustration -->
+                            <div class="block lg:hidden mt-6 w-full aspect-video rounded-2xl bg-brand-surface dark:bg-brand-dark/50 border border-brand-light/20 dark:border-[#281E5A]/50 overflow-hidden relative p-4 flex items-center justify-center">
+                                <!-- Illustration 4: Phone Prototype Mockup -->
+                                <div class="relative w-full h-full flex items-center justify-center p-4 min-h-[260px]">
+                                    <!-- Phone Mockup -->
+                                    <div class="w-32 h-56 rounded-[28px] border-4 border-gray-800 bg-dark-bg shadow-xl p-1 relative overflow-hidden flex flex-col transition-all duration-300">
+                                        <!-- Notch -->
+                                        <div class="absolute top-1 right-1/2 translate-x-1/2 w-10 h-2 bg-gray-800 rounded-b-xl z-20"></div>
+                                        
+                                        <!-- Screen container -->
+                                        <div class="flex-1 rounded-[20px] bg-white dark:bg-brand-dark overflow-hidden p-2.5 flex flex-col justify-between relative transition-colors duration-200">
+                                            <!-- App Header -->
+                                            <div class="flex justify-between items-center mt-1">
+                                                <i class='bx bx-chevron-left text-brand-primary dark:text-brand-secondary text-xs'></i>
+                                                <span class="text-[8px] font-bold text-dark-bg dark:text-white">Validation</span>
+                                                <i class='bx bx-dots-horizontal-rounded text-gray-350 text-xs'></i>
+                                            </div>
+                                            
+                                            <!-- Screen component content -->
+                                            <div class="my-auto space-y-2 text-center">
+                                                <div class="w-8 h-8 rounded-full bg-green-500/10 text-green-500 flex items-center justify-center text-lg mx-auto shadow-inner border border-green-500/20">
+                                                    <i class='bx bx-check-circle animate-pulse'></i>
+                                                </div>
+                                                <span class="text-[8px] font-bold text-dark-bg dark:text-white block">Activer ?</span>
+                                            </div>
+                                            
+                                            <!-- Action Button -->
+                                            <div class="w-full relative mt-auto pb-1">
+                                                <button class="w-full bg-brand-primary dark:bg-brand-secondary text-white text-[7px] font-semibold py-1.5 rounded-lg shadow-md cursor-none flex items-center justify-center gap-1 relative overflow-hidden">
+                                                    <span>Valider</span>
+                                                    <i class='bx bx-right-arrow-alt'></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Floating Wiring Tag -->
+                                    <div class="absolute top-8 right-2 bg-brand-primary text-white rounded px-1.5 py-0.5 text-[6px] font-bold shadow-md animate-pulse">
+                                        OnClick -> Next
+                                    </div>
+                                    
+                                    <!-- Vector cursor pointer -->
+                                    <div class="absolute bottom-10 right-10 z-30 pointer-events-none text-lg text-gray-900 drop-shadow-md animate-bounce">
+                                        <i class='bx bxs-mouse-alt text-dark-bg dark:text-white'></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 5 -->
+                        <div class="process-step group cursor-pointer hover:border-brand-primary/50 dark:hover:border-brand-secondary/50 py-8 lg:py-10 pl-8 relative transition-all duration-300 border-l-2 border-gray-100 dark:border-gray-800" data-step="5">
+                            <div class="absolute -left-[13px] top-8 lg:top-16 bg-gray-200 dark:bg-gray-800 text-gray-500 dark:text-gray-400 rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs step-number-badge group-hover:bg-brand-primary/50 group-hover:text-white dark:group-hover:bg-brand-secondary/50 transition-all duration-300">
+                                5
+                            </div>
+                            <h3 class="font-bold text-xl lg:text-2xl text-gray-400 dark:text-gray-600 group-hover:text-dark-bg dark:group-hover:text-white transition-colors duration-300 step-title">5. Handoff Développeur & Design System (La livraison)</h3>
+                            <p class="text-gray-400 dark:text-gray-600 group-hover:text-gray-600 dark:group-hover:text-gray-300 mt-2 leading-relaxed text-sm lg:text-base transition-colors duration-300 step-desc">
+                                Livraison du fichier de conception Figma parfaitement structuré. Il contient une
+                                bibliothèque d'éléments réutilisables (Design System) et les différents comportements des
+                                boutons (au survol, cliqués) pour faciliter le travail des développeurs.
+                            </p>
+                            <!-- Mobile-only illustration -->
+                            <div class="block lg:hidden mt-6 w-full aspect-video rounded-2xl bg-brand-surface dark:bg-brand-dark/50 border border-brand-light/20 dark:border-[#281E5A]/50 overflow-hidden relative p-4 flex items-center justify-center">
+                                <!-- Illustration 5: Handoff split content -->
+                                <div class="relative w-full h-full flex flex-row items-center justify-center gap-3 p-2 min-h-[260px]">
+                                    <!-- Code Card -->
+                                    <div class="w-1/2 aspect-square bg-[#1E1E2F] border border-gray-800 rounded-lg shadow-md p-2 flex flex-col justify-between font-mono text-[5px] text-[#A9B2C3] relative overflow-hidden">
+                                        <div class="flex items-center justify-between pb-1 border-b border-gray-800 mb-1">
+                                            <span class="text-[4px] text-gray-500">tailwind.config.js</span>
+                                        </div>
+                                        <div class="flex-1 space-y-0.5">
+                                            <p class="text-blue-400">module.exports = {"{"}</p>
+                                            <p class="pl-1 text-purple-400">theme: {"{"}</p>
+                                            <p class="pl-2 text-orange-400">primary: "var(--color-brand-primary)"</p>
+                                            <p class="pl-1 text-white">{"}"}</p>
+                                            <p class="text-white">{"}"}</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Design Card -->
+                                    <div class="w-1/2 aspect-square bg-white dark:bg-brand-dark border-2 border-dashed border-brand-light dark:border-[#281E5A] rounded-lg shadow-md p-2 flex flex-col justify-between relative">
+                                        <span class="text-[6px] font-bold text-brand-primary dark:text-brand-secondary uppercase tracking-wider block">Specs</span>
+                                        <div class="my-auto relative p-2 flex items-center justify-center">
+                                            <div class="absolute inset-0 border border-red-500/40 bg-red-500/5 rounded-lg"></div>
+                                            <button class="relative z-10 bg-brand-primary text-white text-[6px] px-2 py-1 rounded-lg pointer-events-none scale-75">
+                                                Bouton
+                                            </button>
+                                        </div>
+                                        <div class="flex justify-between items-center text-[5px] text-gray-400">
+                                            <span>h: 32px</span>
+                                            <span>r: 12px</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div> <!-- End of stepsTranslateWrapper -->
+                    </div> <!-- End of stepsScrollContainer -->
+
+                    <!-- Right: Sticky Illustrations Container (Large Screens Only) -->
+                    <div class="hidden lg:block lg:sticky lg:top-32 w-full h-[480px] rounded-3xl bg-brand-surface dark:bg-brand-dark/30 border border-brand-light/20 dark:border-[#281E5A]/50 overflow-hidden shadow-inner relative transition-colors duration-200">
+                        
+                        <!-- Illustration 1: Video Call & Calendar -->
+                        <div class="absolute inset-0 transition-all duration-500 flex items-center justify-center p-8 opacity-0 scale-95 pointer-events-none" id="illustration-1">
+                            <div class="relative w-full h-full flex items-center justify-center p-4">
+                                <!-- Video call screen mockup -->
+                                <div class="w-full max-w-[320px] aspect-video bg-white dark:bg-brand-darker rounded-2xl border-2 border-gray-150/80 dark:border-brand-border-dark shadow-xl overflow-hidden relative flex flex-col justify-between p-4 transition-colors duration-200">
+                                    <!-- Video content (Florian profile) -->
+                                    <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-tr from-brand-secondary/20 to-brand-primary/20 dark:from-brand-secondary/10 dark:to-brand-primary/10">
+                                        <div class="relative w-20 h-20 rounded-full border-2 border-brand-primary overflow-hidden shadow-md">
+                                            <Image loading="lazy" decoding="async" src={imgd624hhi} alt="Florian" class="w-full h-full object-cover" />
+                                        </div>
+                                        <!-- Online indicator -->
+                                        <div class="absolute bottom-6 right-1/2 translate-x-12 bg-green-500 border-2 border-white dark:border-brand-darker rounded-full px-2 py-0.5 text-[8px] font-bold text-white uppercase tracking-wider">
+                                            Live
+                                        </div>
+                                    </div>
+                                    <!-- Top bar info -->
+                                    <div class="relative z-10 flex items-center justify-between">
+                                        <span class="text-xs font-bold text-dark-bg dark:text-white bg-white/70 dark:bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full">Florian G. K.</span>
+                                        <div class="flex items-center gap-1">
+                                            <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+                                            <span class="text-xs font-semibold text-red-500">00:12:45</span>
+                                        </div>
+                                    </div>
+                                    <!-- Bottom controls -->
+                                    <div class="relative z-10 flex justify-center gap-3 mt-auto">
+                                        <div class="w-8 h-8 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-sm text-gray-600 dark:text-white cursor-pointer hover:bg-gray-250"><i class='bx bx-microphone'></i></div>
+                                        <div class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-sm text-white cursor-pointer hover:bg-red-650"><i class='bx bx-phone-off'></i></div>
+                                        <div class="w-8 h-8 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-sm text-gray-600 dark:text-white cursor-pointer hover:bg-gray-250"><i class='bx bx-video'></i></div>
+                                    </div>
+                                </div>
+                                <!-- Floating Calendar Invite -->
+                                <div class="absolute top-4 right-4 bg-white dark:bg-dark-bg border border-brand-light/45 dark:border-[#281E5A] rounded-2xl p-4 shadow-2xl flex items-center gap-3.5 animate-bounce" style="animation-duration: 3s;">
+                                    <div class="w-10 h-10 rounded-xl bg-brand-primary/10 text-brand-primary dark:text-white flex items-center justify-center text-xl shrink-0">
+                                        <i class='bx bx-calendar'></i>
+                                    </div>
+                                    <div class="text-left">
+                                        <h5 class="text-xs font-bold text-dark-bg dark:text-white leading-tight">Appel de Cadrage</h5>
+                                        <p class="text-[10px] text-gray-400 mt-0.5">Aujourd'hui, 10h00 (30m)</p>
+                                    </div>
+                                </div>
+                                <!-- Floating target goals -->
+                                <div class="absolute bottom-4 left-4 bg-white dark:bg-dark-bg border border-brand-light/45 dark:border-[#281E5A] rounded-2xl p-4 shadow-2xl flex items-center gap-3.5">
+                                    <div class="w-10 h-10 rounded-xl bg-green-500/10 text-green-500 flex items-center justify-center text-xl shrink-0">
+                                        <i class='bx bx-target-lock'></i>
+                                    </div>
+                                    <div class="text-left">
+                                        <h5 class="text-xs font-bold text-dark-bg dark:text-white leading-tight">Objectifs validés</h5>
+                                        <p class="text-[10px] text-gray-400 mt-0.5">Besoins & Contraintes tech</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Illustration 2: Wireframe Mockup -->
+                        <div class="absolute inset-0 transition-all duration-500 flex items-center justify-center p-8 opacity-0 scale-95 pointer-events-none" id="illustration-2">
+                            <div class="relative w-full h-full flex items-center justify-center p-4">
+                                <!-- Grid Paper style background -->
+                                <div class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(var(--color-brand-border-dark)_1.5px,transparent_1.5px)] [background-size:20px_20px] opacity-70"></div>
+                                
+                                <!-- Wireframe Dashboard Mockup -->
+                                <div class="w-full max-w-[340px] aspect-video bg-white dark:bg-dark-bg rounded-2xl border border-gray-300 dark:border-gray-700 shadow-xl flex overflow-hidden relative transition-colors duration-200">
+                                    <!-- Sidebar -->
+                                    <div class="w-14 border-r border-gray-200 dark:border-gray-800 p-3 space-y-3 flex flex-col items-center">
+                                        <div class="w-8 h-8 rounded-lg bg-gray-200 dark:bg-gray-800"></div>
+                                        <div class="w-6 h-2 rounded bg-gray-100 dark:bg-gray-900"></div>
+                                        <div class="w-6 h-2 rounded bg-gray-100 dark:bg-gray-900"></div>
+                                        <div class="w-6 h-2 rounded bg-gray-100 dark:bg-gray-900"></div>
+                                    </div>
+                                    <!-- Main body -->
+                                    <div class="flex-1 p-4 flex flex-col justify-between relative">
+                                        <!-- Header wireframe -->
+                                        <div class="flex justify-between items-center pb-2 border-b border-gray-150 dark:border-gray-900">
+                                            <div class="w-20 h-4 rounded bg-gray-200 dark:bg-gray-800"></div>
+                                            <div class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800"></div>
+                                        </div>
+                                        <!-- Grid cards wireframe -->
+                                        <div class="grid grid-cols-2 gap-3 my-2 flex-1">
+                                            <div class="border border-dashed border-gray-300 dark:border-gray-700 rounded-xl p-3 flex flex-col justify-between">
+                                                <div class="w-8 h-8 rounded bg-gray-100 dark:bg-gray-800"></div>
+                                                <div class="space-y-1.5">
+                                                    <div class="w-14 h-2 rounded bg-gray-200 dark:bg-gray-800"></div>
+                                                    <div class="w-8 h-1.5 rounded bg-gray-100 dark:bg-gray-900"></div>
+                                                </div>
+                                            </div>
+                                            <div class="border border-dashed border-gray-300 dark:border-gray-700 rounded-xl p-3 flex flex-col justify-between">
+                                                <!-- Image placeholder symbol (cross lines) -->
+                                                <div class="w-full h-10 rounded-lg border border-gray-200 dark:border-gray-800 relative overflow-hidden flex items-center justify-center">
+                                                    <div class="absolute w-full h-[1px] bg-gray-200 dark:bg-gray-850 rotate-12"></div>
+                                                    <div class="absolute w-full h-[1px] bg-gray-200 dark:bg-gray-850 -rotate-12"></div>
+                                                    <i class='bx bx-image text-gray-300 dark:text-gray-700 text-lg'></i>
+                                                </div>
+                                                <div class="w-16 h-2 rounded bg-gray-200 dark:bg-gray-800 mt-1"></div>
+                                            </div>
+                                        </div>
+                                        <!-- Bottom status -->
+                                        <div class="w-full h-4 rounded bg-gray-150 dark:bg-gray-900"></div>
+                                    </div>
+                                </div>
+                                <!-- Flow Arrow Overlay -->
+                                <div class="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col items-center">
+                                    <div class="w-8 h-8 rounded-full bg-brand-primary/10 border border-brand-primary dark:border-brand-secondary flex items-center justify-center text-lg text-brand-primary dark:text-brand-secondary font-bold shadow-xl animate-pulse">
+                                        <i class='bx bx-mouse-pointer'></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Illustration 3: Direction Artistique & UI Premium -->
+                        <div class="absolute inset-0 transition-all duration-500 flex items-center justify-center p-8 opacity-0 scale-95 pointer-events-none" id="illustration-3">
+                            <div class="relative w-full h-full flex items-center justify-center p-4">
+                                <!-- Hi-Fi Dashboard Mockup -->
+                                <div class="w-full max-w-[340px] aspect-video bg-white dark:bg-brand-darker rounded-2xl border-2 border-gray-100 dark:border-brand-border-dark shadow-2xl flex overflow-hidden relative transition-colors duration-200">
+                                    <!-- Sidebar -->
+                                    <div class="w-14 bg-brand-surface dark:bg-dark-bg border-r border-brand-muted dark:border-gray-800 p-3 space-y-4 flex flex-col items-center">
+                                        <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-brand-secondary to-brand-primary flex items-center justify-center text-white font-bold text-sm shadow-md">F</div>
+                                        <div class="w-6 h-6 rounded-lg bg-brand-primary/10 dark:bg-white/5 flex items-center justify-center text-brand-primary dark:text-brand-secondary"><i class='bx bxs-dashboard text-sm'></i></div>
+                                        <div class="w-6 h-6 rounded flex items-center justify-center text-gray-400 hover:text-brand-primary"><i class='bx bx-analyse text-sm'></i></div>
+                                        <div class="w-6 h-6 rounded flex items-center justify-center text-gray-400 hover:text-brand-primary"><i class='bx bx-cog text-sm'></i></div>
+                                    </div>
+                                    <!-- Main body -->
+                                    <div class="flex-1 p-4 flex flex-col justify-between relative">
+                                        <!-- Header hi-fi -->
+                                        <div class="flex justify-between items-center pb-2 border-b border-gray-100 dark:border-gray-800">
+                                            <span class="text-xs font-bold text-dark-bg dark:text-white">Projet PHOQ.tv</span>
+                                            <div class="flex items-center gap-2">
+                                                <!-- Theme toggler -->
+                                                <div class="w-7 h-4 rounded-full bg-gray-250 dark:bg-brand-primary p-0.5 flex items-center dark:justify-end transition-all">
+                                                    <div class="w-3 h-3 rounded-full bg-white shadow-md"></div>
+                                                </div>
+                                                <Image loading="lazy" decoding="async" src={imgpal6qk} alt="Avatar" class="w-6 h-6 rounded-full object-cover border border-brand-primary" />
+                                            </div>
+                                        </div>
+                                        <!-- Grid cards hi-fi -->
+                                        <div class="grid grid-cols-2 gap-3 my-2 flex-1">
+                                            <!-- Card 1 -->
+                                            <div class="bg-gradient-to-br from-brand-muted/60 to-brand-surface/60 dark:from-brand-secondary/5 dark:to-brand-primary/5 border border-brand-light/30 dark:border-[#281E5A]/50 rounded-xl p-3 flex flex-col justify-between shadow-sm">
+                                                <span class="text-[9px] font-semibold text-gray-400">Conversion</span>
+                                                <div class="flex items-baseline gap-1">
+                                                    <span class="text-base font-extrabold text-brand-primary dark:text-brand-secondary">+35%</span>
+                                                    <span class="text-[8px] text-green-500 font-bold"><i class='bx bx-trending-up'></i></span>
+                                                </div>
+                                                <!-- Mini chart bar visual -->
+                                                <div class="flex items-end gap-1 h-5 mt-1">
+                                                    <div class="w-2 h-2.5 rounded-t bg-gray-200 dark:bg-gray-800"></div>
+                                                    <div class="w-2 h-4 rounded-t bg-gray-300 dark:bg-gray-700"></div>
+                                                    <div class="w-2 h-2 rounded-t bg-gray-200 dark:bg-gray-800"></div>
+                                                    <div class="w-2 h-5 rounded-t bg-gradient-to-t from-brand-secondary to-brand-primary shadow-md"></div>
+                                                </div>
+                                            </div>
+                                            <!-- Card 2 -->
+                                            <div class="bg-white dark:bg-brand-dark border border-brand-light/20 dark:border-[#281E5A]/80 rounded-xl p-3 flex flex-col justify-between shadow-sm">
+                                                <span class="text-[9px] font-semibold text-gray-400">Statut</span>
+                                                <div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-green-500/10 text-green-500 text-[8px] font-bold w-max">
+                                                    <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Actif
+                                                </div>
+                                                <div class="w-full h-2 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden mt-2">
+                                                    <div class="w-4/5 h-full bg-brand-primary dark:bg-brand-secondary"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Bottom UI status bar -->
+                                        <div class="flex items-center justify-between text-[7px] text-gray-400">
+                                            <span>Dernière synchro : Il y a 2m</span>
+                                            <span class="text-brand-primary dark:text-brand-secondary font-bold">100% opérationnel</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Floating Color Palette Widget -->
+                                <div class="absolute -top-1 -right-2 bg-white dark:bg-dark-bg border border-brand-light/40 dark:border-[#281E5A] rounded-xl p-3 shadow-xl space-y-1">
+                                    <span class="text-[8px] font-bold text-gray-400 uppercase tracking-wider block">Palette</span>
+                                    <div class="flex gap-1.5">
+                                        <div class="w-4 h-4 rounded-full bg-brand-primary border border-white/20"></div>
+                                        <div class="w-4 h-4 rounded-full bg-brand-secondary border border-white/20"></div>
+                                        <div class="w-4 h-4 rounded-full bg-brand-light border border-white/20"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Floating Typography Widget -->
+                                <div class="absolute -bottom-2 -left-2 bg-white dark:bg-dark-bg border border-brand-light/40 dark:border-[#281E5A] rounded-xl p-2.5 shadow-xl flex items-center gap-2">
+                                    <span class="text-sm font-extrabold text-brand-primary dark:text-brand-secondary">Aa</span>
+                                    <div class="text-left leading-none">
+                                        <span class="text-[9px] font-bold text-dark-bg dark:text-white block">Inter</span>
+                                        <span class="text-[7px] text-gray-400 font-semibold">Sans-serif</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Illustration 4: Phone Prototype Mockup -->
+                        <div class="absolute inset-0 transition-all duration-500 flex items-center justify-center p-8 opacity-0 scale-95 pointer-events-none" id="illustration-4">
+                            <div class="relative w-full h-full flex items-center justify-center p-4">
+                                <!-- Phone Mockup -->
+                                <div class="w-44 h-76 rounded-[36px] border-4 border-gray-800 bg-dark-bg shadow-2xl p-1 relative overflow-hidden flex flex-col transition-all duration-300">
+                                    <!-- Speaker / Notch -->
+                                    <div class="absolute top-1 right-1/2 translate-x-1/2 w-14 h-3 bg-gray-800 rounded-b-xl z-20 flex items-center justify-center">
+                                        <div class="w-5 h-0.5 bg-gray-600 rounded-full"></div>
+                                    </div>
+                                    
+                                    <!-- Screen container -->
+                                    <div class="flex-1 rounded-[28px] bg-white dark:bg-brand-dark overflow-hidden p-4 flex flex-col justify-between relative transition-colors duration-200">
+                                        <!-- App Header -->
+                                        <div class="flex justify-between items-center mt-2">
+                                            <i class='bx bx-chevron-left text-brand-primary dark:text-brand-secondary text-lg cursor-pointer'></i>
+                                            <span class="text-[10px] font-bold text-dark-bg dark:text-white">Validation</span>
+                                            <i class='bx bx-dots-horizontal-rounded text-gray-400 text-xs'></i>
+                                        </div>
+                                        
+                                        <!-- App Body Content -->
+                                        <div class="my-auto space-y-3 text-center">
+                                            <!-- Success circle icon mockup -->
+                                            <div class="w-14 h-14 rounded-full bg-green-500/10 text-green-500 flex items-center justify-center text-2xl mx-auto shadow-inner border border-green-500/20">
+                                                <i class='bx bx-check-circle animate-pulse'></i>
+                                            </div>
+                                            <div class="space-y-1">
+                                                <span class="text-[11px] font-bold text-dark-bg dark:text-white block">Activer le service ?</span>
+                                                <span class="text-[8px] text-gray-400 block leading-tight">Un clic suffit pour lancer le prototype.</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Action Button -->
+                                        <div class="w-full relative mt-auto pb-1">
+                                            <button class="w-full bg-brand-primary dark:bg-brand-secondary text-white text-[9px] font-semibold py-2.5 rounded-xl shadow-md cursor-none flex items-center justify-center gap-1 relative overflow-hidden" id="protoBtn">
+                                                <span>Valider la commande</span>
+                                                <i class='bx bx-right-arrow-alt'></i>
+                                                <!-- Ripple circle effect placeholder -->
+                                                <span class="absolute w-10 h-10 rounded-full bg-white/30 -right-2 top-0 animate-ping"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Floating Prototype Wiring Tag -->
+                                <div class="absolute top-12 right-2 bg-brand-primary text-white rounded-lg px-2.5 py-1 text-[8px] font-bold shadow-md flex items-center gap-1 animate-pulse">
+                                    <i class='bx bx-git-commit'></i> OnClick -> Screen_02
+                                </div>
+                                
+                                <!-- Vector cursor pointer -->
+                                <div class="absolute bottom-16 right-16 z-30 pointer-events-none text-2xl text-gray-900 drop-shadow-md animate-bounce" style="animation-duration: 2s;">
+                                    <i class='bx bxs-mouse-alt text-dark-bg dark:text-white'></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Illustration 5: Handoff & Design System -->
+                        <div class="absolute inset-0 transition-all duration-500 flex items-center justify-center p-8 opacity-0 scale-95 pointer-events-none" id="illustration-5">
+                            <div class="relative w-full h-full flex flex-col sm:flex-row items-center justify-center gap-4 p-4">
+                                <!-- Left: Code Editor Mockup -->
+                                <div class="w-40 sm:w-44 aspect-square bg-[#1E1E2F] border border-gray-800 rounded-xl shadow-lg p-3 flex flex-col justify-between font-mono text-[7px] text-[#A9B2C3] leading-normal relative overflow-hidden transition-colors duration-200">
+                                    <!-- Header bar -->
+                                    <div class="flex items-center justify-between pb-1.5 border-b border-gray-800/80 mb-2">
+                                        <div class="flex gap-1.5">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                                            <span class="w-1.5 h-1.5 rounded-full bg-yellow-500"></span>
+                                            <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                                        </div>
+                                        <span class="text-[5px] text-gray-500 uppercase tracking-widest font-semibold">tailwind.config.js</span>
+                                    </div>
+                                    <!-- Code lines -->
+                                    <div class="flex-1 space-y-1">
+                                        <p class="text-blue-400">module<span class="text-white">.</span>exports <span class="text-white">= {"{"}</span></p>
+                                        <p class="pl-2 text-purple-400">theme<span class="text-white">: {"{"}</span></p>
+                                        <p class="pl-4 text-gray-400">colors<span class="text-white">: {"{"}</span></p>
+                                        <p class="pl-6 text-orange-400">primary<span class="text-white">: </span><span class="text-green-400">"var(--color-brand-primary)"</span><span class="text-white">,</span></p>
+                                        <p class="pl-6 text-orange-400">secondary<span class="text-white">: </span><span class="text-green-400">"var(--color-brand-secondary)"</span></p>
+                                        <p class="pl-4 text-white">{"}"},</p>
+                                        <p class="pl-4 text-gray-400">borderRadius<span class="text-white">: {"{"}</span></p>
+                                        <p class="pl-6 text-orange-400">xl<span class="text-white">: </span><span class="text-green-400">"12px"</span></p>
+                                        <p class="pl-4 text-white">{"}"}</p>
+                                        <p class="pl-2 text-white">{"}"}</p>
+                                        <p class="text-white">{"}"}</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Right: Figma Inspect Card -->
+                                <div class="w-40 sm:w-44 aspect-square bg-white dark:bg-brand-dark border-2 border-dashed border-brand-light dark:border-[#281E5A] rounded-xl shadow-lg p-3 flex flex-col justify-between relative transition-colors duration-200">
+                                    <span class="text-[7px] font-bold text-brand-primary dark:text-brand-secondary uppercase tracking-wider block">Figma Dev Mode</span>
+                                    
+                                    <!-- Button component with Figma measurements -->
+                                    <div class="my-auto relative p-4 flex items-center justify-center">
+                                        <!-- Outline / specs guides -->
+                                        <div class="absolute inset-x-2 inset-y-1 border border-red-500/50 bg-red-500/5 rounded-xl"></div>
+                                        <!-- Horizontal padding lines -->
+                                        <div class="absolute left-2 top-1/2 -translate-y-1/2 w-4 border-t-2 border-red-500 flex items-center justify-center"><span class="text-[5px] text-red-500 font-bold bg-white dark:bg-brand-dark px-0.5 absolute -top-1.5">16</span></div>
+                                        <div class="absolute right-2 top-1/2 -translate-y-1/2 w-4 border-t-2 border-red-500 flex items-center justify-center"><span class="text-[5px] text-red-500 font-bold bg-white dark:bg-brand-dark px-0.5 absolute -top-1.5">16</span></div>
+                                        <!-- Vertical padding lines -->
+                                        <div class="absolute top-1 left-1/2 -translate-x-1/2 h-3 border-l-2 border-red-500 flex items-center justify-center"><span class="text-[5px] text-red-500 font-bold bg-white dark:bg-brand-dark px-0.5 absolute left-1">12</span></div>
+                                        <div class="absolute bottom-1 left-1/2 -translate-x-1/2 h-3 border-l-2 border-red-500 flex items-center justify-center"><span class="text-[5px] text-red-500 font-bold bg-white dark:bg-brand-dark px-0.5 absolute left-1">12</span></div>
+
+                                        <!-- Styled primary button inside -->
+                                        <button class="relative z-10 bg-brand-primary text-white text-[7px] font-semibold px-4 py-2 rounded-xl pointer-events-none shadow-sm flex items-center gap-1">
+                                            <span>Bouton</span>
+                                            <i class='bx bx-check-double'></i>
+                                        </button>
+                                    </div>
+                                    
+                                    <!-- Component specs description -->
+                                    <div class="flex justify-between items-center text-[6px] text-gray-400 font-mono">
+                                        <span>h: 32px</span>
+                                        <span>r: 12px (xl)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+        <!-- 4b. LA COLLABORATION (CONCRET ET ASYNCHRONE) -->
+        <section class="w-full px-8 lg:px-32 py-16 bg-brand-surface dark:bg-brand-dark">
+            <div class="max-w-5xl mx-auto space-y-12">
+                <div class="text-center space-y-4">
+                    <span class="text-sm font-bold text-brand-primary dark:text-brand-secondary uppercase">Au quotidien</span>
+                    <h2 class="text-3xl lg:text-4xl font-bold text-dark-bg dark:text-white">
+                        Une collaboration fluide, de bout en bout
+                    </h2>
+                    <p class="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
+                        Pas de réunions interminables ni de longs fils d'e-mails. J'utilise des méthodes modernes pour
+                        avancer rapidement et vous laisser le plein contrôle sur le projet.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Card 1 -->
+                    <div
+                        class="bg-white dark:bg-dark-bg border border-gray-100 dark:border-gray-800 p-6 rounded-2xl flex flex-col gap-4 animate-on-scroll transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:border-brand-primary/30 dark:hover:border-brand-secondary/30">
+                        <div
+                            class="flex items-center justify-center w-10 h-10 rounded-xl bg-brand-primary/10 text-brand-primary dark:text-white text-xl shrink-0">
+                            <i class='bx bx-message-rounded-dots'></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-dark-bg dark:text-white mb-2">Canaux directs & réactifs
+                            </h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                                Slack, WhatsApp, Telegram ou LinkedIn. Nous ouvrons un canal sur votre outil préféré pour
+                                échanger simplement au quotidien, sans formalités inutiles.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-white dark:bg-dark-bg border border-gray-100 dark:border-gray-800 p-6 rounded-2xl flex flex-col gap-4 animate-on-scroll transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:border-brand-primary/30 dark:hover:border-brand-secondary/30"
+                        style="transition-delay: 100ms;">
+                        <div
+                            class="flex items-center justify-center w-10 h-10 rounded-xl bg-brand-primary/10 text-brand-primary dark:text-white text-xl shrink-0">
+                            <i class='bx bx-video'></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-dark-bg dark:text-white mb-2">Présentations vidéo
+                            </h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                                Plutôt que de bloquer 1 heure dans votre agenda, je vous envoie de courtes vidéos
+                                explicatives pour présenter mes choix de design. Vous commentez à votre rythme.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-white dark:bg-dark-bg border border-gray-100 dark:border-gray-800 p-6 rounded-2xl flex flex-col gap-4 animate-on-scroll transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:border-brand-primary/30 dark:hover:border-brand-secondary/30"
+                        style="transition-delay: 200ms;">
+                        <div
+                            class="flex items-center justify-center w-10 h-10 rounded-xl bg-brand-primary/10 text-brand-primary dark:text-white text-xl shrink-0">
+                            <i class='bx bx-navigation'></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-dark-bg dark:text-white mb-2">Feedback visuel sur Figma
+                            </h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                                Vous pouvez poser des commentaires précis à l'endroit exact de la maquette qui vous fait
+                                réagir. C'est simple, extrêmement visuel et cela évite les quiproquos.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="bg-white dark:bg-dark-bg border border-gray-100 dark:border-gray-800 p-6 rounded-2xl flex flex-col gap-4 animate-on-scroll transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:border-brand-primary/30 dark:hover:border-brand-secondary/30"
+                        style="transition-delay: 300ms;">
+                        <div
+                            class="flex items-center justify-center w-10 h-10 rounded-xl bg-brand-primary/10 text-brand-primary dark:text-white text-xl shrink-0">
+                            <i class='bx bx-sync'></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-dark-bg dark:text-white mb-2">Ajustements continus</h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                                Pas d'effet de surprise à la livraison. Vous suivez l'avancée de la conception au fil de
+                                l’eau, ce qui nous permet d'ajuster le tir en direct sans perdre de temps.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+

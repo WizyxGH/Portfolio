@@ -2,7 +2,8 @@
 id: 15
 title: "DuMILi"
 description: "Design d'un SaaS permettant d'aider grâce à l'IA à générer des index de BD Disney pour la base de données Inducks."
-image: "/assets/media/projects/dumili.webp"
+image: "../../assets/media/projects/dumili.webp"
+image_alt: "Aperçu du saas pour DuMILi"
 type: "SaaS"
 context: "Personnel"
 date: "2025-02-01"

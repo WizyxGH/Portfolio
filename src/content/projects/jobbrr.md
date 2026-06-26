@@ -2,7 +2,8 @@
 id: 2
 title: "JOBBRR"
 description: "Design des pages d’accueil et profils pour une plateforme de mise en relation professionnelle entre étudiants et entreprises."
-image: "/assets/media/projects/jobbrr.webp"
+image: "../../assets/media/projects/jobbrr.webp"
+image_alt: "Aperçu du site internet pour JOBBRR"
 type: "Site internet"
 context: "Professionnel"
 date: "2025-12-01"

@@ -2,7 +2,8 @@
 id: 20
 title: "Ballon Nike Academy Team"
 description: "Design de la page produit d'un ballon de football."
-image: "/assets/media/projects/ballonfoot.webp"
+image: "../../assets/media/projects/ballonfoot.webp"
+image_alt: "Aperçu du site internet pour Ballon Nike Academy Team"
 type: "Site internet"
 context: "Scolaire"
 date: "2024-04-01"

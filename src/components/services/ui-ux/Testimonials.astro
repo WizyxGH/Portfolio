@@ -1,0 +1,357 @@
+---
+import { Image } from 'astro:assets';
+import imgpma8t from '../../../assets/media/brands/Kosmos Digital.png';
+import imgzu1uh from '../../../assets/media/brands/Game4Creator.png';
+import img3193r9 from '../../../assets/media/photo/thibautmaensrabier.webp';
+import imgo8hvif from '../../../assets/media/photo/lucaskacem.webp';
+import imgs1qphp from '../../../assets/media/photo/carolineaubert.webp';
+import imgzcgwy from '../../../assets/media/photo/jonathanvaissiere.webp';
+import imgbqhsfc from '../../../assets/media/photo/maximeclick.webp';
+import imgPhoq from '../../../assets/media/brands/PHOQTV.svg';
+import imgDigital from '../../../assets/media/brands/Digital Unicorn.svg';
+import imgMafigue from '../../../assets/media/brands/Mafigue.svg';
+import imgJobbrr from '../../../assets/media/brands/JOBBRR.svg';
+---
+        <!-- 6. TEMOIGNAGES & DEMO CLIENTS -->
+        <section class="w-full px-8 lg:px-32 py-16 bg-brand-surface dark:bg-brand-dark text-center space-y-16">
+            <div class="space-y-4 flex flex-col items-center animate-on-scroll">
+                <span class="text-sm font-bold text-brand-primary dark:text-brand-secondary uppercase">Témoignages & Démos</span>
+                <h2 class="text-3xl lg:text-4xl font-bold text-dark-bg dark:text-white">Des résultats mesurables</h2>
+                <!-- Global Social Proof Badge -->
+                <div class="inline-flex items-center gap-2 bg-brand-surface dark:bg-brand-dark border border-brand-light/30 dark:border-[#281E5A]/50 px-4 py-2 rounded-2xl shadow-sm">
+                    <div class="flex gap-0.5 text-yellow-400 text-sm">
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <span class="text-xs text-gray-500 dark:text-gray-400 font-semibold leading-none">
+                        <strong class="text-brand-primary dark:text-brand-secondary font-bold">5/5</strong> basé sur <strong class="text-dark-bg dark:text-white font-bold">3 avis</strong>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Bandeau de logos de marques (Social Proof) -->
+            <div class="max-w-6xl mx-auto py-8 border-y border-gray-100 dark:border-gray-800/80 animate-on-scroll">
+                <p class="text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-6">
+                    Ils recommandent mon expertise ou ont collaboré avec moi
+                </p>
+                <div class="grid grid-cols-3 gap-6 items-center justify-items-center md:flex md:flex-wrap md:justify-center md:gap-16">
+                    <Image loading="lazy" decoding="async" src={imgPhoq} alt="PHOQ.tv"
+                        class="h-6 md:h-8 w-auto object-contain brightness-0 dark:brightness-100 opacity-40 hover:opacity-100 hover:scale-105 transition-all duration-300" />
+                    <Image loading="lazy" decoding="async" src={imgDigital} alt="Digital Unicorn"
+                        class="h-6 md:h-8 w-auto object-contain brightness-0 dark:brightness-100 opacity-40 hover:opacity-100 hover:scale-105 transition-all duration-300" />
+                    <Image loading="lazy" decoding="async" src={imgpma8t} alt="Kosmos Digital"
+                        class="h-6 md:h-8 w-auto object-contain brightness-0 dark:brightness-100 opacity-40 hover:opacity-100 hover:scale-105 transition-all duration-300" />
+                    <Image loading="lazy" decoding="async" src={imgMafigue} alt="Mafigue"
+                        class="h-7 md:h-9 w-auto object-contain brightness-0 dark:brightness-100 opacity-40 hover:opacity-100 hover:scale-105 transition-all duration-300" />
+                    <Image loading="lazy" decoding="async" src={imgJobbrr} alt="JOBBRR"
+                        class="h-5 md:h-7 w-auto object-contain brightness-0 dark:brightness-100 opacity-40 hover:opacity-100 hover:scale-105 transition-all duration-300" />
+                    <Image loading="lazy" decoding="async" src={imgzu1uh} alt="Game4Creator"
+                        class="h-6 md:h-8 w-auto object-contain brightness-0 dark:brightness-100 opacity-40 hover:opacity-100 hover:scale-105 transition-all duration-300" />
+                </div>
+            </div>
+
+            <!-- Chiffres Clés & ROI (Impact quantitatif) -->
+            <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12 animate-on-scroll">
+                <div
+                    class="bg-brand-muted/30 dark:bg-brand-secondary/5 border border-brand-light/30 dark:border-[#281E5A]/50 p-5 rounded-2xl text-center transition-all hover:scale-[1.02] hover:shadow-lg hover:border-brand-primary dark:hover:border-brand-secondary group">
+                    <p class="text-3xl font-extrabold text-brand-primary dark:text-brand-secondary mb-2">+35%</p>
+                    <p class="text-xs font-bold text-dark-bg dark:text-white mb-1">Taux de Conversion</p>
+                    <p class="text-[10px] text-gray-500 dark:text-gray-400">Hausse moyenne constatée après refonte</p>
+                </div>
+                <div
+                    class="bg-brand-muted/30 dark:bg-brand-secondary/5 border border-brand-light/30 dark:border-[#281E5A]/50 p-5 rounded-2xl text-center transition-all hover:scale-[1.02] hover:shadow-lg hover:border-brand-primary dark:hover:border-brand-secondary group">
+                    <p class="text-3xl font-extrabold text-brand-primary dark:text-brand-secondary mb-2">-50%</p>
+                    <p class="text-xs font-bold text-dark-bg dark:text-white mb-1">Temps d'Intégration</p>
+                    <p class="text-[10px] text-gray-500 dark:text-gray-400">Moins d'allers-retours dev/design</p>
+                </div>
+                <div
+                    class="bg-brand-muted/30 dark:bg-brand-secondary/5 border border-brand-light/30 dark:border-[#281E5A]/50 p-5 rounded-2xl text-center transition-all hover:scale-[1.02] hover:shadow-lg hover:border-brand-primary dark:hover:border-brand-secondary group">
+                    <p class="text-3xl font-extrabold text-brand-primary dark:text-brand-secondary mb-2">2x plus vite</p>
+                    <p class="text-xs font-bold text-dark-bg dark:text-white mb-1">Time to Market</p>
+                    <p class="text-[10px] text-gray-500 dark:text-gray-400">Méthode collaborative et asynchrone</p>
+                </div>
+                <div
+                    class="bg-brand-muted/30 dark:bg-brand-secondary/5 border border-brand-light/30 dark:border-[#281E5A]/50 p-5 rounded-2xl text-center transition-all hover:scale-[1.02] hover:shadow-lg hover:border-brand-primary dark:hover:border-brand-secondary group">
+                    <p class="text-3xl font-extrabold text-brand-primary dark:text-brand-secondary mb-2">100%</p>
+                    <p class="text-xs font-bold text-dark-bg dark:text-white mb-1">Respect des Délais</p>
+                    <p class="text-[10px] text-gray-500 dark:text-gray-400">Livraison progressive et validée</p>
+                </div>
+            </div>
+
+            <!-- Témoignage Vedette (Avec Vidéo) -->
+            <div class="max-w-5xl mx-auto flex flex-col lg:flex-row gap-8 items-stretch mb-12">
+                <!-- Testimonial Card (Left) -->
+                <div
+                    class="lg:w-1/2 bg-brand-muted dark:bg-brand-secondary dark:bg-opacity-[0.10] border-2 border-brand-light dark:border-[#281E5A] text-left p-6 rounded-2xl flex flex-col justify-between animate-on-scroll transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl hover:border-brand-primary dark:hover:border-brand-secondary group">
+                    <div class="flex flex-col">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="text-brand-primary/20 dark:text-brand-secondary/20 text-4xl transition-colors group-hover:text-brand-primary dark:group-hover:text-brand-secondary">
+                                <i class='bx bxs-quote-left'></i>
+                            </div>
+                            <!-- Stars -->
+                            <div class="flex gap-0.5 text-yellow-400 text-base">
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                            </div>
+                        </div>
+                        <p class="text-dark-bg dark:text-white leading-relaxed italic mb-6">
+                            "Lorem ipsum dolor sit"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 mt-auto">
+                        <Image loading="lazy" decoding="async" src={img3193r9} alt="Thibaut Maëns Rabier"
+                            class="w-12 h-12 rounded-full object-cover shrink-0" />
+                        <div>
+                            <h4 class="font-bold text-brand-primary dark:text-brand-secondary">
+                                <a href="https://www.linkedin.com/in/thibaut-rabier/" target="_blank"
+                                    rel="noopener noreferrer" class="hover:underline inline-flex items-center gap-1">
+                                    Thibaut Maëns Rabier
+                                    <i class='bx bxl-linkedin-square text-sm opacity-70 hover:opacity-100'></i>
+                                </a>
+                            </h4>
+                            <p class="text-xs text-gray-500 dark:text-gray-400">
+                                Founder & Creative Producer,
+                                <a href="https://phoq.tv" target="_blank" rel="noopener noreferrer"
+                                    class="hover:underline font-semibold text-brand-primary dark:text-brand-secondary">PHOQ.tv</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Showcase Player (Right) -->
+                <div class="lg:w-1/2 bg-white dark:bg-dark-bg border-2 border-gray-100 dark:border-gray-800 p-4 rounded-2xl flex flex-col justify-between animate-on-scroll transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl hover:border-brand-primary/30 dark:hover:border-brand-secondary/30 group"
+                    style="transition-delay: 150ms;">
+                    <div
+                        class="relative w-full aspect-video rounded-xl overflow-hidden bg-black border border-gray-200 dark:border-gray-800 shadow-md">
+                        <video id="demoVideo" class="w-full h-full object-cover" controls preload="metadata"
+                            poster="/assets/media/projects/phoq.webp">
+                            <source src="/assets/media/projects/maximeclick.webm" type="video/webm">
+                            Votre navigateur ne supporte pas le lecteur vidéo.
+                        </video>
+                    </div>
+                    <div class="text-left mt-4 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h4 class="font-bold text-lg text-dark-bg dark:text-white flex items-center gap-2">
+                                <i class='bx bx-play-circle text-brand-primary dark:text-brand-secondary text-xl'></i>
+                                Présentation vidéo du projet PHOQ.tv
+                            </h4>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                                Découvrez le prototype interactif Figma, les animations fluides et l'intégration
+                                responsive
+                                conçus pour ce projet.
+                            </p>
+                        </div>
+
+                        <!-- Impact & KPIs -->
+                        <div class="border-t border-brand-primary/15 dark:border-brand-secondary/20 pt-3 mt-4 space-y-1 text-xs">
+                            <p class="text-gray-500 dark:text-gray-400 flex items-start gap-2"><i
+                                    class='bx bx-check text-green-500 text-base shrink-0 mt-0.5'></i>Redesign Landing
+                                Page</p>
+                            <p class="text-gray-500 dark:text-gray-400 flex items-start gap-2"><i
+                                    class='bx bx-check text-green-500 text-base shrink-0 mt-0.5'></i>Intégration dev
+                                100% fluide (zéro bug)</p>
+                            <p class="text-gray-500 dark:text-gray-400 flex items-start gap-2"><i
+                                    class='bx bx-check text-green-500 text-base shrink-0 mt-0.5'></i>Design premium
+                                aligné à l'identité créative</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Autres Recommandations -->
+            <div class="max-w-5xl mx-auto space-y-6 pt-4">
+                <div class="text-left px-2">
+                    <h3 class="text-xl font-bold text-dark-bg dark:text-white flex items-center gap-2">
+                        <i class='bx bxs-badge-check text-brand-primary dark:text-brand-secondary'></i>
+                        Ils recommandent également mon travail
+                    </h3>
+                </div>
+
+                <!-- Testimonials Carousel Container -->
+                <div class="relative w-full overflow-hidden py-4 px-2" id="testimonialsCarousel">
+                    <!-- Testimonials Track -->
+                    <div class="flex flex-row flex-nowrap transition-transform duration-500 ease-in-out gap-6 w-full" id="testimonialsTrack">
+                        <!-- Lucas Kacem -->
+                        <div class="testimonial-slide w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 select-none bg-brand-muted dark:bg-brand-secondary dark:bg-opacity-[0.10] border-2 border-brand-light dark:border-[#281E5A] p-6 rounded-2xl flex flex-col justify-between animate-on-scroll transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl hover:border-brand-primary dark:hover:border-brand-secondary group">
+                            <div class="flex flex-col">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="text-brand-primary/20 dark:text-brand-secondary/20 text-3xl transition-colors group-hover:text-brand-primary dark:group-hover:text-brand-secondary">
+                                        <i class='bx bxs-quote-left'></i>
+                                    </div>
+                                    <!-- Stars -->
+                                    <div class="flex gap-0.5 text-yellow-400 text-sm">
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed italic mb-4 text-left">
+                                    "Florian a fait son stage chez Digital Unicorn en tant que UI/UX Designer et ça a été un
+                                    vrai plaisir de travailler avec lui. Super impliqué, intelligent et toujours dans
+                                    l’action, il a vraiment apporté de la valeur à l’équipe. 💪👋"
+                                </p>
+                            </div>
+                            <div class="flex gap-3 mt-auto text-left">
+                                <Image loading="lazy" decoding="async" src={imgo8hvif} alt="Lucas Kacem"
+                                    class="w-10 h-10 rounded-full object-cover shrink-0" />
+                                <div>
+                                    <h4 class="font-bold text-sm text-brand-primary dark:text-brand-secondary">
+                                        <a href="https://www.linkedin.com/in/lucas-kacem/" target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="hover:underline inline-flex items-center gap-1">
+                                            Lucas Kacem
+                                            <i class='bx bxl-linkedin-square text-sm opacity-70 hover:opacity-100'></i>
+                                        </a>
+                                    </h4>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">
+                                        Co-fondateur & Président,
+                                        <a href="https://digitalunicorn.fr" target="_blank" rel="noopener noreferrer"
+                                            class="hover:underline font-semibold text-brand-primary dark:text-brand-secondary">Digital
+                                            Unicorn</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Caroline Aubert -->
+                        <div class="testimonial-slide w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 select-none bg-brand-muted dark:bg-brand-secondary dark:bg-opacity-[0.10] border-2 border-brand-light dark:border-[#281E5A] p-6 rounded-2xl flex flex-col justify-between animate-on-scroll transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl hover:border-brand-primary dark:hover:border-brand-secondary group"
+                            style="transition-delay: 100ms;">
+                            <div class="flex flex-col">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="text-brand-primary/20 dark:text-brand-secondary/20 text-3xl transition-colors group-hover:text-brand-primary dark:group-hover:text-brand-secondary">
+                                        <i class='bx bxs-quote-left'></i>
+                                    </div>
+                                    <!-- Stars -->
+                                    <div class="flex gap-0.5 text-yellow-400 text-sm">
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed italic mb-4 text-left">
+                                    "J'ai eu la chance d'avoir Florian en stage pendant deux mois. Motivé, hyper proactif,
+                                    enseignable, il a su être opérationnel dès le départ. Il a une très bonne appétence pour
+                                    tout ce qui touche au rédactionnel et est force de proposition. C'est un expert de
+                                    l'Auto-layout Figma."
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-3 mt-auto text-left">
+                                <Image loading="lazy" decoding="async" src={imgs1qphp} alt="Caroline Aubert"
+                                    class="w-10 h-10 rounded-full object-cover shrink-0" />
+                                <div>
+                                    <h4 class="font-bold text-sm text-brand-primary dark:text-brand-secondary">
+                                        <a href="https://www.linkedin.com/in/caroline-aubert-mafigue/" target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="hover:underline inline-flex items-center gap-1">
+                                            Caroline Aubert
+                                            <i class='bx bxl-linkedin-square text-sm opacity-70 hover:opacity-100'></i>
+                                        </a>
+                                    </h4>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">
+                                        Product Designer,
+                                        <a href="https://www.mafigue.com" target="_blank" rel="noopener noreferrer"
+                                            class="hover:underline font-semibold text-brand-primary dark:text-brand-secondary">Mafigue</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Jonathan Vaissière -->
+                        <div class="testimonial-slide w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 select-none bg-brand-muted dark:bg-brand-secondary dark:bg-opacity-[0.10] border-2 border-brand-light dark:border-[#281E5A] p-6 rounded-2xl flex flex-col justify-between animate-on-scroll transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl hover:border-brand-primary dark:hover:border-brand-secondary group"
+                            style="transition-delay: 200ms;">
+                            <div class="flex flex-col">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="text-brand-primary/20 dark:text-brand-secondary/20 text-3xl transition-colors group-hover:text-brand-primary dark:group-hover:text-brand-secondary">
+                                        <i class='bx bxs-quote-left'></i>
+                                    </div>
+                                    <!-- Stars -->
+                                    <div class="flex gap-0.5 text-yellow-400 text-sm">
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed italic mb-4 text-left">
+                                    "Un travail pro et sérieux comme on aime et surtout comme on a BESOIN ! Florian a fait
+                                    partie de l’équipe qui nous a conçu les maquettes de notre dernière version et ce fut un
+                                    régal de travailler ensemble. Rapide, efficace et agréable. Merci encore !"
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-3 mt-auto text-left">
+                                <Image loading="lazy" decoding="async" src={imgzcgwy} alt="Jonathan Vaissière"
+                                    class="w-10 h-10 rounded-full object-cover shrink-0" />
+                                <div>
+                                    <h4 class="font-bold text-sm text-brand-primary dark:text-brand-secondary">
+                                        <a href="https://www.linkedin.com/in/jonathan-vaissiere/" target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="hover:underline inline-flex items-center gap-1">
+                                            Jonathan Vaissière
+                                            <i class='bx bxl-linkedin-square text-sm opacity-70 hover:opacity-100'></i>
+                                        </a>
+                                    </h4>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">
+                                        Entrepreneur,
+                                        <a href="https://guidedugolfe.com" target="_blank" rel="noopener noreferrer"
+                                            class="hover:underline font-semibold text-brand-primary dark:text-brand-secondary">Le
+                                            Guide du Golfe</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Maxime Click -->
+                        <div class="testimonial-slide w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 select-none bg-brand-muted dark:bg-brand-secondary dark:bg-opacity-[0.10] border-2 border-brand-light dark:border-[#281E5A] p-6 rounded-2xl flex flex-col justify-between animate-on-scroll transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl hover:border-brand-primary dark:hover:border-brand-secondary group"
+                            style="transition-delay: 300ms;">
+                            <div class="flex flex-col">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="text-brand-primary/20 dark:text-brand-secondary/20 text-3xl transition-colors group-hover:text-brand-primary dark:group-hover:text-brand-secondary">
+                                        <i class='bx bxs-quote-left'></i>
+                                    </div>
+                                    <!-- Stars -->
+                                    <div class="flex gap-0.5 text-yellow-400 text-sm">
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed italic mb-4 text-left">
+                                    "Je l'ai vu direct !! Très fort 👍"
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-3 mt-auto text-left">
+                                <Image loading="lazy" decoding="async" src={imgbqhsfc} alt="Maxime Peiffer"
+                                    class="w-10 h-10 rounded-full object-cover shrink-0" />
+                                <div>
+                                    <h4 class="font-bold text-sm text-brand-primary dark:text-brand-secondary">
+                                        <a href="https://www.youtube.com/@MaximeClick" target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="hover:underline inline-flex items-center gap-1">
+                                            Maxime "Click" Peiffer
+                                            <i class='bx bxl-youtube text-sm opacity-70 hover:opacity-100'></i>
+                                        </a>
+                                    </h4>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">
+                                        Créateur de contenu (1.1M sur YouTube)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation indicators (dots) -->
+                    <div class="flex justify-center gap-2 mt-6" id="carouselDots">
+                        <!-- Dots will be dynamically generated via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>

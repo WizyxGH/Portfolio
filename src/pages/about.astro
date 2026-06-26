@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import imglyi46 from '../assets/media/profilepicturepro.webp';
+import imgcaddkh from '../assets/media/CV.webp';
 import Layout from '../layouts/Layout.astro';
 ---
 <Layout title="À propos" description="Étudiant de 22 ans passionné par l'UI/UX Design, l'écriture et le voyage. Découvrez mon parcours, mes" body_class="">
@@ -55,16 +58,16 @@ import Layout from '../layouts/Layout.astro';
                 </div>
                 <!-- Profile Picture -->
                 <div class="relative w-full h-full rounded-full p-1.5"
-                    style="background: linear-gradient(to top right, #411FEB, #7000FF); box-shadow: 0 10px 40px -10px rgba(65,31,235,0.6);">
-                    <img id="profile-pic" src="/assets/media/profilepicturepro.webp" alt="Florian Gertner Kilian"
-                        class="w-full h-full rounded-full object-cover outline-4 border-[#2200CE] relative z-0 transition-all duration-500 ease-in-out">
+                    style="background: linear-gradient(to top right, var(--color-brand-primary), #7000FF); box-shadow: 0 10px 40px -10px rgba(65,31,235,0.6);">
+                    <Image loading="lazy" decoding="async" id="profile-pic" src={imglyi46} alt="Florian Gertner Kilian"
+                        class="w-full h-full rounded-full object-cover outline-4 border-[#2200CE] relative z-0 transition-all duration-500 ease-in-out" />
                 </div>
             </div>
 
             <div class="space-y-2">
-                <h1 class="text-5xl font-bold text-[#121212] dark:text-white leading-tight"
+                <h1 class="text-5xl font-bold text-dark-bg dark:text-white leading-tight"
                     style="font-family: 'Inter', sans-serif;">
-                    Florian <span class="text-[#121212] dark:text-white">Gertner Kilian</span>
+                    Florian <span class="text-dark-bg dark:text-white">Gertner Kilian</span>
                 </h1>
                 <p class="lg:text-2xl text-gray-500 font-semibold dark:text-gray-400">
                     UI/UX Designer
@@ -77,10 +80,10 @@ import Layout from '../layouts/Layout.astro';
             class="card-bg border border-[rgba(65,31,235,0.24)] dark:border-[rgba(85,54,237,0.24)] flex flex-col items-start gap-8 self-stretch p-8"
             style="border-radius: 16px;">
             <div class="flex flex-col gap-4">
-                <span class="text-xs font-bold text-[#411FEB] dark:text-[#5536ED] uppercase block">Mon histoire</span>
-                <h2 class="text-2xl font-bold text-[#121212] dark:text-white leading-relaxed">
+                <span class="text-xs font-bold text-brand-primary dark:text-brand-secondary uppercase block">Mon histoire</span>
+                <h2 class="text-2xl font-bold text-dark-bg dark:text-white leading-relaxed">
                     Pourquoi exercer le métier d'<span class="font-bold text-transparent bg-clip-text"
-                        style="background: linear-gradient(180deg, #411FEB 0%, #251285 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">UI/UX
+                        style="background: linear-gradient(180deg, var(--color-brand-primary) 0%, #251285 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">UI/UX
                         Designer freelance</span> ?
                 </h2>
                 <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -101,9 +104,9 @@ import Layout from '../layouts/Layout.astro';
                 <!-- Item 1 -->
                 <div class="relative flex flex-col gap-3">
                     <!-- Dot -->
-                    <span class="absolute rounded-full bg-[#411FEB]"
+                    <span class="absolute rounded-full bg-brand-primary"
                         style="left: -34px; top: 8px; width: 16px; height: 16px; z-index: 10;"></span>
-                    <h3 class="font-bold text-xl text-[#121212] dark:text-white">Apprentissages</h3>
+                    <h3 class="font-bold text-xl text-dark-bg dark:text-white">Apprentissages</h3>
                     <p class="text-gray-600 dark:text-gray-300 text-sm lg:text-base leading-7 text-justify">
                         De ce fait, après avoir longtemps expérimenté dans mon coin comme <strong>autodidacte</strong>,
                         devant la complexité technique que représente ce merveilleux outil, j'ai décidé de m'orienter
@@ -123,9 +126,9 @@ import Layout from '../layouts/Layout.astro';
 
                 <!-- Item 2 -->
                 <div class="relative flex flex-col gap-3">
-                    <span class="absolute rounded-full bg-[#411FEB]"
+                    <span class="absolute rounded-full bg-brand-primary"
                         style="left: -34px; top: 8px; width: 16px; height: 16px; z-index: 10;"></span>
-                    <h3 class="font-bold text-xl text-[#121212] dark:text-white">Passions</h3>
+                    <h3 class="font-bold text-xl text-dark-bg dark:text-white">Passions</h3>
                     <p class="text-gray-600 dark:text-gray-300 text-sm lg:text-base leading-7 text-justify">
                         Ce <strong>besoin d'entraide et de partage</strong>, je le transmet aussi par
                         l'<strong>écriture</strong>. C'est un <strong>vecteur d'échange</strong> bien pratique qui me
@@ -139,9 +142,9 @@ import Layout from '../layouts/Layout.astro';
 
                 <!-- Item 3 -->
                 <div class="relative flex flex-col gap-3">
-                    <span class="absolute rounded-full bg-[#411FEB]"
+                    <span class="absolute rounded-full bg-brand-primary"
                         style="left: -34px; top: 8px; width: 16px; height: 16px; z-index: 10;"></span>
-                    <h3 class="font-bold text-xl text-[#121212] dark:text-white">Voyages</h3>
+                    <h3 class="font-bold text-xl text-dark-bg dark:text-white">Voyages</h3>
                     <p class="text-gray-600 dark:text-gray-300 text-sm lg:text-base leading-7 text-justify">
                         Mes parents m'ont donné leur <strong>goût du voyage</strong>. Rien de mieux pour
                         <strong>comprendre le monde qui nous entoure</strong> que le <strong>parcourir et
@@ -154,9 +157,9 @@ import Layout from '../layouts/Layout.astro';
 
                 <!-- Item 4 -->
                 <div class="relative flex flex-col gap-3">
-                    <span class="absolute rounded-full bg-[#411FEB]"
+                    <span class="absolute rounded-full bg-brand-primary"
                         style="left: -34px; top: 8px; width: 16px; height: 16px; z-index: 10;"></span>
-                    <h3 class="font-bold text-xl text-[#121212] dark:text-white">Esprit sportif</h3>
+                    <h3 class="font-bold text-xl text-dark-bg dark:text-white">Esprit sportif</h3>
                     <p class="text-gray-600 dark:text-gray-300 text-sm lg:text-base leading-7 text-justify">
                         J'ai toujours eu l'envie de <strong>bouger</strong> et de <strong>me surpasser</strong>. Le
                         <strong>sport</strong> est donc un moyen évident. Que cela passe
@@ -165,7 +168,7 @@ import Layout from '../layouts/Layout.astro';
                         <strong>surpassant physiquement et mentalement</strong> grâce à la course à pied.
                     </p>
 
-                    <p class="font-bold text-[#121212] dark:text-white uppercase text-xs opacity-80 mb-2">
+                    <p class="font-bold text-dark-bg dark:text-white uppercase text-xs opacity-80 mb-2">
                         Objectifs :</p>
                     <ul class="list-disc pl-5 text-sm text-gray-700 dark:text-gray-300">
                         <li>Courir 10 km par jour pendant 100j ✅</li>
@@ -183,8 +186,8 @@ import Layout from '../layouts/Layout.astro';
             class="card-bg shadow-[0_10px_60px_-15px_rgba(0,0,0,0.03)] border border-[rgba(65,31,235,0.24)] dark:border-[rgba(85,54,237,0.24)] flex flex-col items-start gap-8 self-stretch p-8"
             style="border-radius: 16px;">
             <div class="mb-12 flex flex-col gap-4">
-                <span class="text-sm font-bold text-[#411FEB] dark:text-[#5536ED] uppercase block">Citations</span>
-                <h2 class="text-2xl font-bold text-[#121212] dark:text-white leading-relaxed">
+                <span class="text-sm font-bold text-brand-primary dark:text-brand-secondary uppercase block">Citations</span>
+                <h2 class="text-2xl font-bold text-dark-bg dark:text-white leading-relaxed">
                     Mon état d'esprit</h2>
                 <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
                     Enthousiaste, curieux et toujours optimiste, je donne le meilleur de moi-même pour exprimer ma
@@ -198,10 +201,10 @@ import Layout from '../layouts/Layout.astro';
                 <!-- Quote 1 -->
                 <div class="flex items-stretch h-full hover:shadow-sm transition-shadow"
                     style="border-top-right-radius: 24px; border-bottom-right-radius: 24px;">
-                    <div class="citation-line bg-[#411FEB] rounded-full shrink-0 self-stretch"></div>
+                    <div class="citation-line bg-brand-primary rounded-full shrink-0 self-stretch"></div>
                     <div class="py-3 quote-bg px-4 w-full"
                         style="border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
-                        <p class="italic text-[#121212] dark:text-white font-medium leading-relaxed text-sm">
+                        <p class="italic text-dark-bg dark:text-white font-medium leading-relaxed text-sm">
                             Life's greatest moments and deepest connections exist outside of your comfort zone
                         </p>
                     </div>
@@ -209,10 +212,10 @@ import Layout from '../layouts/Layout.astro';
                 <!-- Quote 2 -->
                 <div class="flex items-stretch h-full hover:shadow-sm transition-shadow"
                     style="border-top-right-radius: 24px; border-bottom-right-radius: 24px;">
-                    <div class="citation-line bg-[#411FEB] rounded-full shrink-0 self-stretch"></div>
+                    <div class="citation-line bg-brand-primary rounded-full shrink-0 self-stretch"></div>
                     <div class="py-3 quote-bg px-4 w-full"
                         style="border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
-                        <p class="italic text-[#121212] dark:text-white font-medium leading-relaxed text-sm">
+                        <p class="italic text-dark-bg dark:text-white font-medium leading-relaxed text-sm">
                             A head full of fears has no space for dreams.
                         </p>
                     </div>
@@ -220,10 +223,10 @@ import Layout from '../layouts/Layout.astro';
                 <!-- Quote 3 -->
                 <div class="flex items-stretch h-full hover:shadow-sm transition-shadow"
                     style="border-top-right-radius: 24px; border-bottom-right-radius: 24px;">
-                    <div class="citation-line bg-[#411FEB] rounded-full shrink-0 self-stretch"></div>
+                    <div class="citation-line bg-brand-primary rounded-full shrink-0 self-stretch"></div>
                     <div class="py-3 quote-bg px-4 w-full"
                         style="border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
-                        <p class="italic text-[#121212] dark:text-white font-medium leading-relaxed text-sm">
+                        <p class="italic text-dark-bg dark:text-white font-medium leading-relaxed text-sm">
                             A stranger is a friend you haven't met yet.
                         </p>
                     </div>
@@ -231,10 +234,10 @@ import Layout from '../layouts/Layout.astro';
                 <!-- Quote 4 -->
                 <div class="flex items-stretch pr-3 h-full hover:shadow-sm transition-shadow"
                     style="border-top-right-radius: 24px; border-bottom-right-radius: 24px;">
-                    <div class="citation-line bg-[#411FEB] rounded-full shrink-0 self-stretch"></div>
+                    <div class="citation-line bg-brand-primary rounded-full shrink-0 self-stretch"></div>
                     <div class="py-3 quote-bg px-4 w-full"
                         style="border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
-                        <p class="italic text-[#121212] dark:text-white font-medium leading-relaxed text-sm">
+                        <p class="italic text-dark-bg dark:text-white font-medium leading-relaxed text-sm">
                             Insanity is doing the same thing over and over again and expecting different results.
                         </p>
                     </div>
@@ -245,16 +248,16 @@ import Layout from '../layouts/Layout.astro';
         <!-- CV BANNER -->
         <section
             class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 group text-white relative mx-auto transform hover:scale-[1.01] transition-transform duration-300 overflow-hidden flex flex-col items-center justify-between shadow-[0_4px_4px_0_rgba(0,0,0,0.20)] w-fit p-8"
-            style="background: linear-gradient(180deg, #411FEB 0%, #251285 100%); border-radius: 16px; border: 4px solid rgba(255, 255, 255, 0.24); gap: 32px;">
+            style="background: linear-gradient(180deg, var(--color-brand-primary) 0%, #251285 100%); border-radius: 16px; border: 4px solid rgba(255, 255, 255, 0.24); gap: 32px;">
 
             <!-- Content Container -->
             <div class="relative z-10 flex flex-col md:flex-row items-center gap-8">
 
                 <!-- Image/Preview Side -->
                 <div class="flex justify-center">
-                    <img src="/assets/media/CV.webp" alt="Aperçu du CV"
+                    <Image loading="lazy" decoding="async" src={imgcaddkh} alt="Aperçu du CV"
                         class="cv-img transform shadow-[0_4px_4px_0_rgba(255,255,255,0.10)]"
-                        style="width: 135px; height: auto; transform: rotate(-5deg); border-radius: 2px; border: 1px solid #FFF;">
+                        style="width: 135px; height: auto; transform: rotate(-5deg); border-radius: 2px; border: 1px solid #FFF;" />
                 </div>
 
                 <!-- Content Side -->
@@ -268,9 +271,9 @@ import Layout from '../layouts/Layout.astro';
 
                     <div class="pt-4 flex w-full md:w-auto">
                         <a href="/assets/media/CV.pdf" target="_blank" rel="noopener noreferrer"
-                            class="w-full md:w-auto flex justify-center items-center gap-1 bg-white rounded-full px-4 py-2 text-[#411FEB] font-inter font-semibold hover:bg-gray-300 hover:text-[#3215c7] transition-all shadow-sm h-fit">
+                            class="w-full md:w-auto flex justify-center items-center gap-1 bg-white rounded-full px-4 py-2 text-brand-primary font-inter font-semibold hover:bg-gray-300 hover:text-brand-hover transition-all shadow-sm h-fit">
                             <span>Voir mon CV en PDF</span>
-                            <i class='bx bx-link-external text-[#121212] opacity-80 flex items-center mb-[2px]'></i>
+                            <i class='bx bx-link-external text-dark-bg opacity-80 flex items-center mb-[2px]'></i>
                         </a>
                     </div>
                 </div>
@@ -279,7 +282,7 @@ import Layout from '../layouts/Layout.astro';
     </main>
 <script>
     // Profile picture hover effect
-    const profilePic = document.getElementById('profile-pic');
+    const profilePic = document.getElementById('profile-pic') as HTMLImageElement;
     const defaultImage = '/assets/media/profilepicturepro.webp';
     const hoverImage = '/assets/media/photo.webp';
 

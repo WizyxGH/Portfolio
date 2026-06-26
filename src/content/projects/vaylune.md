@@ -2,7 +2,8 @@
 id: 10
 title: "Vaylune"
 description: "Design de la landing page d'une fausse marque de vêtements de randonnée hight-tech basée sur la biologie marine."
-image: "/assets/media/projects/vaylune.webp"
+image: "../../assets/media/projects/vaylune.webp"
+image_alt: "Aperçu du landing page pour Vaylune"
 type: "Landing page"
 context: "Scolaire"
 date: "2025-11-01"

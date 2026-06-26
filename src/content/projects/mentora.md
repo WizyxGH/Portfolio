@@ -2,7 +2,8 @@
 id: 26
 title: "Mentora"
 description: "Design d'une application mobile facilitant la mise en relation entre particuliers et professeurs indépendants en guise de test d'embauche."
-image: "/assets/media/projects/mentora.webp"
+image: "../../assets/media/projects/mentora.webp"
+image_alt: "Aperçu du application pour Mentora"
 type: "Application"
 context: "Professionnel"
 date: "2026-03-13"

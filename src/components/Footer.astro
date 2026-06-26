@@ -1,6 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import logoImg from '../assets/media/logo.png';
 const authorEmail = "contact@wizyx.me";
-const brandLogo = "/assets/media/logo.png";
 
 const socialLinks = [
   { url: "https://linkedin.com/in/flogk/", iconClass: "bx bxl-linkedin", labelKey: "footer_social_linkedin" },
@@ -10,36 +11,35 @@ const socialLinks = [
   { url: "https://www.figma.com/@wizyx", iconClass: "bx bxl-figma", labelKey: "footer_social_figma" }
 ];
 ---
-<footer class="bg-gradient-to-br from-[#411FEB] to-[#2A119B] border-t border-white/10 text-white py-12 px-6 relative overflow-hidden">
+<footer class="bg-gradient-to-br from-brand-primary to-[#2A119B] border-t border-white/10 text-white py-12 px-8 lg:px-32 relative overflow-hidden">
     <!-- Motif décoratif (glow) en arrière-plan -->
     <div class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-[#C1B4F8]/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-brand-light/10 rounded-full blur-3xl pointer-events-none"></div>
 
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-start relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start relative z-10">
 
         <!-- Colonne 1 : Branding et réseaux sociaux -->
         <div class="w-full flex flex-col justify-between gap-4">
             <div class="space-y-2">
                 <a href="/" class="flex items-center gap-2 text-lg font-bold text-white">
-                    <img src={brandLogo} alt="Logo Wizyx" class="w-6 h-6">
+                    <Image loading="lazy" decoding="async" src={logoImg} alt="Logo Wizyx" class="w-6 h-6 w-auto" />
                     Wizyx
                 </a>
                 <p class="text-sm" data-i18n="footer_bio">
-                    Je crée des interfaces premium et intuitives en alliant clarté, esthétique et storytelling pour
-                    offrir la meilleure expérience possible aux utilisateurs.
+                    Je transforme vos idées en produits performants
                 </p>
                 <p class="text-sm font-medium mt-2 text-white/90" data-i18n="footer_role">
-                    UI/UX Designer freelance basé à Toulon / Nice
+                    UI/UX Designer freelance basé à Toulon & Nice
                 </p>
             </div>
-            <div class="flex space-x-2 text-[#411FEB] text-2xl" aria-label="Liens sociaux">
+            <div class="flex space-x-2 text-white text-2xl" aria-label="Liens sociaux">
                 {socialLinks.map((link) => (
                     <a href={link.url} target="_blank" rel="noopener noreferrer"
-                        class="w-11 h-11 flex items-center justify-center bg-white/10 border border-white/20 backdrop-blur-md rounded-xl transition-all duration-300 hover:bg-white hover:text-[#411FEB] hover:scale-110 hover:shadow-lg hover:shadow-black/20"
+                        class="w-11 h-11 flex items-center justify-center bg-white/10 border border-white/20 backdrop-blur-md rounded-xl transition-all duration-300 hover:bg-white hover:text-brand-primary hover:scale-110 hover:shadow-lg hover:shadow-black/20"
                         data-i18n-aria={link.labelKey} aria-label="Lien social">
                         {link.iconClass === "malt-icon" ? (
                             <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6">
-                                <path d="M408.4 103.8C375.9 71.3998 341.3 92.3998 319.6 114L114.8 318.8C93.1 340.5 70.3999 373.5 104.6 407.6C138.7 441.7 171.6 419 193.3 397.3L398.1 192.5C419.8 170.9 440.8 136.2 408.4 103.8ZM212.7 95.3998L256.1 138.8L300.2 94.5998C303.2 91.5998 306.2 88.7998 309.3 86.1998C304.7 62.8998 291.4 41.7998 256 41.7998C220.6 41.7998 207.3 62.9998 202.8 86.2998C206.1 89.1998 209.4 92.0998 212.7 95.3998ZM300.2 417.5L256.1 373.4L212.7 416.7C209.4 420 206.2 423.1 202.9 425.9C207.9 449.7 221.9 471.4 256 471.4C290.2 471.4 304.3 449.5 309.2 425.7C306.2 423.1 303.2 420.5 300.2 417.5ZM194.3 200.5H110.7C80 200.5 40.7 210.2 40.7 256C40.7 290.3 62.6 304.3 86.5 309.2C89.3 306 194.3 200.5 194.3 200.5ZM425.8 202.8C423.2 205.8 317.9 311.6 317.9 311.6H400.3C431 311.6 470.3 304.3 470.3 256C470.3 220.7 449.2 207.4 425.8 202.8ZM221.7 173.1L236.6 158.2L193.3 114.8C171.6 93.0998 138.7 70.3998 104.5 104.6C79.5 129.6 85.1 154 98.3 173.7C102.4 173.4 221.7 173.1 221.7 173.1ZM290.4 339L275.4 354L319.6 398.1C341.3 419.8 375.9 440.8 408.3 408.4C432.5 384.2 427 358.7 413.6 338.4C409.3 338.7 290.4 339 290.4 339Z" fill="#411FEB" />
+                                <path d="M408.4 103.8C375.9 71.3998 341.3 92.3998 319.6 114L114.8 318.8C93.1 340.5 70.3999 373.5 104.6 407.6C138.7 441.7 171.6 419 193.3 397.3L398.1 192.5C419.8 170.9 440.8 136.2 408.4 103.8ZM212.7 95.3998L256.1 138.8L300.2 94.5998C303.2 91.5998 306.2 88.7998 309.3 86.1998C304.7 62.8998 291.4 41.7998 256 41.7998C220.6 41.7998 207.3 62.9998 202.8 86.2998C206.1 89.1998 209.4 92.0998 212.7 95.3998ZM300.2 417.5L256.1 373.4L212.7 416.7C209.4 420 206.2 423.1 202.9 425.9C207.9 449.7 221.9 471.4 256 471.4C290.2 471.4 304.3 449.5 309.2 425.7C306.2 423.1 303.2 420.5 300.2 417.5ZM194.3 200.5H110.7C80 200.5 40.7 210.2 40.7 256C40.7 290.3 62.6 304.3 86.5 309.2C89.3 306 194.3 200.5 194.3 200.5ZM425.8 202.8C423.2 205.8 317.9 311.6 317.9 311.6H400.3C431 311.6 470.3 304.3 470.3 256C470.3 220.7 449.2 207.4 425.8 202.8ZM221.7 173.1L236.6 158.2L193.3 114.8C171.6 93.0998 138.7 70.3998 104.5 104.6C79.5 129.6 85.1 154 98.3 173.7C102.4 173.4 221.7 173.1 221.7 173.1ZM290.4 339L275.4 354L319.6 398.1C341.3 419.8 375.9 440.8 408.3 408.4C432.5 384.2 427 358.7 413.6 338.4C409.3 338.7 290.4 339 290.4 339Z" fill="currentColor" />
                             </svg>
                         ) : (
                             <i class={link.iconClass}></i>
@@ -49,7 +49,7 @@ const socialLinks = [
 
                 <!-- Email Link -->
                 <a href={`mailto:${authorEmail}`} target="_blank" rel="noopener noreferrer"
-                    class="w-11 h-11 flex items-center justify-center bg-white/10 border border-white/20 backdrop-blur-md rounded-xl transition-all duration-300 hover:bg-white hover:text-[#411FEB] hover:scale-110 hover:shadow-lg hover:shadow-black/20"
+                    class="w-11 h-11 flex items-center justify-center bg-white/10 border border-white/20 backdrop-blur-md rounded-xl transition-all duration-300 hover:bg-white hover:text-brand-primary hover:scale-110 hover:shadow-lg hover:shadow-black/20"
                     data-i18n-aria="footer_email" aria-label="Envoyer un e-mail">
                     <i class='bx bxs-envelope'></i>
                 </a>
@@ -60,12 +60,12 @@ const socialLinks = [
         <div class="w-full flex flex-col h-full justify-start gap-4 lg:pl-12">
             <p class="font-bold w-full tracking-wide text-white/80 uppercase text-xs" data-i18n="footer_nav_title">Navigation</p>
             <div class="grid grid-cols-2 gap-x-4 gap-y-3 w-full text-sm font-medium">
-                <a href="/" class="hover:text-[#C1B4F8] transition-colors" data-i18n="nav_home">Accueil</a>
-                <a href="/contact/" class="hover:text-[#C1B4F8] transition-colors" data-i18n="nav_contact">Contact</a>
-                <a href="/about/" class="hover:text-[#C1B4F8] transition-colors" data-i18n="nav_about">À propos</a>
-                <a href="/creations/" class="hover:text-[#C1B4F8] transition-colors" data-i18n="nav_creations">Réalisations</a>
-                <a href="/services/" class="hover:text-[#C1B4F8] transition-colors" data-i18n="nav_services">Services</a>
-                <a href="/legal/" class="hover:text-[#C1B4F8] transition-colors opacity-70" data-i18n="footer_legal">Mentions légales</a>
+                <a href="/" class="hover:text-brand-light transition-colors" data-i18n="nav_home">Accueil</a>
+                <a href="/contact/" class="hover:text-brand-light transition-colors" data-i18n="nav_contact">Contact</a>
+                <a href="/about/" class="hover:text-brand-light transition-colors" data-i18n="nav_about">À propos</a>
+                <a href="/creations/" class="hover:text-brand-light transition-colors" data-i18n="nav_creations">Réalisations</a>
+                <a href="/services/" class="hover:text-brand-light transition-colors" data-i18n="nav_services">Services</a>
+                <a href="/legal/" class="hover:text-brand-light transition-colors opacity-70" data-i18n="footer_legal">Mentions légales</a>
             </div>
         </div>
 
@@ -77,7 +77,7 @@ const socialLinks = [
                 <div class="space-y-3">
                     <p class="font-bold tracking-wide text-white/80 uppercase text-xs" data-i18n="footer_booking_title">Prendre un RDV</p>
                     <a href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener noreferrer"
-                        class="inline-flex items-center gap-2 px-5 h-11 bg-white text-[#411FEB] rounded-xl font-bold text-sm transition-all duration-300 hover:bg-gray-100 hover:scale-[1.02] hover:shadow-lg shadow-black/10 whitespace-nowrap w-fit">
+                        class="inline-flex items-center gap-2 px-5 h-11 bg-white text-brand-primary rounded-xl font-bold text-sm transition-all duration-300 hover:bg-gray-100 hover:scale-[1.02] hover:shadow-lg shadow-black/10 whitespace-nowrap w-fit">
                         <i class='bx bx-calendar text-lg'></i>
                         <span data-i18n="footer_booking_btn">30 min · Gratuit</span>
                     </a>
@@ -88,7 +88,7 @@ const socialLinks = [
                         <input type="email" placeholder="Votre adresse e-mail" data-i18n="footer_email_placeholder"
                             class="w-full px-4 rounded-xl h-11 bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all backdrop-blur-sm">
                         <button type="submit"
-                            class="flex items-center justify-center w-11 h-11 min-w-[2.75rem] bg-white text-[#411FEB] rounded-xl font-bold text-xl transition-all duration-300 hover:scale-105 hover:bg-gray-100 hover:shadow-lg shadow-black/10"
+                            class="flex items-center justify-center w-11 h-11 min-w-[2.75rem] bg-white text-brand-primary rounded-xl font-bold text-xl transition-all duration-300 hover:scale-105 hover:bg-gray-100 hover:shadow-lg shadow-black/10"
                             aria-label="Envoyer">
                             <i class='bx bx-send'></i>
                         </button>

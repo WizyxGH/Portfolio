@@ -2,7 +2,8 @@
 id: 21
 title: "Pizz'Ami"
 description: "Design du site internet pour une enseigne fictive de restauration."
-image: "/assets/media/projects/pizzami.webp"
+image: "../../assets/media/projects/pizzami.webp"
+image_alt: "Aperçu du site internet pour Pizz'Ami"
 type: "Site internet"
 context: "Scolaire"
 date: "2024-05-01"

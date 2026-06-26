@@ -2,7 +2,8 @@
 id: 6
 title: "Le Guide du Golfe de Saint-Tropez"
 description: "Redesign du site et de l'application du guide touristique local, Le Guide du Golfe de Saint-Tropez."
-image: "/assets/media/projects/guidegolfesainttropez.webp"
+image: "../../assets/media/projects/guidegolfesainttropez.webp"
+image_alt: "Aperçu du site internet pour Le Guide du Golfe de Saint-Tropez"
 type: "Site internet"
 context: "Professionnel"
 date: "2024-02-01"
