@@ -118,7 +118,7 @@ class ObsidianParser {
     }
 
     /**
-     * Parse les Task lists `- [ ]` ou `- [x]` si elles n'ont pas été rendues par Jekyll
+     * Parse les Task lists `- [ ]` ou `- [x]` si elles n'ont pas été rendues par Astro
      */
     static parseTaskLists(container) {
         container.querySelectorAll('li').forEach(li => {

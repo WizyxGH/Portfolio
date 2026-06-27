@@ -8,6 +8,9 @@ import jonathanVaissiere from '../../assets/media/photo/jonathanvaissiere.webp';
 import maximeClick from '../../assets/media/photo/maximeclick.webp';
 import thibautMaens from '../../assets/media/photo/thibautmaensrabier.webp';
 import uncleSam from '../../assets/media/photo/unclesam.webp';
+
+const cardClass = "w-full bg-brand-muted dark:bg-brand-secondary/10 border-2 border-brand-light dark:border-[#281E5A] p-6 rounded-2xl flex flex-col justify-between animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 transform hover:scale-[1.02] hover:shadow-xl hover:border-brand-primary dark:hover:border-brand-secondary group";
+const vousCardClass = "w-full bg-[#F8F6FE] dark:bg-brand-secondary/10 border-dashed border-2 border-brand-light dark:border-[#29197F] p-6 rounded-2xl flex flex-col justify-between animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 transform hover:scale-[1.02] hover:shadow-xl hover:border-brand-primary dark:hover:border-brand-secondary group";
 ---
 <!-- Testimonials Section -->
 <section class="pt-8 px-8 pb-16 lg:pt-8 lg:px-32 lg:pb-24 text-center space-y-8">
@@ -21,172 +24,191 @@ import uncleSam from '../../assets/media/photo/unclesam.webp';
             <span class="text-sm font-semibold">Un impact positif partout où je passe</span>
         </div>
     </div>
-    <div class="grid md:grid-cols-3 gap-6">
+    <div class="grid md:grid-cols-3 gap-6 text-left">
 
-        <div
-            class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-brand-muted dark:bg-brand-secondary dark:bg-opacity-[0.10] border border-2 border-brand-light dark:border-[#281E5A] text-brand-primary dark:text-brand-light text-left p-6 rounded-2xl max-w-xl flex flex-col gap-3">
-            <!-- Guillemets -->
-            <div class="text-4xl font-bold text-brand-primary dark:text-brand-light">
-                <i class='bx bxs-quote-left'></i>
+        <!-- Lucas Kacem -->
+        <div class={cardClass}>
+            <div class="flex flex-col">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="text-brand-primary/20 dark:text-brand-secondary/20 text-3xl transition-colors group-hover:text-brand-primary dark:group-hover:text-brand-secondary">
+                        <i class='bx bxs-quote-left'></i>
+                    </div>
+                    <div class="flex gap-0.5 text-yellow-400 text-sm">
+                        <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed italic mb-4">
+                    "Florian a fait son stage chez Digital Unicorn en tant que UI/UX Designer et ça a été un vrai plaisir de travailler avec lui. Super impliqué, intelligent et toujours dans l’action, il a vraiment apporté de la valeur à l’équipe. 🚀"
+                </p>
             </div>
-            <!-- Texte du témoignage -->
-            <p class="text-base dark:text-white leading-relaxed">
-                Florian a fait son stage chez Digital Unicorn en tant que UI/UX Designer et ça a été un vrai plaisir
-                de travailler avec lui. Super impliqué, intelligent et toujours dans l’action, il a vraiment apporté
-                de la valeur à l’équipe. 🚀
-            </p>
-            <!-- Auteur -->
             <div class="flex items-center gap-3 mt-auto">
-                <Image src={lucasKacem} alt="Lucas Kacem"
-                    class="w-12 h-12 rounded-full object-cover flex-shrink-0" width={48} height={48} loading="lazy"
-                    decoding="async" />
+                <Image src={lucasKacem} alt="Lucas Kacem" class="w-10 h-10 rounded-full object-cover shrink-0" width={40} height={40} loading="lazy" decoding="async" />
                 <div>
-                    <h3 class="font-bold text-brand-primary dark:text-brand-light">Lucas Kacem</h3>
-                    <p class="font-light text-sm text-brand-primary dark:text-brand-light">Co-fondateur & Président chez
-                        <a href="https://digitalunicorn.fr" target="_blank" rel="noopener noreferrer">Digital
-                            Unicorn</a>
-                    </p>
+                    <h4 class="font-bold text-sm text-brand-primary dark:text-brand-secondary">
+                        <a href="https://www.linkedin.com/in/lucas-kacem/" target="_blank" rel="noopener noreferrer" class="hover:underline inline-flex items-center gap-1">
+                            Lucas Kacem <i class='bx bxl-linkedin-square text-sm opacity-70 hover:opacity-100'></i>
+                        </a>
+                    </h4>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Co-fondateur & Président, <a href="https://digitalunicorn.fr" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold text-brand-primary dark:text-brand-secondary">Digital Unicorn</a></p>
                 </div>
             </div>
         </div>
 
-        <div
-            class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-brand-muted dark:bg-brand-secondary dark:bg-opacity-[0.10] border border-2 border-brand-light dark:border-[#281E5A] text-brand-primary dark:text-brand-light text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
-            <!-- Guillemets -->
-            <div class="text-4xl font-bold text-brand-primary dark:text-brand-light">
-                <i class='bx bxs-quote-left'></i>
+        <!-- Aurélien Palasse -->
+        <div class={cardClass}>
+            <div class="flex flex-col">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="text-brand-primary/20 dark:text-brand-secondary/20 text-3xl transition-colors group-hover:text-brand-primary dark:group-hover:text-brand-secondary">
+                        <i class='bx bxs-quote-left'></i>
+                    </div>
+                    <div class="flex gap-0.5 text-yellow-400 text-sm">
+                        <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed italic mb-4">
+                    "Coming soon..."
+                </p>
             </div>
-
-            <!-- Texte du témoignage -->
-            <p class="text-base dark:text-white italic leading-relaxed">
-                Coming soon...
-            </p>
-
-            <!-- Auteur -->
             <div class="flex items-center gap-3 mt-auto">
-                <Image src={aurelienPalasse} alt="Aurélien Palasse"
-                    class="w-12 h-12 rounded-full object-cover flex-shrink-0" width={48} height={48} loading="lazy"
-                    decoding="async" />
+                <Image src={aurelienPalasse} alt="Aurélien Palasse" class="w-10 h-10 rounded-full object-cover shrink-0" width={40} height={40} loading="lazy" decoding="async" />
                 <div>
-                    <h3 class="font-bold text-brand-primary dark:text-brand-light">Aurélien Palasse</h3>
-                    <p class="font-light text-sm text-brand-primary dark:text-brand-light">Managing Director chez <a
-                            href="https://www.ubisoft.com/fr-fr/company/careers/locations/da-nang" target="_blank"
-                            rel="noopener noreferrer">Ubisoft Vietnam</a></p>
+                    <h4 class="font-bold text-sm text-brand-primary dark:text-brand-secondary">
+                        Aurélien Palasse
+                    </h4>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Managing Director, <a href="https://www.ubisoft.com/fr-fr/company/careers/locations/da-nang" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold text-brand-primary dark:text-brand-secondary">Ubisoft Vietnam</a></p>
                 </div>
             </div>
         </div>
 
-        <div class="testimonial animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-brand-muted dark:bg-brand-secondary dark:bg-opacity-[0.10] border border-2 border-brand-light dark:border-[#281E5A] text-brand-primary dark:text-brand-light text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3"
-            data-fulltext="J'ai eu la chance d'avoir Florian en stage pendant deux mois dans ma structure. Je dis bien la chance, car ma première expérience d'avoir des stagiaires a été un succès grâce à lui. Motivé, hyper proactif, enseignable, il a su, dès les premiers jours, être opérationnel. Il a une très bonne appétence pour tout ce qui touche au rédactionnel. Il est force de proposition et sait répondre à des briefs client quasiment en autonomie. Je peux dire qu'il est aujourd'hui expert en autolayout sur Figma et sait utiliser cet outil de manière professionnelle. Je recommande son profil à l'embauche si vous souhaitez ne pas prendre de risque puisqu'il coche toutes les cases. Ce sera une force dans vos équipes.">
-            <!-- Guillemets -->
-            <div class="text-4xl font-bold text-brand-primary dark:text-brand-light">
-                <i class='bx bxs-quote-left'></i>
+        <!-- Caroline Aubert -->
+        <div class={`testimonial ${cardClass}`} data-fulltext="J'ai eu la chance d'avoir Florian en stage pendant deux mois dans ma structure. Je dis bien la chance, car ma première expérience d'avoir des stagiaires a été un succès grâce à lui. Motivé, hyper proactif, enseignable, il a su, dès les premiers jours, être opérationnel. Il a une très bonne appétence pour tout ce qui touche au rédactionnel. Il est force de proposition et sait répondre à des briefs client quasiment en autonomie. Je peux dire qu'il est aujourd'hui expert en autolayout sur Figma et sait utiliser cet outil de manière professionnelle. Je recommande son profil à l'embauche si vous souhaitez ne pas prendre de risque puisqu'il coche toutes les cases. Ce sera une force dans vos équipes.">
+            <div class="flex flex-col">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="text-brand-primary/20 dark:text-brand-secondary/20 text-3xl transition-colors group-hover:text-brand-primary dark:group-hover:text-brand-secondary">
+                        <i class='bx bxs-quote-left'></i>
+                    </div>
+                    <div class="flex gap-0.5 text-yellow-400 text-sm">
+                        <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+                    </div>
+                </div>
+                <p class="testimonial-text text-sm text-gray-600 dark:text-gray-300 leading-relaxed italic mb-4"></p>
             </div>
-            <!-- Texte + bouton -->
-            <p class="testimonial-text text-base dark:text-white leading-relaxed"></p>
-            <!-- Auteur -->
             <div class="flex items-center gap-3 mt-auto">
-                <Image src={carolineAubert} alt="Caroline Aubert"
-                    class="w-12 h-12 rounded-full object-cover flex-shrink-0" width={48} height={48} loading="lazy"
-                    decoding="async" />
+                <Image src={carolineAubert} alt="Caroline Aubert" class="w-10 h-10 rounded-full object-cover shrink-0" width={40} height={40} loading="lazy" decoding="async" />
                 <div>
-                    <h3 class="font-bold text-brand-primary dark:text-brand-light">Caroline Aubert</h3>
-                    <p class="font-light text-sm text-brand-primary dark:text-brand-light"><a
-                            href="https://www.mafigue.com" target="_blank"
-                            rel="noopener noreferrer">Entrepreneuse</a>, Product Designer & Développeuse Webflow
-                    </p>
+                    <h4 class="font-bold text-sm text-brand-primary dark:text-brand-secondary">
+                        <a href="https://www.linkedin.com/in/caroline-aubert-mafigue/" target="_blank" rel="noopener noreferrer" class="hover:underline inline-flex items-center gap-1">
+                            Caroline Aubert <i class='bx bxl-linkedin-square text-sm opacity-70 hover:opacity-100'></i>
+                        </a>
+                    </h4>
+                    <p class="text-xs text-gray-500 dark:text-gray-400"><a href="https://www.mafigue.com" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold text-brand-primary dark:text-brand-secondary">Entrepreneuse</a>, Product Designer & Développeuse Webflow</p>
                 </div>
             </div>
         </div>
 
-        <div class="testimonial animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-brand-muted dark:bg-brand-secondary dark:bg-opacity-[0.10] border border-2 border-brand-light dark:border-[#281E5A] text-brand-primary dark:text-brand-light text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3"
-            data-fulltext="Un travail pro et sérieux comme on aime et surtout comme on a BESOIN ! Florian a fait parti de l’équipe qui nous a conçu les maquettes de notre dernière version et ce fut un régal de travailler ensemble. De part les outils proposés mais surtout dans la façon. Rapide, efficace et agréable. Merci encore pour ton travail👏🏼✨">
-            <div class="text-4xl font-bold text-brand-primary dark:text-brand-light">
-                <i class='bx bxs-quote-left'></i>
+        <!-- Jonathan Vaissière -->
+        <div class={`testimonial ${cardClass}`} data-fulltext="Un travail pro et sérieux comme on aime et surtout comme on a BESOIN ! Florian a fait parti de l’équipe qui nous a conçu les maquettes de notre dernière version et ce fut un régal de travailler ensemble. De part les outils proposés mais surtout dans la façon. Rapide, efficace et agréable. Merci encore pour ton travail👏🏼✨">
+            <div class="flex flex-col">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="text-brand-primary/20 dark:text-brand-secondary/20 text-3xl transition-colors group-hover:text-brand-primary dark:group-hover:text-brand-secondary">
+                        <i class='bx bxs-quote-left'></i>
+                    </div>
+                    <div class="flex gap-0.5 text-yellow-400 text-sm">
+                        <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+                    </div>
+                </div>
+                <p class="testimonial-text text-sm text-gray-600 dark:text-gray-300 leading-relaxed italic mb-4"></p>
             </div>
-            <p class="testimonial-text text-base dark:text-white leading-relaxed"></p>
             <div class="flex items-center gap-3 mt-auto">
-                <Image src={jonathanVaissiere} alt="Jonathan Vaissière"
-                    class="w-12 h-12 rounded-full object-cover flex-shrink-0" width={48} height={48} loading="lazy"
-                    decoding="async" />
+                <Image src={jonathanVaissiere} alt="Jonathan Vaissière" class="w-10 h-10 rounded-full object-cover shrink-0" width={40} height={40} loading="lazy" decoding="async" />
                 <div>
-                    <h3 class="font-bold text-brand-primary dark:text-brand-light">Jonathan Vaissière</h3>
-                    <p class="font-light text-sm text-brand-primary dark:text-brand-light"><a
-                            href="https://guidedugolfe.com" target="_blank"
-                            rel="noopener noreferrer">Entrepreneur</a></p>
+                    <h4 class="font-bold text-sm text-brand-primary dark:text-brand-secondary">
+                        <a href="https://www.linkedin.com/in/jonathan-vaissiere/" target="_blank" rel="noopener noreferrer" class="hover:underline inline-flex items-center gap-1">
+                            Jonathan Vaissière <i class='bx bxl-linkedin-square text-sm opacity-70 hover:opacity-100'></i>
+                        </a>
+                    </h4>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Entrepreneur, <a href="https://guidedugolfe.com" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold text-brand-primary dark:text-brand-secondary">Le Guide du Golfe de Saint-Tropez</a></p>
                 </div>
             </div>
         </div>
 
-        <div
-            class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-brand-muted dark:bg-brand-secondary dark:bg-opacity-[0.10] border border-2 border-brand-light dark:border-[#281E5A] text-brand-primary dark:text-brand-light text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
-            <!-- Guillemets -->
-            <div class="text-4xl font-bold text-brand-primary dark:text-brand-light">
-                <i class='bx bxs-quote-left'></i>
+        <!-- Maxime Click -->
+        <div class={cardClass}>
+            <div class="flex flex-col">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="text-brand-primary/20 dark:text-brand-secondary/20 text-3xl transition-colors group-hover:text-brand-primary dark:group-hover:text-brand-secondary">
+                        <i class='bx bxs-quote-left'></i>
+                    </div>
+                    <div class="flex gap-0.5 text-yellow-400 text-sm">
+                        <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed italic mb-4">
+                    "Je l'ai vu direct !! Très fort 🔥"
+                </p>
             </div>
-            <!-- Texte du témoignage -->
-            <p class="text-base dark:text-white leading-relaxed">
-                Je l'ai vu direct !! Très fort 🔥
-            </p>
-            <!-- Auteur -->
             <div class="flex items-center gap-3 mt-auto">
-                <Image src={maximeClick} alt="Maxime Click"
-                    class="w-12 h-12 rounded-full object-cover flex-shrink-0" width={48} height={48} loading="lazy"
-                    decoding="async" />
+                <Image src={maximeClick} alt="Maxime Click" class="w-10 h-10 rounded-full object-cover shrink-0" width={40} height={40} loading="lazy" decoding="async" />
                 <div>
-                    <h3 class="font-bold text-brand-primary dark:text-brand-light">Maxime "Click" Peiffer</h3>
-                    <p class="font-light text-sm text-brand-primary dark:text-brand-light">Créateur de contenu (1.1M sur
-                        <a href="https://www.youtube.com/@MaximeClick" target="_blank"
-                            rel="noopener noreferrer">YouTube</a>)
-                    </p>
+                    <h4 class="font-bold text-sm text-brand-primary dark:text-brand-secondary">
+                        <a href="https://www.youtube.com/@MaximeClick" target="_blank" rel="noopener noreferrer" class="hover:underline inline-flex items-center gap-1">
+                            Maxime "Click" Peiffer <i class='bx bxl-youtube text-sm opacity-70 hover:opacity-100'></i>
+                        </a>
+                    </h4>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Créateur de contenu (1.1M sur YouTube)</p>
                 </div>
             </div>
         </div>
 
-        <div
-            class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-brand-muted dark:bg-brand-secondary dark:bg-opacity-[0.10] border border-2 border-brand-light dark:border-[#281E5A] text-brand-primary dark:text-brand-light text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
-            <!-- Guillemets -->
-            <div class="text-4xl font-bold text-brand-primary dark:text-brand-light">
-                <i class='bx bxs-quote-left'></i>
+        <!-- Thibaut Maëns Rabier -->
+        <div class={cardClass}>
+            <div class="flex flex-col">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="text-brand-primary/20 dark:text-brand-secondary/20 text-3xl transition-colors group-hover:text-brand-primary dark:group-hover:text-brand-secondary">
+                        <i class='bx bxs-quote-left'></i>
+                    </div>
+                    <div class="flex gap-0.5 text-yellow-400 text-sm">
+                        <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed italic mb-4">
+                    "Coming soon..."
+                </p>
             </div>
-            <!-- Texte du témoignage -->
-            <p class="text-base dark:text-white italic leading-relaxed">
-                Coming soon...
-            </p>
-            <!-- Auteur -->
             <div class="flex items-center gap-3 mt-auto">
-                <Image src={thibautMaens} alt="Thibaut Maëns Rabier"
-                    class="w-12 h-12 rounded-full object-cover flex-shrink-0" width={48} height={48} loading="lazy"
-                    decoding="async" />
+                <Image src={thibautMaens} alt="Thibaut Maëns Rabier" class="w-10 h-10 rounded-full object-cover shrink-0" width={40} height={40} loading="lazy" decoding="async" />
                 <div>
-                    <h3 class="font-bold text-brand-primary dark:text-brand-light">Thibaut Maëns Rabier</h3>
-                    <p class="font-light text-sm text-brand-primary dark:text-brand-light">Founder & Creative Producer
-                        chez <a href="https://phoq.tv" target="_blank" rel="noopener noreferrer">PHOQ.tv</a>
-                    </p>
+                    <h4 class="font-bold text-sm text-brand-primary dark:text-brand-secondary">
+                        Thibaut Maëns Rabier
+                    </h4>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Founder & Creative Producer, <a href="https://phoq.tv" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold text-brand-primary dark:text-brand-secondary">PHOQ.tv</a></p>
                 </div>
             </div>
         </div>
 
-        <div
-            class="animate-on-scroll opacity-0 translate-y-10 transition-all duration-600 bg-[#F8F6FE] dark:bg-brand-secondary dark:bg-opacity-[0.04] border-dashed border-2 border-brand-light dark:border-[#29197F] text-brand-primary dark:text-brand-light text-left p-6 rounded-2xl shadow-lg max-w-xl flex flex-col gap-3">
-            <!-- Guillemets -->
-            <div class="text-4xl font-bold text-brand-primary dark:text-brand-light">
-                <i class='bx bxs-quote-left'></i>
+        <!-- Vous -->
+        <div class={vousCardClass}>
+            <div class="flex flex-col">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="text-brand-primary/20 dark:text-brand-secondary/20 text-3xl transition-colors group-hover:text-brand-primary dark:group-hover:text-brand-secondary">
+                        <i class='bx bxs-quote-left'></i>
+                    </div>
+                    <!-- No stars for 'Vous' or 5 stars? Let's add 5 stars to be optimistic! -->
+                    <div class="flex gap-0.5 text-yellow-400 text-sm">
+                        <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed italic mb-4">
+                    "Une idée, un projet en tête ? Et si c’était votre tour ! On en discute ? (ça n’engage en rien et je serai ravi d’en discuter)"
+                </p>
             </div>
-            <!-- Texte du témoignage -->
-            <p class="text-base dark:text-white leading-relaxed">
-                Une idée, un projet en tête ? Et si c’était votre tour ! On en discute ? (ça n’engage en rien et je
-                serai ravi d’en discuter)
-            </p>
-            <!-- Auteur -->
             <div class="flex items-center gap-3 mt-auto">
-                <Image src={uncleSam} alt="Uncle Sam"
-                    class="w-12 h-12 rounded-full object-cover flex-shrink-0" width={48} height={48} loading="lazy"
-                    decoding="async" />
+                <Image src={uncleSam} alt="Uncle Sam" class="w-10 h-10 rounded-full object-cover shrink-0" width={40} height={40} loading="lazy" decoding="async" />
                 <div>
-                    <h3 class="font-bold text-brand-primary dark:text-brand-light">Vous</h3>
-                    <p class="font-light text-sm text-brand-primary dark:text-brand-light">Une personne sûrement
-                        sympathique</p>
+                    <h4 class="font-bold text-sm text-brand-primary dark:text-brand-secondary">
+                        Vous
+                    </h4>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Une personne sûrement sympathique</p>
                 </div>
             </div>
         </div>

@@ -34,23 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentLang = getLanguage();
 
     // 2. Load Translations
-    // We fetch the JSON file. Ensure this file is accessible via URL.
-    // Jekyll puts _data in the build? No, _data is used at build time.
-    // We need to expose this data. 
-    // Ideally, we output it into a JS variable in the layout or fetch it from a generated JSON file.
-    // For now, I will assume we can fetch it if I put it in assets or generate it.
-    // Wait, _data files are NOT served directly. 
-    // Correction: I need to create a Jekyll page that outputs this JSON at a URL, OR embed it.
-    // Embedding is strictly faster and simpler for this scale.
-    // PROPOSAL: I will fetch a specific endpoint. 
-    // Let's create `assets/js/translations.json` instead of `_data` or copy it.
-    // actually better: put it in `js/translations.js` as a global object if it's small, 
-    // OR keep it in `_data` and have a liquid file output it.
-    // Let's go with fetching `assets/data/translations.json` which I will create via a write (simulating a build step or just placing it there).
-    // Actually, `_data` is best for Jekyll. I will simply render it into a global variable in `_layouts/default.html` or `_includes/head.html`?
-    // No, cleaner to fetch. I'll write to `assets/data/translations.json` for now to serve it.
-
-    // Changing approach: I will write the JSON content to `assets/data/translations.json` directly so it can be fetched.
+    // We fetch the JSON file containing translations.
 
     async function loadTranslations() {
         try {

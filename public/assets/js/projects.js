@@ -73,16 +73,13 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(data => {
             projects = data;
 
-            // Définir le scope des projets selon la page (pour les filtres)
-            const path = window.location.pathname;
-            if (path.includes('creations_studies')) filteredProjects = projects.filter(p => p.id >= 27 && p.id <= 34);
-            else if (path.includes('creations')) filteredProjects = projects.filter(p => p.id >= 1 && p.id <= 25);
-            else filteredProjects = [...projects];
+            // Tous les projets sont désormais affichés ensemble
+            filteredProjects = [...projects];
 
             if (searchInput)
                 searchInput.placeholder = `Rechercher parmi ${filteredProjects.length} projet${filteredProjects.length > 1 ? 's' : ''}`;
 
-            // Récupérer les cartes statiques générées par Jekyll
+            // Récupérer les cartes statiques générées par Astro
             allCards = Array.from(container.querySelectorAll(".projectCard"));
 
             // Initialiser l'animation sur les cartes existantes
@@ -397,7 +394,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function sortAndRenderCards() {
-        // Note: Le tri est déjà fait partiellement par Jekyll (par ID), 
+        // Note: Le tri est déjà fait partiellement par Astro (par ID), 
         // mais le tri dynamique peut changer l'ordre DOM.
         let sortedCards = [...allCards];
 
@@ -604,9 +601,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Initialize drag scroll for static containers
-    const articlesCarousel = document.getElementById("articlesCarousel");
     enableDragScroll(filtersContainer);
-    enableDragScroll(articlesCarousel);
 
     // --- Vidéo : lecture uniquement au hover de la carte ---
     function initCardVideoHover() {

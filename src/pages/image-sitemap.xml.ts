@@ -20,7 +20,7 @@ export const GET: APIRoute = async ({ site }) => {
     // Construct absolute URL
     const imgUrl = new URL(resolvedPath, siteUrl).href;
     
-    // Use filename as title, matching the previous Jekyll behavior
+    // Use filename as title
     const filename = path.split('/').pop()?.split('.')[0] || '';
     
     xml += `    <image:image>\n`;
