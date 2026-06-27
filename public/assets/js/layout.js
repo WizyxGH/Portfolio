@@ -19,7 +19,13 @@ function ensureBoxiconsStyles() {
 function syncNavbarThemeIcons(root = document) {
     const isDark = document.documentElement.classList.contains('dark');
     root.querySelectorAll('#themeToggleDesktop i, #themeToggleMobile i').forEach(icon => {
-        icon.className = isDark ? 'bx bx-moon text-xl' : 'bx bx-sun text-xl';
+        if (isDark) {
+            icon.classList.remove('bx-sun');
+            icon.classList.add('bx-moon');
+        } else {
+            icon.classList.remove('bx-moon');
+            icon.classList.add('bx-sun');
+        }
     });
 }
 
@@ -155,7 +161,7 @@ function setActiveNavLinks() {
     let currentPath = new URL(location.href).pathname.replace(/\/+$/, '');
     if (currentPath === '') currentPath = '/';
 
-    document.querySelectorAll('#navMenu a').forEach(link => {
+    document.querySelectorAll('#navMenu a, #footerNav a').forEach(link => {
         let href = link.getAttribute('href');
         if (!href) return;
 
@@ -169,6 +175,9 @@ function setActiveNavLinks() {
 
         if (linkPath === currentPath) {
             link.classList.add('font-semibold');
+            if (link.closest('#footerNav')) {
+                link.classList.add('text-brand-light');
+            }
         }
     });
 }

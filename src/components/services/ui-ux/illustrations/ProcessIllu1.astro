@@ -1,0 +1,59 @@
+---
+import { Image } from 'astro:assets';
+import imgd624hhi from '../../../../assets/media/profilepicturepro.webp';
+import imgevnu3o from '../../../../assets/media/profilepicturepro.webp';
+import imgzx5gtf from '../../../../assets/media/photo/thibautmaensrabier.webp';
+export interface Props {
+    id?: string;
+    class?: string;
+}
+const { id, class: className = "" } = Astro.props;
+---
+<div id={id} class={`${className}`}>
+                            <div class="relative w-full h-full flex items-center justify-center p-4">
+                                <!-- Video call screen mockup -->
+                                <div class="w-full max-w-[320px] aspect-video bg-white dark:bg-brand-darker rounded-2xl border-2 border-gray-150/80 dark:border-brand-border-dark shadow-xl overflow-hidden relative flex flex-col justify-between p-4 transition-colors duration-200">
+                                    <!-- Video content (Florian profile) -->
+                                    <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-tr from-brand-secondary/20 to-brand-primary/20 dark:from-brand-secondary/10 dark:to-brand-primary/10">
+                                        <div class="relative w-20 h-20 rounded-full border-2 border-brand-primary overflow-hidden shadow-md">
+                                            <Image loading="lazy" decoding="async" src={imgd624hhi} alt="Florian" class="w-full h-full object-cover" />
+                                        </div>
+                                        
+                                    </div>
+                                    <!-- Top bar info -->
+                                    <div class="relative z-10 flex items-center justify-between">
+                                        <span class="text-xs font-bold text-dark-bg dark:text-white bg-white/70 dark:bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full">Florian G. K.</span>
+                                        <div class="flex items-center gap-1">
+                                            <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+                                            <span class="text-xs font-semibold text-red-500">00:12:45</span>
+                                        </div>
+                                    </div>
+                                    <!-- Bottom controls -->
+                                    <div class="relative z-10 flex justify-center gap-3 mt-auto">
+                                        <div class="w-8 h-8 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-sm text-gray-600 dark:text-white cursor-pointer hover:bg-gray-250"><i class='bx bx-microphone'></i></div>
+                                        <div class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-sm text-white cursor-pointer hover:bg-red-650"><i class='bx bx-phone-off'></i></div>
+                                        <div class="w-8 h-8 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-sm text-gray-600 dark:text-white cursor-pointer hover:bg-gray-250"><i class='bx bx-video'></i></div>
+                                    </div>
+                                </div>
+                                <!-- Floating Calendar Invite -->
+                                <div class="absolute top-4 right-4 bg-white dark:bg-dark-bg border border-brand-light/45 dark:border-[#281E5A] rounded-2xl p-4 shadow-2xl flex items-center gap-3.5 animate-bounce" style="animation-duration: 3s;">
+                                    <div class="w-10 h-10 rounded-xl bg-brand-primary/10 text-brand-primary dark:text-white flex items-center justify-center text-xl shrink-0">
+                                        <i class='bx bx-calendar'></i>
+                                    </div>
+                                    <div class="text-left">
+                                        <h5 class="text-xs font-bold text-dark-bg dark:text-white leading-tight">Appel de Cadrage</h5>
+                                        <p class="text-[10px] text-gray-400 mt-0.5">Aujourd'hui, 10h00 (30m)</p>
+                                    </div>
+                                </div>
+                                <!-- Floating target goals -->
+                                <div class="absolute bottom-4 left-4 bg-white dark:bg-dark-bg border border-brand-light/45 dark:border-[#281E5A] rounded-2xl p-4 shadow-2xl flex items-center gap-3.5">
+                                    <div class="w-10 h-10 rounded-xl bg-green-500/10 text-green-500 flex items-center justify-center text-xl shrink-0">
+                                        <i class='bx bx-target-lock'></i>
+                                    </div>
+                                    <div class="text-left">
+                                        <h5 class="text-xs font-bold text-dark-bg dark:text-white leading-tight">Objectifs validés</h5>
+                                        <p class="text-[10px] text-gray-400 mt-0.5">Besoins & Contraintes tech</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>

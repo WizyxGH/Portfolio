@@ -1,0 +1,64 @@
+---
+import { Image } from 'astro:assets';
+import imgd624hhi from '../../../../assets/media/profilepicturepro.webp';
+import imgevnu3o from '../../../../assets/media/profilepicturepro.webp';
+import imgzx5gtf from '../../../../assets/media/photo/thibautmaensrabier.webp';
+export interface Props {
+    id?: string;
+    class?: string;
+}
+const { id, class: className = "" } = Astro.props;
+---
+<div id={id} class={`${className}`}>
+                            <div class="relative w-full h-full flex items-center justify-center p-4">
+                                <!-- Phone Mockup -->
+                                <div class="w-44 h-76 rounded-[36px] border-4 border-gray-800 bg-dark-bg shadow-2xl p-1 relative overflow-hidden flex flex-col transition-all duration-300">
+                                    <!-- Speaker / Notch -->
+                                    <div class="absolute top-1 right-1/2 translate-x-1/2 w-14 h-3 bg-gray-800 rounded-b-xl z-20 flex items-center justify-center">
+                                        <div class="w-5 h-0.5 bg-gray-600 rounded-full"></div>
+                                    </div>
+                                    
+                                    <!-- Screen container -->
+                                    <div class="flex-1 rounded-[28px] bg-white dark:bg-brand-dark overflow-hidden p-4 flex flex-col justify-between relative transition-colors duration-200">
+                                        <!-- App Header -->
+                                        <div class="flex justify-between items-center mt-2">
+                                            <i class='bx bx-chevron-left text-brand-primary dark:text-brand-secondary text-lg cursor-pointer'></i>
+                                            <span class="text-[10px] font-bold text-dark-bg dark:text-white">Validation</span>
+                                            <i class='bx bx-dots-horizontal-rounded text-gray-400 text-xs'></i>
+                                        </div>
+                                        
+                                        <!-- App Body Content -->
+                                        <div class="my-auto space-y-3 text-center">
+                                            <!-- Success circle icon mockup -->
+                                            <div class="w-14 h-14 rounded-full bg-green-500/10 text-green-500 flex items-center justify-center text-2xl mx-auto shadow-inner border border-green-500/20">
+                                                <i class='bx bx-check-circle animate-pulse'></i>
+                                            </div>
+                                            <div class="space-y-1">
+                                                <span class="text-[11px] font-bold text-dark-bg dark:text-white block">Activer le service ?</span>
+                                                <span class="text-[8px] text-gray-400 block leading-tight">Un clic suffit pour lancer le prototype.</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Action Button -->
+                                        <div class="w-full relative mt-auto pb-1">
+                                            <button class="w-full bg-brand-primary dark:bg-brand-secondary text-white text-[9px] font-semibold py-2.5 rounded-xl shadow-md cursor-none flex items-center justify-center gap-1 relative overflow-hidden" id="protoBtn">
+                                                <span>Valider la commande</span>
+                                                <i class='bx bx-right-arrow-alt'></i>
+                                                <!-- Ripple circle effect placeholder -->
+                                                <span class="absolute w-10 h-10 rounded-full bg-white/30 -right-2 top-0 animate-ping"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Floating Prototype Wiring Tag -->
+                                <div class="absolute top-12 right-2 bg-brand-primary text-white rounded-lg px-2.5 py-1 text-[8px] font-bold shadow-md flex items-center gap-1 animate-pulse">
+                                    <i class='bx bx-git-commit'></i> OnClick -> Screen_02
+                                </div>
+                                
+                                <!-- Vector cursor pointer -->
+                                <div class="absolute bottom-16 right-16 z-30 pointer-events-none text-2xl text-gray-900 drop-shadow-md animate-bounce" style="animation-duration: 2s;">
+                                    <i class='bx bxs-mouse-alt text-dark-bg dark:text-white'></i>
+                                </div>
+                            </div>
+                        </div>

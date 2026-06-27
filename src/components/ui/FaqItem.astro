@@ -6,7 +6,7 @@ interface Props {
 const { question } = Astro.props;
 ---
 <details
-    class="group bg-white dark:bg-[#0f0f0f] border border-gray-200 dark:border-brand-border-dark rounded-xl p-5 transition-all hover:border-brand-primary animate-on-scroll">
+    class="group bg-brand-surface dark:bg-brand-dark rounded-2xl border border-brand-light/20 dark:border-[#281E5A]/30 p-6 transition-all duration-300 hover:scale-[1.01] hover:shadow-xl hover:border-brand-primary/30 dark:hover:border-brand-secondary/30 animate-on-scroll">
     <summary class="flex items-center justify-between cursor-pointer list-none">
         <span class="text-dark-bg dark:text-white font-medium">{question}</span>
         <i class="bx bx-chevron-down text-2xl text-brand-primary dark:text-brand-secondary transition-transform duration-200 group-open:rotate-180"></i>

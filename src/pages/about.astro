@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import imglyi46 from '../assets/media/profilepicturepro.webp';
 import imgcaddkh from '../assets/media/CV.webp';
 import Layout from '../layouts/Layout.astro';
+import Button from '../components/ui/Button.astro';
 ---
 <Layout title="À propos" description="Étudiant de 22 ans passionné par l'UI/UX Design, l'écriture et le voyage. Découvrez mon parcours, mes" body_class="">
 <script type="application/ld+json">
@@ -270,11 +271,10 @@ import Layout from '../layouts/Layout.astro';
                     </p>
 
                     <div class="pt-4 flex w-full md:w-auto">
-                        <a href="/assets/media/CV.pdf" target="_blank" rel="noopener noreferrer"
-                            class="w-full md:w-auto flex justify-center items-center gap-1 bg-white rounded-full px-4 py-2 text-brand-primary font-inter font-semibold hover:bg-gray-300 hover:text-brand-hover transition-all shadow-sm h-fit">
+                        <Button href="/assets/media/CV.pdf" target="_blank" rel="noopener noreferrer" variant="white" class="w-full md:w-auto h-fit group rounded-full">
                             <span>Voir mon CV en PDF</span>
-                            <i class='bx bx-link-external text-dark-bg opacity-80 flex items-center mb-[2px]'></i>
-                        </a>
+                            <i class='bx bx-link-external opacity-80 flex items-center mb-[2px] transition-transform group-hover:translate-x-1 group-hover:-translate-y-1'></i>
+                        </Button>
                     </div>
                 </div>
             </div>

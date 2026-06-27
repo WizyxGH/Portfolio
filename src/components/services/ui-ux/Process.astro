@@ -1,4 +1,9 @@
 ---
+import ProcessIllu1 from './illustrations/ProcessIllu1.astro';
+import ProcessIllu2 from './illustrations/ProcessIllu2.astro';
+import ProcessIllu3 from './illustrations/ProcessIllu3.astro';
+import ProcessIllu4 from './illustrations/ProcessIllu4.astro';
+import ProcessIllu5 from './illustrations/ProcessIllu5.astro';
 import { Image } from 'astro:assets';
 import imgevnu3o from '../../../assets/media/profilepicturepro.webp';
 import imgzx5gtf from '../../../assets/media/photo/thibautmaensrabier.webp';
@@ -35,56 +40,8 @@ import imgpal6qk from '../../../assets/media/photo/thibautmaensrabier.webp';
                             </p>
                             <!-- Mobile-only illustration -->
                             <div class="block lg:hidden mt-6 w-full aspect-video rounded-2xl bg-brand-surface dark:bg-brand-dark/50 border border-brand-light/20 dark:border-[#281E5A]/50 overflow-hidden relative p-4 flex items-center justify-center">
-                                <!-- Illustration 1: Video Call & Calendar -->
-                                <div class="relative w-full h-full flex items-center justify-center p-4 min-h-[260px]">
-                                    <!-- Video call screen mockup -->
-                                    <div class="w-full max-w-[280px] sm:max-w-[320px] aspect-video bg-white dark:bg-brand-darker rounded-2xl border-2 border-gray-100 dark:border-brand-border-dark shadow-lg overflow-hidden relative flex flex-col justify-between p-3 transition-colors duration-200">
-                                        <!-- Video content (Florian profile) -->
-                                        <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-tr from-brand-secondary/20 to-brand-primary/20 dark:from-brand-secondary/10 dark:to-brand-primary/10">
-                                            <div class="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-brand-primary overflow-hidden shadow-md">
-                                                <Image loading="lazy" decoding="async" src={imgevnu3o} alt="Florian" class="w-full h-full object-cover animate-on-scroll" />
-                                            </div>
-                                            <!-- Online indicator -->
-                                            <div class="absolute bottom-6 right-1/2 translate-x-10 sm:translate-x-12 bg-green-500 border-2 border-white dark:border-brand-darker rounded-full px-2 py-0.5 text-[8px] font-bold text-white uppercase tracking-wider">
-                                                Live
-                                            </div>
-                                        </div>
-                                        <!-- Top bar info -->
-                                        <div class="relative z-10 flex items-center justify-between">
-                                            <span class="text-[10px] font-bold text-dark-bg dark:text-white bg-white/70 dark:bg-black/50 backdrop-blur-sm px-2 py-0.5 rounded-full">Florian G. K.</span>
-                                            <div class="flex gap-1">
-                                                <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping"></span>
-                                                <span class="text-[8px] font-semibold text-red-500">00:12:45</span>
-                                            </div>
-                                        </div>
-                                        <!-- Bottom controls -->
-                                        <div class="relative z-10 flex justify-center gap-3 mt-auto">
-                                            <div class="w-6 h-6 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-xs text-gray-600 dark:text-white"><i class='bx bx-microphone'></i></div>
-                                            <div class="w-6 h-6 rounded-full bg-red-500 flex items-center justify-center text-xs text-white"><i class='bx bx-phone-off'></i></div>
-                                            <div class="w-6 h-6 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-xs text-gray-600 dark:text-white"><i class='bx bx-video'></i></div>
-                                        </div>
-                                    </div>
-                                    <!-- Floating Calendar Invite -->
-                                    <div class="absolute -top-2 right-2 sm:right-6 bg-white dark:bg-dark-bg border border-brand-light/45 dark:border-[#281E5A] rounded-xl p-3 shadow-xl flex items-center gap-3 animate-bounce" style="animation-duration: 3s;">
-                                        <div class="w-8 h-8 rounded-lg bg-brand-primary/10 text-brand-primary dark:text-white flex items-center justify-center text-lg shrink-0">
-                                            <i class='bx bx-calendar'></i>
-                                        </div>
-                                        <div class="text-left">
-                                            <h5 class="text-[10px] font-bold text-dark-bg dark:text-white leading-tight">Appel de Cadrage</h5>
-                                            <p class="text-[8px] text-gray-400">Aujourd'hui, 10h00 (30m)</p>
-                                        </div>
-                                    </div>
-                                    <!-- Floating target goals -->
-                                    <div class="absolute -bottom-2 left-2 sm:left-6 bg-white dark:bg-dark-bg border border-brand-light/45 dark:border-[#281E5A] rounded-xl p-3 shadow-xl flex items-center gap-3">
-                                        <div class="w-8 h-8 rounded-lg bg-green-500/10 text-green-500 flex items-center justify-center text-lg shrink-0">
-                                            <i class='bx bx-target-lock'></i>
-                                        </div>
-                                        <div class="text-left">
-                                            <h5 class="text-[10px] font-bold text-dark-bg dark:text-white leading-tight">Objectifs validés</h5>
-                                            <p class="text-[8px] text-gray-400">Besoins & Tech</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                <!-- Illustration 5 -->
+                                <ProcessIllu5 class="relative w-full h-full flex items-center justify-center p-4 min-h-[260px]" />
                             </div>
                         </div>
 
@@ -347,310 +304,24 @@ import imgpal6qk from '../../../assets/media/photo/thibautmaensrabier.webp';
                     <div class="hidden lg:block lg:sticky lg:top-32 w-full h-[480px] rounded-3xl bg-brand-surface dark:bg-brand-dark/30 border border-brand-light/20 dark:border-[#281E5A]/50 overflow-hidden shadow-inner relative transition-colors duration-200">
                         
                         <!-- Illustration 1: Video Call & Calendar -->
-                        <div class="absolute inset-0 transition-all duration-500 flex items-center justify-center p-8 opacity-0 scale-95 pointer-events-none" id="illustration-1">
-                            <div class="relative w-full h-full flex items-center justify-center p-4">
-                                <!-- Video call screen mockup -->
-                                <div class="w-full max-w-[320px] aspect-video bg-white dark:bg-brand-darker rounded-2xl border-2 border-gray-150/80 dark:border-brand-border-dark shadow-xl overflow-hidden relative flex flex-col justify-between p-4 transition-colors duration-200">
-                                    <!-- Video content (Florian profile) -->
-                                    <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-tr from-brand-secondary/20 to-brand-primary/20 dark:from-brand-secondary/10 dark:to-brand-primary/10">
-                                        <div class="relative w-20 h-20 rounded-full border-2 border-brand-primary overflow-hidden shadow-md">
-                                            <Image loading="lazy" decoding="async" src={imgd624hhi} alt="Florian" class="w-full h-full object-cover" />
-                                        </div>
-                                        <!-- Online indicator -->
-                                        <div class="absolute bottom-6 right-1/2 translate-x-12 bg-green-500 border-2 border-white dark:border-brand-darker rounded-full px-2 py-0.5 text-[8px] font-bold text-white uppercase tracking-wider">
-                                            Live
-                                        </div>
-                                    </div>
-                                    <!-- Top bar info -->
-                                    <div class="relative z-10 flex items-center justify-between">
-                                        <span class="text-xs font-bold text-dark-bg dark:text-white bg-white/70 dark:bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full">Florian G. K.</span>
-                                        <div class="flex items-center gap-1">
-                                            <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
-                                            <span class="text-xs font-semibold text-red-500">00:12:45</span>
-                                        </div>
-                                    </div>
-                                    <!-- Bottom controls -->
-                                    <div class="relative z-10 flex justify-center gap-3 mt-auto">
-                                        <div class="w-8 h-8 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-sm text-gray-600 dark:text-white cursor-pointer hover:bg-gray-250"><i class='bx bx-microphone'></i></div>
-                                        <div class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-sm text-white cursor-pointer hover:bg-red-650"><i class='bx bx-phone-off'></i></div>
-                                        <div class="w-8 h-8 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-sm text-gray-600 dark:text-white cursor-pointer hover:bg-gray-250"><i class='bx bx-video'></i></div>
-                                    </div>
-                                </div>
-                                <!-- Floating Calendar Invite -->
-                                <div class="absolute top-4 right-4 bg-white dark:bg-dark-bg border border-brand-light/45 dark:border-[#281E5A] rounded-2xl p-4 shadow-2xl flex items-center gap-3.5 animate-bounce" style="animation-duration: 3s;">
-                                    <div class="w-10 h-10 rounded-xl bg-brand-primary/10 text-brand-primary dark:text-white flex items-center justify-center text-xl shrink-0">
-                                        <i class='bx bx-calendar'></i>
-                                    </div>
-                                    <div class="text-left">
-                                        <h5 class="text-xs font-bold text-dark-bg dark:text-white leading-tight">Appel de Cadrage</h5>
-                                        <p class="text-[10px] text-gray-400 mt-0.5">Aujourd'hui, 10h00 (30m)</p>
-                                    </div>
-                                </div>
-                                <!-- Floating target goals -->
-                                <div class="absolute bottom-4 left-4 bg-white dark:bg-dark-bg border border-brand-light/45 dark:border-[#281E5A] rounded-2xl p-4 shadow-2xl flex items-center gap-3.5">
-                                    <div class="w-10 h-10 rounded-xl bg-green-500/10 text-green-500 flex items-center justify-center text-xl shrink-0">
-                                        <i class='bx bx-target-lock'></i>
-                                    </div>
-                                    <div class="text-left">
-                                        <h5 class="text-xs font-bold text-dark-bg dark:text-white leading-tight">Objectifs validés</h5>
-                                        <p class="text-[10px] text-gray-400 mt-0.5">Besoins & Contraintes tech</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <!-- Illustration 1 -->
+                        <ProcessIllu1 id="illustration-1" class="absolute inset-0 transition-all duration-500 flex items-center justify-center p-8 opacity-0 scale-95 pointer-events-none" />
 
                         <!-- Illustration 2: Wireframe Mockup -->
-                        <div class="absolute inset-0 transition-all duration-500 flex items-center justify-center p-8 opacity-0 scale-95 pointer-events-none" id="illustration-2">
-                            <div class="relative w-full h-full flex items-center justify-center p-4">
-                                <!-- Grid Paper style background -->
-                                <div class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(var(--color-brand-border-dark)_1.5px,transparent_1.5px)] [background-size:20px_20px] opacity-70"></div>
-                                
-                                <!-- Wireframe Dashboard Mockup -->
-                                <div class="w-full max-w-[340px] aspect-video bg-white dark:bg-dark-bg rounded-2xl border border-gray-300 dark:border-gray-700 shadow-xl flex overflow-hidden relative transition-colors duration-200">
-                                    <!-- Sidebar -->
-                                    <div class="w-14 border-r border-gray-200 dark:border-gray-800 p-3 space-y-3 flex flex-col items-center">
-                                        <div class="w-8 h-8 rounded-lg bg-gray-200 dark:bg-gray-800"></div>
-                                        <div class="w-6 h-2 rounded bg-gray-100 dark:bg-gray-900"></div>
-                                        <div class="w-6 h-2 rounded bg-gray-100 dark:bg-gray-900"></div>
-                                        <div class="w-6 h-2 rounded bg-gray-100 dark:bg-gray-900"></div>
-                                    </div>
-                                    <!-- Main body -->
-                                    <div class="flex-1 p-4 flex flex-col justify-between relative">
-                                        <!-- Header wireframe -->
-                                        <div class="flex justify-between items-center pb-2 border-b border-gray-150 dark:border-gray-900">
-                                            <div class="w-20 h-4 rounded bg-gray-200 dark:bg-gray-800"></div>
-                                            <div class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800"></div>
-                                        </div>
-                                        <!-- Grid cards wireframe -->
-                                        <div class="grid grid-cols-2 gap-3 my-2 flex-1">
-                                            <div class="border border-dashed border-gray-300 dark:border-gray-700 rounded-xl p-3 flex flex-col justify-between">
-                                                <div class="w-8 h-8 rounded bg-gray-100 dark:bg-gray-800"></div>
-                                                <div class="space-y-1.5">
-                                                    <div class="w-14 h-2 rounded bg-gray-200 dark:bg-gray-800"></div>
-                                                    <div class="w-8 h-1.5 rounded bg-gray-100 dark:bg-gray-900"></div>
-                                                </div>
-                                            </div>
-                                            <div class="border border-dashed border-gray-300 dark:border-gray-700 rounded-xl p-3 flex flex-col justify-between">
-                                                <!-- Image placeholder symbol (cross lines) -->
-                                                <div class="w-full h-10 rounded-lg border border-gray-200 dark:border-gray-800 relative overflow-hidden flex items-center justify-center">
-                                                    <div class="absolute w-full h-[1px] bg-gray-200 dark:bg-gray-850 rotate-12"></div>
-                                                    <div class="absolute w-full h-[1px] bg-gray-200 dark:bg-gray-850 -rotate-12"></div>
-                                                    <i class='bx bx-image text-gray-300 dark:text-gray-700 text-lg'></i>
-                                                </div>
-                                                <div class="w-16 h-2 rounded bg-gray-200 dark:bg-gray-800 mt-1"></div>
-                                            </div>
-                                        </div>
-                                        <!-- Bottom status -->
-                                        <div class="w-full h-4 rounded bg-gray-150 dark:bg-gray-900"></div>
-                                    </div>
-                                </div>
-                                <!-- Flow Arrow Overlay -->
-                                <div class="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col items-center">
-                                    <div class="w-8 h-8 rounded-full bg-brand-primary/10 border border-brand-primary dark:border-brand-secondary flex items-center justify-center text-lg text-brand-primary dark:text-brand-secondary font-bold shadow-xl animate-pulse">
-                                        <i class='bx bx-mouse-pointer'></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <!-- Illustration 2 -->
+                        <ProcessIllu2 id="illustration-2" class="absolute inset-0 transition-all duration-500 flex items-center justify-center p-8 opacity-0 scale-95 pointer-events-none" />
 
                         <!-- Illustration 3: Direction Artistique & UI Premium -->
-                        <div class="absolute inset-0 transition-all duration-500 flex items-center justify-center p-8 opacity-0 scale-95 pointer-events-none" id="illustration-3">
-                            <div class="relative w-full h-full flex items-center justify-center p-4">
-                                <!-- Hi-Fi Dashboard Mockup -->
-                                <div class="w-full max-w-[340px] aspect-video bg-white dark:bg-brand-darker rounded-2xl border-2 border-gray-100 dark:border-brand-border-dark shadow-2xl flex overflow-hidden relative transition-colors duration-200">
-                                    <!-- Sidebar -->
-                                    <div class="w-14 bg-brand-surface dark:bg-dark-bg border-r border-brand-muted dark:border-gray-800 p-3 space-y-4 flex flex-col items-center">
-                                        <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-brand-secondary to-brand-primary flex items-center justify-center text-white font-bold text-sm shadow-md">F</div>
-                                        <div class="w-6 h-6 rounded-lg bg-brand-primary/10 dark:bg-white/5 flex items-center justify-center text-brand-primary dark:text-brand-secondary"><i class='bx bxs-dashboard text-sm'></i></div>
-                                        <div class="w-6 h-6 rounded flex items-center justify-center text-gray-400 hover:text-brand-primary"><i class='bx bx-analyse text-sm'></i></div>
-                                        <div class="w-6 h-6 rounded flex items-center justify-center text-gray-400 hover:text-brand-primary"><i class='bx bx-cog text-sm'></i></div>
-                                    </div>
-                                    <!-- Main body -->
-                                    <div class="flex-1 p-4 flex flex-col justify-between relative">
-                                        <!-- Header hi-fi -->
-                                        <div class="flex justify-between items-center pb-2 border-b border-gray-100 dark:border-gray-800">
-                                            <span class="text-xs font-bold text-dark-bg dark:text-white">Projet PHOQ.tv</span>
-                                            <div class="flex items-center gap-2">
-                                                <!-- Theme toggler -->
-                                                <div class="w-7 h-4 rounded-full bg-gray-250 dark:bg-brand-primary p-0.5 flex items-center dark:justify-end transition-all">
-                                                    <div class="w-3 h-3 rounded-full bg-white shadow-md"></div>
-                                                </div>
-                                                <Image loading="lazy" decoding="async" src={imgpal6qk} alt="Avatar" class="w-6 h-6 rounded-full object-cover border border-brand-primary" />
-                                            </div>
-                                        </div>
-                                        <!-- Grid cards hi-fi -->
-                                        <div class="grid grid-cols-2 gap-3 my-2 flex-1">
-                                            <!-- Card 1 -->
-                                            <div class="bg-gradient-to-br from-brand-muted/60 to-brand-surface/60 dark:from-brand-secondary/5 dark:to-brand-primary/5 border border-brand-light/30 dark:border-[#281E5A]/50 rounded-xl p-3 flex flex-col justify-between shadow-sm">
-                                                <span class="text-[9px] font-semibold text-gray-400">Conversion</span>
-                                                <div class="flex items-baseline gap-1">
-                                                    <span class="text-base font-extrabold text-brand-primary dark:text-brand-secondary">+35%</span>
-                                                    <span class="text-[8px] text-green-500 font-bold"><i class='bx bx-trending-up'></i></span>
-                                                </div>
-                                                <!-- Mini chart bar visual -->
-                                                <div class="flex items-end gap-1 h-5 mt-1">
-                                                    <div class="w-2 h-2.5 rounded-t bg-gray-200 dark:bg-gray-800"></div>
-                                                    <div class="w-2 h-4 rounded-t bg-gray-300 dark:bg-gray-700"></div>
-                                                    <div class="w-2 h-2 rounded-t bg-gray-200 dark:bg-gray-800"></div>
-                                                    <div class="w-2 h-5 rounded-t bg-gradient-to-t from-brand-secondary to-brand-primary shadow-md"></div>
-                                                </div>
-                                            </div>
-                                            <!-- Card 2 -->
-                                            <div class="bg-white dark:bg-brand-dark border border-brand-light/20 dark:border-[#281E5A]/80 rounded-xl p-3 flex flex-col justify-between shadow-sm">
-                                                <span class="text-[9px] font-semibold text-gray-400">Statut</span>
-                                                <div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-green-500/10 text-green-500 text-[8px] font-bold w-max">
-                                                    <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Actif
-                                                </div>
-                                                <div class="w-full h-2 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden mt-2">
-                                                    <div class="w-4/5 h-full bg-brand-primary dark:bg-brand-secondary"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Bottom UI status bar -->
-                                        <div class="flex items-center justify-between text-[7px] text-gray-400">
-                                            <span>Dernière synchro : Il y a 2m</span>
-                                            <span class="text-brand-primary dark:text-brand-secondary font-bold">100% opérationnel</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Floating Color Palette Widget -->
-                                <div class="absolute -top-1 -right-2 bg-white dark:bg-dark-bg border border-brand-light/40 dark:border-[#281E5A] rounded-xl p-3 shadow-xl space-y-1">
-                                    <span class="text-[8px] font-bold text-gray-400 uppercase tracking-wider block">Palette</span>
-                                    <div class="flex gap-1.5">
-                                        <div class="w-4 h-4 rounded-full bg-brand-primary border border-white/20"></div>
-                                        <div class="w-4 h-4 rounded-full bg-brand-secondary border border-white/20"></div>
-                                        <div class="w-4 h-4 rounded-full bg-brand-light border border-white/20"></div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Floating Typography Widget -->
-                                <div class="absolute -bottom-2 -left-2 bg-white dark:bg-dark-bg border border-brand-light/40 dark:border-[#281E5A] rounded-xl p-2.5 shadow-xl flex items-center gap-2">
-                                    <span class="text-sm font-extrabold text-brand-primary dark:text-brand-secondary">Aa</span>
-                                    <div class="text-left leading-none">
-                                        <span class="text-[9px] font-bold text-dark-bg dark:text-white block">Inter</span>
-                                        <span class="text-[7px] text-gray-400 font-semibold">Sans-serif</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <!-- Illustration 3 -->
+                        <ProcessIllu3 id="illustration-3" class="absolute inset-0 transition-all duration-500 flex items-center justify-center p-8 opacity-0 scale-95 pointer-events-none" />
 
                         <!-- Illustration 4: Phone Prototype Mockup -->
-                        <div class="absolute inset-0 transition-all duration-500 flex items-center justify-center p-8 opacity-0 scale-95 pointer-events-none" id="illustration-4">
-                            <div class="relative w-full h-full flex items-center justify-center p-4">
-                                <!-- Phone Mockup -->
-                                <div class="w-44 h-76 rounded-[36px] border-4 border-gray-800 bg-dark-bg shadow-2xl p-1 relative overflow-hidden flex flex-col transition-all duration-300">
-                                    <!-- Speaker / Notch -->
-                                    <div class="absolute top-1 right-1/2 translate-x-1/2 w-14 h-3 bg-gray-800 rounded-b-xl z-20 flex items-center justify-center">
-                                        <div class="w-5 h-0.5 bg-gray-600 rounded-full"></div>
-                                    </div>
-                                    
-                                    <!-- Screen container -->
-                                    <div class="flex-1 rounded-[28px] bg-white dark:bg-brand-dark overflow-hidden p-4 flex flex-col justify-between relative transition-colors duration-200">
-                                        <!-- App Header -->
-                                        <div class="flex justify-between items-center mt-2">
-                                            <i class='bx bx-chevron-left text-brand-primary dark:text-brand-secondary text-lg cursor-pointer'></i>
-                                            <span class="text-[10px] font-bold text-dark-bg dark:text-white">Validation</span>
-                                            <i class='bx bx-dots-horizontal-rounded text-gray-400 text-xs'></i>
-                                        </div>
-                                        
-                                        <!-- App Body Content -->
-                                        <div class="my-auto space-y-3 text-center">
-                                            <!-- Success circle icon mockup -->
-                                            <div class="w-14 h-14 rounded-full bg-green-500/10 text-green-500 flex items-center justify-center text-2xl mx-auto shadow-inner border border-green-500/20">
-                                                <i class='bx bx-check-circle animate-pulse'></i>
-                                            </div>
-                                            <div class="space-y-1">
-                                                <span class="text-[11px] font-bold text-dark-bg dark:text-white block">Activer le service ?</span>
-                                                <span class="text-[8px] text-gray-400 block leading-tight">Un clic suffit pour lancer le prototype.</span>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Action Button -->
-                                        <div class="w-full relative mt-auto pb-1">
-                                            <button class="w-full bg-brand-primary dark:bg-brand-secondary text-white text-[9px] font-semibold py-2.5 rounded-xl shadow-md cursor-none flex items-center justify-center gap-1 relative overflow-hidden" id="protoBtn">
-                                                <span>Valider la commande</span>
-                                                <i class='bx bx-right-arrow-alt'></i>
-                                                <!-- Ripple circle effect placeholder -->
-                                                <span class="absolute w-10 h-10 rounded-full bg-white/30 -right-2 top-0 animate-ping"></span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Floating Prototype Wiring Tag -->
-                                <div class="absolute top-12 right-2 bg-brand-primary text-white rounded-lg px-2.5 py-1 text-[8px] font-bold shadow-md flex items-center gap-1 animate-pulse">
-                                    <i class='bx bx-git-commit'></i> OnClick -> Screen_02
-                                </div>
-                                
-                                <!-- Vector cursor pointer -->
-                                <div class="absolute bottom-16 right-16 z-30 pointer-events-none text-2xl text-gray-900 drop-shadow-md animate-bounce" style="animation-duration: 2s;">
-                                    <i class='bx bxs-mouse-alt text-dark-bg dark:text-white'></i>
-                                </div>
-                            </div>
-                        </div>
+                        <!-- Illustration 4 -->
+                        <ProcessIllu4 id="illustration-4" class="absolute inset-0 transition-all duration-500 flex items-center justify-center p-8 opacity-0 scale-95 pointer-events-none" />
 
                         <!-- Illustration 5: Handoff & Design System -->
-                        <div class="absolute inset-0 transition-all duration-500 flex items-center justify-center p-8 opacity-0 scale-95 pointer-events-none" id="illustration-5">
-                            <div class="relative w-full h-full flex flex-col sm:flex-row items-center justify-center gap-4 p-4">
-                                <!-- Left: Code Editor Mockup -->
-                                <div class="w-40 sm:w-44 aspect-square bg-[#1E1E2F] border border-gray-800 rounded-xl shadow-lg p-3 flex flex-col justify-between font-mono text-[7px] text-[#A9B2C3] leading-normal relative overflow-hidden transition-colors duration-200">
-                                    <!-- Header bar -->
-                                    <div class="flex items-center justify-between pb-1.5 border-b border-gray-800/80 mb-2">
-                                        <div class="flex gap-1.5">
-                                            <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
-                                            <span class="w-1.5 h-1.5 rounded-full bg-yellow-500"></span>
-                                            <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
-                                        </div>
-                                        <span class="text-[5px] text-gray-500 uppercase tracking-widest font-semibold">tailwind.config.js</span>
-                                    </div>
-                                    <!-- Code lines -->
-                                    <div class="flex-1 space-y-1">
-                                        <p class="text-blue-400">module<span class="text-white">.</span>exports <span class="text-white">= {"{"}</span></p>
-                                        <p class="pl-2 text-purple-400">theme<span class="text-white">: {"{"}</span></p>
-                                        <p class="pl-4 text-gray-400">colors<span class="text-white">: {"{"}</span></p>
-                                        <p class="pl-6 text-orange-400">primary<span class="text-white">: </span><span class="text-green-400">"var(--color-brand-primary)"</span><span class="text-white">,</span></p>
-                                        <p class="pl-6 text-orange-400">secondary<span class="text-white">: </span><span class="text-green-400">"var(--color-brand-secondary)"</span></p>
-                                        <p class="pl-4 text-white">{"}"},</p>
-                                        <p class="pl-4 text-gray-400">borderRadius<span class="text-white">: {"{"}</span></p>
-                                        <p class="pl-6 text-orange-400">xl<span class="text-white">: </span><span class="text-green-400">"12px"</span></p>
-                                        <p class="pl-4 text-white">{"}"}</p>
-                                        <p class="pl-2 text-white">{"}"}</p>
-                                        <p class="text-white">{"}"}</p>
-                                    </div>
-                                </div>
-                                
-                                <!-- Right: Figma Inspect Card -->
-                                <div class="w-40 sm:w-44 aspect-square bg-white dark:bg-brand-dark border-2 border-dashed border-brand-light dark:border-[#281E5A] rounded-xl shadow-lg p-3 flex flex-col justify-between relative transition-colors duration-200">
-                                    <span class="text-[7px] font-bold text-brand-primary dark:text-brand-secondary uppercase tracking-wider block">Figma Dev Mode</span>
-                                    
-                                    <!-- Button component with Figma measurements -->
-                                    <div class="my-auto relative p-4 flex items-center justify-center">
-                                        <!-- Outline / specs guides -->
-                                        <div class="absolute inset-x-2 inset-y-1 border border-red-500/50 bg-red-500/5 rounded-xl"></div>
-                                        <!-- Horizontal padding lines -->
-                                        <div class="absolute left-2 top-1/2 -translate-y-1/2 w-4 border-t-2 border-red-500 flex items-center justify-center"><span class="text-[5px] text-red-500 font-bold bg-white dark:bg-brand-dark px-0.5 absolute -top-1.5">16</span></div>
-                                        <div class="absolute right-2 top-1/2 -translate-y-1/2 w-4 border-t-2 border-red-500 flex items-center justify-center"><span class="text-[5px] text-red-500 font-bold bg-white dark:bg-brand-dark px-0.5 absolute -top-1.5">16</span></div>
-                                        <!-- Vertical padding lines -->
-                                        <div class="absolute top-1 left-1/2 -translate-x-1/2 h-3 border-l-2 border-red-500 flex items-center justify-center"><span class="text-[5px] text-red-500 font-bold bg-white dark:bg-brand-dark px-0.5 absolute left-1">12</span></div>
-                                        <div class="absolute bottom-1 left-1/2 -translate-x-1/2 h-3 border-l-2 border-red-500 flex items-center justify-center"><span class="text-[5px] text-red-500 font-bold bg-white dark:bg-brand-dark px-0.5 absolute left-1">12</span></div>
-
-                                        <!-- Styled primary button inside -->
-                                        <button class="relative z-10 bg-brand-primary text-white text-[7px] font-semibold px-4 py-2 rounded-xl pointer-events-none shadow-sm flex items-center gap-1">
-                                            <span>Bouton</span>
-                                            <i class='bx bx-check-double'></i>
-                                        </button>
-                                    </div>
-                                    
-                                    <!-- Component specs description -->
-                                    <div class="flex justify-between items-center text-[6px] text-gray-400 font-mono">
-                                        <span>h: 32px</span>
-                                        <span>r: 12px (xl)</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <!-- Illustration 5 -->
+                        <ProcessIllu5 id="illustration-5" class="absolute inset-0 transition-all duration-500 flex items-center justify-center p-8 opacity-0 scale-95 pointer-events-none" />
 
                     </div>
                 </div>
@@ -742,4 +413,188 @@ import imgpal6qk from '../../../assets/media/photo/thibautmaensrabier.webp';
                 </div>
             </div>
         </section>
-
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Process Step Intersection Observer
+        const processSteps = document.querySelectorAll(".process-step") as NodeListOf<HTMLElement>;
+        const firstStep = document.querySelector(".process-step[data-step='1']");
+
+        // Function to set a step as active and others inactive
+        function activateStep(activeStepId: string | null) {
+            processSteps.forEach(step => {
+                const stepId = step.getAttribute("data-step");
+                const stepTitle = step.querySelector(".step-title");
+                const stepDesc = step.querySelector(".step-desc");
+                const stepBadge = step.querySelector(".step-number-badge");
+                const illustration = document.getElementById(`illustration-${stepId}`);
+                const isActive = stepId === activeStepId;
+
+                if (isActive) {
+                    step.classList.add("border-brand-primary", "dark:border-brand-secondary");
+                    step.classList.remove("border-gray-100", "dark:border-gray-800");
+                    if (stepTitle) {
+                        stepTitle.classList.add("text-dark-bg", "dark:text-white");
+                        stepTitle.classList.remove("text-gray-400", "dark:text-gray-600");
+                    }
+                    if (stepDesc) {
+                        stepDesc.classList.add("text-gray-600", "dark:text-gray-300");
+                        stepDesc.classList.remove("text-gray-400", "dark:text-gray-600");
+                    }
+                    if (stepBadge) {
+                        stepBadge.classList.add("bg-brand-primary", "text-white");
+                        stepBadge.classList.remove("bg-gray-200", "dark:bg-gray-800", "text-gray-500", "dark:text-gray-400");
+                    }
+                    if (illustration) {
+                        illustration.classList.add("opacity-100", "scale-100");
+                        illustration.classList.remove("opacity-0", "scale-95", "pointer-events-none");
+                    }
+                } else {
+                    step.classList.remove("border-brand-primary", "dark:border-brand-secondary");
+                    step.classList.add("border-gray-100", "dark:border-gray-800");
+                    if (stepTitle) {
+                        stepTitle.classList.remove("text-dark-bg", "dark:text-white");
+                        stepTitle.classList.add("text-gray-400", "dark:text-gray-600");
+                    }
+                    if (stepDesc) {
+                        stepDesc.classList.remove("text-gray-600", "dark:text-gray-300");
+                        stepDesc.classList.add("text-gray-400", "dark:text-gray-600");
+                    }
+                    if (stepBadge) {
+                        stepBadge.classList.remove("bg-brand-primary", "text-white");
+                        stepBadge.classList.add("bg-gray-200", "dark:bg-gray-800", "text-gray-500", "dark:text-gray-400");
+                    }
+                    if (illustration) {
+                        illustration.classList.remove("opacity-100", "scale-100");
+                        illustration.classList.add("opacity-0", "scale-95", "pointer-events-none");
+                    }
+                }
+            });
+        }
+
+        // Initialize first step as active on DOM load
+        if (firstStep) {
+            activateStep("1");
+        }
+
+        if (processSteps.length > 0) {
+            const processObserver = new IntersectionObserver((entries) => {
+                // Force mobile-only for observer activation (since desktop uses scroll track)
+                if (window.innerWidth >= 1024) return;
+
+                const intersectingEntry = entries.find(entry => entry.isIntersecting);
+                if (intersectingEntry) {
+                    const stepId = intersectingEntry.target.getAttribute("data-step");
+                    activateStep(stepId);
+                }
+            }, {
+                rootMargin: "-25% 0px -35% 0px",
+                threshold: 0.1
+            });
+
+            processSteps.forEach((step, index) => {
+                processObserver.observe(step);
+
+                // Add click handler to scroll process track (desktop) or step directly (mobile)
+                step.addEventListener("click", () => {
+                    if (window.innerWidth >= 1024) {
+                        const scrollTrack = document.getElementById("processScrollTrack");
+                        if (!scrollTrack) return;
+                        const rect = scrollTrack.getBoundingClientRect();
+                        const scrollTrackOffsetTop = window.scrollY + rect.top;
+                        const scrollEnd = rect.height - window.innerHeight;
+                        const progress = index / (processSteps.length - 1);
+                        const targetScrollY = scrollTrackOffsetTop + progress * scrollEnd;
+                        window.scrollTo({
+                            top: targetScrollY,
+                            behavior: "smooth"
+                        });
+                    } else {
+                        step.scrollIntoView({
+                            behavior: "smooth",
+                            block: "center"
+                        });
+                    }
+                });
+            });
+
+            // Desktop Scrollytelling Pinning logic
+            const scrollTrack = document.getElementById("processScrollTrack");
+            const translateWrapper = document.getElementById("stepsTranslateWrapper");
+            const stepsContainer = document.getElementById("stepsScrollContainer") as HTMLElement;
+
+            function updateDesktopSteps() {
+                if (window.innerWidth < 1024) {
+                    // Reset wrapper transform on mobile
+                    if (translateWrapper) translateWrapper.style.transform = "none";
+                    return;
+                }
+
+                if (!scrollTrack || !translateWrapper || !stepsContainer) return;
+
+                const rect = scrollTrack.getBoundingClientRect();
+                const trackHeight = rect.height;
+                const windowHeight = window.innerHeight;
+
+                // Pin scrolling range calculation
+                const scrollStart = 0;
+                const scrollEnd = trackHeight - windowHeight;
+                const currentScroll = -rect.top;
+
+                let progress = currentScroll / scrollEnd;
+                progress = Math.max(0, Math.min(1, progress));
+
+                // Divide scroll progress into 5 equal zones
+                const stepCount = processSteps.length;
+                const stepProgress = progress * (stepCount - 1);
+                const activeIndex = Math.round(stepProgress);
+
+                // Activate corresponding step and mockup
+                const activeStep = processSteps[activeIndex];
+                if (activeStep) {
+                    const stepId = activeStep.getAttribute("data-step");
+                    activateStep(stepId);
+                }
+
+                // Calculate total height of all steps
+                let totalStepsHeight = 0;
+                processSteps.forEach(step => {
+                    totalStepsHeight += step.offsetHeight;
+                });
+
+                // Centering active step inside stepsScrollContainer with clamping
+                const containerHeight = stepsContainer.offsetHeight;
+                let targetCenteringY = 0;
+
+                if (activeIndex > 0) {
+                    let previousStepsHeight = 0;
+                    for (let i = 0; i < activeIndex; i++) {
+                        previousStepsHeight += processSteps[i].offsetHeight;
+                    }
+                    const activeStepHeight = processSteps[activeIndex].offsetHeight;
+                    targetCenteringY = -(previousStepsHeight - (containerHeight / 2) + (activeStepHeight / 2));
+                } else {
+                    const activeStepHeight = processSteps[0].offsetHeight;
+                    targetCenteringY = -(0 - (containerHeight / 2) + (activeStepHeight / 2));
+                }
+
+                // Clamp targetY:
+                // - Max scroll is 0 (first step aligned to the top)
+                // - Min scroll is containerHeight - totalStepsHeight (last step aligned to the bottom)
+                const minScroll = containerHeight - totalStepsHeight;
+                const maxScroll = 0;
+                const targetY = Math.min(maxScroll, Math.max(minScroll, targetCenteringY));
+
+                // Apply translation
+                if(translateWrapper) translateWrapper.style.transform = `translateY(${targetY}px)`;
+            }
+
+            // Bind event listeners for desktop scrolling
+            window.addEventListener("scroll", updateDesktopSteps);
+            window.addEventListener("resize", updateDesktopSteps);
+            
+            // Trigger once on load
+            updateDesktopSteps();
+        }
+    });
+</script>

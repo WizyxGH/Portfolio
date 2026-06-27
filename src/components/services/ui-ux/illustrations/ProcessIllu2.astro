@@ -1,0 +1,63 @@
+---
+import { Image } from 'astro:assets';
+import imgd624hhi from '../../../../assets/media/profilepicturepro.webp';
+import imgevnu3o from '../../../../assets/media/profilepicturepro.webp';
+import imgzx5gtf from '../../../../assets/media/photo/thibautmaensrabier.webp';
+export interface Props {
+    id?: string;
+    class?: string;
+}
+const { id, class: className = "" } = Astro.props;
+---
+<div id={id} class={`${className}`}>
+                            <div class="relative w-full h-full flex items-center justify-center p-4">
+                                <!-- Grid Paper style background -->
+                                <div class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(var(--color-brand-border-dark)_1.5px,transparent_1.5px)] [background-size:20px_20px] opacity-70"></div>
+                                
+                                <!-- Wireframe Dashboard Mockup -->
+                                <div class="w-full max-w-[340px] aspect-video bg-white dark:bg-dark-bg rounded-2xl border border-gray-300 dark:border-gray-700 shadow-xl flex overflow-hidden relative transition-colors duration-200">
+                                    <!-- Sidebar -->
+                                    <div class="w-14 border-r border-gray-200 dark:border-gray-800 p-3 space-y-3 flex flex-col items-center">
+                                        <div class="w-8 h-8 rounded-lg bg-gray-200 dark:bg-gray-800"></div>
+                                        <div class="w-6 h-2 rounded bg-gray-100 dark:bg-gray-900"></div>
+                                        <div class="w-6 h-2 rounded bg-gray-100 dark:bg-gray-900"></div>
+                                        <div class="w-6 h-2 rounded bg-gray-100 dark:bg-gray-900"></div>
+                                    </div>
+                                    <!-- Main body -->
+                                    <div class="flex-1 p-4 flex flex-col justify-between relative">
+                                        <!-- Header wireframe -->
+                                        <div class="flex justify-between items-center pb-2 border-b border-gray-150 dark:border-gray-900">
+                                            <div class="w-20 h-4 rounded bg-gray-200 dark:bg-gray-800"></div>
+                                            <div class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800"></div>
+                                        </div>
+                                        <!-- Grid cards wireframe -->
+                                        <div class="grid grid-cols-2 gap-3 my-2 flex-1">
+                                            <div class="border border-dashed border-gray-300 dark:border-gray-700 rounded-xl p-3 flex flex-col justify-between">
+                                                <div class="w-8 h-8 rounded bg-gray-100 dark:bg-gray-800"></div>
+                                                <div class="space-y-1.5">
+                                                    <div class="w-14 h-2 rounded bg-gray-200 dark:bg-gray-800"></div>
+                                                    <div class="w-8 h-1.5 rounded bg-gray-100 dark:bg-gray-900"></div>
+                                                </div>
+                                            </div>
+                                            <div class="border border-dashed border-gray-300 dark:border-gray-700 rounded-xl p-3 flex flex-col justify-between">
+                                                <!-- Image placeholder symbol (cross lines) -->
+                                                <div class="w-full h-10 rounded-lg border border-gray-200 dark:border-gray-800 relative overflow-hidden flex items-center justify-center">
+                                                    <div class="absolute w-full h-[1px] bg-gray-200 dark:bg-gray-850 rotate-12"></div>
+                                                    <div class="absolute w-full h-[1px] bg-gray-200 dark:bg-gray-850 -rotate-12"></div>
+                                                    <i class='bx bx-image text-gray-300 dark:text-gray-700 text-lg'></i>
+                                                </div>
+                                                <div class="w-16 h-2 rounded bg-gray-200 dark:bg-gray-800 mt-1"></div>
+                                            </div>
+                                        </div>
+                                        <!-- Bottom status -->
+                                        <div class="w-full h-4 rounded bg-gray-150 dark:bg-gray-900"></div>
+                                    </div>
+                                </div>
+                                <!-- Flow Arrow Overlay -->
+                                <div class="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col items-center">
+                                    <div class="w-8 h-8 rounded-full bg-brand-primary/10 border border-brand-primary dark:border-brand-secondary flex items-center justify-center text-lg text-brand-primary dark:text-brand-secondary font-bold shadow-xl animate-pulse">
+                                        <i class='bx bx-mouse-pointer'></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>

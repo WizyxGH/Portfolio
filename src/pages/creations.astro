@@ -32,29 +32,31 @@ const sorted_projects = allProjects
         }
     </script>
     <script src="/assets/js/projects.js" defer></script>
-    <CreationsHeader />
+    <main>
+        <CreationsHeader />
 
-    <section class="p-8 text-center lg:px-32 lg:-mt-40">
-        <h2 class="text-2xl font-bold mb-6 lg:text-white">
-            <i class='bx bxs-diamond-alt'></i> Mes maquettes
-        </h2>
-        <div id="projectsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {sorted_projects.map((project) => {
-                return (
-                    <ProjectCard project={project} />
-                )
-            })}
-        </div>
-        <div class="flex justify-center mt-12 mb-8">
-            <Button id="showMoreButton" variant="primary" class="shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                <span>Afficher tous les projets</span>
-                <i class='bx bx-plus text-xl'></i>
-            </Button>
+        <section class="p-8 text-center lg:px-32 lg:-mt-40">
+            <h2 class="text-2xl font-bold mb-6 lg:text-white">
+                <i class='bx bxs-diamond-alt'></i> Mes maquettes
+            </h2>
+            <div id="projectsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                {sorted_projects.map((project) => {
+                    return (
+                        <ProjectCard project={project} />
+                    )
+                })}
+            </div>
+            <div class="flex justify-center mt-12 mb-8">
+                <Button id="showMoreButton" variant="primary" class="shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    <span>Afficher tous les projets</span>
+                    <i class='bx bx-plus text-xl'></i>
+                </Button>
 
-            <Button id="showLessButton" variant="primary" class="shadow-lg hover:shadow-xl transform hover:-translate-y-1" style="display: none;">
-                <span>Afficher moins de projets</span>
-                <i class='bx bx-minus text-xl'></i>
-            </Button>
-        </div>
-    </section>
+                <Button id="showLessButton" variant="primary" class="shadow-lg hover:shadow-xl transform hover:-translate-y-1 hidden">
+                    <span>Afficher moins de projets</span>
+                    <i class='bx bx-minus text-xl'></i>
+                </Button>
+            </div>
+        </section>
+    </main>
 </Layout>
