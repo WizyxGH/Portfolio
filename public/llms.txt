@@ -13,7 +13,7 @@ Je transforme des idées en produits numériques performants, esthétiques et in
 Après un BUT MMI (Métiers du Multimédia et de l'Internet) et un BTS informatique (SIO), j'ai choisi de me spécialiser dans le design d'interfaces. Mon approche allie la compréhension technique à la sensibilité esthétique pour concevoir des expériences utilisateurs optimales. Je suis par ailleurs passionné par le voyage, le sport et l'écriture.
 
 ## Informations
-- [Site Web Principal](https://wizyx.me/)
-- [Page de Contact](https://wizyx.me/contact)
-- [Portfolio des Créations](https://wizyx.me/creations)
+- [Site Web principal](https://wizyx.me/)
+- [Page de contact](https://wizyx.me/contact)
+- [Portfolio des créations](https://wizyx.me/creations)
 - [Profil LinkedIn](https://linkedin.com/in/flogk/)
