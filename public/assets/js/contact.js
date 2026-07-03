@@ -6,42 +6,94 @@ document.addEventListener('DOMContentLoaded', () => {
     const formLoadTime = Date.now();
 
     // Budget Selector Logic
-    const budgetInput = document.getElementById('budgetInput');
-    const budgetPills = document.querySelectorAll('.budget-pill');
+    const budgetSelect = document.getElementById('budgetSelect');
     const budgetError = document.getElementById('budgetError');
 
-    budgetPills.forEach(pill => {
-        pill.addEventListener('click', () => {
-            const isSelected = pill.classList.contains('border-[#411FEB]');
-            
-            // Reset all pills
-            budgetPills.forEach(p => {
-                p.classList.remove('border-[#411FEB]', 'bg-[#411FEB]/10', 'text-[#411FEB]', 'dark:border-[#5536ED]', 'dark:bg-[#5536ED]/10', 'dark:text-[#5536ED]');
-                p.classList.add('border-gray-200', 'dark:border-gray-800', 'text-gray-600', 'dark:text-gray-400', 'bg-white', 'dark:bg-[#121212]');
-            });
+    if (budgetSelect) {
+        budgetSelect.addEventListener('change', () => {
+            budgetError.classList.add('hidden');
+            budgetSelect.classList.remove('border-red-500');
+        });
+    }
 
-            if (isSelected) {
-                // Toggle off if already selected
-                budgetInput.value = '';
+    // Client Type Logic
+    const radios = document.querySelectorAll('input[name="client_type"]');
+    const siretContainer = document.getElementById('siretContainer');
+    const siretInput = document.getElementById('siretInput');
+    const siretError = document.getElementById('siretError');
+
+    radios.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            if (e.target.value === 'Entreprise') {
+                siretContainer.classList.remove('hidden');
+                siretContainer.classList.add('flex');
             } else {
-                // Toggle on
-                pill.classList.remove('border-gray-200', 'dark:border-gray-800', 'text-gray-600', 'dark:text-gray-400', 'bg-white', 'dark:bg-[#121212]');
-                pill.classList.add('border-[#411FEB]', 'bg-[#411FEB]/10', 'text-[#411FEB]', 'dark:border-[#5536ED]', 'dark:bg-[#5536ED]/10', 'dark:text-[#5536ED]');
-                budgetInput.value = pill.getAttribute('data-budget');
-                // Clear error on select
-                budgetError.classList.add('hidden');
+                siretContainer.classList.add('hidden');
+                siretContainer.classList.remove('flex');
+                if (siretInput) {
+                    siretInput.value = '';
+                    siretInput.classList.remove('border-red-500');
+                }
+                if (siretError) siretError.classList.add('hidden');
             }
         });
     });
 
+    function validateSiretField() {
+        if (!siretInput || !siretContainer) return true;
+        // Seule l'entreprise a besoin du SIRET
+        const isEntreprise = document.getElementById('radioEntreprise')?.checked;
+        if (!isEntreprise) return true;
+
+        const value = siretInput.value.replace(/\s/g, '');
+        // Le SIRET doit faire 14 chiffres
+        if (!/^\d{14}$/.test(value)) {
+            siretError.textContent = "Le numéro de SIRET doit contenir exactement 14 chiffres.";
+            siretError.classList.remove('hidden');
+            siretInput.classList.add('border-red-500', 'focus:ring-red-500');
+            return false;
+        } else {
+            siretError.classList.add('hidden');
+            siretInput.classList.remove('border-red-500', 'focus:ring-red-500');
+            return true;
+        }
+    }
+
+    if (siretInput) {
+        siretInput.addEventListener('input', (e) => {
+            // Supprimer tout sauf les chiffres
+            let rawValue = siretInput.value.replace(/\D/g, '');
+            // Formater par blocs de 3 (puis le dernier de 5 : 123 456 789 00012)
+            let formattedValue = '';
+            if (rawValue.length > 0) {
+                const parts = [];
+                if (rawValue.length > 0) parts.push(rawValue.substring(0, 3));
+                if (rawValue.length > 3) parts.push(rawValue.substring(3, 6));
+                if (rawValue.length > 6) parts.push(rawValue.substring(6, 9));
+                if (rawValue.length > 9) parts.push(rawValue.substring(9, 14));
+                formattedValue = parts.join(' ');
+            }
+            siretInput.value = formattedValue;
+            
+            if (siretInput.value.trim() === '') {
+                siretError.classList.add('hidden');
+                siretInput.classList.remove('border-red-500', 'focus:ring-red-500');
+            } else {
+                validateSiretField();
+            }
+        });
+    }
+
     function validateBudgetField() {
-        if (!budgetInput) return true;
-        if (budgetInput.value === '') {
+        if (!budgetSelect) return true;
+        if (budgetSelect.value === '') {
             budgetError.textContent = "Veuillez sélectionner une tranche de budget pour votre projet.";
             budgetError.classList.remove('hidden');
+            budgetSelect.classList.add('border-red-500');
             return false;
         } else {
             budgetError.classList.add('hidden');
+            budgetSelect.classList.remove('border-red-500');
             return true;
         }
     }
@@ -117,7 +169,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (phoneInput) {
-        phoneInput.addEventListener('input', () => {
+        phoneInput.addEventListener('input', (e) => {
+            // Supprimer tout ce qui n'est pas un chiffre
+            let rawValue = phoneInput.value.replace(/\D/g, '');
+            
+            // Grouper par blocs de 2 chiffres séparés par un espace
+            let formattedValue = '';
+            if (rawValue.length > 0) {
+                formattedValue = rawValue.match(/.{1,2}/g).join(' ');
+            }
+            
+            // Mettre à jour le champ (limité à 14 caractères : 10 chiffres + 4 espaces)
+            phoneInput.value = formattedValue.substring(0, 14);
+
             if (phoneInput.value.trim() === '') {
                 phoneError.classList.add('hidden');
                 phoneInput.classList.remove('border-red-500', 'focus:ring-red-500');
@@ -302,6 +366,12 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        // 3d. Vérifier le SIRET si Entreprise
+        if (!validateSiretField()) {
+            siretInput.focus();
+            return;
+        }
+
         // 4. Vérifier la validité du numéro de téléphone
         if (!validatePhoneField()) {
             phoneInput.focus();
@@ -335,12 +405,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 formMessage.classList.remove('hidden');
                 form.reset();
                 clearFile();
-                // Reset budget selections visual state
-                budgetPills.forEach(p => {
-                    p.classList.remove('border-[#411FEB]', 'bg-[#411FEB]/10', 'text-[#411FEB]', 'dark:border-[#5536ED]', 'dark:bg-[#5536ED]/10', 'dark:text-[#5536ED]');
-                    p.classList.add('border-gray-200', 'dark:border-gray-800', 'text-gray-600', 'dark:text-gray-400', 'bg-white', 'dark:bg-[#121212]');
-                });
+                if (budgetSelect) {
+                    budgetSelect.value = '';
+                    budgetSelect.classList.remove('border-red-500');
+                }
                 budgetError.classList.add('hidden');
+                
+                // Reset SIRET field and radios
+                if (siretContainer) {
+                    siretContainer.classList.add('hidden');
+                    siretContainer.classList.remove('flex');
+                }
+                if (siretInput) {
+                    siretInput.value = '';
+                    siretInput.classList.remove('border-red-500');
+                }
+                if (siretError) siretError.classList.add('hidden');
+
                 // Reset email validation state
                 emailError.classList.add('hidden');
                 emailInput.classList.remove('border-red-500', 'focus:ring-red-500');

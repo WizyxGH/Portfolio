@@ -12,16 +12,26 @@ import Button from '../ui/Button.astro';
             <label for="emailInput" class="flex items-center gap-2 text-dark-bg dark:text-white font-medium cursor-pointer">
                 Adresse mail
             </label>
-            <input type="email" name="email" id="emailInput" placeholder="johndoe@mail.com" required
+            <input type="email" name="email" id="emailInput" placeholder="johndoe@mail.com" required autocomplete="email"
                 class="mt-1 w-full p-3 border-2 border-[#3E3E3E]/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-secondary focus:border-transparent bg-white text-gray-800 dark:bg-dark-bg dark:border-[#3E3E3E] dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-colors">
             <p id="emailError" class="text-xs text-red-500 font-medium mt-1.5 hidden"></p>
         </div>
         <div class="flex flex-col">
             <label for="phoneInput" class="flex items-center gap-2 text-dark-bg dark:text-white font-medium cursor-pointer">
-                Téléphone <span class="text-xs text-gray-400 dark:text-gray-500 font-normal">(Optionnel)</span>
+                Numéro de téléphone <span class="text-xs text-gray-400 dark:text-gray-500 font-normal">(Optionnel)</span>
             </label>
-            <input type="tel" name="phone" id="phoneInput" placeholder="06 12 34 56 78"
-                class="mt-1 w-full p-3 border-2 border-[#3E3E3E]/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-secondary focus:border-transparent bg-white text-gray-800 dark:bg-dark-bg dark:border-[#3E3E3E] dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-colors">
+            <div class="mt-1 flex">
+                <select name="phone_country" class="p-3 border-2 border-r-0 border-[#3E3E3E]/20 rounded-l-xl focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-secondary bg-gray-50 dark:bg-[#1A1A1A] text-gray-800 dark:border-[#3E3E3E] dark:text-white transition-colors cursor-pointer min-w-[90px]">
+                    <option value="+33" selected>🇫🇷 +33</option>
+                    <option value="+32">🇧🇪 +32</option>
+                    <option value="+41">🇨🇭 +41</option>
+                    <option value="+352">🇱🇺 +352</option>
+                    <option value="+1">🇺🇸 +1</option>
+                    <option value="+44">🇬🇧 +44</option>
+                </select>
+                <input type="tel" name="phone" id="phoneInput" placeholder="6 12 34 56 78" autocomplete="tel-national"
+                    class="w-full p-3 border-2 border-[#3E3E3E]/20 rounded-r-xl focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-secondary focus:border-transparent bg-white text-gray-800 dark:bg-dark-bg dark:border-[#3E3E3E] dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-colors">
+            </div>
             <p id="phoneError" class="text-xs text-red-500 font-medium mt-1.5 hidden"></p>
         </div>
     </div>
@@ -36,27 +46,52 @@ import Button from '../ui/Button.astro';
             class="mt-1 w-full p-3 border-2 border-[#3E3E3E]/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-secondary focus:border-transparent bg-white text-gray-800 dark:bg-dark-bg dark:border-[#3E3E3E] dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-colors">
     </label>
 
-    <!-- Budget -->
-    <div class="flex flex-col text-left">
-        <span class="flex items-center gap-2 text-dark-bg dark:text-white font-medium mb-2">
-            Budget
-        </span>
-        <input type="hidden" name="budget" id="budgetInput" value="">
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <button type="button" data-budget="Moins de 1 000 €" class="budget-pill px-3 py-2.5 text-xs font-semibold rounded-xl border-2 border-[#3E3E3E]/20 dark:border-[#3E3E3E] text-gray-600 dark:text-gray-400 bg-white dark:bg-dark-bg hover:border-brand-primary/40 dark:hover:border-brand-secondary/40 transition-all duration-200">
-                Moins de 1 000 €
-            </button>
-            <button type="button" data-budget="1 000 € - 3 000 €" class="budget-pill px-3 py-2.5 text-xs font-semibold rounded-xl border-2 border-[#3E3E3E]/20 dark:border-[#3E3E3E] text-gray-600 dark:text-gray-400 bg-white dark:bg-dark-bg hover:border-brand-primary/40 dark:hover:border-brand-secondary/40 transition-all duration-200">
-                1 000 € - 3 000 €
-            </button>
-            <button type="button" data-budget="3 000 € - 6 000 €" class="budget-pill px-3 py-2.5 text-xs font-semibold rounded-xl border-2 border-[#3E3E3E]/20 dark:border-[#3E3E3E] text-gray-600 dark:text-gray-400 bg-white dark:bg-dark-bg hover:border-brand-primary/40 dark:hover:border-brand-secondary/40 transition-all duration-200">
-                3 000 € - 6 000 €
-            </button>
-            <button type="button" data-budget="Plus de 6 000 €" class="budget-pill px-3 py-2.5 text-xs font-semibold rounded-xl border-2 border-[#3E3E3E]/20 dark:border-[#3E3E3E] text-gray-600 dark:text-gray-400 bg-white dark:bg-dark-bg hover:border-brand-primary/40 dark:hover:border-brand-secondary/40 transition-all duration-200">
-                Plus de 6 000 €
-            </button>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+        <!-- Type de client -->
+        <div class="flex flex-col">
+            <span class="flex items-center gap-2 text-dark-bg dark:text-white font-medium mb-1">
+                Vous êtes
+            </span>
+            <div class="flex items-center gap-6 mt-1 h-full">
+                <label class="flex items-center gap-2 cursor-pointer text-gray-800 dark:text-gray-200">
+                    <input type="radio" name="client_type" id="radioEntreprise" value="Entreprise" class="w-4 h-4 accent-brand-primary text-brand-primary focus:ring-brand-primary bg-white border-gray-300 dark:bg-dark-bg dark:border-gray-600" required>
+                    Entreprise
+                </label>
+                <label class="flex items-center gap-2 cursor-pointer text-gray-800 dark:text-gray-200">
+                    <input type="radio" name="client_type" id="radioParticulier" value="Particulier" class="w-4 h-4 accent-brand-primary text-brand-primary focus:ring-brand-primary bg-white border-gray-300 dark:bg-dark-bg dark:border-gray-600" required>
+                    Particulier
+                </label>
+            </div>
+            
+            <!-- Champ SIRET caché par défaut -->
+            <div id="siretContainer" class="hidden flex-col mt-4">
+                <label for="siretInput" class="text-sm font-medium text-dark-bg dark:text-white mb-1">Numéro de SIRET</label>
+                <input type="text" name="siret" id="siretInput" placeholder="123 456 789 00012"
+                    class="w-full p-2.5 text-sm border-2 border-[#3E3E3E]/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-secondary focus:border-transparent bg-white text-gray-800 dark:bg-dark-bg dark:border-[#3E3E3E] dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-colors">
+                <p id="siretError" class="text-xs text-red-500 font-medium mt-1.5 hidden"></p>
+            </div>
         </div>
-        <p id="budgetError" class="text-xs text-red-500 font-medium mt-1.5 hidden"></p>
+
+        <!-- Budget -->
+        <div class="flex flex-col">
+            <label for="budgetSelect" class="flex items-center gap-2 text-dark-bg dark:text-white font-medium mb-1">
+                Budget
+            </label>
+            <div class="relative mt-1">
+                <select name="budget" id="budgetSelect" required
+                    class="w-full p-3 border-2 border-[#3E3E3E]/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-secondary focus:border-transparent bg-white text-gray-800 dark:bg-dark-bg dark:border-[#3E3E3E] dark:text-white transition-colors cursor-pointer appearance-none">
+                    <option value="" disabled selected>Sélectionnez une tranche...</option>
+                    <option value="Moins de 1 000 €">Moins de 1 000 €</option>
+                    <option value="1 000 € - 3 000 €">1 000 € - 3 000 €</option>
+                    <option value="3 000 € - 6 000 €">3 000 € - 6 000 €</option>
+                    <option value="Plus de 6 000 €">Plus de 6 000 €</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
+                    <i class='bx bx-chevron-down text-xl'></i>
+                </div>
+            </div>
+            <p id="budgetError" class="text-xs text-red-500 font-medium mt-1.5 hidden"></p>
+        </div>
     </div>
 
     <!-- Honeypot anti-spam (caché) -->
