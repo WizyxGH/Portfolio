@@ -17,7 +17,7 @@ tags:
     icon: "bx bx-play-circle"
 ---
 
-Maquette réalisé lors d'un test technique pour rejoindre l'entreprise Kosmos Digital en tant qu'UI/UX Designer.
+Maquette réalisé lors d'un test technique pour rejoindre une agence de développement informatique en tant qu'UI/UX Designer.
 
 > [!abstract]- Cahier des Charges Recrutement : Design UI/UX
 > **1. OBJECTIF DU PROJET**
