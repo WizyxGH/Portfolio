@@ -14,4 +14,13 @@
   --color-brand-muted: #e8e4fc;
   --color-brand-hover: #3215c7;
   --color-dark-bg: #121212;
+
+  --font-sora: "Sora", sans-serif;
+  --font-inter: "Inter", sans-serif;
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sora);
+  }
 }

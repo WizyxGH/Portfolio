@@ -12,8 +12,12 @@
 
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
+      if (favicon) favicon.href = '/assets/media/logo-light.png';
+      if (faviconApple) faviconApple.href = '/assets/media/logo-light.png';
     } else {
       document.documentElement.classList.remove('dark');
+      if (favicon) favicon.href = '/assets/media/logo.png';
+      if (faviconApple) faviconApple.href = '/assets/media/logo.png';
     }
   })(initialTheme);
 
@@ -29,8 +33,12 @@
 
     if (theme === 'dark') {
       html.classList.add('dark');
+      if (favicon) favicon.href = '/assets/media/logo-light.png';
+      if (faviconApple) faviconApple.href = '/assets/media/logo-light.png';
     } else {
       html.classList.remove('dark');
+      if (favicon) favicon.href = '/assets/media/logo.png';
+      if (faviconApple) faviconApple.href = '/assets/media/logo.png';
     }
 
     if (updateIcons) {
