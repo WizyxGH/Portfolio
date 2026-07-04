@@ -29,14 +29,22 @@ import ContactAdvice from '../components/contact/ContactAdvice.astro';
 <script src="/assets/js/contact.js" defer></script>
 <main class="flex-1 flex flex-col">
         <section class="w-full max-w-5xl mx-auto px-6 py-8 text-center space-y-8">
-            <div>
-                <h2 class="text-3xl lg:text-4xl font-bold text-dark-bg dark:text-white mb-4">
+            <div class="space-y-4 flex flex-col items-center">
+                <span class="text-sm font-bold text-brand-primary dark:text-brand-secondary uppercase">Contact</span>
+                <h1 class="text-3xl lg:text-4xl font-bold text-dark-bg dark:text-white">
                     Discutons de votre projet
-                </h2>
-                <div class="inline-flex items-center gap-2 rounded-full bg-brand-primary px-4 py-1.5 text-white">
-                    <i class='bx bxs-wink-smile'></i>
-                    <span class="text-sm font-semibold">Réponse sous 24h</span>
+                </h1>
+                <div class="inline-flex items-center gap-2 bg-brand-surface dark:bg-brand-dark border border-brand-light/30 dark:border-[#281E5A]/50 px-4 py-2 rounded-2xl shadow-sm">
+                    <div class="flex text-brand-primary dark:text-brand-secondary text-sm">
+                        <i class='bx bxs-zap'></i>
+                    </div>
+                    <span class="text-xs text-gray-500 dark:text-gray-400 font-semibold leading-none">
+                        Réponse estimée sous <strong class="text-brand-primary dark:text-brand-secondary font-bold">48 heures</strong>
+                    </span>
                 </div>
+                <p class="text-gray-600 dark:text-gray-300 max-w-lg mx-auto text-sm md:text-base leading-relaxed">
+                    Depuis 2026, 4 marques m'ont déjà fait confiance pour concevoir et lancer leurs produits web et mobiles.
+                </p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">

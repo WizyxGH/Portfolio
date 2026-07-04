@@ -1,0 +1,194 @@
+---
+// Composant déroulant custom pour les indicatifs téléphoniques
+---
+
+<input type="hidden" name="phone_country" id="phoneCountryInput" value="+33" />
+<button
+    type="button"
+    id="phoneCountryBtn"
+    class="flex items-center gap-2 py-3 pl-3 pr-2 border-2 border-r-0 border-[#3E3E3E]/20 rounded-l-xl focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-secondary bg-gray-50 dark:bg-[#1A1A1A] text-gray-800 dark:border-[#3E3E3E] dark:text-white transition-colors cursor-pointer shrink-0"
+>
+    <img
+        src="https://flagcdn.com/w20/fr.png"
+        srcset="https://flagcdn.com/w40/fr.png 2x"
+        width="20"
+        alt="FR"
+        class="rounded-[2px]"
+        id="selectedFlagImg"
+    />
+    <span id="selectedPrefix" class="font-medium text-sm">+33</span>
+    <i class="bx bx-chevron-down text-gray-400"></i>
+</button>
+
+<ul id="phoneCountryList" class="hidden absolute top-full left-0 mt-1 w-auto bg-white dark:bg-[#1A1A1A] border border-[#3E3E3E]/20 dark:border-[#3E3E3E] rounded-xl shadow-lg z-50 overflow-hidden py-1">
+    <li class="country-option flex items-center gap-3 p-3 hover:bg-gray-100 dark:hover:bg-[#2A2A2A] cursor-pointer transition-colors bg-gray-100 dark:bg-[#2A2A2A]" data-value="+33" data-country="fr">
+        <img src="https://flagcdn.com/w20/fr.png" srcset="https://flagcdn.com/w40/fr.png 2x" width="20" alt="FR" class="rounded-[2px]">
+        <span class="text-sm font-medium text-gray-800 dark:text-gray-200">France (+33)</span>
+    </li>
+    <li class="country-option flex items-center gap-3 p-3 hover:bg-gray-100 dark:hover:bg-[#2A2A2A] cursor-pointer transition-colors" data-value="+32" data-country="be">
+        <img src="https://flagcdn.com/w20/be.png" srcset="https://flagcdn.com/w40/be.png 2x" width="20" alt="BE" class="rounded-[2px]">
+        <span class="text-sm font-medium text-gray-800 dark:text-gray-200">Belgique (+32)</span>
+    </li>
+    <li class="country-option flex items-center gap-3 p-3 hover:bg-gray-100 dark:hover:bg-[#2A2A2A] cursor-pointer transition-colors" data-value="+1" data-country="ca">
+        <img src="https://flagcdn.com/w20/ca.png" srcset="https://flagcdn.com/w40/ca.png 2x" width="20" alt="CA" class="rounded-[2px]">
+        <span class="text-sm font-medium text-gray-800 dark:text-gray-200">Canada (+1)</span>
+    </li>
+    <li class="country-option flex items-center gap-3 p-3 hover:bg-gray-100 dark:hover:bg-[#2A2A2A] cursor-pointer transition-colors" data-value="+1" data-country="us">
+        <img src="https://flagcdn.com/w20/us.png" srcset="https://flagcdn.com/w40/us.png 2x" width="20" alt="US" class="rounded-[2px]">
+        <span class="text-sm font-medium text-gray-800 dark:text-gray-200">États-Unis (+1)</span>
+    </li>
+    <li class="country-option flex items-center gap-3 p-3 hover:bg-gray-100 dark:hover:bg-[#2A2A2A] cursor-pointer transition-colors" data-value="+352" data-country="lu">
+        <img src="https://flagcdn.com/w20/lu.png" srcset="https://flagcdn.com/w40/lu.png 2x" width="20" alt="LU" class="rounded-[2px]">
+        <span class="text-sm font-medium text-gray-800 dark:text-gray-200">Luxembourg (+352)</span>
+    </li>
+    <li class="country-option flex items-center gap-3 p-3 hover:bg-gray-100 dark:hover:bg-[#2A2A2A] cursor-pointer transition-colors" data-value="+44" data-country="gb">
+        <img src="https://flagcdn.com/w20/gb.png" srcset="https://flagcdn.com/w40/gb.png 2x" width="20" alt="GB" class="rounded-[2px]">
+        <span class="text-sm font-medium text-gray-800 dark:text-gray-200">Royaume-Uni (+44)</span>
+    </li>
+    <li class="country-option flex items-center gap-3 p-3 hover:bg-gray-100 dark:hover:bg-[#2A2A2A] cursor-pointer transition-colors" data-value="+41" data-country="ch">
+        <img src="https://flagcdn.com/w20/ch.png" srcset="https://flagcdn.com/w40/ch.png 2x" width="20" alt="CH" class="rounded-[2px]">
+        <span class="text-sm font-medium text-gray-800 dark:text-gray-200">Suisse (+41)</span>
+    </li>
+</ul>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const btn = document.getElementById("phoneCountryBtn");
+        const list = document.getElementById("phoneCountryList");
+        const input = document.getElementById(
+            "phoneCountryInput",
+        ) as HTMLInputElement;
+        const selectedFlagImg = document.getElementById(
+            "selectedFlagImg",
+        ) as HTMLImageElement;
+        const selectedPrefix = document.getElementById("selectedPrefix");
+        const options = document.querySelectorAll(".country-option");
+
+        if (btn && list) {
+            btn.addEventListener("click", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                list.classList.toggle("hidden");
+            });
+
+            document.addEventListener("click", (e) => {
+                if (
+                    !btn.contains(e.target as Node) &&
+                    !list.contains(e.target as Node)
+                ) {
+                    list.classList.add("hidden");
+                }
+            });
+
+            options.forEach((option) => {
+                option.addEventListener("click", () => {
+                    const value = option.getAttribute("data-value");
+                    const country = option.getAttribute("data-country");
+
+                    if (
+                        value &&
+                        country &&
+                        input &&
+                        selectedFlagImg &&
+                        selectedPrefix
+                    ) {
+                        input.value = value;
+                        selectedPrefix.textContent = value;
+                        selectedFlagImg.src = `https://flagcdn.com/w20/${country}.png`;
+                        selectedFlagImg.srcset = `https://flagcdn.com/w40/${country}.png 2x`;
+                        selectedFlagImg.alt = country.toUpperCase();
+
+                        // Gérer l'état actif
+                        options.forEach((opt) => {
+                            opt.classList.remove(
+                                "bg-gray-100",
+                                "dark:bg-[#2A2A2A]",
+                            );
+                        });
+                        option.classList.add(
+                            "bg-gray-100",
+                            "dark:bg-[#2A2A2A]",
+                        );
+
+                        list.classList.add('hidden');
+                    }
+                });
+            });
+
+            // Détection automatique du pays via IP
+            fetch('https://get.geojs.io/v1/ip/country.json')
+                .then(res => res.json())
+                .then(data => {
+                    if (data && data.country) {
+                        const countryCode = data.country.toLowerCase();
+                        // Chercher l'option correspondante
+                        const matchedOption = Array.from(options).find(opt => opt.getAttribute('data-country') === countryCode);
+                        if (matchedOption) {
+                            // On simule un clic sur l'option pour l'activer
+                            (matchedOption as HTMLElement).click();
+                        }
+                    }
+                })
+                .catch(() => {
+                    // En cas d'erreur (bloqueur de pub, réseau etc), on garde la France par défaut silencieusement
+                });
+
+            // Détection intelligente du préfixe lors de la frappe
+            const phoneInput = document.getElementById("phoneInput") as HTMLInputElement;
+            if (phoneInput) {
+                phoneInput.addEventListener("input", () => {
+                    let val = phoneInput.value.trimStart();
+                    let normalizedVal = val;
+                    
+                    if (normalizedVal.startsWith("00")) {
+                        normalizedVal = "+" + normalizedVal.substring(2);
+                    }
+
+                    if (normalizedVal.startsWith("+")) {
+                        // Trier par longueur décroissante pour matcher +352 avant +3 par ex.
+                        const sortedOptions = Array.from(options).sort((a, b) => {
+                            const valA = a.getAttribute("data-value") || "";
+                            const valB = b.getAttribute("data-value") || "";
+                            return valB.length - valA.length;
+                        });
+
+                        for (const opt of sortedOptions) {
+                            const code = opt.getAttribute("data-value");
+                            if (code && normalizedVal.replace(/\s+/g, "").startsWith(code)) {
+                                (opt as HTMLElement).click();
+                                
+                                // Nettoyage de l'input
+                                let codeRegex;
+                                if (val.startsWith("00")) {
+                                    const rawCode = code.substring(1);
+                                    codeRegex = new RegExp("^00\\s*" + rawCode.split("").join("\\s*"));
+                                } else {
+                                    const rawCode = code.substring(1);
+                                    codeRegex = new RegExp("^\\+\\s*" + rawCode.split("").join("\\s*"));
+                                }
+                                
+                                let remainder = val.replace(codeRegex, "").trim();
+                                
+                                // Retirer le 0 initial du numéro local si présent
+                                if (remainder.startsWith("0")) {
+                                    remainder = remainder.substring(1).trim();
+                                }
+                                
+                                phoneInput.value = remainder;
+                                break;
+                            }
+                        }
+                    }
+                });
+
+                // Nettoyage au format international (sans le premier 0) quand on quitte le champ
+                phoneInput.addEventListener("blur", () => {
+                    let val = phoneInput.value.trim();
+                    if (val.startsWith("0") && !val.startsWith("00")) {
+                        phoneInput.value = val.substring(1).trim();
+                    }
+                });
+            }
+        }
+    });
+</script>

@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
   // Selecteurs potentiels pour les boutons (support legacy)
   const TOGGLE_SELECTORS = ['#themeToggle', '#themeToggleDesktop', '#themeToggleMobile'];
 
@@ -7,6 +7,9 @@
   const initialTheme = savedTheme ? savedTheme : (systemPrefersDark ? 'dark' : 'light');
 
   (function applyClassImmediately(theme) {
+    const favicon = document.getElementById('favicon');
+    const faviconApple = document.getElementById('favicon-apple');
+
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
     } else {
@@ -20,6 +23,9 @@
 
   function updateTheme(theme, { updateIcons = false } = {}) {
     const html = document.documentElement;
+
+    const favicon = document.getElementById('favicon');
+    const faviconApple = document.getElementById('favicon-apple');
 
     if (theme === 'dark') {
       html.classList.add('dark');

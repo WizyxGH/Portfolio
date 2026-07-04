@@ -12,7 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (budgetSelect) {
         budgetSelect.addEventListener('change', () => {
             budgetError.classList.add('hidden');
-            budgetSelect.classList.remove('border-red-500');
+            const btn = document.getElementById('budgetSelectBtn');
+            if (btn) btn.classList.remove('border-red-500');
+            else budgetSelect.classList.remove('border-red-500');
         });
     }
 
@@ -86,14 +88,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function validateBudgetField() {
         if (!budgetSelect) return true;
+        const btn = document.getElementById('budgetSelectBtn');
         if (budgetSelect.value === '') {
             budgetError.textContent = "Veuillez sélectionner une tranche de budget pour votre projet.";
             budgetError.classList.remove('hidden');
-            budgetSelect.classList.add('border-red-500');
+            if (btn) btn.classList.add('border-red-500');
+            else budgetSelect.classList.add('border-red-500');
             return false;
         } else {
             budgetError.classList.add('hidden');
-            budgetSelect.classList.remove('border-red-500');
+            if (btn) btn.classList.remove('border-red-500');
+            else budgetSelect.classList.remove('border-red-500');
             return true;
         }
     }
@@ -170,13 +175,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (phoneInput) {
         phoneInput.addEventListener('input', (e) => {
-            // Supprimer tout ce qui n'est pas un chiffre
-            let rawValue = phoneInput.value.replace(/\D/g, '');
+            // Supprimer tout ce qui n'est pas un chiffre (on autorise le + au tout début)
+            let rawValue = phoneInput.value.replace(/[^\d+]/g, '');
             
-            // Grouper par blocs de 2 chiffres séparés par un espace
+            // Garder un seul + au début max
+            if (rawValue.indexOf('+') > 0) {
+                rawValue = rawValue.replace(/\+/g, (match, offset) => offset === 0 ? '+' : '');
+            }
+            
+            // Grouper par blocs de 2 (pour le numéro)
             let formattedValue = '';
             if (rawValue.length > 0) {
-                formattedValue = rawValue.match(/.{1,2}/g).join(' ');
+                const match = rawValue.match(/.{1,2}/g);
+                if (match) formattedValue = match.join(' ');
             }
             
             // Mettre à jour le champ (limité à 14 caractères : 10 chiffres + 4 espaces)
@@ -407,7 +418,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 clearFile();
                 if (budgetSelect) {
                     budgetSelect.value = '';
-                    budgetSelect.classList.remove('border-red-500');
+                    const btn = document.getElementById('budgetSelectBtn');
+                    if (btn) btn.classList.remove('border-red-500');
+                    else budgetSelect.classList.remove('border-red-500');
+                    
+                    const textSpan = document.getElementById('budgetSelectedText');
+                    if (textSpan) {
+                        textSpan.textContent = 'Sélectionnez une tranche...';
+                        textSpan.classList.add('text-gray-400', 'dark:text-gray-500');
+                        textSpan.classList.remove('text-gray-800', 'dark:text-white');
+                    }
+                    
+                    const options = document.querySelectorAll(".budget-option");
+                    options.forEach(opt => opt.classList.remove("bg-gray-100", "dark:bg-[#2A2A2A]"));
                 }
                 budgetError.classList.add('hidden');
                 

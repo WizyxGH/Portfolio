@@ -148,14 +148,6 @@
   background-color: #5536ED;
 }
 
-/* CV Image Hover Animation */
-.cv-img {
-  transition: transform 500ms;
-}
-
-.group:hover .cv-img {
-  transform: rotate(3deg) !important;
-}
 
 /* Custom Cursor */
 * {

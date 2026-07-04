@@ -1,5 +1,7 @@
 ---
 import Button from '../ui/Button.astro';
+import PhonePrefixDropdown from '../ui/PhonePrefixDropdown.astro';
+import BudgetDropdown from '../ui/BudgetDropdown.astro';
 ---
 <form action="https://formsubmit.co/ajax/0072bc2f7aa3ef8f3cdcee2277752884" method="POST"
     class="flex flex-col gap-4 lg:col-span-3" id="contactForm">
@@ -12,7 +14,7 @@ import Button from '../ui/Button.astro';
             <label for="emailInput" class="flex items-center gap-2 text-dark-bg dark:text-white font-medium cursor-pointer">
                 Adresse mail
             </label>
-            <input type="email" name="email" id="emailInput" placeholder="johndoe@mail.com" required autocomplete="email"
+            <input type="email" name="email" id="emailInput" placeholder="martindupont@mail.com" required autocomplete="email"
                 class="mt-1 w-full p-3 border-2 border-[#3E3E3E]/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-secondary focus:border-transparent bg-white text-gray-800 dark:bg-dark-bg dark:border-[#3E3E3E] dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-colors">
             <p id="emailError" class="text-xs text-red-500 font-medium mt-1.5 hidden"></p>
         </div>
@@ -20,15 +22,8 @@ import Button from '../ui/Button.astro';
             <label for="phoneInput" class="flex items-center gap-2 text-dark-bg dark:text-white font-medium cursor-pointer">
                 Numéro de téléphone <span class="text-xs text-gray-400 dark:text-gray-500 font-normal">(Optionnel)</span>
             </label>
-            <div class="mt-1 flex">
-                <select name="phone_country" class="p-3 border-2 border-r-0 border-[#3E3E3E]/20 rounded-l-xl focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-secondary bg-gray-50 dark:bg-[#1A1A1A] text-gray-800 dark:border-[#3E3E3E] dark:text-white transition-colors cursor-pointer min-w-[90px]">
-                    <option value="+33" selected>🇫🇷 +33</option>
-                    <option value="+32">🇧🇪 +32</option>
-                    <option value="+41">🇨🇭 +41</option>
-                    <option value="+352">🇱🇺 +352</option>
-                    <option value="+1">🇺🇸 +1</option>
-                    <option value="+44">🇬🇧 +44</option>
-                </select>
+            <div class="mt-1 flex relative" id="phoneCountryContainer">
+                <PhonePrefixDropdown />
                 <input type="tel" name="phone" id="phoneInput" placeholder="6 12 34 56 78" autocomplete="tel-national"
                     class="w-full p-3 border-2 border-[#3E3E3E]/20 rounded-r-xl focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-secondary focus:border-transparent bg-white text-gray-800 dark:bg-dark-bg dark:border-[#3E3E3E] dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-colors">
             </div>
@@ -52,14 +47,14 @@ import Button from '../ui/Button.astro';
             <span class="flex items-center gap-2 text-dark-bg dark:text-white font-medium mb-1">
                 Vous êtes
             </span>
-            <div class="flex items-center gap-6 mt-1 h-full">
-                <label class="flex items-center gap-2 cursor-pointer text-gray-800 dark:text-gray-200">
+            <div class="w-full flex items-center mt-1 p-3 border-2 border-[#3E3E3E]/20 rounded-xl bg-white dark:bg-dark-bg dark:border-[#3E3E3E] transition-colors">
+                <label class="flex items-center gap-2 cursor-pointer text-gray-800 dark:text-gray-200 flex-1 justify-center border-r border-gray-200 dark:border-gray-700/50 pr-2">
                     <input type="radio" name="client_type" id="radioEntreprise" value="Entreprise" class="w-4 h-4 accent-brand-primary text-brand-primary focus:ring-brand-primary bg-white border-gray-300 dark:bg-dark-bg dark:border-gray-600" required>
-                    Entreprise
+                    <span class="text-sm font-medium">Entreprise</span>
                 </label>
-                <label class="flex items-center gap-2 cursor-pointer text-gray-800 dark:text-gray-200">
+                <label class="flex items-center gap-2 cursor-pointer text-gray-800 dark:text-gray-200 flex-1 justify-center pl-2">
                     <input type="radio" name="client_type" id="radioParticulier" value="Particulier" class="w-4 h-4 accent-brand-primary text-brand-primary focus:ring-brand-primary bg-white border-gray-300 dark:bg-dark-bg dark:border-gray-600" required>
-                    Particulier
+                    <span class="text-sm font-medium">Particulier</span>
                 </label>
             </div>
             
@@ -77,19 +72,7 @@ import Button from '../ui/Button.astro';
             <label for="budgetSelect" class="flex items-center gap-2 text-dark-bg dark:text-white font-medium mb-1">
                 Budget
             </label>
-            <div class="relative mt-1">
-                <select name="budget" id="budgetSelect" required
-                    class="w-full p-3 border-2 border-[#3E3E3E]/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-secondary focus:border-transparent bg-white text-gray-800 dark:bg-dark-bg dark:border-[#3E3E3E] dark:text-white transition-colors cursor-pointer appearance-none">
-                    <option value="" disabled selected>Sélectionnez une tranche...</option>
-                    <option value="Moins de 1 000 €">Moins de 1 000 €</option>
-                    <option value="1 000 € - 3 000 €">1 000 € - 3 000 €</option>
-                    <option value="3 000 € - 6 000 €">3 000 € - 6 000 €</option>
-                    <option value="Plus de 6 000 €">Plus de 6 000 €</option>
-                </select>
-                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
-                    <i class='bx bx-chevron-down text-xl'></i>
-                </div>
-            </div>
+            <BudgetDropdown />
             <p id="budgetError" class="text-xs text-red-500 font-medium mt-1.5 hidden"></p>
         </div>
     </div>
@@ -153,3 +136,4 @@ import Button from '../ui/Button.astro';
     <!-- Feedback -->
     <p id="formMessage" class="text-center mt-2 font-medium text-green-600 hidden">Message envoyé !</p>
 </form>
+
