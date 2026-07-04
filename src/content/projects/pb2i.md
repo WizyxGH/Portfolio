@@ -1,8 +1,9 @@
 ---
 id: 34
 title: "PB2I - Patrimoine Belfortain de l'Industrie Informatique"
+image: "../../assets/media/projects/pb2i.webp"
 image_alt: "Aperçu du site internet pour PB2I"
-description: "Redesign du site internet."
+description: "Redesign et développement du site internet."
 type: "Site internet"
 context: "Professionnel"
 date: "2026-05-01"
