@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const showLessButton = document.getElementById("showLessButton");
+    const scrollSentinel = document.getElementById("scrollSentinel");
     const searchInput = document.getElementById('searchInput');
     const clearSearchButton = document.getElementById('clearSearch');
     
@@ -351,18 +351,13 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         } else if (emptyCard) emptyCard.remove();
 
-        // Gestion boutons Voir plus/moins
-        if (!showMoreButton || !showLessButton) return;
-
-        if (totalMatches <= 9) {
-            showMoreButton.style.display = "none";
-            showLessButton.style.display = "none";
-        } else if (projectsVisible >= totalMatches) {
-            showMoreButton.style.display = "none";
-            showLessButton.style.display = "";
-        } else {
-            showMoreButton.style.display = "";
-            showLessButton.style.display = "none";
+        // Gestion Infinite Scroll Sentinel
+        if (scrollSentinel) {
+            if (projectsVisible >= totalMatches) {
+                scrollSentinel.style.display = "none";
+            } else {
+                scrollSentinel.style.display = "block";
+            }
         }
     }
 
@@ -382,15 +377,16 @@ document.addEventListener("DOMContentLoaded", function () {
         updateProjects();
     });
 
-    showMoreButton?.addEventListener("click", () => {
-        projectsVisible = allCards.length;
-        updateProjects();
-    });
-
-    showLessButton?.addEventListener("click", () => {
-        projectsVisible = 9;
-        updateProjects();
-    });
+    // --- Infinite Scroll ---
+    if (scrollSentinel) {
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                projectsVisible += 9;
+                updateProjects();
+            }
+        }, { rootMargin: "400px" });
+        observer.observe(scrollSentinel);
+    }
 
     // --- Autosuggestions ---
     const suggestionsContainer = document.getElementById('suggestionsContainer');

@@ -7,17 +7,10 @@
   const initialTheme = savedTheme ? savedTheme : (systemPrefersDark ? 'dark' : 'light');
 
   (function applyClassImmediately(theme) {
-    const favicon = document.getElementById('favicon');
-    const faviconApple = document.getElementById('favicon-apple');
-
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
-      if (favicon) favicon.href = '/assets/media/logo-light.png';
-      if (faviconApple) faviconApple.href = '/assets/media/logo-light.png';
     } else {
       document.documentElement.classList.remove('dark');
-      if (favicon) favicon.href = '/assets/media/logo.png';
-      if (faviconApple) faviconApple.href = '/assets/media/logo.png';
     }
   })(initialTheme);
 
@@ -28,17 +21,10 @@
   function updateTheme(theme, { updateIcons = false } = {}) {
     const html = document.documentElement;
 
-    const favicon = document.getElementById('favicon');
-    const faviconApple = document.getElementById('favicon-apple');
-
     if (theme === 'dark') {
       html.classList.add('dark');
-      if (favicon) favicon.href = '/assets/media/logo-light.png';
-      if (faviconApple) faviconApple.href = '/assets/media/logo-light.png';
     } else {
       html.classList.remove('dark');
-      if (favicon) favicon.href = '/assets/media/logo.png';
-      if (faviconApple) faviconApple.href = '/assets/media/logo.png';
     }
 
     if (updateIcons) {

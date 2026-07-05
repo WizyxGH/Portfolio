@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
-import CreationsHeader from '../components/creations/CreationsHeader.astro';
+import FiltersDrawer from '../components/creations/FiltersDrawer.astro';
 import ProjectCard from '../components/ui/ProjectCard.astro';
 import Button from '../components/ui/Button.astro';
 
@@ -33,30 +33,39 @@ const sorted_projects = allProjects
     </script>
     <script src="/assets/js/projects.js" defer></script>
     <main>
-        <CreationsHeader />
-
-        <section class="p-8 text-center lg:px-32 lg:-mt-40">
-            <h2 class="text-2xl font-bold mb-6 lg:text-white">
+        <section class="p-8 text-center lg:px-32 lg:pt-16">
+            <h2 class="text-3xl font-bold mb-8 text-dark-bg dark:text-white">
                 <i class='bx bxs-diamond-alt'></i> Mes maquettes
             </h2>
+            
+            <div class="relative w-full max-w-3xl mx-auto mb-12">
+                <i class='bx bx-search absolute left-5 top-1/2 -translate-y-1/2 text-[#3E3E3E] dark:text-white text-xl'></i>
+                <input type="text" id="searchInput" placeholder="Rechercher parmi les projets"
+                    class="w-full pl-12 pr-24 py-3 rounded-xl border-2 border-[#3E3E3E]/20 bg-white dark:bg-dark-bg dark:border-[#3E3E3E] dark:text-white dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-primary placeholder-gray-400 text-gray-800 shadow-sm" />
+                
+                <button id="clearSearch"
+                    class="absolute right-14 top-1/2 transform -translate-y-1/2 text-[#3E3E3E] dark:text-white opacity-0 pointer-events-none transition-opacity p-1 hover:text-brand-primary dark:hover:text-brand-secondary">
+                    <i class='bx bx-x text-xl leading-none'></i>
+                </button>
+
+                <!-- Bouton Filtres intégré au champ -->
+                <button id="openFiltersBtn" class="absolute right-2 top-1/2 transform -translate-y-1/2 h-10 w-10 flex items-center justify-center rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-white/10 dark:hover:bg-white/20 text-[#3E3E3E] dark:text-white transition-colors" title="Filtres & Tri">
+                    <i class='bx bx-slider-alt text-xl leading-none'></i>
+                </button>
+
+                <div id="suggestionsContainer"
+                    class="absolute z-20 w-full bg-white dark:bg-dark-bg border border-gray-200 dark:border-[#3E3E3E] rounded-xl mt-1 shadow-lg hidden max-h-60 overflow-auto text-left">
+                </div>
+            </div>
             <div id="projectsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                {sorted_projects.map((project) => {
+                {sorted_projects.map((project, index) => {
                     return (
-                        <ProjectCard project={project} />
+                        <ProjectCard project={project} isHidden={index >= 9} loading={index < 3 ? 'eager' : 'lazy'} />
                     )
                 })}
             </div>
-            <div class="flex justify-center mt-12 mb-8">
-                <Button id="showMoreButton" variant="primary" class="shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                    <span>Afficher tous les projets</span>
-                    <i class='bx bx-plus text-xl'></i>
-                </Button>
-
-                <Button id="showLessButton" variant="primary" class="shadow-lg hover:shadow-xl transform hover:-translate-y-1 hidden">
-                    <span>Afficher moins de projets</span>
-                    <i class='bx bx-minus text-xl'></i>
-                </Button>
-            </div>
+            <div id="scrollSentinel" class="h-4 w-full mt-8"></div>
         </section>
     </main>
+    <FiltersDrawer />
 </Layout>

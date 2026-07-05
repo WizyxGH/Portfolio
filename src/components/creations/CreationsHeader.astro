@@ -2,12 +2,8 @@
 // src/components/creations/CreationsHeader.astro
 import FiltersDrawer from './FiltersDrawer.astro';
 ---
-<header class="text-white bg-brand-primary p-8 lg:px-32 lg:pt-20 lg-header-pb">
-    <h1 class="text-5xl font-bold">Designer d'expériences</h1>
-    <h2 class="text-stroke text-5xl font-bold mt-2">Rédacteur émotionnel</h2>
-    <p class="mt-4">Je transforme vos idées en produits performants</p>
-    
-    <div class="relative w-full mt-8">
+<header class="bg-brand-primary p-8 lg:px-32 lg:py-12">
+    <div class="relative w-full max-w-3xl mx-auto">
         <i class='bx bx-search absolute left-5 top-1/2 -translate-y-1/2 text-[#3E3E3E] dark:text-white text-xl'></i>
         <input type="text" id="searchInput" placeholder="Rechercher parmi les projets"
             class="w-full pl-12 pr-24 py-3 rounded-xl border-2 border-[#3E3E3E]/20 bg-white dark:bg-dark-bg dark:border-[#3E3E3E] dark:text-white dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-primary placeholder-gray-400 text-gray-800" />

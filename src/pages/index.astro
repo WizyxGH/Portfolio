@@ -115,9 +115,9 @@ const featured_projects = allProjects
         <div class="overflow-x-auto mb-8 -mx-8 lg:-mx-32 lg:px-32 scrollbar-hide">
             <div class="flex gap-6 pb-4 px-8 lg:px-0 cursor-grab after:content-[''] after:min-w-8 after:block after:h-1"
                 id="projects-grid" data-drag-scroll>
-                {featured_projects.map((project) => (
+                {featured_projects.map((project, index) => (
                     <div class="flex-shrink-0 w-80">
-                        <ProjectCard project={project} />
+                        <ProjectCard project={project} loading={index < 3 ? 'eager' : 'lazy'} />
                     </div>
                 ))}
             </div>
@@ -133,6 +133,21 @@ const featured_projects = allProjects
     </section>
 
     <Testimonials />
+
+    <!-- Call to Action Section -->
+    <!--<section class="p-8 lg:px-32 lg:py-24 bg-[#411FEB] text-white text-center space-y-8 flex flex-col items-center">
+        <div class="space-y-4">
+            <h2 class="text-3xl md:text-5xl font-bold">Prêt à donner vie à votre projet ?</h2>
+            <p class="text-white/80 max-w-2xl mx-auto text-lg">
+                Discutons de vos besoins et voyons comment nous pouvons collaborer pour créer une expérience exceptionnelle.
+            </p>
+        </div>
+        <a href="/contact/"
+            class="bg-white text-[#411FEB] px-8 py-4 font-bold rounded-xl text-lg transition-colors hover:bg-gray-100 flex items-center gap-2">
+            Me contacter
+            <i class='bx bx-right-arrow-alt text-2xl'></i>
+        </a>
+    </section>-->
 
     <!-- Load Projects Script was removed in favor of SSR -->
     <script src="/assets/js/drag_scroll.js" defer></script>
