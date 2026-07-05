@@ -1,9 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const showMoreButton = document.getElementById("showMoreButton");
     const showLessButton = document.getElementById("showLessButton");
     const searchInput = document.getElementById('searchInput');
     const clearSearchButton = document.getElementById('clearSearch');
-    const filtersContainer = document.getElementById('filtersContainer');
+    
+    // Drawer elements
+    const filtersDrawer = document.getElementById('filtersDrawer');
+    const openFiltersBtn = document.getElementById('openFiltersBtn');
+    const closeFiltersBtn = document.getElementById('closeFiltersBtn');
+    const applyFiltersBtn = document.getElementById('applyFiltersBtn');
+    const resultsCountBadge = document.getElementById('resultsCountBadge');
+    
+    // Containers in Drawer
+    const filtersTypesContainer = document.getElementById('drawerTypesContainer');
+    const filtersTagsContainer = document.getElementById('drawerTagsContainer');
+    const sortContainer = document.getElementById('drawerSortContainer');
     const container = document.getElementById("projectsContainer");
     if (!container) return; // Si pas de container, on arrête (ex: page projet)
 
@@ -16,11 +26,39 @@ document.addEventListener("DOMContentLoaded", function () {
     let selectedTags = new Set();
     let selectedSuggestionIndex = -1;
 
+    // --- Gestion du Drawer ---
+    function openDrawer() {
+        if (!filtersDrawer) return;
+        filtersDrawer.classList.remove('invisible');
+        setTimeout(() => {
+            const overlay = filtersDrawer.querySelector('.drawer-overlay');
+            const content = filtersDrawer.querySelector('.drawer-content');
+            if(overlay) overlay.classList.remove('opacity-0');
+            if(content) content.classList.remove('translate-y-full', 'sm:translate-x-full');
+        }, 10);
+    }
+
+    function closeDrawer() {
+        if (!filtersDrawer) return;
+        const overlay = filtersDrawer.querySelector('.drawer-overlay');
+        const content = filtersDrawer.querySelector('.drawer-content');
+        if(overlay) overlay.classList.add('opacity-0');
+        if(content) content.classList.add('translate-y-full', 'sm:translate-x-full');
+        setTimeout(() => {
+            filtersDrawer.classList.add('invisible');
+        }, 300);
+    }
+
+    openFiltersBtn?.addEventListener('click', openDrawer);
+    closeFiltersBtn?.addEventListener('click', closeDrawer);
+    applyFiltersBtn?.addEventListener('click', closeDrawer);
+    filtersDrawer?.querySelector('.drawer-overlay')?.addEventListener('click', closeDrawer);
+
     // Helper de style unifié pour TOUS les boutons (Filtres, Tri, Tags, Types)
     function getSharedBtnStyle(isActive) {
         return isActive
-            ? "h-9 px-4 rounded-full bg-white text-[#411FEB] border border-white text-sm font-medium shadow-md transition-all flex items-center gap-1 whitespace-nowrap flex-shrink-0"
-            : "h-9 px-4 rounded-full bg-white/10 text-white border border-white/20 hover:bg-white/20 text-sm font-medium transition-all flex items-center gap-1 whitespace-nowrap flex-shrink-0";
+            ? "h-9 px-4 rounded-full bg-brand-primary dark:bg-brand-secondary text-white border border-transparent text-sm font-medium shadow-md transition-all flex items-center gap-1 whitespace-nowrap flex-shrink-0"
+            : "h-9 px-4 rounded-full bg-gray-100 dark:bg-white/5 text-gray-700 dark:text-gray-300 border border-transparent hover:bg-gray-200 dark:hover:bg-white/10 text-sm font-medium transition-all flex items-center gap-1 whitespace-nowrap flex-shrink-0";
     }
 
     let scrollAnimationObserver = null;
@@ -101,8 +139,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     function generateFilters() {
-        if (!filtersContainer) return;
-        filtersContainer.innerHTML = '';
+        if (!filtersTypesContainer || !filtersTagsContainer) return;
+        filtersTypesContainer.innerHTML = '';
+        filtersTagsContainer.innerHTML = '';
 
         // 1. Compter les occurrences pour le tri
         const typeCounts = new Map();
@@ -127,12 +166,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         // 2. Créer l'UI pour les Types
-        // Ajouter le label "Filtrer par :" au début
-        const filterLabel = document.createElement('span');
-        filterLabel.className = "text-sm text-white font-medium whitespace-nowrap mr-2";
-        filterLabel.textContent = "Filtrer par :";
-        filtersContainer.appendChild(filterLabel);
-
         if (typeCounts.size > 0) {
             Array.from(typeCounts.keys())
                 .sort((a, b) => typeCounts.get(b) - typeCounts.get(a))
@@ -142,7 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     btn.className = getSharedBtnStyle(isActive);
                     btn.textContent = type;
                     btn.onclick = () => toggleFilter(btn, type, 'type');
-                    filtersContainer.appendChild(btn);
+                    filtersTypesContainer.appendChild(btn);
                 });
         }
 
@@ -157,7 +190,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     btn.className = getSharedBtnStyle(isActive);
                     btn.innerHTML = `<i class='${tagIcon} text-base'></i> ${tagName}`;
                     btn.onclick = () => toggleFilter(btn, tagName, 'tag');
-                    filtersContainer.appendChild(btn);
+                    filtersTagsContainer.appendChild(btn);
                 });
         }
     }
@@ -166,25 +199,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // --- Gestion du Tri (Sort Controls) ---
     function generateSortControls() {
-        const sortContainer = document.getElementById('sortControlsContainer');
         if (!sortContainer) return;
         sortContainer.innerHTML = '';
 
-        const wrapper = document.createElement('div');
-        wrapper.className = "w-full flex flex-nowrap overflow-x-auto gap-2 items-center scrollbar-hide mb-2";
-        enableDragScroll(wrapper);
-
-        const label = document.createElement('span');
-        label.className = "text-sm text-white font-medium whitespace-nowrap";
-        label.textContent = "Trier par :";
-        wrapper.appendChild(label);
-
         const btnGroup = document.createElement('div');
-        btnGroup.className = "flex items-center gap-2";
+        btnGroup.className = "flex flex-wrap items-center gap-2";
         btnGroup.id = "sortBtnGroup";
-        wrapper.appendChild(btnGroup);
-
-        sortContainer.appendChild(wrapper);
+        
+        sortContainer.appendChild(btnGroup);
         updateSortUI();
     }
 
@@ -193,58 +215,43 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!btnGroup) return;
         btnGroup.innerHTML = '';
 
-        // Fonction pour générer le style des boutons (DOIT ETRE IDENTIQUE AU FILTRE)
-        // Utilisation du helper partagé
         const getBtnStyle = getSharedBtnStyle;
 
         // Bouton "Plus populaire"
         const btnPop = document.createElement('button');
-        const isPopActive = currentSort === 'meilleur';
+        const isPopActive = currentSort === 'meilleur' || currentSort === 'default';
         btnPop.className = getBtnStyle(isPopActive);
         btnPop.innerHTML = `<i class='bx ${isPopActive ? 'bxs-star' : 'bx-star'} text-base'></i> Plus populaire`;
         btnPop.onclick = () => {
-            if (currentSort === 'meilleur') {
-                currentSort = 'default';
-            } else {
-                currentSort = 'meilleur';
-            }
+            currentSort = 'meilleur';
             updateSortUI();
             sortAndRenderCards();
         };
         btnGroup.appendChild(btnPop);
 
-        // Bouton "Date"
-        const btnDate = document.createElement('button');
-        const isDateActive = currentSort === 'date_desc' || currentSort === 'date_asc' || currentSort === 'date';
-        const isAsc = currentSort === 'date_asc'; // Plus ancien
-
-        let dateLabel = "Date : Plus récent";
-        let dateIconClass = "bx-sort-down";
-
-        if (isDateActive) {
-            if (isAsc) {
-                dateLabel = "Date : Plus ancien";
-                dateIconClass = "bx-sort-down";
-            } else {
-                dateLabel = "Date : Plus récent";
-                dateIconClass = "bx-sort-up";
-            }
-        }
-
-        btnDate.className = getBtnStyle(isDateActive);
-        btnDate.innerHTML = `<i class='bx ${dateIconClass} text-base'></i> ${dateLabel}`;
-        btnDate.onclick = () => {
-            if (currentSort === 'date_desc' || currentSort === 'date') {
-                currentSort = 'date_asc';
-            } else if (currentSort === 'date_asc') {
-                currentSort = 'default';
-            } else {
-                currentSort = 'date_desc';
-            }
+        // Bouton "Plus récent"
+        const btnRecent = document.createElement('button');
+        const isRecentActive = currentSort === 'date_desc' || currentSort === 'date';
+        btnRecent.className = getBtnStyle(isRecentActive);
+        btnRecent.innerHTML = `<i class='bx ${isRecentActive ? 'bxs-time' : 'bx-time'} text-base'></i> Plus récent`;
+        btnRecent.onclick = () => {
+            currentSort = 'date_desc';
             updateSortUI();
             sortAndRenderCards();
         };
-        btnGroup.appendChild(btnDate);
+        btnGroup.appendChild(btnRecent);
+
+        // Bouton "Plus ancien"
+        const btnAncien = document.createElement('button');
+        const isAncienActive = currentSort === 'date_asc';
+        btnAncien.className = getBtnStyle(isAncienActive);
+        btnAncien.innerHTML = `<i class='bx bx-history text-base'></i> Plus ancien`;
+        btnAncien.onclick = () => {
+            currentSort = 'date_asc';
+            updateSortUI();
+            sortAndRenderCards();
+        };
+        btnGroup.appendChild(btnAncien);
     }
 
     function toggleFilter(btn, value, category) {
@@ -299,6 +306,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const totalMatches = matchingCards.length;
         let visibleCount = 0;
+
+        if (resultsCountBadge) {
+            resultsCountBadge.textContent = totalMatches;
+        }
 
         // Affichage / Masquage
         allCards.forEach(card => {
@@ -520,7 +531,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
     searchInput.addEventListener('keydown', (e) => {
         const items = suggestionsContainer.children;
-        if (items.length === 0 || suggestionsContainer.classList.contains('hidden')) return;
+        const suggestionsVisible = !suggestionsContainer.classList.contains('hidden') && items.length > 0;
+
+        if (e.key === 'Enter') {
+            if (suggestionsVisible && selectedSuggestionIndex > -1 && items[selectedSuggestionIndex]) {
+                e.preventDefault();
+                const link = items[selectedSuggestionIndex].querySelector('a');
+                if (link) {
+                    link.click();
+                    return;
+                }
+            }
+            
+            const visibleCards = allCards.filter(card => !card.classList.contains('hidden'));
+            if (visibleCards.length === 1) {
+                e.preventDefault();
+                visibleCards[0].click();
+                return;
+            }
+        }
+
+        if (!suggestionsVisible) return;
 
         if (e.key === 'ArrowDown') {
             e.preventDefault();
@@ -532,12 +563,6 @@ document.addEventListener("DOMContentLoaded", function () {
             selectedSuggestionIndex--;
             if (selectedSuggestionIndex < -1) selectedSuggestionIndex = items.length - 1;
             updateSuggestionsHighlight(items);
-        } else if (e.key === 'Enter') {
-            if (selectedSuggestionIndex > -1 && items[selectedSuggestionIndex]) {
-                e.preventDefault();
-                const link = items[selectedSuggestionIndex].querySelector('a');
-                if (link) link.click();
-            }
         }
     });
 

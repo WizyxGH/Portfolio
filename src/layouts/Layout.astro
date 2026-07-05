@@ -25,7 +25,7 @@ const {
 
 const siteUrl = "https://wizyx.me";
 const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
-const finalTitle = title === "Portfolio Florian Gertner Kilian" ? title : `${title} - Florian Gertner Kilian`;
+const finalTitle = title.toLowerCase().includes('florian gertner kilian') ? title : `${title} - Florian Gertner Kilian`;
 const canonicalUrl = canonical ? new URL(canonical, siteUrl).href : currentUrl;
 ---
 

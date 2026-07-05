@@ -161,20 +161,27 @@ const projectDataJson = {
 
                 {page.testimonial && (
                 <div class="mt-6 mb-8">
-                    <div class="bg-brand-muted dark:bg-brand-secondary dark:bg-opacity-[0.10] border-2 border-brand-light dark:border-[#281E5A] text-brand-primary dark:text-brand-secondary text-left p-6 rounded-2xl shadow-lg flex flex-col gap-3">
-                        <div class="text-4xl font-bold text-brand-primary dark:text-brand-secondary">
-                            <i class='bx bxs-quote-left'></i>
+                    <div class="bg-brand-muted dark:bg-brand-secondary/10 border-2 border-brand-light dark:border-[#281E5A] p-6 rounded-2xl flex flex-col justify-between transition-all duration-600 transform hover:scale-[1.02] hover:shadow-xl hover:border-brand-primary dark:hover:border-brand-secondary group">
+                        <div class="flex flex-col">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="text-brand-primary/20 dark:text-brand-secondary/20 text-3xl transition-colors group-hover:text-brand-primary dark:group-hover:text-brand-secondary">
+                                    <i class='bx bxs-quote-left'></i>
+                                </div>
+                                <div class="flex gap-0.5 text-yellow-400 text-sm">
+                                    <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed italic mb-4">
+                                {page.testimonial.text}
+                            </p>
                         </div>
-                        <p class="text-base dark:text-white leading-relaxed">
-                            {page.testimonial.text}
-                        </p>
-                        <div class="flex items-center gap-3 mt-auto pt-4">
-                            <img src={page.testimonial.author.avatar} alt={page.testimonial.author.name} class="w-12 h-12 rounded-full object-cover" width="48" height="48" loading="lazy" decoding="async" />
+                        <div class="flex items-center gap-3 mt-auto">
+                            <img src={page.testimonial.author.avatar} alt={page.testimonial.author.name} class="w-10 h-10 rounded-full object-cover shrink-0" width="40" height="40" loading="lazy" decoding="async" />
                             <div>
-                                <h4 class="font-bold text-brand-primary dark:text-brand-secondary">{page.testimonial.author.name}</h4>
-                                <p class="font-light text-sm text-brand-primary dark:text-brand-secondary">
+                                <h4 class="font-bold text-sm text-brand-primary dark:text-brand-secondary">{page.testimonial.author.name}</h4>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">
                                     {page.testimonial.author.companyUrl ? (
-                                        <a href={page.testimonial.author.companyUrl} target="_blank" rel="noopener noreferrer">{page.testimonial.author.title}</a>
+                                        <a href={page.testimonial.author.companyUrl} target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold text-brand-primary dark:text-brand-secondary">{page.testimonial.author.title}</a>
                                     ) : (
                                         page.testimonial.author.title
                                     )}
