@@ -1,0 +1,110 @@
+---
+import { getMediaUrl } from '../../utils/media';
+
+export interface Props {
+    title: string;
+    image: any;
+    image_alt?: string;
+    gallery: any[];
+    tags: any[];
+}
+
+const { title, image, image_alt, gallery, tags } = Astro.props;
+
+const getSrc = (img: any) => typeof img === 'string' ? (getMediaUrl(img) || img) : img?.src;
+
+const hasGallery = gallery.length > 0;
+const hasResponsiveTag = tags.some((tag: any) => tag.name === "Responsive");
+
+const projectDataJson = {
+    image: getSrc(image),
+    gallery: gallery.map(getSrc),
+    title: title
+};
+---
+
+<div class="flex flex-col">
+    <div class="relative group w-full bg-black rounded-xl overflow-hidden flex flex-col justify-center shadow-2xl border border-white/10" style="aspect-ratio: 4/3; max-height: 500px;" id="projectCarousel">
+        <div class="absolute top-6 right-6 z-20 text-white font-mono font-bold text-sm tracking-wider bg-black/60 px-4 py-2 rounded-full backdrop-blur-md">
+            <span id="currentSlide">1</span> / <span id="totalSlides">0</span>
+        </div>
+
+        <div class="carousel-track flex h-full transition-transform duration-500 ease-in-out w-full self-start">
+            {image && (
+            <div class="min-w-full w-full flex-none h-full flex items-center justify-center p-0 lg:p-4 carousel-slide" style="flex: 0 0 100% !important; min-width: 100% !important; width: 100% !important;">
+                {(getSrc(image).includes('.webm') || getSrc(image).includes('.mp4')) ? (
+                <video autoplay loop muted playsinline class="h-full object-contain">
+                    <source src={getSrc(image)} type="video/webm" />
+                </video>
+                ) : (
+                <img loading="lazy" decoding="async" src={getSrc(image)} alt={image_alt || `${title} - Main`} class="h-full object-contain" />
+                )}
+            </div>
+            )}
+
+            {hasGallery && gallery.map((rawImg: any, i: number) => {
+                const img = getSrc(rawImg);
+                return (
+            <div class="min-w-full w-full flex-none h-full flex items-center justify-center p-0 lg:p-4 carousel-slide" style="flex: 0 0 100% !important; min-width: 100% !important; width: 100% !important;">
+                {img.includes('.pdf') ? (
+                <div class="h-full w-full flex items-center justify-center bg-gray-100 relative group-pdf">
+                    <iframe src={`${img}#toolbar=0&navpanes=0`} class="h-full w-full object-contain border-0"></iframe>
+                </div>
+                ) : (img.includes('.webm') || img.includes('.mp4')) ? (
+                <video autoplay loop muted playsinline class="h-full object-contain">
+                    <source src={img} type="video/webm" />
+                </video>
+                ) : (
+                <img src={img} alt={`${title} - Gallery ${i + 1}`} class="h-full object-contain" loading="lazy" />
+                )}
+            </div>
+            )})}
+        </div>
+
+        <button id="prevBtn" class="absolute top-1/2 left-4 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-black/60 hover:bg-black/80 backdrop-blur-md text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 focus:outline-none z-30" aria-label="Previous image">
+            <i class='bx bx-chevron-left text-3xl'></i>
+        </button>
+        <button id="nextBtn" class="absolute top-1/2 right-4 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-black/60 hover:bg-black/80 backdrop-blur-md text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 focus:outline-none z-30" aria-label="Next image">
+            <i class='bx bx-chevron-right text-3xl'></i>
+        </button>
+    </div>
+
+    <div class="flex justify-center mt-4 gap-3" id="carouselDots"></div>
+
+    {hasResponsiveTag && (
+    <div class="flex justify-center gap-2 mt-4" id="responsiveFilter">
+        <button class="filter-btn active px-4 py-2 rounded-xl border-2 border-brand-light dark:border-[#281E5A] bg-brand-primary dark:bg-brand-secondary text-white font-semibold text-sm transition-all duration-200 hover:bg-[#3A1CC5] dark:hover:bg-[#4429C9]" data-filter="all">Toutes</button>
+        <button class="filter-btn px-4 py-2 rounded-xl border-2 border-brand-light dark:border-[#281E5A] bg-transparent text-brand-primary dark:text-brand-secondary font-semibold text-sm transition-all duration-200 hover:bg-brand-muted dark:hover:bg-brand-secondary/10" data-filter="desktop">Desktop</button>
+        <button class="filter-btn px-4 py-2 rounded-xl border-2 border-brand-light dark:border-[#281E5A] bg-transparent text-brand-primary dark:text-brand-secondary font-semibold text-sm transition-all duration-200 hover:bg-brand-muted dark:hover:bg-brand-secondary/10" data-filter="mobile">Mobile</button>
+    </div>
+    )}
+</div>
+
+<script type="application/json" id="project-data" set:html={JSON.stringify(projectDataJson)}></script>
+<script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+        const projectDataEl = document.getElementById('project-data');
+        if (!projectDataEl) return;
+        const projectData = JSON.parse(projectDataEl.textContent);
+        const images = [];
+        if (projectData.image && projectData.image.includes("/results/")) {
+            images.push(projectData.image);
+        }
+        if (projectData.gallery && projectData.gallery.length > 0) {
+            images.push(...projectData.gallery);
+        }
+        if (window.ProjectCarousel) {
+            window.ProjectCarousel.init({
+                images: images,
+                projectTitle: projectData.title,
+                containerId: "projectCarousel",
+                trackSelector: ".carousel-track",
+                prevBtnId: "prevBtn",
+                nextBtnId: "nextBtn",
+                dotsId: "carouselDots",
+                currentSlideId: "currentSlide",
+                totalSlidesId: "totalSlides"
+            });
+        }
+    });
+</script>

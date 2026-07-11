@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import { getMediaUrl } from '../../utils/media';
 export interface Props {
     project: any;
     isHidden?: boolean;
@@ -14,7 +15,7 @@ const isNoResult = !data.image || (typeof data.image === 'string' && data.image.
 const cleanText = project.body ? project.body.replace(/<[^>]*>?/gm, '').toLowerCase().replace(/"/g, ' &quot;') : '';
 
 // Helper to get string src from either string or ImageMetadata
-const getSrc = (img: any) => typeof img === 'string' ? img : img?.src;
+const getSrc = (img: any) => typeof img === 'string' ? (getMediaUrl(img) || img) : img?.src;
 ---
 <a href={`/creations/${slug}/`}
     class={`projectCard group animate-on-scroll transition-all duration-600 bg-white dark:bg-dark-bg rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-brand-dark p-2 dark:border-dark-bg block ${isHidden ? 'hidden' : ''}`}

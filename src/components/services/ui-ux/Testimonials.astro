@@ -11,6 +11,7 @@ import imgPhoq from '../../../assets/media/brands/PHOQTV.svg';
 import imgDigital from '../../../assets/media/brands/Digital Unicorn.svg';
 import imgMafigue from '../../../assets/media/brands/Mafigue.svg';
 import imgJobbrr from '../../../assets/media/brands/JOBBRR.svg';
+import { getMediaUrl } from '../../../utils/media';
 ---
         <!-- 6. TEMOIGNAGES & DEMO CLIENTS -->
         <section class="w-full px-8 lg:px-32 py-16 bg-brand-surface dark:bg-brand-dark text-center space-y-16">
@@ -126,8 +127,8 @@ import imgJobbrr from '../../../assets/media/brands/JOBBRR.svg';
                     <div
                         class="relative w-full aspect-video rounded-xl overflow-hidden bg-black border border-gray-200 dark:border-gray-800 shadow-md">
                         <video id="demoVideo" class="w-full h-full object-cover" controls preload="metadata"
-                            poster="/assets/media/projects/phoq.webp">
-                            <source src="/assets/media/projects/maximeclick.webm" type="video/webm">
+                            poster={getMediaUrl('/assets/media/projects/phoq.webp')}>
+                            <source src={getMediaUrl('/assets/media/projects/maximeclick.webm')} type="video/webm">
                             Votre navigateur ne supporte pas le lecteur vidéo.
                         </video>
                     </div>

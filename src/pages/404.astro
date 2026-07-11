@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getMediaUrl } from '../utils/media';
 ---
 <Layout title="Page non trouvée - 404" description="Oups ! La page que vous recherchez semble introuvable." body_class="">
     <main class="flex flex-col items-center justify-center min-h-screen px-6 py-16 pt-24">
@@ -7,7 +8,7 @@ import Layout from '../layouts/Layout.astro';
         <div class="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-24 max-w-5xl">
             <!-- Illustration -->
             <div class="w-full max-w-md lg:max-w-lg">
-                <img loading="lazy" decoding="async" src="/assets/media/projects/projectnoresult.svg" alt="Page non trouvée" class="w-full h-auto">
+                <img loading="lazy" decoding="async" src={getMediaUrl("/assets/media/projects/projectnoresult.svg")} alt="Page non trouvée" class="w-full h-auto">
             </div>
 
             <!-- Text Content -->

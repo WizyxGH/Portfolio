@@ -31,6 +31,22 @@ const sorted_projects = allProjects
             ]
         }
     </script>
+    <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Portfolio de Maquettes UI/UX et Product Design",
+        "description": "Retrouvez tous les designs d'interfaces (UI & UX) que j'ai réalisé au cours de ma carrière.",
+        "url": "https://wizyx.me/creations/",
+        "author": {
+            "@type": "Person",
+            "name": "Florian Gertner Kilian"
+        },
+        "hasPart": sorted_projects.map(project => ({
+            "@type": "CreativeWork",
+            "name": project.data.title,
+            "url": `https://wizyx.me/creations/${project.slug}/`
+        }))
+    })}></script>
     <script src="/assets/js/projects.js" defer></script>
     <main>
         <section class="p-8 text-center lg:px-32 lg:pt-16">

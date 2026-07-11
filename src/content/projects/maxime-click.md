@@ -2,8 +2,8 @@
 id: 3
 title: "Maxime Click"
 description: "Design d'une landing page pour que le créateur de contenu Maxime Click puisse promouvoir son travail notamment auprès des marques."
-image: "/assets/media/projects/maximeclick.webm"
-image_alt: "Aperçu du landing page pour Maxime Click"
+image: "../../assets/media/projects/maximeclick.webm"
+image_alt: "Aperçu du site internet pour Maxime Click"
 og_image: "../../assets/media/projects/maximeclick.webp"
 type: "Landing page"
 context: "Personnel"

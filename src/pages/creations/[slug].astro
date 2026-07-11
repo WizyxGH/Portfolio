@@ -4,8 +4,8 @@ import img0gwvys from '../../assets/media/profilepicturepro.webp';
 import Layout from '../../layouts/Layout.astro';
 import Button from '../../components/ui/Button.astro';
 import { getCollection, render } from 'astro:content';
-import fs from 'node:fs';
-import path from 'node:path';
+import { getMediaUrl, getResultImages } from '../../utils/media';
+import ProjectCarousel from '../../components/creations/ProjectCarousel.astro';
 
 export async function getStaticPaths() {
   const allProjects = await getCollection('projects');
@@ -22,21 +22,12 @@ const { Content } = await render(project);
 const page = project.data as any;
 
 // Helper to get string src from either string or ImageMetadata
-const getSrc = (img: any) => typeof img === 'string' ? img : img?.src;
+const getSrc = (img: any) => typeof img === 'string' ? (getMediaUrl(img) || img) : img?.src;
 
 // Auto-load gallery images from public directory
-let autoGallery: any[] = [];
-const resultsDir = path.join(process.cwd(), 'public/assets/media/projects/results', page.title);
-if (fs.existsSync(resultsDir)) {
-    const files = fs.readdirSync(resultsDir, { recursive: true });
-    autoGallery = files
-        .filter((f: any) => !fs.statSync(path.join(resultsDir, f as string)).isDirectory())
-        .map((f: any) => `/assets/media/projects/results/${page.title}/${f.replace(/\\/g, '/')}`);
-}
+let autoGallery: any[] = getResultImages(page.title);
 
 const finalGallery = [...(page.gallery || []), ...autoGallery];
-const hasGallery = finalGallery.length > 0;
-const hasResponsiveTag = page.tags && page.tags.some((tag: any) => tag.name === "Responsive");
 
 
 const months = ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
@@ -53,11 +44,23 @@ const ldJson1 = {
   "@context": "https://schema.org",
   "@type": "CreativeWork",
   "headline": page.title,
+  "description": page.description,
   "image": imagesLd,
+  "url": `https://wizyx.me/creations/${project.slug}/`,
   "datePublished": d.toISOString(),
   "author": [{
       "@type": "Person",
       "name": "Florian Gertner Kilian",
+      "jobTitle": [
+          "Product Designer",
+          "UI/UX Designer",
+          "Web Designer",
+          "UX Designer",
+          "UI Designer",
+          "Ergonome Web",
+          "Designer d'interface",
+          "Designer d'expérience utilisateur"
+      ],
       "url": "https://wizyx.me"
     }]
 };
@@ -69,24 +72,18 @@ const ldJson2 = {
     "@type": "ListItem",
     "position": 1,
     "name": "Accueil",
-    "item": "https://wizyx.me"
+    "item": "https://wizyx.me/"
   },{
     "@type": "ListItem",
     "position": 2,
     "name": "Créations",
-    "item": "https://wizyx.me/creations"
+    "item": "https://wizyx.me/creations/"
   },{
     "@type": "ListItem",
     "position": 3,
     "name": page.title,
-    "item": `https://wizyx.me/creations/${project.id}`
+    "item": `https://wizyx.me/creations/${project.slug}/`
   }]
-};
-
-const projectDataJson = {
-    image: getSrc(page.image),
-    gallery: finalGallery.map(getSrc),
-    title: page.title
 };
 ---
 
@@ -222,91 +219,10 @@ const projectDataJson = {
 
             <!-- Project Visuals (Carousel with Dots & Counter) -->
             <div class="lg:w-1/2 order-1 lg:order-2">
-                <div class="flex flex-col">
-                    <div class="relative group w-full bg-black rounded-xl overflow-hidden flex flex-col justify-center shadow-2xl border border-white/10" style="aspect-ratio: 4/3; max-height: 500px;" id="projectCarousel">
-                        <div class="absolute top-6 right-6 z-20 text-white font-mono font-bold text-sm tracking-wider bg-black/60 px-4 py-2 rounded-full backdrop-blur-md">
-                            <span id="currentSlide">1</span> / <span id="totalSlides">0</span>
-                        </div>
-
-                        <div class="carousel-track flex h-full transition-transform duration-500 ease-in-out w-full self-start">
-                            {page.image && (
-                            <div class="min-w-full w-full flex-none h-full flex items-center justify-center p-0 lg:p-4 carousel-slide" style="flex: 0 0 100% !important; min-width: 100% !important; width: 100% !important;">
-                                {(getSrc(page.image).includes('.webm') || getSrc(page.image).includes('.mp4')) ? (
-                                <video autoplay loop muted playsinline class="h-full object-contain">
-                                    <source src={getSrc(page.image)} type="video/webm" />
-                                </video>
-                                ) : (
-                                <img loading="lazy" decoding="async" src={getSrc(page.image)} alt={page.image_alt || `${page.title} - Main`} class="h-full object-contain" />
-                                )}
-                            </div>
-                            )}
-
-                            {hasGallery && finalGallery.map((rawImg: any, i: number) => {
-                                const img = getSrc(rawImg);
-                                return (
-                            <div class="min-w-full w-full flex-none h-full flex items-center justify-center p-0 lg:p-4 carousel-slide" style="flex: 0 0 100% !important; min-width: 100% !important; width: 100% !important;">
-                                {img.includes('.pdf') ? (
-                                <div class="h-full w-full flex items-center justify-center bg-gray-100 relative group-pdf">
-                                    <iframe src={`${img}#toolbar=0&navpanes=0`} class="h-full w-full object-contain border-0"></iframe>
-                                </div>
-                                ) : (img.includes('.webm') || img.includes('.mp4')) ? (
-                                <video autoplay loop muted playsinline class="h-full object-contain">
-                                    <source src={img} type="video/webm" />
-                                </video>
-                                ) : (
-                                <img src={img} alt={`${page.title} - Gallery ${i + 1}`} class="h-full object-contain" loading="lazy" />
-                                )}
-                            </div>
-                            )})}
-                        </div>
-
-                        <button id="prevBtn" class="absolute top-1/2 left-4 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-black/60 hover:bg-black/80 backdrop-blur-md text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 focus:outline-none z-30" aria-label="Previous image">
-                            <i class='bx bx-chevron-left text-3xl'></i>
-                        </button>
-                        <button id="nextBtn" class="absolute top-1/2 right-4 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-black/60 hover:bg-black/80 backdrop-blur-md text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 focus:outline-none z-30" aria-label="Next image">
-                            <i class='bx bx-chevron-right text-3xl'></i>
-                        </button>
-                    </div>
-
-                    <div class="flex justify-center mt-4 gap-3" id="carouselDots"></div>
-
-                    {hasResponsiveTag && (
-                    <div class="flex justify-center gap-2 mt-4" id="responsiveFilter">
-                        <button class="filter-btn active px-4 py-2 rounded-xl border-2 border-brand-light dark:border-[#281E5A] bg-brand-primary dark:bg-brand-secondary text-white font-semibold text-sm transition-all duration-200 hover:bg-[#3A1CC5] dark:hover:bg-[#4429C9]" data-filter="all">Toutes</button>
-                        <button class="filter-btn px-4 py-2 rounded-xl border-2 border-brand-light dark:border-[#281E5A] bg-transparent text-brand-primary dark:text-brand-secondary font-semibold text-sm transition-all duration-200 hover:bg-brand-muted dark:hover:bg-brand-secondary/10" data-filter="desktop">Desktop</button>
-                        <button class="filter-btn px-4 py-2 rounded-xl border-2 border-brand-light dark:border-[#281E5A] bg-transparent text-brand-primary dark:text-brand-secondary font-semibold text-sm transition-all duration-200 hover:bg-brand-muted dark:hover:bg-brand-secondary/10" data-filter="mobile">Mobile</button>
-                    </div>
-                    )}
-                </div>
+                <ProjectCarousel title={page.title} image={page.image} image_alt={page.image_alt} gallery={finalGallery} tags={page.tags || []} />
             </div>
         </article>
     </main>
 
-    <script type="application/json" id="project-data" set:html={JSON.stringify(projectDataJson)}></script>
     <script src="/assets/js/project-carousel.js" defer></script>
-    <script is:inline>
-        document.addEventListener('DOMContentLoaded', () => {
-            const projectData = JSON.parse(document.getElementById('project-data').textContent);
-            const images = [];
-            if (projectData.image && projectData.image.includes("/results/")) {
-                images.push(projectData.image);
-            }
-            if (projectData.gallery && projectData.gallery.length > 0) {
-                images.push(...projectData.gallery);
-            }
-            if (window.ProjectCarousel) {
-                window.ProjectCarousel.init({
-                    images: images,
-                    projectTitle: projectData.title,
-                    containerId: "projectCarousel",
-                    trackSelector: ".carousel-track",
-                    prevBtnId: "prevBtn",
-                    nextBtnId: "nextBtn",
-                    dotsId: "carouselDots",
-                    currentSlideId: "currentSlide",
-                    totalSlidesId: "totalSlides"
-                });
-            }
-        });
-    </script>
 </Layout>

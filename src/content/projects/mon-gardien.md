@@ -2,8 +2,8 @@
 id: 4
 title: "Mon Gardien"
 description: "Design d'une landing page pour présenter le projet de l'application Mon Gardien dans le but de récolter des fonds et de jauger l'intérêt de la cible."
-image: "/assets/media/projects/mongardien.webm"
-image_alt: "Aperçu du landing page pour Mon Gardien"
+image: "../../assets/media/projects/mongardien.webm"
+image_alt: "Aperçu du site internet pour Mon Gardien"
 og_image: "../../assets/media/projects/mongardien.webp"
 type: "Landing page"
 context: "Professionnel"
