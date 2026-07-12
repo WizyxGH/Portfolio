@@ -10,7 +10,7 @@ const sorted_projects = allProjects
   .filter((p) => p.data.is_study !== true)
   .sort((a: any, b: any) => (a.data.id || 0) - (b.data.id || 0));
 ---
-<Layout title="Maquettes UI/UX" description="Retrouvez tous les designs d'interfaces (UI & UX) que j'ai réalisé au cours de ma carrière (stages," body_class="">
+<Layout title="Portfolio Maquettes UI/UX - Designer Freelance" description="Découvrez mon portfolio de réalisations en tant qu'UI/UX Designer freelance. Retrouvez toutes les maquettes et designs d'interfaces (UI & UX) de ma carrière." body_class="">
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -25,7 +25,7 @@ const sorted_projects = allProjects
                 {
                     "@type": "ListItem",
                     "position": 2,
-                    "name": "Créations",
+                    "name": "Réalisations",
                     "item": "https://wizyx.me/creations/"
                 }
             ]
@@ -44,7 +44,7 @@ const sorted_projects = allProjects
         "hasPart": sorted_projects.map(project => ({
             "@type": "CreativeWork",
             "name": project.data.title,
-            "url": `https://wizyx.me/creations/${project.slug}/`
+            "url": `https://wizyx.me/creations/${project.id}/`
         }))
     })}></script>
     <script src="/assets/js/projects.js" defer></script>
