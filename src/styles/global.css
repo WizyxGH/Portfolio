@@ -15,8 +15,9 @@
   --color-brand-hover: #3215c7;
   --color-dark-bg: #121212;
 
-  --font-sora: "Sora", sans-serif;
-  --font-inter: "Inter", sans-serif;
+  /* Familles fournies par l'API Fonts d'Astro (cf. astro.config.mjs) */
+  --font-sora: var(--font-sora-family), "Sora", sans-serif;
+  --font-inter: var(--font-inter-family), "Inter", sans-serif;
 }
 
 @layer base {

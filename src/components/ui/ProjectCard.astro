@@ -1,6 +1,6 @@
 ---
-import { Image } from 'astro:assets';
-import { getMediaUrl } from '../../utils/media';
+import { Image, getImage } from 'astro:assets';
+import { getMediaUrl, getMediaAsset } from '../../utils/media';
 export interface Props {
     project: any;
     isHidden?: boolean;
@@ -16,6 +16,13 @@ const cleanText = project.body ? project.body.replace(/<[^>]*>?/gm, '').toLowerC
 
 // Helper to get string src from either string or ImageMetadata
 const getSrc = (img: any) => typeof img === 'string' ? (getMediaUrl(img) || img) : img?.src;
+
+// La vignette n'est affichée qu'en h-40 : on l'optimise au lieu de servir l'original.
+const thumbSource = data.og_image || data.image;
+const thumbAsset = getMediaAsset(thumbSource);
+const thumbSrc = thumbAsset
+    ? (await getImage({ src: thumbAsset, width: 600, height: 400, fit: 'cover', format: 'webp' })).src
+    : getSrc(thumbSource);
 ---
 <a href={`/creations/${slug}/`}
     class={`projectCard group animate-on-scroll transition-all duration-600 bg-white dark:bg-dark-bg rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-brand-dark p-2 dark:border-dark-bg block ${isHidden ? 'hidden' : ''}`}
@@ -26,10 +33,11 @@ const getSrc = (img: any) => typeof img === 'string' ? (getMediaUrl(img) || img)
 
     {isVideo ? (
     <div class="h-40 mb-3 rounded-lg bg-brand-primary bg-opacity-[0.12] outline outline-2 overflow-hidden relative">
-        <img src={getSrc(data.og_image || data.image)} loading={loading} decoding="async"
+        <img src={thumbSrc} loading={loading} decoding="async" width="600" height="400"
             alt={data.image_alt || data.title}
             class="card-thumbnail h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out group-hover:scale-110" />
-        <video loop muted playsinline preload={loading === 'eager' ? 'auto' : 'none'}
+        {/* La vidéo ne démarre qu'au survol : la précharger coûterait plusieurs Mo au chargement. */}
+        <video loop muted playsinline preload="none"
             class="card-video absolute inset-0 h-40 w-full object-cover rounded-lg transition-transform duration-500 ease-in-out group-hover:scale-110 hidden">
             <source src={getSrc(data.image)}
                 type={getSrc(data.image).includes('.webm') ? 'video/webm' : 'video/mp4'} />

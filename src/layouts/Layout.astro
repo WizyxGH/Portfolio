@@ -1,4 +1,5 @@
 ---
+import { Font } from 'astro:assets';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
@@ -53,15 +54,15 @@ const canonicalUrl = canonical ? new URL(canonical, siteUrl).href : currentUrl;
 	<meta name="twitter:description" content={description} />
 	<meta name="twitter:image" content={`${siteUrl}${og_image}`} />
 
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 	<link rel="dns-prefetch" href="https://cdn.gtranslate.net" />
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-	<link rel="preload" href="/assets/fonts/boxicons.woff2" as="font" type="font/woff2" crossorigin />
+	<Font cssVariable="--font-inter-family" preload />
+	<Font cssVariable="--font-sora-family" preload />
+	<link rel="preload" href="/assets/fonts/boxicons.subset.woff2" as="font" type="font/woff2" crossorigin />
 	{preload_image && <link rel="preload" href={preload_image} as="image" fetchpriority="high" />}
-	<link rel="stylesheet" href="/assets/css/boxicons.min.css" media="print" onload="this.media='all'" />
-	<noscript><link rel="stylesheet" href="/assets/css/boxicons.min.css" /></noscript>
+	{/* Sous-ensemble généré par scripts/subsetBoxicons.mjs : 6,6 Ko, donc chargé
+	    normalement plutôt que via l'astuce media="print" (plus de FOUC d'icônes). */}
+	<link rel="stylesheet" href="/assets/css/boxicons.subset.css" />
 	<link rel="stylesheet" href="/assets/css/styles.css" />
 	<link rel="icon" id="favicon" type="image/png" href="/assets/media/logo.png" />
 	<link rel="apple-touch-icon" id="favicon-apple" href="/assets/media/logo.png" />

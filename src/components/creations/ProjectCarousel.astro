@@ -1,5 +1,6 @@
 ---
-import { getMediaUrl } from '../../utils/media';
+import { getImage } from 'astro:assets';
+import { getMediaUrl, getMediaAsset } from '../../utils/media';
 
 export interface Props {
     title: string;
@@ -11,14 +12,38 @@ export interface Props {
 
 const { title, image, image_alt, gallery, tags } = Astro.props;
 
-const getSrc = (img: any) => typeof img === 'string' ? (getMediaUrl(img) || img) : img?.src;
+// Largeur max servie : le carrousel plafonne à ~1100px, le plein écran à 90vw.
+// 1280/q75 garde le zoom net tout en divisant le poids par ~10 sur les captures pleine page.
+const MAX_WIDTH = 1280;
+const QUALITY = 75;
+
+/**
+ * Renvoie l'URL optimisée (webp redimensionné) pour les images matricielles,
+ * l'URL brute pour les vidéos, PDF et SVG.
+ */
+async function resolveSrc(img: any): Promise<string> {
+    const asset = getMediaAsset(img);
+    if (asset) {
+        const optimized = await getImage({
+            src: asset,
+            width: Math.min(asset.width, MAX_WIDTH),
+            format: 'webp',
+            quality: QUALITY,
+        });
+        return optimized.src;
+    }
+    return typeof img === 'string' ? (getMediaUrl(img) || img) : img?.src;
+}
+
+const mainSrc = image ? await resolveSrc(image) : null;
+const gallerySrcs = await Promise.all(gallery.map(resolveSrc));
 
 const hasGallery = gallery.length > 0;
 const hasResponsiveTag = tags.some((tag: any) => tag.name === "Responsive");
 
 const projectDataJson = {
-    image: getSrc(image),
-    gallery: gallery.map(getSrc),
+    image: mainSrc,
+    gallery: gallerySrcs,
     title: title
 };
 ---
@@ -30,20 +55,19 @@ const projectDataJson = {
         </div>
 
         <div class="carousel-track flex h-full transition-transform duration-500 ease-in-out w-full self-start">
-            {image && (
+            {mainSrc && (
             <div class="min-w-full w-full flex-none h-full flex items-center justify-center p-0 lg:p-4 carousel-slide" style="flex: 0 0 100% !important; min-width: 100% !important; width: 100% !important;">
-                {(getSrc(image).includes('.webm') || getSrc(image).includes('.mp4')) ? (
+                {(mainSrc.includes('.webm') || mainSrc.includes('.mp4')) ? (
                 <video autoplay loop muted playsinline class="h-full object-contain">
-                    <source src={getSrc(image)} type="video/webm" />
+                    <source src={mainSrc} type="video/webm" />
                 </video>
                 ) : (
-                <img loading="lazy" decoding="async" src={getSrc(image)} alt={image_alt || `${title} - Main`} class="h-full object-contain" />
+                <img fetchpriority="high" decoding="async" src={mainSrc} alt={image_alt || `${title} - Main`} class="h-full object-contain" />
                 )}
             </div>
             )}
 
-            {hasGallery && gallery.map((rawImg: any, i: number) => {
-                const img = getSrc(rawImg);
+            {hasGallery && gallerySrcs.map((img: string, i: number) => {
                 return (
             <div class="min-w-full w-full flex-none h-full flex items-center justify-center p-0 lg:p-4 carousel-slide" style="flex: 0 0 100% !important; min-width: 100% !important; width: 100% !important;">
                 {img.includes('.pdf') ? (
