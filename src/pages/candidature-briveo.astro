@@ -16,6 +16,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
 import { Font, Image } from 'astro:assets';
 import avatarFlorian from '../assets/media/profilepicturepro.webp';
+import photoHero from '../assets/media/photoperso.webp';
 import avatarCaroline from '../assets/media/photo/carolineaubert.webp';
 import avatarJonathan from '../assets/media/photo/jonathanvaissiere.webp';
 import avatarLucas from '../assets/media/photo/lucaskacem.webp';
@@ -35,6 +36,90 @@ const ogImage = `${SITE}/assets/media/opengraph/candidature-briveo-og.png`;
 const TEL_DISPLAY = '+33 7 78 40 78 87';
 const TEL_HREF = '+33778407887';
 
+// Parcours réel, repris de l'export LinkedIn. Les logos vivent déjà dans
+// public/assets/media/brands/ ; ceux qui manquent tombent sur un monogramme.
+const EXPERIENCES = [
+  {
+    logo: '/assets/media/brands/Kosmos%20Digital.svg',
+    mono: null,
+    contrat: 'En poste',
+    entreprise: 'Kosmos Digital',
+    poste: 'UI/UX Designer',
+    periode: 'Depuis juillet 2026',
+    lieu: 'Poste actuel',
+    texte:
+      "Avant-vente et ateliers de cadrage avec prospects et clients, identité visuelle et guidelines, design systems (composants, règles, scalabilité), user flows et architecture de l'information, maquettes haute fidélité responsive, prototypage interactif, puis les spécifications transmises aux développeurs et suivies jusqu'à l'implémentation. C'est, presque mot pour mot, le poste que vous décrivez.",
+  },
+  {
+    logo: '/assets/media/logo.webp',
+    mono: null,
+    contrat: 'Freelance',
+    entreprise: 'Wizyx — indépendant',
+    poste: 'Product Designer',
+    periode: 'Depuis février 2026',
+    lieu: 'Remote',
+    texte:
+      "Design produit de bout en bout, en direct avec des fondateurs : cadrage, recherche, maquettes, design system, prototypes, UX writing. JOBBRR (marketplace à deux faces en production), Mentora (application mobile sur cahier des charges, contraintes d'états et de hiérarchie visuelle), Mon Gardien (landing de levée et son dispositif de recherche utilisateur).",
+  },
+  {
+    logo: '/assets/media/brands/digital-unicorn-icon.png',
+    mono: null,
+    contrat: 'Stage',
+    entreprise: 'Digital Unicorn',
+    poste: 'UI/UX Designer',
+    periode: 'Mars – juillet 2025 · 5 mois',
+    lieu: 'Đà Nẵng, Vietnam',
+    texte:
+      "Cinq mois dans une agence de développement internationale, à l'autre bout du monde et en anglais. Maquettes de sites, d'applications et de jeux mobiles, product design, UX writing, copywriting, management d'équipe, et des rendez-vous clients et prospects menés en ligne comme en présentiel.",
+  },
+  {
+    logo: '/assets/media/brands/Mafigue.svg',
+    mono: null,
+    contrat: 'Stage',
+    entreprise: 'Mafigue',
+    poste: 'UI/UX Designer & stratège en communication',
+    periode: 'Janvier – mars 2024 · 3 mois',
+    lieu: "La Ciotat, Côte d'Azur",
+    texte:
+      "Auprès de Caroline Aubert, à répondre à des briefs clients en quasi-autonomie. C'est là qu'a été mené le redesign du site et de l'application du Guide du Golfe de Saint-Tropez, et là que j'ai appris à écrire autant qu'à dessiner.",
+  },
+  {
+    logo: '/assets/media/brands/optimum-cit.png',
+    mono: null,
+    contrat: 'Stages',
+    entreprise: 'OPTIMUM CIT',
+    poste: 'Développeur web',
+    periode: '2 stages de 2 mois · 2022 et 2023',
+    lieu: 'La Seyne-sur-Mer',
+    texte:
+      "Avant le design, le code. J'ai adapté le logiciel métier Optimum Live, destiné aux opticiens et audioprothésistes, pour le rendre traduisible et permettre son internationalisation — puis participé à la digitalisation interne de l'entreprise. Un produit métier, une contrainte d'i18n, des utilisateurs qui n'ont pas choisi leur outil : le sujet ne m'est pas étranger.",
+  },
+];
+
+const FORMATION = [
+  {
+    logo: '/assets/media/brands/ecv.png',
+    mono: null,
+    titre: 'Master 1 UX/UI Design',
+    ecole: 'ECV — École de création visuelle',
+    periode: '2025 – 2026',
+  },
+  {
+    logo: '/assets/media/brands/univ-toulon.png',
+    mono: null,
+    titre: 'BUT MMI — Métiers du multimédia et de l’internet',
+    ecole: 'Université de Toulon',
+    periode: '2023 – 2025',
+  },
+  {
+    logo: null,
+    mono: 'LB',
+    titre: 'BTS Informatique (SIO)',
+    ecole: 'Lycée Bonaparte, Toulon',
+    periode: '2021 – 2023',
+  },
+];
+
 // Chapitrage de la barre de progression. L'ordre doit suivre l'ordre réel des
 // sections dans le DOM : les largeurs sont ensuite calculées depuis les
 // positions mesurées, donc un segment = la hauteur de scroll réelle du bloc.
@@ -43,8 +128,8 @@ const CHAPITRES = [
   { id: 'criteres', label: 'Vos critères' },
   { id: 'audit', label: 'Mon audit' },
   { id: 'plan', label: '90 jours' },
-  { id: 'cv', label: 'Le CV' },
-  { id: 'profil', label: 'Qui je suis' },
+  { id: 'cv', label: 'CV' },
+  { id: 'profil', label: 'Qui suis-je ?' },
   { id: 'lettre', label: 'La lettre' },
   { id: 'test', label: 'Me tester' },
 ];
@@ -64,7 +149,7 @@ const STATS = [
   { valeur: 3, suffixe: '', label: "Années d'expérience produit" },
   { valeur: 25, suffixe: '', label: 'Projets publiés et consultables' },
   { valeur: 100, suffixe: '%', label: 'Clients satisfaits' },
-  { valeur: 3, suffixe: '', label: 'Langues de travail — FR · EN · DE' },
+  { valeur: 5, suffixe: '', label: 'Entreprises · dont 5 mois au Vietnam' },
 ];
 
 const AUDIT = [
@@ -195,7 +280,7 @@ const TRAITS = [
     tag: 'Curiosité',
     titre: "J'ai pris le goût de voyager avant celui de designer.",
     texte:
-      "Ça donne trois langues de travail, une tolérance élevée à l'inconnu, et l'habitude de me retrouver quelque part où je ne comprends rien — c'est-à-dire exactement l'état d'un propriétaire qui ouvre votre plateforme pour la première fois. Designer, c'est se souvenir de ce que ça fait de ne pas savoir.",
+      "Cinq mois de travail au Vietnam, une tolérance élevée à l'inconnu, et l'habitude de me retrouver quelque part où je ne comprends rien — c'est-à-dire exactement l'état d'un propriétaire qui ouvre votre plateforme pour la première fois. Designer, c'est se souvenir de ce que ça fait de ne pas savoir.",
   },
   {
     tag: 'Franchise',
@@ -231,10 +316,10 @@ const OBJECTIONS = [
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>Florian Gertner Kilian × BRIVEO — Candidature Produit / Design</title>
+  <title>Florian Gertner Kilian × Briveo — Candidature Product Designer</title>
   <meta
     name="description"
-    content="Candidature au poste Produit — Design de BRIVEO (Nice). Pas un PDF de plus : une page produit, conçue et développée dans votre design system."
+    content="Candidature au poste Procut — Design de Briveo (Nice). Pas un PDF de plus : une page produit, conçue et développée dans votre design system."
   />
   <meta name="theme-color" content="#059669" />
   <meta name="author" content="Florian Gertner Kilian" />
@@ -243,9 +328,9 @@ const OBJECTIONS = [
        lien nu. L'image est en PNG (le WebP n'est pas lu partout) et pèse
        56 Ko, sous la limite de 5 Mo de LinkedIn. -->
   <meta property="og:type" content="profile" />
-  <meta property="og:site_name" content="Florian Gertner Kilian — Wizyx" />
+  <meta property="og:site_name" content="Florian Gertner Kilian" />
   <meta property="og:locale" content="fr_FR" />
-  <meta property="og:title" content="Postuler sans CV. Recruter sans risque." />
+  <meta property="og:title" content="Vous avez demandé un designer hybride ? Me voici !" />
   <meta
     property="og:description"
     content="Ma candidature au poste Produit — Design de BRIVEO, à Nice. Pas un PDF de plus : une page produit, conçue et développée dans leur design system."
@@ -258,13 +343,13 @@ const OBJECTIONS = [
   <meta property="og:image:height" content="630" />
   <meta
     property="og:image:alt"
-    content="Postuler sans CV. Recruter sans risque. — candidature de Florian Gertner Kilian au poste Produit / Design de Briveo."
+    content="Vous avez demandé un designer hybride ? Me voici ! — candidature de Florian Gertner Kilian au poste Produit / Design de Briveo."
   />
   <meta property="profile:first_name" content="Florian" />
   <meta property="profile:last_name" content="Gertner Kilian" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Postuler sans CV. Recruter sans risque." />
+  <meta name="twitter:title" content="Vous avez demandé un designer hybride. En voici un." />
   <meta
     name="twitter:description"
     content="Ma candidature au poste Produit — Design de BRIVEO, à Nice. Pas un PDF de plus : une page produit."
@@ -272,7 +357,7 @@ const OBJECTIONS = [
   <meta name="twitter:image" content={ogImage} />
   <meta
     name="twitter:image:alt"
-    content="Postuler sans CV. Recruter sans risque. — candidature de Florian Gertner Kilian chez Briveo."
+    content="Vous avez demandé un designer hybride. En voici un. — candidature de Florian Gertner Kilian chez Briveo."
   />
 
   <link rel="canonical" href={ogUrl} />
@@ -318,8 +403,8 @@ const OBJECTIONS = [
         <a href="#criteres">Vos critères</a>
         <a href="#audit">Mon audit</a>
         <a href="#plan">90 jours</a>
-        <a href="#cv">Le CV</a>
-        <a href="#profil">Qui je suis</a>
+        <a href="#cv">CV</a>
+        <a href="#profil">Qui suis-je ?</a>
         <a href="#lettre">La lettre</a>
       </nav>
       <a href="#test" class="btn btn-sm btn-primary nav-cta">Me tester</a>
@@ -334,9 +419,9 @@ const OBJECTIONS = [
         <a href="#criteres"><span class="mm-num">01</span> Vos critères</a>
         <a href="#audit"><span class="mm-num">02</span> Mon audit de briveo.fr</a>
         <a href="#plan"><span class="mm-num">03</span> Mes 90 premiers jours</a>
-        <a href="#cv"><span class="mm-num">04</span> Le CV</a>
-        <a href="#profil"><span class="mm-num">05</span> Qui je suis</a>
-        <a href="#lettre"><span class="mm-num">06</span> La lettre</a>
+        <a href="#cv"><span class="mm-num">04</span> Mon CV</a>
+        <a href="#profil"><span class="mm-num">05</span> Qui suis-je ?</a>
+        <a href="#lettre"><span class="mm-num">06</span> Lettre de motivation</a>
       </nav>
       <div class="mobile-menu-foot">
         <a href="#test" class="btn btn-primary btn-block">Me tester</a>
@@ -364,18 +449,18 @@ const OBJECTIONS = [
           </span>
 
           <h1 class="hero-title reveal" style="--d:60ms">
-            <span class="line-muted">Postuler</span>
-            <span class="line-muted">sans CV.</span>
-            <span class="line-ink">Recruter</span>
-            <span class="line-ink">sans risque.</span>
+            <span class="line-muted">Vous avez demandé</span>
+            <span class="line-muted">un designer</span>
+            <span class="line-ink">hybride.</span>
+            <span class="line-ink">En voici un.</span>
           </h1>
 
           <p class="hero-sub reveal" style="--d:120ms">
-            Vous cherchez un designer produit à Nice&nbsp;: <strong>3 ans d'expérience</strong>,
-            une <strong>sensibilité au luxe et à la précision</strong>, la{' '}
-            <strong>capacité à parler directement aux utilisateurs</strong>. J'ai lu votre annonce.
-            Plutôt que de vous envoyer un PDF de plus, j'ai conçu et développé cette page{' '}
-            <strong>dans votre design system</strong>.
+            «&nbsp;<strong>Product manager, designer produit, UX writer</strong>&nbsp;» —
+            trois métiers dans une seule offre. C'est votre annonce, pas mon interprétation.
+            J'ai appris à coder avant de designer, je rédige les interfaces que je dessine, et je
+            cadre les projets que je livre. Plutôt qu'un PDF de plus&nbsp;: cette page, conçue et
+            développée{' '}<strong>dans votre design system</strong>.
           </p>
 
           <div class="hero-cta reveal" style="--d:180ms">
@@ -405,32 +490,30 @@ const OBJECTIONS = [
           </ul>
         </div>
 
-        <!-- Pile de cartes flottantes — hommage direct au hero de briveo.fr -->
-        <div class="hero-visual" aria-hidden="true">
-          <div class="cockpit">
-            <div class="cockpit-top">
+        <!-- Composition du hero de briveo.fr : une grande photo en dégradé,
+             légendée en bas, entourée de cartes flottantes. Chez eux c'est
+             un bien immobilier ; ici, le candidat. -->
+        <div class="hero-visual">
+          <figure class="portrait">
+            <Image
+              src={photoHero}
+              alt="Florian Gertner Kilian, product designer"
+              widths={[420, 640, 900]}
+              sizes="(min-width: 1060px) 460px, (min-width: 700px) 60vw, 92vw"
+              loading="eager"
+              fetchpriority="high"
+              class="portrait-img"
+            />
+            <span class="portrait-badge" aria-hidden="true">
               <span class="live-dot live-dot-sm"></span>
-              <span class="mono-label mono-label-light">Cockpit recrutement · en direct</span>
-            </div>
-            <div class="cockpit-body">
-              <span class="mono-label mono-label-em">Poste analysé</span>
-              <p class="cockpit-title">Produit — Design<br />Nice (HQ)</p>
-              <dl class="cockpit-rows">
-                <div><dt>Contrat</dt><dd>CDI ou freelance</dd></div>
-                <div><dt>Candidat</dt><dd>Florian Gertner Kilian</dd></div>
-                <div><dt>Statut</dt><dd class="dd-em">Disponible</dd></div>
-              </dl>
-              <div class="cockpit-bars">
-                <span class="bar" style="--h:44%; --i:0"></span>
-                <span class="bar" style="--h:68%; --i:1"></span>
-                <span class="bar" style="--h:55%; --i:2"></span>
-                <span class="bar" style="--h:82%; --i:3"></span>
-                <span class="bar" style="--h:71%; --i:4"></span>
-                <span class="bar bar-hi" style="--h:100%; --i:5"></span>
-              </div>
-              <p class="cockpit-foot">Adéquation au poste · 6 derniers mois</p>
-            </div>
-          </div>
+              <span class="mono-label mono-label-light">Disponible immédiatement</span>
+            </span>
+            <figcaption class="portrait-caption">
+              <span class="mono-label mono-label-mint">Produit — Design · Nice (HQ)</span>
+              <p class="portrait-name">Florian<br />Gertner Kilian</p>
+              <p class="portrait-sub">Product designer · <span class="num">3</span> ans · Nice &amp; Toulon</p>
+            </figcaption>
+          </figure>
 
           <div class="float-card float-a">
             <span class="mono-label mono-label-em">
@@ -445,7 +528,7 @@ const OBJECTIONS = [
 
           <div class="float-card float-b float-dark">
             <span class="float-chip">
-              <svg viewBox="0 0 24 24" class="ico ico-xs" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>
+              <svg viewBox="0 0 24 24" class="ico ico-xs" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.3 12.2l2.6 2.6 4.8-5.4"/></svg>
             </span>
             <span class="mono-label mono-label-mint">Critères</span>
             <p class="float-dark-title">3 / 3 remplis</p>
@@ -462,9 +545,21 @@ const OBJECTIONS = [
         </div>
       </div>
 
-      <div class="hero-scroll">
-        <span class="mono-label mono-label-dim">Scroll pour voir pourquoi</span>
-      </div>
+      <!-- Chez Briveo cette bande n'est qu'une étiquette. Ici elle a l'air
+           d'un bouton, donc elle en devient un : elle mène au chapitre
+           suivant et annonce lequel. -->
+      <a href="#criteres" class="hero-scroll">
+        <span class="hero-scroll-left">
+          <span class="hero-scroll-chev" aria-hidden="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+          </span>
+          <span class="mono-label mono-label-dim">Scroll pour voir pourquoi</span>
+        </span>
+        <span class="hero-scroll-next mono-label">
+          02 · Vos critères
+          <svg viewBox="0 0 24 24" class="ico ico-arrow" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
     </section>
 
     <!-- ══════════════════════════ CHIFFRES ══════════════════════════ -->
@@ -545,10 +640,6 @@ const OBJECTIONS = [
                 <span><strong>Caroline Aubert</strong>Product Designer &amp; fondatrice de Mafigue</span>
               </footer>
             </blockquote>
-            <p class="crit-callback">
-              <span class="mono-label mono-label-em">Note</span>{' '}
-              Le titre de cette page n'est pas de moi. Il est d'elle.
-            </p>
             <ul class="crit-proof">
               <li><span class="mono-label mono-label-em">Preuve</span> <a href="https://wizyx.me/creations" target="_blank" rel="noopener">25 projets datés, en ligne, avec le contexte de chacun</a></li>
               <li><span class="mono-label mono-label-em">Preuve</span> <a href="https://jobbrr.io" target="_blank" rel="noopener">JOBBRR — plateforme à deux faces, en production</a></li>
@@ -563,7 +654,8 @@ const OBJECTIONS = [
             </div>
             <h3 class="crit-title">J'ai déjà designé pour le Golfe de Saint-Tropez.</h3>
             <p class="crit-body">
-              Redesign du site et de l'application du <strong>Guide du Golfe de Saint-Tropez</strong>&nbsp;:
+              Chez <strong>Mafigue</strong>, le redesign du site et de l'application du
+              <strong>Guide du Golfe de Saint-Tropez</strong>&nbsp;:
               établissements, événements, contenu éditorial, pour des résidents et des visiteurs qui ne
               tolèrent pas l'à-peu-près. Le luxe sur la Côte d'Azur, je ne le découvre pas dans un
               moodboard&nbsp;: c'est mon terrain. Et la précision, c'est l'autre moitié du métier —
@@ -621,7 +713,8 @@ const OBJECTIONS = [
             <p class="crit-body">
               Détail qui compte pour vous&nbsp;: vos annonces sont bilingues FR&nbsp;+&nbsp;EN et votre
               clientèle Côte d'Azur est internationale. Je travaille en français, en anglais et en
-              allemand — le deuxième marché acheteur de la région.
+              allemand niveau A2. L'anglais, je ne l'ai pas appris en cours du soir : j'ai passé cinq mois
+      à travailler dans une agence au Vietnam.
             </p>
             <blockquote class="testi">
               <p>
@@ -719,101 +812,88 @@ const OBJECTIONS = [
     <section class="section section-soft" id="cv">
       <div class="wrap">
         <header class="sec-head reveal">
-          <span class="eyebrow">Le CV, sans le CV</span>
-          <h2 class="sec-title"><span class="num">4</span> onglets.<br />Aucune page A4.</h2>
+          <span class="eyebrow">Mon parcours</span>
+          <h2 class="sec-title"><span class="num">3</span> ans. <span class="num">5</span> entreprises.<br /><span class="num">2</span> pays.</h2>
           <p class="sec-sub">
-            Vous avez cinq cockpits synchronisés. En voici quatre — c'est le même CV que le PDF, mais
-            rangé comme un produit se range. Si vous préférez quand même le PDF, il est juste en
-            dessous.
+            J'ai commencé par écrire du code pour un éditeur de logiciel métier, pas par dessiner des
+            écrans. Puis cinq mois en agence au Vietnam, un studio produit sur la Côte d'Azur, et
+            aujourd'hui le design produit à plein temps. Tout est daté.
           </p>
           <div class="cv-actions">
             <a href={CV_PDF} target="_blank" rel="noopener" class="btn btn-outline">
               <svg viewBox="0 0 24 24" class="ico" aria-hidden="true"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/><path d="M12 11v6M9.5 14.5L12 17l2.5-2.5"/></svg>
-              Télécharger le CV en PDF
+              Voir le CV en PDF
             </a>
-            <span class="cv-actions-note">Ouvre dans un nouvel onglet · 1 page</span>
           </div>
         </header>
 
         <div class="tabs card reveal">
           <div class="tablist" role="tablist" aria-label="Sections du CV">
-            <button type="button" class="tab is-active" role="tab" aria-selected="true" aria-controls="pan-1" id="tab-1" tabindex="0">Parcours</button>
-            <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="pan-2" id="tab-2" tabindex="-1">Compétences</button>
-            <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="pan-3" id="tab-3" tabindex="-1">Outils &amp; veille</button>
-            <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="pan-4" id="tab-4" tabindex="-1">Preuves</button>
+            <button type="button" class="tab is-active" role="tab" aria-selected="true" aria-controls="pan-1" id="tab-1" tabindex="0">Expériences</button>
+            <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="pan-2" id="tab-2" tabindex="-1">Formation</button>
+            <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="pan-3" id="tab-3" tabindex="-1">Compétences</button>
+            <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="pan-4" id="tab-4" tabindex="-1">Outils &amp; veille</button>
+            <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="pan-5" id="tab-5" tabindex="-1">Preuves</button>
           </div>
 
           <div class="tabpanels">
             <!-- Parcours -->
             <div class="tabpanel is-active" role="tabpanel" id="pan-1" aria-labelledby="tab-1" tabindex="0">
               <ol class="timeline">
-                <li>
-                  <span class="tl-dot"></span>
-                  <span class="mono-label mono-label-em">Aujourd'hui</span>
-                  <h3>Product Designer indépendant — Wizyx</h3>
-                  <p>
-                    Design produit de bout en bout pour des fondateurs et des agences&nbsp;: cadrage,
-                    recherche, maquettes, design system, prototypes, UX writing. Nice et Toulon, en
-                    direct avec les décideurs — jamais à travers trois couches de compte-rendu.{' '}
-                    <strong>JOBBRR</strong> (marketplace à deux faces en production),{' '}
-                    <strong>Mentora</strong> (application mobile conçue sur cahier des charges, avec
-                    contraintes d'états et de hiérarchie visuelle),{' '}
-                    <strong>Mon Gardien</strong> (landing de levée et son dispositif de recherche
-                    utilisateur).
-                  </p>
-                </li>
-                <li>
-                  <span class="tl-dot"></span>
-                  <span class="mono-label mono-label-em">Agence · International</span>
-                  <h3>UI/UX Designer — Digital Unicorn</h3>
-                  <p>
-                    Stage au sein d'une agence de développement logiciel internationale. Travailler
-                    dans une structure où les développeurs sont dans la pièce d'à côté change la façon
-                    de dessiner&nbsp;: on arrête de livrer des images, on livre des décisions.
-                  </p>
-                </li>
-                <li>
-                  <span class="tl-dot"></span>
-                  <span class="mono-label mono-label-em">Studio produit</span>
-                  <h3>Product Design &amp; rédactionnel — Mafigue</h3>
-                  <p>
-                    Deux mois auprès de Caroline Aubert, product designer et développeuse Webflow, à
-                    répondre à des briefs clients en quasi-autonomie. C'est là que j'ai appris à écrire
-                    autant qu'à dessiner — et à tenir un fichier Figma qu'une autre personne peut
-                    reprendre sans mode d'emploi.
-                  </p>
-                </li>
-                <li>
-                  <span class="tl-dot"></span>
-                  <span class="mono-label mono-label-em">Côte d'Azur</span>
-                  <h3>Le Guide du Golfe de Saint-Tropez</h3>
-                  <p>
-                    Redesign du site et de l'application d'un guide local haut de gamme, en équipe,
-                    avec plusieurs itérations sur retours clients. Le premier endroit où j'ai compris
-                    qu'en région, l'exigence esthétique n'est pas un supplément&nbsp;: c'est le produit.
-                  </p>
-                </li>
-                <li>
-                  <span class="tl-dot"></span>
-                  <span class="mono-label mono-label-em">Formation</span>
-                  <h3>BTS informatique (SIO) · BUT MMI · Mastère UX/UI Design (ECV)</h3>
-                  <p>
-                    J'ai appris à coder avant d'apprendre à designer. C'est ce qui fait que je sais ce
-                    qu'une idée coûte à construire, et que je ne dessine jamais un écran qu'une équipe
-                    tech ne pourra pas tenir.
-                  </p>
-                </li>
+                {EXPERIENCES.map((x) => (
+                  <li>
+                    <span class="tl-dot"></span>
+                    <div class="tl-head">
+                      <span class="tl-logo">
+                        {x.logo
+                          ? <img src={x.logo} alt="" loading="lazy" decoding="async" />
+                          : <span class="tl-mono">{x.mono}</span>}
+                      </span>
+                      <div class="tl-id">
+                        <h3>{x.poste}</h3>
+                        <p class="tl-co">{x.entreprise}</p>
+                      </div>
+                    </div>
+                    <p class="tl-meta">
+                      <span class={`tl-contrat tl-contrat-${x.contrat === 'En poste' ? 'poste' : x.contrat === 'Freelance' ? 'freelance' : 'stage'}`}>{x.contrat}</span>
+                      <span class="mono-label mono-label-em">{x.periode}</span>
+                      <span class="tl-sep" aria-hidden="true">·</span>
+                      <span class="mono-label mono-label-dim">{x.lieu}</span>
+                    </p>
+                    <p>{x.texte}</p>
+                  </li>
+                ))}
               </ol>
-              <div class="tl-foot">
-                <a href={CV_PDF} target="_blank" rel="noopener" class="btn btn-outline btn-sm">
-                  <svg viewBox="0 0 24 24" class="ico ico-em" aria-hidden="true"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/><path d="M12 11v6M9.5 14.5L12 17l2.5-2.5"/></svg>
-                  Le CV en PDF, avec les dates
-                </a>
-              </div>
+
+            </div>
+
+            <!-- Formation -->
+            <div class="tabpanel" role="tabpanel" id="pan-2" aria-labelledby="tab-2" tabindex="0" hidden>
+              <ul class="formation">
+                {FORMATION.map((f) => (
+                  <li>
+                    <span class="tl-logo">
+                      {f.logo
+                        ? <img src={f.logo} alt="" loading="lazy" decoding="async" />
+                        : <span class="tl-mono">{f.mono}</span>}
+                    </span>
+                    <div class="fo-body">
+                      <h3>{f.titre}</h3>
+                      <p class="fo-e">{f.ecole}</p>
+                      <p class="fo-p mono-label mono-label-dim">{f.periode}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+              <p class="tl-formation-note">
+                J'ai appris à coder avant d'apprendre à designer. C'est ce qui fait que je sais ce
+                qu'une idée coûte à construire, et que je ne dessine jamais un écran qu'une équipe
+                tech ne pourra pas tenir.
+              </p>
             </div>
 
             <!-- Compétences -->
-            <div class="tabpanel" role="tabpanel" id="pan-2" aria-labelledby="tab-2" tabindex="0" hidden>
+            <div class="tabpanel" role="tabpanel" id="pan-3" aria-labelledby="tab-3" tabindex="0" hidden>
               <div class="skills">
                 {SKILLS.map((s) => (
                   <div class="skill">
@@ -828,7 +908,7 @@ const OBJECTIONS = [
             </div>
 
             <!-- Outils -->
-            <div class="tabpanel" role="tabpanel" id="pan-3" aria-labelledby="tab-3" tabindex="0" hidden>
+            <div class="tabpanel" role="tabpanel" id="pan-4" aria-labelledby="tab-4" tabindex="0" hidden>
               <span class="mono-label mono-label-em">Le socle · tous les jours</span>
               <div class="tools">
                 <span class="tool">Figma</span>
@@ -892,7 +972,7 @@ const OBJECTIONS = [
             </div>
 
             <!-- Preuves -->
-            <div class="tabpanel" role="tabpanel" id="pan-4" aria-labelledby="tab-4" tabindex="0" hidden>
+            <div class="tabpanel" role="tabpanel" id="pan-5" aria-labelledby="tab-5" tabindex="0" hidden>
               <ul class="proofs">
                 <li>
                   <a href="https://wizyx.me/creations" target="_blank" rel="noopener">
@@ -962,55 +1042,63 @@ const OBJECTIONS = [
     <section class="section section-soft" id="lettre">
       <div class="wrap wrap-narrow">
         <header class="sec-head sec-head-left reveal">
-          <span class="eyebrow">La lettre, sans le costume</span>
+          <span class="eyebrow">La lettre de motivation, sans le costume</span>
           <h2 class="sec-title">Pourquoi vous,<br />et pas une autre annonce.</h2>
         </header>
 
         <div class="letter card reveal">
-          <p>Bonjour,</p>
-          <p>
+          <p class="letter-hi">Bonjour,</p>
+          <p class="letter-lead">
             Je postule à beaucoup moins d'offres qu'on ne l'imagine. Celle-ci, je l'ai lue deux fois,
             puis j'ai passé la soirée sur briveo.fr — d'abord par curiosité, ensuite parce que je n'ai
             pas réussi à en sortir.
           </p>
           <p>
-            Ce qui m'a retenu, ce n'est pas « l'IA dans l'immobilier ». C'est que vous avez pris le
-            problème par la friction plutôt que par la promesse. Un mandat Hoguet en trois minutes,
-            une estimation sourcée sur du DVF public, un dossier notaire généré, une commission qu'on
-            annonce avant de la prendre. Ce sont des décisions produit, pas des arguments marketing.
-            Elles se voient dans l'interface, et c'est rare.
+            Ce qui m'a retenu, ce n'est pas «&nbsp;l'IA dans l'immobilier&nbsp;».
+          </p>
+          <blockquote class="letter-quote">
+            C'est que vous avez pris le problème par la friction plutôt que par la promesse.
+          </blockquote>
+          <p>
+            Un mandat Hoguet en trois minutes, une estimation sourcée sur du DVF public, un dossier
+            notaire généré, une commission qu'on annonce avant de la prendre.
+            <strong>Ce sont des décisions produit, pas des arguments marketing.</strong> Elles se
+            voient dans l'interface, et c'est rare.
           </p>
           <p>
-            Il se trouve que c'est exactement le métier que je veux faire. Je passe mes journées à
-            rendre lisible ce qui est compliqué&nbsp;: des tunnels de vente, des tableaux de bord,
-            des parcours où l'utilisateur doit prendre une décision qui l'engage. L'immobilier est le
-            terrain le plus exigeant de cette catégorie — les montants sont énormes, la confiance est
-            fragile, le vocabulaire est hostile, et la moitié des gens qui entrent dans votre produit
-            n'ont jamais vendu de leur vie.
+            Il se trouve que <mark>c'est exactement le métier que je veux faire</mark>. Je passe mes
+            journées à rendre lisible ce qui est compliqué&nbsp;: des tunnels de vente, des tableaux
+            de bord, des parcours où l'utilisateur doit prendre une décision qui l'engage.
+            L'immobilier est le terrain le plus exigeant de cette catégorie — les montants sont
+            énormes, <strong>la confiance est fragile</strong>, le vocabulaire est hostile, et la
+            moitié des gens qui entrent dans votre produit n'ont jamais vendu de leur vie.
           </p>
           <p>
-            Il y a aussi une raison plus simple, et je préfère l'assumer&nbsp;: je suis d'ici. Nice, Toulon,
-            Nice, le Var, les Alpes-Maritimes. J'ai travaillé pour le Golfe de Saint-Tropez, je connais
-            la clientèle dont vous parlez quand vous écrivez « UHNWI » et « Côte d'Azur », et je n'ai
-            pas envie de faire ce métier depuis un open space parisien. Une boîte tech ambitieuse dont
-            le siège est à Nice, ça ne se présente pas tous les ans.
+            Il y a aussi une raison plus simple, et je préfère l'assumer&nbsp;:
+            <mark>je suis d'ici</mark>. Nice, Toulon, le Var, les Alpes-Maritimes. J'ai travaillé
+            pour le Golfe de Saint-Tropez, je connais la clientèle dont vous parlez quand vous
+            écrivez «&nbsp;UHNWI&nbsp;» et «&nbsp;Côte d'Azur&nbsp;», et je n'ai pas envie de faire
+            ce métier depuis un open space parisien.
+            <strong>Une boîte tech ambitieuse dont le siège est à Nice, ça ne se présente pas tous
+            les ans.</strong>
           </p>
           <p>
             Sur le papier, je coche vos trois critères. Mais un CV ne prouve pas grand-chose sur un
             métier où le livrable est visuel. Alors j'ai fait ce que je ferais chez vous&nbsp;: j'ai
             regardé le produit, relevé le design system, listé ce qui me semble perfectible, et livré
-            quelque chose de fini. Cette page n'est reliée à aucune autre page de mon site. Elle
-            n'existe que pour vous, et elle sera hors ligne le jour où vous me direz non.
+            quelque chose de fini.
           </p>
-          <p>
-            Si ce que vous avez lu vous parle, je serais ravi d'en discuter — trente minutes suffisent
-            pour savoir si ça colle.
+          <p class="letter-close">
+            Cette page n'est reliée à aucune autre page de mon site.
+            <strong>Elle n'existe que pour vous</strong>, et elle sera hors ligne le jour où vous me
+            direz non. Si ce que vous avez lu vous parle, <span class="num">30</span> minutes
+            suffisent pour savoir si ça colle.
           </p>
           <div class="letter-sign">
             <Image src={avatarFlorian} alt="Florian Gertner Kilian" width="112" height="112" loading="lazy" class="sign-av" />
             <div class="sign-id">
               <strong>Florian Gertner Kilian</strong>
-              <span>Product Designer · Wizyx · Nice &amp; Toulon</span>
+              <span>Product Designer · Nice &amp; Toulon</span>
             </div>
             <a href={CV_PDF} target="_blank" rel="noopener" class="sign-cv">
               <svg viewBox="0 0 24 24" class="ico ico-em" aria-hidden="true"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/><path d="M12 11v6M9.5 14.5L12 17l2.5-2.5"/></svg>
@@ -1080,7 +1168,7 @@ const OBJECTIONS = [
               <li>Maquettes haute fidélité dans votre design system</li>
               <li>Prototype cliquable, testable par votre équipe</li>
               <li>Spécifications lisibles par vos devs</li>
-              <li>Une restitution de trente minutes, sans slides inutiles</li>
+              <li>Une restitution de 30 minutes, sans slides inutiles</li>
             </ul>
             <a href="mailto:hello@wizyx.me?subject=Briveo%20%C2%B7%20Mission%20d%27essai" class="btn btn-outline btn-block">
               Proposer un sujet
@@ -1117,8 +1205,7 @@ const OBJECTIONS = [
         </div>
 
         <p class="offer-foot reveal">
-          Vous promettez une réponse personnalisée sous cinq jours ouvrés. Je vous promets d'être
-          joignable avant.
+          Mail, message ou téléphone&nbsp;: je réponds le jour même, week-end compris.
         </p>
       </div>
     </section>
@@ -1129,7 +1216,7 @@ const OBJECTIONS = [
       <div class="wrap contact-inner">
         <span class="pill pill-dark reveal">
           <span class="live-dot" aria-hidden="true"></span>
-          <span class="mono-label mono-label-light">Disponible · Nice &amp; Toulon</span>
+          <span class="mono-label mono-label-light">Ouvert aux opportunités · Nice &amp; Toulon</span>
         </span>
         <h2 class="contact-title reveal">
           On en parle<br /><span class="num">30</span> minutes&nbsp;?
@@ -1683,7 +1770,7 @@ const OBJECTIONS = [
        mobile pour éviter les mots coupés, puis on ouvre franchement au-delà. */
     .hero-title {
       margin-top: 22px;
-      font-size: clamp(2.3rem, 10.4vw, 2.9rem);
+      font-size: clamp(1.95rem, 8.8vw, 2.6rem);
       font-weight: 800;
       line-height: 0.95;
       letter-spacing: -0.04em;
@@ -1693,8 +1780,8 @@ const OBJECTIONS = [
     }
     .hero-title .line-muted { color: var(--ink-500); }
     .hero-title .line-ink { color: var(--ink); }
-    @media (min-width: 640px) { .hero-title { margin-top: 26px; font-size: clamp(3.3rem, 8.6vw, 5.2rem); line-height: 0.93; letter-spacing: -0.045em; } }
-    @media (min-width: 1060px) { .hero-title { font-size: clamp(4.4rem, 6.8vw, 7.4rem); } }
+    @media (min-width: 640px) { .hero-title { margin-top: 26px; font-size: clamp(3rem, 7.4vw, 4.6rem); line-height: 0.93; letter-spacing: -0.045em; } }
+    @media (min-width: 1060px) { .hero-title { font-size: clamp(3.4rem, 5vw, 4.6rem); } }
 
     .hero-sub {
       margin-top: 22px;
@@ -1730,10 +1817,53 @@ const OBJECTIONS = [
       z-index: 2;
       max-width: 1340px;
       margin: 0 auto;
-      padding: 14px 20px 22px;
+      padding: 14px 20px 18px;
       border-top: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transition: background 0.3s ease;
     }
-    @media (min-width: 768px) { .hero-scroll { padding: 16px 40px 26px; } }
+    @media (min-width: 768px) { .hero-scroll { padding: 16px 40px 22px; } }
+    .hero-scroll:hover { background: rgba(16, 185, 129, 0.045); }
+    .hero-scroll-left { display: inline-flex; align-items: center; gap: 10px; min-width: 0; }
+    .hero-scroll-chev {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px; height: 26px;
+      flex: none;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      color: var(--em-700);
+      animation: nudge 2.4s ease-in-out infinite;
+    }
+    /* Sans dimension explicite, un SVG inline s'affiche à sa taille par
+       défaut (300x150) et occupe tout l'écran. */
+    .hero-scroll-chev svg {
+      width: 13px; height: 13px;
+      display: block;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .hero-scroll:hover .hero-scroll-chev { border-color: var(--em-400); background: var(--em-50); }
+    .hero-scroll-next {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      color: var(--ink-500);
+      transition: color 0.25s ease;
+      flex: none;
+    }
+    @media (min-width: 620px) { .hero-scroll-next { display: inline-flex; } }
+    .hero-scroll-next .ico-arrow { width: 14px; height: 14px; }
+    .hero-scroll:hover .hero-scroll-next { color: var(--em-700); }
+    .hero-scroll:hover .hero-scroll-next .ico-arrow { transform: translateX(4px); }
 
     /* ── Pile de cartes du hero ─────────────────────────────────────────
        Sous 1060px la superposition absolue devient illisible : les cartes
@@ -1750,52 +1880,72 @@ const OBJECTIONS = [
       .hero-visual { display: block; min-height: 560px; }
     }
 
-    .cockpit {
+    /* Carte portrait : même traitement que la photo de bien du hero de
+       briveo.fr — grand rayon, ombre portée, dégradé montant et légende
+       posée dessus. */
+    .portrait {
       position: relative;
-      border-radius: var(--r-xl);
-      overflow: hidden;
-      background: linear-gradient(160deg, #043b2b 0%, #022c22 55%, #04150f 100%);
-      color: #fff;
-      box-shadow: var(--shadow-float);
-      padding: 0;
       margin: 0 auto;
       width: 100%;
       max-width: 460px;
+      aspect-ratio: 4 / 5;
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-float);
+      background: var(--paper-2);
       grid-column: 1 / -1;
+      isolation: isolate;
     }
-    .cockpit::after {
+    @media (min-width: 1060px) { .portrait { aspect-ratio: 41 / 50; max-width: 460px; } }
+    .portrait-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 22%;
+      display: block;
+      transition: transform 4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .portrait:hover .portrait-img { transform: scale(1.04); }
+    .portrait::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(120% 80% at 80% 0%, rgba(16, 185, 129, 0.28), transparent 60%);
       pointer-events: none;
+      background: linear-gradient(to top, rgba(3, 26, 19, 0.92) 0%, rgba(3, 26, 19, 0.55) 26%, rgba(3, 26, 19, 0) 58%);
     }
-    .cockpit-top {
-      display: flex; align-items: center; gap: 9px;
-      padding: 14px 20px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.09);
-      background: rgba(255, 255, 255, 0.03);
-      position: relative; z-index: 2;
+    .portrait-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(3, 26, 19, 0.62);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.16);
     }
-    .cockpit-body { padding: 26px 24px 24px; position: relative; z-index: 2; }
-    .cockpit-title { font-size: 27px; font-weight: 800; letter-spacing: -0.035em; line-height: 1.1; margin-top: 12px; }
-    .cockpit-rows { margin: 22px 0 0; display: grid; gap: 1px; background: rgba(255, 255, 255, 0.09); border-radius: var(--r-sm); overflow: hidden; }
-    .cockpit-rows > div { display: flex; justify-content: space-between; gap: 16px; padding: 11px 14px; background: rgba(255, 255, 255, 0.04); }
-    .cockpit-rows dt { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; color: rgba(255, 255, 255, 0.55); }
-    .cockpit-rows dd { margin: 0; font-size: 13px; font-weight: 600; text-align: right; }
-    .cockpit-rows .dd-em { color: var(--em-300); }
-    .cockpit-bars { margin-top: 24px; height: 74px; display: flex; align-items: flex-end; gap: 8px; }
-    .cockpit-bars .bar {
-      flex: 1;
-      height: var(--h);
-      border-radius: 4px 4px 2px 2px;
-      background: rgba(110, 231, 183, 0.28);
-      transform-origin: bottom;
-      animation: bar-grow 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
-      animation-delay: calc(var(--i) * 90ms + 300ms);
+    .portrait-caption {
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 18px;
+      z-index: 2;
+      color: #fff;
     }
-    .cockpit-bars .bar-hi { background: linear-gradient(to top, var(--em-500), var(--em-300)); }
-    .cockpit-foot { margin-top: 12px; font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255, 255, 255, 0.62); }
+    @media (min-width: 700px) { .portrait-caption { left: 24px; right: 24px; bottom: 22px; } }
+    .portrait-name {
+      margin-top: 8px;
+      font-size: clamp(1.5rem, 5.4vw, 2rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.04;
+    }
+    .portrait-sub { margin-top: 8px; font-size: 12.5px; color: rgba(255, 255, 255, 0.78); }
+    .portrait-sub .num { font-size: 1em; }
 
     .float-card {
       position: relative;
@@ -1823,7 +1973,24 @@ const OBJECTIONS = [
     .float-note { margin-top: 9px; font-size: 10px; color: var(--ink-500); }
 
     .float-dark { background: var(--em-700); border-color: rgba(255, 255, 255, 0.12); color: #fff; }
-    .float-chip { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 9px; background: rgba(16, 185, 129, 0.22); border: 1px solid rgba(52, 211, 153, 0.4); color: var(--em-300); margin-bottom: 11px; }
+    /* En inline-flex, la pastille repose sur la ligne de base : le descendant
+       de la ligne ajoutait un vide sous l'icône et la faisait paraître haute
+       dans son cadre. En flex, la boîte fait exactement 30x30. */
+    .float-chip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      flex: none;
+      line-height: 0;
+      border-radius: 9px;
+      background: rgba(16, 185, 129, 0.22);
+      border: 1px solid rgba(52, 211, 153, 0.4);
+      color: var(--em-300);
+      margin-bottom: 12px;
+    }
+    .float-chip .ico { width: 15px; height: 15px; display: block; }
     .float-dark-title { font-size: 15px; font-weight: 800; margin-top: 9px; letter-spacing: -0.02em; }
     .float-dark-sub { font-size: 10.5px; color: var(--em-200); margin-top: 3px; }
 
@@ -2031,11 +2198,69 @@ const OBJECTIONS = [
     .tabpanel { display: none; }
     .tabpanel.is-active { display: block; animation: reveal 0.45s ease both; }
 
-    .timeline { display: grid; gap: 30px; padding-left: 26px; border-left: 1px solid var(--line); }
+    .timeline { display: grid; gap: 32px; padding-left: 26px; border-left: 1px solid var(--line); }
     .timeline li { position: relative; }
-    .tl-dot { position: absolute; left: -32px; top: 5px; width: 11px; height: 11px; border-radius: 999px; background: var(--em-500); box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.14); }
-    .timeline h3 { margin-top: 8px; font-size: 18px; font-weight: 800; letter-spacing: -0.025em; }
-    .timeline p { margin-top: 9px; font-size: 15px; line-height: 1.66; color: var(--ink-600); }
+    .tl-dot { position: absolute; left: -32px; top: 16px; width: 11px; height: 11px; border-radius: 999px; background: var(--em-500); box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.14); }
+    .tl-head { display: flex; align-items: center; gap: 13px; }
+    /* Plaque à hauteur fixe et largeur libre : les logos en typo (Digital
+       Unicorn, Mafigue) restent lisibles là où une vignette carrée les
+       réduirait à une bouillie. */
+    /* Vignettes strictement carrées. object-fit: contain fait tenir aussi
+       bien un logo carré (Kosmos) qu'un logo en typo très large (Digital
+       Unicorn, Mafigue), qui se cale alors sur la largeur. */
+    .tl-logo {
+      flex: none;
+      width: 54px;
+      height: 54px;
+      padding: 9px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: var(--white);
+      overflow: hidden;
+    }
+    .tl-logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .tl-mono { font-family: var(--mono); font-size: 14px; font-weight: 700; color: var(--em-700); letter-spacing: 0.02em; }
+    .tl-id { min-width: 0; }
+    .timeline h3 { font-size: 17.5px; font-weight: 800; letter-spacing: -0.025em; line-height: 1.25; }
+    .tl-co { font-size: 13.5px; color: var(--ink-500); font-weight: 600; margin-top: 2px; }
+    .tl-meta { margin-top: 12px; display: flex; align-items: center; flex-wrap: wrap; gap: 4px 8px; }
+    .tl-sep { color: var(--ink-400); font-size: 10px; }
+    .timeline > li > p:last-child { margin-top: 11px; font-size: 15px; line-height: 1.66; color: var(--ink-600); }
+
+    /* Étiquette de contrat : la nature du poste doit se lire avant le texte. */
+    .tl-contrat {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 3px 9px;
+      font-family: var(--mono);
+      font-size: 9.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      border: 1px solid transparent;
+    }
+    .tl-contrat-poste { background: var(--em-600); color: #fff; }
+    .tl-contrat-freelance { background: var(--em-50); color: var(--em-800); border-color: var(--em-300); }
+    .tl-contrat-stage { background: var(--paper-2); color: var(--ink-600); border-color: var(--line-strong); }
+
+    .formation { display: grid; gap: 16px; }
+    .formation li { display: flex; align-items: flex-start; gap: 14px; }
+    .fo-body { min-width: 0; }
+    .formation h3 { font-size: 16px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.3; }
+    .fo-e { font-size: 13.5px; color: var(--ink-600); margin-top: 3px; }
+    .fo-p { margin-top: 7px; }
+    .tl-formation-note {
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      font-size: 14.5px;
+      line-height: 1.66;
+      color: var(--ink-600);
+    }
 
     .skills { display: grid; gap: 22px; }
     @media (min-width: 700px) { .skills { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 34px; } }
@@ -2126,6 +2351,40 @@ const OBJECTIONS = [
     }
     @media (min-width: 640px) { .letter { gap: 18px; font-size: 16.5px; line-height: 1.75; } }
     @media (min-width: 700px) { .letter { padding: 46px 44px; } }
+
+    .letter-hi { font-weight: 700; color: var(--ink); }
+    .letter-lead { font-size: 17px; color: var(--ink); font-weight: 500; }
+    @media (min-width: 640px) { .letter-lead { font-size: 18.5px; } }
+    /* Surlignage en bas de ligne plutôt qu'un aplat : on garde la couleur du
+       texte et le contraste, là où un fond plein écraserait les deux. */
+    .letter mark {
+      background: linear-gradient(to bottom, transparent 56%, rgba(16, 185, 129, 0.3) 56%);
+      color: inherit;
+      font-weight: 700;
+      padding: 0 2px;
+      border-radius: 2px;
+    }
+    .letter-quote {
+      margin: 4px 0;
+      padding: 18px 22px;
+      background: var(--paper-2);
+      border-left: 3px solid var(--em-500);
+      border-radius: 0 var(--r-sm) var(--r-sm) 0;
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.022em;
+      line-height: 1.42;
+      color: var(--ink);
+    }
+    @media (min-width: 640px) { .letter-quote { font-size: 19px; padding: 20px 26px; } }
+    .letter-close {
+      margin-top: 4px;
+      padding: 18px 20px;
+      background: var(--em-50);
+      border: 1px solid var(--em-200);
+      border-radius: var(--r-md);
+      color: var(--ink-700);
+    }
     .letter-sign {
       margin-top: 14px;
       padding-top: 22px;
