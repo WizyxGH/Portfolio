@@ -39,7 +39,31 @@ export default defineConfig({
       // 'latin' couvre tout le français (accents + œ) ; 'latin-ext' pèse 85 Ko pour rien.
       subsets: ['latin'],
     },
+    // Polices utilisées uniquement par /candidature-briveo (page isolée qui
+    // reprend le design system de briveo.fr). Elles ne sont injectées que sur
+    // les pages qui appellent <Font cssVariable="..." /> : zéro impact ailleurs.
+    {
+      provider: fontProviders.google(),
+      name: 'Plus Jakarta Sans',
+      cssVariable: '--font-jakarta-family',
+      weights: [400, 500, 600, 700, 800],
+      styles: ['normal'],
+      subsets: ['latin'],
+    },
+    {
+      provider: fontProviders.google(),
+      name: 'JetBrains Mono',
+      cssVariable: '--font-jetbrains-family',
+      weights: [400, 500, 700],
+      styles: ['normal'],
+      subsets: ['latin'],
+    },
   ],
 
-  integrations: [partytown(), sitemap()]
+  integrations: [
+    partytown(),
+    // La candidature Briveo est une page privée, non reliée au site : on la
+    // garde hors du sitemap (elle porte aussi un <meta name="robots" noindex>).
+    sitemap({ filter: (page) => !page.includes('/candidature-briveo') })
+  ]
 });

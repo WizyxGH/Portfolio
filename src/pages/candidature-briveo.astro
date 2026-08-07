@@ -1,0 +1,2763 @@
+---
+// ─────────────────────────────────────────────────────────────────────────────
+//  /candidature-briveo — page isolée, non reliée au reste de wizyx.me.
+//
+//  Elle n'utilise NI Layout.astro, NI global.css, NI Tailwind, NI boxicons :
+//  tout est autonome (son propre <html>, ses propres polices, son propre CSS).
+//  Objectif : reprendre le design system de briveo.fr sans qu'une seule règle
+//  ne puisse fuir vers les autres pages du portfolio.
+//
+//  Le design system reproduit ici vient de briveo.fr :
+//    · fond #FAFAF9, encre neutral-950, accent emerald-500 → 700
+//    · Plus Jakarta Sans (titres/corps) + JetBrains Mono (chiffres & micro-labels)
+//    · micro-labels mono, uppercase, tracking 0.2em
+//    · animations maison : live-dot, float, reveal, shimmer, mesh-drift,
+//      bar-grow, caret, marquee, grain SVG, barre de progression de scroll
+// ─────────────────────────────────────────────────────────────────────────────
+import { Font, Image } from 'astro:assets';
+import avatarFlorian from '../assets/media/profilepicturepro.webp';
+import avatarCaroline from '../assets/media/photo/carolineaubert.webp';
+import avatarJonathan from '../assets/media/photo/jonathanvaissiere.webp';
+import avatarLucas from '../assets/media/photo/lucaskacem.webp';
+
+// ⚠️ Dépose le PDF dans `public/assets/` sous ce nom (ou change la valeur ici).
+// C'est le seul endroit à modifier : le lien est réutilisé à trois endroits.
+const CV_PDF = '/assets/cv-florian-gertner-kilian.pdf';
+
+// Les aperçus de partage exigent des URL absolues : un chemin relatif
+// laisse LinkedIn et WhatsApp sans image.
+const SITE = 'https://wizyx.me';
+const ogUrl = `${SITE}/candidature-briveo`;
+const ogImage = `${SITE}/assets/media/opengraph/candidature-briveo-og.png`;
+
+// ⚠️ À REMPLACER par ton vrai numéro (les deux lignes).
+// TEL_HREF ne doit contenir que des chiffres et le +, sinon le lien tel: casse.
+const TEL_DISPLAY = '+33 6 00 00 00 00';
+const TEL_HREF = '+33600000000';
+
+// Chapitrage de la barre de progression. L'ordre doit suivre l'ordre réel des
+// sections dans le DOM : les largeurs sont ensuite calculées depuis les
+// positions mesurées, donc un segment = la hauteur de scroll réelle du bloc.
+const CHAPITRES = [
+  { id: 'top', label: 'Intro' },
+  { id: 'criteres', label: 'Vos critères' },
+  { id: 'audit', label: 'Mon audit' },
+  { id: 'plan', label: '90 jours' },
+  { id: 'cv', label: 'Le CV' },
+  { id: 'profil', label: 'Qui je suis' },
+  { id: 'lettre', label: 'La lettre' },
+  { id: 'test', label: 'Me tester' },
+];
+
+const OFFRE = {
+  intitule: 'Produit — Design',
+  lieu: 'Nice (HQ) / Remote-friendly',
+  contrat: 'CDI ou freelance',
+  criteres: [
+    'Expérience product/design 3 ans+',
+    'Sensibilité au luxe + à la précision',
+    'Capacité à interagir directement avec utilisateurs',
+  ],
+};
+
+const STATS = [
+  { valeur: 3, suffixe: '', label: "Années d'expérience produit" },
+  { valeur: 25, suffixe: '', label: 'Projets publiés et consultables' },
+  { valeur: 100, suffixe: '%', label: 'Clients satisfaits' },
+  { valeur: 3, suffixe: '', label: 'Langues de travail — FR · EN · DE' },
+];
+
+const AUDIT = [
+  {
+    num: '01',
+    titre: "L'action la plus coûteuse est demandée en premier",
+    constat:
+      "Votre hero dit « Uploadez vos documents ». Titre de propriété, taxe foncière, pièce d'identité : c'est l'étape la plus engageante du tunnel, et vous la placez avant que le vendeur ait vu la moindre valeur. Un propriétaire qui hésite encore à vendre ne va pas ouvrir son classeur pour vous.",
+    piste:
+      "Le DVF permet une première fourchette à partir de l'adresse seule. Faire entrer par « Combien vaut mon bien ? », donner le chiffre, et ne demander les documents qu'au moment du mandat — quand la valeur est déjà rendue.",
+  },
+  {
+    num: '02',
+    titre: 'Le choix Smart / Premium arrive avant la compréhension',
+    constat:
+      "La grille 2 % / 5 % est en deuxième position sur la home. À ce stade, le visiteur ne sait pas encore ce que LAIA fait à sa place — on lui demande d'arbitrer un prix avant de lui avoir vendu la valeur. C'est le moment de la page où on perd les indécis.",
+    piste:
+      "Faire choisir après l'estimation, et laisser LAIA recommander la formule selon le bien : villa Côte d'Azur au-dessus du million → Premium, T2 en centre-ville → Smart. Vous transformez un arbitrage tarifaire en conseil personnalisé. C'est exactement la promesse de LAIA Coach.",
+  },
+  {
+    num: '03',
+    titre: '« Confiance 84 % » est un chiffre qui crée autant de doute qu\'il en lève',
+    constat:
+      "Sur une décision à 450 000 €, afficher « Confiance 84 % · 10 comparables » sans pouvoir cliquer dessus, c'est demander un acte de foi. Or votre promesse, votre différenciant, votre argument contre l'agence classique — c'est précisément la transparence.",
+    piste:
+      "Rendre le chiffre ouvrable : les 10 comparables, leur distance, leur date de mutation, ce qui fait monter ou descendre la fourchette. C'est le meilleur endroit du produit pour prouver ce que vous promettez partout ailleurs.",
+  },
+  {
+    num: '04',
+    titre: 'Le segment le plus rentable est enterré dans une grille',
+    constat:
+      "« UHNWI — identité protégée jusqu'à l'offre, coordonnées masquées, messagerie chiffrée » : c'est une promesse forte, et elle vit dans une case parmi huit. Sur la Côte d'Azur, c'est pourtant le segment qui justifie le plus une commission Premium.",
+    piste:
+      "Un parcours dédié, avec son propre vocabulaire et son propre niveau de finition. La discrétion est un produit de luxe : elle se met en scène, sobrement, pas dans une grille de cas d'usage.",
+  },
+];
+
+const PLAN = [
+  {
+    num: '01',
+    duree: 'Semaines 1 à 2',
+    titre: 'Écouter',
+    texte:
+      "Dix entretiens : des vendeurs Smart, des vendeurs Premium, deux agents carte T, un notaire partenaire, et surtout des gens qui ont abandonné le tunnel. Objectif : la carte des frictions réelles, pas supposées. Je repars avec une liste priorisée que toute l'équipe peut lire.",
+  },
+  {
+    num: '02',
+    duree: 'Semaines 3 à 6',
+    titre: 'Systématiser',
+    texte:
+      "Un design system, pas une pile de maquettes. Tokens, composants, états, règles d'écriture. Aligné sur ce que vos devs manipulent déjà — Tailwind, Next. Un mandat, une fiche bien et un cockpit doivent se lire avec la même grammaire.",
+  },
+  {
+    num: '03',
+    duree: 'Semaines 7 à 12',
+    titre: 'Refondre, et mesurer',
+    texte:
+      "Le parcours estimation → mandat, repris de bout en bout : parcours, écrans, et l'UX writing avec (c'est le même métier). Prototypé, testé sur huit utilisateurs, livré en specs qu'un dev n'a pas à deviner. Puis on regarde les chiffres, et on recommence.",
+  },
+];
+
+// Jeu d'icônes au trait, dans l'esprit lucide utilisé par briveo.fr :
+// même grille 24, même épaisseur, mêmes terminaisons arrondies.
+const ico = (inner: string) =>
+  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${inner}</svg>`;
+
+const SKILLS = [
+  {
+    titre: 'Design produit',
+    texte: "Cadrage, parcours, arbitrages de périmètre, priorisation. Surtout : savoir ce qu'on ne fait pas.",
+    icon: ico('<circle cx="12" cy="12" r="9"/><path d="M15.9 8.1l-2 5.8-5.8 2 2-5.8z"/>'),
+  },
+  {
+    titre: 'UI & design system',
+    texte: 'Tokens, composants, états, documentation. Une interface qui reste cohérente après six mois de sprints.',
+    icon: ico('<rect x="3" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6"/>'),
+  },
+  {
+    titre: 'UX research',
+    texte: "Entretiens, questionnaires, tests d'utilisabilité. Interroger ceux qui ont abandonné, pas seulement ceux qui sont restés.",
+    icon: ico('<circle cx="9" cy="7.5" r="3.6"/><path d="M2.5 20.5v-1.6a4 4 0 014-4h5a4 4 0 014 4v1.6"/><path d="M16.5 4.3a3.6 3.6 0 010 6.9"/><path d="M18.8 15.2a4 4 0 013 3.7v1.6"/>'),
+  },
+  {
+    titre: 'UX writing & copywriting',
+    texte: "Les mots d'une interface font partie de l'interface. Sur un acte à 450 000 €, une phrase mal écrite coûte une vente.",
+    icon: ico('<path d="M12.5 20.5H21"/><path d="M16.4 3.9a2.1 2.1 0 013 3L7.3 19H4.2l.1-3.1z"/>'),
+  },
+  {
+    titre: 'Interfaces métier',
+    texte: "Tableaux de bord, densité d'information, hiérarchies complexes. Rendre lisible ce qui est objectivement compliqué.",
+    icon: ico('<path d="M3.5 3.5v17h17"/><path d="M18 16.5V9"/><path d="M13 16.5V5.5"/><path d="M8 16.5v-3.5"/>'),
+  },
+  {
+    titre: 'Front-end',
+    texte: 'HTML, CSS, intégration. Assez pour prototyper vrai, dialoguer avec les devs et livrer des specs exécutables.',
+    icon: ico('<path d="M15.5 17.5L21 12l-5.5-5.5"/><path d="M8.5 6.5L3 12l5.5 5.5"/><path d="M13.5 4l-3 16"/>'),
+  },
+];
+
+// Traits tirés de wizyx.me/about — chacun est relié à un enjeu concret de Briveo,
+// sinon c'est du remplissage sympathique et ça ne fait recruter personne.
+const TRAITS = [
+  {
+    tag: 'Archiviste',
+    titre: "J'archive des bandes dessinées Disney du monde entier.",
+    texte:
+      "Je contribue depuis des années à une base communautaire qui recense des magazines publiés dans des dizaines de pays. Concrètement : normaliser des métadonnées, arbitrer des cas limites, tenir un référentiel que des inconnus interrogeront encore dans dix ans. C'est exactement le rapport que Briveo entretient avec le DVF, le cadastre et le registre des mandats. J'aime les données propres au point d'en avoir fait un loisir.",
+  },
+  {
+    tag: 'Endurance',
+    titre: '10 km par jour pendant 100 jours.',
+    texte:
+      "Objectif tenu. Marathon en 4 h 30, semi-marathon en 1 h 50 min 12 s — et oui, je retiens les secondes, ce qui est probablement le même travers que celui qui me fait aligner des chiffres en tabulaire dans une interface. Un design system ne se gagne pas au sprint : il se tient sur cent jours, quand plus personne ne regarde.",
+  },
+  {
+    tag: 'Collectif',
+    titre: '7 ans de football, 7 ans de basket.',
+    texte:
+      "Je ne suis pas un designer qui travaille de dos. Quatorze ans de sport collectif, ça apprend qu'on perd ensemble, et je préfère de loin une décision prise à cinq devant un écran à un fichier Figma parfait envoyé par mail. Dans une équipe de votre taille, c'est sans doute plus utile que du talent isolé.",
+  },
+  {
+    tag: 'Rédactionnel',
+    titre: "J'écris autant que je dessine.",
+    texte:
+      "Articles, copywriting, questionnaires, microcopie. Vous cherchez un UX writer dans la même annonce que le designer produit : ce n'est pas un hasard de rédaction, c'est le même geste. Sur un produit où l'utilisateur finit par signer un mandat, le mot juste vaut la maquette juste.",
+  },
+  {
+    tag: 'Curiosité',
+    titre: "J'ai pris le goût de voyager avant celui de designer.",
+    texte:
+      "Ça donne trois langues de travail, une tolérance élevée à l'inconnu, et l'habitude de me retrouver quelque part où je ne comprends rien — c'est-à-dire exactement l'état d'un propriétaire qui ouvre votre plateforme pour la première fois. Designer, c'est se souvenir de ce que ça fait de ne pas savoir.",
+  },
+  {
+    tag: 'Franchise',
+    titre: 'Je dis quand je ne sais pas.',
+    texte:
+      "Autodidacte avant d'être diplômé, j'ai appris que bluffer coûte toujours plus cher que demander. Vous construisez un produit dont l'argument central est la transparence : je serais très mal placé pour vous vendre du vernis.",
+  },
+];
+
+const OBJECTIONS = [
+  {
+    q: 'Vous êtes jeune.',
+    r: "Oui. Et j'ai trois ans de pratique, vingt-cinq projets publics et des clients qui acceptent de mettre leur nom sous un témoignage. Le portfolio est en ligne, ouvert, daté. Jugez le travail avant la date de naissance — c'est le seul avantage du métier de designer, tout est vérifiable.",
+  },
+  {
+    q: 'Vous ne venez pas de l\'immobilier.',
+    r: "Non. Je viens du tourisme haut de gamme sur la Côte d'Azur, des marketplaces à deux faces et des tableaux de bord métier. La loi Hoguet, le DPE et le registre des mandats, ça s'apprend en trois semaines avec vos agents. L'obsession du détail, non.",
+  },
+  {
+    q: 'CDI ou freelance ?',
+    r: "Vous laissez le choix, alors soyons francs : les deux me vont, et je préfère commencer par une mission d'essai payée sur un vrai sujet. Vous jugez sur pièce, je découvre le produit de l'intérieur. Si ça colle, on passe en CDI.",
+  },
+  {
+    q: 'Product manager, designer ou UX writer ?',
+    r: "Vous cherchez les trois. J'en fais deux et demi : design produit et UX writing sont mon quotidien, le cadrage produit je le pratique depuis que je travaille en direct avec des fondateurs. Et je code assez pour ne pas faire perdre de temps à votre équipe tech.",
+  },
+];
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Florian Gertner Kilian × BRIVEO — Candidature Produit / Design</title>
+  <meta
+    name="description"
+    content="Candidature au poste Produit — Design de BRIVEO (Nice). Pas un PDF de plus : une page produit, conçue et développée dans votre design system."
+  />
+  <meta name="theme-color" content="#059669" />
+  <meta name="author" content="Florian Gertner Kilian" />
+
+  <!-- Partage : sans og:image absolue, LinkedIn/Slack/WhatsApp affichent un
+       lien nu. L'image est en PNG (le WebP n'est pas lu partout) et pèse
+       56 Ko, sous la limite de 5 Mo de LinkedIn. -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:site_name" content="Florian Gertner Kilian — Wizyx" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:title" content="Postuler sans CV. Recruter sans risque." />
+  <meta
+    property="og:description"
+    content="Ma candidature au poste Produit — Design de BRIVEO, à Nice. Pas un PDF de plus : une page produit, conçue et développée dans leur design system."
+  />
+  <meta property="og:url" content={ogUrl} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:secure_url" content={ogImage} />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta
+    property="og:image:alt"
+    content="Postuler sans CV. Recruter sans risque. — candidature de Florian Gertner Kilian au poste Produit / Design de Briveo."
+  />
+  <meta property="profile:first_name" content="Florian" />
+  <meta property="profile:last_name" content="Gertner Kilian" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Postuler sans CV. Recruter sans risque." />
+  <meta
+    name="twitter:description"
+    content="Ma candidature au poste Produit — Design de BRIVEO, à Nice. Pas un PDF de plus : une page produit."
+  />
+  <meta name="twitter:image" content={ogImage} />
+  <meta
+    name="twitter:image:alt"
+    content="Postuler sans CV. Recruter sans risque. — candidature de Florian Gertner Kilian chez Briveo."
+  />
+
+  <link rel="canonical" href={ogUrl} />
+  <link rel="icon" type="image/png" href="/assets/media/logo.png" />
+  <link rel="apple-touch-icon" href="/assets/media/logo.png" />
+  <Font cssVariable="--font-jakarta-family" preload />
+  <Font cssVariable="--font-jetbrains-family" preload />
+</head>
+
+<body>
+  <a href="#main" class="skip-link">Aller au contenu principal</a>
+
+  <!-- Barre de progression, segmentée par chapitre. Chaque segment est une
+       ancre cliquable à la souris. Elle double exactement la navigation :
+       on la retire donc du parcours clavier et de l'arbre d'accessibilité
+       plutôt que d'imposer 8 tabulations redondantes avant le contenu. -->
+  <div class="scroll-rail" id="scrollRail" aria-hidden="true">
+    {CHAPITRES.map((c, i) => (
+      <a
+        class="rail-seg"
+        href={`#${c.id}`}
+        data-chapter={i}
+        data-target={c.id}
+        data-label={`${String(i + 1).padStart(2, '0')} · ${c.label}`}
+        tabindex="-1"
+      ><span class="rail-fill"></span></a>
+    ))}
+  </div>
+
+  <!-- ══════════════════════════ NAV ══════════════════════════ -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#top" class="nav-brand">
+        <span class="nav-brand-mark">FGK</span>
+        <span class="nav-brand-x">✕</span>
+        <span class="nav-brand-co">BRIVEO</span>
+      </a>
+      <span class="nav-now" id="navNow">
+        <span class="live-dot" aria-hidden="true"></span>
+        <span class="mono-label" id="navNowLabel">01 · Intro</span>
+      </span>
+      <nav class="nav-links" aria-label="Sections de la page">
+        <a href="#criteres">Vos critères</a>
+        <a href="#audit">Mon audit</a>
+        <a href="#plan">90 jours</a>
+        <a href="#cv">Le CV</a>
+        <a href="#profil">Qui je suis</a>
+        <a href="#lettre">La lettre</a>
+      </nav>
+      <a href="#test" class="btn btn-sm btn-primary nav-cta">Me tester</a>
+      <button class="burger" id="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Panneau mobile -->
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <nav aria-label="Sections de la page (mobile)">
+        <a href="#criteres"><span class="mm-num">01</span> Vos critères</a>
+        <a href="#audit"><span class="mm-num">02</span> Mon audit de briveo.fr</a>
+        <a href="#plan"><span class="mm-num">03</span> Mes 90 premiers jours</a>
+        <a href="#cv"><span class="mm-num">04</span> Le CV</a>
+        <a href="#profil"><span class="mm-num">05</span> Qui je suis</a>
+        <a href="#lettre"><span class="mm-num">06</span> La lettre</a>
+      </nav>
+      <div class="mobile-menu-foot">
+        <a href="#test" class="btn btn-primary btn-block">Me tester</a>
+        <a href={CV_PDF} target="_blank" rel="noopener" class="mm-cv">
+          <svg viewBox="0 0 24 24" class="ico ico-em" aria-hidden="true"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/><path d="M12 11v6M9.5 14.5L12 17l2.5-2.5"/></svg>
+          CV en PDF
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <span id="top" tabindex="-1"></span>
+    <!-- ══════════════════════════ HERO ══════════════════════════ -->
+    <section class="hero">
+      <div class="grain" aria-hidden="true"></div>
+      <div class="mesh mesh-a" aria-hidden="true"></div>
+      <div class="mesh mesh-b" aria-hidden="true"></div>
+
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <span class="pill reveal">
+            <span class="live-dot" aria-hidden="true"></span>
+            <span class="mono-label">Candidature · {OFFRE.intitule} · {OFFRE.lieu}</span>
+          </span>
+
+          <h1 class="hero-title reveal" style="--d:60ms">
+            <span class="line-muted">Postuler</span>
+            <span class="line-muted">sans CV.</span>
+            <span class="line-ink">Recruter</span>
+            <span class="line-ink">sans risque.</span>
+          </h1>
+
+          <p class="hero-sub reveal" style="--d:120ms">
+            Vous cherchez un designer produit à Nice&nbsp;: <strong>3 ans d'expérience</strong>,
+            une <strong>sensibilité au luxe et à la précision</strong>, la{' '}
+            <strong>capacité à parler directement aux utilisateurs</strong>. J'ai lu votre annonce.
+            Plutôt que de vous envoyer un PDF de plus, j'ai conçu et développé cette page{' '}
+            <strong>dans votre design system</strong>.
+          </p>
+
+          <div class="hero-cta reveal" style="--d:180ms">
+            <a href="#criteres" class="btn btn-primary btn-lg">
+              Pourquoi me recruter
+              <svg viewBox="0 0 24 24" class="ico ico-arrow" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener" class="btn btn-ghost btn-lg">
+              <svg viewBox="0 0 24 24" class="ico ico-em" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor" stroke="none"/></svg>
+              Prendre 30 minutes
+            </a>
+          </div>
+
+          <ul class="hero-trust reveal" style="--d:240ms">
+            <li>
+              <svg viewBox="0 0 24 24" class="ico ico-em" aria-hidden="true"><path d="M12 3l7 3v6c0 4.4-3 8-7 9-4-1-7-4.6-7-9V6z"/></svg>
+              Basé à Nice et Toulon
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" class="ico ico-em" aria-hidden="true"><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/><circle cx="12" cy="12" r="9"/></svg>
+              FR · EN · DE
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" class="ico ico-em" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+              25 projets publics, tous datés
+            </li>
+          </ul>
+        </div>
+
+        <!-- Pile de cartes flottantes — hommage direct au hero de briveo.fr -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="cockpit">
+            <div class="cockpit-top">
+              <span class="live-dot live-dot-sm"></span>
+              <span class="mono-label mono-label-light">Cockpit recrutement · en direct</span>
+            </div>
+            <div class="cockpit-body">
+              <span class="mono-label mono-label-em">Poste analysé</span>
+              <p class="cockpit-title">Produit — Design<br />Nice (HQ)</p>
+              <dl class="cockpit-rows">
+                <div><dt>Contrat</dt><dd>CDI ou freelance</dd></div>
+                <div><dt>Candidat</dt><dd>Florian Gertner Kilian</dd></div>
+                <div><dt>Statut</dt><dd class="dd-em">Disponible</dd></div>
+              </dl>
+              <div class="cockpit-bars">
+                <span class="bar" style="--h:44%; --i:0"></span>
+                <span class="bar" style="--h:68%; --i:1"></span>
+                <span class="bar" style="--h:55%; --i:2"></span>
+                <span class="bar" style="--h:82%; --i:3"></span>
+                <span class="bar" style="--h:71%; --i:4"></span>
+                <span class="bar bar-hi" style="--h:100%; --i:5"></span>
+              </div>
+              <p class="cockpit-foot">Adéquation au poste · 6 derniers mois</p>
+            </div>
+          </div>
+
+          <div class="float-card float-a">
+            <span class="mono-label mono-label-em">
+              <svg viewBox="0 0 24 24" class="ico ico-xs" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg>
+              Estimation
+            </span>
+            <p class="float-num">94 %</p>
+            <p class="float-cap">Score de correspondance au poste</p>
+            <div class="float-track"><span class="float-fill"></span></div>
+            <p class="float-note">3 critères sur 3 · 25 projets comparables</p>
+          </div>
+
+          <div class="float-card float-b float-dark">
+            <span class="float-chip">
+              <svg viewBox="0 0 24 24" class="ico ico-xs" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>
+            </span>
+            <span class="mono-label mono-label-mint">Critères</span>
+            <p class="float-dark-title">3 / 3 remplis</p>
+            <p class="float-dark-sub">Expérience · Luxe · Utilisateurs</p>
+          </div>
+
+          <div class="float-card float-c">
+            <span class="mono-label mono-label-em">
+              <svg viewBox="0 0 24 24" class="ico ico-xs" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg>
+              Coach
+            </span>
+            <p class="float-typed"><span id="typed"></span><span class="caret"></span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-scroll">
+        <span class="mono-label mono-label-dim">Scroll pour voir pourquoi</span>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════ CHIFFRES ══════════════════════════ -->
+    <section class="stats">
+      <div class="stats-inner">
+        {STATS.map((s) => (
+          <div class="stat reveal">
+            <p class="stat-num">
+              <span data-count={s.valeur}>0</span>{s.suffixe && <span class="stat-unit">{s.suffixe}</span>}
+            </p>
+            <p class="stat-label">{s.label}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- ══════════════════════════ MARQUEE ══════════════════════════ -->
+    <section class="marquee-wrap" aria-hidden="true">
+      <div class="marquee">
+        <div class="marquee-track">
+          {[0, 1].map(() => (
+            <div class="marquee-group">
+              <span>Figma</span><em>·</em>
+              <span>Design system</span><em>·</em>
+              <span>UX research</span><em>·</em>
+              <span>UX writing</span><em>·</em>
+              <span>Prototypage</span><em>·</em>
+              <span>Tableaux de bord</span><em>·</em>
+              <span>Landing pages</span><em>·</em>
+              <span>Applications mobiles</span><em>·</em>
+              <span>Front-end</span><em>·</em>
+              <span>Copywriting</span><em>·</em>
+              <span>SaaS</span><em>·</em>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════ CRITÈRES ══════════════════════════ -->
+    <section class="section" id="criteres">
+      <div class="glow glow-a" aria-hidden="true"></div>
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="eyebrow">Votre annonce, ligne par ligne</span>
+          <h2 class="sec-title"><span class="num">3</span> critères.<br /><span class="num">3</span> preuves.</h2>
+          <p class="sec-sub">
+            Vous avez écrit exactement ce que vous cherchez. Je réponds dans le même ordre, avec des
+            projets que vous pouvez ouvrir dans un onglet à côté.
+          </p>
+        </header>
+
+        <div class="crit-grid">
+          <!-- 01 -->
+          <article class="card crit reveal">
+            <div class="crit-head">
+              <span class="crit-num">01</span>
+              <span class="quote-chip">« {OFFRE.criteres[0]} »</span>
+            </div>
+            <h3 class="crit-title"><span class="num">3</span> ans, <span class="num">25</span> projets publiés, des clients qui signent leur avis.</h3>
+            <p class="crit-body">
+              BTS informatique puis BUT MMI, une agence de développement international
+              (<strong>Digital Unicorn</strong>), un studio produit (<strong>Mafigue</strong>), et depuis,
+              du design produit en direct avec des fondateurs. Sites, landing pages, applications
+              mobiles, plateformes SaaS et tableaux de bord&nbsp;: exactement les quatre familles
+              d'interfaces qu'un produit comme Briveo demande — une vitrine qui convainc, un tunnel qui
+              convertit, une app qui accompagne, des cockpits qui tiennent la charge métier.
+            </p>
+            <blockquote class="testi">
+              <p>
+                « Motivé, hyper proactif, enseignable, il a su, dès les premiers jours, être
+                opérationnel. […] Il est force de proposition et sait répondre à des briefs client
+                quasiment en autonomie. <strong>Je recommande son profil à l'embauche si vous souhaitez
+                ne pas prendre de risque</strong>, puisqu'il coche toutes les cases. »
+              </p>
+              <footer>
+                <Image src={avatarCaroline} alt="" width="72" height="72" loading="lazy" class="testi-av" />
+                <span><strong>Caroline Aubert</strong>Product Designer &amp; fondatrice de Mafigue</span>
+              </footer>
+            </blockquote>
+            <p class="crit-callback">
+              <span class="mono-label mono-label-em">Note</span>{' '}
+              Le titre de cette page n'est pas de moi. Il est d'elle.
+            </p>
+            <ul class="crit-proof">
+              <li><span class="mono-label mono-label-em">Preuve</span> <a href="https://wizyx.me/creations" target="_blank" rel="noopener">25 projets datés, en ligne, avec le contexte de chacun</a></li>
+              <li><span class="mono-label mono-label-em">Preuve</span> <a href="https://jobbrr.io" target="_blank" rel="noopener">JOBBRR — plateforme à deux faces, en production</a></li>
+            </ul>
+          </article>
+
+          <!-- 02 -->
+          <article class="card crit reveal" style="--d:80ms">
+            <div class="crit-head">
+              <span class="crit-num">02</span>
+              <span class="quote-chip">« {OFFRE.criteres[1]} »</span>
+            </div>
+            <h3 class="crit-title">J'ai déjà designé pour le Golfe de Saint-Tropez.</h3>
+            <p class="crit-body">
+              Redesign du site et de l'application du <strong>Guide du Golfe de Saint-Tropez</strong>&nbsp;:
+              établissements, événements, contenu éditorial, pour des résidents et des visiteurs qui ne
+              tolèrent pas l'à-peu-près. Le luxe sur la Côte d'Azur, je ne le découvre pas dans un
+              moodboard&nbsp;: c'est mon terrain. Et la précision, c'est l'autre moitié du métier —
+              tokens, grilles, chiffres alignés, états d'erreur écrits à la main. Un mandat Hoguet et
+              une fiche de bien doivent se lire de la même façon&nbsp;: sans ambiguïté possible.
+            </p>
+            <blockquote class="testi">
+              <p>
+                « Un travail pro et sérieux comme on aime et surtout comme on a BESOIN&nbsp;! Florian a
+                fait partie de l'équipe qui nous a conçu les maquettes de notre dernière version […]
+                Rapide, efficace et agréable. »
+              </p>
+              <footer>
+                <Image src={avatarJonathan} alt="" width="72" height="72" loading="lazy" class="testi-av" />
+                <span><strong>Jonathan Vaissière</strong>Entrepreneur, Le Guide du Golfe de Saint-Tropez</span>
+              </footer>
+            </blockquote>
+          </article>
+
+          <!-- 03 -->
+          <article class="card crit reveal" style="--d:160ms">
+            <div class="crit-head">
+              <span class="crit-num">03</span>
+              <span class="quote-chip">« {OFFRE.criteres[2]} »</span>
+            </div>
+            <h3 class="crit-title">Je ne dessine pas avant d'avoir parlé à quelqu'un.</h3>
+            <p class="crit-body">
+              Sur <strong>Mon Gardien</strong>, je n'ai pas seulement conçu la landing page&nbsp;: j'ai
+              écrit le questionnaire de recherche utilisateur qui l'accompagnait, pour qualifier le
+              problème et récolter des témoignages avant de dessiner quoi que ce soit. Sur{' '}
+              <strong>JOBBRR</strong>, il fallait tenir deux populations aux attentes opposées —
+              des étudiants qui veulent être vus, des entreprises qui veulent trier vite.
+            </p>
+            <p class="crit-body">
+              Briveo n'a pas deux faces, il en a cinq&nbsp;: vendeur, acheteur, agent, notaire, admin.
+              C'est le même exercice, en beaucoup plus dur. Et c'est précisément pour ça que le poste
+              m'intéresse.
+            </p>
+          </article>
+
+          <!-- 04 — bonus -->
+          <article class="card crit crit-bonus reveal" style="--d:240ms">
+            <div class="crit-head">
+              <span class="crit-num crit-num-em">04</span>
+              <span class="quote-chip quote-chip-em">Le critère que vous n'avez pas écrit</span>
+            </div>
+            <h3 class="crit-title">Je parle à votre équipe tech sans traducteur.</h3>
+            <p class="crit-body">
+              J'ai un BTS informatique avant mon diplôme de design. Je ne toucherai pas à votre
+              production, mais je lis un composant, je comprends ce qu'un état coûte, et je livre des
+              specs qu'un dev n'a pas à deviner. <strong>Cette page en est la démonstration</strong>&nbsp;:
+              votre design system relevé sur briveo.fr, puis reconstruit — typographies, échelle
+              typographique, rayons, ombres, et vos micro-animations refaites à la main.
+            </p>
+            <p class="crit-body">
+              Détail qui compte pour vous&nbsp;: vos annonces sont bilingues FR&nbsp;+&nbsp;EN et votre
+              clientèle Côte d'Azur est internationale. Je travaille en français, en anglais et en
+              allemand — le deuxième marché acheteur de la région.
+            </p>
+            <blockquote class="testi">
+              <p>
+                « Florian a fait son stage chez Digital Unicorn en tant que UI/UX Designer et ça a été
+                un vrai plaisir de travailler avec lui. Super impliqué, intelligent et toujours dans
+                l'action, il a vraiment apporté de la valeur à l'équipe. »
+              </p>
+              <footer>
+                <Image src={avatarLucas} alt="" width="72" height="72" loading="lazy" class="testi-av" />
+                <span><strong>Lucas Kacem</strong>Co-fondateur &amp; Président, Digital Unicorn</span>
+              </footer>
+            </blockquote>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════ AUDIT ══════════════════════════ -->
+    <section class="section section-dark" id="audit">
+      <div class="grain" aria-hidden="true"></div>
+      <div class="mesh mesh-dark" aria-hidden="true"></div>
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="eyebrow eyebrow-light">Regard produit</span>
+          <h2 class="sec-title sec-title-light">
+            J'ai passé briveo.fr<br />au crible.
+          </h2>
+          <p class="sec-sub sec-sub-light">
+            Quatre observations sur le parcours public. Elles ne valent que ce que vaut un regard
+            extérieur — je n'ai vu ni vos données, ni vos cockpits, ni ce que vous avez déjà en
+            backlog. C'est justement le sujet&nbsp;: voilà comment je regarde un produit avant même
+            d'y avoir accès.
+          </p>
+        </header>
+
+        <div class="audit-list">
+          {AUDIT.map((a) => (
+            <article class="audit-item reveal">
+              <div class="audit-num"><span>{a.num}</span></div>
+              <div class="audit-content">
+                <h3 class="audit-title">{a.titre}</h3>
+                <div class="audit-split">
+                  <div>
+                    <span class="mono-label mono-label-dim">Constat</span>
+                    <p>{a.constat}</p>
+                  </div>
+                  <div class="audit-piste">
+                    <span class="mono-label mono-label-mint">Piste</span>
+                    <p>{a.piste}</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <p class="audit-foot reveal">
+          Ces quatre points ne sont pas une correction. C'est le genre de note que je poserais sur la
+          table un lundi matin, en sachant très bien que trois personnes autour de moi ont un contexte
+          que je n'ai pas encore.
+        </p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════ PLAN 90 JOURS ══════════════════════════ -->
+    <section class="section" id="plan">
+      <div class="glow glow-b" aria-hidden="true"></div>
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="eyebrow">Si vous dites oui</span>
+          <h2 class="sec-title"><span class="num">3</span> étapes.<br /><span class="num">90</span> jours.</h2>
+          <p class="sec-sub">
+            Vous décrivez votre parcours vendeur en trois étapes sans friction. Voilà le mien, dans le
+            même format — parce qu'un designer qui arrive doit savoir dire ce qu'il aura livré avant
+            son troisième mois.
+          </p>
+        </header>
+
+        <ol class="plan-grid">
+          {PLAN.map((p) => (
+            <li class="card plan reveal">
+              <div class="plan-head">
+                <span class="plan-num">{p.num}</span>
+                <span class="plan-duree">{p.duree}</span>
+              </div>
+              <h3 class="plan-title">{p.titre}</h3>
+              <p class="plan-text">{p.texte}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════ CV / COCKPITS ══════════════════════════ -->
+    <section class="section section-soft" id="cv">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="eyebrow">Le CV, sans le CV</span>
+          <h2 class="sec-title"><span class="num">4</span> onglets.<br />Aucune page A4.</h2>
+          <p class="sec-sub">
+            Vous avez cinq cockpits synchronisés. En voici quatre — c'est le même CV que le PDF, mais
+            rangé comme un produit se range. Si vous préférez quand même le PDF, il est juste en
+            dessous.
+          </p>
+          <div class="cv-actions">
+            <a href={CV_PDF} target="_blank" rel="noopener" class="btn btn-outline">
+              <svg viewBox="0 0 24 24" class="ico" aria-hidden="true"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/><path d="M12 11v6M9.5 14.5L12 17l2.5-2.5"/></svg>
+              Télécharger le CV en PDF
+            </a>
+            <span class="cv-actions-note">Ouvre dans un nouvel onglet · 1 page</span>
+          </div>
+        </header>
+
+        <div class="tabs card reveal">
+          <div class="tablist" role="tablist" aria-label="Sections du CV">
+            <button type="button" class="tab is-active" role="tab" aria-selected="true" aria-controls="pan-1" id="tab-1" tabindex="0">Parcours</button>
+            <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="pan-2" id="tab-2" tabindex="-1">Compétences</button>
+            <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="pan-3" id="tab-3" tabindex="-1">Outils &amp; veille</button>
+            <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="pan-4" id="tab-4" tabindex="-1">Preuves</button>
+          </div>
+
+          <div class="tabpanels">
+            <!-- Parcours -->
+            <div class="tabpanel is-active" role="tabpanel" id="pan-1" aria-labelledby="tab-1" tabindex="0">
+              <ol class="timeline">
+                <li>
+                  <span class="tl-dot"></span>
+                  <span class="mono-label mono-label-em">Aujourd'hui</span>
+                  <h3>Product Designer indépendant — Wizyx</h3>
+                  <p>
+                    Design produit de bout en bout pour des fondateurs et des agences&nbsp;: cadrage,
+                    recherche, maquettes, design system, prototypes, UX writing. Nice et Toulon, en
+                    direct avec les décideurs — jamais à travers trois couches de compte-rendu.{' '}
+                    <strong>JOBBRR</strong> (marketplace à deux faces en production),{' '}
+                    <strong>Mentora</strong> (application mobile conçue sur cahier des charges, avec
+                    contraintes d'états et de hiérarchie visuelle),{' '}
+                    <strong>Mon Gardien</strong> (landing de levée et son dispositif de recherche
+                    utilisateur).
+                  </p>
+                </li>
+                <li>
+                  <span class="tl-dot"></span>
+                  <span class="mono-label mono-label-em">Agence · International</span>
+                  <h3>UI/UX Designer — Digital Unicorn</h3>
+                  <p>
+                    Stage au sein d'une agence de développement logiciel internationale. Travailler
+                    dans une structure où les développeurs sont dans la pièce d'à côté change la façon
+                    de dessiner&nbsp;: on arrête de livrer des images, on livre des décisions.
+                  </p>
+                </li>
+                <li>
+                  <span class="tl-dot"></span>
+                  <span class="mono-label mono-label-em">Studio produit</span>
+                  <h3>Product Design &amp; rédactionnel — Mafigue</h3>
+                  <p>
+                    Deux mois auprès de Caroline Aubert, product designer et développeuse Webflow, à
+                    répondre à des briefs clients en quasi-autonomie. C'est là que j'ai appris à écrire
+                    autant qu'à dessiner — et à tenir un fichier Figma qu'une autre personne peut
+                    reprendre sans mode d'emploi.
+                  </p>
+                </li>
+                <li>
+                  <span class="tl-dot"></span>
+                  <span class="mono-label mono-label-em">Côte d'Azur</span>
+                  <h3>Le Guide du Golfe de Saint-Tropez</h3>
+                  <p>
+                    Redesign du site et de l'application d'un guide local haut de gamme, en équipe,
+                    avec plusieurs itérations sur retours clients. Le premier endroit où j'ai compris
+                    qu'en région, l'exigence esthétique n'est pas un supplément&nbsp;: c'est le produit.
+                  </p>
+                </li>
+                <li>
+                  <span class="tl-dot"></span>
+                  <span class="mono-label mono-label-em">Formation</span>
+                  <h3>BTS informatique (SIO) · BUT MMI · Mastère UX/UI Design (ECV)</h3>
+                  <p>
+                    J'ai appris à coder avant d'apprendre à designer. C'est ce qui fait que je sais ce
+                    qu'une idée coûte à construire, et que je ne dessine jamais un écran qu'une équipe
+                    tech ne pourra pas tenir.
+                  </p>
+                </li>
+              </ol>
+              <div class="tl-foot">
+                <a href={CV_PDF} target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+                  <svg viewBox="0 0 24 24" class="ico ico-em" aria-hidden="true"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/><path d="M12 11v6M9.5 14.5L12 17l2.5-2.5"/></svg>
+                  Le CV en PDF, avec les dates
+                </a>
+              </div>
+            </div>
+
+            <!-- Compétences -->
+            <div class="tabpanel" role="tabpanel" id="pan-2" aria-labelledby="tab-2" tabindex="0" hidden>
+              <div class="skills">
+                {SKILLS.map((s) => (
+                  <div class="skill">
+                    <span class="skill-ico" aria-hidden="true" set:html={s.icon} />
+                    <div class="skill-body">
+                      <h3>{s.titre}</h3>
+                      <p>{s.texte}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <!-- Outils -->
+            <div class="tabpanel" role="tabpanel" id="pan-3" aria-labelledby="tab-3" tabindex="0" hidden>
+              <span class="mono-label mono-label-em">Le socle · tous les jours</span>
+              <div class="tools">
+                <span class="tool">Figma</span>
+                <span class="tool">Auto-layout &amp; variables</span>
+                <span class="tool">Design tokens</span>
+                <span class="tool">Prototypage interactif</span>
+                <span class="tool">Webflow</span>
+                <span class="tool">Astro</span>
+                <span class="tool">HTML / CSS</span>
+                <span class="tool">Tailwind</span>
+                <span class="tool">Notion</span>
+                <span class="tool">Midjourney</span>
+                <span class="tool">Analytics</span>
+                <span class="tool">SEO technique</span>
+              </div>
+
+              <div class="watch">
+                <span class="mono-label mono-label-em">Sur l'établi · ce que je teste en ce moment</span>
+                <div class="watch-grid">
+                  <article class="watch-card">
+                    <h3>Être lisible par les IA, pas seulement par Google</h3>
+                    <p>
+                      Mon portfolio expose un <strong>llms.txt</strong> et des schémas
+                      <strong>JSON-LD</strong> complets, pour que les modèles qui répondent
+                      « un bon product designer sur la Côte d'Azur&nbsp;? » travaillent sur une donnée
+                      propre. Vous jouez sur le même terrain avec vos annonces bilingues et vos pages
+                      prix par ville&nbsp;: la prochaine bataille de visibilité ne se gagnera pas
+                      uniquement dans les SERP.
+                    </p>
+                  </article>
+                  <article class="watch-card">
+                    <h3>Le design au contact direct du code</h3>
+                    <p>
+                      Astro&nbsp;7, Tailwind&nbsp;v4, polices auto-hébergées et sous-ensemblées,
+                      images en WebP, budget d'animation surveillé. Je ne me contente pas de savoir
+                      qu'une maquette « sera lourde »&nbsp;: je vais voir. Cette page est construite
+                      comme ça, et elle est isolée du reste de mon site pour ne rien lui coûter.
+                    </p>
+                  </article>
+                  <article class="watch-card">
+                    <h3>L'IA dans la boucle de production</h3>
+                    <p>
+                      Génération et exploration visuelle, variantes rédactionnelles, prototypage
+                      accéléré. Utile à préciser chez vous&nbsp;: je m'en sers pour produire dix
+                      pistes au lieu de deux, pas pour livrer plus vite un travail moins réfléchi.
+                      Une équipe qui construit LAIA mérite un designer qui sait où l'IA aide
+                      vraiment — et où elle fabrique du plausible.
+                    </p>
+                  </article>
+                </div>
+              </div>
+
+              <div class="watch-method">
+                <span class="mono-label mono-label-dim">Ma méthode de veille</span>
+                <ul>
+                  <li>Je teste sur un projet réel, jamais sur un tutoriel&nbsp;: un outil qui ne survit pas à une contrainte client ne prouve rien.</li>
+                  <li>J'écris ce que j'en retiens, pour pouvoir le transmettre plutôt que d'être le seul à savoir.</li>
+                  <li>J'abandonne sans état d'âme ce qui n'a rien changé au bout de deux semaines.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Preuves -->
+            <div class="tabpanel" role="tabpanel" id="pan-4" aria-labelledby="tab-4" tabindex="0" hidden>
+              <ul class="proofs">
+                <li>
+                  <a href="https://wizyx.me/creations" target="_blank" rel="noopener">
+                    <span class="proof-t">Le portfolio complet</span>
+                    <span class="proof-d">25 projets publiés, chacun avec son contexte, son rôle et sa date.</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://wizyx.me/services/ui-ux" target="_blank" rel="noopener">
+                    <span class="proof-t">Ma méthode de travail</span>
+                    <span class="proof-d">Comment je passe d'un problème flou à des écrans qu'on peut construire.</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://linkedin.com/in/flogk/" target="_blank" rel="noopener">
+                    <span class="proof-t">LinkedIn</span>
+                    <span class="proof-d">Le parcours, les recommandations, le réseau régional.</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://github.com/WizyxGH" target="_blank" rel="noopener">
+                    <span class="proof-t">GitHub</span>
+                    <span class="proof-d">Le code de mon site — dont la page que vous êtes en train de lire.</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════ PERSONNALITÉ ══════════════════════════ -->
+    <section class="section" id="profil">
+      <div class="glow glow-a" aria-hidden="true"></div>
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="eyebrow">Ce qu'un portfolio ne montre pas</span>
+          <h2 class="sec-title">Le critère qu'aucune<br />annonce ne sait écrire.</h2>
+          <p class="sec-sub">
+            Vous recrutez une personne, pas une bibliothèque de composants. Voilà ce qui ne se voit pas
+            sur des maquettes — et pourquoi je crois que ça compte particulièrement chez vous.
+          </p>
+        </header>
+
+        <div class="trait-grid">
+          {TRAITS.map((t) => (
+            <article class="card trait reveal">
+              <span class="mono-label mono-label-em">{t.tag}</span>
+              <h3 class="trait-title">{t.titre}</h3>
+              <p class="trait-text">{t.texte}</p>
+            </article>
+          ))}
+        </div>
+
+        <figure class="trait-quote reveal">
+          <blockquote lang="en">« Life's greatest moments and deepest connections exist outside of your comfort zone. »</blockquote>
+          <figcaption>
+            Cette citation est sur mon site depuis des années. Envoyer une page plutôt qu'un PDF, c'est
+            juste être cohérent avec elle.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════ LETTRE ══════════════════════════ -->
+    <section class="section section-soft" id="lettre">
+      <div class="wrap wrap-narrow">
+        <header class="sec-head sec-head-left reveal">
+          <span class="eyebrow">La lettre, sans le costume</span>
+          <h2 class="sec-title">Pourquoi vous,<br />et pas une autre annonce.</h2>
+        </header>
+
+        <div class="letter card reveal">
+          <p>Bonjour,</p>
+          <p>
+            Je postule à beaucoup moins d'offres qu'on ne l'imagine. Celle-ci, je l'ai lue deux fois,
+            puis j'ai passé la soirée sur briveo.fr — d'abord par curiosité, ensuite parce que je n'ai
+            pas réussi à en sortir.
+          </p>
+          <p>
+            Ce qui m'a retenu, ce n'est pas « l'IA dans l'immobilier ». C'est que vous avez pris le
+            problème par la friction plutôt que par la promesse. Un mandat Hoguet en trois minutes,
+            une estimation sourcée sur du DVF public, un dossier notaire généré, une commission qu'on
+            annonce avant de la prendre. Ce sont des décisions produit, pas des arguments marketing.
+            Elles se voient dans l'interface, et c'est rare.
+          </p>
+          <p>
+            Il se trouve que c'est exactement le métier que je veux faire. Je passe mes journées à
+            rendre lisible ce qui est compliqué&nbsp;: des tunnels de vente, des tableaux de bord,
+            des parcours où l'utilisateur doit prendre une décision qui l'engage. L'immobilier est le
+            terrain le plus exigeant de cette catégorie — les montants sont énormes, la confiance est
+            fragile, le vocabulaire est hostile, et la moitié des gens qui entrent dans votre produit
+            n'ont jamais vendu de leur vie.
+          </p>
+          <p>
+            Il y a aussi une raison plus simple, et je préfère l'assumer&nbsp;: je suis d'ici. Nice, Toulon,
+            Nice, le Var, les Alpes-Maritimes. J'ai travaillé pour le Golfe de Saint-Tropez, je connais
+            la clientèle dont vous parlez quand vous écrivez « UHNWI » et « Côte d'Azur », et je n'ai
+            pas envie de faire ce métier depuis un open space parisien. Une boîte tech ambitieuse dont
+            le siège est à Nice, ça ne se présente pas tous les ans.
+          </p>
+          <p>
+            Sur le papier, je coche vos trois critères. Mais un CV ne prouve pas grand-chose sur un
+            métier où le livrable est visuel. Alors j'ai fait ce que je ferais chez vous&nbsp;: j'ai
+            regardé le produit, relevé le design system, listé ce qui me semble perfectible, et livré
+            quelque chose de fini. Cette page n'est reliée à aucune autre page de mon site. Elle
+            n'existe que pour vous, et elle sera hors ligne le jour où vous me direz non.
+          </p>
+          <p>
+            Si ce que vous avez lu vous parle, je serais ravi d'en discuter — trente minutes suffisent
+            pour savoir si ça colle.
+          </p>
+          <div class="letter-sign">
+            <Image src={avatarFlorian} alt="Florian Gertner Kilian" width="112" height="112" loading="lazy" class="sign-av" />
+            <div class="sign-id">
+              <strong>Florian Gertner Kilian</strong>
+              <span>Product Designer · Wizyx · Nice &amp; Toulon</span>
+            </div>
+            <a href={CV_PDF} target="_blank" rel="noopener" class="sign-cv">
+              <svg viewBox="0 0 24 24" class="ico ico-em" aria-hidden="true"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/><path d="M12 11v6M9.5 14.5L12 17l2.5-2.5"/></svg>
+              CV en PDF
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════ OBJECTIONS ══════════════════════════ -->
+    <section class="section">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="eyebrow">Zéro surprise</span>
+          <h2 class="sec-title">Les questions que vous<br />vous posez déjà.</h2>
+          <p class="sec-sub">
+            Vous mettez vos conditions en clair sur votre page tarifs. Je fais pareil avec mes points
+            faibles&nbsp;: c'est plus rapide que de les découvrir en entretien.
+          </p>
+        </header>
+
+        <div class="obj-grid">
+          {OBJECTIONS.map((o) => (
+            <div class="card obj reveal">
+              <h3 class="obj-q">
+                <span class="obj-mark" aria-hidden="true">?</span>
+                {o.q}
+              </h3>
+              <p class="obj-r">{o.r}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════ DEUX FORMULES ══════════════════════════ -->
+    <section class="section section-soft" id="test">
+      <div class="glow glow-c" aria-hidden="true"></div>
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="eyebrow">Deux façons · Zéro engagement</span>
+          <h2 class="sec-title">Testez-moi avant<br />de me recruter.</h2>
+          <p class="sec-sub">
+            Vous ne facturez le vendeur que si le bien se vend. Le principe me plaît assez pour que je
+            vous le retourne.
+          </p>
+        </header>
+
+        <div class="offer-grid">
+          <article class="card offer reveal">
+            <div class="offer-top">
+              <div>
+                <h3 class="offer-name">Essai</h3>
+                <p class="offer-kind">Mission freelance</p>
+              </div>
+              <span class="offer-tag">Sans risque</span>
+            </div>
+            <p class="offer-price"><span class="offer-price-num">1</span><span class="offer-price-unit">sujet réel</span></p>
+            <p class="offer-price-note">Un délai, un livrable, un prix annoncé d'avance.</p>
+            <p class="offer-lead">
+              Donnez-moi un vrai morceau du produit — le tunnel d'estimation, le cockpit vendeur, la
+              refonte d'un parcours. Vous jugez sur pièce plutôt que sur entretien.
+            </p>
+            <ul class="offer-list">
+              <li>Cadrage et questions écrites avant de dessiner</li>
+              <li>Maquettes haute fidélité dans votre design system</li>
+              <li>Prototype cliquable, testable par votre équipe</li>
+              <li>Spécifications lisibles par vos devs</li>
+              <li>Une restitution de trente minutes, sans slides inutiles</li>
+            </ul>
+            <a href="mailto:hello@wizyx.me?subject=Briveo%20%C2%B7%20Mission%20d%27essai" class="btn btn-outline btn-block">
+              Proposer un sujet
+            </a>
+          </article>
+
+          <article class="card offer offer-hi reveal" style="--d:80ms">
+            <div class="offer-top">
+              <div>
+                <h3 class="offer-name">CDI</h3>
+                <p class="offer-kind">Produit — Design · Nice</p>
+              </div>
+              <span class="offer-tag offer-tag-hi">Recommandé</span>
+            </div>
+            <p class="offer-price"><span class="offer-price-num">100</span><span class="offer-price-unit">% dedans</span></p>
+            <p class="offer-price-note">Sur place à Nice, pas en visio depuis ailleurs.</p>
+            <p class="offer-lead">
+              Le poste tel que vous l'avez écrit. Un designer produit qui parle aux utilisateurs, tient
+              le système, écrit l'interface et sait discuter avec l'équipe tech.
+            </p>
+            <ul class="offer-list">
+              <li>Tout ce qui est inclus dans l'essai</li>
+              <li>Le design system Briveo, tenu et documenté</li>
+              <li>Un cycle de recherche utilisateur continu, pas ponctuel</li>
+              <li>L'UX writing des parcours sensibles — mandat, offre, signature</li>
+              <li>Les cinq cockpits traités comme un seul produit</li>
+              <li>Disponible rapidement, préavis à discuter</li>
+            </ul>
+            <a href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener" class="btn btn-primary btn-block">
+              Réserver un créneau
+              <svg viewBox="0 0 24 24" class="ico ico-arrow" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </article>
+        </div>
+
+        <p class="offer-foot reveal">
+          Vous promettez une réponse personnalisée sous cinq jours ouvrés. Je vous promets d'être
+          joignable avant.
+        </p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════ CONTACT ══════════════════════════ -->
+    <section class="contact">
+      <div class="grain" aria-hidden="true"></div>
+      <div class="wrap contact-inner">
+        <span class="pill pill-dark reveal">
+          <span class="live-dot" aria-hidden="true"></span>
+          <span class="mono-label mono-label-light">Disponible · Nice &amp; Toulon</span>
+        </span>
+        <h2 class="contact-title reveal">
+          On en parle<br /><span class="num">30</span> minutes&nbsp;?
+        </h2>
+        <p class="contact-sub reveal">
+          Le pire qui puisse arriver, c'est que vous ayez passé une demi-heure avec un designer qui
+          connaît déjà votre produit.
+        </p>
+        <div class="contact-actions reveal">
+          <a href="mailto:hello@wizyx.me?subject=Briveo%20%C2%B7%20Candidature%20Produit%20-%20Design" class="btn btn-primary btn-lg">
+            hello@wizyx.me
+            <svg viewBox="0 0 24 24" class="ico ico-arrow" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener" class="btn btn-ghost-light btn-lg">Calendly</a>
+        </div>
+        <ul class="contact-links reveal">
+          <li><a href="https://wizyx.me" target="_blank" rel="noopener">wizyx.me</a></li>
+          <li><a href="https://linkedin.com/in/flogk/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/WizyxGH" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://wizyx.me/creations" target="_blank" rel="noopener">Portfolio</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-inner">
+      <p>
+        Page conçue, écrite et développée par Florian Gertner Kilian. Design system repris de
+        briveo.fr — hommage assumé, aucune affiliation.
+      </p>
+      <p class="foot-dim">
+        Non indexée, non reliée au reste de wizyx.me. Elle n'existe que pour cette candidature.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ══════════ FAB « appelez-moi » — même construction que le bouton
+       LAIA de briveo.fr : halo flou pulsé, pastille en dégradé, libellé
+       qui apparaît au survol. Ici il ouvre une modale d'incitation. ══════ -->
+  <button type="button" class="fab" id="fab" aria-label="Me téléphoner" aria-haspopup="dialog">
+    <span class="fab-glow" aria-hidden="true"></span>
+    <span class="fab-dot">
+      <svg viewBox="0 0 24 24" class="fab-ico" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.1 9.9a16 16 0 006 6l1.26-1.26a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+    </span>
+    <span class="fab-tip" aria-hidden="true">Appelez-moi</span>
+  </button>
+
+  <!-- Modale d'appel -->
+  <div class="modal" id="callModal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="callTitle" tabindex="-1">
+      <button type="button" class="modal-x" data-close aria-label="Fermer">
+        <svg viewBox="0 0 24 24" class="ico" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+
+      <span class="pill modal-pill">
+        <span class="live-dot" aria-hidden="true"></span>
+        <span class="mono-label">Ligne directe · aucun standard</span>
+      </span>
+
+      <h2 class="modal-title" id="callTitle">
+        Le plus court chemin<br />pour savoir si ça colle.
+      </h2>
+      <p class="modal-sub">
+        Vous avez lu la page. Il reste la seule chose qu'une page ne fera jamais&nbsp;: entendre si le
+        courant passe. Ça prend moins de temps que de trier trois CV.
+      </p>
+
+      <ul class="modal-list">
+        <li><span class="num">3</span> minutes suffisent pour décider si je mérite un vrai entretien.</li>
+        <li>C'est moi qui décroche. Pas un standard, pas un formulaire, pas de rappel automatique.</li>
+        <li>Si je ne réponds pas, c'est que je suis en rendez-vous&nbsp;: je rappelle dans la journée.</li>
+      </ul>
+
+      <a href={`tel:${TEL_HREF}`} class="btn btn-primary btn-block btn-lg modal-call">
+        <svg viewBox="0 0 24 24" class="ico" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.1 9.9a16 16 0 006 6l1.26-1.26a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Appeler le <span class="modal-tel">{TEL_DISPLAY}</span>
+      </a>
+
+      <div class="modal-alt">
+        <a href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener">Réserver un créneau</a>
+        <span aria-hidden="true">·</span>
+        <a href="mailto:hello@wizyx.me?subject=Briveo%20%C2%B7%20Candidature%20Produit%20-%20Design">hello@wizyx.me</a>
+      </div>
+      <p class="modal-foot">En semaine, de 9 h à 19 h · Nice &amp; Toulon</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       STYLES — 100 % locaux à cette page (aucun import de global.css)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <style is:global>
+    /* ── Tokens repris de briveo.fr ─────────────────────────────────────── */
+    :root {
+      --ink: #0a0a0a;
+      --ink-700: #404040;
+      --ink-600: #525252;
+      --ink-500: #737373;
+      --ink-400: #a3a3a3;
+      --paper: #fafaf9;
+      --paper-2: #f5f5f4;
+      --white: #ffffff;
+
+      --em-50: #ecfdf5;
+      --em-100: #d1fae5;
+      --em-200: #a7f3d0;
+      --em-300: #6ee7b7;
+      --em-400: #34d399;
+      --em-500: #10b981;
+      --em-600: #059669;
+      --em-700: #047857;
+      --em-800: #065f46;
+      --em-900: #064e3b;
+      --em-950: #022c22;
+      --amber-200: #fde68a;
+
+      --line: rgba(23, 23, 23, 0.1);
+      --line-strong: rgba(23, 23, 23, 0.16);
+      --line-light: rgba(255, 255, 255, 0.12);
+
+      --r-sm: 0.75rem;
+      --r-md: 1rem;
+      --r-lg: 1.5rem;
+      --r-xl: 1.5rem;
+
+      --sans: var(--font-jakarta-family), "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --mono: var(--font-jetbrains-family), "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+
+      --shadow-cta: 0 14px 44px -12px rgba(4, 120, 87, 0.6);
+      --shadow-cta-hi: 0 20px 54px -12px rgba(4, 120, 87, 0.72);
+      --shadow-card: 0 1px 2px rgba(10, 10, 10, 0.04);
+      --shadow-float: 0 22px 60px -22px rgba(10, 10, 10, 0.32);
+
+      --maxw: 1200px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 96px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { margin: 0; letter-spacing: -0.03em; line-height: 1.05; }
+    p { margin: 0; }
+    ul, ol { margin: 0; padding: 0; list-style: none; }
+    a { color: inherit; text-decoration: none; }
+    strong { font-weight: 700; color: var(--ink); }
+
+    ::selection { background: var(--em-600); color: #fff; }
+
+    /* ── Primitives ─────────────────────────────────────────────────────── */
+    .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 20px; position: relative; z-index: 2; }
+    .wrap-narrow { max-width: 780px; }
+    @media (min-width: 768px) { .wrap { padding: 0 40px; } }
+
+    .mono-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-weight: 500;
+      color: var(--ink-700);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      line-height: 1.4;
+    }
+    .mono-label-em { color: var(--em-700); }
+    .mono-label-mint { color: var(--em-300); }
+    .mono-label-light { color: rgba(255, 255, 255, 0.9); }
+    .mono-label-dim { color: var(--ink-500); }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--em-700);
+      display: block;
+    }
+    .eyebrow-light { color: var(--em-400); }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      border-radius: 999px;
+      padding: 7px 15px;
+      box-shadow: var(--shadow-card);
+    }
+    .pill-dark { background: rgba(255, 255, 255, 0.06); border-color: var(--line-light); box-shadow: none; }
+
+    .live-dot {
+      position: relative;
+      width: 8px; height: 8px;
+      border-radius: 999px;
+      background: var(--em-500);
+      flex: none;
+      animation: live-pulse 1.8s ease-out infinite;
+    }
+    .live-dot-sm { width: 6px; height: 6px; background: var(--em-400); }
+
+    .ico { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+    .ico-xs { width: 12px; height: 12px; }
+    .ico-em { color: var(--em-700); width: 15px; height: 15px; }
+    .ico-arrow { width: 18px; height: 18px; transition: transform 0.25s ease; }
+
+    /* ── Boutons ────────────────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: -0.01em;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease,
+        background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+      padding: 14px 26px;
+      white-space: nowrap;
+    }
+    .btn-lg { padding: 18px 32px; font-size: 16px; }
+    .btn-sm { padding: 9px 18px; font-size: 13px; }
+    .btn-block { width: 100%; margin-top: auto; }
+
+    .btn-primary {
+      background: linear-gradient(to bottom, var(--em-500), var(--em-700));
+      color: #fff;
+      box-shadow: var(--shadow-cta);
+      box-shadow: var(--shadow-cta), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(to bottom, var(--em-500), var(--em-800));
+      box-shadow: var(--shadow-cta-hi), inset 0 0 0 1px rgba(255, 255, 255, 0.24);
+    }
+    .btn-primary:hover .ico-arrow { transform: translateX(4px); }
+
+    .btn-ghost { border-color: var(--line-strong); color: var(--ink); background: transparent; }
+    .btn-ghost:hover { background: var(--white); border-color: rgba(23, 23, 23, 0.38); transform: translateY(-2px); }
+
+    .btn-ghost-light { border-color: rgba(255, 255, 255, 0.24); color: #fff; background: transparent; }
+    .btn-ghost-light:hover { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.45); transform: translateY(-2px); }
+
+    .btn-outline { border-color: var(--line-strong); color: var(--ink); background: var(--white); }
+    .btn-outline:hover { border-color: var(--em-600); color: var(--em-700); transform: translateY(-2px); }
+
+    /* ── Scrollbar personnalisée (valeurs relevées sur briveo.fr) ───────── */
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(5, 150, 105, 0.25);
+      border-radius: 5px;
+      border: 2px solid transparent;
+      background-clip: content-box;
+    }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(5, 150, 105, 0.5); background-clip: content-box; }
+    html { scrollbar-width: thin; scrollbar-color: rgba(5, 150, 105, 0.35) transparent; }
+
+    /* ── Barre de progression chapitrée ─────────────────────────────────
+       Un segment par section, largeur proportionnelle à sa hauteur de
+       scroll réelle (posée en JS). Au survol la barre s'épaissit et
+       affiche le nom du chapitre : elle devient un moyen de navigation.  */
+    .scroll-rail {
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: 3px;
+      z-index: 95;
+      display: flex;
+      gap: 2px;
+      transition: height 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .scroll-rail:hover, .scroll-rail.is-touched { height: 7px; }
+    .rail-seg {
+      position: relative;
+      flex: 1 1 0;
+      min-width: 4px;
+      background: rgba(23, 23, 23, 0.09);
+      overflow: visible;
+    }
+    .rail-seg::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: inherit;
+    }
+    .rail-fill {
+      position: absolute;
+      inset: 0;
+      transform: scaleX(0);
+      transform-origin: left center;
+      background: linear-gradient(to right, var(--em-600), var(--em-400));
+      transition: transform 0.12s linear;
+      z-index: 1;
+    }
+    .rail-seg.is-done .rail-fill { transform: scaleX(1); }
+    /* Étiquette du chapitre au survol du segment */
+    .rail-seg::after {
+      content: attr(data-label);
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%) translateY(-4px);
+      white-space: nowrap;
+      font-family: var(--mono);
+      font-size: 9.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #fff;
+      background: var(--em-700);
+      border-radius: 999px;
+      padding: 5px 10px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: 0 10px 24px -10px rgba(4, 120, 87, 0.7);
+      z-index: 2;
+    }
+    .rail-seg:hover::after { opacity: 1; transform: translateX(-50%) translateY(0); }
+    /* Les segments des extrémités décalent leur étiquette pour ne pas sortir. */
+    .rail-seg:first-child::after { left: 8px; transform: translateX(0) translateY(-4px); }
+    .rail-seg:first-child:hover::after { transform: translateX(0) translateY(0); }
+    .rail-seg:last-child::after { left: auto; right: 8px; transform: translateX(0) translateY(-4px); }
+    .rail-seg:last-child:hover::after { transform: translateX(0) translateY(0); }
+
+    /* ── Chapitre courant affiché dans la nav ───────────────────────────── */
+    .nav-now {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 11px 5px 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--white);
+      max-width: 46vw;
+      overflow: hidden;
+    }
+    .nav-now .mono-label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
+    @media (min-width: 940px) { .nav-now { display: none; } }
+    @media (max-width: 359px) { .nav-now { display: none; } }
+
+    /* ── Nav ────────────────────────────────────────────────────────────── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 80;
+      background: rgba(250, 250, 249, 0.72);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s ease, background 0.3s ease;
+    }
+    .nav.is-stuck { border-bottom-color: var(--line); background: rgba(250, 250, 249, 0.9); }
+    .nav-inner {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 20px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    @media (min-width: 768px) { .nav-inner { padding: 0 40px; height: 68px; } }
+    .nav-brand { display: inline-flex; align-items: center; gap: 9px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; }
+    .nav-brand-mark { font-weight: 700; color: var(--ink); }
+    .nav-brand-x { color: var(--em-600); }
+    .nav-brand-co { font-weight: 700; color: var(--em-700); }
+    .nav-links { display: none; gap: 26px; margin-left: auto; }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink-600);
+      position: relative;
+      padding: 4px 0;
+      transition: color 0.2s ease;
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0; bottom: 0;
+      height: 1.5px; width: 0;
+      background: var(--em-600);
+      transition: width 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.is-current { color: var(--em-700); }
+    .nav-links a.is-current::after { width: 100%; background: var(--em-600); }
+    .mobile-menu nav a.is-current { color: var(--em-700); }
+    .mobile-menu nav a.is-current .mm-num { color: var(--ink-400); }
+    .nav-cta { margin-left: auto; }
+    @media (min-width: 940px) {
+      .nav-links { display: flex; }
+      .nav-cta { margin-left: 0; }
+    }
+    @media (max-width: 479px) { .nav-cta { display: none; } }
+
+    /* ── Burger + panneau mobile ────────────────────────────────────────── */
+    .burger {
+      margin-left: 12px;
+      width: 42px; height: 42px;
+      flex: none;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      border: 1px solid var(--line-strong);
+      border-radius: 12px;
+      background: var(--white);
+      cursor: pointer;
+      transition: border-color 0.25s ease, background 0.25s ease;
+    }
+    @media (max-width: 479px) { .burger { margin-left: auto; } }
+    .burger:hover { border-color: rgba(23, 23, 23, 0.36); }
+    .burger span {
+      display: block;
+      width: 17px; height: 1.8px;
+      border-radius: 2px;
+      background: var(--ink);
+      transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease, width 0.32s ease;
+    }
+    .burger.is-open span:nth-child(1) { transform: translateY(6.8px) rotate(45deg); }
+    .burger.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .burger.is-open span:nth-child(3) { transform: translateY(-6.8px) rotate(-45deg); }
+    @media (min-width: 940px) { .burger { display: none; } }
+
+    .mobile-menu {
+      border-top: 1px solid var(--line);
+      background: rgba(250, 250, 249, 0.97);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      padding: 12px 20px 20px;
+      max-height: calc(100dvh - 64px);
+      overflow-y: auto;
+      animation: menu-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    .mobile-menu[hidden] { display: none; }
+    @media (min-width: 940px) { .mobile-menu { display: none !important; } }
+    .mobile-menu nav { display: grid; }
+    .mobile-menu nav a {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 15px 4px;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      border-bottom: 1px solid var(--line);
+      transition: color 0.2s ease, padding-left 0.25s ease;
+    }
+    .mobile-menu nav a:hover, .mobile-menu nav a:active { color: var(--em-700); padding-left: 10px; }
+    .mm-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--em-600); font-weight: 500; }
+    .mobile-menu-foot { margin-top: 18px; display: grid; gap: 12px; justify-items: center; }
+    .mm-cv {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--ink-600);
+      padding: 8px;
+    }
+    .mm-cv .ico { width: 14px; height: 14px; }
+
+    /* Chiffres dans les titres : traitement mono/tabulaire, comme briveo.fr */
+    .num {
+      font-family: var(--mono);
+      font-weight: 700;
+      font-size: 0.9em;
+      letter-spacing: -0.04em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ── Décors : grain, mesh, glow ─────────────────────────────────────── */
+    .grain {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.06;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    }
+    .mesh {
+      position: absolute;
+      pointer-events: none;
+      border-radius: 999px;
+      filter: blur(80px);
+      animation: mesh-drift 22s ease-in-out infinite;
+    }
+    .mesh-a {
+      right: -180px; top: -180px;
+      width: 620px; height: 620px;
+      background: radial-gradient(circle at 30% 30%, rgba(253, 230, 138, 0.45), rgba(110, 231, 183, 0.22) 45%, transparent 72%);
+    }
+    .mesh-b {
+      left: -260px; bottom: -220px;
+      width: 560px; height: 560px;
+      background: radial-gradient(circle at 60% 40%, rgba(16, 185, 129, 0.16), transparent 70%);
+      animation-delay: -8s;
+    }
+    .mesh-dark {
+      right: -160px; top: 10%;
+      width: 620px; height: 620px;
+      background: radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.22), transparent 70%);
+    }
+    .glow { position: absolute; pointer-events: none; border-radius: 999px; filter: blur(90px); }
+    .glow-a { left: 12%; top: 60px; width: 420px; height: 420px; background: rgba(16, 185, 129, 0.07); }
+    .glow-b { right: 6%; top: 120px; width: 380px; height: 380px; background: rgba(253, 230, 138, 0.22); }
+    .glow-c { left: 50%; top: 40px; width: 520px; height: 340px; transform: translateX(-50%); background: rgba(16, 185, 129, 0.08); }
+
+    /* ── Hero ───────────────────────────────────────────────────────────── */
+    .hero { position: relative; overflow: hidden; background: var(--paper); }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 80px 20px 40px;
+      display: grid;
+      gap: 48px;
+      align-items: center;
+    }
+    @media (min-width: 768px) { .hero-inner { padding: 96px 40px 96px; gap: 64px; } }
+    @media (min-width: 1060px) {
+      .hero-inner { grid-template-columns: 1.2fr 0.85fr; gap: 80px; padding: 112px 40px 112px; }
+    }
+
+    /* Échelle typo par palier, comme sur briveo.fr : on plafonne bas sur
+       mobile pour éviter les mots coupés, puis on ouvre franchement au-delà. */
+    .hero-title {
+      margin-top: 22px;
+      font-size: clamp(2.3rem, 10.4vw, 2.9rem);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      display: flex;
+      flex-direction: column;
+      overflow-wrap: break-word;
+    }
+    .hero-title .line-muted { color: var(--ink-500); }
+    .hero-title .line-ink { color: var(--ink); }
+    @media (min-width: 640px) { .hero-title { margin-top: 26px; font-size: clamp(3.3rem, 8.6vw, 5.2rem); line-height: 0.93; letter-spacing: -0.045em; } }
+    @media (min-width: 1060px) { .hero-title { font-size: clamp(4.4rem, 6.8vw, 7.4rem); } }
+
+    .hero-sub {
+      margin-top: 22px;
+      max-width: 620px;
+      font-size: 16.5px;
+      line-height: 1.6;
+      color: var(--ink-600);
+    }
+    @media (min-width: 640px) { .hero-sub { font-size: 18px; margin-top: 28px; } }
+    @media (min-width: 1060px) { .hero-sub { font-size: 19.5px; margin-top: 34px; } }
+
+    .hero-cta { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 10px; }
+    /* Sur les très petits écrans les CTA passent pleine largeur (Briveo fait
+       de même : flex-col puis sm:flex-row). */
+    @media (max-width: 419px) { .hero-cta { flex-direction: column; align-items: stretch; } .hero-cta .btn { width: 100%; } }
+    @media (min-width: 640px) { .hero-cta { margin-top: 32px; gap: 12px; } }
+    .hero-trust {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 20px;
+      font-size: 12.5px;
+      color: var(--ink-600);
+      font-weight: 500;
+    }
+    .hero-trust li { display: inline-flex; align-items: center; gap: 8px; }
+    @media (min-width: 640px) { .hero-trust { margin-top: 34px; padding-top: 22px; gap: 10px 26px; } }
+
+    .hero-scroll {
+      position: relative;
+      z-index: 2;
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 14px 20px 22px;
+      border-top: 1px solid var(--line);
+    }
+    @media (min-width: 768px) { .hero-scroll { padding: 16px 40px 26px; } }
+
+    /* ── Pile de cartes du hero ─────────────────────────────────────────
+       Sous 1060px la superposition absolue devient illisible : les cartes
+       repassent en flux dans une grille 2 colonnes, sans se recouvrir.
+       Au-delà, on retrouve la composition flottante de briveo.fr.         */
+    .hero-visual {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      align-content: start;
+    }
+    @media (min-width: 1060px) {
+      .hero-visual { display: block; min-height: 560px; }
+    }
+
+    .cockpit {
+      position: relative;
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      background: linear-gradient(160deg, #043b2b 0%, #022c22 55%, #04150f 100%);
+      color: #fff;
+      box-shadow: var(--shadow-float);
+      padding: 0;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 460px;
+      grid-column: 1 / -1;
+    }
+    .cockpit::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(120% 80% at 80% 0%, rgba(16, 185, 129, 0.28), transparent 60%);
+      pointer-events: none;
+    }
+    .cockpit-top {
+      display: flex; align-items: center; gap: 9px;
+      padding: 14px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+      background: rgba(255, 255, 255, 0.03);
+      position: relative; z-index: 2;
+    }
+    .cockpit-body { padding: 26px 24px 24px; position: relative; z-index: 2; }
+    .cockpit-title { font-size: 27px; font-weight: 800; letter-spacing: -0.035em; line-height: 1.1; margin-top: 12px; }
+    .cockpit-rows { margin: 22px 0 0; display: grid; gap: 1px; background: rgba(255, 255, 255, 0.09); border-radius: var(--r-sm); overflow: hidden; }
+    .cockpit-rows > div { display: flex; justify-content: space-between; gap: 16px; padding: 11px 14px; background: rgba(255, 255, 255, 0.04); }
+    .cockpit-rows dt { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; color: rgba(255, 255, 255, 0.55); }
+    .cockpit-rows dd { margin: 0; font-size: 13px; font-weight: 600; text-align: right; }
+    .cockpit-rows .dd-em { color: var(--em-300); }
+    .cockpit-bars { margin-top: 24px; height: 74px; display: flex; align-items: flex-end; gap: 8px; }
+    .cockpit-bars .bar {
+      flex: 1;
+      height: var(--h);
+      border-radius: 4px 4px 2px 2px;
+      background: rgba(110, 231, 183, 0.28);
+      transform-origin: bottom;
+      animation: bar-grow 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-delay: calc(var(--i) * 90ms + 300ms);
+    }
+    .cockpit-bars .bar-hi { background: linear-gradient(to top, var(--em-500), var(--em-300)); }
+    .cockpit-foot { margin-top: 12px; font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255, 255, 255, 0.62); }
+
+    .float-card {
+      position: relative;
+      background: var(--white);
+      border-radius: var(--r-lg);
+      padding: 16px 17px;
+      box-shadow: 0 20px 50px -20px rgba(10, 10, 10, 0.28);
+      border: 1px solid rgba(23, 23, 23, 0.06);
+      z-index: 3;
+      min-width: 0;
+    }
+    .float-c { grid-column: 1 / -1; }
+    @media (min-width: 1060px) {
+      .float-card { position: absolute; padding: 17px 18px; animation: float 6s ease-in-out infinite; }
+      .float-a { width: 232px; left: -70px; top: 48px; }
+      .float-b { width: 210px; right: -34px; bottom: 130px; animation-delay: -2s; }
+      .float-c { width: 250px; left: -46px; bottom: 6px; animation-delay: -4s; }
+    }
+
+    .float-num { font-family: var(--mono); font-size: 28px; font-weight: 800; letter-spacing: -0.04em; margin-top: 10px; font-variant-numeric: tabular-nums; }
+    @media (min-width: 480px) { .float-num { font-size: 30px; } }
+    .float-cap { font-size: 11px; color: var(--ink-500); margin-top: 2px; line-height: 1.35; }
+    .float-track { margin-top: 11px; height: 5px; border-radius: 999px; background: var(--em-100); overflow: hidden; }
+    .float-fill { display: block; height: 100%; width: 94%; border-radius: 999px; background: linear-gradient(to right, var(--em-600), var(--em-400)); background-size: 200% auto; animation: shimmer 4s linear infinite; }
+    .float-note { margin-top: 9px; font-size: 10px; color: var(--ink-500); }
+
+    .float-dark { background: var(--em-700); border-color: rgba(255, 255, 255, 0.12); color: #fff; }
+    .float-chip { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 9px; background: rgba(16, 185, 129, 0.22); border: 1px solid rgba(52, 211, 153, 0.4); color: var(--em-300); margin-bottom: 11px; }
+    .float-dark-title { font-size: 15px; font-weight: 800; margin-top: 9px; letter-spacing: -0.02em; }
+    .float-dark-sub { font-size: 10.5px; color: var(--em-200); margin-top: 3px; }
+
+    .float-typed { margin-top: 10px; font-size: 12.5px; line-height: 1.5; color: var(--ink-700); min-height: 3.1em; }
+    @media (min-width: 1060px) { .float-typed { min-height: 57px; } }
+    .caret { display: inline-block; width: 2px; height: 1em; background: var(--em-600); vertical-align: -2px; margin-left: 2px; animation: caret 0.85s steps(1) infinite; }
+
+    /* ── Bandeau chiffres ───────────────────────────────────────────────── */
+    .stats { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--white); }
+    .stats-inner {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 44px 20px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 40px 20px;
+    }
+    @media (min-width: 768px) { .stats-inner { padding: 56px 40px; } }
+    @media (min-width: 820px) { .stats-inner { grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 56px 40px; } }
+    /* Chiffres : mono + tabulaire + graisse maximale, comme le bandeau de
+       briveo.fr. L'unité est un élément distinct, plus petite et atténuée. */
+    .stat-num {
+      font-family: var(--mono);
+      font-size: clamp(28px, 6.4vw, 48px);
+      font-weight: 700;
+      letter-spacing: -0.045em;
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+    }
+    .stat-unit { font-size: 0.62em; color: var(--ink-500); font-weight: 500; }
+    .stat-label { margin-top: 10px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: var(--ink-500); line-height: 1.45; }
+
+    /* ── Marquee ────────────────────────────────────────────────────────── */
+    .marquee-wrap { background: var(--paper); padding: 22px 0; overflow: hidden; border-bottom: 1px solid var(--line); }
+    .marquee { position: relative; }
+    .marquee::before, .marquee::after {
+      content: ""; position: absolute; top: 0; bottom: 0; width: 100px; z-index: 2; pointer-events: none;
+    }
+    .marquee::before { left: 0; background: linear-gradient(to right, var(--paper), transparent); }
+    .marquee::after { right: 0; background: linear-gradient(to left, var(--paper), transparent); }
+    @media (max-width: 699px) { .marquee::before, .marquee::after { width: 48px; } }
+    .marquee-track { display: flex; width: max-content; animation: marquee 42s linear infinite; }
+    .marquee-group { display: flex; align-items: center; gap: 22px; padding-right: 22px; }
+    .marquee-group span { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--ink-500); white-space: nowrap; }
+    .marquee-group em { color: var(--em-500); font-style: normal; }
+
+    /* ── Sections ───────────────────────────────────────────────────────── */
+    .section { position: relative; padding: 88px 0; overflow: hidden; }
+    @media (min-width: 640px) { .section { padding: 112px 0; } }
+    @media (min-width: 900px) { .section { padding: 144px 0; } }
+    .section-soft { background: var(--paper-2); }
+    .section-dark { background: #071b14; color: #fff; }
+
+    .sec-head { max-width: 660px; margin: 0 auto 40px; text-align: center; }
+    @media (min-width: 640px) { .sec-head { margin-bottom: 54px; } }
+    .sec-head-left { margin-left: 0; text-align: left; }
+    .sec-title {
+      margin-top: 16px;
+      font-size: clamp(1.9rem, 7.4vw, 3.7rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.06;
+      overflow-wrap: break-word;
+    }
+    @media (min-width: 640px) { .sec-title { margin-top: 16px; letter-spacing: -0.04em; line-height: 1.03; } }
+    .sec-title-light { color: #fff; }
+    .sec-sub { margin-top: 24px; font-size: 16px; line-height: 1.62; color: var(--ink-600); }
+    @media (min-width: 640px) { .sec-sub { font-size: 17px; } }
+    .sec-sub-light { color: rgba(255, 255, 255, 0.66); }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      box-shadow: var(--shadow-card);
+      padding: 24px;
+    }
+    @media (min-width: 640px) { .card { border-radius: var(--r-xl); padding: 32px; } }
+    @media (min-width: 900px) { .card { padding: 40px; } }
+
+    /* ── Critères ───────────────────────────────────────────────────────── */
+    .crit-grid { display: grid; gap: 20px; }
+    @media (min-width: 640px) { .crit-grid { gap: 24px; } }
+    @media (min-width: 900px) { .crit-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .crit { display: flex; flex-direction: column; transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease, border-color 0.4s ease; }
+    .crit:hover { transform: translateY(-4px); box-shadow: 0 26px 60px -30px rgba(10, 10, 10, 0.28); border-color: rgba(5, 150, 105, 0.28); }
+    /* Sous 520px, le numéro et la citation de l'annonce s'empilent plutôt
+       que de se disputer 300px de large. */
+    .crit-head { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+    @media (min-width: 520px) { .crit-head { flex-direction: row; justify-content: space-between; gap: 14px; } }
+    .crit-num { font-family: var(--mono); font-size: 30px; font-weight: 700; letter-spacing: -0.05em; color: var(--ink-500); line-height: 1; }
+    @media (min-width: 640px) { .crit-num { font-size: 34px; } }
+    .crit-num-em { color: var(--em-600); }
+    .quote-chip {
+      border: 1px solid var(--line);
+      background: var(--paper-2);
+      border-radius: 999px;
+      padding: 6px 13px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ink-600);
+      text-align: left;
+      line-height: 1.35;
+      max-width: 100%;
+    }
+    @media (min-width: 520px) { .quote-chip { text-align: right; max-width: 62%; } }
+    .quote-chip-em { background: var(--em-50); border-color: var(--em-200); color: var(--em-800); }
+    .crit-title { margin-top: 22px; font-size: 23px; font-weight: 800; line-height: 1.18; letter-spacing: -0.03em; }
+    @media (min-width: 700px) { .crit-title { font-size: 25px; } }
+    .crit-body { margin-top: 16px; font-size: 15.5px; line-height: 1.68; color: var(--ink-600); }
+    .crit-body + .crit-body { margin-top: 13px; }
+
+    .crit-proof { margin-top: auto; padding-top: 22px; display: grid; gap: 10px; }
+    .crit-proof li { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; font-size: 14px; }
+    .crit-proof a { color: var(--em-700); font-weight: 600; border-bottom: 1px solid rgba(4, 120, 87, 0.28); transition: border-color 0.2s ease; }
+    .crit-proof a:hover { border-bottom-color: var(--em-700); }
+
+    .testi { margin: 22px 0 0; padding: 18px 20px; background: var(--paper-2); border-left: 3px solid var(--em-500); border-radius: 0 var(--r-sm) var(--r-sm) 0; }
+    .testi p { font-size: 14px; line-height: 1.62; color: var(--ink-700); font-style: italic; }
+    .testi footer { margin-top: 14px; display: flex; align-items: center; gap: 11px; font-style: normal; }
+    .testi footer span { display: grid; gap: 1px; font-size: 11.5px; color: var(--ink-500); line-height: 1.4; }
+    .testi footer strong { font-size: 13px; color: var(--ink); font-weight: 700; }
+    .testi-av {
+      width: 36px; height: 36px;
+      flex: none;
+      border-radius: 999px;
+      object-fit: cover;
+      background: var(--paper);
+      box-shadow: 0 0 0 2px var(--white), 0 0 0 3px var(--em-200);
+    }
+
+    .crit-callback {
+      margin-top: 14px;
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: var(--ink-600);
+      font-style: italic;
+    }
+    .crit-callback .mono-label { font-style: normal; margin-right: 2px; }
+
+    .crit-bonus { border-color: rgba(5, 150, 105, 0.3); background: linear-gradient(180deg, #fff 0%, #f4fdf9 100%); }
+
+    /* ── Audit ──────────────────────────────────────────────────────────── */
+    .audit-list { display: grid; gap: 2px; background: rgba(255, 255, 255, 0.08); border-radius: var(--r-lg); overflow: hidden; }
+    .audit-item { display: grid; gap: 14px; padding: 26px 20px; background: #071b14; transition: background 0.35s ease; }
+    .audit-item:hover { background: #08241a; }
+    @media (min-width: 640px) { .audit-item { padding: 30px 26px; gap: 18px; } }
+    @media (min-width: 820px) { .audit-item { grid-template-columns: 84px 1fr; padding: 38px 34px; gap: 26px; } }
+    .audit-num span { font-family: var(--mono); font-size: 26px; font-weight: 700; letter-spacing: -0.05em; color: var(--em-400); }
+    @media (min-width: 640px) { .audit-num span { font-size: 30px; } }
+    .audit-title { font-size: 18.5px; font-weight: 800; letter-spacing: -0.028em; line-height: 1.28; color: #fff; overflow-wrap: break-word; }
+    @media (min-width: 700px) { .audit-title { font-size: 23px; letter-spacing: -0.03em; line-height: 1.25; } }
+    .audit-split { margin-top: 18px; display: grid; gap: 18px; }
+    @media (min-width: 900px) { .audit-split { grid-template-columns: 1fr 1fr; gap: 30px; } }
+    .audit-split p { margin-top: 9px; font-size: 15px; line-height: 1.66; color: rgba(255, 255, 255, 0.62); }
+    .audit-piste { border-left: 2px solid var(--em-600); padding-left: 18px; }
+    .audit-piste p { color: rgba(255, 255, 255, 0.86); }
+    .audit-foot { margin: 34px auto 0; max-width: 680px; text-align: center; font-size: 14.5px; line-height: 1.66; color: rgba(255, 255, 255, 0.62); }
+
+    /* ── Plan 90 jours ──────────────────────────────────────────────────── */
+    .plan-grid { display: grid; gap: 20px; }
+    @media (min-width: 640px) { .plan-grid { gap: 24px; } }
+    @media (min-width: 880px) { .plan-grid { grid-template-columns: repeat(3, 1fr); } }
+    .plan { position: relative; overflow: hidden; transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.4s ease; }
+    .plan:hover { transform: translateY(-4px); border-color: rgba(5, 150, 105, 0.3); }
+    .plan::before {
+      content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px;
+      background: linear-gradient(to right, var(--em-500), var(--em-300));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .plan:hover::before { transform: scaleX(1); }
+    .plan-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+    .plan-num { font-family: var(--mono); font-size: 30px; font-weight: 700; letter-spacing: -0.05em; color: var(--em-600); line-height: 1; }
+    .plan-duree { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-500); }
+    .plan-title { margin-top: 18px; font-size: 22px; font-weight: 800; letter-spacing: -0.03em; }
+    .plan-text { margin-top: 13px; font-size: 15px; line-height: 1.68; color: var(--ink-600); }
+
+    /* ── Onglets CV ─────────────────────────────────────────────────────── */
+    .tabs { padding: 0; overflow: hidden; }
+    .tablist { display: flex; overflow-x: auto; border-bottom: 1px solid var(--line); background: var(--paper-2); scrollbar-width: none; }
+    .tablist::-webkit-scrollbar { display: none; }
+    .tab {
+      appearance: none;
+      background: transparent;
+      border: 0;
+      border-bottom: 2px solid transparent;
+      padding: 17px 22px;
+      font-family: var(--sans);
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--ink-500);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color 0.2s ease, border-color 0.25s ease, background 0.2s ease;
+    }
+    .tab:hover { color: var(--ink); }
+    .tab.is-active { color: var(--em-700); border-bottom-color: var(--em-600); background: var(--white); }
+    .tabpanels { padding: 30px 24px 34px; }
+    @media (min-width: 700px) { .tabpanels { padding: 38px; } }
+    .tabpanel { display: none; }
+    .tabpanel.is-active { display: block; animation: reveal 0.45s ease both; }
+
+    .timeline { display: grid; gap: 30px; padding-left: 26px; border-left: 1px solid var(--line); }
+    .timeline li { position: relative; }
+    .tl-dot { position: absolute; left: -32px; top: 5px; width: 11px; height: 11px; border-radius: 999px; background: var(--em-500); box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.14); }
+    .timeline h3 { margin-top: 8px; font-size: 18px; font-weight: 800; letter-spacing: -0.025em; }
+    .timeline p { margin-top: 9px; font-size: 15px; line-height: 1.66; color: var(--ink-600); }
+
+    .skills { display: grid; gap: 22px; }
+    @media (min-width: 700px) { .skills { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 34px; } }
+    .skill { display: flex; gap: 14px; align-items: flex-start; }
+    .skill-ico {
+      flex: none;
+      width: 38px; height: 38px;
+      border-radius: 11px;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--em-50);
+      border: 1px solid var(--em-200);
+      color: var(--em-700);
+      transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    }
+    .skill-ico svg { width: 19px; height: 19px; display: block; }
+    .skill:hover .skill-ico { background: var(--em-600); border-color: var(--em-600); color: #fff; transform: translateY(-2px); }
+    .skill-body { min-width: 0; }
+    .skill h3 { font-size: 16px; font-weight: 800; letter-spacing: -0.02em; padding-bottom: 9px; border-bottom: 1px solid var(--line); }
+    .skill p { margin-top: 11px; font-size: 14.5px; line-height: 1.62; color: var(--ink-600); }
+
+    .tools { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 14px; }
+    .tool {
+      border: 1px solid var(--line);
+      background: var(--paper-2);
+      border-radius: 999px;
+      padding: 8px 15px;
+      font-family: var(--mono);
+      font-size: 11.5px;
+      letter-spacing: 0.04em;
+      color: var(--ink-700);
+      transition: border-color 0.25s ease, color 0.25s ease, transform 0.25s ease, background 0.25s ease;
+    }
+    .tool:hover { border-color: var(--em-400); color: var(--em-800); background: var(--em-50); transform: translateY(-2px); }
+    /* ── Veille technique ───────────────────────────────────────────────── */
+    .watch { margin-top: 34px; padding-top: 28px; border-top: 1px solid var(--line); }
+    .watch-grid { margin-top: 16px; display: grid; gap: 14px; }
+    @media (min-width: 900px) { .watch-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; } }
+    .watch-card {
+      border: 1px solid var(--line);
+      border-radius: var(--r-md);
+      background: var(--paper-2);
+      padding: 18px 18px 20px;
+      transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .watch-card:hover { border-color: var(--em-300); background: var(--em-50); transform: translateY(-3px); }
+    .watch-card h3 { font-size: 15px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.3; }
+    .watch-card p { margin-top: 10px; font-size: 13.5px; line-height: 1.62; color: var(--ink-600); }
+
+    .watch-method { margin-top: 30px; padding-top: 24px; border-top: 1px solid var(--line); }
+    .watch-method ul { margin-top: 14px; display: grid; gap: 10px; }
+    .watch-method li {
+      position: relative;
+      padding-left: 22px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--ink-600);
+    }
+    .watch-method li::before {
+      content: "";
+      position: absolute;
+      left: 2px; top: 9px;
+      width: 6px; height: 6px;
+      border-radius: 999px;
+      background: var(--em-500);
+    }
+
+    .proofs { display: grid; gap: 12px; }
+    .proofs a {
+      display: grid; gap: 5px;
+      border: 1px solid var(--line);
+      border-radius: var(--r-md);
+      padding: 17px 20px;
+      transition: border-color 0.25s ease, transform 0.25s ease, background 0.25s ease;
+    }
+    .proofs a:hover { border-color: var(--em-400); background: var(--em-50); transform: translateX(4px); }
+    .proof-t { font-size: 15.5px; font-weight: 700; }
+    .proof-d { font-size: 13.5px; color: var(--ink-500); }
+
+    /* ── Lettre ─────────────────────────────────────────────────────────── */
+    .letter { display: grid; gap: 16px; font-size: 15.5px; line-height: 1.72; color: var(--ink-700); position: relative; }
+    .letter::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 26px; bottom: 26px;
+      width: 3px;
+      border-radius: 999px;
+      background: linear-gradient(to bottom, var(--em-500), transparent);
+    }
+    @media (min-width: 640px) { .letter { gap: 18px; font-size: 16.5px; line-height: 1.75; } }
+    @media (min-width: 700px) { .letter { padding: 46px 44px; } }
+    .letter-sign {
+      margin-top: 14px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .sign-av {
+      width: 56px; height: 56px;
+      flex: none;
+      border-radius: 999px;
+      object-fit: cover;
+      box-shadow: 0 0 0 2px var(--white), 0 0 0 3.5px var(--em-300);
+    }
+    .sign-id { display: grid; gap: 2px; min-width: 0; }
+    .sign-id strong { font-size: 16.5px; letter-spacing: -0.02em; }
+    .sign-id span { color: var(--ink-500); font-size: 13px; }
+    .sign-cv {
+      margin-left: auto;
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      padding: 9px 16px;
+      font-size: 12.5px;
+      font-weight: 700;
+      background: var(--white);
+      transition: border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+    }
+    .sign-cv:hover { border-color: var(--em-600); color: var(--em-700); transform: translateY(-2px); }
+    .sign-cv .ico { width: 15px; height: 15px; }
+
+    /* ── Bloc CV : boutons PDF ──────────────────────────────────────────── */
+    .cv-actions { margin-top: 26px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 16px; }
+    .sec-head-left .cv-actions { justify-content: flex-start; }
+    .cv-actions-note { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-500); }
+    .tl-foot { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); }
+
+    /* ── Personnalité ───────────────────────────────────────────────────── */
+    .trait-grid { display: grid; gap: 20px; }
+    @media (min-width: 700px) { .trait-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (min-width: 1100px) { .trait-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; } }
+    .trait { display: flex; flex-direction: column; transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.4s ease, box-shadow 0.4s ease; }
+    .trait:hover { transform: translateY(-4px); border-color: rgba(5, 150, 105, 0.28); box-shadow: 0 24px 56px -30px rgba(10, 10, 10, 0.26); }
+    .trait-title { margin-top: 14px; font-size: 18.5px; font-weight: 800; letter-spacing: -0.028em; line-height: 1.25; }
+    .trait-text { margin-top: 13px; font-size: 14.5px; line-height: 1.68; color: var(--ink-600); }
+
+    .trait-quote { margin: 34px auto 0; max-width: 720px; text-align: center; }
+    .trait-quote blockquote {
+      margin: 0;
+      font-size: clamp(1.15rem, 3.4vw, 1.6rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.34;
+      color: var(--ink);
+      text-wrap: balance;
+    }
+    .trait-quote figcaption { margin-top: 16px; font-size: 14px; line-height: 1.6; color: var(--ink-500); }
+
+    /* ── Objections ─────────────────────────────────────────────────────── */
+    .obj-grid { display: grid; gap: 20px; }
+    @media (min-width: 640px) { .obj-grid { gap: 24px; } }
+    @media (min-width: 880px) { .obj-grid { grid-template-columns: repeat(2, 1fr); } }
+    .obj { transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.4s ease; }
+    .obj:hover { transform: translateY(-3px); border-color: rgba(5, 150, 105, 0.28); }
+    .obj-q { display: flex; align-items: center; gap: 12px; font-size: 19px; font-weight: 800; letter-spacing: -0.025em; }
+    .obj-mark {
+      flex: none;
+      width: 30px; height: 30px;
+      border-radius: 9px;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--em-50);
+      border: 1px solid var(--em-200);
+      color: var(--em-700);
+      font-family: var(--mono);
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .obj-r { margin-top: 15px; font-size: 15.5px; line-height: 1.68; color: var(--ink-600); }
+
+    /* ── Deux formules ──────────────────────────────────────────────────── */
+    .offer-grid { display: grid; gap: 24px; max-width: 980px; margin: 0 auto; }
+    @media (min-width: 880px) { .offer-grid { grid-template-columns: repeat(2, 1fr); } }
+    .offer { display: flex; flex-direction: column; }
+    .offer-hi { border-color: rgba(5, 150, 105, 0.34); box-shadow: 0 26px 70px -34px rgba(4, 120, 87, 0.5); }
+    .offer-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; }
+    .offer-name { font-size: 22px; font-weight: 800; letter-spacing: -0.03em; }
+    .offer-kind { font-size: 13px; color: var(--ink-500); margin-top: 3px; }
+    .offer-tag {
+      flex: none;
+      border: 1px solid var(--line);
+      background: var(--paper-2);
+      border-radius: var(--r-sm);
+      padding: 6px 11px;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ink-600);
+    }
+    .offer-tag-hi { background: var(--em-50); border-color: var(--em-200); color: var(--em-700); }
+    .offer-price { margin-top: 20px; display: flex; align-items: baseline; gap: 8px; }
+    .offer-price-num { font-family: var(--mono); font-size: clamp(46px, 9vw, 62px); font-weight: 700; letter-spacing: -0.05em; font-variant-numeric: tabular-nums; line-height: 1; }
+    .offer-price-unit { font-size: 15px; font-weight: 600; color: var(--ink-500); }
+    .offer-price-note { margin-top: 9px; font-size: 12.5px; color: var(--ink-500); }
+    .offer-lead { margin-top: 22px; font-size: 15.5px; line-height: 1.66; color: var(--ink-600); }
+    .offer-list { margin: 22px 0 28px; display: grid; gap: 11px; }
+    .offer-list li { position: relative; padding-left: 27px; font-size: 14.5px; line-height: 1.55; color: var(--ink-700); }
+    .offer-list li::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 5px;
+      width: 15px; height: 15px;
+      border-radius: 999px;
+      background: var(--em-50);
+      border: 1px solid var(--em-300);
+    }
+    .offer-list li::after {
+      content: "";
+      position: absolute;
+      left: 4.5px; top: 9px;
+      width: 6px; height: 3.5px;
+      border-left: 1.8px solid var(--em-700);
+      border-bottom: 1.8px solid var(--em-700);
+      transform: rotate(-45deg);
+    }
+    .offer-foot { margin: 30px auto 0; max-width: 560px; text-align: center; font-size: 14px; color: var(--ink-500); }
+
+    /* ── Contact ────────────────────────────────────────────────────────── */
+    .contact { position: relative; overflow: hidden; background: linear-gradient(165deg, #043b2b 0%, #022c22 60%, #04150f 100%); color: #fff; padding: 76px 0; }
+    @media (min-width: 640px) { .contact { padding: 96px 0; } }
+    @media (min-width: 900px) { .contact { padding: 130px 0; } }
+    .contact-inner { text-align: center; display: grid; justify-items: center; }
+    .contact-title { margin-top: 22px; font-size: clamp(2rem, 8vw, 4.4rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.04; overflow-wrap: break-word; }
+    @media (min-width: 640px) { .contact-title { margin-top: 26px; letter-spacing: -0.045em; line-height: 1.02; } }
+    .contact-sub { margin-top: 20px; max-width: 520px; font-size: 16px; line-height: 1.62; color: rgba(255, 255, 255, 0.62); }
+    @media (min-width: 640px) { .contact-sub { margin-top: 22px; font-size: 17px; } }
+    .contact-actions { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; width: 100%; }
+    @media (max-width: 419px) { .contact-actions { flex-direction: column; align-items: stretch; } .contact-actions .btn { width: 100%; } }
+    @media (min-width: 640px) { .contact-actions { margin-top: 34px; gap: 12px; } }
+    .contact-links { margin-top: 38px; padding-top: 18px; border-top: 1px solid rgba(255, 255, 255, 0.12); display: flex; flex-wrap: wrap; gap: 4px 20px; justify-content: center; width: 100%; max-width: 620px; }
+    @media (min-width: 640px) { .contact-links { margin-top: 42px; gap: 6px 28px; } }
+    .contact-links a {
+      display: inline-block;
+      padding: 8px 2px;
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(255, 255, 255, 0.55);
+      transition: color 0.2s ease;
+    }
+    .contact-links a:hover { color: var(--em-300); }
+
+    /* ── Footer ─────────────────────────────────────────────────────────── */
+    .foot { background: #04150f; color: rgba(255, 255, 255, 0.62); padding: 30px 0; border-top: 1px solid rgba(255, 255, 255, 0.07); }
+    .foot-inner { display: grid; gap: 6px; text-align: center; font-size: 12px; line-height: 1.6; }
+    .foot-dim { color: rgba(255, 255, 255, 0.48); }
+
+    /* ── FAB « appelez-moi » (calque du bouton LAIA de briveo.fr) ───────── */
+    .fab {
+      position: fixed;
+      right: 16px;
+      bottom: calc(16px + env(safe-area-inset-bottom));
+      z-index: 70;
+      border: 0;
+      padding: 0;
+      background: transparent;
+      cursor: pointer;
+      line-height: 0;
+    }
+    @media (min-width: 768px) { .fab { right: 24px; bottom: calc(24px + env(safe-area-inset-bottom)); } }
+    .fab-glow {
+      position: absolute;
+      inset: 0;
+      border-radius: 999px;
+      background: linear-gradient(to bottom right, var(--em-400), var(--em-500));
+      filter: blur(14px);
+      opacity: 0.6;
+      animation: fab-pulse 2.6s ease-in-out infinite;
+      transition: opacity 0.3s ease;
+    }
+    .fab:hover .fab-glow { opacity: 0.85; }
+    .fab-dot {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px; height: 56px;
+      border-radius: 999px;
+      background: linear-gradient(to bottom right, var(--em-500), var(--em-600));
+      box-shadow: 0 18px 40px -12px rgba(4, 120, 87, 0.6);
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    @media (min-width: 768px) { .fab-dot { width: 64px; height: 64px; } }
+    .fab:hover .fab-dot { transform: scale(1.1); }
+    .fab-ico { width: 24px; height: 24px; fill: none; stroke: #fff; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+    @media (min-width: 768px) { .fab-ico { width: 27px; height: 27px; } }
+    .fab-tip {
+      position: absolute;
+      bottom: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 999px;
+      background: var(--em-600);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      padding: 3px 9px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      line-height: 1.6;
+    }
+    .fab:hover .fab-tip, .fab:focus-visible .fab-tip { opacity: 1; }
+    body.is-locked { overflow: hidden; }
+
+    /* ── Modale d'appel ─────────────────────────────────────────────────── */
+    .modal { position: fixed; inset: 0; z-index: 100; display: flex; align-items: flex-end; justify-content: center; padding: 0; }
+    .modal[hidden] { display: none; }
+    @media (min-width: 640px) { .modal { align-items: center; padding: 24px; } }
+    .modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(4, 21, 15, 0.55);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      animation: fade-in 0.28s ease both;
+    }
+    .modal-card {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      max-height: 92dvh;
+      overflow-y: auto;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 24px 24px 0 0;
+      box-shadow: 0 40px 100px -30px rgba(4, 21, 15, 0.55);
+      padding: 26px 22px calc(26px + env(safe-area-inset-bottom));
+      animation: modal-in 0.36s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    @media (min-width: 640px) { .modal-card { border-radius: var(--r-xl); padding: 34px 32px; } }
+    .modal-card:focus { outline: none; }
+    .modal-x {
+      position: absolute;
+      top: 14px; right: 14px;
+      width: 36px; height: 36px;
+      display: inline-flex; align-items: center; justify-content: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--ink-500);
+      cursor: pointer;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+    .modal-x:hover { color: var(--ink); border-color: var(--line-strong); }
+    .modal-x .ico { width: 16px; height: 16px; }
+    .modal-pill { margin-bottom: 18px; }
+    .modal-title { font-size: clamp(1.5rem, 5.4vw, 1.95rem); font-weight: 800; letter-spacing: -0.035em; line-height: 1.1; }
+    .modal-sub { margin-top: 14px; font-size: 15px; line-height: 1.62; color: var(--ink-600); }
+    .modal-list { margin: 20px 0 24px; display: grid; gap: 11px; }
+    .modal-list li { position: relative; padding-left: 26px; font-size: 14px; line-height: 1.55; color: var(--ink-700); }
+    .modal-list li::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 4px;
+      width: 15px; height: 15px;
+      border-radius: 999px;
+      background: var(--em-50);
+      border: 1px solid var(--em-300);
+    }
+    .modal-list li::after {
+      content: "";
+      position: absolute;
+      left: 4.5px; top: 8px;
+      width: 6px; height: 3.5px;
+      border-left: 1.8px solid var(--em-700);
+      border-bottom: 1.8px solid var(--em-700);
+      transform: rotate(-45deg);
+    }
+    .modal-call { margin-top: 0; }
+    .modal-tel { font-family: var(--mono); font-weight: 700; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+    .modal-alt { margin-top: 16px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px 10px; font-size: 13px; color: var(--ink-500); }
+    .modal-alt a { color: var(--ink-600); font-weight: 600; border-bottom: 1px solid var(--line-strong); padding-bottom: 1px; transition: color 0.2s ease, border-color 0.2s ease; }
+    .modal-alt a:hover { color: var(--em-700); border-color: var(--em-600); }
+    .modal-foot { margin-top: 14px; text-align: center; font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-500); }
+
+    /* ── Reveal au scroll ───────────────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+      transition-delay: var(--d, 0ms);
+    }
+    .reveal.is-in { opacity: 1; transform: none; }
+
+    /* ── Keyframes (repris de briveo.fr) ────────────────────────────────── */
+    @keyframes live-pulse {
+      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      100% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes mesh-drift {
+      0%, 100% { transform: translate(0) rotate(0deg); }
+      33% { transform: translate(3%, -2%) rotate(1deg); }
+      66% { transform: translate(-2%, 3%) rotate(-1deg); }
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes bar-grow {
+      0% { transform: scaleY(0); }
+      100% { transform: scaleY(1); }
+    }
+    @keyframes caret {
+      0%, 60% { opacity: 1; }
+      61%, 100% { opacity: 0; }
+    }
+    @keyframes reveal {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: none; }
+    }
+    @keyframes menu-in {
+      0% { opacity: 0; transform: translateY(-8px); }
+      100% { opacity: 1; transform: none; }
+    }
+    @keyframes fab-pulse {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 0.85; transform: scale(1.12); }
+    }
+    @keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
+    @keyframes modal-in {
+      0% { opacity: 0; transform: translateY(26px) scale(0.98); }
+      100% { opacity: 1; transform: none; }
+    }
+
+    /* ── Accessibilité : on coupe tout si l'utilisateur le demande ──────── */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    :focus-visible { outline: 2px solid var(--em-500); outline-offset: 3px; border-radius: 4px; }
+    /* Les panneaux d'onglets sont focusables (ils défilent) mais ne doivent
+       pas dessiner un cadre quand on arrive dessus au clic. */
+    .tabpanel:focus { outline: none; }
+    .tabpanel:focus-visible { outline: 2px solid var(--em-500); outline-offset: 6px; }
+
+    .skip-link {
+      position: absolute;
+      left: 12px;
+      top: -100px;
+      z-index: 200;
+      background: var(--em-700);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 12px 18px;
+      border-radius: 999px;
+      box-shadow: 0 14px 34px -12px rgba(4, 120, 87, 0.7);
+      transition: top 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .skip-link:focus { top: 12px; }
+
+    /* Le contraste des bordures et des libellés est relevé si l'utilisateur
+       demande plus de contraste au niveau système. */
+    @media (prefers-contrast: more) {
+      :root {
+        --ink-500: #5c5c5c;
+        --line: rgba(23, 23, 23, 0.22);
+        --line-strong: rgba(23, 23, 23, 0.34);
+      }
+    }
+  </style>
+
+  <script is:inline>
+    (function () {
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      /* ── Barre de progression chapitrée + nav collante ─────────────── */
+      var nav = document.getElementById('nav');
+      var rail = document.getElementById('scrollRail');
+      var segs = rail ? Array.prototype.slice.call(rail.querySelectorAll('.rail-seg')) : [];
+      var nowLabel = document.getElementById('navNowLabel');
+      var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav-links a, .mobile-menu nav a'));
+      var bounds = [];
+      var lastIndex = -1;
+
+      // Les bornes sont recalculées à la mesure plutôt que codées en dur :
+      // le contenu bouge selon la largeur (titres qui passent sur 2 lignes).
+      function measure() {
+        var max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+        var tops = segs.map(function (s, i) {
+          if (i === 0) return 0;
+          var el = document.getElementById(s.getAttribute('data-target'));
+          return el ? Math.min(el.offsetTop, max) : 0;
+        });
+        bounds = tops.map(function (t, i) {
+          var end = i + 1 < tops.length ? tops[i + 1] : max;
+          return { start: t, end: Math.max(end, t + 1) };
+        });
+        // Largeur du segment ∝ hauteur de scroll du chapitre.
+        segs.forEach(function (s, i) {
+          s.style.flexGrow = String(Math.max(bounds[i].end - bounds[i].start, 1));
+        });
+      }
+
+      function paint() {
+        var y = window.scrollY;
+        var current = 0;
+        for (var i = 0; i < bounds.length; i++) {
+          if (y >= bounds[i].start) current = i;
+        }
+        segs.forEach(function (s, i) {
+          var fill = s.querySelector('.rail-fill');
+          var ratio = i < current ? 1
+            : i > current ? 0
+            : Math.min(1, Math.max(0, (y - bounds[i].start) / (bounds[i].end - bounds[i].start)));
+          if (fill) fill.style.transform = 'scaleX(' + ratio + ')';
+          s.classList.toggle('is-done', i < current);
+        });
+        if (current !== lastIndex) {
+          lastIndex = current;
+          var seg = segs[current];
+          if (seg && nowLabel) nowLabel.textContent = seg.getAttribute('data-label');
+          var target = seg ? '#' + seg.getAttribute('data-target') : '';
+          navLinks.forEach(function (a) {
+            a.classList.toggle('is-current', a.getAttribute('href') === target);
+          });
+        }
+        if (nav) nav.classList.toggle('is-stuck', y > 8);
+      }
+
+      var ticking = false;
+      function onScroll() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () { paint(); ticking = false; });
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      var resizeTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () { measure(); lastIndex = -1; paint(); }, 150);
+      });
+      // Les images se chargent après coup et décalent les offsets.
+      window.addEventListener('load', function () { measure(); paint(); });
+
+      // Au tap, la barre s'épaissit un instant : sans :hover, on ne devine
+      // pas qu'elle est cliquable sur mobile.
+      if (rail) {
+        rail.addEventListener('touchstart', function () {
+          rail.classList.add('is-touched');
+          setTimeout(function () { rail.classList.remove('is-touched'); }, 1600);
+        }, { passive: true });
+      }
+
+      measure();
+      paint();
+
+      /* ── Burger mobile ─────────────────────────────────────────────── */
+      var burger = document.getElementById('burger');
+      var menu = document.getElementById('mobileMenu');
+      function setMenu(open) {
+        if (!burger || !menu) return;
+        menu.hidden = !open;
+        burger.classList.toggle('is-open', open);
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+      }
+      if (burger && menu) {
+        burger.addEventListener('click', function () { setMenu(menu.hidden); });
+        // Un clic sur une ancre referme : sinon le panneau masque la cible.
+        menu.addEventListener('click', function (e) {
+          if (e.target.closest('a')) setMenu(false);
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && !menu.hidden) { setMenu(false); burger.focus(); }
+        });
+        // Repasser en desktop avec le menu ouvert laisserait un panneau fantôme.
+        window.matchMedia('(min-width: 940px)').addEventListener('change', function (e) {
+          if (e.matches) setMenu(false);
+        });
+      }
+
+      /* ── Reveal au scroll ──────────────────────────────────────────── */
+      var revealables = document.querySelectorAll('.reveal');
+      if (reduce || !('IntersectionObserver' in window)) {
+        revealables.forEach(function (el) { el.classList.add('is-in'); });
+      } else {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              e.target.classList.add('is-in');
+              io.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        revealables.forEach(function (el) { io.observe(el); });
+      }
+
+      /* ── Compteurs animés (bandeau de chiffres, façon briveo.fr) ─────
+         Easing exponentiel sortant : montée franche puis arrêt net sur la
+         valeur, plutôt qu'un glissement mou en fin de course.             */
+      var counters = document.querySelectorAll('[data-count]');
+      function runCounter(el) {
+        var target = parseFloat(el.getAttribute('data-count')) || 0;
+        if (reduce) { el.textContent = String(target); return; }
+        var start = performance.now();
+        var dur = 1600;
+        function tick(now) {
+          var p = Math.min((now - start) / dur, 1);
+          var eased = p === 1 ? 1 : 1 - Math.pow(2, -10 * p);
+          el.textContent = String(Math.round(target * eased));
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }
+      if ('IntersectionObserver' in window) {
+        var cio = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { runCounter(e.target); cio.unobserve(e.target); }
+          });
+        }, { threshold: 0.5 });
+        counters.forEach(function (el) { cio.observe(el); });
+      } else {
+        counters.forEach(runCounter);
+      }
+
+      /* ── Machine à écrire de la carte « Coach » ────────────────────── */
+      var typed = document.getElementById('typed');
+      var phrase = 'Ce profil coche les trois critères de l’annonce. Je recommande un entretien cette semaine.';
+      if (typed) {
+        if (reduce) {
+          typed.textContent = phrase;
+        } else {
+          var i = 0;
+          var startTyping = function () {
+            var timer = setInterval(function () {
+              typed.textContent = phrase.slice(0, i++);
+              if (i > phrase.length) clearInterval(timer);
+            }, 32);
+          };
+          setTimeout(startTyping, 1100);
+        }
+      }
+
+      /* ── Modale d'appel ────────────────────────────────────────────── */
+      var fab = document.getElementById('fab');
+      var modal = document.getElementById('callModal');
+      var modalCard = modal ? modal.querySelector('.modal-card') : null;
+      function openModal() {
+        if (!modal) return;
+        modal.hidden = false;
+        document.body.classList.add('is-locked');
+        if (modalCard) modalCard.focus();
+      }
+      function closeModal() {
+        if (!modal || modal.hidden) return;
+        modal.hidden = true;
+        document.body.classList.remove('is-locked');
+        if (fab) fab.focus();
+      }
+      if (fab && modal) {
+        fab.addEventListener('click', openModal);
+        // Le fond ET la croix portent data-close ; le lien tel: referme aussi,
+        // sinon on revient d'un appel avec la modale encore ouverte.
+        modal.addEventListener('click', function (e) {
+          if (e.target.closest('[data-close]') || e.target.closest('a')) closeModal();
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') { closeModal(); return; }
+          // Piège de focus : sans lui, Tab sort de la modale et parcourt la
+          // page derrière, que le lecteur d'écran ne devrait plus voir.
+          if (e.key !== 'Tab' || modal.hidden || !modalCard) return;
+          var f = modalCard.querySelectorAll('a[href], button:not([disabled])');
+          if (!f.length) return;
+          var first = f[0], last = f[f.length - 1];
+          if (e.shiftKey && (document.activeElement === first || document.activeElement === modalCard)) {
+            e.preventDefault(); last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault(); first.focus();
+          }
+        });
+      }
+
+      /* ── Onglets du CV ─────────────────────────────────────────────── */
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+      tabs.forEach(function (tab, idx) {
+        tab.addEventListener('click', function () {
+          tabs.forEach(function (t) {
+            t.classList.remove('is-active');
+            t.setAttribute('aria-selected', 'false');
+            // Roving tabindex : un seul onglet dans l'ordre de tabulation,
+            // les flèches font le reste (pattern ARIA tabs).
+            t.setAttribute('tabindex', '-1');
+            var p = document.getElementById(t.getAttribute('aria-controls'));
+            if (p) { p.classList.remove('is-active'); p.hidden = true; }
+          });
+          tab.classList.add('is-active');
+          tab.setAttribute('aria-selected', 'true');
+          tab.setAttribute('tabindex', '0');
+          var panel = document.getElementById(tab.getAttribute('aria-controls'));
+          if (panel) { panel.hidden = false; panel.classList.add('is-active'); }
+        });
+        tab.addEventListener('keydown', function (e) {
+          var dir = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+          if (!dir) return;
+          e.preventDefault();
+          var next = tabs[(idx + dir + tabs.length) % tabs.length];
+          next.focus();
+          next.click();
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
