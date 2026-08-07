@@ -30,10 +30,10 @@ const SITE = 'https://wizyx.me';
 const ogUrl = `${SITE}/candidature-briveo`;
 const ogImage = `${SITE}/assets/media/opengraph/candidature-briveo-og.png`;
 
-// ⚠️ À REMPLACER par ton vrai numéro (les deux lignes).
-// TEL_HREF ne doit contenir que des chiffres et le +, sinon le lien tel: casse.
-const TEL_DISPLAY = '+33 6 00 00 00 00';
-const TEL_HREF = '+33600000000';
+// Format international : les recruteurs enregistrent le numéro tel quel, et
+// le lien tel: doit rester sans espaces pour être composable partout.
+const TEL_DISPLAY = '+33 7 78 40 78 87';
+const TEL_HREF = '+33778407887';
 
 // Chapitrage de la barre de progression. L'ordre doit suivre l'ordre réel des
 // sections dans le DOM : les largeurs sont ensuite calculées depuis les
@@ -1146,6 +1146,7 @@ const OBJECTIONS = [
           <a href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener" class="btn btn-ghost-light btn-lg">Calendly</a>
         </div>
         <ul class="contact-links reveal">
+          <li><a href={`tel:${TEL_HREF}`}>{TEL_DISPLAY}</a></li>
           <li><a href="https://wizyx.me" target="_blank" rel="noopener">wizyx.me</a></li>
           <li><a href="https://linkedin.com/in/flogk/" target="_blank" rel="noopener">LinkedIn</a></li>
           <li><a href="https://github.com/WizyxGH" target="_blank" rel="noopener">GitHub</a></li>
