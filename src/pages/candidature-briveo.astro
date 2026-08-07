@@ -285,6 +285,18 @@ const SKILLS = [
 // sinon c'est du remplissage sympathique et ça ne fait recruter personne.
 const TRAITS = [
   {
+    tag: 'Énergie',
+    titre: "« Toujours dans l'action » — ce n'est pas moi qui le dis.",
+    texte:
+      "Deux personnes qui m'ont encadré emploient les mêmes mots sans s'être concertées : « super impliqué, intelligent et toujours dans l'action » (Lucas Kacem, Digital Unicorn), « motivé, hyper proactif, opérationnel dès les premiers jours » (Caroline Aubert, Mafigue). Je préfère arriver avec trois pistes à débattre qu'avec une question à poser. Dans une équipe qui construit vite, ce tempérament fait gagner des semaines.",
+  },
+  {
+    tag: 'Entrepreneuriat',
+    titre: "Je gère ma propre activité, et votre marché me passionne déjà.",
+    texte:
+      "Wizyx n'est pas un projet du dimanche : je prospecte, je chiffre, je contractualise, je livre et je relance seul. Ça donne un rapport très concret à la valeur d'un produit — ce qu'il coûte à faire, ce qu'un client accepte de payer, pourquoi il signe ou pourquoi il part. L'immobilier m'intéresse depuis longtemps en dehors du travail : les prix au mètre carré, ce qui fait vraiment la valeur d'un bien, la façon dont un marché local se retourne. Chez vous, ces deux curiosités arrêtent d'être des à-côtés.",
+  },
+  {
     tag: 'Archiviste',
     titre: "J'archive des bandes dessinées Disney du monde entier.",
     texte:
@@ -347,7 +359,12 @@ const OBJECTIONS = [
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="robots" content="noindex, nofollow" />
+  <!-- Page volontairement lisible par les robots : les assistants IA doivent
+       pouvoir la récupérer quand on leur donne l'URL, et certains fetchers
+       refusent une page en noindex. La discrétion vient d'ailleurs : aucune
+       page du site n'y renvoie et elle est exclue du sitemap, donc rien ne
+       permet de la découvrir sans avoir reçu le lien. -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
   <title>Florian Gertner Kilian × Briveo — Candidature Product Designer</title>
   <meta
     name="description"
@@ -1053,13 +1070,22 @@ const OBJECTIONS = [
           ))}
         </div>
 
-        <figure class="trait-quote reveal">
-          <blockquote lang="en">« Life's greatest moments and deepest connections exist outside of your comfort zone. »</blockquote>
-          <figcaption>
-            Cette citation est sur mon site depuis des années. Envoyer une page plutôt qu'un PDF, c'est
-            juste être cohérent avec elle.
-          </figcaption>
-        </figure>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════ CITATION ══════════════════════════ -->
+    <section class="quote-band">
+      <div class="grain" aria-hidden="true"></div>
+      <div class="mesh mesh-dark" aria-hidden="true"></div>
+      <div class="wrap quote-band-inner">
+        <svg viewBox="0 0 24 24" class="quote-mark" aria-hidden="true"><path d="M9.5 5.5C6.4 7 4.5 9.8 4.5 13v5.5h6V13H7.8c.2-1.9 1.2-3.4 3-4.4l-1.3-3.1Zm9 0C15.4 7 13.5 9.8 13.5 13v5.5h6V13h-2.7c.2-1.9 1.2-3.4 3-4.4l-1.3-3.1Z"/></svg>
+        <blockquote class="quote-band-text" lang="en">
+          Life's greatest moments and deepest connections exist outside of your comfort zone.
+        </blockquote>
+        <p class="quote-band-cap">
+          Cette citation est sur mon site depuis des années. Envoyer une page plutôt qu'un PDF,
+          c'est simplement rester cohérent avec elle.
+        </p>
       </div>
     </section>
 
@@ -1320,7 +1346,8 @@ const OBJECTIONS = [
         briveo.fr — hommage assumé, aucune affiliation.
       </p>
       <p class="foot-dim">
-        Non indexée, non reliée au reste de wizyx.me. Elle n'existe que pour cette candidature.
+        Reliée à aucune autre page de wizyx.me et absente du sitemap. Elle n'existe que pour cette
+        candidature.
       </p>
     </div>
   </footer>
@@ -2494,17 +2521,6 @@ const OBJECTIONS = [
     .trait-title { margin-top: 14px; font-size: 18.5px; font-weight: 800; letter-spacing: -0.028em; line-height: 1.25; }
     .trait-text { margin-top: 13px; font-size: 14.5px; line-height: 1.68; color: var(--ink-600); }
 
-    .trait-quote { margin: 34px auto 0; max-width: 720px; text-align: center; }
-    .trait-quote blockquote {
-      margin: 0;
-      font-size: clamp(1.15rem, 3.4vw, 1.6rem);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.34;
-      color: var(--ink);
-      text-wrap: balance;
-    }
-    .trait-quote figcaption { margin-top: 16px; font-size: 14px; line-height: 1.6; color: var(--ink-500); }
 
     /* ── Objections ─────────────────────────────────────────────────────── */
     .obj-grid { display: grid; gap: 20px; }
@@ -2573,6 +2589,38 @@ const OBJECTIONS = [
       background-size: 10px 10px;
     }
     .offer-foot { margin: 30px auto 0; max-width: 560px; text-align: center; font-size: 14px; color: var(--ink-500); }
+
+    /* ── Bande citation ─────────────────────────────────────────────────
+       Même fond que leurs sections sombres : la citation occupe l'écran
+       seule, entre le portrait de la personne et sa lettre. */
+    .quote-band {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(165deg, #043b2b 0%, #022c22 58%, #04150f 100%);
+      color: #fff;
+      padding: 76px 0;
+      text-align: center;
+    }
+    @media (min-width: 640px) { .quote-band { padding: 96px 0; } }
+    @media (min-width: 900px) { .quote-band { padding: 124px 0; } }
+    .quote-band-inner { max-width: 860px; }
+    .quote-mark { width: 42px; height: 42px; fill: var(--em-400); opacity: 0.55; margin: 0 auto 22px; display: block; }
+    .quote-band-text {
+      margin: 0;
+      font-size: clamp(1.45rem, 5.2vw, 2.9rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.18;
+      text-wrap: balance;
+      color: #fff;
+    }
+    .quote-band-cap {
+      margin: 28px auto 0;
+      max-width: 560px;
+      font-size: 15px;
+      line-height: 1.66;
+      color: rgba(255, 255, 255, 0.62);
+    }
 
     /* ── Vérification par IA ────────────────────────────────────────────── */
     .ai-check {
