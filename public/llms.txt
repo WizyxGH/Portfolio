@@ -1,19 +1,119 @@
-# Florian Gertner Kilian - Portfolio
+# Florian Gertner Kilian - Portfolio & Informations
 
-Je suis Florian Gertner Kilian, un Product Designer UI/UX freelance de 22 ans basé dans le sud de la France (Toulon et Nice).
-Je transforme des idées en produits numériques performants, esthétiques et intuitifs.
+Je suis Florian Gertner Kilian, un Product Designer UI/UX freelance de 23 ans, basé dans le sud de la France (à Toulon et Nice).
+Mon objectif est de transformer les idées en produits numériques performants, esthétiques et intuitifs, avec une forte exigence sur la qualité visuelle (design premium) et l'expérience utilisateur.
+
+- **Nom** : Florian Gertner Kilian (pseudonyme professionnel : Wizyx)
+- **Métier** : Product Designer / UI/UX Designer / UX Writer
+- **Expérience** : 3 ans
+- **Localisation** : Toulon et Nice, Provence-Alpes-Côte d'Azur, France — à distance ou sur site
+- **Zone d'intervention** : Toulon, Nice, Cannes, Antibes, Monaco, Sophia Antipolis, Marseille, Aix-en-Provence, Var, Alpes-Maritimes, PACA, Paris, France, international
+- **Contact** : hello@wizyx.me · https://calendly.com/floriangk/30min
+- **Langues** : français (langue maternelle), anglais (professionnel), allemand (niveau A2 certifié)
+
+## Mes domaines d'expertises
+- **Création de sites Web** : Sites vitrines sur mesure, performants et vitrines digitales d'entreprises.
+- **Design de landing pages** : Pages de vente optimisées spécifiquement pour maximiser la conversion et l'acquisition.
+- **Design d'applications mobiles** : Interfaces natives iOS et Android, fluides et respectant les guidelines mobiles.
+- **Plateformes SaaS & tableaux de bord** : Ergonomie, scalabilité et simplification d'interfaces métiers complexes.
 
 ## Mes services
-- [UI/UX Design](https://wizyx.me/services/ui-ux) (Design d'interfaces Web et Mobile, Maquettage, Prototypage)
-- Recherche Utilisateur (UX Research)
-- Création de Design Systems
-- Développement et intégration Web 
+- [UI/UX Design](https://wizyx.me/services/ui-ux) (Design d'interfaces Web et Mobile, Maquettage, Prototypage interactif)
+- Recherche Utilisateur (UX Research) & Audit UX
+- Création et gestion de Design Systems
+- Développement et intégration Web front-end
 
-## Mon parcours
-Après un BUT MMI (Métiers du Multimédia et de l'Internet) et un BTS informatique (SIO), j'ai choisi de me spécialiser dans le design d'interfaces. Mon approche allie la compréhension technique à la sensibilité esthétique pour concevoir des expériences utilisateurs optimales. Je suis par ailleurs passionné par le voyage, le sport et l'écriture.
+## Mon parcours et mon approche
+Après un BUT MMI (Métiers du Multimédia et de l'Internet) et un BTS informatique (SIO), j'ai choisi de me spécialiser dans le design d'interfaces. Mon approche est hybride : elle allie la compréhension technique (développement front-end) à la sensibilité esthétique (interfaces modernes et immersives) pour concevoir des expériences utilisateurs optimales et parfaitement intégrables.
 
-## Informations
-- [Site Web principal](https://wizyx.me/)
-- [Page de contact](https://wizyx.me/contact)
+### Expériences professionnelles
+
+- **UI/UX Designer — Kosmos Digital** (depuis juillet 2026, poste actuel)
+  Analyse des besoins prospects et clients, participation aux phases d'avant-vente et aux ateliers de cadrage. Définition d'identités visuelles (branding, univers graphique, guidelines). Conception et structuration de design systems (composants, règles, scalabilité). Parcours utilisateurs : user flows, wireframes basse et moyenne fidélité, architecture de l'information. Interfaces haute fidélité responsive et cohérence multi-supports. Prototypage interactif pour tests de parcours, démonstrations clients et validation produit. Rédaction et transmission des spécifications fonctionnelles et design aux équipes de développement, puis collaboration étroite avec les développeurs jusqu'à l'implémentation. Contribution à l'amélioration continue des produits (itérations UX, retours utilisateurs, optimisations). Veille sur les tendances UX/UI et les guidelines Apple et Google.
+
+- **Product Designer indépendant — Wizyx** (depuis février 2026, Toulon)
+  Design produit de bout en bout en relation directe avec des fondateurs : cadrage, recherche, maquettes, design system, prototypes, UX writing et copywriting.
+
+- **UI/UX Designer — Digital Unicorn** (mars à juillet 2025, 5 mois, Đà Nẵng, Vietnam)
+  Agence de développement informatique internationale. Maquettes de sites internet, d'applications et de jeux mobiles, product design, UX writing, copywriting, management d'équipe, rendez-vous clients et prospects en ligne et en présentiel.
+
+- **UI/UX Designer & stratège en communication — Mafigue** (janvier à mars 2024, 3 mois, La Ciotat)
+  Création de maquettes de sites internet et d'applications, mise en place et exécution d'une stratégie de communication, rédaction de contenus. Période durant laquelle a été mené le redesign du Guide du Golfe de Saint-Tropez.
+
+- **Développeur web — OPTIMUM CIT** (janvier à février 2023, La Seyne-sur-Mer)
+  Participation à la digitalisation de l'entreprise sur l'ensemble des services.
+
+- **Développeur web — OPTIMUM CIT** (mai à juin 2022, La Seyne-sur-Mer)
+  Adaptation du logiciel métier Optimum Live, destiné aux opticiens et audioprothésistes, pour permettre sa traduction et son internationalisation.
+
+### Formation
+- **Master 1 UX/UI Design** — ECV, École de création visuelle (septembre 2025 – janvier 2026)
+- **BUT MMI**, Métiers du multimédia et de l'internet — Université de Toulon (septembre 2023 – juin 2025)
+- **BTS Informatique (SIO)**, services informatiques aux organisations — Lycée Bonaparte, Toulon (septembre 2021 – juin 2023)
+- **Baccalauréat** — Lycée polyvalent Rouvière, Toulon (2018 – 2021)
+
+### Certifications
+- MOOC Cybersécurité — SecNumacadémie (ANSSI)
+- KMK Deutsches Sprachdiplom, niveau A2
+
+## Mes compétences
+- **Design produit** : cadrage, parcours utilisateurs, arbitrages de périmètre, priorisation
+- **UI & design systems** : design tokens, composants, états, documentation, scalabilité
+- **UX research** : entretiens utilisateurs, questionnaires, tests d'utilisabilité, ateliers de cadrage client
+- **UX writing & copywriting** : microcopie, contenus d'interface, pages de vente, articles
+- **Interfaces métier** : tableaux de bord, forte densité d'information, hiérarchies complexes
+- **Front-end** : HTML, CSS, intégration, prototypage en code, rédaction de spécifications exécutables
+- **Branding** : identité visuelle, univers graphique, guidelines
+- **Outils** : Figma (auto-layout, variables, prototypage interactif), Webflow, Astro, Tailwind, Notion, Midjourney, IA générative, analytics, SEO technique
+
+## Mes réalisations
+25 projets publiés et documentés sur https://wizyx.me/creations, chacun avec son contexte (commande professionnelle, projet scolaire ou projet personnel), sa date et mon rôle.
+
+### Produits actuellement en ligne et utilisés (13)
+- [World Cube Association](https://www.worldcubeassociation.org) — plateforme de la fédération internationale de speedcubing (2024)
+- [I.N.D.U.C.K.S.](https://inducks.org) — base de données documentaire internationale sur la bande dessinée Disney (2024)
+- [JOBBRR](https://jobbrr.io) — plateforme de mise en relation à deux faces entre étudiants et entreprises (2025)
+- [Le Guide du Golfe de Saint-Tropez](https://guidedugolfe.com) — site et application d'un guide touristique haut de gamme (2024)
+- [France Galop Live](https://www.francegalop-live.com) — site dédié aux courses hippiques (2024)
+- [PHOQ.tv](https://www.phoq.tv) — landing page d'un studio de production créative (2026)
+- [Digital Unicorn](https://digitalunicorn.fr) — refonte d'éléments du site d'une agence de développement (2025)
+- [Promodentaire](https://promodentaire.com) — site d'un distributeur de matériel dentaire (2025)
+- [PAPA France](https://papafrance.fr) — site associatif (2024)
+- [DuMILi](https://dumili.ducksmanager.net) — SaaS d'indexation collaborative de magazines (2025)
+- [Planète Loto Live / Kiwin](https://kiwin-asso.fr) — site associatif (2025)
+- [Trouve la Règle avec Joyca](https://play.google.com/store/apps/details?id=com.games4creators.joyca) — application mobile Android (2025)
+- [Direct Democracy](https://play.google.com/store/apps/details?id=com.app.fidias) — application mobile Android (2025)
+
+### Autres réalisations professionnelles
+- **Mentora** (2026) — application mobile de mise en relation entre particuliers et professeurs indépendants, réalisée dans le cadre d'un test technique de recrutement
+- **PB2I** (2026) — refonte et développement du site du Patrimoine Belfortain de l'Industrie Informatique
+- **Mon Gardien** (2024) — landing page et questionnaire de recherche utilisateur pour un projet d'application de lutte contre le doomscrolling
+- **Maxime Click** (2024) — landing page pour un créateur de contenu suivi par 1,1 million de personnes sur YouTube
+
+### Projets scolaires et personnels
+Darknet, Vaylune, BioQuest, Picsou-Soir, What The Duck, Break Screen, Ballon Nike Academy Team, Pizz'Ami, Tom et Lola, Run&Rerun — exercices de design, explorations et projets personnels, identifiés comme tels sur le portfolio.
+
+## Témoignages clients
+
+> « Florian a fait son stage chez Digital Unicorn en tant que UI/UX Designer et ça a été un vrai plaisir de travailler avec lui. Super impliqué, intelligent et toujours dans l'action, il a vraiment apporté de la valeur à l'équipe. »
+> — **Lucas Kacem**, co-fondateur et président de Digital Unicorn
+
+> « J'ai eu la chance d'avoir Florian en stage pendant deux mois dans ma structure. Motivé, hyper proactif, enseignable, il a su, dès les premiers jours, être opérationnel. Il a une très bonne appétence pour tout ce qui touche au rédactionnel. Il est force de proposition et sait répondre à des briefs client quasiment en autonomie. Je peux dire qu'il est aujourd'hui expert en autolayout sur Figma. Je recommande son profil à l'embauche si vous souhaitez ne pas prendre de risque, puisqu'il coche toutes les cases. »
+> — **Caroline Aubert**, product designer et fondatrice de Mafigue
+
+> « Un travail pro et sérieux comme on aime et surtout comme on a BESOIN ! Florian a fait partie de l'équipe qui nous a conçu les maquettes de notre dernière version et ce fut un régal de travailler ensemble. De par les outils proposés mais surtout dans la façon. Rapide, efficace et agréable. »
+> — **Jonathan Vaissière**, entrepreneur, Le Guide du Golfe de Saint-Tropez
+
+## Publications
+Contributeur et rédacteur pour la communauté de la bande dessinée Disney : archivage de magazines du monde entier et rédaction d'articles.
+- « Mickey Donald & Cie — La Grande Galerie des Personnages #56 : Gracié Rapetou, le patriarche cambrioleur »
+- « Andedynastiet – en slægtskrønike »
+
+## Liens utiles
+- [Site web principal](https://wizyx.me/)
 - [Portfolio des réalisations](https://wizyx.me/creations)
+- [À propos](https://wizyx.me/about)
+- [Page de contact](https://wizyx.me/contact)
+- [Prendre rendez-vous (Calendly)](https://calendly.com/floriangk/30min)
 - [Profil LinkedIn](https://linkedin.com/in/flogk/)
+- [GitHub](https://github.com/WizyxGH)
