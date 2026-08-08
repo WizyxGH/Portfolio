@@ -10,7 +10,7 @@ import Testimonials from '../../components/services/ui-ux/Testimonials.astro';
 import FAQ from '../../components/services/ui-ux/FAQ.astro';
 import CTA from '../../components/services/ui-ux/CTA.astro';
 ---
-<Layout title="Freelance UI/UX Designer - Refonte, Audit & Design d'interfaces - Florian Gertner Kilian" description="Besoin d'une refonte, d'un audit UX/UI ou de concevoir votre site/application ? Je crée des interfaces" body_class="">
+<Layout title="Freelance UI/UX Designer - Refonte, Audit & Design d'interfaces - Florian Gertner Kilian" description="Besoin d'une refonte, d'un audit UX/UI ou de concevoir votre site ou application ? Je crée des interfaces web et mobiles intuitives, pensées pour convertir." body_class="">
     <main class="flex-1 flex flex-col">
         <HeroSection />
         <PainPoints />
@@ -156,7 +156,7 @@ import CTA from '../../components/services/ui-ux/CTA.astro';
                     });
                 });
 
-                // Permettre de fermer la carte en cliquant n'importe oÃ¹ dessus lorsqu'elle est ouverte
+                // Permettre de fermer la carte en cliquant n'importe où dessus lorsqu'elle est ouverte
                 item.addEventListener("click", (e) => {
                     if (e.target.tagName === 'A' || window.getSelection().toString()) return;
                     if (item.open && !e.target.closest('summary')) {
