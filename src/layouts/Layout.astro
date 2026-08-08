@@ -54,6 +54,20 @@ const canonicalUrl = canonical ? new URL(canonical, siteUrl).href : currentUrl;
 	<meta name="twitter:description" content={description} />
 	<meta name="twitter:image" content={`${siteUrl}${og_image}`} />
 
+	{/* Bloquant et volontairement : theme.js est chargé en `defer`, donc il
+	    s'exécute après le rendu. Sans ces quelques octets, un visiteur en mode
+	    sombre voit la page s'afficher en clair avant de basculer. La même
+	    logique est reprise par theme.js, qui gère ensuite le bouton. */}
+	<script is:inline>
+		(function () {
+			try {
+				var saved = localStorage.getItem('theme');
+				var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+				if (dark) document.documentElement.classList.add('dark');
+			} catch (e) {}
+		})();
+	</script>
+
 	<link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 	<link rel="dns-prefetch" href="https://cdn.gtranslate.net" />
 	<Font cssVariable="--font-inter-family" preload />
