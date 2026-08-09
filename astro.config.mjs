@@ -58,6 +58,17 @@ export default defineConfig({
       styles: ['normal'],
       subsets: ['latin'],
     },
+    // Manuscrite de la lettre de motivation. Caveat est la plus lisible des
+    // cursives de Google Fonts : lettres non liées, contreformes ouvertes,
+    // chiffres distincts. Elle ne sert que sur /candidature-briveo.
+    {
+      provider: fontProviders.google(),
+      name: 'Caveat',
+      cssVariable: '--font-caveat-family',
+      weights: [400, 500, 600],
+      styles: ['normal'],
+      subsets: ['latin'],
+    },
   ],
 
   integrations: [

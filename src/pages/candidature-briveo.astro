@@ -15,7 +15,7 @@
 //      bar-grow, caret, marquee, grain SVG, barre de progression de scroll
 // ─────────────────────────────────────────────────────────────────────────────
 import { Font, Image } from 'astro:assets';
-import avatarFlorian from '../assets/media/profilepicturepro.webp';
+import avatarFlorian from '../assets/media/photo.webp';
 import photoHero from '../assets/media/photoperso.webp';
 import avatarCaroline from '../assets/media/photo/carolineaubert.webp';
 import avatarJonathan from '../assets/media/photo/jonathanvaissiere.webp';
@@ -27,362 +27,25 @@ const SITE = 'https://wizyx.me';
 const ogUrl = `${SITE}/candidature-briveo`;
 const ogImage = `${SITE}/assets/media/opengraph/candidature-briveo-og.png`;
 
-// Format international : les recruteurs enregistrent le numéro tel quel, et
-// le lien tel: doit rester sans espaces pour être composable partout.
-const TEL_DISPLAY = '+33 7 78 40 78 87';
-const TEL_HREF = '+33778407887';
+import {
+  TEL_DISPLAY,
+  TEL_HREF,
+  CONTRAT_STYLE,
+  EXPERIENCES,
+  FORMATION,
+  LIENS_TRAVAIL,
+  LIENS_RESEAUX,
+  CHAPITRES,
+  OFFRE,
+  STATS,
+  ico,
+  SKILLS,
+  LACUNES,
+  TRAITS,
+  OBJECTIONS,
+  LETTRE,
+} from '../data/candidature-briveo';
 
-// Parcours réel, repris de l'export LinkedIn. Les logos vivent déjà dans
-// public/assets/media/brands/ ; ceux qui manquent tombent sur un monogramme.
-// Le badge de contrat porte sa propre couleur : le poste actuel doit se
-// repérer d'un coup d'œil dans la colonne.
-// `Record<string, string>` est nécessaire : sans lui TypeScript infère la
-// forme exacte de l'objet et refuse de l'indexer avec une chaîne quelconque.
-// Chaque libellé est listé explicitement plutôt que de laisser un repli
-// silencieux ranger un CDD ou une alternance dans le style « stage ».
-const CONTRAT_STYLE: Record<string, string> = {
-  CDI: 'poste',
-  CDD: 'poste',
-  Alternance: 'poste',
-  Freelance: 'freelance',
-  Stage: 'stage',
-  Stages: 'stage',
-};
-
-const EXPERIENCES = [
-  {
-    logo: '/assets/media/brands/Kosmos%20Digital.svg',
-    theme: 'dark',
-    mono: null,
-    contrat: 'CDI',
-    entreprise: 'Kosmos Digital',
-    poste: 'UI/UX Designer',
-    periode: 'Depuis juillet 2026',
-    lieu: 'Villeneuve-Loubet, France',
-    texte:
-      "Avant-vente et ateliers de cadrage avec prospects et clients, identité visuelle et guidelines, design systems (composants, règles, scalabilité), user flows et architecture de l'information, maquettes haute fidélité responsive, prototypage interactif, puis les spécifications transmises aux développeurs et suivies jusqu'à l'implémentation. C'est, presque mot pour mot, le poste que vous décrivez.",
-  },
-  {
-    logo: '/assets/media/logo.webp',
-    theme: 'dark',
-    mono: null,
-    contrat: 'Freelance',
-    entreprise: 'Wizyx — indépendant',
-    poste: 'Product Designer',
-    periode: 'Depuis février 2026',
-    lieu: 'Remote',
-    texte:
-      "Design produit de bout en bout, en direct avec des fondateurs : cadrage, recherche, maquettes, design system, prototypes, UX writing. JOBBRR (marketplace à deux faces en production), Mentora (application mobile sur cahier des charges, contraintes d'états et de hiérarchie visuelle), Mon Gardien (landing de levée et son dispositif de recherche utilisateur).",
-  },
-  {
-    logo: '/assets/media/brands/Digital%20Unicorn.svg',
-    theme: 'dark',
-    mono: null,
-    contrat: 'Stage',
-    entreprise: 'Digital Unicorn',
-    poste: 'UI/UX Designer',
-    periode: 'Mars – juillet 2025 · 5 mois',
-    lieu: 'Đà Nẵng, Vietnam',
-    texte:
-      "Cinq mois dans une agence de développement internationale, à l'autre bout du monde et en anglais. Maquettes de sites, d'applications et de jeux mobiles, product design, UX writing, copywriting, management d'équipe, et des rendez-vous clients et prospects menés en ligne comme en présentiel.",
-  },
-  {
-    logo: '/assets/media/brands/Mafigue.svg',
-    theme: 'dark',
-    mono: null,
-    contrat: 'Stage',
-    entreprise: 'Mafigue',
-    poste: 'UI/UX Designer & stratège en communication',
-    periode: 'Janvier – mars 2024 · 3 mois',
-    lieu: "La Ciotat, France",
-    texte:
-      "Auprès de Caroline Aubert, à répondre à des briefs clients en quasi-autonomie. C'est là qu'a été mené le redesign du site et de l'application du Guide du Golfe de Saint-Tropez, et là que j'ai appris à écrire autant qu'à dessiner.",
-  },
-  {
-    logo: '/assets/media/brands/optimum-cit.png',
-    theme: 'light',
-    mono: null,
-    contrat: 'Stages',
-    entreprise: 'OPTIMUM CIT',
-    poste: 'Développeur web',
-    periode: '2 stages de 2 mois · 2022 et 2023',
-    lieu: 'La Seyne-sur-Mer, France',
-    texte:
-      "Avant le design, le code. J'ai adapté le logiciel métier Optimum Live, destiné aux opticiens et audioprothésistes, pour le rendre traduisible et permettre son internationalisation — puis participé à la digitalisation interne de l'entreprise. Un produit métier, une contrainte d'i18n, des utilisateurs qui n'ont pas choisi leur outil : le sujet ne m'est pas étranger.",
-  },
-];
-
-const FORMATION = [
-  {
-    logo: '/assets/media/brands/ecv.png',
-    theme: 'light',
-    mono: null,
-    titre: 'Master 1 UX/UI Design',
-    ecole: 'ECV — École de création visuelle',
-    periode: '2025 – 2026',
-  },
-  {
-    logo: '/assets/media/brands/univ-toulon.png',
-    theme: 'light',
-    mono: null,
-    titre: 'BUT MMI — Métiers du multimédia et de l’internet',
-    ecole: 'Université de Toulon',
-    periode: '2023 – 2025',
-    lieu: 'Toulon',
-  },
-  {
-    logo: null,
-    mono: 'LB',
-    titre: 'BTS Informatique (SIO)',
-    ecole: 'Lycée Bonaparte',
-    periode: '2021 – 2023',
-    lieu: 'Toulon',
-  },
-];
-
-// Vérification par IA. Le prompt demande explicitement un avis critique :
-// une évaluation complaisante ne convaincrait personne, et un recruteur qui
-// sent le prompt orienté se méfierait à raison. Il est affiché en clair.
-const AI_PROMPT = `Je recrute un designer produit pour BRIVEO (briveo.fr), une plateforme immobilière française dont le siège est à Nice. L'offre « Produit — Design » demande : 3 ans et plus d'expérience product/design, une sensibilité au luxe et à la précision, et la capacité à interagir directement avec les utilisateurs.
-
-Un candidat, Florian Gertner Kilian, a répondu en construisant cette page :
-https://wizyx.me/candidature-briveo
-
-Son portfolio : https://wizyx.me
-Son parcours en résumé structuré : https://wizyx.me/llms.txt
-Son profil LinkedIn : https://www.linkedin.com/in/flogk/
-
-Lis ces sources et celle de l'entreprise, puis réponds franchement : est-ce un bon profil pour ce poste précis ? Donne ses points forts réellement démontrés, ses angles morts, ce qui manque par rapport à l'offre, et les trois questions que je devrais lui poser en entretien. Sois critique plutôt que complaisant.`;
-
-// Les trois acceptent le prompt dans l'URL : la conversation démarre déjà
-// remplie, sans copier-coller.
-const AI_LINKS = [
-  {
-    nom: 'ChatGPT',
-    icon: "<svg aria-hidden='true' focusable='false' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28' fill='none'> <g clip-path='url(#clip0_chatgpt)'> <path d='M25.9919 11.46C26.6272 9.55338 26.4084 7.46476 25.3926 5.73051C23.8648 3.07051 20.7936 1.702 17.7941 2.346C16.4597 0.842755 14.5426 -0.0121201 12.5327 0.00012987C9.46669 -0.00687013 6.74632 1.96713 5.80306 4.88438C3.83344 5.28776 2.13331 6.52063 1.13844 8.26801C-0.400685 10.921 -0.0498105 14.2653 2.00644 16.5403C1.37119 18.4469 1.58994 20.5355 2.60581 22.2698C4.13356 24.9298 7.20481 26.2983 10.2043 25.6543C11.5378 27.1575 13.4558 28.0124 15.4657 27.9993C18.5334 28.0071 21.2547 26.0314 22.1979 23.1115C24.1676 22.7081 25.8677 21.4753 26.8626 19.7279C28.3999 17.0749 28.0482 13.7333 25.9928 11.4583L25.9919 11.46ZM15.4674 26.1696C14.2398 26.1714 13.0507 25.7418 12.1083 24.9551C12.1512 24.9324 12.2256 24.8913 12.2737 24.8615L17.8492 21.6415C18.1344 21.4796 18.3094 21.176 18.3077 20.8479V12.9878L20.6641 14.3484C20.6894 14.3606 20.7061 14.3851 20.7096 14.4131V20.9223C20.7061 23.8168 18.3619 26.1635 15.4674 26.1696ZM4.19394 21.3545C3.57881 20.2923 3.35744 19.0471 3.56831 17.8388C3.60944 17.8633 3.68206 17.9079 3.73369 17.9376L9.30919 21.1576C9.59181 21.323 9.94182 21.323 10.2253 21.1576L17.0319 17.2271V19.9484C17.0337 19.9764 17.0206 20.0035 16.9987 20.021L11.3628 23.2751C8.85244 24.7206 5.64644 23.8614 4.19481 21.3545H4.19394ZM2.72656 9.18413C3.33906 8.12013 4.30594 7.30638 5.45744 6.88376C5.45744 6.93188 5.45481 7.01676 5.45481 7.07626V13.5171C5.45306 13.8444 5.62807 14.148 5.91244 14.3099L12.7191 18.2395L10.3627 19.6001C10.3391 19.6159 10.3093 19.6185 10.2831 19.6071L4.64631 16.3504C2.14119 14.8996 1.28194 11.6945 2.72569 9.18501L2.72656 9.18413ZM22.0868 13.6895L15.2802 9.75901L17.6366 8.39926C17.6602 8.38351 17.6899 8.38088 17.7162 8.39226L23.3529 11.6464C25.8624 13.0963 26.7226 16.3066 25.2727 18.8161C24.6593 19.8784 23.6933 20.6921 22.5427 21.1156V14.4823C22.5453 14.155 22.3712 13.8523 22.0877 13.6895H22.0868ZM24.4318 10.1598C24.3907 10.1344 24.3181 10.0906 24.2664 10.0609L18.6909 6.84088C18.4083 6.67551 18.0583 6.67551 17.7748 6.84088L10.9682 10.7714V8.05013C10.9664 8.02213 10.9796 7.99501 11.0014 7.97751L16.6373 4.72601C19.1477 3.27788 22.3572 4.13976 23.8044 6.65101C24.4161 7.71151 24.6374 8.95313 24.4301 10.1598H24.4318ZM9.68719 15.0099L7.32994 13.6493C7.30456 13.637 7.28794 13.6125 7.28444 13.5845V7.07538C7.28619 4.17738 9.63732 1.82888 12.5353 1.83063C13.7612 1.83063 14.9477 2.26113 15.8901 3.04513C15.8472 3.06788 15.7737 3.109 15.7247 3.13875L10.1492 6.35876C9.86394 6.52063 9.68894 6.82338 9.69069 7.15151L9.68719 15.0081V15.0099ZM10.9673 12.2501L13.9992 10.4993L17.0311 12.2493V15.7501L13.9992 17.5001L10.9673 15.7501V12.2501Z' fill='white'></path> </g> <defs> <clipPath id='clip0_chatgpt'> <rect width='28' height='28' fill='white'></rect> </clipPath> </defs> </svg>",
-    url: `https://chatgpt.com/?q=${encodeURIComponent(AI_PROMPT)}`,
-    prefill: true,
-  },
-  {
-    nom: 'Claude',
-    icon: "<svg aria-hidden='true' focusable='false' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28' fill='none'> <g clip-path='url(#clip0_claude)'> <path d='M7.54516 0.0876961L7.31274 0.166992L6.88071 0.757618L6.44594 1.34824L6.46509 1.54238C6.48969 1.79941 6.54438 2.07285 6.66196 2.50215C6.7768 2.92598 6.75766 2.88496 7.17876 3.56035C7.70376 4.39707 9.09555 6.80879 10.0225 8.47949C10.4846 9.31348 10.892 10.0408 10.9276 10.0982C11.0014 10.2131 10.9877 10.2678 10.8674 10.3471L10.7963 10.3936L10.5448 10.1912C10.4053 10.0791 9.63423 9.50215 8.83032 8.90879C8.02641 8.31816 6.82602 7.41309 6.1643 6.90176C4.11899 5.32129 4.21469 5.38965 4.06157 5.3459C3.98501 5.32402 3.6979 5.29395 3.42446 5.27481C3.01704 5.24746 2.9186 5.24746 2.88305 5.27754C2.85844 5.29668 2.68071 5.48809 2.4893 5.69863L2.1393 6.08418L2.22954 6.6666C2.28149 6.98926 2.33891 7.27363 2.35805 7.29824C2.6561 7.71113 2.74907 7.8041 3.11548 8.04746C3.31782 8.18418 3.86743 8.57246 4.33227 8.91152C4.79985 9.24785 5.8143 9.94512 6.58813 10.4564C8.35454 11.6213 10.8838 13.3357 11.0397 13.4725C11.1545 13.5736 11.1545 13.5791 11.1245 13.6693L11.0916 13.7596L10.7745 13.7459C10.5995 13.7404 9.86665 13.6693 9.14477 13.5928C8.3354 13.508 7.40298 13.4287 6.71118 13.385C5.2811 13.3002 1.74829 13.0568 1.11118 13.0021L0.62446 12.9611L0.342819 13.1498C0.0611788 13.3412 0.0584444 13.3412 0.0420382 13.4725C0.0311007 13.5436 0.0174288 13.6365 0.00922567 13.6748C-0.00171183 13.7322 0.0475069 13.8115 0.27446 14.1123C0.427585 14.3146 0.572507 14.5006 0.597116 14.5252C0.621726 14.5525 0.769382 14.599 0.958054 14.64C1.22602 14.7002 1.46665 14.7193 2.53032 14.7795C4.21469 14.8697 6.81235 14.9764 8.3518 15.0119C9.0436 15.0283 9.90219 15.0611 10.2604 15.083C10.6186 15.1049 10.9358 15.1213 10.9631 15.1213C10.9932 15.1213 11.0342 15.1541 11.0534 15.1924C11.0862 15.2553 11.0862 15.2826 11.0452 15.3838C11.0206 15.4494 10.9905 15.515 10.9741 15.5287C10.9604 15.5424 9.71352 16.2479 8.20141 17.0955L5.45337 18.6377L4.38696 19.3705C3.7854 19.7834 3.25219 20.1717 3.16469 20.2564L3.0061 20.4123L2.96782 20.8498C2.93227 21.2518 2.93227 21.29 2.97329 21.3311C3.00063 21.3529 3.12641 21.4732 3.25766 21.599L3.49282 21.826L4.15727 21.7385L4.82173 21.6537L8.50766 19.2611C10.5338 17.9459 12.21 16.8631 12.2319 16.8549C12.2592 16.8439 12.2729 16.8686 12.2811 16.9369C12.292 17.0299 12.2647 17.0682 11.7479 17.6697C11.4499 18.017 10.8456 18.7717 10.4081 19.3432C9.97055 19.9174 8.9643 21.208 8.17407 22.217C7.3811 23.226 6.62915 24.2021 6.50063 24.3908L6.26821 24.7326L6.2354 25.0498C6.18618 25.5557 6.14516 25.4818 6.62094 25.7197L7.03657 25.9275L7.28813 25.8236L7.53969 25.717L8.53501 24.6506L9.53032 23.5842L10.8155 21.8479C11.5209 20.8936 12.4698 19.6057 12.9182 18.985C13.6155 18.0307 13.7495 17.8584 13.8151 17.8502C13.8561 17.842 13.8971 17.8475 13.9053 17.8611C13.9135 17.8721 13.8752 18.0498 13.8206 18.2521C13.7577 18.4955 13.662 19.0178 13.5471 19.7779C13.4514 20.4123 13.353 21.0248 13.3284 21.1369V26.5893L12.3768 27.024L12.5627 27.4588L12.9209 27.7295L13.2791 28.0029L13.7057 27.8361L14.1323 27.6693L14.31 27.4588C14.4549 27.2893 14.4905 27.2291 14.5014 27.1252C14.5124 27.0568 14.6846 25.2057 14.887 23.01C15.0893 20.8143 15.2616 18.9604 15.2725 18.8893C15.2862 18.7826 15.2998 18.758 15.3682 18.7307C15.412 18.7115 15.453 18.7006 15.4584 18.7061C15.4612 18.7115 15.762 19.2229 16.1229 19.8381C16.9432 21.2354 18.1819 23.1357 19.2346 24.6123C19.6694 25.2193 20.0248 25.7197 20.0248 25.7225C20.0276 25.7225 20.2053 25.758 20.4241 25.7963L20.8206 25.8701L21.1623 25.7498L21.5041 25.6295L21.6108 25.4271L21.7174 25.2275L21.6463 24.585L21.5752 23.9424L19.9483 21.5033C18.2202 18.9166 18.2065 18.8947 18.4006 18.8947C18.4717 18.8947 18.6577 19.0396 19.5163 19.7615C20.0823 20.24 20.8123 20.8607 21.135 21.1424C21.5124 21.4705 22.1741 21.9928 22.9807 22.5998C23.6725 23.1221 24.2549 23.5568 24.2795 23.5705C24.3014 23.5814 24.4026 23.6006 24.501 23.6115L24.6842 23.6307L24.8674 23.3764C25.0725 23.0865 25.067 23.1303 24.9604 22.6736L24.9057 22.4275L23.3143 20.9537C22.4393 20.1416 21.269 19.067 20.7112 18.5666C20.1561 18.0635 19.4014 17.3662 19.0377 17.0107C18.4799 16.4721 18.3733 16.3572 18.3733 16.2916V16.215C18.5018 16.215 18.9311 16.3135 19.4069 16.4338C19.8827 16.5514 21.6737 16.9834 23.3827 17.3881L26.4916 18.1264L27.1971 17.7654L27.9026 17.4045L27.9518 17.1229L28.001 16.8385L27.7194 16.4611L27.4377 16.0865L26.992 15.7912C26.7487 15.6299 26.5272 15.4932 26.4998 15.4877C26.4752 15.4822 25.7096 15.4193 24.8018 15.3537C23.2952 15.2416 23.0655 15.2307 22.1631 15.2307C21.0366 15.2279 20.6866 15.2115 19.426 15.0912C18.5756 15.0119 18.4416 14.9873 18.5045 14.9244C18.5565 14.8725 22.4666 13.9729 23.7737 13.7104C24.5967 13.5463 25.685 13.3029 26.3604 13.1361L27.5225 12.849L27.7139 12.3787L27.9053 11.9084L27.8561 11.6896C27.8288 11.5693 27.7905 11.4572 27.7713 11.4408C27.7522 11.4244 27.5334 11.3178 27.2846 11.2029L26.8307 10.9924L25.7944 11.1701C23.8694 11.501 22.9315 11.6787 21.2581 12.0342C20.342 12.2283 19.5327 12.3951 19.4643 12.4033C19.3495 12.4197 19.3303 12.4143 19.292 12.3514C19.2483 12.2857 19.2538 12.2721 19.7104 11.49C20.126 10.7736 20.2436 10.5986 20.878 9.74277C21.6737 8.67363 22.4202 7.7002 23.2459 6.65566C23.5522 6.26738 23.8311 5.90918 23.8612 5.86543C23.894 5.81894 24.0088 5.48535 24.1127 5.11895L24.3069 4.45449L23.8639 3.79824L23.4209 3.14473H22.8139H22.2041L21.8815 3.40176C21.5561 3.66152 20.9545 4.27949 20.137 5.19551C19.6612 5.72871 17.985 7.82051 17.2659 8.77754C16.9651 9.17676 16.6424 9.58418 16.544 9.68535C16.3799 9.86035 16.3608 9.87129 16.2487 9.87129C16.1858 9.87129 16.1311 9.86309 16.1311 9.85215C16.1311 9.81934 16.5823 7.43223 16.9077 5.73418C17.0827 4.8209 17.3069 3.55488 17.4163 2.82754L17.6159 1.53965L17.3342 1.13496L17.0526 0.733007L16.7135 0.57168L16.3745 0.413086L15.9342 0.705664L15.4913 0.998243L15.278 1.51777C15.0237 2.13301 15.0565 1.91699 14.8295 4.53926C14.7475 5.49356 14.6272 6.74863 14.5588 7.32832C14.4932 7.90801 14.3975 8.90059 14.3483 9.53496L14.2608 10.6916H14.1842C14.0831 10.6916 14.0557 10.626 13.8506 9.92598L13.6948 9.39277L12.5245 7.10957C11.3323 4.78535 10.892 3.8584 9.81469 1.38106C9.45649 0.55254 9.46196 0.563477 9.09009 0.257227L8.9643 0.156055L8.41196 0.0794926C8.10844 0.0357418 7.84048 0.00292969 7.8186 0.00292969C7.79673 0.00292969 7.67368 0.0412121 7.54516 0.0876961Z' fill='white'></path> </g> <defs> <clipPath id='clip0_claude'> <rect width='28' height='28' fill='white'></rect> </clipPath> </defs> </svg>",
-    url: `https://claude.ai/new?q=${encodeURIComponent(AI_PROMPT)}`,
-    prefill: true,
-  },
-  {
-    nom: 'Perplexity',
-    icon: "<svg aria-hidden='true' focusable='false' viewBox='64 42 272 316' fill='none' xmlns='http://www.w3.org/2000/svg'> <path fill-rule='evenodd' clip-rule='evenodd' d='M101.008 42L190.99 124.905V124.886V42.1913H208.506V125.276L298.891 42V136.524H336V272.866H299.005V357.035L208.506 277.525V357.948H190.99V278.836L101.11 358V272.866H64V136.524H101.008V42ZM177.785 153.826H81.5159V255.564H101.088V223.472L177.785 153.826ZM118.625 231.149V319.392L190.99 255.655V165.421L118.625 231.149ZM209.01 254.812V165.336L281.396 231.068V272.866H281.489V318.491L209.01 254.812ZM299.005 255.564H318.484V153.826H222.932L299.005 222.751V255.564ZM281.375 136.524V81.7983L221.977 136.524H281.375ZM177.921 136.524H118.524V81.7983L177.921 136.524Z' fill='white' /> </svg>",
-    url: `https://www.perplexity.ai/search?q=${encodeURIComponent(AI_PROMPT)}`,
-    prefill: true,
-  },
-];
-
-// Liens du pied de page, repris du vrai footer de wizyx.me. Malt atteste
-// d'une activité indépendante réelle, Figma donne accès aux fichiers eux-mêmes.
-const LIENS_TRAVAIL = [
-  { nom: 'wizyx.me', url: 'https://wizyx.me/' },
-  { nom: 'Mes réalisations', url: 'https://wizyx.me/creations' },
-  { nom: 'Mes services', url: 'https://wizyx.me/services' },
-  { nom: 'À propos', url: 'https://wizyx.me/about' },
-];
-
-const LIENS_RESEAUX = [
-  { nom: 'LinkedIn', url: 'https://linkedin.com/in/flogk/' },
-  { nom: 'Figma', url: 'https://www.figma.com/@wizyx' },
-  { nom: 'Malt', url: 'https://www.malt.fr/profile/flogk' },
-  { nom: 'GitHub', url: 'https://github.com/WizyxGH' },
-  { nom: 'WhatsApp', url: 'https://wa.me/33778407887' },
-  { nom: 'Telegram', url: 'https://t.me/wizyx0' },
-];
-
-// Chapitrage de la barre de progression. L'ordre doit suivre l'ordre réel des
-// sections dans le DOM : les largeurs sont ensuite calculées depuis les
-// positions mesurées, donc un segment = la hauteur de scroll réelle du bloc.
-const CHAPITRES = [
-  { id: 'top', label: 'Intro' },
-  { id: 'criteres', label: 'Vos critères' },
-  { id: 'plan', label: '90 jours' },
-  { id: 'cv', label: 'Mon parcours' },
-  { id: 'profil', label: 'Qui suis-je ?' },
-  { id: 'apprendre', label: 'Lucidité' },
-  { id: 'lettre', label: 'La lettre' },
-  { id: 'test', label: 'Me tester' },
-];
-
-const OFFRE = {
-  intitule: 'Product Designer',
-  lieu: 'Nice (HQ) / Remote-friendly',
-  contrat: 'CDI ou freelance',
-  criteres: [
-    'Expérience product/design 3 ans+',
-    'Sensibilité au luxe + à la précision',
-    'Capacité à interagir directement avec utilisateurs',
-  ],
-};
-
-const STATS = [
-  { valeur: 3, suffixe: '', label: "Années d'expérience produit" },
-  { valeur: 13, suffixe: '', label: 'Produits en ligne, utilisés aujourd’hui' },
-  { valeur: 100, suffixe: '%', label: 'Clients satisfaits' },
-  { valeur: 5, suffixe: '', label: 'Entreprises · dont 5 mois au Vietnam' },
-];
-
-const PLAN = [
-  {
-    num: '01',
-    duree: 'Semaines 1 à 2',
-    titre: 'Écouter',
-    texte:
-      "Dix entretiens : des vendeurs Smart, des vendeurs Premium, deux agents carte T, un notaire partenaire, et surtout des gens qui ont abandonné le tunnel. Objectif : la carte des frictions réelles, pas supposées. Je repars avec une liste priorisée que toute l'équipe peut lire.",
-  },
-  {
-    num: '02',
-    duree: 'Semaines 3 à 6',
-    titre: 'Systématiser',
-    texte:
-      "Un design system, pas une pile de maquettes. Tokens, composants, états, règles d'écriture. Aligné sur ce que vos devs manipulent déjà — Tailwind, Next. Un mandat, une fiche bien et un cockpit doivent se lire avec la même grammaire.",
-  },
-  {
-    num: '03',
-    duree: 'Semaines 7 à 12',
-    titre: 'Refondre, et mesurer',
-    texte:
-      "Le parcours estimation → mandat, repris de bout en bout : parcours, écrans, et l'UX writing avec (c'est le même métier). Prototypé, testé sur huit utilisateurs, livré en specs qu'un dev n'a pas à deviner. Puis on regarde les chiffres, et on recommence.",
-  },
-];
-
-// Jeu d'icônes au trait, dans l'esprit lucide utilisé par briveo.fr :
-// même grille 24, même épaisseur, mêmes terminaisons arrondies.
-const ico = (inner: string) =>
-  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${inner}</svg>`;
-
-const SKILLS = [
-  {
-    titre: 'Design produit',
-    texte: "Cadrage, parcours, arbitrages de périmètre, priorisation. Surtout : savoir ce qu'on ne fait pas.",
-    icon: ico('<circle cx="12" cy="12" r="9"/><path d="M15.9 8.1l-2 5.8-5.8 2 2-5.8z"/>'),
-  },
-  {
-    titre: 'UI & design system',
-    texte: 'Tokens, composants, états, documentation. Une interface qui reste cohérente après six mois de sprints.',
-    icon: ico('<rect x="3" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6"/>'),
-  },
-  {
-    titre: 'UX research',
-    texte: "Entretiens, questionnaires, tests d'utilisabilité. Interroger ceux qui ont abandonné, pas seulement ceux qui sont restés.",
-    icon: ico('<circle cx="9" cy="7.5" r="3.6"/><path d="M2.5 20.5v-1.6a4 4 0 014-4h5a4 4 0 014 4v1.6"/><path d="M16.5 4.3a3.6 3.6 0 010 6.9"/><path d="M18.8 15.2a4 4 0 013 3.7v1.6"/>'),
-  },
-  {
-    titre: 'UX writing & copywriting',
-    texte: "Les mots d'une interface font partie de l'interface. Sur un acte à 450 000 €, une phrase mal écrite coûte une vente.",
-    icon: ico('<path d="M12.5 20.5H21"/><path d="M16.4 3.9a2.1 2.1 0 013 3L7.3 19H4.2l.1-3.1z"/>'),
-  },
-  {
-    titre: 'Interfaces métier',
-    texte: "Tableaux de bord, densité d'information, hiérarchies complexes. Rendre lisible ce qui est objectivement compliqué.",
-    icon: ico('<path d="M3.5 3.5v17h17"/><path d="M18 16.5V9"/><path d="M13 16.5V5.5"/><path d="M8 16.5v-3.5"/>'),
-  },
-  {
-    titre: 'Front-end',
-    texte: 'HTML, CSS, intégration. Assez pour prototyper vrai, dialoguer avec les devs et livrer des specs exécutables.',
-    icon: ico('<path d="M15.5 17.5L21 12l-5.5-5.5"/><path d="M8.5 6.5L3 12l5.5 5.5"/><path d="M13.5 4l-3 16"/>'),
-  },
-];
-
-// Traits tirés de wizyx.me/about — chacun est relié à un enjeu concret de Briveo,
-// sinon c'est du remplissage sympathique et ça ne fait recruter personne.
-// Les deux retards réels sur l'annonce, assumés. Une candidature qui
-// n'énumère que des forces se fait démonter au premier entretien.
-const LACUNES = [
-  {
-    num: '01',
-    titre: "L'immobilier, je ne le connais pas encore",
-    texte:
-      "Je ne vais pas vous raconter que je maîtrise la loi Hoguet, le DPE ou les subtilités d'un mandat exclusif. Je les apprendrai. Ce que je sais faire en revanche, c'est entrer dans un métier en écoutant ceux qui le pratiquent : chez Kosmos, je participe à des ateliers de cadrage sur des secteurs que je découvre le matin même, et j'en ressors avec de quoi dessiner. La mécanique sera la même chez vous, avec vos agents et vos vendeurs.",
-  },
-  {
-    num: '02',
-    titre: "Je n'ai pas encore de chiffres d'impact à vous montrer",
-    texte:
-      "Sur mes projets, j'ai livré des interfaces, pas des courbes de conversion. C'est une vraie limite, et c'est exactement ce qui m'attire chez vous : un produit vivant, avec des utilisateurs, des données publiques et un tunnel qui se mesure. Je veux arrêter de livrer et commencer à mesurer ce que je livre.",
-  },
-  {
-    num: '03',
-    titre: 'Ma vitesse d’apprentissage, elle, est documentée',
-    texte:
-      "BTS informatique, puis BUT MMI, puis Master 1 UX/UI Design : trois disciplines en cinq ans, chacune validée. À 21 ans, cinq mois dans une agence au Vietnam, en anglais, à mener des rendez-vous clients et prospects. Je n'arrive jamais sur un terrain connu — c'est devenu ma zone de confort.",
-  },
-];
-
-const TRAITS = [
-  {
-    tag: 'Énergie',
-    titre: "« Toujours dans l'action » — ce n'est pas moi qui le dis.",
-    texte:
-      "Deux personnes qui m'ont encadré emploient les mêmes mots sans s'être concertées : « super impliqué, intelligent et toujours dans l'action » (Lucas Kacem, Digital Unicorn), « motivé, hyper proactif, opérationnel dès les premiers jours » (Caroline Aubert, Mafigue). Je préfère arriver avec trois pistes à débattre qu'avec une question à poser. Dans une équipe qui construit vite, ce tempérament fait gagner des semaines.",
-  },
-  {
-    tag: 'Entrepreneuriat',
-    titre: "Je gère ma propre activité, et votre marché me passionne déjà.",
-    texte:
-      "Wizyx n'est pas un projet du dimanche : je prospecte, je chiffre, je contractualise, je livre et je relance seul. Ça donne un rapport très concret à la valeur d'un produit — ce qu'il coûte à faire, ce qu'un client accepte de payer, pourquoi il signe ou pourquoi il part. L'immobilier m'intéresse depuis longtemps en dehors du travail : les prix au mètre carré, ce qui fait vraiment la valeur d'un bien, la façon dont un marché local se retourne. Chez vous, ces deux curiosités arrêtent d'être des à-côtés.",
-  },
-  {
-    tag: 'Archiviste',
-    titre: "J'archive des bandes dessinées Disney du monde entier.",
-    texte:
-      "Je contribue depuis des années à une base communautaire qui recense des magazines publiés dans des dizaines de pays. Concrètement : normaliser des métadonnées, arbitrer des cas limites, tenir un référentiel que des inconnus interrogeront encore dans dix ans. C'est exactement le rapport que Briveo entretient avec le DVF, le cadastre et le registre des mandats. J'aime les données propres au point d'en avoir fait un loisir.",
-  },
-  {
-    tag: 'Endurance',
-    titre: '10 km par jour pendant 100 jours.',
-    texte:
-      "Objectif tenu. Marathon en 4 h 30, semi-marathon en 1 h 50 min 12 s — et oui, je retiens les secondes, ce qui est probablement le même travers que celui qui me fait aligner des chiffres en tabulaire dans une interface. Un design system ne se gagne pas au sprint : il se tient sur cent jours, quand plus personne ne regarde.",
-  },
-  {
-    tag: 'Collectif',
-    titre: '7 ans de football, 7 ans de basket.',
-    texte:
-      "Je ne suis pas un designer qui travaille de dos. Quatorze ans de sport collectif, ça apprend qu'on perd ensemble, et je préfère de loin une décision prise à cinq devant un écran à un fichier Figma parfait envoyé par mail. Dans une équipe de votre taille, c'est sans doute plus utile que du talent isolé.",
-  },
-  {
-    tag: 'Rédactionnel',
-    titre: "J'écris autant que je dessine.",
-    texte:
-      "Articles, copywriting, questionnaires, microcopie. Vous cherchez un UX writer dans la même annonce que le designer produit : ce n'est pas un hasard de rédaction, c'est le même geste. Sur un produit où l'utilisateur finit par signer un mandat, le mot juste vaut la maquette juste.",
-  },
-  {
-    tag: 'Curiosité',
-    titre: "J'ai pris le goût de voyager avant celui de designer.",
-    texte:
-      "Cinq mois de travail au Vietnam, une tolérance élevée à l'inconnu, et l'habitude de me retrouver quelque part où je ne comprends rien — c'est-à-dire exactement l'état d'un propriétaire qui ouvre votre plateforme pour la première fois. Designer, c'est se souvenir de ce que ça fait de ne pas savoir.",
-  },
-  {
-    tag: 'Franchise',
-    titre: 'Je dis quand je ne sais pas.',
-    texte:
-      "Autodidacte avant d'être diplômé, j'ai appris que bluffer coûte toujours plus cher que demander. Vous construisez un produit dont l'argument central est la transparence : je serais très mal placé pour vous vendre du vernis.",
-  },
-];
-
-const OBJECTIONS = [
-  {
-    q: 'Vous êtes jeune.',
-    r: "Oui. Et j'ai trois ans de pratique, vingt-cinq projets publics et des clients qui acceptent de mettre leur nom sous un témoignage. Le portfolio est en ligne, ouvert, daté. Jugez le travail avant la date de naissance — c'est le seul avantage du métier de designer, tout est vérifiable.",
-  },
-  {
-    q: 'Vous ne venez pas de l\'immobilier.',
-    r: "Non. Je viens du tourisme haut de gamme sur la Côte d'Azur, des marketplaces à deux faces et des tableaux de bord métier. La loi Hoguet, le DPE et le registre des mandats, ça s'apprend en trois semaines avec vos agents. L'obsession du détail, non.",
-  },
-  {
-    q: 'CDI ou freelance ?',
-    r: "Vous laissez le choix, je le prends : le CDI. Un design system, une recherche utilisateur continue et cinq cockpits qui restent cohérents, ça ne se construit pas en missions détachées — ça se tient dans la durée, et la valeur arrive au bout de la deuxième année, pas de la deuxième semaine. Si vous préférez vérifier avant de vous engager, une mission d'essai payée me va très bien : elle mène au même endroit, avec une étape de plus.",
-  },
-  {
-    q: 'Product manager, designer ou UX writer ?',
-    r: "Vous cherchez les trois. J'en fais deux et demi : design produit et UX writing sont mon quotidien, le cadrage produit je le pratique depuis que je travaille en direct avec des fondateurs. Et je code assez pour ne pas faire perdre de temps à votre équipe tech.",
-  },
-];
 ---
 
 <!DOCTYPE html>
@@ -441,10 +104,15 @@ const OBJECTIONS = [
   />
 
   <link rel="canonical" href={ogUrl} />
-  <link rel="icon" type="image/png" href="/assets/media/logo.png" />
-  <link rel="apple-touch-icon" href="/assets/media/logo.png" />
+  <!-- logo.png est blanc sur fond transparent : invisible dans un onglet
+       clair. Cette variante reprend exactement le même masque alpha, rempli
+       de l'émeraude #059669 — la couleur de <meta name="theme-color"> et
+       l'accent de toute la page. -->
+  <link rel="icon" type="image/png" href="/assets/media/logo-briveo.png" />
+  <link rel="apple-touch-icon" href="/assets/media/logo-briveo.png" />
   <Font cssVariable="--font-jakarta-family" preload />
   <Font cssVariable="--font-jetbrains-family" preload />
+  <Font cssVariable="--font-caveat-family" />
 </head>
 
 <body>
@@ -481,10 +149,8 @@ const OBJECTIONS = [
       </span>
       <nav class="nav-links" aria-label="Sections de la page">
         <a href="#criteres">Vos critères</a>
-        <a href="#plan">90 jours</a>
         <a href="#cv">Mon parcours</a>
         <a href="#profil">Qui suis-je ?</a>
-        <a href="#apprendre">Lucidité</a>
         <a href="#lettre">La lettre</a>
       </nav>
       <a href="#test" class="btn btn-sm btn-primary nav-cta">Me tester</a>
@@ -497,11 +163,9 @@ const OBJECTIONS = [
     <div class="mobile-menu" id="mobileMenu" hidden>
       <nav aria-label="Sections de la page (mobile)">
         <a href="#criteres"><span class="mm-num">01</span> Vos critères</a>
-        <a href="#plan"><span class="mm-num">02</span> Mes 90 premiers jours</a>
         <a href="#cv"><span class="mm-num">03</span> Mon parcours</a>
         <a href="#profil"><span class="mm-num">04</span> Qui suis-je ?</a>
-        <a href="#apprendre"><span class="mm-num">05</span> Ce qui me manque</a>
-        <a href="#lettre"><span class="mm-num">06</span> Lettre de motivation</a>
+        <a href="#lettre"><span class="mm-num">05</span> Lettre de motivation</a>
       </nav>
       <div class="mobile-menu-foot">
         <a href="#test" class="btn btn-primary btn-block">Me tester</a>
@@ -526,16 +190,15 @@ const OBJECTIONS = [
           </span>
 
           <h1 class="hero-title reveal" style="--d:60ms">
-            <span class="line-muted">Vous avez demandé</span>
-            <span class="line-muted">un Designer hybride&nbsp;?</span>            <span class="line-ink">Me voici&nbsp;!</span>
+            <span class="line-muted">Un Designer hybride</span>
+            <span class="line-ink">avec vision produit et qui sait shipper du code</span>
           </h1>
 
           <p class="hero-sub reveal" style="--d:120ms">
             «&nbsp;<strong>Product manager, designer produit, UX writer</strong>&nbsp;» —
-            trois métiers dans une seule offre. C'est votre annonce, pas mon interprétation.
-            J'ai appris à coder avant de designer, je rédige les interfaces que je dessine, et je
-            cadre les projets que je livre. Plutôt qu'un PDF de plus&nbsp;: cette page, conçue et
-            développée{' '}<strong>dans votre design system</strong>.
+            trois métiers dans une seule offre. Autodidacte dans l'âme, j'ai appris à coder avant de designer, j'imagine de A à Z les interfaces que je conçois, et je
+            cadre les projets que je livre. Plutôt qu'un PDF de plus, retrouvez cette page, conçue et
+            développée dans votre design system.
           </p>
 
           <div class="hero-cta reveal" style="--d:180ms">
@@ -590,16 +253,7 @@ const OBJECTIONS = [
             </figcaption>
           </figure>
 
-          <div class="float-card float-b float-dark">
-            <span class="float-chip">
-              <svg viewBox="0 0 24 24" class="ico ico-xs" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.3 12.2l2.6 2.6 4.8-5.4"/></svg>
-            </span>
-            <span class="mono-label mono-label-mint">Critères</span>
-            <p class="float-dark-title">3 / 3 remplis</p>
-            <p class="float-dark-sub">Expérience · Luxe · Utilisateurs</p>
-          </div>
-
-          <div class="float-card float-c">
+          <div class="float-card float-b">
             <span class="mono-label mono-label-em">
               <svg viewBox="0 0 24 24" class="ico ico-xs" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg>
               Coach
@@ -632,7 +286,10 @@ const OBJECTIONS = [
         {STATS.map((s) => (
           <div class="stat reveal">
             <p class="stat-num">
-              <span data-count={s.valeur}>0</span>{s.suffixe && <span class="stat-unit">{s.suffixe}</span>}
+              {s.litteral
+                ? <span class="stat-inf">{s.litteral}</span>
+                : <span data-count={s.valeur}>0</span>}
+              {s.suffixe && <span class="stat-unit">{s.suffixe}</span>}
             </p>
             <p class="stat-label">{s.label}</p>
           </div>
@@ -685,12 +342,10 @@ const OBJECTIONS = [
             </div>
             <h3 class="crit-title"><span class="num">3</span> ans, <span class="num">13</span> produits en ligne, des clients qui signent leur avis.</h3>
             <p class="crit-body">
-              BTS informatique puis BUT MMI, une agence de développement international
-              (<strong>Digital Unicorn</strong>), un studio produit (<strong>Mafigue</strong>), et depuis,
-              du design produit en direct avec des fondateurs. Sites, landing pages, applications
-              mobiles, plateformes SaaS et tableaux de bord&nbsp;: exactement les quatre familles
-              d'interfaces qu'un produit comme Briveo demande — une vitrine qui convainc, un tunnel qui
-              convertit, une app qui accompagne, des cockpits qui tiennent la charge métier.
+              Une agence internationale, un studio produit, et depuis, du design produit en direct
+              avec des fondateurs. J'y ai couvert les quatre familles d'interfaces qu'un produit
+              comme Briveo demande&nbsp;: <strong>une vitrine qui convainc, un tunnel qui convertit,
+              une app qui accompagne, des cockpits qui tiennent la charge métier.</strong>
             </p>
             <blockquote class="testi">
               <p>
@@ -704,22 +359,6 @@ const OBJECTIONS = [
                 <span><strong>Caroline Aubert</strong>Product Designer &amp; fondatrice de Mafigue</span>
               </footer>
             </blockquote>
-            <!-- Les liens comptent plus que le chiffre : « 13 produits en
-                 ligne » se vérifie en un clic, sinon ce n'est qu'une
-                 affirmation de plus. -->
-            <ul class="crit-proof">
-              <li>
-                <span class="mono-label mono-label-em">En ligne</span>
-                <a href="https://www.worldcubeassociation.org" target="_blank" rel="noopener">worldcubeassociation.org</a>,
-                <a href="https://inducks.org" target="_blank" rel="noopener">inducks.org</a>,
-                <a href="https://jobbrr.io" target="_blank" rel="noopener">jobbrr.io</a>,
-                <a href="https://guidedugolfe.com" target="_blank" rel="noopener">guidedugolfe.com</a>
-              </li>
-              <li>
-                <span class="mono-label mono-label-em">Tout</span>
-                <a href="https://wizyx.me/creations" target="_blank" rel="noopener">Les 25 projets datés, chacun avec son contexte</a>
-              </li>
-            </ul>
           </article>
 
           <!-- 02 -->
@@ -807,38 +446,53 @@ const OBJECTIONS = [
               </footer>
             </blockquote>
           </article>
+
+          <!-- 05 — bonus. La lucidité est le seul critère qu'une annonce ne
+               peut pas demander : personne n'écrit « sachez ce que vous ne
+               savez pas ». Les deux retards assumés et leur contrepoids
+               tiennent donc ici, plutôt que dans une section à part. -->
+          <article class="card crit crit-bonus crit-wide reveal" style="--d:320ms">
+            <div class="crit-head">
+              <span class="crit-num crit-num-em">05</span>
+              <span class="quote-chip quote-chip-em">Le critère qu'une annonce ne sait pas écrire</span>
+            </div>
+            <h3 class="crit-title">Ce qui me manque. Et ce que j'en fais.</h3>
+            <p class="crit-body">
+              Une candidature qui n'énumère que des forces se fait démonter au premier entretien.
+              Voilà les deux endroits où je suis en retard sur votre annonce — et la raison pour
+              laquelle je pense les rattraper vite.
+            </p>
+
+            <ol class="crit-gaps">
+              {LACUNES.map((l) => (
+                <li>
+                  <span class="crit-gap-num">{l.num}</span>
+                  <div>
+                    <h4>{l.titre}</h4>
+                    <p>{l.texte}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+
+            <blockquote class="testi">
+              <p>
+                «&nbsp;Motivé, hyper proactif, <strong>enseignable</strong>, il a su, dès les
+                premiers jours, être opérationnel.&nbsp;»
+              </p>
+              <footer>
+                <Image src={avatarCaroline} alt="" width="72" height="72" loading="lazy" class="testi-av" />
+                <span><strong>Caroline Aubert</strong>Product Designer &amp; fondatrice de Mafigue</span>
+              </footer>
+            </blockquote>
+            <p class="crit-gap-note">
+              On ne dit pas «&nbsp;enseignable&nbsp;» de quelqu'un qui sait déjà tout.
+            </p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- ══════════════════════════ PLAN 90 JOURS ══════════════════════════ -->
-    <section class="section" id="plan">
-      <div class="glow glow-b" aria-hidden="true"></div>
-      <div class="wrap">
-        <header class="sec-head reveal">
-          <span class="eyebrow">Si vous dites oui</span>
-          <h2 class="sec-title"><span class="num">3</span> étapes.<br /><span class="num">90</span> jours.</h2>
-          <p class="sec-sub">
-            Vous décrivez votre parcours vendeur en trois étapes sans friction. Voilà le mien, dans le
-            même format — parce qu'un designer qui arrive doit savoir dire ce qu'il aura livré avant
-            son troisième mois.
-          </p>
-        </header>
-
-        <ol class="plan-grid">
-          {PLAN.map((p) => (
-            <li class="card plan reveal">
-              <div class="plan-head">
-                <span class="plan-num">{p.num}</span>
-                <span class="plan-duree">{p.duree}</span>
-              </div>
-              <h3 class="plan-title">{p.titre}</h3>
-              <p class="plan-text">{p.texte}</p>
-            </li>
-          ))}
-        </ol>
-      </div>
-    </section>
 
     <!-- ══════════════════════════ CV / COCKPITS ══════════════════════════ -->
     <section class="section section-soft" id="cv">
@@ -860,7 +514,6 @@ const OBJECTIONS = [
             <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="pan-2" id="tab-2" tabindex="-1">Formation</button>
             <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="pan-3" id="tab-3" tabindex="-1">Compétences</button>
             <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="pan-4" id="tab-4" tabindex="-1">Outils &amp; veille</button>
-            <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="pan-5" id="tab-5" tabindex="-1">Preuves</button>
           </div>
 
           <div class="tabpanels">
@@ -871,7 +524,7 @@ const OBJECTIONS = [
                   <li>
                     <span class="tl-dot"></span>
                     <div class="tl-head">
-                      <span class={`tl-logo tl-logo--${x.theme || 'light'}`}>
+                      <span class={`tl-logo tl-logo--${x.theme || 'light'}${x.logoZoom ? ' tl-logo--zoom' : ''}`}>
                         {x.logo
                           ? <img src={x.logo} alt="" loading="lazy" decoding="async" />
                           : <span class="tl-mono">{x.mono}</span>}
@@ -885,10 +538,23 @@ const OBJECTIONS = [
                       </div>
                       <p class="tl-meta">
                         <span class="mono-label mono-label-em">{x.periode}</span>
-                        <span class="mono-label mono-label-dim">{x.lieu}</span>
+                        {x.lieu && <span class="mono-label mono-label-dim">{x.lieu}</span>}
                       </p>
                     </div>
-                    <p>{x.texte}</p>
+                    {x.texte && <p>{x.texte}</p>}
+                    {x.stages && (
+                      <ol class="tl-stages">
+                        {x.stages.map((s) => (
+                          <li>
+                            <span class="tl-stage-head">
+                              <span class="mono-label mono-label-em">{s.periode}</span>
+                              {s.lieu && <span class="mono-label mono-label-dim">{s.lieu}</span>}
+                            </span>
+                            <p>{s.texte}</p>
+                          </li>
+                        ))}
+                      </ol>
+                    )}
                   </li>
                 ))}
               </ol>
@@ -909,7 +575,10 @@ const OBJECTIONS = [
                       </span>
                       <div class="tl-id">
                         <h3>{f.titre}</h3>
-                        <p class="tl-co">{f.ecole}</p>
+                        <p class="tl-co">
+                          {f.ecole}
+                          {f.niveau && <span class="tl-contrat tl-contrat--formation">{f.niveau}</span>}
+                        </p>
                       </div>
                       <p class="tl-meta">
                         <span class="mono-label mono-label-em">{f.periode}</span>
@@ -943,53 +612,33 @@ const OBJECTIONS = [
 
             <!-- Outils -->
             <div class="tabpanel" role="tabpanel" id="pan-4" aria-labelledby="tab-4" tabindex="0" hidden>
-              <span class="mono-label mono-label-em">Le socle · tous les jours</span>
+              <span class="mono-label mono-label-em">Le socle</span>
               <div class="tools">
                 <span class="tool">Figma</span>
-                <span class="tool">Auto-layout &amp; variables</span>
-                <span class="tool">Design tokens</span>
+                <span class="tool">Auto-layout</span>
+                <span class="tool">Styles & variables</span>
                 <span class="tool">Prototypage interactif</span>
-                <span class="tool">Webflow</span>
-                <span class="tool">Astro</span>
-                <span class="tool">HTML / CSS</span>
-                <span class="tool">Tailwind</span>
-                <span class="tool">Notion</span>
-                <span class="tool">Midjourney</span>
-                <span class="tool">Analytics</span>
-                <span class="tool">SEO technique</span>
+                <span class="tool">Plugins</span>
+                <span class="tool">Frameworks de développement</span>
+                <span class="tool">SEO / GEO</span>
+                <span class="tool">Rédaction</span>
+                <span class="tool">Copywriting</span>
+                <span class="tool">UX Writing</span>
               </div>
 
               <div class="watch">
                 <span class="mono-label mono-label-em">Sur l'établi · ce que je teste en ce moment</span>
                 <div class="watch-grid">
                   <article class="watch-card">
-                    <h3>Être lisible par les IA, pas seulement par Google</h3>
+                    <h3>Taux de découvrabilité</h3>
                     <p>
-                      Mon portfolio expose un <strong>llms.txt</strong> et des schémas{' '}
-                      <strong>JSON-LD</strong> complets, pour que les modèles qui répondent
-                      « un bon product designer sur la Côte d'Azur&nbsp;? » travaillent sur une donnée
-                      propre. Vous jouez sur le même terrain avec vos annonces bilingues et vos pages
-                      prix par ville&nbsp;: la prochaine bataille de visibilité ne se gagnera pas
-                      uniquement dans les SERP.
+                      Avec les réseaux sociaux et les nouvelles normes de référencement, comment convertir les prospects et les fidéliser en utilisateurs long termes.
                     </p>
                   </article>
                   <article class="watch-card">
                     <h3>Le design au contact direct du code</h3>
                     <p>
-                      Astro&nbsp;7, Tailwind&nbsp;v4, polices auto-hébergées et sous-ensemblées,
-                      images en WebP, budget d'animation surveillé. Je ne me contente pas de savoir
-                      qu'une maquette « sera lourde »&nbsp;: je vais voir. Cette page est construite
-                      comme ça, et elle est isolée du reste de mon site pour ne rien lui coûter.
-                    </p>
-                  </article>
-                  <article class="watch-card">
-                    <h3>L'IA dans la boucle de production</h3>
-                    <p>
-                      Génération et exploration visuelle, variantes rédactionnelles, prototypage
-                      accéléré. Utile à préciser chez vous&nbsp;: je m'en sers pour produire dix
-                      pistes au lieu de deux, pas pour livrer plus vite un travail moins réfléchi.
-                      Une équipe qui construit LAIA mérite un designer qui sait où l'IA aide
-                      vraiment — et où elle fabrique du plausible.
+                      Les processsus d'UI/UX Design évoluent à toute vitesse, alors j'expérimente avec les processus de génération "Figma to code" ou "code to Figma".
                     </p>
                   </article>
                 </div>
@@ -998,42 +647,13 @@ const OBJECTIONS = [
               <div class="watch-method">
                 <span class="mono-label mono-label-dim">Ma méthode de veille</span>
                 <ul>
-                  <li>Je teste sur un projet réel, jamais sur un tutoriel&nbsp;: un outil qui ne survit pas à une contrainte client ne prouve rien.</li>
-                  <li>J'écris ce que j'en retiens, pour pouvoir le transmettre plutôt que d'être le seul à savoir.</li>
-                  <li>J'abandonne sans état d'âme ce qui n'a rien changé au bout de deux semaines.</li>
+                  <li>Agrégation de podcasts et vidéos YouTube pertinentes</li>
+                  <li>Je teste sur un projet réel personnel, plus que sur un tutoriel&nbsp;: un outil qui ne survit pas à une contrainte client ne prouve rien.</li>
+                  <li>S'il n'y a pas le résultat escompté, je m'adapte et l'abandonne sans état d'âme.</li>
                 </ul>
               </div>
             </div>
 
-            <!-- Preuves -->
-            <div class="tabpanel" role="tabpanel" id="pan-5" aria-labelledby="tab-5" tabindex="0" hidden>
-              <ul class="proofs">
-                <li>
-                  <a href="https://wizyx.me/creations" target="_blank" rel="noopener">
-                    <span class="proof-t">Le portfolio complet</span>
-                    <span class="proof-d">25 projets publiés, chacun avec son contexte, son rôle et sa date.</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://wizyx.me/services/ui-ux" target="_blank" rel="noopener">
-                    <span class="proof-t">Ma méthode de travail</span>
-                    <span class="proof-d">Comment je passe d'un problème flou à des écrans qu'on peut construire.</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://linkedin.com/in/flogk/" target="_blank" rel="noopener">
-                    <span class="proof-t">LinkedIn</span>
-                    <span class="proof-d">Le parcours, les recommandations, le réseau régional.</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://github.com/WizyxGH" target="_blank" rel="noopener">
-                    <span class="proof-t">GitHub</span>
-                    <span class="proof-d">Le code de mon site — dont la page que vous êtes en train de lire.</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
       </div>
@@ -1065,48 +685,6 @@ const OBJECTIONS = [
       </div>
     </section>
 
-    <!-- ══════════════════════════ LACUNES ══════════════════════════ -->
-    <section class="section section-soft" id="apprendre">
-      <div class="wrap">
-        <header class="sec-head reveal">
-          <span class="eyebrow">Lucidité</span>
-          <h2 class="sec-title">Ce qui me manque.<br />Et ce que j'en fais.</h2>
-          <p class="sec-sub">
-            Une candidature qui n'énumère que des forces ne mérite pas d'être lue jusqu'au bout. Voilà
-            les deux endroits où je suis en retard sur votre annonce — et la raison pour laquelle je
-            pense les rattraper vite.
-          </p>
-        </header>
-
-        <div class="gap-grid">
-          {LACUNES.map((l) => (
-            <article class="card gap reveal">
-              <span class="gap-num">{l.num}</span>
-              <h3 class="gap-title">{l.titre}</h3>
-              <p class="gap-text">{l.texte}</p>
-            </article>
-          ))}
-        </div>
-
-        <blockquote class="gap-quote reveal">
-          <p>
-            «&nbsp;Motivé, hyper proactif, <strong>enseignable</strong>, il a su, dès les premiers
-            jours, être opérationnel.&nbsp;»
-          </p>
-          <footer>
-            <Image src={avatarCaroline} alt="" width="72" height="72" loading="lazy" class="testi-av" />
-            <span><strong>Caroline Aubert</strong>Product Designer &amp; fondatrice de Mafigue</span>
-          </footer>
-          <p class="gap-quote-note">
-            On ne dit pas «&nbsp;enseignable&nbsp;» de quelqu'un qui sait déjà tout.
-          </p>
-        </blockquote>
-
-        <p class="gap-foot reveal">
-          La motivation, ça ne se déclare pas dans une lettre. Vous êtes en train de la lire.
-        </p>
-      </div>
-    </section>
 
     <!-- ══════════════════════════ CITATION ══════════════════════════ -->
     <section class="quote-band">
@@ -1118,8 +696,7 @@ const OBJECTIONS = [
           Life's greatest moments and deepest connections exist outside of your comfort zone.
         </blockquote>
         <p class="quote-band-cap">
-          Cette citation est sur mon site depuis des années. Envoyer une page plutôt qu'un PDF,
-          c'est simplement rester cohérent avec elle.
+          Le mantra qui me rythme.
         </p>
       </div>
     </section>
@@ -1129,57 +706,15 @@ const OBJECTIONS = [
       <div class="wrap wrap-narrow">
         <header class="sec-head sec-head-left reveal">
           <span class="eyebrow">La lettre de motivation, sans le costume</span>
-          <h2 class="sec-title">Pourquoi vous,<br />et pas une autre annonce.</h2>
+          <h2 class="sec-title">Pourquoi Briveo,<br />et pas une autre annonce.</h2>
         </header>
 
         <div class="letter card reveal">
-          <p class="letter-hi">Bonjour,</p>
-          <p class="letter-lead">
-            Je postule à beaucoup moins d'offres qu'on ne l'imagine. Celle-ci, je l'ai lue deux fois,
-            puis j'ai passé la soirée sur briveo.fr — d'abord par curiosité, ensuite parce que je n'ai
-            pas réussi à en sortir.
-          </p>
-          <p>
-            Ce qui m'a retenu, ce n'est pas «&nbsp;l'IA dans l'immobilier&nbsp;».
-          </p>
-          <blockquote class="letter-quote">
-            C'est que vous avez pris le problème par la friction plutôt que par la promesse.
-          </blockquote>
-          <p>
-            Un mandat Hoguet en trois minutes, une estimation sourcée sur du DVF public, un dossier
-            notaire généré, une commission qu'on annonce avant de la prendre.{' '}
-            <strong>Ce sont des décisions produit, pas des arguments marketing.</strong> Elles se
-            voient dans l'interface, et c'est rare.
-          </p>
-          <p>
-            Il se trouve que <mark>c'est exactement le métier que je veux faire</mark>. Je passe mes
-            journées à rendre lisible ce qui est compliqué&nbsp;: des tunnels de vente, des tableaux
-            de bord, des parcours où l'utilisateur doit prendre une décision qui l'engage.
-            L'immobilier est le terrain le plus exigeant de cette catégorie — les montants sont
-            énormes, <strong>la confiance est fragile</strong>, le vocabulaire est hostile, et la
-            moitié des gens qui entrent dans votre produit n'ont jamais vendu de leur vie.
-          </p>
-          <p>
-            Il y a aussi une raison plus simple, et je préfère l'assumer&nbsp;:
-            <mark>je suis d'ici</mark>. Nice, Toulon, le Var, les Alpes-Maritimes. J'ai travaillé
-            pour le Golfe de Saint-Tropez, je connais la clientèle dont vous parlez quand vous
-            écrivez «&nbsp;UHNWI&nbsp;» et «&nbsp;Côte d'Azur&nbsp;», et je n'ai pas envie de faire
-            ce métier depuis un open space parisien.{' '}
-            <strong>Une boîte tech ambitieuse dont le siège est à Nice, ça ne se présente pas tous
-            les ans.</strong>
-          </p>
-          <p>
-            Sur le papier, je coche vos trois critères. Mais un CV ne prouve pas grand-chose dans un
-            métier où le livrable est visuel. Alors j'ai fait ce que je ferais chez vous&nbsp;: j'ai
-            pris votre design system, je l'ai relevé, reconstruit, et j'ai livré quelque chose de
-            fini plutôt que de vous le décrire.
-          </p>
-          <p class="letter-close">
-            Cette page n'est reliée à aucune autre page de mon site.{' '}
-            <strong>Elle n'existe que pour vous</strong>, et elle sera hors ligne le jour où vous me
-            direz non. Si ce que vous avez lu vous parle, <span class="num">30</span> minutes
-            suffisent pour savoir si ça colle.
-          </p>
+          {LETTRE.map((b) => (
+            b.type === 'quote'
+              ? <blockquote class="letter-quote" set:html={b.texte} />
+              : <p class={b.type === 'p' ? undefined : `letter-${b.type}`} set:html={b.texte} />
+          ))}
           <div class="letter-sign">
             <Image src={avatarFlorian} alt="Florian Gertner Kilian" width="112" height="112" loading="lazy" class="sign-av" />
             <div class="sign-id">
@@ -1293,52 +828,17 @@ const OBJECTIONS = [
           Mail, message ou téléphone&nbsp;: je réponds le jour même, week-end compris.
         </p>
 
-        <!-- Vérification par IA : la page se fait auditer par un tiers plutôt
-             que de demander qu'on la croie. -->
-        <div class="ai-check reveal">
-          <div class="grain" aria-hidden="true"></div>
-          <div class="ai-check-inner">
-            <span class="eyebrow eyebrow-light">Vérification indépendante</span>
-            <h3 class="ai-title">Ne me croyez pas sur parole.<br />Demandez à une IA.</h3>
-            <p class="ai-sub">
-              Elle lira cette page, mon portfolio et votre annonce, puis vous dira si le profil tient
-              — angles morts compris. Le prompt lui demande explicitement d'être critique plutôt que
-              complaisante, et vous pouvez le lire avant de l'envoyer.
-            </p>
-
-            <details class="ai-prompt">
-              <summary>
-                <svg viewBox="0 0 24 24" class="ico" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
-                Lire le prompt envoyé
-              </summary>
-              <div class="ai-prompt-body" id="aiPromptCopy" role="button" tabindex="0"
-                   aria-label="Copier le prompt dans le presse-papiers">
-                <pre>{AI_PROMPT}</pre>
-                <span class="ai-copy-hint" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" class="ico" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>
-                  <span id="aiCopyLabel">Cliquer pour copier</span>
-                </span>
-              </div>
-            </details>
-
-            <div class="ai-actions">
-              {AI_LINKS.map((l) => (
-                <a href={l.url} target="_blank" rel="noopener noreferrer" class="ai-btn">
-                  <span class="ai-btn-logo" set:html={l.icon} />
-                  {l.nom}
-                  <svg viewBox="0 0 24 24" class="ico ai-btn-out" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
-                </a>
-              ))}
-            </div>
-
-          </div>
-        </div>
       </div>
     </section>
 
     <!-- ══════════════════════════ CONTACT ══════════════════════════ -->
+    <!-- Décors relevés sur la section « Prêt à vendre autrement ? » de
+         briveo.fr : un halo émeraude flouté posé en haut au centre, puis une
+         trame de 96px masquée par une ellipse radiale. Les deux sont sous le
+         contenu et purement décoratifs. -->
     <section class="contact">
-      <div class="grain" aria-hidden="true"></div>
+      <div class="contact-glow" aria-hidden="true"></div>
+      <div class="contact-mesh" aria-hidden="true"></div>
       <div class="wrap contact-inner">
         <span class="pill pill-dark reveal">
           <span class="live-dot" aria-hidden="true"></span>
@@ -1348,8 +848,7 @@ const OBJECTIONS = [
           On en discute ?
         </h2>
         <p class="contact-sub reveal">
-          Le pire qui puisse arriver, c'est que vous ayez passé une demi-heure avec un designer qui
-          connaît déjà votre produit.
+          Plutôt que de tergiverser, discutons-en de vive voix et voyons en direct si le feeling passe.
         </p>
 
         <!-- Maquette de visioconférence : la section promet trente minutes,
@@ -1358,7 +857,7 @@ const OBJECTIONS = [
           <div class="visio-bar">
             <span class="mono-label mono-label-mint">
               <span class="live-dot live-dot-sm"></span>
-              Entretien · 30 min
+              Entretien
             </span>
             <span class="visio-timer">30:00</span>
           </div>
@@ -1367,9 +866,6 @@ const OBJECTIONS = [
             <div class="visio-tile">
               <Image src={avatarFlorian} alt="" width="240" height="240" loading="lazy" />
               <span class="visio-name">Florian</span>
-              <span class="visio-mic">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
-              </span>
             </div>
             <div class="visio-tile visio-tile--empty">
               <svg viewBox="0 0 24 24" class="visio-ghost" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20.5v-1.7a4.5 4.5 0 0 1 4.5-4.5h6a4.5 4.5 0 0 1 4.5 4.5v1.7"/></svg>
@@ -1402,10 +898,21 @@ const OBJECTIONS = [
   </main>
 
   <footer class="foot">
+    <div class="grain" aria-hidden="true"></div>
     <div class="wrap">
+      <!-- Même en-tête que les sections sombres de la page : pastille de
+           disponibilité et signature, avant les colonnes de liens. -->
+      <div class="foot-top">
+        <p class="foot-sign">Florian Gertner&nbsp;Kilian</p>
+        <span class="pill foot-pill">
+          <span class="live-dot" aria-hidden="true"></span>
+          <span class="mono-label">Ouvert aux opportunités</span>
+        </span>
+      </div>
+
       <div class="foot-cols">
         <div class="foot-col">
-          <span class="mono-label mono-label-mint">Mon travail</span>
+          <span class="mono-label">Expertises</span>
           <ul>
             {LIENS_TRAVAIL.map((l) => (
               <li><a href={l.url} target="_blank" rel="noopener">{l.nom}</a></li>
@@ -1413,19 +920,12 @@ const OBJECTIONS = [
           </ul>
         </div>
         <div class="foot-col">
-          <span class="mono-label mono-label-mint">Me joindre</span>
+          <span class="mono-label">Contact</span>
           <ul>
             <li><a href="mailto:hello@wizyx.me?subject=Briveo%20%C2%B7%20Candidature%20Produit%20-%20Design">hello@wizyx.me</a></li>
             <li><a href={`tel:${TEL_HREF}`}>{TEL_DISPLAY}</a></li>
             <li><a href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener">Réserver 30 minutes</a></li>
-          </ul>
-        </div>
-        <div class="foot-col">
-          <span class="mono-label mono-label-mint">Ailleurs</span>
-          <ul>
-            {LIENS_RESEAUX.map((l) => (
-              <li><a href={l.url} target="_blank" rel="noopener">{l.nom}</a></li>
-            ))}
+            <li><a href="https://linkedin.com/in/flogk/" target="_blank" rel="noopener">LinkedIn</a></li>
           </ul>
         </div>
       </div>
@@ -1436,8 +936,7 @@ const OBJECTIONS = [
         briveo.fr — hommage assumé, aucune affiliation.
       </p>
       <p class="foot-dim">
-        Reliée à aucune autre page de wizyx.me et absente du sitemap. Elle n'existe que pour cette
-        candidature.
+        Reliée à aucune autre page de wizyx.me. Elle n'existe que pour cette candidature.
       </p>
       </div>
     </div>
@@ -1478,7 +977,7 @@ const OBJECTIONS = [
       <ul class="modal-list">
         <li><span class="num">3</span> minutes suffisent pour décider si je mérite un vrai entretien.</li>
         <li>C'est moi qui décroche. Pas un standard, pas un formulaire, pas de rappel automatique.</li>
-        <li>Si je ne réponds pas, c'est que je suis en rendez-vous&nbsp;: je rappelle dans la journée.</li>
+        <li>Si je ne réponds pas, c'est que je suis en pleine action&nbsp;: je rappelle dans la journée.</li>
       </ul>
 
       <a href={`tel:${TEL_HREF}`} class="btn btn-primary btn-block btn-lg modal-call">
@@ -1491,7 +990,6 @@ const OBJECTIONS = [
         <span aria-hidden="true">·</span>
         <a href="mailto:hello@wizyx.me?subject=Briveo%20%C2%B7%20Candidature%20Produit%20-%20Design">hello@wizyx.me</a>
       </div>
-      <p class="modal-foot">En semaine, de 9 h à 19 h · Nice &amp; Toulon</p>
     </div>
   </div>
 
@@ -1601,7 +1099,6 @@ const OBJECTIONS = [
       color: var(--em-700);
       display: block;
     }
-    .eyebrow-light { color: var(--em-400); }
 
     .pill {
       display: inline-flex;
@@ -1880,7 +1377,6 @@ const OBJECTIONS = [
     .mobile-menu nav a:hover, .mobile-menu nav a:active { color: var(--em-700); padding-left: 10px; }
     .mm-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--em-600); font-weight: 500; }
     .mobile-menu-foot { margin-top: 18px; display: grid; gap: 12px; justify-items: center; }
-    
 
     /* Chiffres dans les titres : traitement mono/tabulaire, comme briveo.fr */
     /* Les chiffres dans un titre gardent la typo du titre : chez briveo.fr
@@ -1925,7 +1421,6 @@ const OBJECTIONS = [
     }
     .glow { position: absolute; pointer-events: none; border-radius: 999px; filter: blur(90px); }
     .glow-a { left: 12%; top: 60px; width: 420px; height: 420px; background: rgba(16, 185, 129, 0.07); }
-    .glow-b { right: 6%; top: 120px; width: 380px; height: 380px; background: rgba(253, 230, 138, 0.22); }
     .glow-c { left: 50%; top: 40px; width: 520px; height: 340px; transform: translateX(-50%); background: rgba(16, 185, 129, 0.08); }
 
     /* ── Hero ───────────────────────────────────────────────────────────── */
@@ -2154,45 +1649,13 @@ const OBJECTIONS = [
     @media (min-width: 1060px) {
       .float-card { position: absolute; padding: 15px 16px; animation: float 6s ease-in-out infinite; }
       .float-b { width: 198px; right: -36px; top: 64px; animation-delay: -2s; }
-      .float-c { width: 232px; left: -56px; top: 150px; animation-delay: -4s; }
     }
     @media (min-width: 1280px) {
       .float-card { padding: 17px 18px; }
       .float-b { width: 210px; right: -40px; top: 88px; }
-      .float-c { width: 250px; left: -60px; top: 200px; }
     }
 
-    .float-num { font-family: var(--mono); font-size: 28px; font-weight: 800; letter-spacing: -0.04em; margin-top: 10px; font-variant-numeric: tabular-nums; }
-    @media (min-width: 480px) { .float-num { font-size: 30px; } }
-    .float-cap { font-size: 11px; color: var(--ink-500); margin-top: 2px; line-height: 1.35; }
-    .float-track { margin-top: 11px; height: 5px; border-radius: 999px; background: var(--em-100); overflow: hidden; }
-    .float-fill { display: block; height: 100%; width: 94%; border-radius: 999px; background: linear-gradient(to right, var(--em-600), var(--em-400)); background-size: 200% auto; animation: shimmer 4s linear infinite; }
-    .float-note { margin-top: 9px; font-size: 10px; color: var(--ink-500); }
-
-    .float-dark { background: var(--em-700); border-color: rgba(255, 255, 255, 0.12); color: #fff; }
-    /* En inline-flex, la pastille repose sur la ligne de base : le descendant
-       de la ligne ajoutait un vide sous l'icône et la faisait paraître haute
-       dans son cadre. En flex, la boîte fait exactement 30x30. */
-    .float-chip {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 30px;
-      height: 30px;
-      flex: none;
-      line-height: 0;
-      border-radius: 9px;
-      background: rgba(16, 185, 129, 0.22);
-      border: 1px solid rgba(52, 211, 153, 0.4);
-      color: var(--em-300);
-      margin-bottom: 12px;
-    }
-    .float-chip .ico { width: 15px; height: 15px; display: block; }
-    .float-dark-title { font-size: 15px; font-weight: 800; margin-top: 9px; letter-spacing: -0.02em; }
-    .float-dark-sub { font-size: 10.5px; color: var(--em-200); margin-top: 3px; }
-
-    .float-typed { margin-top: 10px; font-size: 12.5px; line-height: 1.5; color: var(--ink-700); min-height: 3.1em; }
-    @media (min-width: 1060px) { .float-typed { min-height: 57px; } }
+    .float-typed { margin-top: 10px; font-size: 12.5px; line-height: 1.5; color: var(--ink-700); }
     .caret { display: inline-block; width: 2px; height: 1em; background: var(--em-600); vertical-align: -2px; margin-left: 2px; animation: caret 0.85s steps(1) infinite; }
 
     /* ── Bandeau chiffres ───────────────────────────────────────────────── */
@@ -2206,7 +1669,17 @@ const OBJECTIONS = [
       gap: 40px 20px;
     }
     @media (min-width: 768px) { .stats-inner { padding: 56px 40px; } }
-    @media (min-width: 820px) { .stats-inner { grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 56px 40px; } }
+    /* Cinq chiffres : sur deux colonnes le dernier resterait seul en bout de
+       ligne, on le fait donc courir sur toute la largeur jusqu'à ce que la
+       place permette de tout aligner. */
+    .stat:last-child { grid-column: 1 / -1; }
+    @media (min-width: 900px) {
+      .stats-inner { grid-template-columns: repeat(5, minmax(0, 1fr)); padding: 56px 40px; }
+      .stat:last-child { grid-column: auto; }
+    }
+    /* Le glyphe infini n'a pas les chiffres tabulaires du compteur : on le
+       recale optiquement sur la ligne de base des autres. */
+    .stat-inf { display: inline-block; line-height: 0.86; transform: translateY(0.02em); }
     /* Chiffres : mono + tabulaire + graisse maximale, comme le bandeau de
        briveo.fr. L'unité est un élément distinct, plus petite et atténuée. */
     .stat-num {
@@ -2255,10 +1728,8 @@ const OBJECTIONS = [
       overflow-wrap: break-word;
     }
     @media (min-width: 640px) { .sec-title { margin-top: 16px; letter-spacing: -0.04em; line-height: 1.03; } }
-    .sec-title-light { color: #fff; }
     .sec-sub { margin-top: 24px; font-size: 16px; line-height: 1.62; color: var(--ink-600); }
     @media (min-width: 640px) { .sec-sub { font-size: 17px; } }
-    .sec-sub-light { color: rgba(255, 255, 255, 0.66); }
 
     .card {
       background: var(--white);
@@ -2303,11 +1774,6 @@ const OBJECTIONS = [
     .crit-body { margin-top: 16px; font-size: 15.5px; line-height: 1.68; color: var(--ink-600); }
     .crit-body + .crit-body { margin-top: 13px; }
 
-    .crit-proof { margin-top: auto; padding-top: 22px; display: grid; gap: 10px; }
-    .crit-proof li { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; font-size: 14px; }
-    .crit-proof a { color: var(--em-700); font-weight: 600; border-bottom: 1px solid rgba(4, 120, 87, 0.28); transition: border-color 0.2s ease; }
-    .crit-proof a:hover { border-bottom-color: var(--em-700); }
-
     .testi { margin: 22px 0 0; padding: 18px 20px; background: var(--paper-2); border-left: 3px solid var(--em-500); border-radius: 0 var(--r-sm) var(--r-sm) 0; }
     .testi p { font-size: 14px; line-height: 1.62; color: var(--ink-700); font-style: italic; }
     .testi footer { margin-top: 14px; display: flex; align-items: center; gap: 11px; font-style: normal; }
@@ -2324,26 +1790,34 @@ const OBJECTIONS = [
 
     .crit-bonus { border-color: rgba(5, 150, 105, 0.3); background: linear-gradient(180deg, #fff 0%, #f4fdf9 100%); }
 
-    /* ── Audit ──────────────────────────────────────────────────────────── */
-
-    /* ── Plan 90 jours ──────────────────────────────────────────────────── */
-    .plan-grid { display: grid; gap: 20px; }
-    @media (min-width: 640px) { .plan-grid { gap: 24px; } }
-    @media (min-width: 880px) { .plan-grid { grid-template-columns: repeat(3, 1fr); } }
-    .plan { position: relative; overflow: hidden; transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.4s ease; }
-    .plan:hover { transform: translateY(-4px); border-color: rgba(5, 150, 105, 0.3); }
-    .plan::before {
-      content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px;
-      background: linear-gradient(to right, var(--em-500), var(--em-300));
-      transform: scaleX(0); transform-origin: left;
-      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    /* La carte « lucidité » porte trois points et une citation : seule sur la
+       dernière ligne d'une grille à deux colonnes, elle prend toute la
+       largeur plutôt que de laisser un blanc à côté d'elle. */
+    @media (min-width: 900px) { .crit-wide { grid-column: 1 / -1; } }
+    .crit-gaps { margin-top: 22px; display: grid; gap: 18px; }
+    @media (min-width: 900px) { .crit-gaps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px; } }
+    .crit-gaps li { display: flex; align-items: flex-start; gap: 12px; }
+    .crit-gap-num {
+      flex: none;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--em-700);
+      padding-top: 2px;
     }
-    .plan:hover::before { transform: scaleX(1); }
-    .plan-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
-    .plan-num { font-family: var(--mono); font-size: 30px; font-weight: 700; letter-spacing: -0.05em; color: var(--em-600); line-height: 1; }
-    .plan-duree { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-500); }
-    .plan-title { margin-top: 18px; font-size: 22px; font-weight: 800; letter-spacing: -0.03em; }
-    .plan-text { margin-top: 13px; font-size: 15px; line-height: 1.68; color: var(--ink-600); }
+    .crit-gaps h4 { font-size: 15px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.3; }
+    .crit-gaps p { margin-top: 7px; font-size: 13.5px; line-height: 1.6; color: var(--ink-600); }
+    .crit-gap-note {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--ink-600);
+    }
+
+    /* ── Audit ──────────────────────────────────────────────────────────── */
 
     /* ── Onglets CV ─────────────────────────────────────────────────────── */
     .tabs { padding: 0; overflow: hidden; }
@@ -2373,7 +1847,10 @@ const OBJECTIONS = [
     .timeline { display: grid; gap: 32px; padding-left: 26px; border-left: 1px solid var(--line); }
     .timeline li { position: relative; }
     .tl-dot { position: absolute; left: -32px; top: 16px; width: 11px; height: 11px; border-radius: 999px; background: var(--em-500); box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.14); }
-    .tl-head { display: flex; align-items: center; gap: 13px; }
+    /* `flex-wrap` manquait : sous 720px la vignette, l'intitulé et la période
+       se disputaient la même ligne, et sur un écran de 360px le titre finissait
+       sur cinq lignes. La période passe désormais dessous. */
+    .tl-head { display: flex; align-items: center; gap: 13px; flex-wrap: wrap; }
     /* Plaque à hauteur fixe et largeur libre : les logos en typo (Digital
        Unicorn, Mafigue) restent lisibles là où une vignette carrée les
        réduirait à une bouillie. */
@@ -2398,18 +1875,18 @@ const OBJECTIONS = [
        vignette claire, elles disparaissent. Chacune reçoit donc le fond sur
        lequel elle a été dessinée. */
     .tl-logo--dark { background: #0b0b0b; border-color: rgba(255, 255, 255, 0.14); }
-    /* Icône déjà carrée avec son propre fond : elle occupe toute la vignette. */
-    .tl-logo--bleed { padding: 0; background: transparent; border-color: rgba(23, 23, 23, 0.14); }
-    .tl-logo--bleed img { object-fit: cover; }
+    /* Marque recadrée sur la seule licorne : quasi carrée, elle peut occuper
+       plus de vignette que les logos larges sans rien perdre. */
+    .tl-logo--zoom { padding: 4px; }
     .tl-mono { font-family: var(--mono); font-size: 14px; font-weight: 700; color: var(--em-700); letter-spacing: 0.02em; }
     .tl-id { min-width: 0; flex: 1 1 auto; }
     .timeline h3 { font-size: 17.5px; font-weight: 800; letter-spacing: -0.025em; line-height: 1.25; }
     .tl-co { margin-top: 4px; display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 13.5px; color: var(--ink-500); font-weight: 600; }
     /* Sur mobile la période suit le bloc titre ; à partir de 720px elle passe
        à droite, alignée sur le haut de la ligne, comme sur un vrai CV. */
-    .tl-meta { margin-top: 12px; display: flex; align-items: center; flex-wrap: wrap; gap: 4px 8px; }
+    .tl-meta { margin-top: 12px; display: flex; align-items: center; flex-wrap: wrap; gap: 4px 8px; flex: 1 0 100%; }
     @media (min-width: 720px) {
-      .tl-head { align-items: flex-start; }
+      .tl-head { align-items: flex-start; flex-wrap: nowrap; }
       .tl-logo { margin-top: 2px; }
       .tl-meta {
         margin-top: 2px;
@@ -2420,14 +1897,38 @@ const OBJECTIONS = [
         gap: 5px;
         text-align: right;
         padding-left: 20px;
-        /* Sans borne, « Mars – juillet 2025 · 5 mois » occupe 216px en mono
-           espacé et écrase la colonne du titre. On la laisse passer sur deux
-           lignes plutôt que de rogner l'intitulé. */
         max-width: 190px;
       }
       .tl-meta .mono-label { display: block; text-align: right; }
     }
-    .timeline > li > p:last-child { margin-top: 11px; font-size: 15px; line-height: 1.66; color: var(--ink-600); }
+    /* Sur un vrai écran, « La Seyne-sur-Mer, France » et « Villeneuve-Loubet,
+       France » tiennent chacun sur une ligne : on lève la césure et on élargit
+       la colonne juste assez pour la plus longue des deux. */
+    @media (min-width: 900px) {
+      .tl-meta { max-width: 250px; }
+      .tl-meta .mono-label { white-space: nowrap; }
+    }
+    .timeline > li > p { margin-top: 11px; font-size: 15px; line-height: 1.66; color: var(--ink-600); }
+    /* Deux contrats sous un même en-tête : un filet vertical les rattache au
+       poste sans rejouer la vignette, l'entreprise ni l'intitulé. */
+    .tl-stages {
+      margin-top: 14px;
+      display: grid;
+      gap: 12px;
+      padding-left: 14px;
+      border-left: 2px solid var(--line);
+    }
+    .tl-stages li > p { margin-top: 4px; font-size: 14px; line-height: 1.6; color: var(--ink-600); }
+    /* Période à gauche, lieu poussé à droite — même lecture que la colonne
+       méta de l'en-tête. Ils repassent l'un sous l'autre si la place manque. */
+    .tl-stage-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 4px 14px;
+    }
+    /* Le lieu se pose à côté de sa période, pas sous le texte. */
 
     /* Étiquette de contrat : la nature du poste doit se lire avant le texte. */
     .tl-contrat {
@@ -2520,20 +2021,21 @@ const OBJECTIONS = [
       background: var(--em-500);
     }
 
-    .proofs { display: grid; gap: 12px; }
-    .proofs a {
-      display: grid; gap: 5px;
-      border: 1px solid var(--line);
-      border-radius: var(--r-md);
-      padding: 17px 20px;
-      transition: border-color 0.25s ease, transform 0.25s ease, background 0.25s ease;
-    }
-    .proofs a:hover { border-color: var(--em-400); background: var(--em-50); transform: translateX(4px); }
-    .proof-t { font-size: 15.5px; font-weight: 700; }
-    .proof-d { font-size: 13.5px; color: var(--ink-500); }
-
     /* ── Lettre ─────────────────────────────────────────────────────────── */
-    .letter { display: grid; gap: 16px; font-size: 15.5px; line-height: 1.72; color: var(--ink-700); position: relative; }
+    /* Manuscrite. Caveat tourne nettement plus petit que Jakarta pour une même
+       valeur : on compense d'environ 25 % et on assombrit l'encre, sinon une
+       cursive fine sur fond crème devient pénible sur la longueur. */
+    .letter {
+      display: grid;
+      gap: 16px;
+      font-family: var(--font-caveat-family), 'Segoe Script', cursive;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+      position: relative;
+    }
     .letter::before {
       content: "";
       position: absolute;
@@ -2542,12 +2044,16 @@ const OBJECTIONS = [
       border-radius: 999px;
       background: linear-gradient(to bottom, var(--em-500), transparent);
     }
-    @media (min-width: 640px) { .letter { gap: 18px; font-size: 16.5px; line-height: 1.75; } }
+    @media (min-width: 640px) { .letter { gap: 18px; font-size: 19.5px; line-height: 1.55; } }
     @media (min-width: 700px) { .letter { padding: 46px 44px; } }
 
-    .letter-hi { font-weight: 700; color: var(--ink); }
-    .letter-lead { font-size: 17px; color: var(--ink); font-weight: 500; }
-    @media (min-width: 640px) { .letter-lead { font-size: 18.5px; } }
+    /* La signature reste dans la typo de la page : c'est un bloc d'identité,
+       pas du texte manuscrit, et le nom doit rester recopiable sans effort. */
+    .letter-sign, .sign-id { font-family: var(--font-jakarta-family), system-ui, sans-serif; }
+    /* Tout le manuscrit en 400 : la hiérarchie repose sur le corps seul. */
+    .letter-hi { font-weight: 400; color: var(--ink); }
+    .letter-lead { font-size: 19.5px; color: var(--ink); font-weight: 400; }
+    @media (min-width: 640px) { .letter-lead { font-size: 21px; } }
     /* Surlignage en bas de ligne plutôt qu'un aplat : on garde la couleur du
        texte et le contraste, là où un fond plein écraserait les deux. */
     .letter mark {
@@ -2563,21 +2069,13 @@ const OBJECTIONS = [
       background: var(--paper-2);
       border-left: 3px solid var(--em-500);
       border-radius: 0 var(--r-sm) var(--r-sm) 0;
-      font-size: 17px;
-      font-weight: 700;
-      letter-spacing: -0.022em;
+      font-size: 21px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
       line-height: 1.42;
       color: var(--ink);
     }
-    @media (min-width: 640px) { .letter-quote { font-size: 19px; padding: 20px 26px; } }
-    .letter-close {
-      margin-top: 4px;
-      padding: 18px 20px;
-      background: var(--em-50);
-      border: 1px solid var(--em-200);
-      border-radius: var(--r-md);
-      color: var(--ink-700);
-    }
+    @media (min-width: 640px) { .letter-quote { font-size: 23px; padding: 20px 26px; } }
     .letter-sign {
       margin-top: 14px;
       padding-top: 22px;
@@ -2597,10 +2095,6 @@ const OBJECTIONS = [
     .sign-id { display: grid; gap: 2px; min-width: 0; }
     .sign-id strong { font-size: 16.5px; letter-spacing: -0.02em; }
     .sign-id span { color: var(--ink-500); font-size: 13px; }
-    
-
-    /* ── Bloc CV : boutons PDF ──────────────────────────────────────────── */
-    .tl-foot { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); }
 
     /* ── Personnalité ───────────────────────────────────────────────────── */
     .trait-grid { display: grid; gap: 20px; }
@@ -2658,12 +2152,12 @@ const OBJECTIONS = [
     .offer-price-unit { font-size: 15px; font-weight: 600; color: var(--ink-500); }
     .offer-price-note { margin-top: 9px; font-size: 12.5px; color: var(--ink-500); }
     .offer-lead { margin-top: 22px; font-size: 15.5px; line-height: 1.66; color: var(--ink-600); }
-    .offer-list { margin: 22px 0 28px; display: grid; gap: 11px; }
+    .offer-list { margin: 20px 0 26px; display: grid; gap: 9px; }
     /* Pastille de validation. Le chevron est un SVG dont la boîte englobante
        est centrée sur (12,12) dans son viewBox : posé en background center,
        il tombe donc pile au milieu du cercle. La version en deux bordures
        tournées à -45° décalait la coche vers le haut. */
-    .offer-list li { position: relative; padding-left: 28px; font-size: 14.5px; line-height: 1.55; color: var(--ink-700); }
+    .offer-list li { position: relative; padding-left: 25px; font-size: 13.5px; line-height: 1.5; color: var(--ink-700); }
     .offer-list li::before {
       content: "";
       position: absolute;
@@ -2678,39 +2172,6 @@ const OBJECTIONS = [
       background-size: 10px 10px;
     }
     .offer-foot { margin: 30px auto 0; max-width: 560px; text-align: center; font-size: 14px; color: var(--ink-500); }
-
-    /* ── Lacunes assumées ───────────────────────────────────────────────
-       Les deux premières cartes sont des constats, la troisième la
-       contrepartie : elle porte donc l'accent vert. */
-    .gap-grid { display: grid; gap: 20px; }
-    @media (min-width: 880px) { .gap-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; } }
-    .gap { display: flex; flex-direction: column; transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.4s ease; }
-    .gap:hover { transform: translateY(-4px); border-color: rgba(5, 150, 105, 0.28); }
-    .gap-num { font-family: var(--mono); font-size: 30px; font-weight: 700; letter-spacing: -0.05em; color: var(--ink-500); line-height: 1; }
-    .gap-title { margin-top: 16px; font-size: 19px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.25; }
-    .gap-text { margin-top: 13px; font-size: 15px; line-height: 1.68; color: var(--ink-600); }
-    .gap-grid > .gap:last-child { border-color: rgba(5, 150, 105, 0.32); background: linear-gradient(180deg, #fff 0%, #f4fdf9 100%); }
-    .gap-grid > .gap:last-child .gap-num { color: var(--em-600); }
-
-    .gap-quote {
-      margin: 28px auto 0;
-      max-width: 720px;
-      padding: 26px 24px;
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-left: 3px solid var(--em-500);
-      border-radius: 0 var(--r-lg) var(--r-lg) 0;
-    }
-    @media (min-width: 700px) { .gap-quote { padding: 30px 32px; } }
-    .gap-quote > p:first-child { font-size: 18px; line-height: 1.5; font-style: italic; letter-spacing: -0.02em; color: var(--ink); }
-    @media (min-width: 700px) { .gap-quote > p:first-child { font-size: 20px; } }
-    .gap-quote > p:first-child strong { color: var(--em-700); font-style: normal; }
-    .gap-quote footer { margin-top: 18px; display: flex; align-items: center; gap: 11px; }
-    .gap-quote footer span { display: grid; gap: 1px; font-size: 11.5px; color: var(--ink-500); line-height: 1.4; }
-    .gap-quote footer strong { font-size: 13px; color: var(--ink); font-weight: 700; }
-    .gap-quote-note { margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 14.5px; line-height: 1.66; color: var(--ink-600); }
-
-    .gap-foot { margin: 30px auto 0; max-width: 560px; text-align: center; font-size: 15px; font-weight: 600; color: var(--ink-700); }
 
     /* ── Bande citation ─────────────────────────────────────────────────
        Même fond que leurs sections sombres : la citation occupe l'écran
@@ -2744,114 +2205,53 @@ const OBJECTIONS = [
       color: rgba(255, 255, 255, 0.62);
     }
 
-    /* ── Vérification par IA ────────────────────────────────────────────── */
-    .ai-check {
+    /* ── Contact ────────────────────────────────────────────────────────── */
+    /* Relevé sur la section finale de briveo.fr : le fond n'est pas le vert
+       quasi noir des autres bandes sombres, c'est un émeraude franc qui
+       descend de emerald-600 à emerald-800. */
+    .contact {
       position: relative;
       overflow: hidden;
-      margin: 48px auto 0;
-      max-width: 980px;
-      border-radius: var(--r-xl);
-      background: linear-gradient(160deg, #043b2b 0%, #022c22 58%, #04150f 100%);
+      /* Leur dégradé passe au ton moyen à 55 %. On l'avance à 38 % : le
+         sous-titre tombe alors sur emerald-700 (5,5:1) au lieu d'emerald-600,
+         où même du blanc pur plafonne à 3,8:1. Teintes inchangées. */
+      background: linear-gradient(to bottom, #059669 0%, #047857 38%, #065f46 100%);
       color: #fff;
+      padding: 84px 0;
     }
-    .ai-check-inner { position: relative; z-index: 2; padding: 30px 22px; }
-    @media (min-width: 700px) { .ai-check-inner { padding: 40px 38px; } }
-    .ai-title { margin-top: 14px; font-size: clamp(1.4rem, 4.4vw, 1.95rem); font-weight: 800; letter-spacing: -0.035em; line-height: 1.1; }
-    .ai-sub { margin-top: 16px; max-width: 620px; font-size: 15px; line-height: 1.64; color: rgba(255, 255, 255, 0.68); }
-
-    .ai-prompt { margin-top: 22px; border: 1px solid rgba(255, 255, 255, 0.14); border-radius: var(--r-md); overflow: hidden; }
-    .ai-prompt summary {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      padding: 13px 16px;
-      cursor: pointer;
-      list-style: none;
-      font-family: var(--mono);
-      font-size: 10.5px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--em-300);
-      background: rgba(255, 255, 255, 0.04);
-      transition: background 0.25s ease;
-    }
-    .ai-prompt summary::-webkit-details-marker { display: none; }
-    .ai-prompt summary:hover { background: rgba(255, 255, 255, 0.08); }
-    .ai-prompt summary .ico { width: 13px; height: 13px; transition: transform 0.25s ease; }
-    .ai-prompt[open] summary .ico { transform: rotate(90deg); }
-    .ai-prompt pre {
-      margin: 0;
-      padding: 18px 16px;
-      font-family: var(--mono);
-      font-size: 12px;
-      line-height: 1.7;
-      color: rgba(255, 255, 255, 0.74);
-      white-space: pre-wrap;
-      overflow-wrap: break-word;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .ai-actions { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px; }
-    .ai-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border-radius: 999px;
-      padding: 12px 20px;
-      font-size: 14px;
-      font-weight: 700;
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      color: #fff;
-      transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .ai-btn:hover { background: var(--em-600); border-color: var(--em-500); transform: translateY(-2px); }
-    .ai-btn-logo { display: inline-flex; width: 18px; height: 18px; flex: none; }
-    .ai-btn-logo svg { width: 100%; height: 100%; display: block; fill: currentColor; }
-    .ai-btn-out { width: 13px; height: 13px; opacity: 0.5; transition: transform 0.25s ease, opacity 0.25s ease; }
-    .ai-btn:hover .ai-btn-out { opacity: 0.9; transform: translate(2px, -2px); }
-
-    /* Le prompt déroulé se copie d'un clic : l'indice n'apparaît qu'au survol
-       pour ne pas encombrer la lecture. */
-    .ai-prompt-body { position: relative; cursor: pointer; }
-    .ai-prompt-body:hover pre { background: rgba(255, 255, 255, 0.04); }
-    .ai-prompt-body pre { transition: background 0.25s ease; }
-    .ai-copy-hint {
+    @media (min-width: 640px) { .contact { padding: 112px 0; } }
+    @media (min-width: 900px) { .contact { padding: 140px 0; } }
+    .contact-glow {
       position: absolute;
-      top: 10px;
-      right: 10px;
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 6px 11px;
+      left: 50%;
+      top: 0;
+      width: 1000px;
+      max-width: 160%;
+      height: 600px;
+      transform: translateX(-50%);
       border-radius: 999px;
-      background: rgba(4, 21, 15, 0.82);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      font-family: var(--mono);
-      font-size: 9.5px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: rgba(255, 255, 255, 0.82);
-      opacity: 0;
-      transform: translateY(-3px);
-      transition: opacity 0.22s ease, transform 0.22s ease, background 0.22s ease, color 0.22s ease;
+      background: rgba(16, 185, 129, 0.12);
+      filter: blur(64px);
       pointer-events: none;
     }
-    .ai-prompt-body:hover .ai-copy-hint,
-    .ai-prompt-body:focus-visible .ai-copy-hint,
-    .ai-prompt-body.is-copied .ai-copy-hint { opacity: 1; transform: none; }
-    .ai-prompt-body.is-copied .ai-copy-hint { background: var(--em-600); border-color: var(--em-500); color: #fff; }
-    .ai-copy-hint .ico { width: 12px; height: 12px; }
-    .ai-note { margin-top: 18px; font-size: 12px; line-height: 1.6; color: rgba(255, 255, 255, 0.48); max-width: 560px; }
-
-    /* ── Contact ────────────────────────────────────────────────────────── */
-    .contact { position: relative; overflow: hidden; background: linear-gradient(165deg, #043b2b 0%, #022c22 60%, #04150f 100%); color: #fff; padding: 76px 0; }
-    @media (min-width: 640px) { .contact { padding: 96px 0; } }
-    @media (min-width: 900px) { .contact { padding: 130px 0; } }
-    .contact-inner { text-align: center; display: grid; justify-items: center; }
+    .contact-mesh {
+      position: absolute;
+      inset: 0;
+      opacity: 0.06;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px),
+        linear-gradient(to right, rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+      background-size: 96px 96px;
+      -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, #000 20%, transparent 80%);
+      mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, #000 20%, transparent 80%);
+    }
+    .contact-inner { position: relative; z-index: 2; text-align: center; display: grid; justify-items: center; }
     .contact-title { margin-top: 22px; font-size: clamp(2rem, 8vw, 4.4rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.04; overflow-wrap: break-word; }
     @media (min-width: 640px) { .contact-title { margin-top: 26px; letter-spacing: -0.045em; line-height: 1.02; } }
-    .contact-sub { margin-top: 20px; max-width: 520px; font-size: 16px; line-height: 1.62; color: rgba(255, 255, 255, 0.62); }
+    /* Eux utilisent neutral-300, qui ne donne que 2,5:1 sur cet émeraude.
+       Blanc pur : même intention, 5,5:1, lisible. */
+    .contact-sub { margin-top: 20px; max-width: 520px; font-size: 17px; line-height: 1.62; color: #fff; }
     @media (min-width: 640px) { .contact-sub { margin-top: 22px; font-size: 17px; } }
     /* ── Maquette de visioconférence ────────────────────────────────────
        Panneau translucide sur le dégradé sombre, dans l'esprit des cartes
@@ -2905,15 +2305,6 @@ const OBJECTIONS = [
       color: #fff;
       line-height: 1.4;
     }
-    .visio-mic {
-      position: absolute;
-      right: 8px; top: 8px;
-      width: 22px; height: 22px;
-      display: inline-flex; align-items: center; justify-content: center;
-      border-radius: 999px;
-      background: rgba(4, 21, 15, 0.72);
-    }
-    .visio-mic svg { width: 11px; height: 11px; fill: none; stroke: var(--em-300); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
     .visio-ctrl { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px; }
     .visio-btn {
       width: 32px; height: 32px;
@@ -2930,21 +2321,61 @@ const OBJECTIONS = [
     @media (max-width: 419px) { .contact-actions { flex-direction: column; align-items: stretch; } .contact-actions .btn { width: 100%; } }
     @media (min-width: 640px) { .contact-actions { margin-top: 34px; gap: 12px; } }
     /* ── Footer ─────────────────────────────────────────────────────────── */
-    .foot { background: #04150f; color: rgba(255, 255, 255, 0.62); padding: 30px 0; border-top: 1px solid rgba(255, 255, 255, 0.07); }
+    /* Chez briveo.fr le pied de page n'est pas sombre : c'est un beige chaud
+       #F4F1EC en encre neutral-900, juste après la bande émeraude. Le
+       contraste entre les deux est volontaire — on le reprend tel quel. */
+    .foot {
+      position: relative;
+      overflow: hidden;
+      background: #f4f1ec;
+      color: #171717;
+      padding: 56px 0 32px;
+    }
+    @media (min-width: 640px) { .foot { padding: 64px 0 36px; } }
+    @media (min-width: 1024px) { .foot { padding: 80px 0 40px; } }
+    .foot > .wrap { position: relative; z-index: 2; }
+
+    .foot-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 30px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid rgba(23, 23, 23, 0.1);
+    }
+    .foot-sign {
+      font-size: clamp(1.5rem, 5vw, 2.1rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      color: #0a0a0a;
+    }
+    .foot-pill { flex: none; }
+
     .foot-cols {
       display: grid;
       gap: 28px;
-      padding-bottom: 28px;
-      margin-bottom: 24px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+      padding-bottom: 30px;
+      margin-bottom: 26px;
+      border-bottom: 1px solid rgba(23, 23, 23, 0.1);
       text-align: left;
     }
     @media (min-width: 620px) { .foot-cols { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; } }
-    .foot-col ul { margin-top: 14px; display: grid; gap: 9px; }
-    .foot-col a { font-size: 13.5px; color: rgba(255, 255, 255, 0.72); display: inline-block; transition: color 0.2s ease, padding-left 0.25s ease; }
-    .foot-col a:hover { color: var(--em-300); padding-left: 5px; }
-    .foot-inner { display: grid; gap: 6px; text-align: center; font-size: 12px; line-height: 1.6; }
-    .foot-dim { color: rgba(255, 255, 255, 0.48); }
+    /* Leurs intitulés de colonne : 11px, gras, capitales, interlettrage 0.2em,
+       en neutral-600. */
+    .foot-col > .mono-label { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: #525252; }
+    .foot-col ul { margin-top: 16px; display: grid; gap: 10px; }
+    .foot-col a {
+      font-size: 14px;
+      color: #404040;
+      display: inline-block;
+      transition: color 0.2s ease;
+    }
+    .foot-col a:hover { color: #0a0a0a; text-decoration: underline; text-underline-offset: 4px; }
+    .foot-inner { display: grid; gap: 6px; text-align: center; font-size: 12px; line-height: 1.6; color: #525252; }
+    .foot-dim { color: #5c5c5c; }
 
     /* ── FAB « appelez-moi » (calque du bouton LAIA de briveo.fr) ───────── */
     .fab {
@@ -3070,7 +2501,6 @@ const OBJECTIONS = [
     .modal-alt { margin-top: 16px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px 10px; font-size: 13px; color: var(--ink-500); }
     .modal-alt a { color: var(--ink-600); font-weight: 600; border-bottom: 1px solid var(--line-strong); padding-bottom: 1px; transition: color 0.2s ease, border-color 0.2s ease; }
     .modal-alt a:hover { color: var(--em-700); border-color: var(--em-600); }
-    .modal-foot { margin-top: 14px; text-align: center; font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-500); }
 
     /* ── Reveal au scroll ───────────────────────────────────────────────── */
     .reveal {
@@ -3330,7 +2760,7 @@ const OBJECTIONS = [
 
       /* ── Machine à écrire de la carte « Coach » ────────────────────── */
       var typed = document.getElementById('typed');
-      var phrase = 'Ce profil coche les trois critères de l’annonce. Je recommande un entretien cette semaine.';
+      var phrase = 'Je recommande un entretien cette semaine.';
       if (typed) {
         if (reduce) {
           typed.textContent = phrase;
