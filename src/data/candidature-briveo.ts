@@ -374,43 +374,45 @@ export const OBJECTIONS = [
 export type BlocLettre = { type: 'hi' | 'lead' | 'p' | 'quote'; texte: string };
 
 export const LETTRE: BlocLettre[] = [
-  { type: 'hi', texte: 'Bonjour,' },
+  { type: 'hi', texte: "Bonjour à toute l'équipe Briveo," },
   {
     type: 'lead',
     texte:
-      "Je postule à beaucoup moins d'offres qu'on ne l'imagine. Celle-ci, je l'ai lue deux fois, puis j'ai passé la soirée sur briveo.fr — d'abord par curiosité, ensuite parce que je n'ai pas réussi à en sortir.",
-  },
-  {
-    type: 'p',
-    texte: "Ce qui m'a retenu, ce n'est pas «&nbsp;l'IA dans l'immobilier&nbsp;».",
-  },
-  {
-    type: 'quote',
-    texte: "C'est que vous avez pris le problème par la friction plutôt que par la promesse.",
+      "Je postule à cette offre parce que j'ai aujourd'hui envie de changer de cadre&nbsp;: passer d'un système d'agence à <mark>un produit sur lequel je peux m'investir véritablement sur le long terme</mark> et le voir évoluer au fil des années.",
   },
   {
     type: 'p',
     texte:
-      "Ce qui coince dans une vente n'est jamais la promesse&nbsp;: c'est l'attente sans nouvelles, le prix qu'on ne sait pas justifier, les papiers qu'on ressaisit trois fois. Un produit qui s'attaque à ça d'abord fait des <strong>choix de conception, pas du marketing</strong> — et ça, ça se voit dans une interface.",
+      "En agence, j'ai appris à m'adapter rapidement à des clients, des métiers et des briefs et profils différents. C'est très formateur, mais cela signifie aussi qu'une fois le livrable terminé, il faut souvent passer au projet suivant sans réellement pouvoir amener le projet à son plein potentiel, lorsque certaines étapes sont laissées de côté.",
   },
   {
     type: 'p',
     texte:
-      "Rendre lisible ce qui est compliqué, <mark>c'est exactement le métier que je veux faire</mark>. Chez vous, les montants sont énormes, <strong>la confiance est fragile</strong>, et la moitié des gens qui entrent dans le produit n'ont jamais vendu de leur vie&nbsp;: le terrain le plus exigeant de la catégorie. Et <mark>je suis d'ici</mark> — Nice, Toulon, le Var —, avec un intérêt pour ce marché qui est bien antérieur à votre annonce.",
+      "J'ai l'ambition de pouvoir désormais aller plus loin sur un même produit&nbsp;: <strong>en comprendre l'écosystème dans ses moindres recoins, l'itérer continuellement et l'amener d'un MVP à un produit abouti</strong>, dont l'évolution peut être mesurée par des métriques concrètes. Cela implique forcément de développer de nouvelles compétences et de fournir les efforts nécessaires pour y parvenir&nbsp;: c'est justement ce que je viens chercher.",
   },
   {
     type: 'p',
     texte:
-      "Mes résultats récents tiennent en une phrase&nbsp;: <strong>des produits en ligne, et des clients qui signent leur nom dessous.</strong> Le site et l'application du Guide du Golfe de Saint-Tropez, redessinés et livrés. JOBBRR et PHOQ.tv, en production. Et le test technique qui m'a valu mon poste chez Kosmos&nbsp;: une maquette, jugée sur pièce.",
+      "C'est précisément ce que je retrouve dans le projet Briveo. En regardant ce que vous construisez, j'ai l'impression de voir une équipe qui cherche réellement à innover dans son secteur, à utiliser les nouvelles technologies intelligemment et à se poser des questions sur la manière de le faire. <strong>Ce mélange entre produit, innovation et réflexion sur les usages m'attire particulièrement.</strong>",
   },
   {
     type: 'p',
     texte:
-      "Ce que je n'ai pas encore, ce sont des courbes&nbsp;: en agence, on est rarement là six mois après la mise en ligne. <mark>C'est mon projet des deux à trois prochaines années</mark> — <strong>arrêter de livrer et commencer à mesurer ce que je livre.</strong> Un design system tenu dans la durée, une recherche utilisateur continue, et des décisions que je peux relire dans les chiffres. Ça se fait dans une équipe, sur un produit vivant. Pas en mission de trois semaines.",
+      "L'immobilier est également un domaine qui m'intéresse de plus en plus. Je ne prétendrai pas en avoir aujourd'hui une connaissance approfondie, mais c'est justement un nouvel écosystème que j'ai envie de découvrir et de comprendre en profondeur, avec une véritable soif d'apprendre.",
   },
   {
     type: 'p',
     texte:
-      "Sur mon site, ma promesse tient en quatre mots&nbsp;: <strong>fini le blabla, place au concret</strong>. Vous envoyer un PDF aurait été malvenu&nbsp;: j'ai relevé votre design system, reconstruit cette page, et <strong>vous lisez le livrable</strong>.",
+      "Et surtout, votre produit me semble être un terrain particulièrement intéressant pour un designer&nbsp;: <strong>plusieurs utilisateurs, des enjeux importants, beaucoup de complexité apparente qu'il faut rendre simple</strong>, et un produit qui est encore amené à évoluer. <mark>C'est exactement le contexte dans lequel j'ai envie de progresser aujourd'hui.</mark>",
+  },
+  {
+    type: 'p',
+    texte:
+      "Je suis certain que ma créativité, mon dynamisme et mon état d'esprit de toujours me surpasser seront un atout majeur pour Briveo.",
+  },
+  {
+    type: 'p',
+    texte:
+      "Vous avez déjà pu en apercevoir les premières briques. <strong>J'espère maintenant avoir l'occasion de continuer à les construire avec vous.</strong>",
   },
 ];
