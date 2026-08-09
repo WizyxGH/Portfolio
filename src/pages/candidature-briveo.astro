@@ -18,8 +18,8 @@ import { Font, Image } from 'astro:assets';
 import avatarFlorian from '../assets/media/photo.webp';
 import photoHero from '../assets/media/photoperso.webp';
 import avatarCaroline from '../assets/media/photo/carolineaubert.webp';
-import avatarJonathan from '../assets/media/photo/jonathanvaissiere.webp';
 import avatarLucas from '../assets/media/photo/lucaskacem.webp';
+import avatarJonathan from '../assets/media/photo/jonathanvaissiere.webp';
 
 // Les aperçus de partage exigent des URL absolues : un chemin relatif
 // laisse LinkedIn et WhatsApp sans image.
@@ -40,11 +40,19 @@ import {
   STATS,
   ico,
   SKILLS,
-  LACUNES,
   TRAITS,
   OBJECTIONS,
+  TEMOIGNAGES,
   LETTRE,
 } from '../data/candidature-briveo';
+
+// Les témoignages sont écrits sans image dans le fichier de contenu : le
+// portrait est résolu ici, pour rester dans le pipeline astro:assets.
+const AVATARS: Record<string, ImageMetadata> = {
+  caroline: avatarCaroline,
+  lucas: avatarLucas,
+  jonathan: avatarJonathan,
+};
 
 ---
 
@@ -151,9 +159,10 @@ import {
         <a href="#criteres">Vos critères</a>
         <a href="#cv">Mon parcours</a>
         <a href="#profil">Qui suis-je ?</a>
-        <a href="#lettre">La lettre</a>
+        <a href="#lettre">Manifeste</a>
+        <a href="#test">Me tester</a>
       </nav>
-      <a href="#test" class="btn btn-sm btn-primary nav-cta">Me tester</a>
+      <a href="#contact" class="btn btn-sm btn-primary nav-cta">On en discute&nbsp;?</a>
       <button class="burger" id="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
       </button>
@@ -166,10 +175,10 @@ import {
         <a href="#cv"><span class="mm-num">03</span> Mon parcours</a>
         <a href="#profil"><span class="mm-num">04</span> Qui suis-je ?</a>
         <a href="#lettre"><span class="mm-num">05</span> Lettre de motivation</a>
+        <a href="#test"><span class="mm-num">06</span> Me tester</a>
       </nav>
       <div class="mobile-menu-foot">
-        <a href="#test" class="btn btn-primary btn-block">Me tester</a>
-
+        <a href="#contact" class="btn btn-primary btn-block">On en discute ?</a>
       </div>
     </div>
   </header>
@@ -219,11 +228,7 @@ import {
             </li>
             <li>
               <svg viewBox="0 0 24 24" class="ico ico-em" aria-hidden="true"><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/><circle cx="12" cy="12" r="9"/></svg>
-              FR · EN · DE
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" class="ico ico-em" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
-              25 projets publics, tous datés
+              Parle français, anglais, allemand
             </li>
           </ul>
         </div>
@@ -266,7 +271,7 @@ import {
       <!-- Chez Briveo cette bande n'est qu'une étiquette. Ici elle a l'air
            d'un bouton, donc elle en devient un : elle mène au chapitre
            suivant et annonce lequel. -->
-      <a href="#criteres" class="hero-scroll">
+      <!-- <a href="#criteres" class="hero-scroll">
         <span class="hero-scroll-left">
           <span class="hero-scroll-chev" aria-hidden="true">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
@@ -277,7 +282,7 @@ import {
           02 · Vos critères
           <svg viewBox="0 0 24 24" class="ico ico-arrow" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </span>
-      </a>
+      </a>-->
     </section>
 
     <!-- ══════════════════════════ CHIFFRES ══════════════════════════ -->
@@ -326,72 +331,55 @@ import {
       <div class="wrap">
         <header class="sec-head reveal">
           <span class="eyebrow">Votre annonce, ligne par ligne</span>
-          <h2 class="sec-title"><span class="num">3</span> critères.<br /><span class="num">3</span> preuves.</h2>
+          <h2 class="sec-title">Vos critères.<br />Mes preuves.</h2>
           <p class="sec-sub">
-            Vous avez écrit exactement ce que vous cherchez. Je réponds dans le même ordre, avec des
-            projets que vous pouvez ouvrir dans un onglet à côté.
+            «&nbsp;Product manager, designer produit, UX writer&nbsp;» pour «&nbsp;définir la
+            prochaine génération d'outils tech pour le marché immobilier français&nbsp;». Voilà votre
+            profil recherché, ligne par ligne, avec des projets que vous pouvez ouvrir dans un onglet
+            à côté.
           </p>
         </header>
 
-        <div class="crit-grid">
+        <div class="crit-grid" data-stagger="80">
           <!-- 01 -->
           <article class="card crit reveal">
             <div class="crit-head">
               <span class="crit-num">01</span>
               <span class="quote-chip">« {OFFRE.criteres[0]} »</span>
             </div>
-            <h3 class="crit-title"><span class="num">3</span> ans, <span class="num">13</span> produits en ligne, des clients qui signent leur avis.</h3>
+            <h3 class="crit-title"><span class="num">3</span> ans, <span class="num">20+</span> projets réalisés, des clients qui signent leur avis.</h3>
             <p class="crit-body">
-              Une agence internationale, un studio produit, et depuis, du design produit en direct
-              avec des fondateurs. J'y ai couvert les quatre familles d'interfaces qu'un produit
-              comme Briveo demande&nbsp;: <strong>une vitrine qui convainc, un tunnel qui convertit,
-              une app qui accompagne, des cockpits qui tiennent la charge métier.</strong>
+              Une agence internationale et locale, des collaborations avec d'autres freelance, et depuis, du design produit en direct
+              avec des fondateurs. <strong>J'y ai couvert les quatre familles d'interfaces qu'un produit
+              comme Briveo demande</strong>&nbsp;: une vitrine attrayante, un tunnel qui convertit,
+              une application qui accompagne, des SaaS pour répondre aux besoins initiaux.
             </p>
-            <blockquote class="testi">
-              <p>
-                « Motivé, hyper proactif, enseignable, il a su, dès les premiers jours, être
-                opérationnel. […] Il est force de proposition et sait répondre à des briefs client
-                quasiment en autonomie. <strong>Je recommande son profil à l'embauche si vous souhaitez
-                ne pas prendre de risque</strong>, puisqu'il coche toutes les cases. »
-              </p>
-              <footer>
-                <Image src={avatarCaroline} alt="" width="72" height="72" loading="lazy" class="testi-av" />
-                <span><strong>Caroline Aubert</strong>Product Designer &amp; fondatrice de Mafigue</span>
-              </footer>
-            </blockquote>
           </article>
 
-          <!-- 02 -->
-          <article class="card crit reveal" style="--d:80ms">
+          <!-- 02 — « luxe » est le mot qui fait fuir les preuves : personne ne
+               peut prouver du goût. Il est donc traité par ce qui se vérifie,
+               c'est-à-dire la précision, et par la seule pièce à conviction
+               disponible ici — la page elle-même. -->
+          <article class="card crit reveal">
             <div class="crit-head">
               <span class="crit-num">02</span>
               <span class="quote-chip">« {OFFRE.criteres[1]} »</span>
             </div>
-            <h3 class="crit-title">J'ai déjà designé pour le Golfe de Saint-Tropez.</h3>
+            <h3 class="crit-title">Le luxe, c'est ce qui reste une fois qu'on a tout enlevé.</h3>
             <p class="crit-body">
-              Chez <strong>Mafigue</strong>, le redesign du site et de l'application du{' '}
-              <strong>Guide du Golfe de Saint-Tropez</strong>&nbsp;:
-              établissements, événements, contenu éditorial, pour des résidents et des visiteurs qui ne
-              tolèrent pas l'à-peu-près. Le luxe sur la Côte d'Azur, je ne le découvre pas dans un
-              moodboard&nbsp;: c'est mon terrain. Et la précision, c'est l'autre moitié du métier —
-              tokens, grilles, chiffres alignés, états d'erreur écrits à la main. Un mandat Hoguet et
-              une fiche de bien doivent se lire de la même façon&nbsp;: sans ambiguïté possible.
+              Une interface haut de gamme ne s'obtient pas en ajoutant de l'or, mais en retirant&nbsp;:
+              le superflu pour ne garder que l'essentielle. On ne surcharge pas l'utilisateur d'informations pour le laisser faire un choix éclairé dans un environnement premium
             </p>
-            <blockquote class="testi">
-              <p>
-                « Un travail pro et sérieux comme on aime et surtout comme on a BESOIN&nbsp;! Florian a
-                fait partie de l'équipe qui nous a conçu les maquettes de notre dernière version […]
-                Rapide, efficace et agréable. »
-              </p>
-              <footer>
-                <Image src={avatarJonathan} alt="" width="72" height="72" loading="lazy" class="testi-av" />
-                <span><strong>Jonathan Vaissière</strong>Entrepreneur, Le Guide du Golfe de Saint-Tropez</span>
-              </footer>
-            </blockquote>
+            <p class="crit-body">
+              La précision, elle, ne dépend pas du secteur. Un mandat Hoguet et une fiche de bien
+              doivent se lire de la même façon&nbsp;: <strong>sans ambiguïté possible</strong>. Sur un
+              acte à 450 000&nbsp;€, une virgule mal placée ne coûte pas un ticket support&nbsp;: elle
+              coûte une vente.
+            </p>
           </article>
 
           <!-- 03 -->
-          <article class="card crit reveal" style="--d:160ms">
+          <article class="card crit reveal">
             <div class="crit-head">
               <span class="crit-num">03</span>
               <span class="quote-chip">« {OFFRE.criteres[2]} »</span>
@@ -415,7 +403,7 @@ import {
           </article>
 
           <!-- 04 — bonus -->
-          <article class="card crit crit-bonus reveal" style="--d:240ms">
+          <article class="card crit crit-bonus reveal">
             <div class="crit-head">
               <span class="crit-num crit-num-em">04</span>
               <span class="quote-chip quote-chip-em">Le critère que vous n'avez pas écrit</span>
@@ -428,67 +416,62 @@ import {
               votre design system relevé sur briveo.fr, puis reconstruit — typographies, échelle
               typographique, rayons, ombres, et vos micro-animations refaites à la main.
             </p>
-            <p class="crit-body">
-              Détail qui compte pour vous&nbsp;: vos annonces sont bilingues FR&nbsp;+&nbsp;EN et votre
-              clientèle Côte d'Azur est internationale. Je travaille en français, en anglais et en
-              allemand niveau A2. L'anglais, je ne l'ai pas appris en cours du soir : j'ai passé cinq mois
-      à travailler dans une agence au Vietnam.
-            </p>
-            <blockquote class="testi">
-              <p>
-                « Florian a fait son stage chez Digital Unicorn en tant que UI/UX Designer et ça a été
-                un vrai plaisir de travailler avec lui. Super impliqué, intelligent et toujours dans
-                l'action, il a vraiment apporté de la valeur à l'équipe. »
-              </p>
-              <footer>
-                <Image src={avatarLucas} alt="" width="72" height="72" loading="lazy" class="testi-av" />
-                <span><strong>Lucas Kacem</strong>Co-fondateur &amp; Président, Digital Unicorn</span>
-              </footer>
-            </blockquote>
           </article>
 
-          <!-- 05 — bonus. La lucidité est le seul critère qu'une annonce ne
-               peut pas demander : personne n'écrit « sachez ce que vous ne
-               savez pas ». Les deux retards assumés et leur contrepoids
-               tiennent donc ici, plutôt que dans une section à part. -->
-          <article class="card crit crit-bonus crit-wide reveal" style="--d:320ms">
+          <!-- 05 — bonus. Une annonce sait demander ce qu'on sait déjà faire ;
+               elle n'a aucun moyen de demander la vitesse à laquelle on apprend
+               le reste. C'est pourtant le seul critère qui décide de ce que vaut
+               un profil de trois ans dans dix-huit mois. -->
+          <article class="card crit crit-bonus reveal">
             <div class="crit-head">
               <span class="crit-num crit-num-em">05</span>
-              <span class="quote-chip quote-chip-em">Le critère qu'une annonce ne sait pas écrire</span>
+              <span class="quote-chip quote-chip-em">Le critère qui ne se mesure pas en années</span>
             </div>
-            <h3 class="crit-title">Ce qui me manque. Et ce que j'en fais.</h3>
+            <h3 class="crit-title">Ma vitesse d'apprentissage, elle, est documentée.</h3>
             <p class="crit-body">
-              Une candidature qui n'énumère que des forces se fait démonter au premier entretien.
-              Voilà les deux endroits où je suis en retard sur votre annonce — et la raison pour
-              laquelle je pense les rattraper vite.
+              BTS informatique, puis BUT MMI, puis Master 1 UX/UI Design&nbsp;: <strong>trois
+              disciplines en cinq ans</strong>, chacune validée. À 21 ans, trois mois dans une agence
+              au Vietnam, en français comme en anglais, à mener des rendez-vous clients et prospects.
+              Je n'arrive jamais sur un terrain connu — c'est devenu ma zone de confort.
             </p>
-
-            <ol class="crit-gaps">
-              {LACUNES.map((l) => (
-                <li>
-                  <span class="crit-gap-num">{l.num}</span>
-                  <div>
-                    <h4>{l.titre}</h4>
-                    <p>{l.texte}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-
-            <blockquote class="testi">
-              <p>
-                «&nbsp;Motivé, hyper proactif, <strong>enseignable</strong>, il a su, dès les
-                premiers jours, être opérationnel.&nbsp;»
-              </p>
-              <footer>
-                <Image src={avatarCaroline} alt="" width="72" height="72" loading="lazy" class="testi-av" />
-                <span><strong>Caroline Aubert</strong>Product Designer &amp; fondatrice de Mafigue</span>
-              </footer>
-            </blockquote>
-            <p class="crit-gap-note">
-              On ne dit pas «&nbsp;enseignable&nbsp;» de quelqu'un qui sait déjà tout.
+            <p class="crit-body">
+              L'immobilier ne fera pas exception&nbsp;: la loi Hoguet et le registre des mandats
+              s'apprennent en écoutant ceux qui les pratiquent, et c'est exactement ce que je fais actuellement
+              en écoutant les nombreux clients chez Kosmos Digital.
             </p>
+            <!-- <p class="crit-gap-note">
+              Caroline Aubert, plus haut, emploie un mot rare dans une recommandation&nbsp;:
+              «&nbsp;<strong>enseignable</strong>&nbsp;». On ne dit pas ça de quelqu'un qui sait
+              déjà tout.
+            </p> -->
           </article>
+        </div>
+      </div>
+
+      <!-- Les témoignages ne sont plus enfermés dans une carte de critère :
+           sortis du texte, ils se lisent comme une rumeur de fond plutôt que
+           comme une pièce jointe. Le groupe est répété quatre fois pour deux
+           raisons : la translation de -50 % doit tomber sur un contenu
+           identique pour boucler sans raccord, et trois cartes seules ne
+           couvrent pas un écran large — la piste laisserait un trou. -->
+      <div class="testi-band">
+        <h3 class="testi-band-title">Témoignages</h3>
+        <div class="testi-rail">
+          <div class="testi-track">
+            {[0, 1, 2, 3].map(() => (
+              <div class="testi-group">
+                {TEMOIGNAGES.map((t) => (
+                  <figure class="testi-card">
+                    <blockquote>«&nbsp;{t.texte}&nbsp;»</blockquote>
+                    <figcaption>
+                      <Image src={AVATARS[t.avatar]} alt="" width="72" height="72" loading="lazy" class="testi-av" />
+                      <span><strong>{t.auteur}</strong>{t.role}</span>
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -499,11 +482,10 @@ import {
       <div class="wrap">
         <header class="sec-head reveal">
           <span class="eyebrow">Mon parcours</span>
-          <h2 class="sec-title"><span class="num">3</span> ans. <span class="num">5</span> entreprises.<br /><span class="num">2</span> pays.</h2>
+          <h2 class="sec-title">Une étincelle qui brillera toujours.</h2>
           <p class="sec-sub">
-            J'ai commencé par écrire du code pour un éditeur de logiciel métier, pas par dessiner des
-            écrans. Puis cinq mois en agence au Vietnam, un studio produit sur la Côte d'Azur, et
-            aujourd'hui le design produit à plein temps. Tout est daté.
+            Animé par une envie de créer mes propres univers numériques, j'ai appris par moi-même le graphisme, >développement et l'UI/UX
+            avant de faire de cette passion ma profession.
           </p>
 
         </header>
@@ -588,11 +570,6 @@ import {
                   </li>
                 ))}
               </ol>
-              <p class="tl-formation-note">
-                J'ai appris à coder avant d'apprendre à designer. C'est ce qui fait que je sais ce
-                qu'une idée coûte à construire, et que je ne dessine jamais un écran qu'une équipe
-                tech ne pourra pas tenir.
-              </p>
             </div>
 
             <!-- Compétences -->
@@ -612,7 +589,7 @@ import {
 
             <!-- Outils -->
             <div class="tabpanel" role="tabpanel" id="pan-4" aria-labelledby="tab-4" tabindex="0" hidden>
-              <span class="mono-label mono-label-em">Le socle</span>
+              <span class="mono-label mono-label-em">Les bases</span>
               <div class="tools">
                 <span class="tool">Figma</span>
                 <span class="tool">Auto-layout</span>
@@ -627,18 +604,18 @@ import {
               </div>
 
               <div class="watch">
-                <span class="mono-label mono-label-em">Sur l'établi · ce que je teste en ce moment</span>
-                <div class="watch-grid">
+                <span class="mono-label mono-label-em">Ce que je teste en ce moment</span>
+                <div class="watch-grid" data-stagger="70">
                   <article class="watch-card">
                     <h3>Taux de découvrabilité</h3>
                     <p>
-                      Avec les réseaux sociaux et les nouvelles normes de référencement, comment convertir les prospects et les fidéliser en utilisateurs long termes.
+                      Avec les réseaux sociaux et les nouvelles normes de référencement, comment convertir les prospects et les fidéliser en utilisateurs long terme.
                     </p>
                   </article>
                   <article class="watch-card">
                     <h3>Le design au contact direct du code</h3>
                     <p>
-                      Les processsus d'UI/UX Design évoluent à toute vitesse, alors j'expérimente avec les processus de génération "Figma to code" ou "code to Figma".
+                      Les processus d'UI/UX Design évoluent à toute vitesse, alors j'expérimente avec la génération "Figma to code" ou "code to Figma".
                     </p>
                   </article>
                 </div>
@@ -646,7 +623,7 @@ import {
 
               <div class="watch-method">
                 <span class="mono-label mono-label-dim">Ma méthode de veille</span>
-                <ul>
+                <ul data-stagger="70">
                   <li>Agrégation de podcasts et vidéos YouTube pertinentes</li>
                   <li>Je teste sur un projet réel personnel, plus que sur un tutoriel&nbsp;: un outil qui ne survit pas à une contrainte client ne prouve rien.</li>
                   <li>S'il n'y a pas le résultat escompté, je m'adapte et l'abandonne sans état d'âme.</li>
@@ -665,14 +642,14 @@ import {
       <div class="wrap">
         <header class="sec-head reveal">
           <span class="eyebrow">Ce qu'un portfolio ne montre pas</span>
-          <h2 class="sec-title">Le critère qu'aucune<br />annonce ne sait écrire.</h2>
+          <h2 class="sec-title">Ma personnalité</h2>
           <p class="sec-sub">
             Vous recrutez une personne, pas une bibliothèque de composants. Voilà ce qui ne se voit pas
             sur des maquettes — et pourquoi je crois que ça compte particulièrement chez vous.
           </p>
         </header>
 
-        <div class="trait-grid">
+        <div class="trait-grid" data-stagger="70">
           {TRAITS.map((t) => (
             <article class="card trait reveal">
               <span class="mono-label mono-label-em">{t.tag}</span>
@@ -696,7 +673,7 @@ import {
           Life's greatest moments and deepest connections exist outside of your comfort zone.
         </blockquote>
         <p class="quote-band-cap">
-          Le mantra qui me rythme.
+          Le mantra qui rythme mon quotidien.
         </p>
       </div>
     </section>
@@ -734,13 +711,13 @@ import {
           <span class="eyebrow">Zéro surprise</span>
           <h2 class="sec-title">Les questions que vous<br />vous posez déjà.</h2>
           <p class="sec-sub">
-            Vous affichez vos conditions en clair sur votre page tarifs. Je fais pareil avec les
+            Vous affichez vos conditions en clair, laissez-moi faire de même avec les
             questions qui vont vous traverser l'esprit&nbsp;: autant y répondre maintenant qu'au
             troisième entretien.
           </p>
         </header>
 
-        <div class="obj-grid">
+        <div class="obj-grid" data-stagger="60">
           {OBJECTIONS.map((o) => (
             <div class="card obj reveal">
               <h3 class="obj-q">
@@ -759,7 +736,7 @@ import {
       <div class="glow glow-c" aria-hidden="true"></div>
       <div class="wrap">
         <header class="sec-head reveal">
-          <span class="eyebrow">Deux façons · Zéro engagement</span>
+          <span class="eyebrow">Zéro engagement</span>
           <h2 class="sec-title">Testez-moi avant<br />de me recruter.</h2>
           <p class="sec-sub">
             Vous ne facturez le vendeur que si le bien se vend. Le principe me plaît assez pour que je
@@ -772,7 +749,7 @@ import {
             <div class="offer-top">
               <div>
                 <h3 class="offer-name">Essai</h3>
-                <p class="offer-kind">Mission freelance</p>
+                <p class="offer-kind">Mission freelance, avant le CDI</p>
               </div>
               <span class="offer-tag">Sans risque</span>
             </div>
@@ -782,43 +759,13 @@ import {
               Donnez-moi un vrai morceau du produit — le tunnel d'estimation, le cockpit vendeur, la
               refonte d'un parcours. Vous jugez sur pièce plutôt que sur entretien.
             </p>
-            <ul class="offer-list">
-              <li>Cadrage et questions écrites avant de dessiner</li>
-              <li>Maquettes haute fidélité dans votre design system</li>
-              <li>Prototype cliquable, testable par votre équipe</li>
-              <li>Spécifications lisibles par vos devs</li>
-              <li>Une restitution de 30 minutes, sans slides inutiles</li>
+            <ul class="offer-list" data-stagger="70">
+              <li>Réunion Cadrage</li>
+              <li>Livrable de maquettes et prototypes cliquables dans votre design system</li>
+              <li>Spécifications lisibles pour vos développeurs</li>
             </ul>
-            <a href="mailto:hello@wizyx.me?subject=Briveo%20%C2%B7%20Mission%20d%27essai" class="btn btn-outline btn-block">
+            <a href="mailto:floriangertner0@gmail.com?subject=Briveo%20%C2%B7%20Mission%20d%27essai" class="btn btn-primary btn-block">
               Proposer un sujet
-            </a>
-          </article>
-
-          <article class="card offer offer-hi reveal" style="--d:80ms">
-            <div class="offer-top">
-              <div>
-                <h3 class="offer-name">CDI</h3>
-                <p class="offer-kind">Produit — Design · Nice</p>
-              </div>
-              <span class="offer-tag offer-tag-hi">Recommandé</span>
-            </div>
-            <p class="offer-price"><span class="offer-price-num">100</span><span class="offer-price-unit">% dedans</span></p>
-            <p class="offer-price-note">Sur place à Nice, pas en visio depuis ailleurs.</p>
-            <p class="offer-lead">
-              Le poste tel que vous l'avez écrit, et la formule que je vise. Un design system, une
-              recherche utilisateur continue et cinq cockpits cohérents se construisent dans la
-              durée&nbsp;: c'est là que le travail cesse de coûter et commence à rapporter.
-            </p>
-            <ul class="offer-list">
-              <li>Tout ce qui est inclus dans l'essai</li>
-              <li>Le design system Briveo, tenu et documenté</li>
-              <li>Un cycle de recherche utilisateur continu, pas ponctuel</li>
-              <li>L'UX writing des parcours sensibles — mandat, offre, signature</li>
-              <li>Les cinq cockpits traités comme un seul produit</li>
-              <li>Disponible rapidement, préavis à discuter</li>
-            </ul>
-            <a href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener" class="btn btn-primary btn-block">
-              Réserver un créneau
               <svg viewBox="0 0 24 24" class="ico ico-arrow" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
           </article>
@@ -836,7 +783,7 @@ import {
          briveo.fr : un halo émeraude flouté posé en haut au centre, puis une
          trame de 96px masquée par une ellipse radiale. Les deux sont sous le
          contenu et purement décoratifs. -->
-    <section class="contact">
+    <section class="contact" id="contact">
       <div class="contact-glow" aria-hidden="true"></div>
       <div class="contact-mesh" aria-hidden="true"></div>
       <div class="wrap contact-inner">
@@ -887,8 +834,8 @@ import {
         </div>
 
         <div class="contact-actions reveal">
-          <a href="mailto:hello@wizyx.me?subject=Briveo%20%C2%B7%20Candidature%20Produit%20-%20Design" class="btn btn-primary btn-lg">
-            hello@wizyx.me
+          <a href="mailto:floriangertner0@gmail.com?subject=Briveo%20%C2%B7%20Candidature%20Produit%20-%20Design" class="btn btn-primary btn-lg">
+            floriangertner0@gmail.com
             <svg viewBox="0 0 24 24" class="ico ico-arrow" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
           <a href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener" class="btn btn-ghost-light btn-lg">Calendly</a>
@@ -903,14 +850,20 @@ import {
       <!-- Même en-tête que les sections sombres de la page : pastille de
            disponibilité et signature, avant les colonnes de liens. -->
       <div class="foot-top">
-        <p class="foot-sign">Florian Gertner&nbsp;Kilian</p>
+        <p class="foot-sign">
+          <!-- Variante émeraude du logo, la même que la favicon : logo.png est
+               blanc sur transparent, donc invisible sur ce footer clair. Servie
+               depuis public/ et non via astro:assets, faute de source dans src. -->
+          <img src="/assets/media/logo-briveo.png" alt="Logo Wizyx" width="40" height="40" loading="lazy" decoding="async" class="foot-logo" />
+          Florian Gertner&nbsp;Kilian
+        </p>
         <span class="pill foot-pill">
           <span class="live-dot" aria-hidden="true"></span>
           <span class="mono-label">Ouvert aux opportunités</span>
         </span>
       </div>
 
-      <div class="foot-cols">
+      <div class="foot-cols" data-stagger="80">
         <div class="foot-col">
           <span class="mono-label">Expertises</span>
           <ul>
@@ -922,7 +875,7 @@ import {
         <div class="foot-col">
           <span class="mono-label">Contact</span>
           <ul>
-            <li><a href="mailto:hello@wizyx.me?subject=Briveo%20%C2%B7%20Candidature%20Produit%20-%20Design">hello@wizyx.me</a></li>
+            <li><a href="mailto:floriangertner0@gmail.com?subject=Briveo%20%C2%B7%20Candidature%20Produit%20-%20Design">floriangertner0@gmail.com</a></li>
             <li><a href={`tel:${TEL_HREF}`}>{TEL_DISPLAY}</a></li>
             <li><a href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener">Réserver 30 minutes</a></li>
             <li><a href="https://linkedin.com/in/flogk/" target="_blank" rel="noopener">LinkedIn</a></li>
@@ -988,7 +941,7 @@ import {
       <div class="modal-alt">
         <a href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener">Réserver un créneau</a>
         <span aria-hidden="true">·</span>
-        <a href="mailto:hello@wizyx.me?subject=Briveo%20%C2%B7%20Candidature%20Produit%20-%20Design">hello@wizyx.me</a>
+        <a href="mailto:floriangertner0@gmail.com?subject=Briveo%20%C2%B7%20Candidature%20Produit%20-%20Design">floriangertner0@gmail.com</a>
       </div>
     </div>
   </div>
@@ -1774,11 +1727,53 @@ import {
     .crit-body { margin-top: 16px; font-size: 15.5px; line-height: 1.68; color: var(--ink-600); }
     .crit-body + .crit-body { margin-top: 13px; }
 
-    .testi { margin: 22px 0 0; padding: 18px 20px; background: var(--paper-2); border-left: 3px solid var(--em-500); border-radius: 0 var(--r-sm) var(--r-sm) 0; }
-    .testi p { font-size: 14px; line-height: 1.62; color: var(--ink-700); font-style: italic; }
-    .testi footer { margin-top: 14px; display: flex; align-items: center; gap: 11px; font-style: normal; }
-    .testi footer span { display: grid; gap: 1px; font-size: 11.5px; color: var(--ink-500); line-height: 1.4; }
-    .testi footer strong { font-size: 13px; color: var(--ink); font-weight: 700; }
+    /* ── Bandeau de témoignages ─────────────────────────────────────────── */
+    /* Le bandeau sort de .wrap pour filer d'un bord à l'autre, mais le titre
+       reste aligné sur la grille : d'où le padding qui reprend celui du wrap. */
+    .testi-band { margin-top: 48px; display: grid; gap: 14px; }
+    /* Un cran sous les titres de section : le bandeau accompagne les critères,
+       il n'ouvre pas un chapitre. */
+    .testi-band-title {
+      padding: 0 20px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+    }
+    @media (min-width: 640px) { .testi-band-title { font-size: 23px; } }
+    .testi-rail { position: relative; overflow: hidden; }
+    .testi-rail::before, .testi-rail::after {
+      content: ""; position: absolute; top: 0; bottom: 0; width: 90px; z-index: 2; pointer-events: none;
+    }
+    .testi-rail::before { left: 0; background: linear-gradient(to right, var(--paper), transparent); }
+    .testi-rail::after { right: 0; background: linear-gradient(to left, var(--paper), transparent); }
+    @media (max-width: 699px) { .testi-rail::before, .testi-rail::after { width: 40px; } }
+    .testi-track { display: flex; width: max-content; animation: marquee 64s linear infinite; }
+    /* On suspend au survol : sans ça, une citation qu'on commence à lire
+       s'échappe avant la fin de la phrase. */
+    .testi-rail:hover .testi-track { animation-play-state: paused; }
+    /* align-items: flex-start — sinon les cartes s'étirent à la hauteur de la
+       plus longue citation, et les courtes se retrouvent avec un trou entre le
+       texte et la signature. Chaque carte tient donc sa propre hauteur. */
+    .testi-group { display: flex; align-items: flex-start; gap: 16px; padding-right: 16px; }
+    .testi-card {
+      flex: none;
+      width: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 18px 20px;
+      background: var(--paper-2);
+      border: 1px solid var(--line);
+      border-radius: var(--r-md);
+    }
+    @media (min-width: 640px) { .testi-card { width: 380px; } }
+    .testi-card blockquote { font-size: 14px; line-height: 1.62; color: var(--ink-700); font-style: italic; }
+    .testi-card figcaption { display: flex; align-items: center; gap: 11px; }
+    .testi-card figcaption span { display: grid; gap: 1px; font-size: 11.5px; color: var(--ink-500); line-height: 1.4; }
+    .testi-card figcaption strong { font-size: 13px; color: var(--ink); font-weight: 700; }
+
     .testi-av {
       width: 36px; height: 36px;
       flex: none;
@@ -1790,24 +1785,6 @@ import {
 
     .crit-bonus { border-color: rgba(5, 150, 105, 0.3); background: linear-gradient(180deg, #fff 0%, #f4fdf9 100%); }
 
-    /* La carte « lucidité » porte trois points et une citation : seule sur la
-       dernière ligne d'une grille à deux colonnes, elle prend toute la
-       largeur plutôt que de laisser un blanc à côté d'elle. */
-    @media (min-width: 900px) { .crit-wide { grid-column: 1 / -1; } }
-    .crit-gaps { margin-top: 22px; display: grid; gap: 18px; }
-    @media (min-width: 900px) { .crit-gaps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px; } }
-    .crit-gaps li { display: flex; align-items: flex-start; gap: 12px; }
-    .crit-gap-num {
-      flex: none;
-      font-family: var(--mono);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      color: var(--em-700);
-      padding-top: 2px;
-    }
-    .crit-gaps h4 { font-size: 15px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.3; }
-    .crit-gaps p { margin-top: 7px; font-size: 13.5px; line-height: 1.6; color: var(--ink-600); }
     .crit-gap-note {
       margin-top: 16px;
       padding-top: 14px;
@@ -2126,11 +2103,9 @@ import {
     }
     .obj-r { margin-top: 15px; font-size: 15.5px; line-height: 1.68; color: var(--ink-600); }
 
-    /* ── Deux formules ──────────────────────────────────────────────────── */
-    .offer-grid { display: grid; gap: 24px; max-width: 980px; margin: 0 auto; }
-    @media (min-width: 880px) { .offer-grid { grid-template-columns: repeat(2, 1fr); } }
+    /* ── Mission d'essai ────────────────────────────────────────────────── */
+    .offer-grid { display: grid; max-width: 560px; margin: 0 auto; }
     .offer { display: flex; flex-direction: column; }
-    .offer-hi { border-color: rgba(5, 150, 105, 0.34); box-shadow: 0 26px 70px -34px rgba(4, 120, 87, 0.5); }
     .offer-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; }
     .offer-name { font-size: 22px; font-weight: 800; letter-spacing: -0.03em; }
     .offer-kind { font-size: 13px; color: var(--ink-500); margin-top: 3px; }
@@ -2146,7 +2121,6 @@ import {
       letter-spacing: 0.1em;
       color: var(--ink-600);
     }
-    .offer-tag-hi { background: var(--em-50); border-color: var(--em-200); color: var(--em-700); }
     .offer-price { margin-top: 20px; display: flex; align-items: baseline; gap: 8px; }
     .offer-price-num { font-family: var(--mono); font-size: clamp(46px, 9vw, 62px); font-weight: 700; letter-spacing: -0.05em; font-variant-numeric: tabular-nums; line-height: 1; }
     .offer-price-unit { font-size: 15px; font-weight: 600; color: var(--ink-500); }
@@ -2346,12 +2320,16 @@ import {
       border-bottom: 1px solid rgba(23, 23, 23, 0.1);
     }
     .foot-sign {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       font-size: clamp(1.5rem, 5vw, 2.1rem);
       font-weight: 800;
       letter-spacing: -0.04em;
       line-height: 1.05;
       color: #0a0a0a;
     }
+    .foot-logo { flex: none; width: 1em; height: 1em; object-fit: contain; }
     .foot-pill { flex: none; }
 
     .foot-cols {
@@ -2511,6 +2489,29 @@ import {
     }
     .reveal.is-in { opacity: 1; transform: none; }
 
+    /* Variante courte, pour les éléments de détail à l'intérieur d'une carte :
+       même geste que .reveal, mais deux fois moins de course et de durée. Sur
+       une puce de liste, 16px de translation se voit comme un saut ; 6px se
+       lisent comme une mise en place. */
+    .reveal-sm {
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+      transition-delay: var(--d, 0ms);
+    }
+    .reveal-sm.is-in { opacity: 1; transform: none; }
+
+    /* L'état masqué est posé en CSS et non par le script : si on attendait que
+       le JS ajoute .reveal-sm, les enfants seraient peints visibles puis
+       masqués d'un coup, ce qui donne un clignotement au chargement. */
+    [data-stagger] > * {
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+      transition-delay: var(--d, 0ms);
+    }
+    [data-stagger] > .is-in { opacity: 1; transform: none; }
+
     /* ── Keyframes (repris de briveo.fr) ────────────────────────────────── */
     @keyframes live-pulse {
       0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
@@ -2567,7 +2568,12 @@ import {
         animation-iteration-count: 1 !important;
         transition-duration: 0.001ms !important;
       }
-      .reveal { opacity: 1; transform: none; }
+      .reveal, .reveal-sm, [data-stagger] > * { opacity: 1; transform: none; }
+      /* Les bandeaux défilants s'arrêtent : la règle globale ci-dessus ne
+         fait qu'accélérer les animations, elle ne les supprime pas, et une
+         boucle infinie jouée en 0,001 ms devient un clignotement. */
+      .marquee-track, .testi-track { animation: none !important; }
+      .testi-track { justify-content: center; flex-wrap: wrap; width: 100%; }
     }
 
     :focus-visible { outline: 2px solid var(--em-500); outline-offset: 3px; border-radius: 4px; }
@@ -2715,7 +2721,25 @@ import {
       }
 
       /* ── Reveal au scroll ──────────────────────────────────────────── */
-      var revealables = document.querySelectorAll('.reveal');
+
+      /* Décalage automatique : plutôt que d'écrire un --d à la main sur
+         chaque carte, un conteneur marqué data-stagger anime ses enfants
+         l'un après l'autre. La valeur de l'attribut donne le pas en ms
+         (60 par défaut) ; un --d déjà posé dans le HTML gagne toujours,
+         pour ne pas écraser les cadences réglées à la main. */
+      document.querySelectorAll('[data-stagger]').forEach(function (group) {
+        var step = parseInt(group.getAttribute('data-stagger'), 10) || 60;
+        Array.prototype.forEach.call(group.children, function (child, i) {
+          if (!child.classList.contains('reveal') && !child.classList.contains('reveal-sm')) {
+            child.classList.add('reveal-sm');
+          }
+          if (!child.style.getPropertyValue('--d')) {
+            child.style.setProperty('--d', i * step + 'ms');
+          }
+        });
+      });
+
+      var revealables = document.querySelectorAll('.reveal, .reveal-sm');
       if (reduce || !('IntersectionObserver' in window)) {
         revealables.forEach(function (el) { el.classList.add('is-in'); });
       } else {

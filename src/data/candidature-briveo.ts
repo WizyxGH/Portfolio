@@ -95,7 +95,7 @@ export const EXPERIENCES: Experience[] = [
         periode: 'Juillet 2025 · CDD',
         lieu: 'Remote',
         texte:
-          "L'agence m'a gardé un mois de plus, en contrat, pour terminer les chantiers en cours.",
+          "L'agence m'a gardé un mois de plus, en contrat, pour terminer un projet en cours, faire une présentation à un client sur Paris ainsi qu'aller rencontrer un prospect.",
       },
       {
         periode: 'Mars – juin 2025 · Stage',
@@ -115,7 +115,7 @@ export const EXPERIENCES: Experience[] = [
     periode: 'Janvier – mars 2024 · 3 mois',
     lieu: "La Ciotat, France",
     texte:
-      "Auprès de Caroline Aubert, à répondre à des briefs clients en quasi-autonomie. C'est là qu'a été mené le redesign du site et de l'application du Guide du Golfe de Saint-Tropez, et là que j'ai appris à écrire autant qu'à dessiner.",
+      "Création de maquettes de sites internet et d'applications, mise en place et exécution d'une stratégie de communication, rédaction de contenus pour les réseaux sociaux.",
   },
   {
     logo: '/assets/media/brands/optimum-cit.png',
@@ -155,6 +155,7 @@ export const FORMATION = [
     ecole: 'ECV — École de création visuelle',
     niveau: 'Bac +4',
     periode: '2025 – 2026',
+    lieu: 'Aix-en-Provence, France',
   },
   {
     logo: '/assets/media/brands/univ-toulon.png',
@@ -164,16 +165,16 @@ export const FORMATION = [
     ecole: 'Université de Toulon',
     niveau: 'Bac +3',
     periode: '2023 – 2025',
-    lieu: 'Toulon',
+    lieu: 'Toulon, France',
   },
   {
     logo: null,
     mono: 'LB',
-    titre: 'BTS Informatique (SIO)',
+    titre: 'BTS SIO (informatique) — Services Informatiques aux Organisations',
     ecole: 'Lycée Bonaparte',
     niveau: 'Bac +2',
     periode: '2021 – 2023',
-    lieu: 'Toulon',
+    lieu: 'Toulon, France',
   },
 ];
 
@@ -199,8 +200,9 @@ export const CHAPITRES = [
   { id: 'criteres', label: 'Vos critères' },
   { id: 'cv', label: 'Mon parcours' },
   { id: 'profil', label: 'Qui suis-je ?' },
-  { id: 'lettre', label: 'La lettre' },
+  { id: 'lettre', label: 'Manifeste' },
   { id: 'test', label: 'Me tester' },
+  { id: 'contact', label: 'On en discute ?' },
 ];
 
 export const OFFRE = {
@@ -208,9 +210,9 @@ export const OFFRE = {
   lieu: 'Nice (HQ) / Remote-friendly',
   contrat: 'CDI ou freelance',
   criteres: [
-    'Expérience product/design 3 ans+',
-    'Sensibilité au luxe + à la précision',
-    'Capacité à interagir directement avec utilisateurs',
+    'Expérience product/design 3+ ans',
+    'Sensibilité au luxe et à la précision',
+    'Capacité à interagir directement avec les utilisateurs',
   ],
 };
 
@@ -268,77 +270,72 @@ export const SKILLS = [
 
 // Traits tirés de wizyx.me/about — chacun est relié à un enjeu concret de Briveo,
 // sinon c'est du remplissage sympathique et ça ne fait recruter personne.
-// Les deux retards réels sur l'annonce, assumés. Une candidature qui
-// n'énumère que des forces se fait démonter au premier entretien.
-export const LACUNES = [
-  {
-    num: '01',
-    titre: "L'immobilier, je ne le connais pas encore",
-    texte:
-      "Je ne vais pas vous raconter que je maîtrise la loi Hoguet, le DPE ou les subtilités d'un mandat exclusif. Je les apprendrai. Ce que je sais faire en revanche, c'est entrer dans un métier en écoutant ceux qui le pratiquent : chez Kosmos, je participe à des ateliers de cadrage sur des secteurs que je découvre le matin même, et j'en ressors avec de quoi dessiner. La mécanique sera la même chez vous, avec vos agents et vos vendeurs.",
-  },
-  {
-    num: '02',
-    titre: "Je n'ai pas encore de chiffres d'impact à vous montrer",
-    texte:
-      "Sur mes projets, j'ai livré des interfaces, pas des courbes de conversion. C'est une vraie limite, et c'est exactement ce qui m'attire chez vous : un produit vivant, avec des utilisateurs, des données publiques et un tunnel qui se mesure. Je veux arrêter de livrer et commencer à mesurer ce que je livre.",
-  },
-  {
-    num: '03',
-    titre: 'Ma vitesse d’apprentissage, elle, est documentée',
-    texte:
-      "BTS informatique, puis BUT MMI, puis Master 1 UX/UI Design : trois disciplines en cinq ans, chacune validée. À 21 ans, 3 mois dans une agence au Vietnam, en français comme en anglais, à mener des rendez-vous clients et prospects. Je n'arrive jamais sur un terrain connu — c'est devenu ma zone de confort.",
-  },
-];
-
+//
+// Règle de cette section : elle ne contient QUE ce qu'une annonce ne sait pas
+// demander. Tout ce qui répond à un critère de l'offre appartient à « Vos
+// critères », et les recommandations au bandeau qui la suit. Trois entrées ont
+// été retirées à ce titre, pas par faiblesse : « Énergie » reprenait mot pour
+// mot deux citations du bandeau, « Rédactionnel » répondait à l'UX writer de
+// l'intitulé, « Curiosité » rejouait le Vietnam déjà cité deux fois plus haut.
 export const TRAITS = [
-  {
-    tag: 'Énergie',
-    titre: "« Toujours dans l'action » — ce n'est pas moi qui le dis.",
-    texte:
-      "Deux personnes qui m'ont encadré emploient les mêmes mots sans s'être concertées : « super impliqué, intelligent et toujours dans l'action » (Lucas Kacem, Digital Unicorn), « motivé, hyper proactif, opérationnel dès les premiers jours » (Caroline Aubert, Mafigue). Je préfère arriver avec trois pistes à débattre qu'avec une question à poser. Dans une équipe qui construit vite, ce tempérament fait gagner des semaines.",
-  },
-  {
-    tag: 'Entrepreneuriat',
-    titre: "Je gère ma propre activité, et votre marché me passionne déjà.",
-    texte:
-      "Wizyx n'est pas un projet du dimanche : je prospecte, je chiffre, je contractualise, je livre et je relance seul. Ça donne un rapport très concret à la valeur d'un produit — ce qu'il coûte à faire, ce qu'un client accepte de payer, pourquoi il signe ou pourquoi il part. L'immobilier m'intéresse depuis longtemps en dehors du travail : les prix au mètre carré, ce qui fait vraiment la valeur d'un bien, la façon dont un marché local se retourne. Chez vous, ces deux curiosités arrêtent d'être des à-côtés.",
-  },
-  {
-    tag: 'Archiviste',
-    titre: "J'archive des bandes dessinées Disney du monde entier.",
-    texte:
-      "Je contribue depuis des années à une base communautaire qui recense des magazines publiés dans des dizaines de pays. Concrètement : normaliser des métadonnées, arbitrer des cas limites, tenir un référentiel que des inconnus interrogeront encore dans dix ans. C'est exactement le rapport que Briveo entretient avec le DVF, le cadastre et le registre des mandats. J'aime les données propres au point d'en avoir fait un loisir.",
-  },
   {
     tag: 'Persévérance',
     titre: '10 km par jour pendant 100 jours.',
     texte:
-      "Objectif tenu. Marathon en 4 h 30, record de semi-marathon en 1 h 43 min 06 s (oui, les secondes sont importantes), ce qui est probablement le même travers que celui qui me fait aligner des chiffres en tabulaire dans une interface. Un design system ne se gagne pas au sprint : il se tient sur la durée jours lorsque plus personne n'y prête attention.",
+      "Challenge lancé et réussi à mes 20 ans, suivi de mon premier marathon cette année ! en 4 h 28 min 35 sec (oui, les secondes sont importantes). C'est probablement le même travers qui me fait aligner chaque élément au pixel sur une interface. Un design system ne se gagne pas au sprint : il se tient sur la durée jours lorsque plus personne n'y prête attention.",
   },
   {
     tag: 'Autonomie',
     titre: 'Autonome, mais pas solitaire.',
     texte:
-      "Je travaille très bien seul : sur Wizyx, je prospecte, je chiffre, je livre et je relance sans que personne n'ait à me suivre. Mais quatorze ans de sport collectif — sept ans de football, sept ans de basket — laissent une trace : je ne confonds pas autonomie et isolement. Je préfère une décision prise à cinq devant un écran à un fichier Figma parfait envoyé par mail, et je vais chercher un avis avant de m'enfermer trois jours sur une piste.",
-  },
-  {
-    tag: 'Rédactionnel',
-    titre: "J'écris autant que je dessine.",
-    texte:
-      "Articles, copywriting, questionnaires, microcopie. Vous cherchez un UX writer dans la même annonce que le designer produit : ce n'est pas un hasard de rédaction, c'est le même geste. Sur un produit où l'utilisateur finit par signer un mandat, le mot juste vaut la maquette juste.",
-  },
-  {
-    tag: 'Curiosité',
-    titre: "J'ai pris le goût de voyager avant celui de designer.",
-    texte:
-      "Trois mois de travail au Vietnam, une tolérance élevée à l'inconnu, et l'habitude de me retrouver quelque part où je ne comprends rien — c'est-à-dire exactement l'état d'un propriétaire qui ouvre votre plateforme pour la première fois. Designer, c'est se souvenir de ce que ça fait de ne pas savoir.",
+      "Quatorze ans de sport collectif (sept ans de football et autant d'années de basket), m'ont appris que même si on est capable d'avancer tout seul, il est possible d'aller encore plus loin en groupe.",
   },
   {
     tag: 'Franchise',
     titre: 'Je dis quand je ne sais pas.',
     texte:
-      "Autodidacte avant d'être diplômé, j'ai appris que bluffer coûte toujours plus cher que demander. Vous construisez un produit dont l'argument central est la transparence : je serais très mal placé pour vous vendre du vernis.",
+      "Autodidacte avant d'être diplômé, j'ai appris que bluffer coûte toujours plus cher que demander. Vous construisez un produit dont l'argument central est la transparence : je serais très mal placé pour vous vendre du vernis. L'honnêteté et la transparence prime toujours malgré ceux que l'on peut nous faire croire.",
+  },
+  {
+    tag: 'Entrepreneuriat',
+    titre: "Je gère ma propre activité, et l'immobilier m'intéresse.",
+    texte:
+      "En tant que freelance, je prospecte, je chiffre, je contractualise, je livre et je relance seul. Ça donne un rapport très concret à la valeur d'un produit. Entre ce qu'il coûte à faire, ce qu'un client accepte de payer, pourquoi il signe ou pourquoi il part. Pour de futurs investissements, l'immobilier m'intéresse depuis longtemps. Avec vous, ces deux curiosités arrêtent d'être des à-côtés.",
+  },
+  {
+    tag: 'Gestion',
+    titre: "J'archive des bandes dessinées Disney du monde entier.",
+    texte:
+      "Je contribue depuis des années à une base communautaire qui recense des magazines publiés dans des dizaines de pays. Concrètement : normaliser des métadonnées, arbitrer des cas limites, tenir un référentiel que des inconnus interrogeront encore dans dix ans. J'aime quand l'environnement est structuré et organisé afin de faciliter la recherche d'informations.",
+  },
+];
+
+// Tous les témoignages publics du portfolio, réunis. Les deux « Coming
+// soon… » de wizyx.me sont écartés : un témoignage vide ne prouve rien, et
+// dans un bandeau défilant il se lirait comme un trou. `avatar` est une clé,
+// pas un chemin : la page fait la correspondance avec ses imports, seule
+// façon de laisser astro:assets optimiser les images.
+export const TEMOIGNAGES = [
+  {
+    avatar: 'caroline',
+    auteur: 'Caroline Aubert',
+    role: 'Product Designer & fondatrice de Mafigue',
+    texte:
+      "Motivé, hyper proactif, enseignable, il a su, dès les premiers jours, être opérationnel. […] Je recommande son profil à l'embauche si vous souhaitez ne pas prendre de risque, puisqu'il coche toutes les cases.",
+  },
+  {
+    avatar: 'lucas',
+    auteur: 'Lucas Kacem',
+    role: 'Co-fondateur & Président, Digital Unicorn',
+    texte:
+      "Super impliqué, intelligent et toujours dans l'action, il a vraiment apporté de la valeur à l'équipe.",
+  },
+  {
+    avatar: 'jonathan',
+    auteur: 'Jonathan Vaissière',
+    role: 'Entrepreneur, Le Guide du Golfe de Saint-Tropez',
+    texte:
+      "Un travail pro et sérieux comme on aime et surtout comme on a BESOIN ! […] Rapide, efficace et agréable.",
   },
 ];
 
@@ -349,15 +346,15 @@ export const OBJECTIONS = [
   },
   {
     q: 'Vous ne venez pas de l\'immobilier.',
-    r: "Non. Je viens du tourisme haut de gamme sur la Côte d'Azur, des marketplaces à deux faces et des tableaux de bord métier. La loi Hoguet, le DPE et le registre des mandats, ça s'apprend en trois semaines avec vos agents. L'obsession du détail, non.",
+    r: "Non. Je viens du design produit où l'on peut changer très vite d'un contexte à l'autre en fonction du brief client. La loi Hoguet, le DPE et le registre des mandats, ça s'apprend. L'obsession du détail, non.",
   },
   {
     q: 'CDI ou freelance ?',
-    r: "Vous laissez le choix, je le prends : le CDI. Mon objectif est une collaboration longue, pas une mission. Concrètement, ce que je viens faire tient en trois temps : écouter d'abord pour cartographier les frictions réelles plutôt que supposées ; systématiser ensuite sur Figma (design system, guidelines, variables...) tout en étant alignés sur ce que vos devs manipulent déjà ; refondre et mesurer enfin, l'UX writing compris, en specs qu'un dev n'a pas à deviner. Aucune de ces trois étapes ne survit à des missions détachées : un design system se tient dans la durée, et la valeur arrive au bout de la deuxième année, pas de la deuxième semaine. Si vous préférez vérifier avant de vous engager, une mission d'essai payée me va très bien : elle mène au même endroit, avec une étape de plus.",
+    r: "Vous laissez le choix, je le prends : le CDI. Je cherche une collaboration longue pour comprendre vos utilisateurs, structurer le design system avec les équipes dev, puis refondre et mesurer dans la durée. En mission ponctuelle, c'est faisable, mais une vraie valeur se construit dans le temps au fil des retours et itérations. L'objectif est de mener Briveo au plus haut.",
   },
   {
     q: 'Product manager, designer ou UX writer ?',
-    r: "Vous cherchez les trois. J'en fais deux et demi : design produit et UX writing sont mon quotidien, le cadrage produit je le pratique depuis que je travaille en direct avec des fondateurs. Et je code assez pour ne pas faire perdre de temps à votre équipe tech.",
+    r: "Vous cherchez les trois et cela tombe bien : le design produit et l'UX writing sont mon quotidien, le cadrage produit je le pratique depuis que je travaille en direct avec des fondateurs. Et je code assez pour ne pas faire perdre de temps à votre équipe tech.",
   },
 ];
 
@@ -394,21 +391,26 @@ export const LETTRE: BlocLettre[] = [
   {
     type: 'p',
     texte:
-      "Une estimation sourcée sur des données publiques, un dossier généré plutôt que ressaisi, une commission annoncée avant d'être prise. <strong>Ce sont des décisions produit, pas des arguments marketing.</strong> Elles se voient dans l'interface, et c'est rare.",
+      "Ce qui coince dans une vente n'est jamais la promesse&nbsp;: c'est l'attente sans nouvelles, le prix qu'on ne sait pas justifier, les papiers qu'on ressaisit trois fois. Un produit qui s'attaque à ça d'abord fait des <strong>choix de conception, pas du marketing</strong> — et ça, ça se voit dans une interface.",
   },
   {
     type: 'p',
     texte:
-      "Il se trouve que <mark>c'est exactement le métier que je veux faire</mark>&nbsp;: rendre lisible ce qui est compliqué. Des tunnels de vente, des tableaux de bord, des parcours où l'utilisateur prend une décision qui l'engage. Chez vous les montants sont énormes, <strong>la confiance est fragile</strong>, et la moitié des gens qui entrent dans le produit n'ont jamais vendu de leur vie. C'est le terrain le plus exigeant de cette catégorie, et c'est précisément ce qui m'attire.",
+      "Rendre lisible ce qui est compliqué, <mark>c'est exactement le métier que je veux faire</mark>. Chez vous, les montants sont énormes, <strong>la confiance est fragile</strong>, et la moitié des gens qui entrent dans le produit n'ont jamais vendu de leur vie&nbsp;: le terrain le plus exigeant de la catégorie. Et <mark>je suis d'ici</mark> — Nice, Toulon, le Var —, avec un intérêt pour ce marché qui est bien antérieur à votre annonce.",
   },
   {
     type: 'p',
     texte:
-      "Il y a aussi une raison plus simple, et je préfère l'assumer&nbsp;: <mark>je suis d'ici</mark>. Nice, Toulon, le Var, les Alpes-Maritimes. Votre marché m'intéresse depuis longtemps en dehors du travail — les prix au mètre carré, ce qui fait vraiment la valeur d'un bien, la façon dont un marché local se retourne — et je n'ai pas envie de faire ce métier depuis un open space parisien. <strong>Une boîte tech ambitieuse implantée à Nice, ça ne se présente pas tous les ans.</strong>",
+      "Mes résultats récents tiennent en une phrase&nbsp;: <strong>des produits en ligne, et des clients qui signent leur nom dessous.</strong> Le site et l'application du Guide du Golfe de Saint-Tropez, redessinés et livrés. JOBBRR et PHOQ.tv, en production. Et le test technique qui m'a valu mon poste chez Kosmos&nbsp;: une maquette, jugée sur pièce.",
   },
   {
     type: 'p',
     texte:
-      "Un CV ne prouve pas grand-chose dans un métier où le livrable est visuel. Alors j'ai fait ce que je ferais chez vous&nbsp;: j'ai pris votre design system, je l'ai relevé, reconstruit, et j'ai livré quelque chose de fini plutôt que de vous le décrire.",
+      "Ce que je n'ai pas encore, ce sont des courbes&nbsp;: en agence, on est rarement là six mois après la mise en ligne. <mark>C'est mon projet des deux à trois prochaines années</mark> — <strong>arrêter de livrer et commencer à mesurer ce que je livre.</strong> Un design system tenu dans la durée, une recherche utilisateur continue, et des décisions que je peux relire dans les chiffres. Ça se fait dans une équipe, sur un produit vivant. Pas en mission de trois semaines.",
+  },
+  {
+    type: 'p',
+    texte:
+      "Sur mon site, ma promesse tient en quatre mots&nbsp;: <strong>fini le blabla, place au concret</strong>. Vous envoyer un PDF aurait été malvenu&nbsp;: j'ai relevé votre design system, reconstruit cette page, et <strong>vous lisez le livrable</strong>.",
   },
 ];
