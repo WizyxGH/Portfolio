@@ -48,7 +48,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!isEntreprise) return true;
 
         const value = siretInput.value.replace(/\s/g, '');
-        // Le SIRET doit faire 14 chiffres
+        // Si laissé vide, optionnel (notamment pour entreprises étrangères ou en création)
+        if (value === '') {
+            siretError.classList.add('hidden');
+            siretInput.classList.remove('border-red-500', 'focus:ring-red-500');
+            return true;
+        }
+
+        // Le SIRET doit faire 14 chiffres si renseigné
         if (!/^\d{14}$/.test(value)) {
             siretError.textContent = "Le numéro de SIRET doit contenir exactement 14 chiffres.";
             siretError.classList.remove('hidden');
@@ -351,16 +358,16 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // 2. Vérifier le temps minimum (3 secondes - anti-soumission automatique)
+        // 2. Vérifier le temps minimum (1s - anti-soumission automatique par bot)
         const timeSinceLoad = Date.now() - formLoadTime;
-        if (timeSinceLoad < 3000) {
-            alert("Veuillez prendre le temps de remplir le formulaire correctement.");
+        if (timeSinceLoad < 1000) {
+            console.warn('Soumission trop rapide');
             return;
         }
 
         // 3. Vérifier la longueur minimale du message
-        const message = formData.get('message') || '';
-        if (message.length < 10) {
+        const message = (formData.get('message') || '').toString().trim();
+        if (message.length < 5) {
             alert("Votre message est trop court. Veuillez fournir plus de détails.");
             return;
         }
@@ -392,6 +399,19 @@ document.addEventListener('DOMContentLoaded', () => {
         // Mettre à jour le sujet pour l'email reçu
         formData.set('_subject', formData.get('subject') || 'Nouveau message');
 
+        // Formater proprement le téléphone avec l'indicatif pour l'email final
+        const phoneCountry = formData.get('phone_country') || '';
+        const phoneVal = (formData.get('phone') || '').toString().trim();
+        if (phoneVal) {
+            formData.set('phone', `${phoneCountry} ${phoneVal}`.trim());
+        }
+
+        // Retirer la pièce jointe vide si aucun fichier n'a été sélectionné (évite les erreurs serveur)
+        const attachment = formData.get('attachment');
+        if (!attachment || (attachment instanceof File && attachment.size === 0)) {
+            formData.delete('attachment');
+        }
+
         // State indicators
         const submitBtn = document.getElementById('submitBtn');
         const submitBtnText = submitBtn.querySelector('span');
@@ -412,7 +432,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            if (response.ok) {
+            const result = await response.json().catch(() => null);
+
+            if (response.ok && (!result || result.success !== 'false')) {
                 formMessage.classList.remove('hidden');
                 form.reset();
                 clearFile();
@@ -454,7 +476,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 phoneInput.placeholder = '06 12 34 56 78';
                 setTimeout(() => formMessage.classList.add('hidden'), 5000);
             } else {
-                alert("Une erreur est survenue. Veuillez réessayer.");
+                const errorMsg = result && result.message ? result.message : "Une erreur est survenue lors de l'envoi. Veuillez réessayer.";
+                alert(errorMsg);
             }
         } catch (err) {
             alert("Impossible d'envoyer le message. Vérifiez votre connexion et réessayez.");

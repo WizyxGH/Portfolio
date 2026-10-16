@@ -5,6 +5,18 @@ allowBuilds:
   esbuild: true
   sharp: true
 
+minimumReleaseAgeExclude:
+  - nanoid@3.3.18
+  - fast-uri@3.1.6 || 3.1.7 || 3.1.8
+  - astro@7.2.4 || 7.2.8
+  - sharp@0.35.4 || 0.35.5
+  - js-yaml@4.3.2
+  - svgo@4.1.0
+  - devalue@5.9.1 || 5.9.3
+  - http-cache-semantics@4.2.1
+  - smol-toml@1.8.1
+  - source-map-js@1.2.2
+
 # Empêche la réintroduction de versions vulnérables via des deps transitives
 overrides:
   fast-uri: ">=3.1.5"

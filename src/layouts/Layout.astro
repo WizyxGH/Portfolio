@@ -42,9 +42,13 @@ const canonicalUrl = canonical ? new URL(canonical, siteUrl).href : currentUrl;
 	<!-- Facebook Meta Tags -->
 	<meta property="og:url" content={currentUrl} />
 	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="Florian Gertner Kilian — Wizyx" />
+	<meta property="og:locale" content="fr_FR" />
 	<meta property="og:title" content={finalTitle} />
 	<meta property="og:description" content={description} />
 	<meta property="og:image" content={`${siteUrl}${og_image}`} />
+	<meta name="author" content="Florian Gertner Kilian" />
+	<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLMs.txt" />
 
 	<!-- Twitter Meta Tags -->
 	<meta name="twitter:card" content="summary_large_image" />
@@ -78,8 +82,8 @@ const canonicalUrl = canonical ? new URL(canonical, siteUrl).href : currentUrl;
 	    normalement plutôt que via l'astuce media="print" (plus de FOUC d'icônes). */}
 	<link rel="stylesheet" href="/assets/css/boxicons.subset.css" />
 	<link rel="stylesheet" href="/assets/css/styles.css" />
-	<link rel="icon" id="favicon" type="image/png" href="/assets/media/logo.png" />
-	<link rel="apple-touch-icon" id="favicon-apple" href="/assets/media/logo.png" />
+	<link rel="icon" id="favicon" type="image/png" href="/assets/media/logo-light.png" />
+	<link rel="apple-touch-icon" id="favicon-apple" href="/assets/media/logo-light.png" />
 	<link rel="canonical" href={canonicalUrl} />
 
 	<script src="/assets/js/layout.js" defer></script>

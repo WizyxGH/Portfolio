@@ -131,30 +131,31 @@ function initNavbarInteractions() {
         menuButton.addEventListener('click', () => navMenu.classList.toggle('hidden'));
     }
 
-    // --- Dropdown ---
-    const dropdownButton = document.getElementById('dropdownButton');
-    const dropdownMenu = document.getElementById('dropdownMenu');
-    const dropdownChevron = document.getElementById('dropdownChevron');
-    if (dropdownButton && dropdownMenu) {
-        dropdownButton.addEventListener('click', () => {
-            dropdownMenu.classList.toggle('hidden');
-            if (dropdownChevron) {
-                dropdownChevron.classList.toggle('bx-chevron-down', dropdownMenu.classList.contains('hidden'));
-                dropdownChevron.classList.toggle('bx-chevron-up', !dropdownMenu.classList.contains('hidden'));
+    // --- Dropdowns ---
+    const dropdownButtons = document.querySelectorAll('.nav-dropdown-btn');
+    dropdownButtons.forEach(btn => {
+        const menu = btn.nextElementSibling;
+        const chevron = btn.querySelector('.nav-dropdown-chevron');
+        
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            if (chevron) {
+                chevron.classList.toggle('bx-chevron-down', menu.classList.contains('hidden'));
+                chevron.classList.toggle('bx-chevron-up', !menu.classList.contains('hidden'));
             }
         });
-
+        
         // Close dropdown when clicking outside
         document.addEventListener('click', (e) => {
-            if (!dropdownButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
-                dropdownMenu.classList.add('hidden');
-                if (dropdownChevron) {
-                    dropdownChevron.classList.add('bx-chevron-down');
-                    dropdownChevron.classList.remove('bx-chevron-up');
+            if (!btn.contains(e.target) && !menu.contains(e.target)) {
+                menu.classList.add('hidden');
+                if (chevron) {
+                    chevron.classList.add('bx-chevron-down');
+                    chevron.classList.remove('bx-chevron-up');
                 }
             }
         });
-    }
+    });
 }
 
 function setActiveNavLinks() {

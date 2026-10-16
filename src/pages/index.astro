@@ -15,7 +15,7 @@ const featured_projects = allProjects
     .filter(project => project.data.is_study !== true)
     .slice(0, 6);
 ---
-<Layout title="UI/UX Designer freelance - Florian GERTNER KILIAN" description="Création d'interfaces web et mobiles performantes, esthétiques et intuitives. UI/UX Designer freelance basé à Toulon et Nice." body_class="">
+<Layout title="UI/UX Designer freelance - Florian GERTNER KILIAN" description="Création d'interfaces web et mobiles performantes, esthétiques et intuitives. UI/UX Designer freelance basé à Nice et Toulon." body_class="">
 <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -41,13 +41,13 @@ const featured_projects = allProjects
             "address": [
                 {
                     "@type": "PostalAddress",
-                    "addressLocality": "Toulon",
+                    "addressLocality": "Nice",
                     "addressRegion": "Provence-Alpes-Côte d'Azur",
                     "addressCountry": "FR"
                 },
                 {
                     "@type": "PostalAddress",
-                    "addressLocality": "Nice",
+                    "addressLocality": "Toulon",
                     "addressRegion": "Provence-Alpes-Côte d'Azur",
                     "addressCountry": "FR"
                 }
@@ -87,22 +87,63 @@ const featured_projects = allProjects
                 "email": "hello@wizyx.me",
                 "url": "https://wizyx.me/contact",
                 "areaServed": [
-                    "Toulon",
-                    "Var",
                     "Nice",
-                    "Marseille",
-                    "Aix-en-Provence",
+                    "Alpes-Maritimes",
                     "Cannes",
                     "Antibes",
                     "Monaco",
-                    "Menton",
                     "Sophia Antipolis",
-                    "Alpes-Maritimes",
+                    "Menton",
+                    "Toulon",
+                    "Var",
+                    "Marseille",
+                    "Aix-en-Provence",
                     "Provence-Alpes-Côte d'Azur",
                     "PACA",
                     "Paris",
                     "France"
                 ]
+            }
+        }
+    </script>
+<script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "name": "Florian Gertner Kilian — UI/UX & Product Designer Freelance",
+            "alternateName": "Wizyx",
+            "image": "https://wizyx.me/assets/media/photo.webp",
+            "url": "https://wizyx.me/",
+            "telephone": "+33778407887",
+            "priceRange": "€€",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Nice",
+                "postalCode": "06000",
+                "addressRegion": "Provence-Alpes-Côte d'Azur",
+                "addressCountry": "FR"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 43.7102,
+                "longitude": 7.2620
+            },
+            "areaServed": [
+                "Nice",
+                "Alpes-Maritimes",
+                "Cannes",
+                "Antibes",
+                "Monaco",
+                "Sophia Antipolis",
+                "Toulon",
+                "Marseille",
+                "France"
+            ],
+            "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "09:00",
+                "closes": "18:00"
             }
         }
     </script>

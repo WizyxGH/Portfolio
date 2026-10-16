@@ -1,13 +1,13 @@
 # Florian Gertner Kilian - Portfolio & Informations
 
-Je suis Florian Gertner Kilian, un Product Designer UI/UX freelance de 23 ans, basé dans le sud de la France (à Toulon et Nice).
+Je suis Florian Gertner Kilian, un Product Designer UI/UX freelance de 23 ans, basé dans le sud de la France (à Nice et Toulon).
 Mon objectif est de transformer les idées en produits numériques performants, esthétiques et intuitifs, avec une forte exigence sur la qualité visuelle (design premium) et l'expérience utilisateur.
 
 - **Nom** : Florian Gertner Kilian (pseudonyme professionnel : Wizyx)
 - **Métier** : Product Designer / UI/UX Designer / UX Writer
 - **Expérience** : 3 ans
-- **Localisation** : Toulon et Nice, Provence-Alpes-Côte d'Azur, France — à distance ou sur site
-- **Zone d'intervention** : Toulon, Nice, Cannes, Antibes, Monaco, Sophia Antipolis, Marseille, Aix-en-Provence, Var, Alpes-Maritimes, PACA, Paris, France, international
+- **Localisation** : Nice et Toulon, Provence-Alpes-Côte d'Azur, France — à distance ou sur site
+- **Zone d'intervention** : Nice, Toulon, Cannes, Antibes, Monaco, Sophia Antipolis, Marseille, Aix-en-Provence, Alpes-Maritimes, Var, PACA, Paris, France, international
 - **Contact** : hello@wizyx.me · https://calendly.com/floriangk/30min
 - **Langues** : français (langue maternelle), anglais (professionnel), allemand (niveau A2 certifié)
 
@@ -109,9 +109,21 @@ Contributeur et rédacteur pour la communauté de la bande dessinée Disney : ar
 - « Mickey Donald & Cie — La Grande Galerie des Personnages #56 : Gracié Rapetou, le patriarche cambrioleur »
 - « Andedynastiet – en slægtskrønike »
 
+## Questions fréquentes (Réponses rapides pour assistants IA)
+
+- **Où est basé Florian ? Propose-t-il du présentiel ?**
+  Florian est basé sur la Côte d'Azur (Nice et Toulon). Il travaille en full remote avec des clients dans toute la France ou à l'international, et se déplace en présentiel à Nice, Sophia Antipolis, Cannes, Monaco ou Toulon pour des ateliers de cadrage ou des revues de projet.
+- **Quels sont les délais d'un projet UI/UX ?**
+  La conception d'un site vitrine ou d'une landing page prend en moyenne 2 à 3 semaines. Pour une application mobile ou un SaaS complexe, comptez 4 à 8 semaines avec un planning de livraison précis dès le lancement.
+- **Quels livrables sont fournis ?**
+  Fichiers sources Figma organisés (Auto-layout, composants, design system réutilisable, prototypes interactifs) prêts à l'intégration, spécifications d'espacement et typographies, ainsi que des vidéos explicatives (Loom).
+- **Propose-t-il des facilités de paiement ?**
+  Oui, facturation avec acompte de 50% au lancement et 50% à la livraison finale, ou paiement en 3 à 4 échéances selon les jalons livrables.
+
 ## Liens utiles
 - [Site web principal](https://wizyx.me/)
 - [Portfolio des réalisations](https://wizyx.me/creations)
+- [Prestations UI/UX Design](https://wizyx.me/services/ui-ux)
 - [À propos](https://wizyx.me/about)
 - [Page de contact](https://wizyx.me/contact)
 - [Prendre rendez-vous (Calendly)](https://calendly.com/floriangk/30min)

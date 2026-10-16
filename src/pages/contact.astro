@@ -5,7 +5,7 @@ import ContactForm from '../components/contact/ContactForm.astro';
 import CalendlyCard from '../components/ui/CalendlyCard.astro';
 import ContactAdvice from '../components/contact/ContactAdvice.astro';
 ---
-<Layout title="Contact" description="" body_class="">
+<Layout title="Contact" description="Discutons de votre projet d'application, SaaS ou site web. Product Designer UI/UX freelance basé à Nice et disponible pour vos projets digitaux." body_class="">
 <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -30,13 +30,31 @@ import ContactAdvice from '../components/contact/ContactAdvice.astro';
         {
             "@context": "https://schema.org",
             "@type": "ContactPage",
-            "name": "Contactez Florian Gertner Kilian",
-            "description": "Discutons de votre projet de design UI/UX ou de refonte de site web.",
+            "name": "Contactez Florian Gertner Kilian — UI/UX Designer à Nice",
+            "description": "Discutons de votre projet de design UI/UX, application mobile ou refonte de site web.",
             "url": "https://wizyx.me/contact/",
             "mainEntity": {
                 "@type": "Person",
                 "name": "Florian Gertner Kilian",
-                "email": "hello@wizyx.me"
+                "email": "hello@wizyx.me",
+                "telephone": "+33778407887",
+                "jobTitle": "Product Designer",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Nice",
+                    "addressRegion": "Provence-Alpes-Côte d'Azur",
+                    "addressCountry": "FR"
+                },
+                "areaServed": [
+                    "Nice",
+                    "Alpes-Maritimes",
+                    "Cannes",
+                    "Antibes",
+                    "Monaco",
+                    "Sophia Antipolis",
+                    "Toulon",
+                    "France"
+                ]
             }
         }
     </script>

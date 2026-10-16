@@ -35,6 +35,27 @@ import Layout from '../layouts/Layout.astro';
                 "@type": "Person",
                 "name": "Florian Gertner Kilian",
                 "jobTitle": "Product Designer",
+                "image": "https://wizyx.me/assets/media/profilepicturepro.webp",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Nice",
+                    "addressRegion": "Provence-Alpes-Côte d'Azur",
+                    "addressCountry": "FR"
+                },
+                "alumniOf": [
+                    {
+                        "@type": "EducationalOrganization",
+                        "name": "ECV — École de création visuelle"
+                    },
+                    {
+                        "@type": "EducationalOrganization",
+                        "name": "Université de Toulon"
+                    },
+                    {
+                        "@type": "EducationalOrganization",
+                        "name": "Lycée Bonaparte Toulon"
+                    }
+                ],
                 "sameAs": [
                     "https://linkedin.com/in/flogk/",
                     "https://github.com/WizyxGH",
@@ -52,7 +73,7 @@ import Layout from '../layouts/Layout.astro';
             }
         }
     </script>
-<main class="container mx-auto px-6 py-16 lg:px-32 flex flex-col gap-8">
+<main class="max-w-4xl mx-auto px-6 py-12 flex flex-col gap-8">
 
         <!-- HEADER -->
         <header class="flex flex-col items-center text-center gap-4">
@@ -124,7 +145,7 @@ import Layout from '../layouts/Layout.astro';
 
             <!-- TIMELINE -->
             <div class="relative"
-                style="display: flex; flex-direction: column; gap: 16px; padding-left: 24px; margin-left: 8px;">
+                style="display: flex; flex-direction: column; gap: 28px; padding-left: 24px; margin-left: 8px;">
                 <!-- Timeline vertical line -->
                 <div class="absolute left-0 top-2 bottom-0 timeline-line"
                     style="border-top-left-radius: 4px; border-bottom-left-radius: 4px;"></div>
@@ -135,20 +156,8 @@ import Layout from '../layouts/Layout.astro';
                     <span class="absolute rounded-full bg-brand-primary"
                         style="left: -34px; top: 8px; width: 16px; height: 16px; z-index: 10;"></span>
                     <h3 class="font-bold text-xl text-dark-bg dark:text-white">Apprentissages</h3>
-                    <p class="text-gray-600 dark:text-gray-300 text-sm lg:text-base leading-7 text-justify">
-                        De ce fait, après avoir longtemps expérimenté dans mon coin comme <strong>autodidacte</strong>,
-                        devant la complexité technique que représente ce merveilleux outil, j'ai décidé de m'orienter
-                        vers des <strong>études courtes et professionnalisantes</strong>. J'ai alors choisi de faire un
-                        <strong>BTS informatique (SIO)</strong> afin d'<strong>apprendre à coder</strong>. Cela aurait
-                        permis de savoir <strong>donner vie aux diverses idées de sites et d'applications</strong> qui
-                        me viennent en tête. Malgré l'obtention du diplôme, je me suis rendu compte que passer la
-                        journée à écrire des lignes de code ne correspondait pas à ma vie rêvée. Ce que j'aime c'est
-                        certes créer
-                        des solutions numériques mais surtout <strong>l'aspect visuel et esthétique</strong> pour
-                        concevoir des
-                        interfaces agréables, intuitives et efficaces à naviguer. Le numérique doit être à l'avantage de
-                        l'Homme et
-                        non prendre son contrôle.
+                    <p class="text-gray-600 dark:text-gray-300 text-sm lg:text-base leading-7">
+                        De ce fait, après avoir longtemps expérimenté dans mon coin comme <strong>autodidacte</strong>, devant la complexité technique que représente ce merveilleux outil, j'ai décidé de m'orienter vers des <strong>études courtes et professionnalisantes</strong>. J'ai alors choisi de faire un <strong>BTS informatique (SIO)</strong> afin d'<strong>apprendre à coder</strong>. Cela aurait permis de savoir <strong>donner vie aux diverses idées de sites et d'applications</strong> qui me viennent en tête. Malgré l'obtention du diplôme, je me suis rendu compte que passer la journée à écrire des lignes de code ne correspondait pas à ma vie rêvée. Ce que j'aime c'est certes créer des solutions numériques mais surtout <strong>l'aspect visuel et esthétique</strong> pour concevoir des interfaces agréables, intuitives et efficaces à naviguer. Le numérique doit être à l'avantage de l'Homme et non prendre son contrôle.
                     </p>
                 </div>
 
@@ -157,14 +166,8 @@ import Layout from '../layouts/Layout.astro';
                     <span class="absolute rounded-full bg-brand-primary"
                         style="left: -34px; top: 8px; width: 16px; height: 16px; z-index: 10;"></span>
                     <h3 class="font-bold text-xl text-dark-bg dark:text-white">Passions</h3>
-                    <p class="text-gray-600 dark:text-gray-300 text-sm lg:text-base leading-7 text-justify">
-                        Ce <strong>besoin d'entraide et de partage</strong>, je le transmet aussi par
-                        l'<strong>écriture</strong>. C'est un <strong>vecteur d'échange</strong> bien pratique qui me
-                        permet de <strong>m'exprimer</strong>. J'aime
-                        <strong>faire découvrir aux autres mes passions</strong> pour les emmener avec moi. C'est
-                        pourquoi, je contribue à la communauté des <strong>fans de bandes dessinées Disney</strong>
-                        (oui, ça existe !) en <strong>archivant des magazines</strong> du monde entier et en
-                        <strong>rédigeant des articles</strong> de temps à autre.
+                    <p class="text-gray-600 dark:text-gray-300 text-sm lg:text-base leading-7">
+                        Ce <strong>besoin d'entraide et de partage</strong>, je le transmet aussi par l'<strong>écriture</strong>. C'est un <strong>vecteur d'échange</strong> bien pratique qui me permet de <strong>m'exprimer</strong>. J'aime <strong>faire découvrir aux autres mes passions</strong> pour les emmener avec moi. C'est pourquoi, je contribue à la communauté des <strong>fans de bandes dessinées Disney</strong> (oui, ça existe !) en <strong>archivant des magazines</strong> du monde entier et en <strong>rédigeant des articles</strong> de temps à autre.
                     </p>
                 </div>
 
@@ -173,13 +176,8 @@ import Layout from '../layouts/Layout.astro';
                     <span class="absolute rounded-full bg-brand-primary"
                         style="left: -34px; top: 8px; width: 16px; height: 16px; z-index: 10;"></span>
                     <h3 class="font-bold text-xl text-dark-bg dark:text-white">Voyages</h3>
-                    <p class="text-gray-600 dark:text-gray-300 text-sm lg:text-base leading-7 text-justify">
-                        Mes parents m'ont donné leur <strong>goût du voyage</strong>. Rien de mieux pour
-                        <strong>comprendre le monde qui nous entoure</strong> que le <strong>parcourir et
-                            l'explorer</strong> (de sa <strong>beauté</strong> à ses failles). Alors que beaucoup de
-                        différences nous divisent, on se rend compte que dans le fond on est <strong>tous les
-                            mêmes</strong>. Avoir la Terre comme <strong>terrain de jeu</strong> ouvre l'esprit et donne
-                        de nouvelles perspectives.
+                    <p class="text-gray-600 dark:text-gray-300 text-sm lg:text-base leading-7">
+                        Mes parents m'ont donné leur <strong>goût du voyage</strong>. Rien de mieux pour <strong>comprendre le monde qui nous entoure</strong> que le <strong>parcourir et l'explorer</strong> (de sa <strong>beauté</strong> à ses failles). Alors que beaucoup de différences nous divisent, on se rend compte que dans le fond on est <strong>tous les mêmes</strong>. Avoir la Terre comme <strong>terrain de jeu</strong> ouvre l'esprit et donne de nouvelles perspectives.
                     </p>
                 </div>
 
@@ -188,17 +186,13 @@ import Layout from '../layouts/Layout.astro';
                     <span class="absolute rounded-full bg-brand-primary"
                         style="left: -34px; top: 8px; width: 16px; height: 16px; z-index: 10;"></span>
                     <h3 class="font-bold text-xl text-dark-bg dark:text-white">Esprit sportif</h3>
-                    <p class="text-gray-600 dark:text-gray-300 text-sm lg:text-base leading-7 text-justify">
-                        J'ai toujours eu l'envie de <strong>bouger</strong> et de <strong>me surpasser</strong>. Le
-                        <strong>sport</strong> est donc un moyen évident. Que cela passe
-                        par le <strong>collectif</strong> en faisant partie pendant 7 ans d'un club de foot puis autant
-                        d'années dans un club de basket ou par les <strong>performances individuelles</strong> en se 
-                        <strong>surpassant physiquement et mentalement</strong> grâce à la course à pied.
+                    <p class="text-gray-600 dark:text-gray-300 text-sm lg:text-base leading-7">
+                        J'ai toujours eu l'envie de <strong>bouger</strong> et de <strong>me surpasser</strong>. Le <strong>sport</strong> est donc un moyen évident. Que cela passe par le <strong>collectif</strong> en faisant partie pendant 7 ans d'un club de foot puis autant d'années dans un club de basket ou par les <strong>performances individuelles</strong> en se <strong>surpassant physiquement et mentalement</strong> grâce à la course à pied.
                     </p>
 
                     <p class="font-bold text-dark-bg dark:text-white uppercase text-xs opacity-80 mb-2">
                         Objectifs :</p>
-                    <ul class="list-disc pl-5 text-sm text-gray-700 dark:text-gray-300">
+                    <ul class="list-disc pl-5 text-sm text-gray-700 dark:text-gray-300 space-y-1">
                         <li>Courir 10 km par jour pendant 100j ✅</li>
                         <li>Courir un marathon en moins de 4h (record actuel : marathon en 4h30 et semi-marathon en 1h50m12s)</li>
                         <li>Faire le GR20 en Corse</li>
@@ -213,7 +207,7 @@ import Layout from '../layouts/Layout.astro';
         <section id="citations"
             class="card-bg shadow-[0_10px_60px_-15px_rgba(0,0,0,0.03)] border border-[rgba(65,31,235,0.24)] dark:border-[rgba(85,54,237,0.24)] flex flex-col items-start gap-8 self-stretch p-8"
             style="border-radius: 16px;">
-            <div class="mb-12 flex flex-col gap-4">
+            <div class="flex flex-col gap-4">
                 <span class="text-sm font-bold text-brand-primary dark:text-brand-secondary uppercase block">Citations</span>
                 <h2 class="text-2xl font-bold text-dark-bg dark:text-white leading-relaxed">
                     Mon état d'esprit</h2>
@@ -260,7 +254,7 @@ import Layout from '../layouts/Layout.astro';
                     </div>
                 </div>
                 <!-- Quote 4 -->
-                <div class="flex items-stretch pr-3 h-full hover:shadow-sm transition-shadow"
+                <div class="flex items-stretch h-full hover:shadow-sm transition-shadow"
                     style="border-top-right-radius: 24px; border-bottom-right-radius: 24px;">
                     <div class="citation-line bg-brand-primary rounded-full shrink-0 self-stretch"></div>
                     <div class="py-3 quote-bg px-4 w-full"
