@@ -122,6 +122,7 @@ Contributeur et rédacteur pour la communauté de la bande dessinée Disney : ar
 
 ## Liens utiles
 - [Site web principal](https://wizyx.me/)
+- [Curriculum Vitae (CV)](https://wizyx.me/cv)
 - [Portfolio des réalisations](https://wizyx.me/creations)
 - [Prestations UI/UX Design](https://wizyx.me/services/ui-ux)
 - [À propos](https://wizyx.me/about)

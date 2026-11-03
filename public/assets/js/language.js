@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.innerHTML = flagSvg;
                 btn.onclick = (e) => {
                     e.preventDefault();
-                    setLanguage(nextLang);
+                    window.setLanguage(nextLang);
                 };
             });
         }

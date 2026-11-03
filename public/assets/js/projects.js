@@ -622,7 +622,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Initialize drag scroll for static containers
-    enableDragScroll(filtersContainer);
+    enableDragScroll(filtersTypesContainer);
+    enableDragScroll(filtersTagsContainer);
 
     // --- Vidéo : lecture uniquement au hover de la carte ---
     function initCardVideoHover() {

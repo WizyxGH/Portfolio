@@ -3,6 +3,19 @@ import Layout from '../layouts/Layout.astro';
 import { getMediaUrl } from '../utils/media';
 ---
 <Layout title="Page non trouvée - 404" description="Oups ! La page que vous recherchez semble introuvable." body_class="">
+    {/* Redirection automatique si l'URL contient des majuscules (ex: /CV, /Cv -> /cv) */}
+    <script is:inline>
+        (function () {
+            try {
+                var path = window.location.pathname;
+                var lower = path.toLowerCase();
+                if (path !== lower) {
+                    window.location.replace(lower + window.location.search + window.location.hash);
+                }
+            } catch (e) {}
+        })();
+    </script>
+
     <main class="flex flex-col items-center justify-center min-h-screen px-6 py-16 pt-24">
         <!-- Content Container -->
         <div class="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-24 max-w-5xl">
