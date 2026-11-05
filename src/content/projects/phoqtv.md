@@ -12,10 +12,10 @@ technologies:
   - name: "Figma"
     icon: "bx bxl-figma"
 testimonial:
-  text: "Coming soon..."
+  text: "J'ai fait appel à Florian à plusieurs reprises pour des projets PHOQ.tv, et à chaque fois c'est un plaisir. Super designer UI/UX : il comprend vite les enjeux, propose des interfaces modernes, et sait itérer jusqu'au bon résultat. Fiable, créatif et très sympathique, je le recommande sans l'ombre d'un doute !"
   author:
     name: "Thibaut Maëns Rabier"
-    title: "Founder & Creative Producer chez PHOQ.tv"
+    title: "Founder & Creative Producer"
     avatar: "/assets/media/photo/thibautmaensrabier.webp"
     companyUrl: "https://phoq.tv"
 tags:

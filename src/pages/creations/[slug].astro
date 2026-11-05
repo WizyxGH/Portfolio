@@ -177,11 +177,12 @@ const ldJson2 = {
                             <div>
                                 <h4 class="font-bold text-sm text-brand-primary dark:text-brand-secondary">{page.testimonial.author.name}</h4>
                                 <p class="text-xs text-gray-500 dark:text-gray-400">
-                                    {page.testimonial.author.companyUrl ? (
-                                        <a href={page.testimonial.author.companyUrl} target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold text-brand-primary dark:text-brand-secondary">{page.testimonial.author.title}</a>
-                                    ) : (
-                                        page.testimonial.author.title
-                                    )}
+                                  {page.testimonial.author.title}
+                                  {page.testimonial.author.companyUrl ? (
+                                    <>, <a href={page.testimonial.author.companyUrl} target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold text-brand-primary dark:text-brand-secondary">PHOQ.tv</a></>
+                                  ) : (
+                                    ""
+                                  )}
                                 </p>
                             </div>
                         </div>
