@@ -8,7 +8,7 @@ import ProjectCard from '../components/ui/ProjectCard.astro';
 
 const allProjects = await getCollection('projects');
 const creations = allProjects.filter((item: any) => item.data.id <= 25);
-const roundedCount = Math.floor(creations.length / 10) * 10;
+const roundedCount = 30; // présenté comme "30+ projets réalisés"
 
 const featured_projects = allProjects
     .sort((a: any, b: any) => a.data.id - b.data.id)
@@ -36,6 +36,7 @@ const featured_projects = allProjects
                 "Designer d'expérience utilisateur"
             ],
             "url": "https://wizyx.me/",
+            "logo": "https://wizyx.me/assets/media/logo-light.png",
             "image": "https://wizyx.me/assets/media/photo.webp",
             "description": "Product Designer freelance, je transforme vos idées en produits performants",
             "address": [

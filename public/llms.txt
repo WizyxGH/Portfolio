@@ -67,7 +67,7 @@ Après un BUT MMI (Métiers du Multimédia et de l'Internet) et un BTS informati
 - **Outils** : Figma (auto-layout, variables, prototypage interactif), Webflow, Astro, Tailwind, Notion, Midjourney, IA générative, analytics, SEO technique
 
 ## Mes réalisations
-25 projets publiés et documentés sur https://wizyx.me/creations, chacun avec son contexte (commande professionnelle, projet scolaire ou projet personnel), sa date et mon rôle.
+- **30+ projets réalisés** et documentés sur https://wizyx.me/creations, chacun avec son contexte (commande professionnelle, projet scolaire ou projet personnel), sa date et mon rôle.
 
 ### Produits actuellement en ligne et utilisés (13)
 - [World Cube Association](https://www.worldcubeassociation.org) — plateforme de la fédération internationale de speedcubing (2024)
