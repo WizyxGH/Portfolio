@@ -7,7 +7,6 @@ import Testimonials from '../components/home/Testimonials.astro';
 import ProjectCard from '../components/ui/ProjectCard.astro';
 
 const allProjects = await getCollection('projects');
-const creations = allProjects.filter((item: any) => item.data.id <= 25);
 const roundedCount = 30; // présenté comme "30+ projets réalisés"
 
 const featured_projects = allProjects
@@ -16,7 +15,7 @@ const featured_projects = allProjects
     .slice(0, 6);
 ---
 <Layout title="UI/UX Designer freelance - Florian GERTNER KILIAN" description="Création d'interfaces web et mobiles performantes, esthétiques et intuitives. UI/UX Designer freelance basé à Nice et Toulon." body_class="">
-<script type="application/ld+json">
+<script is:inline type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "Person",
@@ -107,7 +106,7 @@ const featured_projects = allProjects
             }
         }
     </script>
-<script type="application/ld+json">
+<script is:inline type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "ProfessionalService",
@@ -148,7 +147,7 @@ const featured_projects = allProjects
             }
         }
     </script>
-<script type="application/ld+json">
+<script is:inline type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "WebSite",
@@ -161,7 +160,7 @@ const featured_projects = allProjects
             }
         }
     </script>
-<script type="application/ld+json">
+<script is:inline type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
@@ -175,8 +174,8 @@ const featured_projects = allProjects
             ]
         }
     </script>
-<script src="/assets/js/home.js" defer></script>
-<script src="/assets/js/brands_carousel.js" defer></script>
+<script is:inline src="/assets/js/home.js" defer></script>
+<script is:inline src="/assets/js/brands_carousel.js" defer></script>
 <main>
     <Hero roundedCount={roundedCount} />
 
@@ -230,7 +229,7 @@ const featured_projects = allProjects
     </section>
 
     <!-- Load Projects Script was removed in favor of SSR -->
-    <script src="/assets/js/drag_scroll.js" defer></script>
+    <script is:inline src="/assets/js/drag_scroll.js" defer></script>
 </main>
 
 </Layout>

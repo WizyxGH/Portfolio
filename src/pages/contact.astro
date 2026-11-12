@@ -1,12 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Button from '../components/ui/Button.astro';
 import ContactForm from '../components/contact/ContactForm.astro';
 import CalendlyCard from '../components/ui/CalendlyCard.astro';
 import ContactAdvice from '../components/contact/ContactAdvice.astro';
 ---
 <Layout title="Contact" description="Discutons de votre projet d'application, SaaS ou site web. Product Designer UI/UX freelance basé à Nice et disponible pour vos projets digitaux." body_class="">
-<script type="application/ld+json">
+<script is:inline type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
@@ -26,7 +25,7 @@ import ContactAdvice from '../components/contact/ContactAdvice.astro';
             ]
         }
     </script>
-    <script type="application/ld+json">
+    <script is:inline type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "ContactPage",
@@ -58,7 +57,7 @@ import ContactAdvice from '../components/contact/ContactAdvice.astro';
             }
         }
     </script>
-<script src="/assets/js/contact.js" defer></script>
+<script is:inline src="/assets/js/contact.js" defer></script>
 <main class="flex-1 flex flex-col">
         <section class="w-full max-w-5xl mx-auto px-6 py-8 text-center space-y-8">
             <div class="space-y-4 flex flex-col items-center">

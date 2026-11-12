@@ -88,9 +88,9 @@ const ldJson2 = {
 ---
 
 <Layout title={page.title} description={page.description} og_image={page.og_image}>
-    <script type="application/ld+json" set:html={JSON.stringify(ldJson1)}></script>
-    <script type="application/ld+json" set:html={JSON.stringify(ldJson2)}></script>
-    <script src="/assets/js/obsidian.js" defer></script>
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(ldJson1)}></script>
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(ldJson2)}></script>
+    <script is:inline src="/assets/js/obsidian.js" defer></script>
 
     <main class="px-6 lg:px-32 mx-auto p-8 space-y-4">
         <div>
@@ -225,5 +225,5 @@ const ldJson2 = {
         </article>
     </main>
 
-    <script src="/assets/js/project-carousel.js" defer></script>
+    <script is:inline src="/assets/js/project-carousel.js" defer></script>
 </Layout>

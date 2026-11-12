@@ -7,14 +7,6 @@ import jobbrrImg from "../../assets/media/brands/JOBBRR.svg";
 import digitalUnicornImg from "../../assets/media/brands/Digital Unicorn.svg";
 import game4creatorImg from "../../assets/media/brands/Game4Creator.png";
 import mafigueImg from "../../assets/media/brands/Mafigue.svg";
-import client1 from "../../assets/media/photo/thibautmaensrabier.webp";
-import client2 from "../../assets/media/photo/carolineaubert.webp";
-import client3 from "../../assets/media/photo/lucaskacem.webp";
-
-export interface Props {
-    roundedCount?: number;
-}
-const { roundedCount = 20 } = Astro.props;
 ---
 
 <!-- Header / Hero Section -->
@@ -56,22 +48,6 @@ const { roundedCount = 20 } = Astro.props;
                 <p class="text-lg text-white/90">
                     Je transforme vos idées en produits performants
                 </p>
-                <!--<div class="flex items-center gap-2">
-                    <div class="flex -space-x-1">
-                        <div class="w-8 h-8 rounded-full border-2 border-[#411FEB] bg-[#251285] flex items-center justify-center overflow-hidden">
-                            <Image src={client1} alt="Client" width={32} height={32} class="w-full h-full object-cover" />
-                        </div>
-                        <div class="w-8 h-8 rounded-full border-2 border-[#411FEB] bg-[#3215c7] flex items-center justify-center overflow-hidden relative z-10">
-                            <Image src={client2} alt="Client" width={32} height={32} class="w-full h-full object-cover" />
-                        </div>
-                        <div class="w-8 h-8 rounded-full border-2 border-[#411FEB] bg-[#251285] flex items-center justify-center overflow-hidden relative z-20">
-                            <Image src={client3} alt="Client" width={32} height={32} class="w-full h-full object-cover" />
-                        </div>
-                    </div>
-                    <div class="flex flex-col">
-                        <span class="text-sm font-medium text-white/90">10+ clients accompagnés et satisfaits</span>
-                    </div>
-                </div>-->
             </div>
             <div class="flex flex-wrap gap-4 mt-2">
                 <a

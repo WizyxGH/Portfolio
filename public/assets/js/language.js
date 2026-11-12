@@ -15,19 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
             return lang;
         }
 
-        // If no param, check storage
+        // If no param, check storage (only if user explicitly chose a language before)
         const storedLang = localStorage.getItem('lang');
         if (storedLang && supportedLangs.includes(storedLang)) {
             return storedLang;
         }
 
-        // Feature: Auto-detect Browser Lang for new users
-        // If navigator.language starts with 'en', suggest EN
-        const browserLang = navigator.language || navigator.userLanguage;
-        if (browserLang && browserLang.startsWith('en')) {
-            return 'en';
-        }
-
+        // Default strictly to French (avoid unexpected auto-switch when browser locale is en-US/en-GB)
         return defaultLang;
     }
 
@@ -43,7 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const response = await fetch('/assets/data/translations.json');
             translations = await response.json();
-            applyLanguage(currentLang);
+            if (currentLang !== defaultLang) {
+                applyLanguage(currentLang);
+            }
             updateUrl(currentLang);
         } catch (error) {
             console.error('Could not load translations:', error);

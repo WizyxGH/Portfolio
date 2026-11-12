@@ -86,12 +86,12 @@ const canonicalUrl = canonical ? new URL(canonical, siteUrl).href : currentUrl;
 	<link rel="apple-touch-icon" id="favicon-apple" href="/assets/media/logo-light.png" />
 	<link rel="canonical" href={canonicalUrl} />
 
-	<script src="/assets/js/layout.js" defer></script>
-	<script src="/assets/js/theme.js" defer></script>
+	<script is:inline src="/assets/js/layout.js" defer></script>
+	<script is:inline src="/assets/js/theme.js" defer></script>
 
 	<!-- Google tag (gtag.js) -->
-	<script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-6PJB5NW1Y5"></script>
-	<script type="text/partytown">
+	<script is:inline type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-6PJB5NW1Y5"></script>
+	<script is:inline type="text/partytown">
 		window.dataLayer = window.dataLayer || []; 
 		function gtag() { dataLayer.push(arguments); } 
 		gtag('js', new Date()); 
