@@ -1,0 +1,31 @@
+---
+import Button from "../../ui/Button.astro";
+---
+
+<!-- 8. FINAL CTA MOBILE -->
+<section class="w-full px-8 lg:px-32 py-16 bg-brand-muted dark:bg-brand-dark text-center transition-colors duration-200">
+    <div class="max-w-4xl mx-auto space-y-6 animate-on-scroll">
+        <div class="w-16 h-16 rounded-full bg-brand-primary/10 text-brand-primary dark:text-brand-secondary flex items-center justify-center text-3xl mx-auto mb-2">
+            <i class='bx bx-mobile-alt'></i>
+        </div>
+        <h2 class="text-3xl lg:text-5xl font-bold leading-tight text-dark-bg dark:text-white">
+            Donnons vie à votre application mobile
+        </h2>
+        <p class="text-lg opacity-90 max-w-xl mx-auto text-gray-600 dark:text-gray-400">
+            Réservez un appel de cadrage de 30 minutes sans engagement. Nous analyserons ensemble votre concept, vos cibles et les fonctionnalités clés de votre MVP.
+        </p>
+        <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener noreferrer" variant="primary" size="md">
+                <span>Réserver mon appel découverte gratuit</span>
+                <i class='bx bx-calendar'></i>
+            </Button>
+            <Button href="/contact/" variant="secondary" size="md">
+                <span>M'envoyer un message</span>
+                <i class='bx bx-envelope'></i>
+            </Button>
+        </div>
+        <p class="text-xs text-gray-500 dark:text-gray-400 pt-2">
+            100% sans engagement — Échangeons en toute simplicité sur vos ambitions mobiles.
+        </p>
+    </div>
+</section>

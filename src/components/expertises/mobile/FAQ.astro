@@ -1,0 +1,69 @@
+---
+import FaqItem from "../../ui/FaqItem.astro";
+
+const faqData = [
+  {
+    question: "Les maquettes respectent-elles les règles d'Apple et de Google (HIG & Material Design) ?",
+    answer: "Absolument. C'est l'un des piliers de mon travail. Je conçois en respectant scrupuleusement les Human Interface Guidelines d'Apple (iOS) et le Material Design 3 de Google (Android) : zones de toucher d'au moins 48x48px, typographies système adaptées, gestion des bottom sheets et des retours tactiles. Votre application ne risquera aucun rejet sur les stores lié à l'ergonomie."
+  },
+  {
+    question: "Puis-je tester l'application directement sur mon smartphone avant le développement ?",
+    answer: "Oui, à 100%. Grâce au prototype interactif Figma et à l'application gratuite Figma Mirror, vous pouvez ouvrir les maquettes directement sur votre iPhone ou smartphone Android. Vous touchez les boutons, faites défiler les listes et testez les transitions de pages exactement comme sur une véritable application native."
+  },
+  {
+    question: "Comment mes développeurs (React Native, Flutter, Swift, Kotlin) vont-ils intégrer les écrans ?",
+    answer: "Ayant débuté par des études en informatique (BTS SIO), je structure mes fichiers Figma pour les développeurs : Auto-Layout strict pour chaque composant (équivalent du Flexbox), variables pour les couleurs et espacements, hiérarchie de calques propre et export SVG prêt à l'emploi. Une session vidéo de handoff est également prévue pour lever tout doute technique."
+  },
+  {
+    question: "Concevez-vous également les assets pour l'App Store et Google Play ?",
+    answer: "Oui. En plus des écrans de l'application, je peux livrer l'icône de l'application aux formats requis, l'écran de démarrage (Splash Screen) et les visuels de présentation (Screenshots promotionnels) adaptés aux exigences des stores d'Apple et de Google pour maximiser vos téléchargements."
+  },
+  {
+    question: "Prenez-vous en charge le Dark Mode et les différentes tailles d'écrans ?",
+    answer: "Tout à fait. Les composants sont conçus avec des tokens adaptatifs permettant de décliner facilement le mode clair et le Dark Mode. De plus, les layouts sont testés sur les petits formats (iPhone SE) comme sur les très grands écrans (iPhone Pro Max, Samsung Ultra) pour garantir un affichage sans bug."
+  },
+  {
+    question: "Développez-vous l'application ou fournissez-vous uniquement le design ?",
+    answer: "Je me concentre sur ce que je maîtrise le mieux : la stratégie produit, le design UI/UX et le prototypage interactif sur Figma. Si vous n'avez pas encore d'équipe technique, je peux vous recommander des développeurs mobiles indépendants de confiance (experts React Native, Flutter ou natifs) avec qui j'ai l'habitude de collaborer."
+  },
+  {
+    question: "Combien de temps prend la conception complète d'une application mobile ?",
+    answer: "Pour un MVP mobile de 10 à 15 écrans clés, le processus prend généralement entre 2 et 3 semaines. Pour des projets plus volumineux ou des refontes complexes, comptez entre 4 et 6 semaines, avec des livraisons d'écrans chaque semaine pour vous permettre de valider au fil de l'eau."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqData.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer
+    }
+  }))
+};
+---
+<script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+<!-- 7. FAQ MOBILE -->
+<section class="w-full px-8 lg:px-32 py-16 bg-white dark:bg-dark-bg">
+    <div class="max-w-3xl mx-auto space-y-8">
+        <div class="space-y-4 text-center">
+            <span class="text-sm font-bold text-brand-primary dark:text-brand-secondary uppercase">FAQ</span>
+            <h2 class="text-3xl lg:text-4xl font-bold text-dark-bg dark:text-white">Vos questions sur le design mobile</h2>
+            <p class="text-gray-500 dark:text-gray-400 text-sm">
+                Tout ce que vous devez savoir pour lancer votre projet mobile en toute sérénité.
+            </p>
+        </div>
+
+        <div class="space-y-3" id="faqList">
+            {faqData.map((item) => (
+                <FaqItem question={item.question}>
+                    {item.answer}
+                </FaqItem>
+            ))}
+        </div>
+    </div>
+</section>

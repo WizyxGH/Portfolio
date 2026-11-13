@@ -8,7 +8,7 @@
         <!-- Header -->
         <div class="p-6 border-b border-gray-100 dark:border-[#3E3E3E] flex justify-between items-center bg-white dark:bg-dark-bg shrink-0">
             <h2 class="text-xl font-bold text-brand-primary dark:text-white flex items-center gap-2">
-                <i class='bx bx-slider-alt text-2xl'></i> Filtres & Tri
+                <i class='bx bx-slider-alt text-2xl'></i> <span data-i18n="drawer_title">Filtres & Tri</span>
             </h2>
             <button id="closeFiltersBtn" class="text-gray-500 hover:text-brand-primary dark:hover:text-brand-secondary transition-colors p-1 rounded-full hover:bg-gray-100 dark:hover:bg-white/5">
                 <i class='bx bx-x text-3xl leading-none'></i>
@@ -18,22 +18,22 @@
         <!-- Body -->
         <div class="flex-1 overflow-y-auto p-6 space-y-8 custom-scrollbar">
             <div>
-                <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Trier par</h3>
+                <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3" data-i18n="drawer_sort_title">Trier par</h3>
                 <div id="drawerSortContainer" class="flex flex-wrap gap-2"></div>
             </div>
 
             <div>
-                <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Secteurs d'activité</h3>
+                <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3" data-i18n="drawer_sectors_title">Secteurs d'activité</h3>
                 <div id="drawerSectorsContainer" class="flex flex-wrap gap-2"></div>
             </div>
             
             <div>
-                <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Types de projet</h3>
+                <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3" data-i18n="drawer_types_title">Types de projet</h3>
                 <div id="drawerTypesContainer" class="flex flex-wrap gap-2"></div>
             </div>
             
             <div>
-                <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Compétences</h3>
+                <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3" data-i18n="drawer_skills_title">Compétences</h3>
                 <div id="drawerTagsContainer" class="flex flex-wrap gap-2"></div>
             </div>
         </div>
@@ -41,7 +41,7 @@
         <!-- Footer -->
         <div class="p-6 border-t border-gray-100 dark:border-[#3E3E3E] bg-white dark:bg-dark-bg shrink-0">
             <button id="applyFiltersBtn" class="w-full py-3 bg-brand-primary text-white rounded-xl font-semibold hover:bg-[#3A1CC5] transition-colors flex justify-center items-center gap-2 shadow-lg">
-                Afficher les résultats 
+                <span data-i18n="drawer_apply_btn">Afficher les résultats</span> 
                 <span id="resultsCountBadge" class="bg-white/20 text-white px-2 py-0.5 rounded-full text-xs font-bold min-w-[24px] text-center">...</span>
             </button>
         </div>

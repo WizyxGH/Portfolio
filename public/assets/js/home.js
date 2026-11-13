@@ -1,6 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
     // --- Typewriter Effect ---
-    const texts = ["Product Designer", "UI/UX Designer", "Web Designer", "Copywriter", "Rédacteur", "Rêveur", "Voyageur"];
+    const localizedTexts = {
+        fr: ["Product Designer", "UI/UX Designer", "Web Designer", "Copywriter", "Rédacteur", "Rêveur", "Voyageur"],
+        en: ["Product Designer", "UI/UX Designer", "Web Designer", "Copywriter", "Writer", "Dreamer", "Traveler"],
+        de: ["Product Designer", "UI/UX Designer", "Web Designer", "Copywriter", "Texter", "Träumer", "Reisender"]
+    };
+    const initialLang = new URLSearchParams(window.location.search).get('lang') || localStorage.getItem('lang') || 'fr';
+    let texts = localizedTexts[initialLang] || localizedTexts.fr;
+
+    window.setTypewriterLanguage = function(lang) {
+        if (localizedTexts[lang]) {
+            texts = localizedTexts[lang];
+            textIndex = 0;
+            charIndex = 0;
+            isDeleting = false;
+        }
+    };
     const typingSpeed = 150;
     const erasingSpeed = 100;
     const delayBetween = 3000;

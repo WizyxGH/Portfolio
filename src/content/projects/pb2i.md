@@ -8,7 +8,7 @@ type: "Site internet"
 sector: "Patrimoine"
 context: "Professionnel"
 date: "2026-05-01"
-projectLink: "#"
+projectLink: "https://pb2i-belfort.fr"
 tags:
   - name: "UI/UX Design"
     icon: "bx bxs-layout"

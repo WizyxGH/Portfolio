@@ -12,7 +12,7 @@ import BudgetDropdown from '../ui/BudgetDropdown.astro';
     <!-- Email & Téléphone -->
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
         <div class="flex flex-col">
-            <label for="emailInput" class="flex items-center gap-2 text-dark-bg dark:text-white font-medium cursor-pointer">
+            <label for="emailInput" class="flex items-center gap-2 text-dark-bg dark:text-white font-medium cursor-pointer" data-i18n="contact_label_email">
                 Adresse mail
             </label>
             <input type="email" name="email" id="emailInput" placeholder="martindupont@mail.com" required autocomplete="email"
@@ -21,7 +21,7 @@ import BudgetDropdown from '../ui/BudgetDropdown.astro';
         </div>
         <div class="flex flex-col">
             <label for="phoneInput" class="flex items-center gap-2 text-dark-bg dark:text-white font-medium cursor-pointer">
-                Numéro de téléphone <span class="text-xs text-gray-400 dark:text-gray-500 font-normal">(Optionnel)</span>
+                <span data-i18n="contact_label_phone">Numéro de téléphone</span> <span class="text-xs text-gray-400 dark:text-gray-500 font-normal" data-i18n="contact_optional">(Optionnel)</span>
             </label>
             <div class="mt-1 flex relative" id="phoneCountryContainer">
                 <PhonePrefixDropdown />
@@ -34,10 +34,10 @@ import BudgetDropdown from '../ui/BudgetDropdown.astro';
 
     <!-- Objet -->
     <label class="flex flex-col">
-        <span class="flex items-center gap-2 text-dark-bg dark:text-white font-medium">
+        <span class="flex items-center gap-2 text-dark-bg dark:text-white font-medium" data-i18n="contact_label_subject">
             Demande / Projet
         </span>
-        <input type="text" name="subject" placeholder="Projet de site, Refonte d'une application..."
+        <input type="text" name="subject" placeholder="Projet de site, Refonte d'une application..." data-i18n="contact_placeholder_subject"
             required
             class="mt-1 w-full p-3 border-2 border-[#3E3E3E]/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-secondary focus:border-transparent bg-white text-gray-800 dark:bg-dark-bg dark:border-[#3E3E3E] dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-colors">
     </label>
@@ -45,17 +45,17 @@ import BudgetDropdown from '../ui/BudgetDropdown.astro';
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
         <!-- Type de client -->
         <div class="flex flex-col">
-            <span class="flex items-center gap-2 text-dark-bg dark:text-white font-medium mb-1">
+            <span class="flex items-center gap-2 text-dark-bg dark:text-white font-medium mb-1" data-i18n="contact_label_client_type">
                 Vous êtes
             </span>
             <div class="w-full flex items-center mt-1 p-3 border-2 border-[#3E3E3E]/20 rounded-xl bg-white dark:bg-dark-bg dark:border-[#3E3E3E] transition-colors">
                 <label class="flex items-center gap-2 cursor-pointer text-gray-800 dark:text-gray-200 flex-1 justify-center border-r border-gray-200 dark:border-gray-700/50 pr-2">
                     <input type="radio" name="client_type" id="radioEntreprise" value="Entreprise" class="w-4 h-4 accent-brand-primary text-brand-primary focus:ring-brand-primary bg-white border-gray-300 dark:bg-dark-bg dark:border-gray-600" required>
-                    <span class="text-sm font-medium">Entreprise</span>
+                    <span class="text-sm font-medium" data-i18n="contact_type_business">Entreprise</span>
                 </label>
                 <label class="flex items-center gap-2 cursor-pointer text-gray-800 dark:text-gray-200 flex-1 justify-center pl-2">
                     <input type="radio" name="client_type" id="radioParticulier" value="Particulier" class="w-4 h-4 accent-brand-primary text-brand-primary focus:ring-brand-primary bg-white border-gray-300 dark:bg-dark-bg dark:border-gray-600" required>
-                    <span class="text-sm font-medium">Particulier</span>
+                    <span class="text-sm font-medium" data-i18n="contact_type_individual">Particulier</span>
                 </label>
             </div>
             
@@ -70,7 +70,7 @@ import BudgetDropdown from '../ui/BudgetDropdown.astro';
 
         <!-- Budget -->
         <div class="flex flex-col">
-            <label for="budgetSelect" class="flex items-center gap-2 text-dark-bg dark:text-white font-medium mb-1">
+            <label for="budgetSelect" class="flex items-center gap-2 text-dark-bg dark:text-white font-medium mb-1" data-i18n="contact_label_budget">
                 Budget
             </label>
             <BudgetDropdown />
@@ -83,17 +83,17 @@ import BudgetDropdown from '../ui/BudgetDropdown.astro';
 
     <!-- Message -->
     <label class="flex flex-col">
-        <span class="flex items-center gap-2 text-dark-bg dark:text-white font-medium">
+        <span class="flex items-center gap-2 text-dark-bg dark:text-white font-medium" data-i18n="contact_label_message">
             Message
         </span>
-        <textarea name="message" rows="6" placeholder="Écrivez votre message ici..." required
+        <textarea name="message" rows="6" placeholder="Décrivez votre projet, vos objectifs, délais..." data-i18n="contact_placeholder_message" required
             class="mt-1 w-full p-3 border-2 border-[#3E3E3E]/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-secondary focus:border-transparent bg-white text-gray-800 dark:bg-dark-bg dark:border-[#3E3E3E] dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-colors"></textarea>
     </label>
 
     <!-- Pièce jointe -->
     <div class="flex flex-col text-left">
         <span class="flex items-center gap-2 text-dark-bg dark:text-white font-medium mb-2">
-            Pièce jointe <span class="text-xs text-gray-400 dark:text-gray-500 font-normal">(Optionnel)</span>
+            Pièce jointe <span class="text-xs text-gray-400 dark:text-gray-500 font-normal" data-i18n="contact_optional">(Optionnel)</span>
         </span>
         
         <!-- Hidden file input -->
@@ -131,7 +131,7 @@ import BudgetDropdown from '../ui/BudgetDropdown.astro';
 
     <!-- Bouton -->
     <Button type="submit" id="submitBtn" variant="primary" class="mt-2 w-full">
-        <i class='bx bx-send-alt'></i><span>Envoyer</span>
+        <i class='bx bx-send-alt'></i><span data-i18n="contact_submit_btn">Envoyer</span>
     </Button>
 
     <!-- Feedback -->

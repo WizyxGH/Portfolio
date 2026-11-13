@@ -10,12 +10,12 @@ const { roundedCount } = Astro.props;
 <!-- About Section -->
 <section class="p-8 lg:px-32 text-center space-y-8" id="about">
     <div>
-        <h2 class="text-2xl text-dark-bg dark:text-white font-medium mb-4">
+        <h2 class="text-2xl text-dark-bg dark:text-white font-medium mb-4" data-i18n="stats_title">
             Fini le blabla, place au concret.
         </h2>
         <div class="inline-flex items-center gap-2 rounded-full bg-brand-primary px-4 py-1.5 text-white">
             <i class='bx bxs-trophy'></i>
-            <span class="text-sm font-semibold">Des résultats mesurables</span>
+            <span class="text-sm font-semibold" data-i18n="stats_badge">Des résultats mesurables</span>
         </div>
     </div>
 
@@ -34,7 +34,7 @@ const { roundedCount } = Astro.props;
                     style="background-color: rgba(255, 255, 255, 0.12);">
                     <i class='bx bxs-star text-xl text-white' aria-hidden="true"></i>
                 </div>
-                <div class="text-sm font-normal opacity-80 leading-tight">Années d'expériences</div>
+                <div class="text-sm font-normal opacity-80 leading-tight" data-i18n="stats_exp">Années d'expériences</div>
                 <div class="text-4xl font-bold" data-counter="3">3</div>
             </div>
 
@@ -45,7 +45,7 @@ const { roundedCount } = Astro.props;
                     style="background-color: rgba(255, 255, 255, 0.12);">
                     <i class='bx bxs-folder text-xl text-white' aria-hidden="true"></i>
                 </div>
-                <div class="text-sm font-normal opacity-80 leading-tight">Projets réalisés</div>
+                <div class="text-sm font-normal opacity-80 leading-tight" data-i18n="stats_projects">Projets réalisés</div>
                   <div class="text-4xl font-bold"
                     data-counter={roundedCount} data-suffix="+">{roundedCount}+
                 </div>
@@ -59,7 +59,7 @@ const { roundedCount } = Astro.props;
                 style="background-color: rgba(255, 255, 255, 0.12);">
                 <i class='bx bxs-heart text-xl text-white' aria-hidden="true"></i>
             </div>
-            <div class="text-sm font-normal opacity-80 leading-tight">Satisfaction client</div>
+            <div class="text-sm font-normal opacity-80 leading-tight" data-i18n="stats_satisfaction">Satisfaction client</div>
             <div class="text-4xl font-bold" data-counter="100" data-suffix="%">100%</div>
         </div>
 
@@ -76,7 +76,7 @@ const { roundedCount } = Astro.props;
                     <path d="M13 7h-2v5.414l3.293 3.293 1.414-1.414L13 11.586z"></path>
                 </svg>
             </div>
-            <div class="text-sm font-normal opacity-80 leading-tight">Temps passés sur Figma</div>
+            <div class="text-sm font-normal opacity-80 leading-tight" data-i18n="stats_figma_time">Temps passés sur Figma</div>
             <div class="text-4xl font-bold" data-counter="999" data-final="∞">∞</div>
         </div>
 

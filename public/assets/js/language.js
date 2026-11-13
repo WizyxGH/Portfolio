@@ -1,38 +1,44 @@
 document.addEventListener('DOMContentLoaded', () => {
     const defaultLang = 'fr';
-    const supportedLangs = ['fr', 'en'];
+    const supportedLangs = ['fr', 'en', 'de'];
     let translations = {};
+
+    // Flag SVGs for switcher
+    const flags = {
+        fr: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" class="w-5 h-auto rounded-sm shadow-sm"><rect width="1" height="2" fill="#0055A4"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#EF4135"/></svg>`,
+        en: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" class="w-5 h-auto rounded-sm shadow-sm"><clipPath id="s_flag"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="t_flag"><path d="M30,15 h30 v15 z v-15 h-30 z h-30 v-15 z v15 h30 z"/></clipPath><g clip-path="url(#s_flag)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t_flag)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg>`,
+        de: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 3" class="w-5 h-auto rounded-sm shadow-sm"><rect width="5" height="1" y="0" fill="#000000"/><rect width="5" height="1" y="1" fill="#DD0000"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg>`
+    };
 
     // 1. Determine Language
     function getLanguage() {
         const urlParams = new URLSearchParams(window.location.search);
         let lang = urlParams.get('lang');
 
-        // If URL param is valid, it takes format priority
+        // If URL param is valid, save preference and return
         if (lang && supportedLangs.includes(lang)) {
-            // If explicit param, save preference
             localStorage.setItem('lang', lang);
             return lang;
         }
 
-        // If no param, check storage (only if user explicitly chose a language before)
+        // Check storage if user previously selected
         const storedLang = localStorage.getItem('lang');
         if (storedLang && supportedLangs.includes(storedLang)) {
             return storedLang;
         }
 
-        // Default strictly to French (avoid unexpected auto-switch when browser locale is en-US/en-GB)
         return defaultLang;
     }
 
     const currentLang = getLanguage();
     
-    // Update the switcher immediately to avoid flickering while fetching translations
+    // Setup dropdown event listeners once
+    initDropdownListeners();
+
+    // Update switcher display immediately
     updateSwitcher(currentLang);
 
     // 2. Load Translations
-    // We fetch the JSON file containing translations.
-
     async function loadTranslations() {
         try {
             const response = await fetch('/assets/data/translations.json');
@@ -50,30 +56,28 @@ document.addEventListener('DOMContentLoaded', () => {
     function applyLanguage(lang) {
         if (!translations[lang]) return;
 
+        document.documentElement.lang = lang;
+
         const elements = document.querySelectorAll('[data-i18n]');
         elements.forEach(el => {
             const key = el.getAttribute('data-i18n');
-            if (translations[lang][key]) {
-                // Check if it's an input with placeholder
-                if (el.tagName === 'INPUT' && el.hasAttribute('placeholder')) {
-                    el.placeholder = translations[lang][key];
+            const translation = translations[lang][key];
+            if (translation !== undefined) {
+                if ((el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') && el.hasAttribute('placeholder')) {
+                    el.placeholder = translation;
+                } else if (translation.includes('<') || el.hasAttribute('data-i18n-html')) {
+                    el.innerHTML = translation;
                 } else {
-                    el.textContent = translations[lang][key];
+                    el.textContent = translation;
                 }
             }
         });
 
-        // Update Links to preserve ?lang= param
-        // Only internal links
+        // Update Links to preserve ?lang= param (only internal links)
         const links = document.querySelectorAll('a');
         links.forEach(link => {
             const href = link.getAttribute('href');
             if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel:') || href.startsWith('sms:') || href.startsWith('javascript:')) return;
-
-            // If current lang is NOT default, append param
-            // If default, remove param (clean URL) - per constraint "FR par défaut"
-            // Constraint: "FR par défaut : https://wizyx.me/services ou https://wizyx.me/services?lang=fr"
-            // "Une seule URL par page... ?lang="
 
             const url = new URL(link.href, window.location.origin);
             if (lang !== defaultLang) {
@@ -81,10 +85,15 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 url.searchParams.delete('lang');
             }
-            link.href = url.pathname + url.search; // Keep hash if any? url.hash
+            link.href = url.pathname + url.search + url.hash;
         });
 
-        // Update Language Switcher State
+        // Update Typewriter language if available
+        if (window.setTypewriterLanguage) {
+            window.setTypewriterLanguage(lang);
+        }
+
+        // Update Switcher State
         updateSwitcher(lang);
     }
 
@@ -99,13 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.history.replaceState({}, '', url);
             }
         } else {
-            // Default language: remove param if we want clean URLs, OR keep it if user explicitly chose it?
-            // "il n’y a pas de paramètre ?lang= dans l’URL" => implies clean URL for FR default detection.
-            // But "FR ... : ...services?lang=fr" is also allowed.
-            // Let's clean it for aesthetics if it's standard FR logic, unless specifically requested to keep.
-            // User example: "FR par défaut : ...services ou ...services?lang=fr"
-            // But "EN : ...services?lang=en"
-            // I'll keep it clean for FR to match the "Detection... si il n'y a pas de param" logic.
             if (currentParam) {
                 url.searchParams.delete('lang');
                 window.history.replaceState({}, '', url);
@@ -113,48 +115,130 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 5. Switcher Logic
+    // 5. Switcher UI & Dropdown Logic
     function updateSwitcher(lang) {
-        const switcherBtns = document.querySelectorAll('.lang-toggle, #lang-toggle');
-        
-        const frSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" class="w-5 h-auto rounded-sm shadow-sm"><rect width="1" height="2" fill="#0055A4"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#EF4135"/></svg>`;
-        const enSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" class="w-5 h-auto rounded-sm shadow-sm"><clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="t"><path d="M30,15 h30 v15 z v-15 h-30 z h-30 v-15 z v15 h30 z"/></clipPath><g clip-path="url(#s)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg>`;
+        const currentFlagSvg = flags[lang] || flags.fr;
+        const currentCode = (lang || 'fr').toUpperCase();
 
-        if (switcherBtns.length > 0) {
-            // Example: click simply toggles between the two
-            const nextLang = lang === 'fr' ? 'en' : 'fr';
-            const flagSvg = nextLang === 'fr' ? frSvg : enSvg;
-            
-            switcherBtns.forEach(btn => {
-                btn.innerHTML = flagSvg;
-                btn.onclick = (e) => {
-                    e.preventDefault();
-                    window.setLanguage(nextLang);
-                };
+        // Update dropdown triggers
+        document.querySelectorAll('.lang-dropdown').forEach(dropdown => {
+            const flagContainer = dropdown.querySelector('.current-flag-container');
+            if (flagContainer) {
+                flagContainer.innerHTML = currentFlagSvg;
+            }
+            const codeEl = dropdown.querySelector('.current-lang-code');
+            if (codeEl) {
+                codeEl.textContent = currentCode;
+            }
+
+            // Update options within this dropdown
+            dropdown.querySelectorAll('.lang-option').forEach(opt => {
+                const optLang = opt.getAttribute('data-lang');
+                const isSelected = optLang === lang;
+                const checkIcon = opt.querySelector('.check-icon');
+
+                if (checkIcon) {
+                    checkIcon.classList.toggle('hidden', !isSelected);
+                }
+
+                if (isSelected) {
+                    opt.classList.add('font-bold', 'text-brand-primary', 'dark:text-brand-secondary', 'bg-gray-50', 'dark:bg-white/5');
+                    opt.setAttribute('aria-selected', 'true');
+                } else {
+                    opt.classList.remove('font-bold', 'text-brand-primary', 'dark:text-brand-secondary', 'bg-gray-50', 'dark:bg-white/5');
+                    opt.setAttribute('aria-selected', 'false');
+                }
             });
-        }
+        });
 
-        // If we have distinct buttons
-        const frBtn = document.getElementById('lang-btn-fr');
-        const enBtn = document.getElementById('lang-btn-en');
-        if (frBtn) {
-            frBtn.classList.toggle('font-bold', lang === 'fr');
-            frBtn.classList.toggle('opacity-50', lang !== 'fr');
-        }
-        if (enBtn) {
-            enBtn.classList.toggle('font-bold', lang === 'en');
-            enBtn.classList.toggle('opacity-50', lang !== 'en');
-        }
+        // Legacy/fallback buttons if present
+        ['fr', 'en', 'de'].forEach(l => {
+            const btn = document.getElementById(`lang-btn-${l}`);
+            if (btn) {
+                btn.classList.toggle('font-bold', lang === l);
+                btn.classList.toggle('opacity-50', lang !== l);
+            }
+        });
     }
 
-    window.setLanguage = function (lang) {
+    function initDropdownListeners() {
+        // Mobile trigger
+        document.querySelectorAll('.lang-dropdown-trigger').forEach(trigger => {
+            const menu = trigger.nextElementSibling;
+            if (!menu) return;
+
+            trigger.onclick = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const isOpen = !menu.classList.contains('hidden');
+                closeAllDropdowns();
+                if (!isOpen) {
+                    menu.classList.remove('hidden');
+                    trigger.setAttribute('aria-expanded', 'true');
+                }
+            };
+        });
+
+        // Option click (mobile & desktop)
+        document.querySelectorAll('.lang-option').forEach(opt => {
+            opt.onclick = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const targetLang = opt.getAttribute('data-lang');
+                if (targetLang) {
+                    window.setLanguage(targetLang);
+                }
+                closeAllDropdowns();
+            };
+        });
+
+        // Close on click outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.lang-dropdown')) {
+                closeAllDropdowns();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeAllDropdowns();
+            }
+        });
+    }
+
+    function closeAllDropdowns() {
+        document.querySelectorAll('.lang-dropdown-menu, .lang-dropdown .nav-dropdown-menu').forEach(menu => {
+            menu.classList.add('hidden');
+        });
+        document.querySelectorAll('.lang-dropdown-trigger, .lang-dropdown .nav-dropdown-btn').forEach(trigger => {
+            trigger.setAttribute('aria-expanded', 'false');
+        });
+        document.querySelectorAll('.lang-dropdown .nav-dropdown-chevron').forEach(chevron => {
+            chevron.classList.add('bx-chevron-down');
+            chevron.classList.remove('bx-chevron-up');
+        });
+    }
+
+    // Public API
+    window.setLanguage = async function (lang) {
         if (!supportedLangs.includes(lang)) return;
         localStorage.setItem('lang', lang);
 
-        // Reload is NOT forced, but we update state
+        if (!translations[lang]) {
+            await loadTranslations();
+        }
+
         applyLanguage(lang);
         updateUrl(lang);
-    }
+    };
+
+    window.applyTranslations = function () {
+        const lang = getLanguage();
+        if (translations[lang]) {
+            applyLanguage(lang);
+        }
+    };
 
     loadTranslations();
 });

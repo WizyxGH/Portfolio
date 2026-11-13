@@ -65,12 +65,12 @@ import Button from '../../components/ui/Button.astro';
         <section class="w-full px-8 lg:px-32 py-8" id="services">
             <div class="max-w-6xl mx-auto text-center space-y-8">
                 <div>
-                    <h2 class="text-2xl text-dark-bg dark:text-white font-medium mb-4">
+                    <h2 class="text-2xl text-dark-bg dark:text-white font-medium mb-4" data-i18n="services_main_title">
                         Mes services
                     </h2>
                     <div class="inline-flex items-center gap-2 rounded-full bg-brand-primary px-4 py-1.5 text-white">
                         <i class='bx bxs-star'></i>
-                        <span class="text-sm font-semibold">Rejoignez 100% de clients satisfaits</span>
+                        <span class="text-sm font-semibold" data-i18n="services_main_badge">Rejoignez 100% de clients satisfaits</span>
                     </div>
                 </div>
                 <!-- Grille -->
@@ -79,7 +79,7 @@ import Button from '../../components/ui/Button.astro';
                     <div
                         class="relative bg-white dark:bg-dark-bg p-6 rounded-2xl border-2 border-brand-light dark:border-[#281E5A] flex flex-col justify-between gap-6 animate-on-scroll transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:border-brand-primary dark:hover:border-brand-secondary text-dark-bg dark:text-white text-left">
                         <span
-                            class="absolute top-4 right-4 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white text-brand-primary text-xs font-semibold shadow-sm border border-brand-light">
+                            class="absolute top-4 right-4 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white text-brand-primary text-xs font-semibold shadow-sm border border-brand-light" data-i18n="services_bestseller">
                             Best seller
                         </span>
 
@@ -90,7 +90,7 @@ import Button from '../../components/ui/Button.astro';
 
                         <div>
                             <h3 class="text-2xl font-bold mb-2">UI/UX Design</h3>
-                            <p class="text-sm text-[rgba(18,18,18,0.8)] dark:text-[rgba(255,255,255,0.8)]">
+                            <p class="text-sm text-[rgba(18,18,18,0.8)] dark:text-[rgba(255,255,255,0.8)]" data-i18n="services_ui_desc">
                                 Conception de maquettes de sites internet ou d'applications qui convertissent et à votre
                                 image
                             </p>
@@ -99,32 +99,32 @@ import Button from '../../components/ui/Button.astro';
                         <ul class="text-sm">
                             <li class="flex items-center gap-2">
                                 <i class='bx bxs-check-circle text-brand-primary text-xl shrink-0'></i>
-                                <span>Maquettes UI & UX</span>
+                                <span data-i18n="services_ui_f1">Maquettes UI & UX</span>
                             </li>
                             <li class="flex items-center gap-2">
                                 <i class='bx bxs-check-circle text-brand-primary text-xl shrink-0'></i>
-                                <span>Responsive</span>
+                                <span data-i18n="services_ui_f2">Responsive</span>
                             </li>
                             <li class="flex items-center gap-2">
                                 <i class='bx bxs-check-circle text-brand-primary text-xl shrink-0'></i>
-                                <span>Wireframes & prototypage</span>
+                                <span data-i18n="services_ui_f3">Wireframes & prototypage</span>
                             </li>
                             <li class="flex items-center gap-2">
                                 <i class='bx bxs-check-circle text-brand-primary text-xl shrink-0'></i>
-                                <span>Design System</span>
+                                <span data-i18n="services_ui_f4">Design System</span>
                             </li>
                             <li class="flex items-center gap-2">
                                 <i class='bx bxs-check-circle text-brand-primary text-xl shrink-0'></i>
-                                <span>Optimisation de l’expérience utilisateur</span>
+                                <span data-i18n="services_ui_f5">Optimisation de l’expérience utilisateur</span>
                             </li>
                         </ul>
 
                         <div class="mt-auto flex flex-col gap-2 w-full">
                             <Button href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener noreferrer" variant="primary" size="md" class="w-full">
-                                <span>Prendre un rendez-vous</span>
+                                <span data-i18n="services_book_btn">Prendre un rendez-vous</span>
                             </Button>
                             <Button href="/services/ui-ux/" variant="secondary" size="md" class="w-full">
-                                <span>Découvrir l'offre en détail</span>
+                                <span data-i18n="services_detail_btn">Découvrir l'offre en détail</span>
                             </Button>
                         </div>
                     </div>

@@ -1,0 +1,99 @@
+---
+import CheckListItem from "../../ui/CheckListItem.astro";
+import Button from "../../ui/Button.astro";
+---
+
+<!-- 6. TARIFICATION MOBILE -->
+<section class="w-full px-8 lg:px-32 py-16 bg-white dark:bg-dark-bg">
+    <div class="max-w-6xl mx-auto space-y-12">
+        <div class="text-center space-y-4">
+            <span class="text-sm font-bold text-brand-primary dark:text-brand-secondary uppercase">Tarification</span>
+            <h2 class="text-3xl lg:text-4xl font-bold text-dark-bg dark:text-white">Un investissement clair pour votre application</h2>
+            <p class="text-gray-500 dark:text-gray-400 max-w-xl mx-auto text-sm">
+                Pas de devis flous ni de mauvaise surprise. Chaque proposition est adaptée à votre niveau d'avancement et à vos délais de mise sur le marché.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch max-w-5xl mx-auto">
+            <!-- Offre 1 : MVP Mobile -->
+            <div class="bg-white dark:bg-dark-bg p-8 rounded-3xl border-2 border-brand-light dark:border-[#281E5A] flex flex-col justify-between gap-6 relative animate-on-scroll transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:border-brand-primary dark:hover:border-brand-secondary">
+                <span class="absolute -top-3 right-6 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-brand-primary text-white text-[11px] font-semibold shadow-sm">
+                    Idéal Lancement
+                </span>
+                
+                <div class="space-y-4">
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-primary/10 text-brand-primary dark:text-white text-xs font-semibold">
+                        Nouveau Produit / V1
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark-bg dark:text-white">Conception MVP Mobile</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                        Pour les fondateurs et startups qui veulent lancer une première version percutante sur iOS et Android sans gaspiller des mois de dev.
+                    </p>
+
+                    <hr class="border-gray-100 dark:border-gray-800" />
+
+                    <ul class="space-y-2.5 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
+                        <CheckListItem>Cartographie complète du flux utilisateur (User Flow)</CheckListItem>
+                        <CheckListItem>Wireframes & validation ergonomique de la Thumb Zone</CheckListItem>
+                        <CheckListItem>Design UI haute fidélité de 10 à 15 écrans clés</CheckListItem>
+                        <CheckListItem>Prototype interactif Figma testable sur smartphone</CheckListItem>
+                        <CheckListItem>Design System mobile (tokens, composants, typographies)</CheckListItem>
+                        <CheckListItem>Fichiers prêts pour développeurs (React Native, Flutter, Swift)</CheckListItem>
+                        <CheckListItem>Exports des assets pour App Store & Google Play</CheckListItem>
+                    </ul>
+                </div>
+
+                <div class="pt-4 border-t border-gray-100 dark:border-gray-800">
+                    <p class="text-2xl font-bold text-dark-bg dark:text-white mb-1">
+                        À partir de 1 450 € <span class="text-xs font-normal text-gray-400">TTC</span>
+                    </p>
+                    <p class="text-xs text-gray-400 dark:text-gray-500 mb-6 flex items-center gap-1.5">
+                        <i class='bx bx-time-five text-brand-primary dark:text-brand-secondary text-sm shrink-0'></i>
+                        Livraison progressive sous 2 à 3 semaines
+                    </p>
+                    <Button href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener noreferrer" variant="primary" size="md" class="w-full">
+                        <span>Lancer la conception de mon app</span>
+                    </Button>
+                </div>
+            </div>
+
+            <!-- Offre 2 : Refonte d'application existante -->
+            <div class="bg-brand-surface dark:bg-brand-dark p-8 rounded-3xl border border-brand-light/20 dark:border-[#281E5A]/30 flex flex-col justify-between gap-6 relative animate-on-scroll transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:border-brand-primary/30 dark:hover:border-brand-secondary/30" style="transition-delay: 150ms;">
+                <div class="space-y-4">
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-primary/10 text-brand-primary dark:text-white text-xs font-semibold">
+                        Optimisation & Croissance
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark-bg dark:text-white">Refonte & Audit UX Mobile</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                        Votre app est déjà sur les stores mais vos taux d'activation ou vos avis stagnent ? Éliminons ensemble les freins qui bloquent vos utilisateurs.
+                    </p>
+
+                    <hr class="border-gray-100 dark:border-gray-800" />
+
+                    <ul class="space-y-2.5 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
+                        <CheckListItem>Audit ergonomique complet de votre parcours actuel</CheckListItem>
+                        <CheckListItem>Identification des points de fuite (churn & onboarding)</CheckListItem>
+                        <CheckListItem>Modernisation visuelle aux standards iOS & Android actuels</CheckListItem>
+                        <CheckListItem>Simplification des flux d'action et micro-copies</CheckListItem>
+                        <CheckListItem>Prototype comparatif Avant / Après</CheckListItem>
+                        <CheckListItem>Nettoyage du fichier Figma et refonte des composants</CheckListItem>
+                        <CheckListItem>Session vidéo de cadrage avec vos développeurs</CheckListItem>
+                    </ul>
+                </div>
+
+                <div class="pt-4 border-t border-gray-100 dark:border-gray-800">
+                    <p class="text-2xl font-bold text-dark-bg dark:text-white mb-1">
+                        À partir de 1 150 € <span class="text-xs font-normal text-gray-400">TTC</span>
+                    </p>
+                    <p class="text-xs text-gray-400 dark:text-gray-500 mb-6 flex items-center gap-1.5">
+                        <i class='bx bx-time-five text-brand-primary dark:text-brand-secondary text-sm shrink-0'></i>
+                        Livraison sous 10 à 15 jours ouvrés
+                    </p>
+                    <Button href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener noreferrer" variant="secondary" size="md" class="w-full">
+                        <span>Réserver un audit pour mon app</span>
+                    </Button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

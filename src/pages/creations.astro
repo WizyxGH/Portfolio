@@ -49,13 +49,13 @@ const sorted_projects = allProjects
     <script is:inline src="/assets/js/projects.js" defer></script>
     <main>
         <section class="p-8 text-center lg:px-32 lg:pt-16">
-            <h2 class="text-3xl font-bold mb-8 text-dark-bg dark:text-white">
-                <i class='bx bxs-diamond-alt'></i> Mes maquettes
+            <h2 class="text-3xl font-bold mb-8 text-dark-bg dark:text-white flex items-center justify-center gap-2">
+                <i class='bx bxs-diamond-alt'></i> <span data-i18n="creations_title">Mes maquettes</span>
             </h2>
             
             <div class="relative w-full max-w-3xl mx-auto mb-12">
                 <i class='bx bx-search absolute left-5 top-1/2 -translate-y-1/2 text-[#3E3E3E] dark:text-white text-xl'></i>
-                <input type="text" id="searchInput" placeholder="Rechercher parmi les projets"
+                <input type="text" id="searchInput" placeholder="Rechercher parmi les projets" data-i18n="creations_search_placeholder"
                     class="w-full pl-12 pr-24 py-3 rounded-xl border-2 border-[#3E3E3E]/20 bg-white dark:bg-dark-bg dark:border-[#3E3E3E] dark:text-white dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-primary placeholder-gray-400 text-gray-800 shadow-sm" />
                 
                 <button id="clearSearch"

@@ -267,7 +267,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const btnPop = document.createElement('button');
         const isPopActive = currentSort === 'meilleur' || currentSort === 'default';
         btnPop.className = getBtnStyle(isPopActive);
-        btnPop.innerHTML = `<i class='bx ${isPopActive ? 'bxs-star' : 'bx-star'} text-base'></i> Plus populaire`;
+        btnPop.innerHTML = `<i class='bx ${isPopActive ? 'bxs-star' : 'bx-star'} text-base'></i> <span data-i18n="drawer_sort_popular">Plus populaire</span>`;
         btnPop.onclick = () => {
             currentSort = 'meilleur';
             updateSortUI();
@@ -279,13 +279,14 @@ document.addEventListener("DOMContentLoaded", function () {
         const btnRecent = document.createElement('button');
         const isRecentActive = currentSort === 'date_desc' || currentSort === 'date';
         btnRecent.className = getBtnStyle(isRecentActive);
-        btnRecent.innerHTML = `<i class='bx ${isRecentActive ? 'bxs-time' : 'bx-time'} text-base'></i> Plus récent`;
+        btnRecent.innerHTML = `<i class='bx ${isRecentActive ? 'bxs-time' : 'bx-time'} text-base'></i> <span data-i18n="drawer_sort_recent">Plus récent</span>`;
         btnRecent.onclick = () => {
             currentSort = 'date_desc';
             updateSortUI();
             sortAndRenderCards();
         };
         btnGroup.appendChild(btnRecent);
+        if (window.applyTranslations) window.applyTranslations();
     }
 
     function toggleFilter(btn, value, category) {

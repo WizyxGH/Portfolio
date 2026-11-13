@@ -1,0 +1,156 @@
+---
+import Button from "../../ui/Button.astro";
+---
+
+<!-- 1. HERO SECTION MOBILE APP -->
+<section class="w-full px-8 lg:px-32 py-16 bg-brand-primary text-white transition-colors duration-200">
+    <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+        <div class="lg:w-7/12 space-y-6 text-left">
+            <div class="flex flex-wrap gap-3 animate-fade-in-up">
+                <div class="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-4 py-1.5 text-white">
+                    <i class="bx bxs-star text-yellow-400"></i>
+                    <span class="text-sm font-semibold">100% de clients satisfaits</span>
+                </div>
+                <div class="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-4 py-1.5 text-white">
+                    <i class="bx bxl-apple text-white/90"></i>
+                    <i class="bx bxl-android text-green-400"></i>
+                    <span class="text-sm font-semibold">iOS & Android Natives</span>
+                </div>
+            </div>
+
+            <h1 class="text-4xl lg:text-6xl font-bold leading-tight animate-fade-in-up" style="animation-delay: 100ms;">
+                Design d'Applications Mobiles qui captivent dès le premier tap.
+            </h1>
+
+            <p class="text-lg opacity-90 leading-relaxed animate-fade-in-up" style="animation-delay: 200ms;">
+                De l'onboarding immersif jusqu'à la rétention quotidienne, je conçois des interfaces iOS et Android intuitives, fluides et esthétiques. Vous recevez des maquettes Figma prêtes pour un développement rapide en React Native, Flutter, Swift ou Kotlin.
+            </p>
+
+            <!-- Spécificités mobiles -->
+            <div class="flex flex-wrap gap-3 pt-2 text-sm text-white/95 animate-fade-in-up" style="animation-delay: 250ms;">
+                <span class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/10 rounded-full border border-white/10 font-medium">
+                    <i class="bx bx-pointer text-base text-white/90"></i> Ergonomie Thumb Zone
+                </span>
+                <span class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/10 rounded-full border border-white/10 font-medium">
+                    <i class="bx bx-play-circle text-base text-white/90"></i> Micro-interactions & Haptique
+                </span>
+                <span class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/10 rounded-full border border-white/10 font-medium">
+                    <i class="bx bx-layer text-base text-white/90"></i> Design System Mobile Figma
+                </span>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 pt-4 animate-fade-in-up" style="animation-delay: 300ms;">
+                <Button href="https://calendly.com/floriangk/30min" target="_blank" rel="noopener noreferrer" variant="white" size="md" class="w-full sm:w-auto">
+                    Prendre un RDV gratuit
+                </Button>
+                <Button href="#projets-mobiles" variant="glass" size="md" class="w-full sm:w-auto">
+                    Découvrir mes projets mobiles
+                    <i class="bx bx-down-arrow-alt"></i>
+                </Button>
+            </div>
+        </div>
+
+        <!-- Visuel smartphone dynamique -->
+        <div class="lg:w-5/12 flex justify-center">
+            <div class="relative w-72 sm:w-80">
+                <!-- Halo lumineux d'ambiance -->
+                <div class="absolute inset-0 bg-gradient-to-tr from-brand-secondary to-white/20 rounded-[48px] opacity-40 blur-2xl animate-pulse"></div>
+
+                <!-- Coque de smartphone CSS moderne -->
+                <div class="relative bg-dark-bg border-[10px] border-dark-bg/80 rounded-[44px] shadow-2xl overflow-hidden aspect-[9/19]">
+                    <!-- Encoche / Dynamic Island -->
+                    <div class="absolute top-2.5 left-1/2 -translate-x-1/2 w-24 h-5 bg-black rounded-full z-20 flex items-center justify-end pr-2 gap-1.5">
+                        <div class="w-2.5 h-2.5 rounded-full bg-white/10"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-blue-500/80"></div>
+                    </div>
+
+                    <!-- Écran / Interface simulée -->
+                    <div class="w-full h-full bg-[#0E0C1F] text-white p-5 pt-10 flex flex-col justify-between select-none">
+                        <!-- Header app -->
+                        <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                            <div>
+                                <span class="text-[10px] text-gray-400 uppercase tracking-widest font-mono">Bienvenue</span>
+                                <p class="text-sm font-bold">Mon Application</p>
+                            </div>
+                            <div class="w-8 h-8 rounded-full bg-brand-primary/40 border border-brand-primary flex items-center justify-center">
+                                <i class="bx bx-bell text-sm text-white"></i>
+                            </div>
+                        </div>
+
+                        <!-- Card de stats / KPI -->
+                        <div class="bg-gradient-to-br from-brand-primary/30 to-brand-secondary/20 border border-white/15 rounded-2xl p-4 my-2">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-xs text-gray-300">Rétention J+30</span>
+                                <span class="text-xs font-bold text-green-400 flex items-center gap-0.5">
+                                    <i class="bx bx-trending-up"></i> +42%
+                                </span>
+                            </div>
+                            <div class="text-2xl font-bold tracking-tight">88.4 %</div>
+                            <div class="w-full bg-white/10 h-1.5 rounded-full mt-2 overflow-hidden">
+                                <div class="bg-gradient-to-r from-brand-secondary to-green-400 h-full w-[88%] rounded-full"></div>
+                            </div>
+                        </div>
+
+                        <!-- Éléments d'action rapides -->
+                        <div class="grid grid-cols-2 gap-2 my-1">
+                            <div class="bg-white/5 border border-white/10 rounded-xl p-3 flex flex-col gap-1">
+                                <i class="bx bx-fingerprint text-brand-secondary text-lg"></i>
+                                <span class="text-[11px] font-semibold">Face ID & Bio</span>
+                                <span class="text-[9px] text-gray-400">1-tap Auth</span>
+                            </div>
+                            <div class="bg-white/5 border border-white/10 rounded-xl p-3 flex flex-col gap-1">
+                                <i class="bx bx-slider-alt text-brand-secondary text-lg"></i>
+                                <span class="text-[11px] font-semibold">Auto-Layout</span>
+                                <span class="text-[9px] text-gray-400">Fluid Responsive</span>
+                            </div>
+                        </div>
+
+                        <!-- Mini barre de navigation native (Bottom Bar) -->
+                        <div class="bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-2.5 flex justify-around items-center mt-auto">
+                            <div class="text-brand-secondary flex flex-col items-center">
+                                <i class="bx bxs-home text-base"></i>
+                                <span class="text-[8px] font-bold">Home</span>
+                            </div>
+                            <div class="text-gray-400 flex flex-col items-center">
+                                <i class="bx bx-compass text-base"></i>
+                                <span class="text-[8px]">Explorer</span>
+                            </div>
+                            <div class="w-8 h-8 rounded-full bg-brand-primary text-white flex items-center justify-center -mt-4 shadow-lg border-2 border-[#0E0C1F]">
+                                <i class="bx bx-plus text-base font-bold"></i>
+                            </div>
+                            <div class="text-gray-400 flex flex-col items-center">
+                                <i class="bx bx-chat text-base"></i>
+                                <span class="text-[8px]">Messages</span>
+                            </div>
+                            <div class="text-gray-400 flex flex-col items-center">
+                                <i class="bx bx-user text-base"></i>
+                                <span class="text-[8px]">Profil</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Badges flottants -->
+                <div class="absolute -bottom-4 -left-6 bg-white dark:bg-dark-bg border border-gray-200 dark:border-white/10 shadow-xl rounded-2xl p-3 flex items-center gap-3 animate-float">
+                    <div class="w-10 h-10 rounded-xl bg-green-500/10 text-green-500 flex items-center justify-center text-xl font-bold">
+                        <i class="bx bx-mobile-vibration"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs font-bold text-dark-bg dark:text-white">Thumb-Friendly</p>
+                        <p class="text-[10px] text-gray-500">Navigation naturelle au pouce</p>
+                    </div>
+                </div>
+
+                <div class="absolute -top-4 -right-6 bg-white dark:bg-dark-bg border border-gray-200 dark:border-white/10 shadow-xl rounded-2xl p-3 flex items-center gap-3 animate-float" style="animation-delay: 1.5s;">
+                    <div class="w-10 h-10 rounded-xl bg-brand-primary/10 text-brand-primary dark:text-brand-secondary flex items-center justify-center text-xl font-bold">
+                        <i class="bx bxl-figma"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs font-bold text-dark-bg dark:text-white">Figma Handoff</p>
+                        <p class="text-[10px] text-gray-500">Variables & Tokens natifs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

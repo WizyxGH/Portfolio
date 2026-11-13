@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content';
+import ProjectCard from '../../ui/ProjectCard.astro';
+import Button from '../../ui/Button.astro';
+
+const allProjects = await getCollection('projects');
+const mobileProjects = allProjects
+    .filter(p => p.data.type === 'Application' && p.data.is_study !== true)
+    .sort((a, b) => (a.data.id || 0) - (b.data.id || 0))
+    .slice(0, 6);
+---
+
+<!-- 5. PROJETS MOBILES PHARES -->
+<section class="w-full px-8 lg:px-32 py-16 bg-brand-muted dark:bg-brand-dark" id="projets-mobiles">
+    <div class="max-w-6xl mx-auto space-y-12">
+        <div class="text-center space-y-4">
+            <span class="text-sm font-bold text-brand-primary dark:text-brand-secondary uppercase">Réalisations</span>
+            <h2 class="text-3xl lg:text-4xl font-bold text-dark-bg dark:text-white">Quelques applications conçues</h2>
+            <p class="text-gray-600 dark:text-gray-400 max-w-xl mx-auto text-sm">
+                Des interfaces pensées pour le pouce, testées sur de vrais terminaux et conçues pour générer de l'engagement quotidien.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {mobileProjects.map((project, index) => (
+                <ProjectCard project={project} loading={index < 3 ? 'eager' : 'lazy'} />
+            ))}
+        </div>
+
+        <div class="text-center pt-4">
+            <Button href="/creations/" variant="primary" size="md">
+                <span>Explorer toutes les réalisations</span>
+                <i class="bx bx-arrow-up-right"></i>
+            </Button>
+        </div>
+    </div>
+</section>
