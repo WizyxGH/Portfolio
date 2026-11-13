@@ -5,6 +5,7 @@ description: "Design d'une fonctionnalité de cartes GPS de bouquineries (avec p
 image: "../../assets/media/projects/whattheduck.webp"
 image_alt: "Aperçu du application pour What The Duck"
 type: "Application"
+sector: "Bande dessinée"
 context: "Personnel"
 date: "2024-07-01"
 projectLink: "play.google.com/store/applications/details?id=net.ducksmanager.whattheduck"

@@ -12,6 +12,8 @@ const projects = defineCollection({
     image_alt: z.string().optional(),
     og_image: z.string().optional(),
     type: z.string().optional(),
+    sector: z.string().optional(),
+    category: z.string().optional(),
     context: z.string().optional(),
     date: z.string().optional(),
     projectLink: z.string().optional(),

@@ -5,6 +5,7 @@ description: "Design de la landing page d'une fausse marque de vêtements de ran
 image: "../../assets/media/projects/vaylune.webp"
 image_alt: "Aperçu du landing page pour Vaylune"
 type: "Landing page"
+sector: "Textile"
 context: "Scolaire"
 date: "2025-11-01"
 projectLink: "#"

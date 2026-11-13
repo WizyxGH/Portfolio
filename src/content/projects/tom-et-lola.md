@@ -5,6 +5,7 @@ description: "Design d'un site internet dont l'objectif était de promouvoir la 
 image: "../../assets/media/projects/tometlola.webp"
 image_alt: "Aperçu du site internet pour Tom et Lola"
 type: "Site internet"
+sector: "Médias"
 context: "Scolaire"
 date: "2023-10-01"
 projectLink: "#"

@@ -5,6 +5,7 @@ description: "Design d'une application mobile facilitant la mise en relation ent
 image: "../../assets/media/projects/mentora.webp"
 image_alt: "Aperçu du application pour Mentora"
 type: "Application"
+sector: "Éducation & Emploi"
 context: "Professionnel"
 date: "2026-03-13"
 technologies:

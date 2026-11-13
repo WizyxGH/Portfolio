@@ -5,6 +5,7 @@ description: "Design d'une application permettant de lire les numéros du fanzin
 image: "../../assets/media/projects/picsousoir.webp"
 image_alt: "Aperçu du application pour Picsou-Soir"
 type: "Application"
+sector: "Bande dessinée"
 context: "Personnel"
 date: "2024-01-01"
 projectLink: "#"

@@ -5,6 +5,7 @@ description: "Redesign rapide du MVP de l'application Direct Democracy de Fidias
 image: "../../assets/media/projects/directdemocracy.webp"
 image_alt: "Aperçu du application pour Direct Democracy"
 type: "Application"
+sector: "Citoyenneté"
 context: "Personnel"
 date: "2025-08-01"
 projectLink: "https://play.google.com/store/apps/details?id=com.app.fidias"

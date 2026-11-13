@@ -5,6 +5,7 @@ description: "Design des pages d’accueil et profils pour une plateforme de mis
 image: "../../assets/media/projects/jobbrr.webp"
 image_alt: "Aperçu du site internet pour JOBBRR"
 type: "Site internet"
+sector: "Éducation & Emploi"
 context: "Professionnel"
 date: "2025-12-01"
 projectLink: "https://jobbrr.io"

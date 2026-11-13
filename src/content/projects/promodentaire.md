@@ -5,6 +5,7 @@ description: "Design de la version mobile du site e-commerce de Promodentaire d�
 image: "../../assets/media/projects/promodentaire.webp"
 image_alt: "Aperçu du site internet pour Promodentaire"
 type: "Site internet"
+sector: "Santé"
 context: "Professionnel"
 date: "2025-03-01"
 projectLink: "https://promodentaire.com/"

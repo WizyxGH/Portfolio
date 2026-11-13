@@ -5,6 +5,7 @@ description: "Design du site internet pour une enseigne fictive de restauration.
 image: "../../assets/media/projects/pizzami.webp"
 image_alt: "Aperçu du site internet pour Pizz'Ami"
 type: "Site internet"
+sector: "Restauration"
 context: "Scolaire"
 date: "2024-05-01"
 projectLink: "#"

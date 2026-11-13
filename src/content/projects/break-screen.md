@@ -5,6 +5,7 @@ description: "Design d'un site internet sensibilisant à l'addiction aux écrans
 image: "../../assets/media/projects/breakscreen.webp"
 image_alt: "Aperçu du site internet pour Break Screen"
 type: "Site internet"
+sector: "Santé"
 context: "Scolaire"
 date: "2023-11-01"
 projectLink: "#"

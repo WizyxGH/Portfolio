@@ -5,6 +5,7 @@ description: "Création du jeu mobile officiel pour jouer entre potes et contre 
 image: "../../assets/media/projects/trouvelaregleavecjoyca.webp"
 image_alt: "Aperçu du application pour Trouve la Règle avec Joyca"
 type: "Application"
+sector: "Divertissement"
 context: "Professionnel"
 date: "2025-03-01"
 projectLink: "https://play.google.com/store/apps/details?id=com.games4creators.joyca"

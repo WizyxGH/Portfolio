@@ -5,6 +5,7 @@ description: "Design de l'application BioQuest visant à sensibiliser sur les es
 image: "../../assets/media/projects/bioquest.webp"
 image_alt: "Aperçu du application pour BioQuest"
 type: "Application"
+sector: "Éducation"
 context: "Scolaire"
 date: "2025-01-01"
 projectLink: "#"

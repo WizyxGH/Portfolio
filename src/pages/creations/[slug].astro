@@ -33,6 +33,7 @@ const finalGallery = [...(page.gallery || []), ...autoGallery];
 const months = ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
 const d = new Date(page.date);
 const formattedDate = `${months[d.getMonth()]} ${d.getFullYear()}`;
+const projectSector = page.sector || page.category;
 
 const isVideoLD = page.image && (getSrc(page.image).includes('.webm') || getSrc(page.image).includes('.mp4'));
 const imagesLd = [
@@ -45,6 +46,7 @@ const ldJson1 = {
   "@type": "CreativeWork",
   "headline": page.title,
   "description": page.description,
+  ...(projectSector ? { "genre": projectSector } : {}),
   "image": imagesLd,
   "url": `https://wizyx.me/creations/${project.id}/`,
   "datePublished": d.toISOString(),
@@ -109,6 +111,13 @@ const ldJson2 = {
                         <i class="bx bxs-calendar-alt text-brand-primary dark:text-brand-secondary opacity-[0.48] text-base"></i>
                         <time datetime={d.toISOString()}>{formattedDate}</time>
                     </div>
+
+                    {projectSector && (
+                        <Fragment>
+                            <span class="text-brand-primary dark:text-brand-secondary opacity-[0.48]">&middot;</span>
+                            <span class="font-medium">{projectSector}</span>
+                        </Fragment>
+                    )}
 
                     {page.type && (
                         <Fragment>

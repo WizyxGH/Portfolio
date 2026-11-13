@@ -5,6 +5,7 @@ description: "Redesign de la landing page de l'agence créative PHOQ.tv spécial
 image: "../../assets/media/projects/phoq.webp"
 image_alt: "Aperçu du landing page pour PHOQ.tv"
 type: "Landing page"
+sector: "Agence"
 context: "Professionnel"
 date: "2026-01-01"
 projectLink: "https://www.phoq.tv"

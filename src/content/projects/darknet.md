@@ -5,6 +5,7 @@ description: "Design d'un site e-commerce dans l'univers du son Darknet du rappe
 image: "../../assets/media/projects/darknet.webp"
 image_alt: "Aperçu du site internet pour Darknet"
 type: "Site internet"
+sector: "Divertissement"
 context: "Scolaire"
 date: "2025-10-01"
 projectLink: "#"

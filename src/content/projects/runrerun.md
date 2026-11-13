@@ -5,6 +5,7 @@ description: "Design d'une landing page pour une marque de chaussures de running
 image: "../../assets/media/projects/runandrerun.webp"
 image_alt: "Aperçu du landing page pour Run&Rerun"
 type: "Landing page"
+sector: "Sport"
 context: "Scolaire"
 date: "2023-10-01"
 projectLink: "#"

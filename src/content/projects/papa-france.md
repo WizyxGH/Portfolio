@@ -5,6 +5,7 @@ description: "Redesign de la page produit, produit personnalisé et cadencier po
 image: "../../assets/media/projects/papafrance.webp"
 image_alt: "Aperçu du site internet pour PAPA France"
 type: "Site internet"
+sector: "Restauration"
 context: "Professionnel"
 date: "2024-02-01"
 projectLink: "https://papafrance.fr"

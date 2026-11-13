@@ -12,6 +12,7 @@ export async function GET() {
       image: project.data.image || "",
       og_image: project.data.og_image || "",
       type: project.data.type || "",
+      sector: project.data.sector || project.data.category || "",
       is_study: project.data.is_study || false,
       date: project.data.date || "",
       client: project.data.client || "",

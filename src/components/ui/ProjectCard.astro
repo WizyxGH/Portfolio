@@ -23,13 +23,18 @@ const thumbAsset = getMediaAsset(thumbSource);
 const thumbSrc = thumbAsset
     ? (await getImage({ src: thumbAsset, width: 600, height: 400, fit: 'cover', format: 'webp' })).src
     : getSrc(thumbSource);
+
+const rawSector = data.sector || data.category;
+const sectors: string[] = Array.isArray(rawSector) ? rawSector : (rawSector ? [rawSector] : []);
 ---
 <a href={`/creations/${slug}/`}
     class={`projectCard group animate-on-scroll transition-all duration-600 bg-white dark:bg-dark-bg rounded-lg text-left cursor-pointer hover:bg-[#EDE9FE] dark:hover:bg-brand-dark p-2 dark:border-dark-bg block ${isHidden ? 'hidden' : ''}`}
     data-project-id={data.id} data-title={data.title.toLowerCase()}
     data-description={data.description?.toLowerCase()}
     data-text={cleanText}
-    data-type={data.type} data-tags={(data.tags || []).map((t:any) => t.name).join(',')}>
+    data-type={data.type}
+    data-sector={data.sector || data.category || ''}
+    data-tags={(data.tags || []).map((t:any) => t.name).join(',')}>
 
     {isVideo ? (
     <div class="h-40 mb-3 rounded-lg bg-brand-primary bg-opacity-[0.12] outline outline-2 overflow-hidden relative">
@@ -55,14 +60,11 @@ const thumbSrc = thumbAsset
     )}
     
     <h3 class="text-lg font-semibold text-brand-primary dark:text-brand-secondary">{data.title}</h3>
-    <div class="mt-1 flex flex-wrap gap-2">
-        {(data.tags || []).map((tag: any) => (
-        <span class="inline-flex items-center gap-1 px-2 rounded-full border border-brand-primary text-brand-primary font-semibold text-sm dark:text-brand-secondary dark:border-brand-secondary"
-            style="background-color: rgba(65, 31, 235, 0.12)">
-            <i class={`${tag.icon} text-base`}></i> {tag.name}
-        </span>
-        ))}
-    </div>
+    {sectors.length > 0 && (
+    <p class="text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-400 mt-1">
+        {sectors.join(' • ')}
+    </p>
+    )}
     <p class="text-sm text-dark-bg dark:text-white mt-2">{data.description}</p>
 </a>
 <script>

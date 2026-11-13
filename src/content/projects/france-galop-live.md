@@ -5,6 +5,7 @@ description: "Transformation d'un wireframe de la page d'accueil en une maquette
 image: "../../assets/media/projects/francegaloplive.webp"
 image_alt: "Aperçu du site internet pour France Galop Live"
 type: "Site internet"
+sector: "Sport"
 context: "Professionnel"
 date: "2024-03-01"
 projectLink: "https://www.francegalop-live.com"

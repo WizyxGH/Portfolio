@@ -5,6 +5,7 @@ description: "Redesign de la page d'accueil de Inducks. La base de données de b
 image: "../../assets/media/projects/inducks.webp"
 image_alt: "Aperçu du site internet pour I.N.D.U.C.K.S."
 type: "Site internet"
+sector: "Bande dessinée"
 context: "Personnel"
 date: "2024-09-01"
 projectLink: "https://inducks.org"

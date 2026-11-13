@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const resultsCountBadge = document.getElementById('resultsCountBadge');
     
     // Containers in Drawer
+    const filtersSectorsContainer = document.getElementById('drawerSectorsContainer');
     const filtersTypesContainer = document.getElementById('drawerTypesContainer');
     const filtersTagsContainer = document.getElementById('drawerTagsContainer');
     const sortContainer = document.getElementById('drawerSortContainer');
@@ -22,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let filteredProjects = [];
     let allCards = [];
     let currentSort = 'meilleur'; // 'meilleur' (par id) ou 'date'
+    let selectedSectors = new Set();
     let selectedTypes = new Set();
     let selectedTags = new Set();
     let selectedSuggestionIndex = -1;
@@ -29,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // --- Gestion du Drawer ---
     function openDrawer() {
         if (!filtersDrawer) return;
+        document.body.style.overflow = 'hidden';
         filtersDrawer.classList.remove('invisible');
         setTimeout(() => {
             const overlay = filtersDrawer.querySelector('.drawer-overlay');
@@ -40,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function closeDrawer() {
         if (!filtersDrawer) return;
+        document.body.style.overflow = '';
         const overlay = filtersDrawer.querySelector('.drawer-overlay');
         const content = filtersDrawer.querySelector('.drawer-content');
         if(overlay) overlay.classList.add('opacity-0');
@@ -53,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
     closeFiltersBtn?.addEventListener('click', closeDrawer);
     applyFiltersBtn?.addEventListener('click', closeDrawer);
     filtersDrawer?.querySelector('.drawer-overlay')?.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && filtersDrawer && !filtersDrawer.classList.contains('invisible')) closeDrawer(); });
 
     // Helper de style unifié pour TOUS les boutons (Filtres, Tri, Tags, Types)
     function getSharedBtnStyle(isActive) {
@@ -144,11 +149,36 @@ document.addEventListener("DOMContentLoaded", function () {
         filtersTagsContainer.innerHTML = '';
 
         // 1. Compter les occurrences pour le tri
+        const sectorCounts = new Map();
         const typeCounts = new Map();
         const tagCounts = new Map();
         const tagIcons = new Map(); // Nom -> Icone
 
+        const sectorIcons = {
+            "Tourisme": "bx bxs-plane-alt",
+            "Sport": "bx bx-run",
+            "Sport & Outdoor": "bx bx-run",
+            "Santé": "bx bx-heart",
+            "Santé & Bien-être": "bx bx-heart",
+                                    "Gaming & Divertissement": "bx bxs-joystick",
+            "Divertissement": "bx bx-party",
+            "Bande dessinée": "bx bx-book-open",
+            "Patrimoine": "bx bxs-institution",
+            "Culture, BD & Patrimoine": "bx bx-book-open",
+            "Restauration": "bx bx-restaurant",
+            "Restauration & Alimentation": "bx bx-restaurant",
+            "Éducation & Emploi": "bx bxs-graduation",
+            "Environnement & Sciences": "bx bx-leaf",
+            "Tech, SaaS & B2B": "bx bx-code-alt",
+            "Société & Citoyenneté": "bx bx-group",
+            "Agence": "bx bx-briefcase",
+            "Textile": "bx bx-closet"
+        };
+
         filteredProjects.forEach(p => {
+            if (p.sector) {
+                sectorCounts.set(p.sector, (sectorCounts.get(p.sector) || 0) + 1);
+            }
             if (p.type) {
                 typeCounts.set(p.type, (typeCounts.get(p.type) || 0) + 1);
             }
@@ -161,6 +191,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             }
         });
+
+        // 2. Créer l'UI pour les Secteurs
+        if (filtersSectorsContainer && sectorCounts.size > 0) {
+            filtersSectorsContainer.innerHTML = '';
+            Array.from(sectorCounts.keys())
+                .sort((a, b) => sectorCounts.get(b) - sectorCounts.get(a))
+                .forEach(sector => {
+                    const btn = document.createElement('button');
+                    const isActive = selectedSectors.has(sector);
+                    const icon = sectorIcons[sector];
+                    btn.className = getSharedBtnStyle(isActive);
+                    btn.innerHTML = `${icon ? `<i class='${icon} text-base'></i> ` : ''}${sector}`;
+                    btn.onclick = () => toggleFilter(btn, sector, 'sector');
+                    filtersSectorsContainer.appendChild(btn);
+                });
+        }
 
         // Style Helper (Style Pillule / Translucide unifié)
 
@@ -240,22 +286,10 @@ document.addEventListener("DOMContentLoaded", function () {
             sortAndRenderCards();
         };
         btnGroup.appendChild(btnRecent);
-
-        // Bouton "Plus ancien"
-        const btnAncien = document.createElement('button');
-        const isAncienActive = currentSort === 'date_asc';
-        btnAncien.className = getBtnStyle(isAncienActive);
-        btnAncien.innerHTML = `<i class='bx bx-history text-base'></i> Plus ancien`;
-        btnAncien.onclick = () => {
-            currentSort = 'date_asc';
-            updateSortUI();
-            sortAndRenderCards();
-        };
-        btnGroup.appendChild(btnAncien);
     }
 
     function toggleFilter(btn, value, category) {
-        const set = category === 'type' ? selectedTypes : selectedTags;
+        const set = category === 'type' ? selectedTypes : (category === 'sector' ? selectedSectors : selectedTags);
 
         if (set.has(value)) {
             set.delete(value);
@@ -293,7 +327,11 @@ document.addEventListener("DOMContentLoaded", function () {
             const description = (card.dataset.description || "").toLowerCase();
             const text = (card.dataset.text || "").toLowerCase();
 
-            const matchesSearch = !query || title.includes(query) || description.includes(query) || text.includes(query);
+            const sector = (card.dataset.sector || "").toLowerCase();
+            const matchesSearch = !query || title.includes(query) || description.includes(query) || text.includes(query) || sector.includes(query);
+
+            const cardSector = card.dataset.sector;
+            const matchesSector = selectedSectors.size === 0 || selectedSectors.has(cardSector);
 
             const cardType = card.dataset.type;
             const matchesType = selectedTypes.size === 0 || selectedTypes.has(cardType);
@@ -301,7 +339,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const cardTags = (card.dataset.tags || "").split(",");
             const matchesTags = selectedTags.size === 0 || cardTags.some(tag => selectedTags.has(tag));
 
-            return matchesSearch && matchesType && matchesTags;
+            return matchesSearch && matchesSector && matchesType && matchesTags;
         });
 
         const totalMatches = matchingCards.length;
@@ -408,13 +446,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Map projectId to projects data for dates
         const getProjectData = (id) => projects.find(p => p.id == id);
 
-        if (currentSort === 'date_asc') {
-            sortedCards.sort((a, b) => {
-                const dateA = parseProjectDate(getProjectData(a.dataset.projectId));
-                const dateB = parseProjectDate(getProjectData(b.dataset.projectId));
-                return dateA - dateB; // Ancien -> Récent
-            });
-        } else if (currentSort === 'date_desc' || currentSort === 'date') {
+        if (currentSort === 'date_desc' || currentSort === 'date') {
             sortedCards.sort((a, b) => {
                 const dateA = parseProjectDate(getProjectData(a.dataset.projectId));
                 const dateB = parseProjectDate(getProjectData(b.dataset.projectId));
@@ -434,7 +466,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function sortProjects(list) {
-        if (currentSort === 'date_asc') return [...list].sort((a, b) => parseProjectDate(a) - parseProjectDate(b));
         if (currentSort === 'date_desc' || currentSort === 'date') return [...list].sort((a, b) => parseProjectDate(b) - parseProjectDate(a));
         return [...list].sort((a, b) => (Number(a.id) || 0) - (Number(b.id) || 0));
     }
@@ -622,6 +653,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Initialize drag scroll for static containers
+    enableDragScroll(filtersSectorsContainer);
     enableDragScroll(filtersTypesContainer);
     enableDragScroll(filtersTagsContainer);
 

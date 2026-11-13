@@ -5,6 +5,7 @@ description: "Redesign de la page profil d'un compétiteur affilié à la World 
 image: "../../assets/media/projects/wca.webp"
 image_alt: "Aperçu du application pour WCA - World Cube Association"
 type: "Application"
+sector: "Compétition"
 context: "Personnel"
 date: "2024-09-01"
 projectLink: "https://www.worldcubeassociation.org"

@@ -5,6 +5,7 @@ description: "Design d'un SaaS permettant d'aider grâce à l'IA à générer de
 image: "../../assets/media/projects/dumili.webp"
 image_alt: "Aperçu du saas pour DuMILi"
 type: "SaaS"
+sector: "Bande dessinée"
 context: "Personnel"
 date: "2025-02-01"
 projectLink: "https://dumili.ducksmanager.net"
