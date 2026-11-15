@@ -146,7 +146,8 @@
     "services_process_step3_desc": "Création d'écrans fidèles sur Figma avec prototypes interactifs testables.",
     "services_process_step4_title": "Livrables & Suivi",
     "services_process_step4_desc": "Transmission des maquettes avec guide développeur et accompagnement à l'intégration.",
-    "services_faq_title": "Questions fréquentes"
+    "services_faq_title": "Questions fréquentes",
+    "skip_to_content": "Aller au contenu principal"
   },
   "en": {
     "nav_home": "Home",
@@ -295,7 +296,8 @@
     "services_process_step3_desc": "High-fidelity Figma screen crafting with interactive, testable prototypes.",
     "services_process_step4_title": "Deliverables & Handoff",
     "services_process_step4_desc": "Developer-ready assets, detailed handoff specs, and integration support.",
-    "services_faq_title": "Frequently Asked Questions"
+    "services_faq_title": "Frequently Asked Questions",
+    "skip_to_content": "Skip to main content"
   },
   "de": {
     "nav_home": "Startseite",
@@ -444,6 +446,7 @@
     "services_process_step3_desc": "Erstellung hochpräziser Figma-Screens mit interaktiven Prototypen.",
     "services_process_step4_title": "Deliverables & Handoff",
     "services_process_step4_desc": "Entwicklerfertige Übergabe mit Styleguide und Integrationsbegleitung.",
-    "services_faq_title": "Häufig gestellte Fragen"
+    "services_faq_title": "Häufig gestellte Fragen",
+    "skip_to_content": "Zum Hauptinhalt springen"
   }
 }

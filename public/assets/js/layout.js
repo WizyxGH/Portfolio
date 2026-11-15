@@ -128,7 +128,12 @@ function initNavbarInteractions() {
     const menuButton = document.getElementById('menuButton');
     const navMenu = document.getElementById('navMenu');
     if (menuButton && navMenu) {
-        menuButton.addEventListener('click', () => navMenu.classList.toggle('hidden'));
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-controls', 'navMenu');
+        menuButton.addEventListener('click', () => {
+            const isHidden = navMenu.classList.toggle('hidden');
+            menuButton.setAttribute('aria-expanded', (!isHidden).toString());
+        });
     }
 
     // --- Dropdowns ---
@@ -136,12 +141,15 @@ function initNavbarInteractions() {
     dropdownButtons.forEach(btn => {
         const menu = btn.nextElementSibling;
         const chevron = btn.querySelector('.nav-dropdown-chevron');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-haspopup', 'true');
         
         btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
+            const isHidden = menu.classList.toggle('hidden');
+            btn.setAttribute('aria-expanded', (!isHidden).toString());
             if (chevron) {
-                chevron.classList.toggle('bx-chevron-down', menu.classList.contains('hidden'));
-                chevron.classList.toggle('bx-chevron-up', !menu.classList.contains('hidden'));
+                chevron.classList.toggle('bx-chevron-down', isHidden);
+                chevron.classList.toggle('bx-chevron-up', !isHidden);
             }
         });
         
@@ -149,10 +157,24 @@ function initNavbarInteractions() {
         document.addEventListener('click', (e) => {
             if (!btn.contains(e.target) && !menu.contains(e.target)) {
                 menu.classList.add('hidden');
+                btn.setAttribute('aria-expanded', 'false');
                 if (chevron) {
                     chevron.classList.add('bx-chevron-down');
                     chevron.classList.remove('bx-chevron-up');
                 }
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !menu.classList.contains('hidden')) {
+                menu.classList.add('hidden');
+                btn.setAttribute('aria-expanded', 'false');
+                if (chevron) {
+                    chevron.classList.add('bx-chevron-down');
+                    chevron.classList.remove('bx-chevron-up');
+                }
+                btn.focus();
             }
         });
     });
@@ -239,4 +261,38 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initScrollAnimations);
 } else {
     initScrollAnimations();
+}
+
+// ===== RGAA 5 / WCAG Accessibility Enhancements (Zero Visual Change) =====
+function initAccessibilityEnhancements() {
+    // 1. Ensure <main> has id="main-content" and tabindex="-1" for skip link
+    const main = document.querySelector('main');
+    if (main) {
+        if (!main.id) {
+            main.id = 'main-content';
+        }
+        if (!main.hasAttribute('tabindex')) {
+            main.setAttribute('tabindex', '-1');
+        }
+    }
+
+    // 2. Ensure all external links target="_blank" inform screen readers
+    document.querySelectorAll('a[target="_blank"]').forEach(link => {
+        if (!link.getAttribute('rel')) {
+            link.setAttribute('rel', 'noopener noreferrer');
+        }
+        if (!link.querySelector('.sr-only')) {
+            const srSpan = document.createElement('span');
+            srSpan.className = 'sr-only';
+            srSpan.textContent = ' (ouvre un nouvel onglet)';
+            link.appendChild(srSpan);
+        }
+    });
+
+    // 3. Ensure decorative icons have aria-hidden="true" if they lack an accessible label
+    document.querySelectorAll('i.bx').forEach(icon => {
+        if (!icon.hasAttribute('aria-hidden') && !icon.hasAttribute('aria-label')) {
+            icon.setAttribute('aria-hidden', 'true');
+        }
+    });
 }

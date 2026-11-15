@@ -28,7 +28,7 @@ const {
     ...rest
 } = Astro.props;
 
-const baseStyles = "inline-flex items-center justify-center gap-2 font-semibold transition-all duration-300 rounded-xl focus:outline-none";
+const baseStyles = "inline-flex items-center justify-center gap-2 font-semibold transition-all duration-300 rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary dark:focus-visible:ring-brand-secondary focus-visible:ring-offset-2";
 
 const variantStyles = {
     primary: "bg-brand-primary dark:bg-brand-secondary text-white hover:bg-brand-hover dark:hover:bg-[#4429C9] shadow-sm",
@@ -47,13 +47,14 @@ const sizeStyles = {
 const classes = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
 
 const Tag = href ? 'a' : 'button';
+const finalRel = target === '_blank' ? (rel || 'noopener noreferrer') : rel;
 ---
 <Tag 
     href={href} 
     class={classes} 
     id={id} 
     target={target} 
-    rel={rel}
+    rel={finalRel}
     type={!href ? (type || 'button') : undefined}
     aria-label={ariaLabel}
     data-filter={dataFilter}
@@ -61,4 +62,5 @@ const Tag = href ? 'a' : 'button';
     {...rest}
 >
     <slot />
+    {target === '_blank' && <span class="sr-only"> (ouvre un nouvel onglet)</span>}
 </Tag>

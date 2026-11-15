@@ -15,9 +15,9 @@ import BudgetDropdown from '../ui/BudgetDropdown.astro';
             <label for="emailInput" class="flex items-center gap-2 text-dark-bg dark:text-white font-medium cursor-pointer" data-i18n="contact_label_email">
                 Adresse mail
             </label>
-            <input type="email" name="email" id="emailInput" placeholder="martindupont@mail.com" required autocomplete="email"
+            <input type="email" name="email" id="emailInput" placeholder="martindupont@mail.com" required autocomplete="email" aria-describedby="emailError"
                 class="mt-1 w-full p-3 border-2 border-[#3E3E3E]/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-secondary focus:border-transparent bg-white text-gray-800 dark:bg-dark-bg dark:border-[#3E3E3E] dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-colors">
-            <p id="emailError" class="text-xs text-red-500 font-medium mt-1.5 hidden"></p>
+            <p id="emailError" role="alert" aria-live="polite" class="text-xs text-red-500 font-medium mt-1.5 hidden"></p>
         </div>
         <div class="flex flex-col">
             <label for="phoneInput" class="flex items-center gap-2 text-dark-bg dark:text-white font-medium cursor-pointer">
@@ -25,10 +25,10 @@ import BudgetDropdown from '../ui/BudgetDropdown.astro';
             </label>
             <div class="mt-1 flex relative" id="phoneCountryContainer">
                 <PhonePrefixDropdown />
-                <input type="tel" name="phone" id="phoneInput" placeholder="6 12 34 56 78" autocomplete="tel-national"
+                <input type="tel" name="phone" id="phoneInput" placeholder="6 12 34 56 78" autocomplete="tel-national" aria-describedby="phoneError"
                     class="w-full p-3 border-2 border-[#3E3E3E]/20 rounded-r-xl focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-secondary focus:border-transparent bg-white text-gray-800 dark:bg-dark-bg dark:border-[#3E3E3E] dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-colors">
             </div>
-            <p id="phoneError" class="text-xs text-red-500 font-medium mt-1.5 hidden"></p>
+            <p id="phoneError" role="alert" aria-live="polite" class="text-xs text-red-500 font-medium mt-1.5 hidden"></p>
         </div>
     </div>
 
@@ -62,9 +62,9 @@ import BudgetDropdown from '../ui/BudgetDropdown.astro';
             <!-- Champ SIRET caché par défaut -->
             <div id="siretContainer" class="hidden flex-col mt-4">
                 <label for="siretInput" class="text-sm font-medium text-dark-bg dark:text-white mb-1">Numéro de SIRET</label>
-                <input type="text" name="siret" id="siretInput" placeholder="123 456 789 00012"
+                <input type="text" name="siret" id="siretInput" placeholder="123 456 789 00012" aria-describedby="siretError"
                     class="w-full p-2.5 text-sm border-2 border-[#3E3E3E]/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-secondary focus:border-transparent bg-white text-gray-800 dark:bg-dark-bg dark:border-[#3E3E3E] dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-colors">
-                <p id="siretError" class="text-xs text-red-500 font-medium mt-1.5 hidden"></p>
+                <p id="siretError" role="alert" aria-live="polite" class="text-xs text-red-500 font-medium mt-1.5 hidden"></p>
             </div>
         </div>
 
@@ -74,7 +74,7 @@ import BudgetDropdown from '../ui/BudgetDropdown.astro';
                 Budget
             </label>
             <BudgetDropdown />
-            <p id="budgetError" class="text-xs text-red-500 font-medium mt-1.5 hidden"></p>
+            <p id="budgetError" role="alert" aria-live="polite" class="text-xs text-red-500 font-medium mt-1.5 hidden"></p>
         </div>
     </div>
 
@@ -119,14 +119,14 @@ import BudgetDropdown from '../ui/BudgetDropdown.astro';
                         <p class="text-[10px] text-gray-400 dark:text-gray-500" id="fileSize"></p>
                     </div>
                 </div>
-                <button type="button" id="removeFileButton" class="w-8 h-8 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center text-lg hover:bg-red-500 hover:text-white transition-all shrink-0">
+                <button type="button" id="removeFileButton" aria-label="Supprimer le fichier sélectionné" class="w-8 h-8 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center text-lg hover:bg-red-500 hover:text-white transition-all shrink-0">
                     <i class='bx bx-x'></i>
                 </button>
             </div>
         </div>
         
         <!-- Error Message placeholder -->
-        <p id="fileError" class="text-xs text-red-500 font-medium mt-1.5 hidden"></p>
+        <p id="fileError" role="alert" aria-live="polite" class="text-xs text-red-500 font-medium mt-1.5 hidden"></p>
     </div>
 
     <!-- Bouton -->
@@ -135,6 +135,6 @@ import BudgetDropdown from '../ui/BudgetDropdown.astro';
     </Button>
 
     <!-- Feedback -->
-    <p id="formMessage" class="text-center mt-2 font-medium text-green-600 hidden">Message envoyé !</p>
+    <p id="formMessage" role="status" aria-live="polite" class="text-center mt-2 font-medium text-green-600 hidden">Message envoyé !</p>
 </form>
 

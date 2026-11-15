@@ -29,8 +29,11 @@ document.addEventListener("DOMContentLoaded", function () {
     let selectedSuggestionIndex = -1;
 
     // --- Gestion du Drawer ---
+    let previousActiveElement = null;
+
     function openDrawer() {
         if (!filtersDrawer) return;
+        previousActiveElement = document.activeElement;
         document.body.style.overflow = 'hidden';
         filtersDrawer.classList.remove('invisible');
         setTimeout(() => {
@@ -38,7 +41,8 @@ document.addEventListener("DOMContentLoaded", function () {
             const content = filtersDrawer.querySelector('.drawer-content');
             if(overlay) overlay.classList.remove('opacity-0');
             if(content) content.classList.remove('translate-y-full', 'sm:translate-x-full');
-        }, 10);
+            closeFiltersBtn?.focus();
+        }, 50);
     }
 
     function closeDrawer() {
@@ -50,6 +54,9 @@ document.addEventListener("DOMContentLoaded", function () {
         if(content) content.classList.add('translate-y-full', 'sm:translate-x-full');
         setTimeout(() => {
             filtersDrawer.classList.add('invisible');
+            if (previousActiveElement && typeof previousActiveElement.focus === 'function') {
+                previousActiveElement.focus();
+            }
         }, 300);
     }
 
@@ -58,6 +65,30 @@ document.addEventListener("DOMContentLoaded", function () {
     applyFiltersBtn?.addEventListener('click', closeDrawer);
     filtersDrawer?.querySelector('.drawer-overlay')?.addEventListener('click', closeDrawer);
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && filtersDrawer && !filtersDrawer.classList.contains('invisible')) closeDrawer(); });
+
+    // Piège de focus dans le Drawer (accessibilité RGAA Critère 7.1)
+    filtersDrawer?.addEventListener('keydown', (e) => {
+        if (e.key !== 'Tab') return;
+        const focusableElements = filtersDrawer.querySelectorAll(
+            'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        );
+        const focusable = Array.from(focusableElements).filter(el => el.offsetParent !== null);
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (e.shiftKey) {
+            if (document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            }
+        } else {
+            if (document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
+        }
+    });
 
     // Helper de style unifié pour TOUS les boutons (Filtres, Tri, Tags, Types)
     function getSharedBtnStyle(isActive) {

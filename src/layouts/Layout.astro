@@ -99,6 +99,10 @@ const canonicalUrl = canonical ? new URL(canonical, siteUrl).href : currentUrl;
 	</script>
 </head>
 <body class={`font-inter text-brand-primary dark:text-white dark:bg-dark-bg transition-colors duration-300 ${body_class}`}>
+	<!-- Lien d'évitement RGAA (visible uniquement au focus clavier) -->
+	<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2.5 focus:bg-brand-primary focus:text-white focus:rounded-xl focus:shadow-2xl focus:outline-none focus:ring-2 focus:ring-white text-sm font-semibold transition-transform" data-i18n="skip_to_content">
+		Aller au contenu principal
+	</a>
 	<Navbar />
 	<slot />
 	<Footer />

@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (budgetSelect) {
         budgetSelect.addEventListener('change', () => {
             budgetError.classList.add('hidden');
+            budgetSelect.setAttribute('aria-invalid', 'false');
+            document.getElementById('budgetSelectBtn')?.setAttribute('aria-invalid', 'false');
             const btn = document.getElementById('budgetSelectBtn');
             if (btn) btn.classList.remove('border-red-500');
             else budgetSelect.classList.remove('border-red-500');
@@ -37,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     siretInput.classList.remove('border-red-500');
                 }
                 if (siretError) siretError.classList.add('hidden');
+                if (siretInput) siretInput.setAttribute('aria-invalid', 'false');
             }
         });
     });
@@ -52,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (value === '') {
             siretError.classList.add('hidden');
             siretInput.classList.remove('border-red-500', 'focus:ring-red-500');
+            siretInput.setAttribute('aria-invalid', 'false');
             return true;
         }
 
@@ -60,10 +64,12 @@ document.addEventListener('DOMContentLoaded', () => {
             siretError.textContent = "Le numéro de SIRET doit contenir exactement 14 chiffres.";
             siretError.classList.remove('hidden');
             siretInput.classList.add('border-red-500', 'focus:ring-red-500');
+            siretInput.setAttribute('aria-invalid', 'true');
             return false;
         } else {
             siretError.classList.add('hidden');
             siretInput.classList.remove('border-red-500', 'focus:ring-red-500');
+            siretInput.setAttribute('aria-invalid', 'false');
             return true;
         }
     }
@@ -99,13 +105,23 @@ document.addEventListener('DOMContentLoaded', () => {
         if (budgetSelect.value === '') {
             budgetError.textContent = "Veuillez sélectionner une tranche de budget pour votre projet.";
             budgetError.classList.remove('hidden');
-            if (btn) btn.classList.add('border-red-500');
-            else budgetSelect.classList.add('border-red-500');
+            budgetSelect.setAttribute('aria-invalid', 'true');
+            if (btn) {
+                btn.classList.add('border-red-500');
+                btn.setAttribute('aria-invalid', 'true');
+            } else {
+                budgetSelect.classList.add('border-red-500');
+            }
             return false;
         } else {
             budgetError.classList.add('hidden');
-            if (btn) btn.classList.remove('border-red-500');
-            else budgetSelect.classList.remove('border-red-500');
+            budgetSelect.setAttribute('aria-invalid', 'false');
+            if (btn) {
+                btn.classList.remove('border-red-500');
+                btn.setAttribute('aria-invalid', 'false');
+            } else {
+                budgetSelect.classList.remove('border-red-500');
+            }
             return true;
         }
     }
@@ -126,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
             emailError.textContent = "L'adresse mail est requise.";
             emailError.classList.remove('hidden');
             emailInput.classList.add('border-red-500', 'focus:ring-red-500');
+            emailInput.setAttribute('aria-invalid', 'true');
             return false;
         }
         const isValid = validateEmail(value);
@@ -133,10 +150,12 @@ document.addEventListener('DOMContentLoaded', () => {
             emailError.textContent = "L'adresse mail ne semble pas valide (ex. john@example.com).";
             emailError.classList.remove('hidden');
             emailInput.classList.add('border-red-500', 'focus:ring-red-500');
+            emailInput.setAttribute('aria-invalid', 'true');
             return false;
         } else {
             emailError.classList.add('hidden');
             emailInput.classList.remove('border-red-500', 'focus:ring-red-500');
+            emailInput.setAttribute('aria-invalid', 'false');
             return true;
         }
     }
@@ -172,10 +191,12 @@ document.addEventListener('DOMContentLoaded', () => {
             phoneError.textContent = "Le numéro de téléphone ne correspond pas au format attendu (ex. 06 12 34 56 78).";
             phoneError.classList.remove('hidden');
             phoneInput.classList.add('border-red-500', 'focus:ring-red-500');
+            phoneInput.setAttribute('aria-invalid', 'true');
             return false;
         } else {
             phoneError.classList.add('hidden');
             phoneInput.classList.remove('border-red-500', 'focus:ring-red-500');
+            phoneInput.setAttribute('aria-invalid', 'false');
             return true;
         }
     }
