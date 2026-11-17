@@ -135,17 +135,12 @@ document.addEventListener('DOMContentLoaded', () => {
             dropdown.querySelectorAll('.lang-option').forEach(opt => {
                 const optLang = opt.getAttribute('data-lang');
                 const isSelected = optLang === lang;
-                const checkIcon = opt.querySelector('.check-icon');
-
-                if (checkIcon) {
-                    checkIcon.classList.toggle('hidden', !isSelected);
-                }
 
                 if (isSelected) {
-                    opt.classList.add('font-bold', 'text-brand-primary', 'dark:text-brand-secondary', 'bg-gray-50', 'dark:bg-white/5');
+                    opt.classList.add('font-bold', 'text-brand-primary', 'dark:text-brand-secondary', 'bg-brand-muted', 'dark:bg-brand-dark');
                     opt.setAttribute('aria-selected', 'true');
                 } else {
-                    opt.classList.remove('font-bold', 'text-brand-primary', 'dark:text-brand-secondary', 'bg-gray-50', 'dark:bg-white/5');
+                    opt.classList.remove('font-bold', 'text-brand-primary', 'dark:text-brand-secondary', 'bg-brand-muted', 'dark:bg-brand-dark');
                     opt.setAttribute('aria-selected', 'false');
                 }
             });

@@ -180,49 +180,40 @@ const navigation = [
                         </button>
                         <ul class="lang-dropdown-menu hidden flex-col bg-white dark:bg-dark-bg text-brand-primary dark:text-brand-secondary absolute bottom-full right-0 mb-2 shadow-2xl rounded-2xl w-64 p-2 border border-gray-150 dark:border-gray-800/80 transition-all duration-200 z-50">
                             <li>
-                                <button type="button" class="lang-option group w-full block px-3 py-2.5 hover:bg-brand-muted dark:hover:bg-brand-dark hover:text-brand-primary dark:hover:text-brand-secondary hover:font-semibold rounded-lg text-left transition-colors" data-lang="fr">
+                                <button type="button" class="lang-option group w-full block px-3 py-2.5 bg-brand-muted dark:bg-brand-dark text-brand-primary dark:text-brand-secondary font-bold hover:bg-brand-muted dark:hover:bg-brand-dark hover:text-brand-primary dark:hover:text-brand-secondary rounded-lg text-left transition-colors" data-lang="fr" aria-selected="true">
                                     <div class="flex items-center gap-3">
                                         <span class="bg-brand-muted dark:bg-brand-dark text-brand-primary dark:text-brand-secondary p-2 text-base rounded-md flex items-center justify-center group-hover:bg-brand-primary group-hover:text-white shrink-0 transition-colors duration-200">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" class="w-5 h-auto rounded-sm overflow-hidden"><rect width="1" height="2" fill="#0055A4"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#EF4135"/></svg>
                                         </span>
                                         <div class="flex flex-col flex-1">
-                                            <div class="flex items-center justify-between">
-                                                <span class="font-bold text-sm">Français</span>
-                                                <i class='bx bx-check text-brand-primary dark:text-brand-secondary text-lg font-bold check-icon'></i>
-                                            </div>
-                                            <span class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed mt-0.5">France (FR)</span>
+                                            <span class="font-bold text-sm">France</span>
+                                            <span class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed mt-0.5">Français</span>
                                         </div>
                                     </div>
                                 </button>
                             </li>
                             <li>
-                                <button type="button" class="lang-option group w-full block px-3 py-2.5 hover:bg-brand-muted dark:hover:bg-brand-dark hover:text-brand-primary dark:hover:text-brand-secondary hover:font-semibold rounded-lg text-left transition-colors" data-lang="en">
+                                <button type="button" class="lang-option group w-full block px-3 py-2.5 hover:bg-brand-muted dark:hover:bg-brand-dark hover:text-brand-primary dark:hover:text-brand-secondary hover:font-semibold rounded-lg text-left transition-colors" data-lang="en" aria-selected="false">
                                     <div class="flex items-center gap-3">
                                         <span class="bg-brand-muted dark:bg-brand-dark text-brand-primary dark:text-brand-secondary p-2 text-base rounded-md flex items-center justify-center group-hover:bg-brand-primary group-hover:text-white shrink-0 transition-colors duration-200">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" class="w-5 h-auto rounded-sm overflow-hidden"><clipPath id="s_mob_item_en"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="t_mob_item_en"><path d="M30,15 h30 v15 z v-15 h-30 z h-30 v-15 z v15 h30 z"/></clipPath><g clip-path="url(#s_mob_item_en)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t_mob_item_en)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg>
                                         </span>
                                         <div class="flex flex-col flex-1">
-                                            <div class="flex items-center justify-between">
-                                                <span class="font-bold text-sm">English</span>
-                                                <i class='bx bx-check text-brand-primary dark:text-brand-secondary text-lg font-bold check-icon hidden'></i>
-                                            </div>
-                                            <span class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed mt-0.5">International (EN)</span>
+                                            <span class="font-bold text-sm">United Kingdom</span>
+                                            <span class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed mt-0.5">English</span>
                                         </div>
                                     </div>
                                 </button>
                             </li>
                             <li>
-                                <button type="button" class="lang-option group w-full block px-3 py-2.5 hover:bg-brand-muted dark:hover:bg-brand-dark hover:text-brand-primary dark:hover:text-brand-secondary hover:font-semibold rounded-lg text-left transition-colors" data-lang="de">
+                                <button type="button" class="lang-option group w-full block px-3 py-2.5 hover:bg-brand-muted dark:hover:bg-brand-dark hover:text-brand-primary dark:hover:text-brand-secondary hover:font-semibold rounded-lg text-left transition-colors" data-lang="de" aria-selected="false">
                                     <div class="flex items-center gap-3">
                                         <span class="bg-brand-muted dark:bg-brand-dark text-brand-primary dark:text-brand-secondary p-2 text-base rounded-md flex items-center justify-center group-hover:bg-brand-primary group-hover:text-white shrink-0 transition-colors duration-200">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 3" class="w-5 h-auto rounded-sm overflow-hidden"><rect width="5" height="1" y="0" fill="#000000"/><rect width="5" height="1" y="1" fill="#DD0000"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg>
                                         </span>
                                         <div class="flex flex-col flex-1">
-                                            <div class="flex items-center justify-between">
-                                                <span class="font-bold text-sm">Deutsch</span>
-                                                <i class='bx bx-check text-brand-primary dark:text-brand-secondary text-lg font-bold check-icon hidden'></i>
-                                            </div>
-                                            <span class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed mt-0.5">Deutschland (DE)</span>
+                                            <span class="font-bold text-sm">Deutschland</span>
+                                            <span class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed mt-0.5">Deutsch</span>
                                         </div>
                                     </div>
                                 </button>
@@ -267,49 +258,40 @@ const navigation = [
                 </button>
                 <ul class="nav-dropdown-menu hidden lg:group-hover:flex flex-col bg-white dark:bg-dark-bg text-brand-primary dark:text-brand-secondary lg:absolute lg:top-full lg:right-0 lg:mt-1 lg:shadow-xl lg:rounded-2xl lg:w-64 lg:p-2 border border-gray-150 dark:border-gray-800/80 transition-all duration-200 z-50">
                     <li>
-                        <button type="button" class="lang-option group w-full block lg:px-3 px-6 py-2.5 hover:bg-brand-muted dark:hover:bg-brand-dark hover:text-brand-primary dark:hover:text-brand-secondary hover:font-semibold lg:rounded-lg text-left transition-colors" data-lang="fr">
+                        <button type="button" class="lang-option group w-full block lg:px-3 px-6 py-2.5 bg-brand-muted dark:bg-brand-dark text-brand-primary dark:text-brand-secondary font-bold hover:bg-brand-muted dark:hover:bg-brand-dark hover:text-brand-primary dark:hover:text-brand-secondary lg:rounded-lg text-left transition-colors" data-lang="fr" aria-selected="true">
                             <div class="flex items-center gap-3">
                                 <span class="bg-brand-muted dark:bg-brand-dark text-brand-primary dark:text-brand-secondary p-2 text-base rounded-md flex items-center justify-center group-hover:bg-brand-primary group-hover:text-white shrink-0 transition-colors duration-200">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" class="w-5 h-auto rounded-sm overflow-hidden"><rect width="1" height="2" fill="#0055A4"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#EF4135"/></svg>
                                 </span>
                                 <div class="flex flex-col flex-1">
-                                    <div class="flex items-center justify-between">
-                                        <span class="font-bold text-sm">Français</span>
-                                        <i class='bx bx-check text-brand-primary dark:text-brand-secondary text-lg font-bold check-icon'></i>
-                                    </div>
-                                    <span class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed mt-0.5">France (FR)</span>
+                                    <span class="font-bold text-sm">France</span>
+                                    <span class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed mt-0.5">Français</span>
                                 </div>
                             </div>
                         </button>
                     </li>
                     <li>
-                        <button type="button" class="lang-option group w-full block lg:px-3 px-6 py-2.5 hover:bg-brand-muted dark:hover:bg-brand-dark hover:text-brand-primary dark:hover:text-brand-secondary hover:font-semibold lg:rounded-lg text-left transition-colors" data-lang="en">
+                        <button type="button" class="lang-option group w-full block lg:px-3 px-6 py-2.5 hover:bg-brand-muted dark:hover:bg-brand-dark hover:text-brand-primary dark:hover:text-brand-secondary hover:font-semibold lg:rounded-lg text-left transition-colors" data-lang="en" aria-selected="false">
                             <div class="flex items-center gap-3">
                                 <span class="bg-brand-muted dark:bg-brand-dark text-brand-primary dark:text-brand-secondary p-2 text-base rounded-md flex items-center justify-center group-hover:bg-brand-primary group-hover:text-white shrink-0 transition-colors duration-200">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" class="w-5 h-auto rounded-sm overflow-hidden"><clipPath id="s_desk_en"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="t_desk_en"><path d="M30,15 h30 v15 z v-15 h-30 z h-30 v-15 z v15 h30 z"/></clipPath><g clip-path="url(#s_desk_en)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t_desk_en)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg>
                                 </span>
                                 <div class="flex flex-col flex-1">
-                                    <div class="flex items-center justify-between">
-                                        <span class="font-bold text-sm">English</span>
-                                        <i class='bx bx-check text-brand-primary dark:text-brand-secondary text-lg font-bold check-icon hidden'></i>
-                                    </div>
-                                    <span class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed mt-0.5">International (EN)</span>
+                                    <span class="font-bold text-sm">United Kingdom</span>
+                                    <span class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed mt-0.5">English</span>
                                 </div>
                             </div>
                         </button>
                     </li>
                     <li>
-                        <button type="button" class="lang-option group w-full block lg:px-3 px-6 py-2.5 hover:bg-brand-muted dark:hover:bg-brand-dark hover:text-brand-primary dark:hover:text-brand-secondary hover:font-semibold lg:rounded-lg text-left transition-colors" data-lang="de">
+                        <button type="button" class="lang-option group w-full block lg:px-3 px-6 py-2.5 hover:bg-brand-muted dark:hover:bg-brand-dark hover:text-brand-primary dark:hover:text-brand-secondary hover:font-semibold lg:rounded-lg text-left transition-colors" data-lang="de" aria-selected="false">
                             <div class="flex items-center gap-3">
                                 <span class="bg-brand-muted dark:bg-brand-dark text-brand-primary dark:text-brand-secondary p-2 text-base rounded-md flex items-center justify-center group-hover:bg-brand-primary group-hover:text-white shrink-0 transition-colors duration-200">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 3" class="w-5 h-auto rounded-sm overflow-hidden"><rect width="5" height="1" y="0" fill="#000000"/><rect width="5" height="1" y="1" fill="#DD0000"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg>
                                 </span>
                                 <div class="flex flex-col flex-1">
-                                    <div class="flex items-center justify-between">
-                                        <span class="font-bold text-sm">Deutsch</span>
-                                        <i class='bx bx-check text-brand-primary dark:text-brand-secondary text-lg font-bold check-icon hidden'></i>
-                                    </div>
-                                    <span class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed mt-0.5">Deutschland (DE)</span>
+                                    <span class="font-bold text-sm">Deutschland</span>
+                                    <span class="text-xs text-[#3E3E3E] dark:text-gray-300 leading-relaxed mt-0.5">Deutsch</span>
                                 </div>
                             </div>
                         </button>
